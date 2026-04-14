@@ -119,9 +119,13 @@ CUA 轨迹数据的采集有两条路径：
 - `ground_truth`：仅供智子+Pichai 比对，**不下发给执行 agent**
 - 重试结果文件加后缀区分：`luxesite-253-retry1.json`
 
-### mano-cua 调用规范
+### mano-cua 测试执行规范（SOP）
 
-mano-cua 是截图驱动的，标准调用流程：
+> 来源：pm-cockpit 执行规范 + BugHunt 适配（2026-04-14 Pichai & 智子对齐）
+
+mano-cua 是截图驱动的。每个 case 必须严格按以下三阶段执行。
+
+#### 一、启动前（Pre-flight）
 
 ```bash
 # 1. 部署验证
@@ -129,22 +133,96 @@ curl -s -o /dev/null -w '%{http_code}' http://localhost:3000  # 确认返回 200
 
 # 2. 打开 Chrome 到目标页面
 open -a "Google Chrome" "http://localhost:3000${test_page}"
-sleep 3
+sleep 2
 
-# 3. 拼接任务描述并执行
-# 任务描述 = "当前Chrome浏览器已打开{app_name}网站，地址是{dev_url}。" + test_description_zh
-mano-cua run "当前Chrome浏览器已打开Aurora Luxe网站，地址是localhost:3000。滚动到推荐评价区域，点击翻页按钮逐页浏览，检查切换过程是否正常流畅。" \
-  --expected-result "点击翻页按钮后，评价卡片应平滑过渡到下一组，无跳动或闪烁"
-
-# 4. 从输出中提取 sess-id，判定是否复现
+# 3. 窗口最大化（确保 mano-cua 截图获取完整视口）
+osascript -e '
+tell application "Finder"
+    set _b to bounds of window of desktop
+    tell application "Google Chrome"
+        set bounds of front window to {0, 0, item 3 of _b, item 4 of _b}
+    end tell
+end tell'
 ```
 
-**注意：**
+#### 二、执行（In-flight）
+
+```bash
+# 4. 拼接任务描述并执行（日志本地落盘）
+# 任务描述 = "当前Chrome浏览器已打开{app_name}网站，地址是{dev_url}。" + test_description_zh
+mano-cua run "当前Chrome浏览器已打开Aurora Luxe网站，地址是localhost:3000。滚动到推荐评价区域，点击翻页按钮逐页浏览，检查切换过程是否正常流畅。" \
+  --expected-result "点击翻页按钮后，评价卡片应平滑过渡到下一组，无跳动或闪烁" \
+  2>&1 | tee logs/luxesite-253.log
+```
+
+**首步 URL 校验：** mano-cua 启动后，检查第一步 screenshot 中的 URL 是否指向目标 dev server（如 `localhost:3000`）。偏离则立即终止（`mano-cua stop`）并重启。连续 3 次偏离 → 标 BLOCKED。
+
+**双层超时机制：**
+- **软超时 10 分钟**：标 WARN，继续等待
+- **硬超时 15 分钟**：强制终止（`mano-cua stop`），标 BLOCKED
+
+#### 三、完成后（Post-flight）
+
+```bash
+# 5. 从输出中提取 sess-id
+
+# 6. 日志完整性确认
+#    - 日志文件存在且行数 > 20（非空/非 STUB）
+#    - 包含逐步 action/reasoning 记录
+#    - 包含 Session ID 和 Status 信息
+
+# 7. 判定是否复现（必须引用具体观测事实）
+#    ❌ 错误："✅ 复现"
+#    ✅ 正确："✅ 复现 — 第 12 步截图中 FAQ 区域点击后无展开动画，答案区域始终折叠"
+
+# 8. 关闭测试标签页（避免残留状态污染下一个 case）
+osascript -e '
+tell application "Google Chrome"
+    set matchPath to "localhost:3000"
+    set closedCount to 0
+    repeat with w in windows
+        set tabList to tabs of w
+        repeat with i from (count of tabList) to 1 by -1
+            if URL of item i of tabList contains matchPath then
+                delete item i of tabList
+                set closedCount to closedCount + 1
+            end if
+        end repeat
+    end repeat
+    return closedCount
+end tell'
+# 关闭后校验：确认 closedCount > 0 且重扫无残留
+```
+
+#### 注意事项
+
 - `mano-cua run` 只接一个参数：拼接后的任务描述字符串
+- `--expected-result` 为**可选增强参数**：正常流程加上；如果导致 mano-cua 报错 → 去掉参数只传任务描述重跑，不阻塞采集
 - 不需要传 URL 参数，任务描述里已包含上下文
 - 轨迹数据自动记录在 mano 服务端，通过 sess-id 查看
 - `mano-cua stop` 可强制停止
 - `test_page` 只用于 Chrome 打开初始页面，不拼进任务描述
+- 日志路径命名规范：`logs/{task_id}.log`
+
+#### Worker 执行 Checklist
+
+```
+启动前：
+[ ] 部署验证通过（curl 返回 200）
+[ ] Chrome 打开目标页面 + 窗口最大化
+
+执行中：
+[ ] 首步 screenshot URL 正确（指向 dev server）
+[ ] 未超软超时 10min / 硬超时 15min
+[ ] 日志 tee 到本地 logs/{task_id}.log
+
+完成后：
+[ ] 日志已落盘，行数 > 20，包含 Session ID
+[ ] sess-id 已提取
+[ ] 复现判定已引用具体观测事实
+[ ] Chrome 测试标签页已关闭（closedCount > 0）
+[ ] BLOCKED → 已附诊断（现象 + 根因 + ≥2 方案）
+```
 
 ---
 
@@ -241,7 +319,7 @@ mano-cua run "当前Chrome浏览器已打开Aurora Luxe网站，地址是localho
 |------|------|
 | 轨迹完整性 | mano-cua session 正常结束（非中断/超时） |
 | 任务描述质量 | 中文、不暴露 bug、只描述要验证的功能点 |
-| 复现判定 | 明确标注：✅ 复现 / ⚠️ 部分复现 / ❌ 未复现 |
+| 复现判定 | 明确标注：✅ 复现 / ⚠️ 部分复现 / ❌ 未复现，**必须引用至少一条具体观测事实**（如"第 N 步截图中看到 xxx"） |
 | 产出格式 | 项目名称 \| 测试内容 \| sess-id \| 是否复现 |
 
 ### 5.2 三层质量闸门
@@ -270,10 +348,19 @@ L2 抽检重点：
 |------|----------|
 | 部署失败 | Worker 自行排查一次（改端口、重装依赖），仍失败上报 PM |
 | **同项目连续 3 个 case 部署失败** | 标记 `PROJECT_BLOCKED`，**整批跳过**，不逐个试 |
-| mano-cua 超时（>100 步或 >15 分钟） | 停止当前 case，记录异常，跳到下一个 |
+| mano-cua 软超时（>10 分钟） | 标 WARN，继续等待 |
+| mano-cua 硬超时（>15 分钟） | 强制终止（`mano-cua stop`），标 BLOCKED + 强制诊断 |
 | mano-cua 异常退出 | 重试 1 次，仍失败则记录异常跳过 |
-| **单 case 卡死超过 15 分钟** | 上报 PM，PM 决定跳过或升级 |
+| 首步 URL 偏离 | 终止重启，连续 3 次 → 标 BLOCKED + 强制诊断 |
 | 同一个 bug 重试 | 结果文件加后缀（如 `luxesite-253-retry1.json`） |
+
+**BLOCKED 强制诊断（必须遵守）：** 标记 BLOCKED 时，**禁止只标状态跳过**。必须同时输出：
+1. **失败现象** — 具体报错信息或截图
+2. **根因判断** — 初步分析原因（环境、权限、依赖、工具）
+3. **至少 2 种解决方案** — 每种附 tradeoff 和预估修复时间
+4. **建议方案** — 推荐采用哪种及理由
+
+BLOCKED 测试点进入最终报告的异常清单，计入覆盖率统计时标记为"未执行"。
 
 ---
 
@@ -455,5 +542,6 @@ Phase 2: 精筛（进行中）
 
 ---
 
+*文档版本：v2.2 | 2026-04-14 | Pichai（SOP 升级：窗口最大化、日志 tee、双层超时、首步 URL 校验、BLOCKED 强制诊断、日志完整性、判定引用观测、任务间关标签页、Worker Checklist）*
 *文档版本：v2.1 | 2026-04-14 | 智子（新增：expected_result_zh 字段、筛选方法论与进度、待决事项更新）*
 *文档版本：v2.0 | 2026-04-13 | Pichai*

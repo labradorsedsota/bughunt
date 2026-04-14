@@ -88,6 +88,8 @@ which mano-cua
 
 ### mano-cua 调用 SOP
 
+> 完整执行规范见 README.md「mano-cua 测试执行规范（SOP）」，以下为 Worker 快速参考。
+
 Worker 拿到任务卡后的标准执行流程：
 
 ```bash
@@ -97,20 +99,57 @@ cd ${repo_dir}
 git checkout ${buggy_commit}
 ${deploy_commands}  # 如 npm install && npm run dev
 
+# === Pre-flight ===
+
 # 2. 部署验证（确认服务跑起来再开测）
 curl -s -o /dev/null -w '%{http_code}' ${dev_url}  # 期望返回 200
 # 如果 120 秒内不返回 200 → 排查或上报
 
 # 3. 打开 Chrome 到目标页面
 open -a "Google Chrome" "${dev_url}${test_page}"
-sleep 3
+sleep 2
 
-# 4. 拼接任务描述并执行 mano-cua
-# 任务描述 = "当前Chrome浏览器已打开{app_name}网站，地址是{dev_url}。" + test_description_zh
-mano-cua run "当前Chrome浏览器已打开{app_name}网站，地址是{dev_url}。{test_description_zh}"
+# 4. 窗口最大化
+osascript -e '
+tell application "Finder"
+    set _b to bounds of window of desktop
+    tell application "Google Chrome"
+        set bounds of front window to {0, 0, item 3 of _b, item 4 of _b}
+    end tell
+end tell'
 
-# 5. 从输出中提取 sess-id
-# 6. 判定是否复现，按格式上报结果
+# === In-flight ===
+
+# 5. 拼接任务描述并执行（日志本地落盘）
+mano-cua run "当前Chrome浏览器已打开{app_name}网站，地址是{dev_url}。{test_description_zh}" \
+  --expected-result "{expected_result_zh}" \
+  2>&1 | tee logs/${task_id}.log
+# 注意：--expected-result 为可选增强，报错时去掉重跑
+
+# 首步 URL 校验：确认第一步 screenshot 指向 dev server
+# 双层超时：软 10min（标 WARN）/ 硬 15min（强制终止）
+
+# === Post-flight ===
+
+# 6. 从输出中提取 sess-id
+# 7. 日志完整性确认（行数 > 20、包含 Session ID）
+# 8. 判定是否复现（必须引用具体观测事实）
+# 9. 关闭测试标签页
+osascript -e '
+tell application "Google Chrome"
+    set matchPath to "localhost:3000"
+    set closedCount to 0
+    repeat with w in windows
+        set tabList to tabs of w
+        repeat with i from (count of tabList) to 1 by -1
+            if URL of item i of tabList contains matchPath then
+                delete item i of tabList
+                set closedCount to closedCount + 1
+            end if
+        end repeat
+    end repeat
+    return closedCount
+end tell'
 ```
 
 **注意事项：**
@@ -120,6 +159,7 @@ mano-cua run "当前Chrome浏览器已打开{app_name}网站，地址是{dev_url
 - `mano-cua stop` 可强制停止异常 session
 - `test_page` 只用于 Chrome 打开初始页面，不拼进任务描述
 - 同项目的多个 bug 共享部署，不需要重复 clone/install
+- 日志路径命名规范：`logs/{task_id}.log`
 
 ### macOS 权限
 
