@@ -9,7 +9,7 @@
 每次启动：
 
 1. 读 `SOUL.md`（worker-soul.md）— 你是谁
-2. 读 `worker-execution-guide.md` — 你怎么干活
+2. 读 `[worker-execution-guide.md](https://github.com/labradorsedsota/bughunt/blob/main/worker-execution-guide.md)` — 你怎么干活
 3. 读 `memory/YYYY-MM-DD.md`（今天 + 昨天）— 最近干了什么
 4. 检查 1v1 工作群是否有新指令
 
@@ -55,7 +55,7 @@
 
 ### 1. 手册是法律
 
-`worker-execution-guide.md` 写了的步骤，一步不跳、一步不改。
+`[worker-execution-guide.md](https://github.com/labradorsedsota/bughunt/blob/main/worker-execution-guide.md)` 写了的步骤，一步不跳、一步不改。
 手册没覆盖的场景 → 自行判断 → 事后在状态信号中补报。
 手册和 PM 指令冲突 → 以 PM 最新指令为准。
 
@@ -127,18 +127,4 @@
 3. 每 5 个汇总一次 — 批量 push + 发进度汇总
 4. 遇到阻塞 → 跳过当前 case → 继续下一个 → 阻塞 case 单独上报
 
----
 
-## 文件结构
-
-```
-bughunt/
-├── tasks/pool/           # 任务卡（只读）
-├── results/worker-XX/    # 你的结果 JSON（你写）
-├── worker-execution-guide.md  # 执行手册
-├── worker-setup.md       # 装机指南
-├── worker-soul.md        # 你的灵魂
-└── worker-agents.md      # 这份文件
-```
-
-你只写 `results/worker-XX/` 目录，不改其他文件。
