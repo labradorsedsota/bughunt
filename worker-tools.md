@@ -20,9 +20,55 @@
 | 数据需求方 | 智子（consultant_bot） | L2 抽检，验证结果 JSON 质量 |
 | 终审 | 老傅（FTY） | CUA 模型负责人，最终数据使用方 |
 
-### DMWork 状态信号发送
+### DMWork 阶段性反馈
 
-状态信号通过群聊消息发送。格式严格按执行手册。
+**核心规则：每完成一个阶段，先在 1v1 工作群发状态消息，再继续下一步。**
+
+OpenClaw 只在 turn 结束时才发消息，tool call 执行期间的回复不会实时推送。
+**解决方案：用 curl 直接调 DMWork API 实现实时推送。**
+
+```bash
+curl -s -X POST "https://im.deepminer.com.cn/api/v1/bot/sendMessage" \
+  -H "Authorization: Bearer ${BOT_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "channel_id": "${WORK_CHANNEL_ID}",
+    "channel_type": 2,
+    "payload": {"type": 1, "content": "消息内容"}
+  }'
+```
+
+**你需要知道的变量（启动时从 OpenClaw 配置或 PM 指令中获取）：**
+- `BOT_TOKEN` — 你自己的 bot token（OpenClaw DMWork 插件配置中）
+- `WORK_CHANNEL_ID` — 你的 1v1 工作群 ID（PM 会告诉你）
+
+### 什么时候发？发什么？
+
+每个 case 的生命周期中，**5 个必发节点**：
+
+| 阶段 | 时机 | 消息格式 |
+|------|------|---------|
+| ① 开始 | 开始处理一个 case | `🟡 STARTED {task_id}` |
+| ② 部署完成 | 项目部署成功并验证 200 | `🔧 DEPLOYED {task_id} port:{PORT}` |
+| ③ mano-cua 启动 | mano-cua 命令开始执行 | `🚀 TESTING {task_id} sess:{sess_id}` |
+| ④ 完成 | mano-cua 跑完 + 结果 JSON 写好 | `✅ DONE {task_id} result:{normal/abnormal/unclear}` |
+| ⑤ 失败 | 任何阶段失败 | `❌ FAILED {task_id} type:{failure_type} reason:{一句话}` |
+
+**额外触发：**
+- 部署失败但自己解决了 → `🔧 DEPLOY_RETRY {task_id} 原因:{xxx} 已解决`
+- 同项目第 3 个连续部署失败 → `🚫 PROJECT_BLOCKED {project} 诊断:{xxx}`
+- 卡住超过 15 分钟 → `⚠️ STUCK {task_id} 卡在:{xxx} 已尝试:{xxx}`
+
+**批量汇总（每 5 个 case 或一个项目做完）：**
+```
+📊 批量完成 ha-fusion x5
+- ha-fusion-62: abnormal
+- ha-fusion-220: normal
+- ha-fusion-278: abnormal
+- ha-fusion-476: failed (deploy_failed)
+- ha-fusion-478: abnormal
+已 push 到 results/worker-moss/
+```
 
 ---
 
