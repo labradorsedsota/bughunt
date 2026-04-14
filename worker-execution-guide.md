@@ -6,24 +6,69 @@
 
 ## 零、装机前置（首次部署 Worker 时完成）
 
-新机器投入使用前，确保以下软件已安装：
+新机器投入使用前，按以下顺序安装软件。
 
-| 软件 | 用途 | 安装方式 |
-|------|------|---------|
-| **VPN** | 访问 GitHub 等外部资源 | 按团队统一配置 |
-| **Google Chrome** | mano-cua GUI 测试的浏览器环境 | `brew install --cask google-chrome` 或官网下载 |
-| **Node.js** | 前端项目部署运行 | `brew install node` 或 nvm 管理多版本 |
-| **npm** | 包管理（Node 自带） | 随 Node.js 安装 |
-| **Git / gh CLI** | 代码拉取 | `brew install git gh` |
-| **mano-cua** | CUA 盲测执行工具 | 按团队安装指引 |
+### 0.1 安装 VPN
 
-**检查清单（装完后逐项验证）：**
+按团队统一配置安装，确保能访问 GitHub 等外部资源。
+
+### 0.2 安装 Homebrew
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+**⚠️ 安装完成后，终端会输出类似以下提示（必须执行！否则 brew 命令找不到）：**
+
+```bash
+# Intel Mac:
+echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/usr/local/bin/brew shellenv)"
+
+# Apple Silicon (M1/M2/M3/M4):
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+执行后验证：`brew --version`
+
+### 0.3 安装 Google Chrome
+
+```bash
+brew install --cask google-chrome
+```
+
+或从 https://www.google.com/chrome/ 下载安装。
+
+### 0.4 安装 Node.js + npm
+
+```bash
+brew install node
+```
+
+npm 随 Node.js 自动安装。
+
+### 0.5 安装 Git + gh CLI
+
+```bash
+brew install git gh
+```
+
+### 0.6 安装 mano-cua
+
+按团队安装指引操作。
+
+### 0.7 检查清单（全部装完后逐项验证）
+
 ```bash
 # VPN 连通性
 curl -s -o /dev/null -w '%{http_code}' https://github.com   # 应返回 200
 
 # Chrome 已安装
 ls /Applications/Google\ Chrome.app   # 应存在
+
+# Homebrew
+brew --version
 
 # Node + npm
 node -v && npm -v
@@ -288,5 +333,6 @@ failure.type 取值：`deploy_failed` | `timeout` | `mano_cua_error` | `url_devi
 
 ---
 
-*文档版本：v1.5 | 2026-04-14 | Pichai*
+*文档版本：v1.6 | 2026-04-14 | Pichai*
+*v1.6 变更：装机章节改为分步骤格式，新增 Homebrew 安装 + PATH 注册说明*
 *v1.5 变更：新增「零、装机前置」章节（VPN + Chrome + 软件检查清单）*
