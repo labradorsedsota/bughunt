@@ -39,6 +39,13 @@ mano-cua 依赖 Chrome 进行 GUI 自动化操作，必须安装。
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+**⚠️ 安装完成后，必须将 Homebrew 加入 PATH（否则 `brew` 命令找不到）：**
+
+```bash
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
 安装后确认：
 ```bash
 brew --version
