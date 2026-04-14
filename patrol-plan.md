@@ -13,7 +13,7 @@
 
 | 群 | channel_id | 用途 |
 |----|------------|------|
-| 广播群 | `__BROADCAST_CHANNEL_ID__` | 巡检汇总、里程碑播报 |
+| 广播群（本群：从github找CUA数据） | `19fe99c798914d5fac7d7de9e6fcc839` | 巡检汇总、里程碑播报 |
 | Fabrice 工作群 | `__FABRICE_CHANNEL_ID__` | 任务分发、状态收集 |
 | Moss 工作群 | `__MOSS_CHANNEL_ID__` | 任务分发、状态收集 |
 
