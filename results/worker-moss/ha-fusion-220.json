@@ -6,16 +6,15 @@
   "expected_result_used": false,
   "sess_id": null,
   "duration_seconds": 0,
-  "timestamp": "2026-04-14T13:00:08+08:00",
+  "timestamp": "2026-04-14T13:47:01+08:00",
   "mano_cua": null,
   "failure": {
-    "type": "deploy_failed",
-    "symptom": "HA Fusion requires a running Home Assistant backend for authentication. App shows login screen requiring HA credentials, dashboard content inaccessible without HA instance.",
+    "type": "other",
+    "symptom": "PROJECT_BLOCKED: HA Fusion 所有任务卡均需要进入仪表盘操作，但应用需要 Home Assistant 后端登录凭据，测试环境无可用 HA 实例，全部卡在登录页",
     "attempted": [
-      "npm install + npm run dev succeeded, dev server running on port 5173",
-      "Checked for demo/mock mode - none available",
-      "Investigated auth bypass via SvelteKit routes - authenticate() blocks dashboard rendering"
+      "ha-fusion-62 实测确认：mano-cua 尝试默认凭据 homeassistant/homeassistant 无法登录",
+      "检查是否有 demo 模式或绕过方式（未找到）"
     ],
-    "recommendation": "Need a running Home Assistant instance (docker) or mock HA API to test dashboard UI. Skip for POC."
+    "recommendation": "ha-fusion 项目整批跳过，需提供 Home Assistant 测试实例或替换为不需要后端认证的任务"
   }
 }

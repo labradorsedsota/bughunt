@@ -1,0 +1,22 @@
+2026-04-14 22:44:23.831 Python[49839:28377176] +[IMKClient subclass]: chose IMKClient_Modern
+2026-04-14 22:44:23.831 Python[49839:28377176] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+Session created: sess-20260414224423-cc48f2f3d3db485180ab1568a4b0599a
+UI panel initialized successfully
+UI window displayed
+Expected result: 离开后再返回应显示最后保存的设置，未保存修改应被丢弃。如仍残留则为bug。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: left_click (61, 181)
+[step 1] Reasoning: I can see the Actual Budget application is open. I need to navigate to Reports to find the Custom Report Editor. Let me click on "Reports" in the left sidebar.
+
+==================================================
+Task: 当前Chrome浏览器已打开Actual Budget应用(http://localhost:3001)。请进入自定义报表编辑器(Custom Report Editor)，修改设置(如将Mode从Total改为Time)但不保存。然后离开编辑器页面再返回，观察未保存的修改是否仍然残留还是已被正确重置。
+Status: STOPPED_BY_USER
+Total steps: 1
+Last action: left_click (61, 181)
+Last reasoning: I can see the Actual Budget application is open. I need to navigate to Reports to find the Custom Report Editor. Let me click on "Reports" in the left sidebar.
+
+==================================================
+
+UI window closed

@@ -2,23 +2,17 @@
   "task_id": "actual-7282",
   "repo": "actualbudget/actual",
   "worker": "worker-moss",
-  "status": "failed",
-  "expected_result_used": false,
-  "sess_id": null,
-  "duration_seconds": 0,
-  "timestamp": "2026-04-14T21:46:12+08:00",
-  "mano_cua": null,
-  "failure": {
-    "type": "deploy_failed",
-    "symptom": "App stuck on 'Initializing the connection to the local database...' indefinitely. Frontend loads but absurd-sql (browser SQLite via IndexedDB+SharedArrayBuffer) worker never completes initialization. Additionally better-sqlite3 native module fails to compile on Node v25.8.1.",
-    "attempted": [
-      "git clone (tree:0 filter) + sparse checkout to reach commit 80bb4ab299",
-      "yarn install (yarn 4.9.1 via corepack) - better-sqlite3 compilation failed but frontend deps OK",
-      "Started desktop-client directly with IS_GENERIC_BROWSER=1 PORT=3001 REACT_APP_BACKEND_WORKER_HASH=dev",
-      "Vite dev server running with COOP/COEP headers verified",
-      "Tested in normal and incognito Chrome windows - same result",
-      "Waited 5+ minutes on initialization screen - never resolves"
-    ],
-    "recommendation": "Need Node 20 (via nvm) for better-sqlite3 compilation, or investigate absurd-sql worker initialization failure in browser. May also need to run actual-server alongside desktop-client."
+  "status": "completed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260414221957-ee730a6a4ea94253a1caf964adf01069",
+  "duration_seconds": 900,
+  "timestamp": "2026-04-14T22:35:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 64,
+    "last_action": "DONE",
+    "result": "unclear",
+    "result_summary": "Bank Sync 功能需要 Actual 后端服务器但测试环境仅以测试文件模式运行，Set up bank sync 按钮完全禁用无法点击，连接 localhost:3001 报错 Server does not look like an Actual server，无法进入账户关联设置流程来验证设置保存问题",
+    "last_reasoning": "银行同步（Bank Sync）的初始账户关联设置无法完成。Set up bank sync 按钮在没有连接服务器的情况下被完全禁用，整个设置流程在第一步就被阻断。"
   }
 }
