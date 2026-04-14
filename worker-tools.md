@@ -1,6 +1,6 @@
 # TOOLS.md — BugHunt Worker
 
-环境特定信息。操作规范看 `worker-execution-guide.md`。
+环境特定信息。操作规范看 `[worker-execution-guide.md](https://github.com/labradorsedsota/bughunt/blob/main/worker-execution-guide.md)`。
 
 ---
 
@@ -48,5 +48,3 @@ curl -s -X POST "https://im.deepminer.com.cn/api/v1/bot/sendMessage" \
 | mano-cua | 可用 |
 | Git | gh auth 已配置 |
 | VPN | 已连接 |
-
-装机步骤见 `worker-setup.md`。
