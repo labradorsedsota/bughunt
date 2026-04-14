@@ -122,25 +122,46 @@ end tell'
 
 ---
 
-## 三、结果上报格式
+## 三、结果上报（双通道）
 
-每完成一个 case，在群里回报：
+每完成一个 case，**同时做两件事**：
 
-```
-✅ 复现 — luxesite-253 | 404页面功能检查 | sess-20260413144132-xxx | 第 8 步截图中 404 页面无返回首页链接
-```
+### 通道 1：群聊状态信号（实时，PM 监控用）
 
-或：
+在群里发一条一行状态信号：
 
 ```
-❌ 未复现 — luxesite-258 | 轮播翻页检查 | sess-20260413125759-xxx | 翻页切换正常流畅，未观测到异常
+✅ worker-fabrice | luxesite-253 | 4m32s
+```
+```
+❌ worker-fabrice | luxesite-258 | 6m15s
+```
+```
+⚠️ BLOCKED worker-fabrice | cleaningsvc-18 | 部署失败
 ```
 
-或：
+### 通道 2：结果 JSON 写入 repo（持久化，统计和交付用）
 
+将完整结果写入 `results/{worker名}/` 目录，文件名 = `{task_id}.json`：
+
+```json
+{
+  "task_id": "luxesite-253",
+  "worker": "worker-fabrice",
+  "status": "reproduced",
+  "sess_id": "sess-20260414xxxxx-xxxxxxxxx",
+  "observation": "第 8 步截图中 404 页面无返回首页链接，页面仅显示 404 错误信息",
+  "duration_seconds": 272,
+  "timestamp": "2026-04-14T15:23:45+08:00",
+  "blocked_diagnosis": null
+}
 ```
-⚠️ BLOCKED — cleaningsvc-18 | 部署失败，npm install 报 node-gyp 错误 | 已尝试：清缓存重装（失败）、降级 Node（无 nvm）| 建议：跳过或提供 nvm
-```
+
+status 取值：`reproduced` | `not_reproduced` | `partial` | `blocked`
+
+**push 频率：**
+- 正常：每完成 5 个 case 批量 git push 一次
+- 异常/BLOCKED：立刻 push + 群里通知 PM
 
 **关键：复现判定必须引用具体观测事实（第 N 步截图中看到 xxx），不能只写"复现"或"未复现"。**
 
