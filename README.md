@@ -75,7 +75,7 @@ CUA 轨迹数据的采集有两条路径：
 | 任务描述内容 | 只描述要验证的功能点，**不暴露 Bug 本身** |
 | 轨迹要求 | 完整（非中途中断） |
 | 评测流程 | 完整（从打开页面到结论） |
-| 产出格式 | `项目名称 \| 测试内容 \| sess-id \| 是否复现` |
+| 产出格式 | `项目名称 \| 测试内容 \| sess-id \| 复现状态(yes/partial/no)` |
 
 ### 任务卡格式（JSON）
 
@@ -121,108 +121,19 @@ CUA 轨迹数据的采集有两条路径：
 
 ### mano-cua 测试执行规范（SOP）
 
-> 来源：pm-cockpit 执行规范 + BugHunt 适配（2026-04-14 Pichai & 智子对齐）
+> 详细 SOP 见 [`worker-execution-guide.md`](worker-execution-guide.md)（Pichai 维护）。以下为概要。
 
-mano-cua 是截图驱动的。每个 case 必须严格按以下三阶段执行。
+**三阶段执行：**
+1. **启动前**：部署验证（curl 200）→ Chrome 打开目标页面 → 窗口最大化
+2. **执行中**：拼接任务描述执行 mano-cua → 首步 URL 校验 → 双层超时（软 10min / 硬 15min）
+3. **完成后**：提取 sess-id → 日志完整性确认（行数>20、含 Session ID）→ 复现判定（必须引用观测事实）→ 关闭测试标签页
 
-#### 一、启动前（Pre-flight）
-
-```bash
-# 1. 部署验证
-curl -s -o /dev/null -w '%{http_code}' http://localhost:3000  # 确认返回 200
-
-# 2. 打开 Chrome 到目标页面
-open -a "Google Chrome" "http://localhost:3000${test_page}"
-sleep 2
-
-# 3. 窗口最大化（确保 mano-cua 截图获取完整视口）
-osascript -e '
-tell application "Finder"
-    set _b to bounds of window of desktop
-    tell application "Google Chrome"
-        set bounds of front window to {0, 0, item 3 of _b, item 4 of _b}
-    end tell
-end tell'
-```
-
-#### 二、执行（In-flight）
-
-```bash
-# 4. 拼接任务描述并执行（日志本地落盘）
-# 任务描述 = "当前Chrome浏览器已打开{app_name}网站，地址是{dev_url}。" + test_description_zh
-mano-cua run "当前Chrome浏览器已打开Aurora Luxe网站，地址是localhost:3000。滚动到推荐评价区域，点击翻页按钮逐页浏览，检查切换过程是否正常流畅。" \
-  --expected-result "点击翻页按钮后，评价卡片应平滑过渡到下一组，无跳动或闪烁" \
-  2>&1 | tee logs/luxesite-253.log
-```
-
-**首步 URL 校验：** mano-cua 启动后，检查第一步 screenshot 中的 URL 是否指向目标 dev server（如 `localhost:3000`）。偏离则立即终止（`mano-cua stop`）并重启。连续 3 次偏离 → 标 BLOCKED。
-
-**双层超时机制：**
-- **软超时 10 分钟**：标 WARN，继续等待
-- **硬超时 15 分钟**：强制终止（`mano-cua stop`），标 BLOCKED
-
-#### 三、完成后（Post-flight）
-
-```bash
-# 5. 从输出中提取 sess-id
-
-# 6. 日志完整性确认
-#    - 日志文件存在且行数 > 20（非空/非 STUB）
-#    - 包含逐步 action/reasoning 记录
-#    - 包含 Session ID 和 Status 信息
-
-# 7. 判定是否复现（必须引用具体观测事实）
-#    ❌ 错误："✅ 复现"
-#    ✅ 正确："✅ 复现 — 第 12 步截图中 FAQ 区域点击后无展开动画，答案区域始终折叠"
-
-# 8. 关闭测试标签页（避免残留状态污染下一个 case）
-osascript -e '
-tell application "Google Chrome"
-    set matchPath to "localhost:3000"
-    set closedCount to 0
-    repeat with w in windows
-        set tabList to tabs of w
-        repeat with i from (count of tabList) to 1 by -1
-            if URL of item i of tabList contains matchPath then
-                delete item i of tabList
-                set closedCount to closedCount + 1
-            end if
-        end repeat
-    end repeat
-    return closedCount
-end tell'
-# 关闭后校验：确认 closedCount > 0 且重扫无残留
-```
-
-#### 注意事项
-
-- `mano-cua run` 只接一个参数：拼接后的任务描述字符串
-- `--expected-result` 为**可选增强参数**：正常流程加上；如果导致 mano-cua 报错 → 去掉参数只传任务描述重跑，不阻塞采集
-- 不需要传 URL 参数，任务描述里已包含上下文
-- 轨迹数据自动记录在 mano 服务端，通过 sess-id 查看
-- `mano-cua stop` 可强制停止
+**关键规则：**
+- 任务描述拼接：`"当前Chrome浏览器已打开{app_name}网站，地址是{dev_url}。{test_description_zh}"`
+- `--expected-result` 为可选增强参数，报错时去掉重跑
 - `test_page` 只用于 Chrome 打开初始页面，不拼进任务描述
-- 日志路径命名规范：`logs/{task_id}.log`
-
-#### Worker 执行 Checklist
-
-```
-启动前：
-[ ] 部署验证通过（curl 返回 200）
-[ ] Chrome 打开目标页面 + 窗口最大化
-
-执行中：
-[ ] 首步 screenshot URL 正确（指向 dev server）
-[ ] 未超软超时 10min / 硬超时 15min
-[ ] 日志 tee 到本地 logs/{task_id}.log
-
-完成后：
-[ ] 日志已落盘，行数 > 20，包含 Session ID
-[ ] sess-id 已提取
-[ ] 复现判定已引用具体观测事实
-[ ] Chrome 测试标签页已关闭（closedCount > 0）
-[ ] BLOCKED → 已附诊断（现象 + 根因 + ≥2 方案）
-```
+- 关闭标签页时 matchPath 用 `"localhost"`（不限端口，不同项目端口不同）
+- BLOCKED 必须附诊断（现象 + 根因 + ≥2 方案）
 
 ---
 
@@ -319,8 +230,8 @@ end tell'
 |------|------|
 | 轨迹完整性 | mano-cua session 正常结束（非中断/超时） |
 | 任务描述质量 | 中文、不暴露 bug、只描述要验证的功能点 |
-| 复现判定 | 明确标注：✅ 复现 / ⚠️ 部分复现 / ❌ 未复现，**必须引用至少一条具体观测事实**（如"第 N 步截图中看到 xxx"） |
-| 产出格式 | 项目名称 \| 测试内容 \| sess-id \| 是否复现 |
+| 复现判定 | 明确标注：`reproduced: yes`（复现）/ `partial`（部分复现）/ `no`（无法复现）。**必须引用至少一条具体观测事实**（如"第 N 步截图中看到 xxx"）。三级标准由 FTY 2026-04-14 确认 |
+| 产出格式 | 项目名称 \| 测试内容 \| sess-id \| 复现状态（yes/partial/no） |
 
 ### 5.2 三层质量闸门
 
@@ -544,8 +455,8 @@ Worker 每个 case 完成后产出：
     "last_reasoning": "...",
     "duration_seconds": 180
   },
-  "result": "abnormal",
-  "result_evidence": "第 7 步截图中选中日期后无高亮样式变化，连续 3 次点击不同日期均无视觉反馈",
+  "reproduced": "yes",
+  "result_summary": "第 7 步截图中选中日期后无高亮样式变化，连续 3 次点击不同日期均无视觉反馈",
   "log_file": "logs/vcal-350.log",
   "log_lines": 142
 }
@@ -560,7 +471,7 @@ Worker 每个 case 完成后产出：
 | 项目名称 | repo 全名（如 `uvarov-frontend/vanilla-calendar-pro`）|
 | 测试用例描述 | test_description_zh |
 | sess_id | mano-cua session ID |
-| 是否复现 bug | normal / abnormal / unclear |
+| 是否复现 bug | `yes`（复现）/ `partial`（部分复现）/ `no`（无法复现）—— FTY 2026-04-14 确认三级 |
 
 ### 状态信号规范
 
@@ -711,6 +622,7 @@ POC 阶段不做 `tasks/assigned/` 的文件移动，Pichai 通过 DMWork 消息
 
 ---
 
+*文档版本：v2.5 | 2026-04-14 | 智子（复现状态字段对齐 FTY 三级标准 yes/partial/no、SOP 去重指向 worker-execution-guide.md、matchPath 修正为 localhost）*
 *文档版本：v2.4 | 2026-04-14 | 智子（FTY 确认正式筛选参数、产量预估 2,500-2,700、关键词优化 v2.4、周三三批次计划）*
 *文档版本：v2.3 | 2026-04-14 | 智子（FTY 数据需求确认 7 项、粗筛完成 1,124 候选、精筛脚本验证、POC 25 张卡、候选池统计、Bug 精筛逻辑、test_page 补充、待决事项关闭）*
 *文档版本：v2.2 | 2026-04-14 | Pichai（SOP 升级：窗口最大化、日志 tee、双层超时、首步 URL 校验、BLOCKED 强制诊断、日志完整性、判定引用观测、任务间关标签页、Worker Checklist）*
