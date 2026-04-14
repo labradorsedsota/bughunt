@@ -1,0 +1,220 @@
+2026-04-14 19:31:10.581 Python[2649:28002811] +[IMKClient subclass]: chose IMKClient_Modern
+2026-04-14 19:31:10.581 Python[2649:28002811] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+Session created: sess-20260414193109-833608224fff46f8858b406c57746fc7
+UI panel initialized successfully
+UI window displayed
+Expected result: 过滤应不区分大小写：输入'JU'或'ju'都应匹配July和JUNE。如果只返回小写匹配或大小写敏感，则存在bug。Event log中的text应保持用户输入的原始大小写。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: Minimize panel
+[step 1] Reasoning: I can see the Filter Case Sensitivity Test page. I can see a "Filter Select" dropdown and an "Event log" area. Let me minimize the panel first, then interact with the dropdown.
+[step 2] Action: left_click (1178, 101)
+[step 2] Reasoning: Good, the panel is minimized. I can see the page clearly now with the Filter Select dropdown and Event log area. There's a Google Translate popup - let me dismiss it and then click on the dropdown.
+[step 3] Action: left_click (744, 202)
+[step 3] Reasoning: Good, the translate popup is dismissed. Now let me click on the dropdown to open it.
+
+**Step 1: Click on the dropdown to open it**
+[step 4] Action: type: JU
+[step 4] Reasoning: The dropdown is now open and I can see the options: [Select all], January, February, March, April, May, JUNE, July. The search box is at the top. I can see JUNE is in all caps and July is in normal case. 
+
+**Step 2: Type uppercase 'JU' in the search box**
+[step 5] Action: screenshot
+[step 5] Reasoning: Excellent! This is very informative! After typing 'JU' (uppercase), I can observe:
+
+**Step 3 - Filter Results with uppercase 'JU':**
+- The dropdown now shows: [Select all], **JUNE**, **July** 
+- January is NOT shown (correctly filtered out)
+- Both JUNE and July ARE shown (case-insensitive matching works correctly! ✅)
+
+**Step 4 - Event Log observation:**
+I can see in the Event log area:
+- `onFilter event: text="ju"` — **IMPORTANT BUG DETECTED!** The Event log shows `text="ju"` (lowercase) even though I typed `JU` (uppercase)!
+- `All options: ["January","Februa...` (truncated)
+
+The text value in the event is showing lowercase "ju" instead of the original uppercase "JU" that was typed. This indicates the component is converting the input to lowercase before passing it to the onFilter event, which means **the original case is NOT being preserved** in the Event log.
+
+Let me click on the Event log area to see the full content, and also take note of the current state more carefully.
+[step 6] Action: triple_click
+[step 6] Reasoning: I can clearly see the current state. Let me now close the dropdown temporarily to see the full Event log, then continue with the test steps. First, let me close the dropdown by pressing Escape, then read the Event log completely.
+
+**Step 5: Clear the search box and prepare for lowercase test**
+
+Let me first clear the search box by selecting all and deleting:
+[step 7] Action: key: Delete
+[step 7] Reasoning: Good, 'JU' is selected in the search box. Now let me delete it to clear the search box.
+[step 8] Action: type: ju
+[step 8] Reasoning: The search box is now cleared and all options are showing again. I can also see in the Event log that:
+- First event: `onFilter event: text="ju"` with `All options: ["January","Februa...`
+- Second event: `onFilter event: text=""` with `All options: ["January","Februa...` (when cleared)
+
+This confirms that when typing uppercase 'JU', the Event log shows `text="ju"` (lowercase). Now let me type lowercase 'ju' to compare.
+
+**Step 6: Type lowercase 'ju' in the search box**
+[step 9] Action: key: Escape
+[step 9] Reasoning: Now I have all the information needed to provide a comprehensive analysis. Let me take a final screenshot to capture the complete Event log view.
+
+**Step 7 - Observe filter results with lowercase 'ju' and check Event log:**
+
+The current screenshot shows everything clearly. Let me close the dropdown to see the full Event log:
+[step 10] Action: DONE
+[step 10] Reasoning: Now I have the complete Event log visible. Let me analyze everything I've observed:
+
+---
+
+## 📋 测试结果总结报告
+
+### 步骤1：打开下拉框
+✅ 成功打开下拉框，显示所有月份选项：January、February、March、April、May、**JUNE**（全大写）、July 等。
+
+---
+
+### 步骤2-4：输入大写 'JU' 并观察结果
+
+**过滤结果（✅ 正常）：**
+- 显示：**JUNE** ✅
+- 显示：**July** ✅  
+- 不显示：January、February、March、April、May 等 ✅
+
+过滤功能本身是**大小写不敏感**的，可以正确同时匹配 JUNE（全大写）和 July（正常大小写）。
+
+**Event Log 中的 text 值（⚠️ 发现问题！）：**
+```
+onFilter event: text="ju"
+All options: ["January","February","March","April","May","JUNE","July","August","September","October","November","December"]
+```
+> **🐛 BUG发现：** 输入的是大写 `JU`，但 Event Log 中记录的 `text="ju"`（小写）！说明 onFilter 事件在传递 text 参数时，**将原始输入转换成了小写**，没有保留用户输入的原始大小写。
+
+---
+
+### 步骤5：清空搜索框
+
+Event Log 记录：
+```
+onFilter event: text=""
+All options: ["January","February","March","April","May","JUNE","July","August","September","October","November","December"]
+```
+✅ 清空后触发了 onFilter 事件，text 为空字符串，正常。
+
+---
+
+### 步骤6-7：输入小写 'ju' 并再次观察
+
+**过滤结果（✅ 相同）：**
+- 显示：**JUNE** ✅
+- 显示：**July** ✅
+- 不显示其他月份 ✅
+
+**Event Log 中的 text 值：**
+```
+onFilter event: text="ju"
+All options: ["January","February","March","April","May","JUNE","July","August","September","October","November","December"]
+```
+
+---
+
+### 🔍 大小写输入对比分析
+
+| 对比项目 | 输入大写 'JU' | 输入小写 'ju' |
+|---------|------------|------------|
+| 过滤结果 | JUNE ✅ + July ✅ | JUNE ✅ + July ✅ |
+| Event Log text值 | `text="ju"`（⚠️ 被转为小写） | `text="ju"` |
+| 过滤行为 | 大小写不敏感 ✅ | 大小写不敏感 ✅ |
+
+### 🐛 关键Bug：`text` 参数大小写不保留
+
+**问题描述：** 当用户输入大写字母 `JU` 时，`onFilter` 事件回调中的 `text` 参数值为 `"ju"`（小写），而不是原始输入的 `"JU"`（大写）。组件在内部将输入转换为小写用于大小写不敏感的匹配是合理的，但**不应该将转换后的小写值传递给 onFilter 事件**，而应该传递用户实际输入的原始字符串 `"JU"`。
+
+**预期行为：** `onFilter event: text="JU"`（保留原始大小写）  
+**实际行为：** `onFilter event: text="ju"`（被错误地转换为小写）
+Evaluating task result...
+
+==================================================
+Task: 当前Chrome浏览器已打开Multiple Select组件的Filter Case Sensitivity测试页面（http://localhost:5173/）。页面上有一个带filter搜索功能的多选下拉框，选项包括January、February等月份，其中JUNE是全大写的。页面底部有Event log区域记录onFilter事件。
+
+请执行以下测试步骤：
+1. 点击下拉框打开它
+2. 在顶部搜索框中输入大写字母'JU'
+3. 观察过滤结果：应该同时显示January（不匹配）不显示，但July和JUNE都应该显示（因为它们都包含'ju'的不同大小写形式）
+4. 查看页面底部的Event log区域，观察onFilter事件的text参数值
+5. 清空搜索框
+6. 输入小写字母'ju'
+7. 再次观察过滤结果和Event log
+
+请仔细对比大写输入和小写输入时的过滤结果差异，特别关注Event log中显示的text值是否保持了原始大小写。
+Status: COMPLETED
+Total steps: 10
+Last action: DONE
+Last reasoning: Now I have the complete Event log visible. Let me analyze everything I've observed:
+
+---
+
+## 📋 测试结果总结报告
+
+### 步骤1：打开下拉框
+✅ 成功打开下拉框，显示所有月份选项：January、February、March、April、May、**JUNE**（全大写）、July 等。
+
+---
+
+### 步骤2-4：输入大写 'JU' 并观察结果
+
+**过滤结果（✅ 正常）：**
+- 显示：**JUNE** ✅
+- 显示：**July** ✅  
+- 不显示：January、February、March、April、May 等 ✅
+
+过滤功能本身是**大小写不敏感**的，可以正确同时匹配 JUNE（全大写）和 July（正常大小写）。
+
+**Event Log 中的 text 值（⚠️ 发现问题！）：**
+```
+onFilter event: text="ju"
+All options: ["January","February","March","April","May","JUNE","July","August","September","October","November","December"]
+```
+> **🐛 BUG发现：** 输入的是大写 `JU`，但 Event Log 中记录的 `text="ju"`（小写）！说明 onFilter 事件在传递 text 参数时，**将原始输入转换成了小写**，没有保留用户输入的原始大小写。
+
+---
+
+### 步骤5：清空搜索框
+
+Event Log 记录：
+```
+onFilter event: text=""
+All options: ["January","February","March","April","May","JUNE","July","August","September","October","November","December"]
+```
+✅ 清空后触发了 onFilter 事件，text 为空字符串，正常。
+
+---
+
+### 步骤6-7：输入小写 'ju' 并再次观察
+
+**过滤结果（✅ 相同）：**
+- 显示：**JUNE** ✅
+- 显示：**July** ✅
+- 不显示其他月份 ✅
+
+**Event Log 中的 text 值：**
+```
+onFilter event: text="ju"
+All options: ["January","February","March","April","May","JUNE","July","August","September","October","November","December"]
+```
+
+---
+
+### 🔍 大小写输入对比分析
+
+| 对比项目 | 输入大写 'JU' | 输入小写 'ju' |
+|---------|------------|------------|
+| 过滤结果 | JUNE ✅ + July ✅ | JUNE ✅ + July ✅ |
+| Event Log text值 | `text="ju"`（⚠️ 被转为小写） | `text="ju"` |
+| 过滤行为 | 大小写不敏感 ✅ | 大小写不敏感 ✅ |
+
+### 🐛 关键Bug：`text` 参数大小写不保留
+
+**问题描述：** 当用户输入大写字母 `JU` 时，`onFilter` 事件回调中的 `text` 参数值为 `"ju"`（小写），而不是原始输入的 `"JU"`（大写）。组件在内部将输入转换为小写用于大小写不敏感的匹配是合理的，但**不应该将转换后的小写值传递给 onFilter 事件**，而应该传递用户实际输入的原始字符串 `"JU"`。
+
+**预期行为：** `onFilter event: text="JU"`（保留原始大小写）  
+**实际行为：** `onFilter event: text="ju"`（被错误地转换为小写）
+
+==================================================
+
+UI window closed

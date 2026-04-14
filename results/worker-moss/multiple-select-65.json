@@ -1,0 +1,18 @@
+{
+  "task_id": "multiple-select-65",
+  "repo": "wenzhixin/multiple-select",
+  "worker": "worker-moss",
+  "status": "completed",
+  "sess_id": "sess-20260414191355-b2a27bea7b2f4ea888ba00b518ae80fa",
+  "expected_result_used": true,
+  "duration_seconds": 120,
+  "timestamp": "2026-04-14T19:15:30+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 11,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "filter功能完全失效：输入'zzz'后所有选项仍全部显示，无'No matches found'提示；输入'abc'后也无过滤效果，所有选项不变。搜索框UI本身可正常输入和删除，但输入值未与下拉选项列表联动。",
+    "last_reasoning": "所有测试步骤已完成。filter（过滤/搜索）功能完全失效。搜索输入框UI组件本身正常工作（可以输入和删除文字），但输入框的输入值没有与下拉选项列表联动——过滤逻辑（filter logic）没有被触发，导致无论输入什么关键词，下拉列表都显示全部选项，No matches found提示也从未出现。"
+  }
+}
