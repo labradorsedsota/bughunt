@@ -4,6 +4,41 @@
 
 ---
 
+## 零、装机前置（首次部署 Worker 时完成）
+
+新机器投入使用前，确保以下软件已安装：
+
+| 软件 | 用途 | 安装方式 |
+|------|------|---------|
+| **VPN** | 访问 GitHub 等外部资源 | 按团队统一配置 |
+| **Google Chrome** | mano-cua GUI 测试的浏览器环境 | `brew install --cask google-chrome` 或官网下载 |
+| **Node.js** | 前端项目部署运行 | `brew install node` 或 nvm 管理多版本 |
+| **npm** | 包管理（Node 自带） | 随 Node.js 安装 |
+| **Git / gh CLI** | 代码拉取 | `brew install git gh` |
+| **mano-cua** | CUA 盲测执行工具 | 按团队安装指引 |
+
+**检查清单（装完后逐项验证）：**
+```bash
+# VPN 连通性
+curl -s -o /dev/null -w '%{http_code}' https://github.com   # 应返回 200
+
+# Chrome 已安装
+ls /Applications/Google\ Chrome.app   # 应存在
+
+# Node + npm
+node -v && npm -v
+
+# Git + gh
+git --version && gh --version
+
+# mano-cua
+mano-cua --version   # 或 mano-cua --help
+```
+
+全部通过后，Worker 环境就绪，可接收任务。
+
+---
+
 ## 一、任务卡格式
 
 每个任务卡是一个 JSON 文件，关键字段：
@@ -253,4 +288,5 @@ failure.type 取值：`deploy_failed` | `timeout` | `mano_cua_error` | `url_devi
 
 ---
 
-*文档版本：v1.4 | 2026-04-14 | Pichai*
+*文档版本：v1.5 | 2026-04-14 | Pichai*
+*v1.5 变更：新增「零、装机前置」章节（VPN + Chrome + 软件检查清单）*
