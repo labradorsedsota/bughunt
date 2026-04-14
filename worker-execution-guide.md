@@ -21,11 +21,7 @@
 **⚠️ 安装完成后，终端会输出类似以下提示（必须执行！否则 brew 命令找不到）：**
 
 ```bash
-# Intel Mac:
-echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zprofile
-eval "$(/usr/local/bin/brew shellenv)"
-
-# Apple Silicon (M1/M2/M3/M4):
+# 所有 Worker 机器均为 Apple Silicon (M4)
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
