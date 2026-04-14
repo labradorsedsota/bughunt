@@ -14,10 +14,10 @@
 | 群 | channel_id | 用途 |
 |----|------------|------|
 | 广播群（本群：从github找CUA数据） | `19fe99c798914d5fac7d7de9e6fcc839` | 巡检汇总、里程碑播报 |
-| Fabrice 工作群 | `__FABRICE_CHANNEL_ID__` | 任务分发、状态收集 |
-| Moss 工作群 | `__MOSS_CHANNEL_ID__` | 任务分发、状态收集 |
+| Fabrice 工作群 (BugHunt-Fabrice) | `44998d9add6d40b287a38332cbaf61ca` | 任务分发、状态收集 |
+| Moss 工作群 (BugHunt-Moss) | `fcb30bd4969f4136a4cc7148107621e9` | 任务分发、状态收集 |
 
-> ⚠️ 建群后由 PM 填入实际 channel_id
+> ✅ 全部 channel_id 已填入并验证通达 (2026-04-14 17:38)
 
 ## 巡检频率
 
