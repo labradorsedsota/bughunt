@@ -86,6 +86,19 @@ mano-cua run "当前Chrome浏览器已打开${app_name}网站，地址是${dev_u
 - `test_page` 只用于打开 Chrome，不拼进任务描述
 - 确保 `logs/` 目录存在：`mkdir -p logs`
 
+**浏览器边界约束（必须遵守）：**
+
+Worker 调用 mano-cua 时，在任务描述末尾统一附加以下约束文本：
+
+> "请始终在浏览器内操作，禁止打开 Terminal、Finder 或其他应用程序。如果在浏览器中找不到目标功能，直接标记 result 为 unclear，result_summary 写明'未在页面中找到目标功能入口'。"
+
+即实际拼接的完整描述为：
+```
+"当前Chrome浏览器已打开${app_name}网站，地址是${dev_url}。${test_description_zh} 请始终在浏览器内操作，禁止打开 Terminal、Finder 或其他应用程序。如果在浏览器中找不到目标功能，直接标记 result 为 unclear，result_summary 写明'未在页面中找到目标功能入口'。"
+```
+
+**背景：** POC 中 3 张卡因 mano-cua 逃逸到 Terminal 分析源码（打开 Terminal 执行 ls/find/cat），消耗 50-86 步但产出无效 GUI 轨迹数据。此约束与任务卡 `test_description_zh` 中的引导语形成双保险。
+
 ### 第 5 步：首步 URL 校验
 
 mano-cua 启动后，检查第一步 screenshot 中的 URL 是否指向 dev server。
