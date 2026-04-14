@@ -399,46 +399,67 @@ Phase 2: 精筛（进行中）
   最终产出：按 bug 数降序排列的候选项目清单
 ```
 
-### 当前进度（2026-04-14 17:50 更新）
+### 当前进度（2026-04-14 22:00 更新）
 
 | 阶段 | 进度 | 数据 |
 |------|------|------|
 | Phase 1 广搜 | ✅ 完成 | 13,207 → 7,066（Web 语言）|
-| Phase 2 精筛 | ✅ 完成 | 7,066 全量扫描 → Easy 3,884 → **Bugs≥5: 1,124 个项目** |
-| 最终清单 | ✅ 完成 | `final_candidates.jsonl`（1,124 条），总 Bug 数 146,831 |
-| Bug 级精筛脚本 | ✅ 完成 | `bug_screener.py`，已在 POC 中验证 |
+| Phase 2 粗筛 | ✅ 完成 | 7,066 全量扫描 → Easy 3,884 → Bugs≥5: 1,124 个项目 |
+| 正式候选池 | ✅ 完成 | **944 个项目**（bugs≥5, stars≥100, bugs≤500）|
+| 20-repo 管线测试 | ✅ 完成 | 91 repo 扫描，628 条原始候选，识别三个优化点 |
+| Bug 级精筛脚本 | ✅ 完成 | `bug_screener.py` + `batch_card_generator.py`，关键词已优化 |
 | POC 任务卡 | ✅ 完成 | 25 张卡（5 项目），已 push 到 `tasks/pool/` |
+| 批量产卡 | 🔄 进行中 | 周三三批次计划已制定 |
 
-### 候选池统计
+### 正式筛选参数（FTY 2026-04-14 22:00 确认）
 
-**框架分布：** React 337 / Vue 215 / Angular 106 / Svelte 61 / Vanilla/Other 405
+**项目级筛选：**
 
-**项目类型：** Editor/IDE 289 / Chat/IM 180 / Dashboard/Admin 170 / UI Component 77 / Form/Table 61 / 其他 346
+| 参数 | 值 | 说明 |
+|------|------|------|
+| 部署难度 | Easy | 有 dev 脚本，`npm run dev` 可启动 |
+| 最低 bugs | ≥5 | 恢复原参数，扩大池子 |
+| 最低 stars | ≥100 | 保证项目质量和 issue 规范度 |
+| 最大 bugs | ≤500 | 跳过超大 repo，节省 API 配额 |
+| 非 GUI 过滤 | 是 | 剥离 API/CLI/后端框架类项目（~20%） |
 
-**Bug 规模：** 5-10: 290 / 11-20: 191 / 21-50: 241 / 51-100: 150 / 100+: 252
+→ **944 个候选项目**
 
-### Bug 级精筛逻辑
+**Bug 级筛选：**
 
-```
-从 1,124 个候选项目中，用 GitHub API 批量筛选：
-  closed issue + label:bug
-  → 有对应 merged PR（通过 closes/fixes #xxx 关联）
-  → PR changed_files ≤ 5（单一 bug，checkout 干净）
-  → issue 标题/描述命中 UI 关键词（50+ 个正向词，30+ 个排除词）
-  → 有截图额外加分
-  → 需要指定子页面的：从 issue 描述提取具体 test_page
-  → 首页/导航类 bug：test_page 保持 /
-```
+| 参数 | 值 | 说明 |
+|------|------|------|
+| issue 状态 | closed + label:bug | 已修复的 bug |
+| PR 关联 | 有 merged PR | 通过 closes/fixes #xxx 匹配 |
+| PR 改动文件数 | ≤10 | 单一 bug，checkout 干净 |
+| UI 可观测性 | ui_score ≥2 | 正向词(82个) - 排除词(32个)，截图+5分 |
+| 测试页面 | 按需指定 | 子页面功能类bug需指定 test_page，首页类保持 / |
 
-### POC 项目与任务卡
+**UI 关键词概要（v2.4 优化后）：**
+- 英文正向词 57 个：display/style/button/click/modal/table/tab/sidebar/toast/carousel/upload/drag/...
+- 中文正向词 25 个：显示/样式/按钮/圆角/边框/悬停/暗色/深色/主题/导航/侧边栏/轮播/卡片/...
+- 排除词 32 个：docker/api/backend/performance/compile/dependency/security/migration/...
+- 截图加分：+5分
 
-| 项目 | ⭐ | 框架 | bugs | 难度 | 卡数 |
-|------|-----|------|------|------|------|
-| vanilla-calendar-pro | 1,030 | TS/Vite | 46 | Easy | 5 |
-| ha-fusion | 2,952 | Svelte | 43 | Easy | 5 |
-| flatnotes | 2,950 | Vue | 33 | Easy | 5 |
-| multiple-select | 1,915 | Vue/JS | 50 | Easy | 5 |
-| actual | 25,902 | TS/React | 1,552 | Medium | 5 |
+### 产量预估（FTY 2026-04-14 22:00 确认）
+
+| 步骤 | 数量 | 说明 |
+|------|------|------|
+| 候选项目 | 944 | bugs≥5, stars≥100, bugs≤500 |
+| 去除非 GUI | ~755 | -20% |
+| 原始候选 bug | ~5,600 | 每项目平坈4.7-7.2条 |
+| ui_score≥2 过滤 | ~5,200 | 保畉93% |
+| 部署/质量折损 | ~2,500-2,700 | -35% |
+| **可执行 case** | **~2,500-2,700** | GitHub bughunt 通道总产能 |
+
+### 周三三批次交付计划
+
+| 批次 | 截止时间 | 扫描项目 | 目标卡数 | 用途 |
+|------|---------|---------|---------|------|
+| Batch 1 | 周三 08:00 | bugs≥50（339个高产项目） | 300张 | 12台 worker 开工第一批 |
+| Batch 2 | 周三 12:00 | bugs 20-49（220个中等项目） | 200张 | 补充上午消耗 |
+| Batch 3 | 周三 17:00 | bugs 5-19（385个小项目） | 200张 | 补充下午+储备 |
+| **合计** | | **944个项目** | **700张** | 覆盖周三全天 worker 产能 |
 
 ---
 
@@ -690,6 +711,7 @@ POC 阶段不做 `tasks/assigned/` 的文件移动，Pichai 通过 DMWork 消息
 
 ---
 
+*文档版本：v2.4 | 2026-04-14 | 智子（FTY 确认正式筛选参数、产量预估 2,500-2,700、关键词优化 v2.4、周三三批次计划）*
 *文档版本：v2.3 | 2026-04-14 | 智子（FTY 数据需求确认 7 项、粗筛完成 1,124 候选、精筛脚本验证、POC 25 张卡、候选池统计、Bug 精筛逻辑、test_page 补充、待决事项关闭）*
 *文档版本：v2.2 | 2026-04-14 | Pichai（SOP 升级：窗口最大化、日志 tee、双层超时、首步 URL 校验、BLOCKED 强制诊断、日志完整性、判定引用观测、任务间关标签页、Worker Checklist）*
 *文档版本：v2.1 | 2026-04-14 | 智子（新增：expected_result_zh 字段、筛选方法论与进度、待决事项更新）*
