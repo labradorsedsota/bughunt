@@ -1,0 +1,20 @@
+{
+  "task_id": "mint-ui-285",
+  "repo": "ElemeFE/mint-ui",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T01:05:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "webpack 编译失败：eslint-loader getFormatter TypeError。cooking dev server 启动在 8790 端口但构建失败，页面无法加载。根因：mint-ui (2016 era) 依赖链与 Node 24 不兼容",
+    "attempted": [
+      "npm install --legacy-peer-deps（安装成功但 dev 脚本内部 bootstrap 再次失败）",
+      "项目级 .npmrc legacy-peer-deps=true + 手动 build:entry + cooking watch（eslint-loader 崩溃）"
+    ],
+    "recommendation": "需要 nvm 降级到 Node 8-10，当前环境无 nvm"
+  }
+}

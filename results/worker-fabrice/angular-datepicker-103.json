@@ -1,0 +1,20 @@
+{
+  "task_id": "angular-datepicker-103",
+  "repo": "vlio20/angular-datepicker",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T03:02:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "node-sass (node-gyp 3.6.0) 编译失败 + ng serve 崩溃: No such module: http_parser（Node 24 移除了该内置模块）",
+    "attempted": [
+      "npm install 正常失败（node-sass + node-gyp）",
+      "npm install --ignore-scripts + ng serve（http_parser 模块不存在）"
+    ],
+    "recommendation": "需要 nvm 降级到 Node 8-10，当前环境无 nvm。angular-datepicker 是 Angular 4 era 项目"
+  }
+}
