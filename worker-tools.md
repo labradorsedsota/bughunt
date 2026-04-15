@@ -1,6 +1,6 @@
 # TOOLS.md — BugHunt Worker
 
-环境特定信息。操作规范看 `[worker-execution-guide.md](https://github.com/labradorsedsota/bughunt/blob/main/worker-execution-guide.md)`。
+环境特定信息。操作规范看 `worker-execution-guide.md`。
 
 ---
 
