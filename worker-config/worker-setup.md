@@ -44,8 +44,9 @@ export http_proxy=127.0.0.1:8118
 **⚠️ 安装完成后，必须将 Homebrew 加入 PATH（否则 `brew` 命令找不到）：**
 
 ```bash
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+    echo >> /Users/worker05/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv zsh)"' >> /Users/worker05/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 ```
 
 安装后确认：
