@@ -40,6 +40,10 @@ export https_proxy=127.0.0.1:8118
 export http_proxy=127.0.0.1:8118
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+可以使用国内镜像，选择1清华源
+```bash
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+```
 
 **⚠️ 安装完成后，必须将 Homebrew 加入 PATH（否则 `brew` 命令找不到）：**
 
