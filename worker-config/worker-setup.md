@@ -205,7 +205,7 @@ mano-cua 需要控制桌面 GUI，首次运行时需授权：
 ## 四、OpenClaw
 
 ```bash
-npm install -g openclaw
+curl -fsSL https://openclaw.ai/install.sh | bash
 openclaw setup
 ```
 
