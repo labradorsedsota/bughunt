@@ -229,13 +229,8 @@ openclaw status
 ### 4.2 DMWork 插件
 
 ```bash
-# TODO: 确认安装方式
 # 方案1: npm 安装
-npm install -g openclaw-channel-dmwork
-
-# 方案2: 手动部署到 extensions 目录
-# 将插件文件复制到 ~/.openclaw/extensions/dmwork/
-```
+openclaw plugins install openclaw-channel-dmowrk@0.5.21
 
 验证：
 ```bash
