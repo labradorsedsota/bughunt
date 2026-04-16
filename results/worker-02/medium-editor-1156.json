@@ -1,0 +1,18 @@
+{
+  "task_id": "medium-editor-1156",
+  "repo": "yabwe/medium-editor",
+  "worker": "worker-02",
+  "status": "completed",
+  "sess_id": "sess-20260416125152-8ff576cd81de4331b21633d3789f53a0",
+  "expected_result_used": true,
+  "duration_seconds": 650,
+  "timestamp": "2026-04-16T13:01:49+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 52,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Flat 主题下占位符文本完全不显示。编辑器有 data-placeholder=\"Type your text\" 属性，但清空内容后（聚焦/失焦均测试）无任何占位符出现。DevTools 确认元素未添加 medium-editor-placeholder 类，CSS 中无 placeholder 相关样式规则",
+    "last_reasoning": "测试完成。编辑器失焦后，占位符文本仍然完全不可见。Flat 主题的特征是绿色工具栏，背景为白色。占位符功能在 Flat 主题下完全失效。"
+  }
+}
