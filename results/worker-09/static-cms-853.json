@@ -1,0 +1,18 @@
+{
+  "task_id": "static-cms-853",
+  "repo": "StaticJsCMS/static-cms",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260416190521-093a9593ea1343268c695940bba48816",
+  "expected_result_used": true,
+  "duration_seconds": 600,
+  "timestamp": "2026-04-16T19:05:21+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 61,
+    "last_action": "DONE",
+    "result": "normal",
+    "result_summary": "Relation Widget 在 file 类型集合（Widgets > Relation，存储在 _widgets/relation.json）中的搜索功能正常。测试了三轮搜索：1) 输入 'YAML' → 下拉列表正确过滤为 'This is a YAML front matter post'；2) 输入 'xyznonexistent' → 正确显示 'Nothing found.'；3) 输入 'JSON' → 实时刷新为 'This is a JSON front matter post'。搜索结果随输入实时更新。额外发现预览面板多值拼接无分隔符（视觉 bug），但不影响核心搜索功能。",
+    "last_reasoning": "所有 relation widget 搜索功能测试通过：有效关键词正确过滤、无效关键词显示 Nothing found、实时刷新正常。"
+  }
+}

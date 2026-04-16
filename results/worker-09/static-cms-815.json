@@ -1,0 +1,18 @@
+{
+  "task_id": "static-cms-815",
+  "repo": "StaticJsCMS/static-cms",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260416185033-d5aae4ac31f642ebaec5894dd0e12bd5",
+  "expected_result_used": true,
+  "duration_seconds": 360,
+  "timestamp": "2026-04-16T18:50:33+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 22,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Bug 复现：Filter by 筛选菜单中，直接点击复选框（checkbox）小方框无法切换选中/取消选中状态，完全无响应。但点击复选框旁边的文字标签则可正常切换。所有三个复选框（Posts With Index、Posts Without Index、Drafts）均有此问题。这是 checkbox 与 label 的事件绑定或 z-index 遮挡问题导致的交互 Bug。额外发现：Group by Year 分组后显示 'No Entries' 但图片缩略图仍可见。",
+    "last_reasoning": "所有三个复选框都已测试完毕，全部确认同一个 Bug：直接点击复选框小方框无法切换状态，只有点击文字标签才能正常工作。checkbox 元素的点击事件处理存在 Bug。"
+  }
+}

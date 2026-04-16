@@ -1,0 +1,18 @@
+{
+  "task_id": "static-cms-781",
+  "repo": "StaticJsCMS/static-cms",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260416181834-5d275f81fe2f4243a6f90557f867776a",
+  "expected_result_used": true,
+  "duration_seconds": 480,
+  "timestamp": "2026-04-16T18:18:34+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 24,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Bug 复现：Markdown 编辑器插入图片时光标位置错误。将光标定位在 'available for static site generators.' 段落末尾与 'MDX' 标题之间，通过工具栏 + → Image → 选择 lobby.jpg → Choose selected 插入图片。结果图片被插入到文档最开头（'The post is number 1' 标题之前），而非光标所在位置。图片插入功能无法精确控制插入位置。",
+    "last_reasoning": "光标定位在两段文字之间（generators. 与 MDX 之间），通过 + 按钮 → Image 插入 lobby.jpg。图片出现在文档最开头（位于 'The post is number 1' 之前），确认光标位置 bug。"
+  }
+}

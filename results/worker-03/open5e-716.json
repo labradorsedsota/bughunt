@@ -1,0 +1,16 @@
+{
+  "task_id": "open5e-716",
+  "repo": "open5e/open5e",
+  "worker": "worker-03",
+  "status": "deploy_failed",
+  "expected_result_used": false,
+  "duration_seconds": 60,
+  "timestamp": "2026-04-16T19:26:00+08:00",
+  "mano_cua": {
+    "status": "SKIPPED",
+    "total_steps": 0,
+    "result": "unclear",
+    "result_summary": "外部API依赖不可用。open5e前端依赖api.open5e.com的v2 API获取所有内容数据，但该API当前返回HTML而非JSON。commit a85fe09abf同样使用v2 API。/classes/warlock/ancient-dragons页面无法加载数据。无法测试子职业特性排序功能。",
+    "last_reasoning": "Same v2 API dependency as all other open5e cases. composables/api.ts confirmed using v2/ endpoints on commit a85fe09abf. External API at api.open5e.com/v2/ is returning HTML instead of JSON."
+  }
+}
