@@ -1,0 +1,18 @@
+{
+  "task_id": "angular-datepicker-163",
+  "repo": "vlio20/angular-datepicker",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260417042023-024d0c6114124766b358224db2d61b4c",
+  "expected_result_used": true,
+  "duration_seconds": 600,
+  "timestamp": "2026-04-16T13:46:00-07:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 27,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "日期选择器基本功能正常（打开、选择日期、关闭均OK）。但页面刷新时控制台出现2次undefined初始化回调错误；导航离开（路由切换/组件销毁）时出现undefined和Invalid date错误，组件显示错误状态。生命周期管理存在缺陷。",
+    "last_reasoning": "日期选择器在页面刷新和组件路由切换（销毁）时存在生命周期管理缺陷，产生undefined和Invalid date等非预期回调。"
+  }
+}

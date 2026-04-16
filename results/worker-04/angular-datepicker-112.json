@@ -1,0 +1,19 @@
+{
+  "task_id": "angular-datepicker-112",
+  "repo": "vlio20/angular-datepicker",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260417035208-3b7dfffc33db45ffa56c7e46f2936b1e",
+  "expected_result_used": true,
+  "duration_seconds": 1500,
+  "timestamp": "2026-04-16T13:17:00-07:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 107,
+    "last_action": "left_click (1100, 314)",
+    "result": "unclear",
+    "result_summary": "mano-cua在DevTools Elements面板观察到日期选择器input的CSS类为ng-dirty ng-valid ng-touched（而非预期的ng-pristine），但无法确认这是初始状态bug还是因之前交互（点击日期选择器打开日历）导致的状态变化。页面刷新后仍显示ng-dirty，疑似初始状态就是dirty，但证据不够确凿。另外mano-cua受中文IME影响无法在Console执行JS命令进一步验证。",
+    "last_reasoning": "日期选择器初始状态疑似为ng-dirty而非ng-pristine，但因操作过程中有交互可能影响状态，无法100%确认。步数超限后被手动终止。"
+  },
+  "notes": "步数超限（107步/80步限制），主要卡在中文IME导致无法在Chrome Console输入JS命令。"
+}
