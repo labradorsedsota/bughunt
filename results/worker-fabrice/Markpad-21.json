@@ -1,0 +1,25 @@
+{
+  "task_id": "Markpad-21",
+  "repo": "alecdotdev/Markpad",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260416172033-a2a62a72cf68466db6898c2bba040113",
+  "duration_seconds": 180,
+  "timestamp": "2026-04-16T17:25:00+08:00",
+  "mano_cua": {
+    "result": "error",
+    "total_steps": 22,
+    "result_summary": "Tauri + SvelteKit 桌面应用，vite dev 启动后页面完全空白。DevTools 显示 <div id='root'></div> 为空，应用未挂载。Vite 连接正常但 app 不渲染，依赖 Tauri 运行时"
+  },
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Markpad 是 Tauri 桌面应用（依赖 @tauri-apps/cli），vite dev 仅启动前端但应用不渲染（div#root 为空），与 BongoCat-431 相同问题",
+    "attempted": [
+      "bun install 成功",
+      "vite dev 启动成功，curl 200",
+      "mano-cua 22 步，页面始终空白"
+    ],
+    "recommendation": "需要 Tauri 运行时（cargo tauri dev）才能正常使用"
+  }
+}

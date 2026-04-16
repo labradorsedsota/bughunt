@@ -1,0 +1,21 @@
+{
+  "task_id": "CopilotKit-2543",
+  "repo": "CopilotKit/CopilotKit",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "expected_result_used": true,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T14:42:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "NX monorepo build 崩溃，@copilotkitnext/core 和 @copilotkitnext/runtime build 时 Node.js native crash (exit code 130)。Node 24 与项目构建工具链不兼容",
+    "attempted": [
+      "pnpm install --no-frozen-lockfile 成功",
+      "pnpm run build 反复失败，NX build 过程中 Node 崩溃",
+      "单独 nx run @copilotkitnext/core:build 同样崩溃"
+    ],
+    "recommendation": "需要 Node 18-22 环境"
+  }
+}

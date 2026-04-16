@@ -1,0 +1,20 @@
+{
+  "task_id": "Dante-128",
+  "repo": "michelson/Dante",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "expected_result_used": true,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T15:44:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "buggy_commit 749cf249a9 指向 2016 年的 Ruby/CoffeeScript 版本（Gemfile + bower.json + .ruby-version），没有 package.json。任务卡标注 framework: nextjs 和 app_name: dante-next-tiptap 与实际代码不匹配。npm install / npm run dev 无法执行",
+    "attempted": [
+      "git clone + checkout 749cf249a9 成功",
+      "发现是 Ruby gem 项目，无 package.json"
+    ],
+    "recommendation": "任务卡的 buggy_commit 可能标错，应指向 Dante editor 的 Next.js/tiptap 版本分支"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "task_id": "L7-2445",
+  "repo": "antvis/L7",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "expected_result_used": true,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T17:52:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "仓库较大，git clone 和 fetch 反复因 HTTP/2 stream 中断失败（curl 92/18 错误）。shallow clone 成功但 buggy_commit 4a73001d10 不在浅历史中，unshallow fetch 也中断",
+    "attempted": [
+      "git clone --depth 1（成功但 commit 不在）",
+      "git clone --depth 100（HTTP/2 中断）",
+      "git -c http.version=HTTP/1.1 clone（同样中断）",
+      "git fetch --unshallow（中断）",
+      "git fetch --depth 200（中断）"
+    ],
+    "recommendation": "需要更稳定的网络环境，或预先在服务器上准备好 checkout 完成的代码"
+  }
+}
