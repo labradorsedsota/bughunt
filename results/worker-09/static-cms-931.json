@@ -1,0 +1,18 @@
+{
+  "task_id": "static-cms-931",
+  "repo": "StaticJsCMS/static-cms",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260416202152-6f9ed4015f5d4ca294d71ac7d2d61169",
+  "expected_result_used": true,
+  "duration_seconds": 180,
+  "timestamp": "2026-04-16T20:21:52+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 6,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Bug 完整复现。在 Widgets > List 的 Optional List 中添加新列表项，保持所有子字段为空后点击 Publish now，出现验证错误：Name is required. 和 Description is required.（红色边框+错误消息），toast 提示 'Oops, you've missed a required field'。Optional List 的子字段配置为 required: false，不应出现必填验证。required 属性对 list 子字段不生效，阻止合法的空值发布。",
+    "last_reasoning": "Optional List 子字段 Name 和 Description 均显示 required 验证错误（红色边框+错误消息），即使这些字段配置为 required: false。Bug 确认。"
+  }
+}

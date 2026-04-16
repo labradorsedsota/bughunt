@@ -1,0 +1,18 @@
+{
+  "task_id": "static-cms-854",
+  "repo": "StaticJsCMS/static-cms",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260416192043-5decc301ecac451686eb93f014c27ba2",
+  "expected_result_used": true,
+  "duration_seconds": 530,
+  "timestamp": "2026-04-16T19:20:43+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 53,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Bug 完整复现。纯文本 URL https://forms.gle/12345 在 Markdown 编辑器中保存后被自动转换为 [https://forms.gle/12345](https://forms.gle/12345)。再次保存后产生嵌套格式 [[https://forms.gle/12345](https://forms.gle/12345)](https://forms.gle/12345)。编辑器 serialize/deserialize 循环不稳定，每次保存都会累积嵌套的 Markdown 链接括号。",
+    "last_reasoning": "纯文本 URL 第一次保存后被自动转换为 Markdown 链接格式，第二次保存后出现嵌套链接格式。Bug 完整复现。"
+  }
+}

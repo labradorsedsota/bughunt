@@ -1,0 +1,18 @@
+{
+  "task_id": "typehero-1510",
+  "repo": "typehero/typehero",
+  "worker": "worker-06",
+  "status": "completed",
+  "sess_id": "sess-20260416202311-7a0b52ca0d444493985d4a39906e6f77",
+  "expected_result_used": true,
+  "duration_seconds": 136,
+  "timestamp": "2026-04-16T20:23:11-07:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 13,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "主页3处文本出现字面'\\n'字符：1) 社区贡献者区域'some\\nof the contributors' 2) Stay Informed区域'new\\nfeatures' 3) 页脚'Trash Devs \\n community'，均未正确渲染为换行",
+    "last_reasoning": "I can now clearly see all three text rendering bugs in this screenshot:\n\n1. **\"Stay Informed\" section**: \"Interested in the future of the platform? Be the first to get updates on content, new**\\n**features, and more!\" - The `\\n` is shown as literal characters between \"new\" and \"features\"\n\n2. **Footer**: \"Built with 💙 by the Trash Devs **\\n** community.\" - The `\\n` is shown as literal characters before \"community\"\n\nBased on my thorough testing of the TypeHero homepage, I have identified **multiple text rendering bugs** where literal `\\n` characters appear in the rendered text instead of being processed as newline characters or line breaks."
+  }
+}

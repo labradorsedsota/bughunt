@@ -1,0 +1,741 @@
+Session created: sess-20260416235901-58d191b2a66e4e53b4fbab45e2d27304
+UI panel initialized successfully
+UI window displayed
+Expected result: None
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: left_click (1205, 88)
+[step 1] Reasoning: I can see the react-timeline-9000 demo. Currently it shows a date range from 2000-01-01 to 2000-01-05, which is all within January 2000. I need to zoom out or change the date range to see multiple months. Let me first close the Google Translate popup and then zoom out or change the date range to span multiple months.
+[step 2] Action: triple_click
+[step 2] Reasoning: Good, the Google Translate popup is closed. Now I can see the timeline clearly. The current date range is from 2000-01-01 to 2000-01-05. I need to change it to span multiple months to test the top timebar (major timebar) month labels. Let me change the end date to 2000-02-28 to span January and February.
+[step 3] Action: left_click (772, 278)
+[step 3] Reasoning: A date picker has opened. I can see January 2000 and February 2000 calendars. Currently the start date is Jan 1 and end date is Jan 5. I need to set the end date to something in February to span multiple months. Let me click on February 28 to set the end date.
+[step 4] Action: left_click (904, 331)
+[step 4] Reasoning: I've selected February 28 as the end date. I can see it's highlighted in the calendar. Now I need to click "Ok" to confirm this selection.
+[step 5] Action: left_click (904, 331)
+[step 5] Reasoning: The date picker is still visible. It seems I need to first click the start date and then end date. Let me click Ok to confirm, or maybe I need to also set the start date first. Let me try clicking the Ok button more precisely.
+[step 6] Action: key: Escape
+[step 6] Reasoning: The date picker is still showing. It seems clicking OK doesn't close it. Let me try a different approach - I'll directly edit the end date text field. Let me press Escape to close the datepicker and manually type in the date.
+[step 7] Action: triple_click
+[step 7] Reasoning: The datepicker is closed. The date range still shows 2000-01-01 to 2000-01-05. Let me directly edit the end date field. I'll click on the end date text field and change it to 2000-02-28.
+[step 8] Action: left_click (701, 190)
+[step 8] Reasoning: The date picker is open again with January 1 highlighted (start date range). I see Jan 1 to Jan 5 are highlighted (blue). I need to select a new start date and end date. Let me click on Jan 1 first to set the start date, then click on Feb 28 for end date.
+
+First, let me click on Jan 1:
+[step 9] Action: left_click (772, 278)
+[step 9] Reasoning: Good, I clicked January 1 as the start date. Now I need to click February 28 as the end date.
+[step 10] Action: left_click (904, 331)
+[step 10] Reasoning: Excellent! The date range has been updated to 2000-01-01 to 2000-02-28 and I can already see the timeline is now showing both "January" and "February" labels in the top timebar (major timebar). I can see "January" on the left side and "February" on the right side. The date picker is still open. Let me close it by clicking OK and then take a closer look at the timeline.
+[step 11] Action: screenshot
+[step 11] Reasoning: Now I can see the timeline with the date range from 2000-01-01 to 2000-02-28. Let me analyze what I see in the timebar:
+
+1. **Top timebar (major timebar)**: Shows "2000" at the top center, and below that shows "January" on the left half and "February" on the right half. The separator between January and February appears at the correct position around day 31/Jan transition.
+
+2. The bottom timebar (minor timebar) is not clearly visible yet - it seems the second row under the top timebar is the minor timebar, but I need to zoom in to see it better.
+
+Let me take a closer screenshot of just the timebar area to examine it better.
+[step 12] Action: key: ctrl+shift+plus
+[step 12] Reasoning: I can now see the timeline more clearly. Let me zoom into the timebar area specifically to analyze the labels. I can see:
+
+- **Top row (major timebar, row 1)**: Shows "2000" in the center
+- **Second row (major timebar, row 2)**: Shows "January" on the left portion and "February" on the right portion, with a divider around position x=730
+
+But I notice there's only one minor timebar row visible and the current zoom level makes it hard to see individual day labels. Let me zoom in on the browser using the browser's zoom feature to see the timebar more clearly, or use the Zoom In button on the demo.
+
+Let me use browser zoom to get a better view of the timebar area.
+[step 13] Action: key: ctrl+equal
+[step 14] Action: key: ctrl+0
+[step 15] Action: left_click (1186, 62)
+[step 15] Reasoning: Now I can clearly see the timeline with the date range spanning from January to February 2000. Let me analyze the timebar structure carefully:
+
+Looking at the timebar area (rows at the top of the timeline):
+- **Row 1 (top major timebar)**: Shows "2000" centered in the middle of the timeline
+- **Row 2 (second level timebar)**: Shows "January" on the left section and "February" on the right section
+
+I notice the timebar structure seems to have:
+1. The very top row showing "2000" (year level)
+2. The second row showing "January" and "February" (month level - this appears to be the major timebar)
+
+But I need to check what the "minor timebar" shows - the individual day labels. Currently at this zoom level with a 2-month span, the days appear too small to show day labels. Let me use the browser's zoom feature to zoom in on the timebar area for a better look.
+
+Let me use the browser's built-in zoom via the magnifier icon in the address bar or use keyboard shortcuts:
+[step 16] Action: key: Escape
+[step 16] Reasoning: Good, the browser zoom popup appeared showing 110%. Let me zoom out to a smaller percentage to see the full timebar more clearly, then close the zoom popup and examine the timebar more carefully. Let me click the minus button to zoom out.
+
+Actually, I can see the timebar quite well at the current zoom. Let me close this zoom popup and zoom in on just the timebar section by using the browser's developer tools or by just examining the screenshot carefully.
+
+Let me close the zoom popup by pressing Escape and then use the "Zoom out" button in the demo app to see a wider time range that would make the month labels more visible.
+[step 17] Action: left_click (1155, 89)
+[step 17] Reasoning: I can clearly see the timebar layout now. Let me analyze what I see carefully in the timebar:
+
+**Current View Analysis (Date range: 2000-01-01 to 2000-02-28):**
+
+The timebar has 3 rows:
+1. **Top row** (y≈195): Shows "2000" centered - this is the **major timebar (top timebar)** showing the YEAR level
+2. **Second row** (y≈217): Shows "January" on the left and "February" on the right - this appears to be the **minor timebar** showing the MONTH level
+3. The third row would be the day-level minor timebar (but at this zoom level with 2 months range, day labels aren't visible)
+
+Wait, let me look more carefully at the structure. Looking at the screenshot:
+- Row at y≈195: "2000" - year label
+- Row at y≈217: "January" (left) and "February" (right) - month labels
+- The divider between January and February is visible at approximately x=730
+
+This means the **top timebar (major timebar)** is the one showing "2000" and the **second timebar (minor timebar)** shows the months "January" and "February".
+
+Let me zoom in on the timebar area in the browser to get a better look. I'll use the browser's Zoom feature to magnify just the timebar.
+
+Let me try zooming in using the browser's built-in zoom to see the timebar structure more clearly:
+[step 18] Action: left_click (1133, 89)
+[step 18] Reasoning: Excellent! Now at 125% zoom I can see the timebar structure much more clearly! Let me analyze this carefully:
+
+**Timebar Structure (Date range: 2000-01-01 to 2000-02-28):**
+
+I can see:
+1. **Top row (y≈210)**: Shows "**2000**" - This is the **top/major timebar** at the YEAR level
+2. **Second row (y≈236)**: Shows "**January**" on the left portion and "**February**" on the right portion with a divider at approximately x=738
+
+The second row (minor timebar / bottom timebar) correctly shows:
+- "January" label on the left half (covering Jan 1 - Jan 31)
+- "February" label on the right half (covering Feb 1 - Feb 28)
+- A clear visual divider between the two months at the correct position
+
+This structure shows that:
+- The **major timebar (top timebar)** displays the YEAR ("2000") as the broader time unit
+- The **minor timebar (bottom timebar)** displays the MONTHS ("January", "February") as the subdivisions
+
+Now let me zoom back to 100% and try the demo's "Zoom out" button to see what happens when we zoom out further (perhaps to see a multi-year range where months would become the major timebar entries).
+[step 19] Action: left_click (640, 400)
+[step 19] Reasoning: Good, back to 110% zoom. Now let me use the demo app's "Zoom in" button to zoom into the timeline to see the month-to-day relationship, and then use "Zoom out" to see the year view. First, let me close the browser zoom popup by clicking elsewhere, then use the demo's zoom controls.
+[step 20] Action: left_click (911, 110)
+[step 20] Reasoning: I can see that when I clicked on the timeline area (Row 1), the debug info appeared: "Row Click row=1 @ time/snapped=Thu Jan 27 2000 11:17:13 GMT+0800/Thu Jan 27 2000 11:15:00 GMT+0800"
+
+Also, the major timebar now shows "2000 [Day 27 - 11:15]" — this is showing the cursor position as well.
+
+Most importantly, I can now see the timebar structure clearly:
+- **Top row (major timebar)**: Shows "2000 [Day 27 - 11:15]" (year with cursor indicator)
+- **Bottom row (minor timebar)**: Shows "January" (left) and "February" (right)
+
+Now let me use the demo's "Zoom in" and "Zoom out" buttons to examine the timeline more thoroughly. Let me click "Zoom in" several times to zoom into the month view and see if the top timebar (major timebar) correctly shows month labels when at a day-level view:
+[step 21] Action: left_click (988, 110)
+[step 21] Reasoning: Excellent! Now I can see a very important view! After clicking "Zoom in", the timeline has zoomed in and now shows:
+- **Date range**: 2000-01-01 to 2000-01-30 (only January now visible after zoom in)
+- **Top row (major timebar)**: Shows "**January 2000 [Day 27 - 11:15]**" - showing the MONTH as the major label
+- **Bottom row (minor timebar)**: Shows day numbers **1, 2, 3, 4, 5, 6... 29** - individual days
+
+This is at the "day view" zoom level where the major timebar shows months and the minor timebar shows days. Now the date range only shows January (single month). The major timebar correctly shows "January 2000" for the entire visible range.
+
+Now let me click "Zoom out" to go back to the multi-month view and check the behavior:
+[step 22] Action: left_click (988, 110)
+[step 22] Reasoning: Now I'm back to the 2-month view (2000-01-01 to 2000-02-28). I can clearly see the timebar structure:
+
+- **Top row (major timebar)**: Shows "**2000 [Day 27 - 11:15]**" - year level with cursor position
+- **Bottom row (minor timebar)**: Shows "**January**" on the left and "**February**" on the right with a divider
+
+The minor timebar correctly shows "January" for the first half and "February" for the second half. Now let me zoom out more to see an even wider range, and check if the major timebar behaves correctly.
+
+Let me click "Zoom out" again multiple times to see a wider range:
+[step 23] Action: left_click (988, 110)
+[step 23] Reasoning: This is very informative! Now the date range has expanded to 2000-01-01 to 2000-04-26 (4 months!). Let me analyze the timebar:
+
+- **Top row (major timebar)**: Shows "**2000 [Day 27 - 11:15]**" - still showing the year level
+- **Bottom row (minor timebar)**: Shows "**January**", "**February**", "**March**", "**April**" - four different month labels correctly positioned at their respective positions
+
+This is working correctly! The minor timebar (bottom) correctly shows different month labels ("January", "February", "March", "April") at their corresponding positions, not the same month repeated across the entire range.
+
+Let me zoom out one more time to get an even wider view:
+[step 24] Action: left_click (988, 110)
+[step 24] Reasoning: Now we can see an even wider view spanning 8 months (2000-01-01 to 2000-08-20)! This is excellent for analysis. Let me examine the timebar structure:
+
+- **Top row (major timebar)**: Shows "**2000 [Day 27 - 11:15]**" - still showing the year
+- **Bottom row (minor timebar)**: Shows **"January", "February", "March", "April", "May", "June", "July", "August"** - eight different month labels, each correctly positioned at their corresponding time position
+
+This is a perfect multi-month view. The timebar shows:
+1. **Major timebar** (top row): "2000" - the year covering the entire visible range
+2. **Minor timebar** (bottom row): Individual month names ("January" through "August") each correctly placed at their corresponding position
+
+Let me zoom out one more time to see if we can get a multi-year view:
+[step 25] Action: left_click (1186, 62)
+[step 25] Reasoning: Now I can see a very interesting behavior at a wider zoom level (2000-01-01 to 2001-04-09, spanning over a year)! Let me analyze the timebar:
+
+- **Top row (major timebar)**: Shows "**2000 [Day 27 - 11:15]**" - showing the year with cursor indicator
+- **Bottom row (minor timebar)**: Shows "**2000**" only on the left part, with the rest being empty/grey (and the year 2001 should appear on the right but appears to be cut off or just the label is too small to show)
+
+Wait, there seems to be a divider visible at approximately x=1025, and the minor timebar only shows "2000" on the left. The right side appears to be empty or showing 2001 label that I can't see clearly. Let me take a closer look. The visible range is 2000-01-01 to 2001-04-09, so the minor timebar should show "2000" for most of the range and "2001" for the last portion.
+
+Let me zoom in on the timebar area using browser zoom to see it more clearly:
+[step 26] Action: key: Escape
+[step 26] Reasoning: Good, I can see the timebar more clearly now. At this zoom level (2000-01-01 to 2001-04-09, spanning ~16 months):
+
+- **Top row (major timebar)**: Shows "**2000 [Day 27 - 11:15]**"
+- **Bottom row (minor timebar)**: Shows "**2000**" on the left portion, with a divider at around x=1025, and the right section appears to be empty or the "2001" label is cut off at the edge
+
+The bottom row appears to be in YEAR-level intervals at this zoom. Let me look more carefully. There's a faint second divider visible. Let me check this more carefully by looking at the right part of the timebar. I notice the minor timebar shows "2000" for the left ~80% of the range and there should be a "2001" label somewhere to the right.
+
+The data range is 2000-01-01 to 2001-04-09:
+- Year 2000 covers Jan 1 2000 to Dec 31 2000 (365 days)
+- Year 2001 covers Jan 1 2001 to Apr 9 2001 (99 days)
+- Total: ~464 days, of which 2000 = ~79%, 2001 = ~21%
+
+So the "2001" label should appear at about 79% of the way from the left, which would be around x = 113 + (1260-113)*0.79 ≈ 113 + 906 ≈ 1019. Let me look at the right section of the timebar.
+
+Let me close the browser zoom popup and inspect the timebar more carefully:
+[step 27] Action: key: F12
+[step 27] Reasoning: I can now see the timebar at this zoom level (spanning 2000-01-01 to 2001-04-09, about 16 months):
+
+Looking at the timebar rows more carefully:
+- **Top row (major timebar, y≈195)**: Shows "**2000 [Day 27 - 11:15]**" in the left portion, and a divider at approximately x=1025 with nothing after it on the right
+- **Bottom row (minor timebar, y≈217)**: Shows "**2000**" on the left portion, with a divider at approximately x=1025, and nothing visible after the divider (the "2001" label may be off-screen or not showing)
+
+This is a concern! The top major timebar shows "2000" (with cursor info) only on the left side, but the right 20% of the range (which is year 2001) doesn't appear to show "2001" label. Let me try to investigate this by looking at the developer console to understand the actual DOM structure. Let me use the browser's developer tools.
+
+Actually, let me try a different approach - let me use the browser's DevTools to inspect the timebar element. First, let me open DevTools:
+[step 28] Action: key: super+alt+i
+[step 28] Reasoning: The DevTools didn't open. Let me try using Command+Option+I on Mac:
+[step 29] Action: left_click (689, 502)
+[step 29] Reasoning: That opened a "Send feedback to Google" dialog instead. Let me close it and try the proper keyboard shortcut for Chrome DevTools on Mac:
+[step 30] Action: right_click (640, 205)
+[step 30] Reasoning: Excellent! Now I can see very clearly the current state of the timebar. The cursor moved and the debug shows "Row Click @ time = Day 232 - 10:00" which is in mid-August 2000. 
+
+Most importantly, I can now clearly see a **CRITICAL ISSUE** in the timebar:
+
+Looking at the timebar with date range 2000-01-01 to 2001-04-09:
+
+- **Top row (major timebar)**: Shows "**2000 [Day 232 - 10:00]**" - this spans the ENTIRE visible timeline, even though the right ~20% of the range is in year 2001!
+- **Bottom row (minor timebar)**: Shows "**2000**" only on the left portion (up to x≈1025), with a divider at x≈1025, but the right section (2001 portion) appears to be **EMPTY** or perhaps cut off
+
+Wait, I need to examine this more carefully. Let me look at what's happening with the right portion of the timebar after the divider at x≈1025.
+
+Let me now use Chrome's DevTools properly to inspect the timebar HTML:
+[step 31] Action: left_click (659, 432)
+[step 31] Reasoning: A context menu appeared. I can see "检查" (Inspect/Developer Tools) at the bottom. Let me click on it:
+[step 32] Action: left_click (1022, 130)
+[step 32] Reasoning: DevTools has opened and I can see the HTML structure. I can see the element that was clicked/hovered is highlighted: `div.rct9k-timebar-inner.rct9k-timebar-inner-top`. 
+
+I can see in the HTML:
+- There's a `div.rct9k-timebar-inner.rct9k-timebar-inner-top` - this is the TOP timebar (major timebar)
+- There's a `div.rct9k-timebar-inner.rct9k-timebar-inner-bottom` - this is the BOTTOM timebar (minor timebar)
+
+Let me expand the timebar elements to see the structure. First, let me click on the Console tab to run some JavaScript to get the timebar labels:
+[step 33] Action: left_click (1090, 253)
+[step 33] Reasoning: The Console tab is now open. I can see some console messages. Now I need to run JavaScript to inspect the timebar labels. Let me click on the console input and type a query to get all the timebar label text content:
+[step 34] Action: left_click (1090, 270)
+[step 34] Reasoning: I can see the console but the input prompt is not visible. Let me scroll down in the console to see the input area or click at the bottom of the console:
+[step 35] Action: left_click (1090, 253)
+[step 35] Reasoning: I can see the console input prompt ("> |"). Now let me type a JavaScript command to inspect the top timebar (major timebar) labels:
+[step 36] Action: left_click (1090, 253)
+[step 36] Reasoning: I can see the console prompt (">") is visible at the bottom of the console area. Let me click on the console input area and type my JavaScript query. The input should be at the very bottom:
+[step 37] Action: scroll down (1090, 220) scroll_amount 3
+[step 37] Reasoning: I see the console but need to click specifically on the console input area. Let me scroll down in the console panel to see the input prompt:
+[step 38] Action: left_click (1090, 253)
+[step 38] Reasoning: I can see the console input ("> |") at the bottom. Let me click on it and type a JavaScript query to inspect the timebar:
+[step 39] Action: type: document.querySel...
+[step 39] Reasoning: I can see the "> |" cursor in the console at position approximately (925, 253). Let me type a JavaScript query to get all the timebar label content. I'll type JavaScript to query the top timebar (major timebar) labels and the bottom timebar (minor timebar) labels:
+[step 40] Action: key: ctrl+a
+[step 40] Reasoning: The console shows a warning about pasting code. I need to type "allow pasting" first to enable pasting. Let me clear what I typed and type "allow pasting" first:
+[step 41] Action: left_click (1090, 291)
+[step 41] Reasoning: I see the console input prompt ("> |"). The warning says I should type "allow pasting" before using the console. Let me type "allow pasting" first, then press Enter:
+[step 42] Action: left_click (1090, 291)
+[step 42] Reasoning: I can see the console input prompt at the bottom of the console panel. Let me click directly on the input line (where the ">" character is at position ~920, 291) and type:
+[step 43] Action: type: allow pasting
+[step 43] Reasoning: I can see the console input prompt ("> |") at the bottom. I need to first type "allow pasting" and press Enter to enable pasting. Let me type it:
+[step 44] Action: key: Return
+[step 44] Reasoning: I can see I've typed "allow pasting" in the console (the text appears in the console input area). Now let me press Enter to confirm this:
+[step 45] Action: left_click (1090, 291)
+[step 45] Reasoning: The warning is still there. I notice the console input prompt at the bottom ("> |"). The "allow pasting" seems to not have been accepted yet - the warning message is still shown in red with the message about not pasting code. Let me try clicking specifically on the input line to type the command. The console input area is at the very bottom of the DevTools console panel. Let me click more precisely:
+[step 46] Action: type: allow pasting
+[step 46] Reasoning: Now I can see the console input is highlighted (the input area at the bottom of the console is now blue/highlighted at y≈291). The console says to type "allow pasting" to enable pasting. Let me now type the command directly:
+[step 47] Action: key: Return
+[step 47] Reasoning: I can see the console input field is still empty (the input at y=291 appears empty). The text "allow pasting" should have been typed. Let me press Enter:
+[step 48] Action: left_click (935, 291)
+[step 48] Reasoning: The warning is still showing. The "allow pasting" command doesn't seem to be going into the console input. Let me try a different approach - instead of trying to paste code, I'll manually type each character in the console. But first, let me try clicking directly on the ">" icon before the input field:
+[step 49] Action: type: allow pasting
+[step 49] Reasoning: Now I can see the console input field is highlighted (the blue highlighted row at y=291). The cursor is positioned after the ">" symbol. The console is saying to type "allow pasting" to allow pasting. Now I'll type the "allow pasting" command:
+[step 50] Action: left_click (1090, 291)
+[step 50] Reasoning: The console input still appears empty (the blue highlighted row at y=291 shows nothing typed). It seems the text isn't going into the console. The warning is still showing "Please type 'allow pasting' below and press Enter to allow pasting."
+
+The console warning is showing "Please type 'allow pasting' below and press Enter to allow pasting." - this means I need to type in the console input field. Let me try a different approach - I'll close DevTools and instead use the Elements panel to inspect the timebar HTML visually. Let me switch to the Elements tab:
+
+Actually, let me try to focus on the console input directly. The issue might be that the console panel is not fully focused. Let me try using keyboard shortcut to focus the console:
+[step 51] Action: key: a
+[step 51] Reasoning: I can see the console input field is highlighted (the blue bar at y=291). The cursor is positioned in the console input area. Let me type individual characters to test if keyboard input works in the console:
+[step 52] Action: key: ctrl+a
+[step 52] Reasoning: I can see that typing "a" showed "> A" in the console and the result "A" is shown. The warning is still there. The key "a" got typed as "A" (uppercase). Now I can see that the console IS responsive to keyboard input. The issue before was that my "type" command wasn't working in the console. The `key` command works though.
+
+I can see the console input shows "> A" and the result shows "A". This means the console input is working. But wait - the console pressed Enter automatically when I pressed "a" key! The console input seems to execute on single keypress. Let me check - actually it seems like the console ran "A" as a JavaScript expression and got "A" as the result (since "A" is a variable or string).
+
+Wait, actually the issue is that the console accepted the input but it ran each character as a separate command! "a" was interpreted as JavaScript variable "a" or "A" (a class/constructor name). This explains the behavior.
+
+The console warning says "Please type 'allow pasting' below and press Enter to allow pasting." The "allow pasting" text is meant to be manually typed, not pasted - this is a security feature of Chrome DevTools.
+
+Now I understand the situation. The console is working but the `type` function seems to send key events differently. Let me clear the current input and type "allow pasting" using the `type` command after making sure the console input is focused:
+[step 53] Action: left_click (977, 130)
+[step 53] Reasoning: I can see the console shows "> A" (from my previous 'a' keypress) and the cursor is now at the console input line at y=291. The console input shows "> A" with the cursor still in the input. Let me clear it with Ctrl+A to select all and then delete it. Actually looking at the screenshot, the "> A" in the console output (y=291) is a previous entry, and the cursor should be at a new empty line.
+
+Let me try a different approach. Instead of using the DevTools console, let me use the Elements panel to inspect the timebar HTML structure visually. Let me switch to the Elements tab to see the HTML:
+[step 54] Action: left_click (987, 314)
+[step 54] Reasoning: Excellent! Now I can see the Elements panel with the HTML structure! I can see in the HTML:
+- `div class="rct9k-timebar-inner rct9k-timebar-inner-top"` - This is the **TOP timebar (major timebar)**!
+- `div class="rct9k-timebar-inner rct9k-timebar-inner-bottom"` - This is the **BOTTOM timebar (minor timebar)**!
+
+I can also see at the bottom of the Elements panel the breadcrumb path: `iv.parent-div > div.rct9k-timebar-outer > div.rct9k-timebar-inner.rct9k-timebar-inner-top`
+
+The CSS shows:
+- `.rct9k-timebar-inner { height: 30px; white-space: nowrap; overflow: hidden; }`
+
+Now let me click on the `rct9k-timebar-inner-top` element to expand it and see its children (which should show the month labels):
+[step 55] Action: left_click (1113, 388)
+[step 55] Reasoning: **CRITICAL FINDING!** 🚨
+
+Now I can see the HTML structure of the **top timebar (major timebar)** - `div class="rct9k-timebar-inner rct9k-timebar-inner-top"`. It has been expanded and shows its children:
+
+```html
+<div class="rct9k-timebar-inner rct9k-timebar-inner-top">
+  $0
+  <span class="rct9k-timebar-item" style="width: 849.53px;">
+    2000 [Day 220 - 09:15]
+  </span>
+  <span class="rct9k-timebar-item" style="width: 847.209px;">
+    2001 [Day 220 - 09:15]
+  </span>
+</div>
+```
+
+Wait, but this is the major timebar showing... interesting! Let me look more carefully. The top timebar (major timebar) has:
+1. A `span` with width `849.53px` containing text **"2000 [Day 220 - 09:15]"** 
+2. A `span` with width `847.209px` containing text **"2001 [Day 220 - 09:15]"**
+
+**THIS IS A BUG!** 🐛
+
+The top timebar (major timebar) is showing **"2001 [Day 220 - 09:15]"** for the second span, but:
+1. The text should show just "2001" or "Year 2001", not "2001 [Day 220 - 09:15]"
+2. The cursor indicator "[Day 220 - 09:15]" is being appended to BOTH timebar items - it should only appear in one place, not in the 2001 label
+
+Looking at the visual display on the timeline:
+- The top timebar shows "2000 [Day 220 - 09:15]" on the visible portion (left side)
+- The "2001 [Day 220 - 09:15]" span is off-screen (since the timeline shows Jan 2000 to Apr 9 2001, and 2001 is in the right portion that's cut off or beyond the visible scroll area)
+
+Wait, but both spans have similar widths (~849 and ~847 pixels), suggesting they should both be visible. Let me look at the actual visual more carefully. In the page screenshot, the top timebar shows "2000 [Day 220 - 09:15]" in the left area and then there's a divider at x≈735. After the divider, it should show "2001 [Day 220 - 09:15]" but it's not visible because it's cut off by the screen or container width.
+
+Actually, looking at the current visible timebar area in the page (y≈195-205), I can see:
+- "2000 [Day 220 - 09:15]" on the left portion (x: ~110 to ~735)
+- After x≈735, there's a divider, and the right portion should show "2001..." 
+
+But wait - the current date range is 2000-01-01 to 2001-04-09. The year 2000 spans from Jan 1 2000 to Dec 31 2000 (365 days), and year 2001 spans Jan 1 2001 to Apr 9 2001 (99 days). So year 2000 = 365/(365+99) = ~78.7% of the range, and 2001 = ~21.3%.
+
+The total timeline width appears to be about 1227px (from the earlier HTML I saw: `style="width: 1227px; padding-left: 150px;"`). So 2000 would span about 1227 * 0.787 = ~966px and 2001 would span about 1227 * 0.213 = ~261px.
+
+But the spans shown are both ~849px, which doesn't match! Let me look more carefully.
+
+Let me inspect the bottom timebar (minor timebar) as well. Let me click on the `rct9k-timebar-inner-bottom` element:
+[step 56] Action: left_click (987, 377)
+[step 56] Reasoning: I can now see the HTML structure of both timebars. The tooltip shows `div.rct9k-timebar-inner.rct9k-timebar-inner-bottom` (the minor bottom timebar) is highlighted in the page and I can see the "2000" label is in the bottom timebar.
+
+From the Elements panel, I can now see the full structure:
+
+**Top timebar (major timebar)** - `div.rct9k-timebar-inner.rct9k-timebar-inner-top`:
+- `span class="rct9k-timebar-item" style="width: 849.53px;"` → Text: **"2000 [Day 220 - 09:15]"**
+- `span class="rct9k-timebar-item" style="width: 847.209px;"` → Text: **"2001 [Day 220 - 09:15]"**
+
+**Bottom timebar (minor timebar)** - `div.rct9k-timebar-inner.rct9k-timebar-inner-bottom`:
+- (collapsed - shows `== $0`)
+
+Now I need to expand the bottom timebar to see its contents. Let me click on the triangle/arrow to expand the bottom timebar element:
+[step 57] Action: scroll down (1090, 390) scroll_amount 2
+[step 57] Reasoning: Now I can see both timebars expanded! Let me read the full HTML structure:
+
+**Top timebar (major timebar)** - `div.rct9k-timebar-inner.rct9k-timebar-inner-top`:
+- `span class="rct9k-timebar-item" style="width: 849.53px;"` → **"2000 [Day 220 - 09:15]"**
+- `span class="rct9k-timebar-item" style="width: 847.209px;"` → **"2001 [Day 220 - 09:15]"**
+
+**Bottom timebar (minor timebar)** - `div.rct9k-timebar-inner.rct9k-timebar-inner-bottom`:
+- `span class="rct9k-timebar-item" style="width: 849.53px;"` → **"2000"**
+- `span class="rct9k-timebar-item" style="width: 847.209px;"` → (partially visible, second span)
+
+Interesting observations:
+1. Both top and bottom timebars have **2 spans** with widths of ~849px and ~847px
+2. The bottom timebar shows "**2000**" in the first span
+3. The top timebar shows "**2000 [Day 220 - 09:15]**" in the first span AND "**2001 [Day 220 - 09:15]**" in the second span
+
+This is a **major bug** in the cursor position indicator - the "[Day 220 - 09:15]" cursor information is being appended to **BOTH** year labels in the top timebar, when it should only appear once (in the label where the cursor currently is).
+
+Let me scroll down in the Elements panel to see the second span in the bottom timebar:
+[step 58] Action: left_click (1022, 130)
+[step 58] Reasoning: Now I can see the **complete HTML structure** of both timebars clearly! This is a **major discovery**. Let me read the full structure from the Elements panel:
+
+**Top timebar (major timebar)** - `div.rct9k-timebar-inner.rct9k-timebar-inner-top`:
+```html
+<span class="rct9k-timebar-item" style="width: 849.53px;">
+  2000 [Day 220 - 09:15]
+</span>
+<span class="rct9k-timebar-item" style="width: 847.209px;">
+  2001 [Day 220 - 09:15]
+</span>
+```
+
+**Bottom timebar (minor timebar)** - `div.rct9k-timebar-inner.rct9k-timebar-inner-bottom`:
+```html
+<span class="rct9k-timebar-item" style="width: 849.53px;">
+  2000
+</span>
+<span class="rct9k-timebar-item" style="width: 847.209px;">
+  2001
+</span>
+```
+
+**KEY OBSERVATIONS:**
+
+1. **Both widths are WRONG**: The spans have widths of ~849.53px and ~847.209px, which are ALMOST EQUAL. But for a range 2000-01-01 to 2001-04-09:
+   - Year 2000 = 366 days (leap year!) 
+   - Year 2001 portion = 99 days (Jan 1 - Apr 9)
+   - Total = 465 days
+   - Year 2000 should be 366/465 = 78.7% of the timeline width
+   - Year 2001 should be 99/465 = 21.3% of the timeline width
+   
+   But both spans are showing approximately EQUAL widths (~849px and ~847px), which is clearly WRONG. This means year 2000 is showing approximately the same width as year 2001, even though year 2000 covers 78.7% of the range!
+
+2. **The cursor indicator bug**: The "[Day 220 - 09:15]" cursor text is appended to BOTH year labels in the top timebar (both "2000" and "2001" have the cursor indicator). The bottom timebar correctly shows just "2000" and "2001" without any cursor text. This is a bug in the cursor position display.
+
+3. **The bottom timebar correctly shows "2000" and "2001"** in their respective sections (correctly showing different labels for different time periods).
+
+Wait, let me re-examine the widths. The timeline outer container was `width: 1227px; padding-left: 150px`. So the visible content area is 1227px. If year 2000 = 78.7% × 1227 = 965px and year 2001 = 21.3% × 1227 = 261px. But the spans show 849.53px and 847.209px (nearly equal). This is definitely a bug - the year spans are not correctly proportioned!
+
+Actually wait - I need to reconsider. The `width: 1227px` is just the outer container. Let me think about the total timeline width (the "virtual" scrollable width that extends beyond the visible area). The timebar inner container may have a different total width. The two spans together have widths of ~849 + ~847 = ~1696px. This could be the total virtual timeline width.
+
+Actually, looking again at the spans - ~849 and ~847 are suspiciously close. The container likely has `overflow: hidden` and only shows part of it. For a range where year 2000 = 78.7% of the total, if the spans are proportional:
+- Total width = 849.53 + 847.209 = 1696.739px
+- Year 2000 span should be 1696.739 × 0.787 = 1335px... but it's only 849px!
+
+The spans being nearly equal in width (~849 and ~847) is suspicious. This suggests both years are being rendered with approximately the same width, which would be a bug in how the timebar items are being sized.
+
+Let me verify by looking at the visible area. The current date range is 2000-01-01 to 2001-04-09. The major timebar (top) shows years. In a normal calendar view:
+- Year 2000: Jan 1 to Dec 31 = 366 days (leap year)
+- Year 2001: Jan 1 to Apr 9 = 99 days
+
+If the spans are EQUAL width (~849), this means year 2001 (only 99 days) is being displayed with the SAME width as year 2000 (366 days). This would be a rendering bug where the timebar items are not correctly sized proportionally.
+
+Let me now switch to the Console to run a JavaScript query to get the exact text content and compare. Let me go back to the Console tab:
+[step 59] Action: scroll down (1090, 250) scroll_amount 3
+[step 59] Reasoning: I can now see the Console tab is showing. The console shows the warning about pasting and the previous "A" result. I can see the input prompt "> A" at y=292.
+
+Now let me try to get the console input working by clicking on the console area first, then typing. I can see there are more entries in the console, let me scroll down in the console to find the latest input prompt. Let me click at the bottom of the console:
+[step 60] Action: left_click (935, 292)
+[step 60] Reasoning: I can see the console at the bottom shows "> A" (previous result). The console input is at y=291. Let me click precisely on the console input area after the "A" (which appears to be a previous result). The input prompt should be after the "> A" line. Let me click at the beginning of the input field at approximately y=292 and then type:
+[step 61] Action: key: ctrl+a
+[step 61] Reasoning: I see the console is still showing the "> A" result. The console input appears to be at the line after "> A". Let me now try typing the "allow pasting" command character by character using the `key` action to type individual characters, since the `type` action might not work directly in the DevTools console:
+
+Actually, looking at the console more carefully, the "> A" line appears to be the current input line (where the cursor is), not a previous result. The "A" might have been typed previously and is still in the input field.
+
+Let me try pressing Ctrl+A to select all in the console input, then Delete to clear it, and then type "allow pasting":
+[step 62] Action: key: BackSpace
+[step 62] Reasoning: The console input still shows "> A" - I think Ctrl+A selected all text in the console input. Let me try backspace to delete the "A" character:
+[step 63] Action: left_click (935, 291)
+[step 63] Reasoning: The console now shows just ">" (the input prompt is now empty - the "A" was deleted). Now the input is ready. I can see the ">" prompt at y=291. Now let me type "allow pasting" to enable console pasting:
+[step 64] Action: left_click (935, 291)
+[step 64] Reasoning: The console shows ">" at y=291 with the cursor (I can see the blinking cursor after ">"). The console input is now empty and focused. Now let me type "allow pasting" by using the `key` action for each letter to ensure proper input:
+
+Actually, wait - looking at the warning text again: "Warning: Don't paste code into the DevTools Console that you don't understand or haven't reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type 'allow pasting' below and press Enter to allow pasting."
+
+This warning appears when you try to PASTE code (Ctrl+V). Since I'm trying to TYPE characters (not paste), I should be able to type commands directly. The "allow pasting" step is only needed when you paste. My `type` command action should work for typed input.
+
+But wait - looking at the previous attempts, the `type` command seems to not have worked (the "allow pasting" text didn't appear in the console). But the `key` command worked (the "a" was shown as "A" in the console). The `key` action sends individual key events, while `type` might be sending text input that gets treated differently.
+
+The problem is that the Chrome DevTools console has special handling for keyboard input. The console appears to be in a mode where `type` doesn't work but `key` does.
+
+Actually, looking at the above screenshot, the ">" at y=291 is the console input ready. The console showed "A" after I pressed key 'a'. That means the `key` action works. But notice: the console showed "A" (uppercase) - which is because the `key` action with "a" maps to capital A in some contexts.
+
+Wait, I think I understand now - when I pressed `key a`, the console showed "A" because "a" was being interpreted as a key event (capital A). The console ran it as JavaScript (`A` is undefined/a global class) and showed the result.
+
+Let me try the `key` action with the exact characters of "allow pasting":
+
+Actually, I realize the issue - when I press `key a`, it immediately executes in the console! That's because the console auto-completes single-letter JavaScript. Let me try typing the full "allow pasting" command character by character and see what happens:
+
+Actually, looking back at the screenshots, I notice that when I pressed `key a`, the console shows "> A" (not executed) - the "A" is still in the INPUT field (the "> " prefix indicates this is the console input, not a result). Then when I pressed BackSpace, the "A" was removed. So the console IS accepting individual key presses and NOT executing on single key.
+
+Let me try using the `key` action to type "allow pasting" character by character. But this would be very slow. Instead, let me try using the `type` action one more time, but first click precisely on the console input area at the ">" prompt:
+[step 65] Action: type: allow pasting
+[step 65] Reasoning: I can see the console input at y=291 shows "> |" with the cursor blinking (visible as a small rectangle). The console input is now empty and focused. Now let me try using the `type` action to type "allow pasting":
+[step 66] Action: key: a l l o w space p...
+[step 66] Reasoning: The console still shows "> |" with the cursor. The `type` action didn't seem to type "allow pasting" into the console input - the input is still empty. 
+
+The `type` action is not working in the DevTools console. Let me try using xdotool key sequences to type "allow pasting" character by character. Let me try typing individual characters using `key`:
+[step 67] Action: key: a
+[step 67] Reasoning: The `key` action doesn't accept multiple keys with spaces between them in that format. Let me try pressing keys individually:
+[step 68] Action: key: F12
+[step 68] Reasoning: I can see that pressing `key a` executed the previous "A" entry in the console (> A shown at y=292) and the result shows "A" (the class/value in blue at y=310). The console input is now showing "A" result and the new prompt is ready.
+
+I can see that `key a` immediately executes! It seems the console is executing single-letter commands immediately (not waiting for Enter). This behavior means `key a` was treated as pressing "a" which auto-completed to "A" and executed.
+
+Wait - actually looking more carefully at y=292: "> A" and y=310: "🔵 A". The "> A" at y=292 shows the command that was EXECUTED (pressing 'a' executed 'A' as a JavaScript expression), and y=310 shows the RESULT "A" (the String class or something). Then the console would have a new empty prompt below y=310.
+
+So when I press `key a`:
+1. The console receives the key 'a'  
+2. It appears to auto-execute (maybe 'a' key is used as a shortcut?)
+
+Hmm, actually I think the issue is different. Looking at the Chrome DevTools console behavior:
+- The console input field at y=291 shows "> A" - this is the PREVIOUS execution result "A"  
+- After pressing `key a`, it EXECUTED a new command "A" (shown at "> A" line at y=292, with the blue "A" result at y=310)
+
+So the `key` action IS going into the console, but the console is immediately executing single-letter expressions. This is NOT correct behavior - normally you have to press Enter to execute.
+
+I think the issue is that the DevTools console in this Chrome version might behave differently, or maybe the `key` action is sending both keydown and Enter somehow.
+
+Let me take a different approach. Instead of trying to use the DevTools console to run JavaScript, I already have all the information I need from the Elements panel. Let me close the DevTools and work with what I've already observed. The key findings from the Elements panel inspection were:
+
+**Top timebar spans**: "2000 [Day 220 - 09:15]" and "2001 [Day 220 - 09:15]"  
+**Bottom timebar spans**: "2000" and "2001"
+
+These are definitive findings. Let me close DevTools and do a comprehensive visual analysis of the timebars.
+
+Let me close DevTools first:
+[step 69] Action: left_click (1268, 130)
+[step 69] Reasoning: The DevTools is still showing. Let me try clicking the "X" close button for the DevTools panel:
+[step 70] Action: triple_click
+[step 70] Reasoning: DevTools is now closed and I can see the full timeline with the wider browser view. Now I can clearly see the timebar structure at the date range 2000-01-01 to 2001-04-09:
+
+**VISIBLE TIMEBAR ANALYSIS:**
+
+Looking at the timebar area (rows at y≈195-218):
+
+**Row 1 (Top timebar / Major timebar, y≈195):**
+- Shows "**2000 [Day 220 - 09:15]**" in the left half of the timeline (x: ~110 to ~1025)  
+- There's a **vertical divider line** at approximately x=1025
+- The right section (x: ~1025 to ~1260) shows nothing visible (it should show "2001 [Day 220 - 09:15]" but it's cut off or the label is outside the visible container due to `overflow: hidden`)
+
+**Row 2 (Bottom timebar / Minor timebar, y≈217):**
+- Shows "**2000**" in the left half (x: ~110 to ~1025)
+- There's a **vertical divider line** at approximately x=1025
+- The right section (x: ~1025 to ~1260) shows nothing visible (the "2001" label should be here)
+
+Now, the critical question is: **Is the top timebar (major timebar) correctly showing different labels for different time periods?**
+
+From the Elements panel inspection, I confirmed:
+- Top timebar has 2 spans: "2000 [Day 220 - 09:15]" and "2001 [Day 220 - 09:15]"
+- Bottom timebar has 2 spans: "2000" and "2001"
+
+**BUGS FOUND:**
+
+1. **Major Bug - Cursor position displayed incorrectly**: The top timebar (major timebar) shows the cursor position indicator "[Day 220 - 09:15]" in BOTH year labels ("2000 [Day 220 - 09:15]" AND "2001 [Day 220 - 09:15]"). The cursor is at Day 220 (in year 2000), so only the "2000" label should show the cursor indicator, not "2001".
+
+2. **The bottom timebar correctly shows just "2000" and "2001"** without cursor indicators - this is the correct behavior.
+
+**What's working correctly:**
+- Both timebars correctly show DIFFERENT labels for different time periods (2000 vs 2001) - they are NOT showing the same label across the entire range
+- The dividers between the two year sections appear at the correct proportional position
+
+Now let me do a more focused test with the MONTH-level view. Let me change the date range to something that spans multiple months within a year (e.g., Jan to March 2000) and zoom into the month view to see if the month labels in the major timebar work correctly.
+
+Let me first change the date range to Jan-March 2000 and zoom in to see month labels:
+[step 71] Action: left_click (702, 190)
+[step 71] Reasoning: The date picker is open showing Jan 2000 and Apr 2001. The current range is 2000-01-01 to 2001-04-09. I want to set a multi-month range within a single year to test the month-level major timebar. Let me set the range to Jan 1, 2000 - Mar 31, 2000 (3 months).
+
+First, I need to click Jan 1 as start date, then navigate to find March 31 as end date. Let me first click on January 1:
+[step 72] Action: left_click (742, 137)
+[step 72] Reasoning: I can see Jan 1 is highlighted (blue circle) in the calendar. The right calendar still shows April 2001. Now I need to navigate the right calendar to find March 2000. Let me use the left arrow button on the right calendar to go back from April 2001 to March 2000. I need to go back from Apr 2001 to March 2000, which is 13 months back. Let me click the left arrow (‹) on the right calendar multiple times:
+
+Actually, a faster approach would be to use the "‹" (single left arrow) on the right calendar to go back one month at a time, but going from April 2001 to March 2000 is 13 months. Let me use the "«" (double left arrow) to jump back by year. Let me click the "«" double left arrow on the right calendar:
+[step 73] Action: left_click (756, 137)
+[step 73] Reasoning: I can see the right calendar now shows "Apr 2000" (after going back 1 year from Apr 2001). Now I need to go back one more month to March 2000. Let me click the "‹" single left arrow on the right calendar:
+[step 74] Action: left_click (878, 278)
+[step 74] Reasoning: Now the right calendar shows "Mar 2000". I can see March 31 in the last row at position x=878, y=278. Let me click on March 31 to set it as the end date:
+[step 75] Action: left_click (905, 331)
+[step 75] Reasoning: Excellent! This is a **VERY IMPORTANT** screenshot! I can now see the timeline with the date range 2000-01-01 to 2000-03-31 (3 months: January, February, March). 
+
+**CRITICAL OBSERVATION:**
+
+Looking at the timebar (second row at y≈217):
+- The bottom timebar (minor timebar) shows: "**January**" on the left, then "**March**" on the right!
+- **WAIT** - where is "February"?! The middle section shows nothing between "January" and "March"!
+
+This is a **major bug**! In a 3-month range (Jan, Feb, March):
+- The minor timebar shows "January" label on the left
+- The minor timebar shows "March" label on the right
+- **"February" is MISSING!** 
+
+The February label appears to be skipped or not rendered. This could be because:
+1. The timebar items are not wide enough to display the "February" label (overflow:hidden cuts it)
+2. The February section is too narrow in proportion to show its label
+3. There's a bug in the label rendering logic that skips February
+
+Actually wait - looking more carefully at y≈217, I can see:
+- Left section: "**January**" label
+- Middle section: [empty or tiny]
+- Right section: "**March**" label
+
+But wait, the calendar shows 2000-01-01 to 2000-03-31, which spans 91 days:
+- January: 31 days (34%)
+- February: 29 days (32%, leap year 2000)
+- March: 31 days (34%)
+
+All three months should have equal proportional widths (~34% each), so February should be visible with "February" label. But the timebar shows only "January" and "March" labels - **February is missing!**
+
+Also, looking at the TOP timebar (major timebar, y≈195):
+- It shows nothing visible... wait, the date picker is overlapping it. But I can see in the background behind the date picker, the top timebar row at y≈195 appears to be EMPTY (no label visible).
+
+This is a potential significant bug! Let me close the date picker and examine the timebar more carefully.
+
+Let me click "Ok" to confirm the date selection:
+[step 76] Action: left_click (910, 110)
+[step 76] Reasoning: Now I can see the timeline clearly with the date range 2000-01-01 to 2000-03-31. This is a **very informative** screenshot! Let me analyze the timebar carefully:
+
+**TIMEBAR ANALYSIS (Date range: Jan 1 - March 31, 2000):**
+
+**Row 1 - Top timebar (Major timebar, y≈195):**
+- Shows "**2000 [Day 220 - 09:15]**" - This covers the ENTIRE visible range (x: ~110 to ~1260)
+- The label "2000" with cursor indicator is centered over the full range
+- **NO dividers visible in this row** - it appears as one single continuous section
+- **BUT** - this is showing YEAR (2000) as the major unit, which is CORRECT because the view spans a portion of a single year
+
+**Row 2 - Bottom timebar (Minor timebar, y≈217):**
+- Shows "**January**" on the left section (x: ~110 to ~509, divider at ~509)
+- Shows "**February**" in the middle section (x: ~509 to ~883, divider at ~883)
+- Shows "**March**" on the right section (x: ~883 to ~1260)
+- Three vertical dividers separate the three months
+
+**THIS IS WORKING CORRECTLY! ✅**
+
+The bottom timebar (minor timebar) correctly shows:
+- "January" for the January portion
+- "February" for the February portion  
+- "March" for the March portion
+
+With dividers at the correct proportional positions (approximately equal widths since Jan=31, Feb=29, Mar=31 days).
+
+Wait - earlier when I took a screenshot (when the date picker was open), I thought I only saw "January" and "March" with no "February". But now with the date picker closed, I can clearly see all three months: **January, February, March** all correctly labeled!
+
+The confusion was because the date picker overlay was covering the "February" label in the middle of the timebar!
+
+Now let me verify the TOP timebar (major timebar) behavior more carefully. Currently it shows "2000" for the full range (correct, since all 3 months are within year 2000). 
+
+Now let me use the "Zoom in" button multiple times to zoom into a view where the MONTHS become the major timebar units (and days become the minor timebar units), and verify the month labels:
+[step 77] Action: left_click (910, 110)
+[step 77] Reasoning: Now after clicking "Zoom in", the date range has changed to 2000-01-01 to 2000-02-15 (about 6 weeks). Let me analyze the timebar at this zoom level:
+
+**TIMEBAR ANALYSIS (Date range: Jan 1 - Feb 15, 2000):**
+
+**Row 1 - Top timebar (Major timebar, y≈195):**
+- Shows "**2000 [Day 220 - 09:15]**" spanning the entire range
+- This is still at the YEAR level (correct - all dates are within 2000)
+
+**Row 2 - Bottom timebar (Minor timebar, y≈217):**
+- Shows "**January**" on the left portion (covering ~Jan 1 - Jan 31)
+- A divider visible at x≈910
+- Shows "**F**" (starting of "February") on the far right (x≈1257), but it's cut off by the edge
+- The "February" label starts right at x≈1260 but is cut off due to the container's width
+
+This shows that at this zoom level, January occupies ~80% of the visible timeline (Jan 1 to Jan 31 is 31/46 days = 67% of the range) and February occupies ~33% (Feb 1-15 is 15/46 days = 33%).
+
+The **January** label is visible in the left section, and **February** is starting to show on the right edge (cut off as "F").
+
+Now let me look more carefully:
+- The divider between January and February is at x≈910 (correct - January 31/46 ≈ 67% from left: 110 + (1260-110) × 0.67 ≈ 110 + 770 ≈ 880)
+- The "F" visible at x≈1260 is the start of "February" label
+
+Now let me zoom in more to see a view where the MONTH becomes the major timebar unit:
+[step 78] Action: left_click (987, 110)
+[step 78] Reasoning: **EXCELLENT!** This is the day-level view! Now I can see the timeline at the day zoom level (Date range: Jan 1 - Jan 23, 2000). This is a crucial view to analyze!
+
+**TIMEBAR ANALYSIS (Date range: Jan 1 - Jan 23, 2000, DAY-LEVEL VIEW):**
+
+**Row 1 - Top timebar (Major timebar, y≈195):**
+- Shows "**January 2000 [Day 220 - 09:15]**" spanning the entire visible range
+- **This is the MONTH-LEVEL major timebar!**
+- At this zoom level, the MONTH ("January 2000") is the major unit in the top timebar
+- The label is displayed correctly for the entire visible range (which is all within January)
+
+**Row 2 - Bottom timebar (Minor timebar, y≈217):**
+- Shows individual day labels: "**Sat 1st**, **Sun 2nd**, **Mon 3rd**, **Tue 4th**, **Wed 5th**, **Thu 6th**, **Fri 7th**, **Sat 8th**, **Sun 9th**, **Mon 10th**..." etc.
+- These are individual day labels with weekday names and day-of-month numbers
+
+This is **WORKING CORRECTLY** ✅:
+- Major timebar correctly shows "January 2000" for the entire January portion
+- Minor timebar correctly shows individual day labels
+
+Now I need to test the case where the major timebar shows MONTH labels across MULTIPLE MONTHS (when there's a multi-month range and the view is zoomed to show months as major units). Let me zoom out to see what happens when the range spans February as well:
+
+Let me change the date to include February. Let me click "Zoom out" to go back to a 2-month view:
+[step 79] Action: mouse_move (640, 400)
+[step 79] Reasoning: Now I'm at the 6-week view (2000-01-01 to 2000-02-15) again. This is a crucial zoom level to test. Let me analyze the timebar:
+
+**TIMEBAR ANALYSIS (Date range: Jan 1 - Feb 15, 2000):**
+
+**Row 1 - Top timebar (Major timebar, y≈195):**
+- Shows "**2000 [Day 220 - 09:15]**" - This is at the YEAR level
+- The entire range is within year 2000, so the major timebar shows "2000"
+- **NO MONTH DIVIDERS in the top timebar** - correct at this zoom level (year-level)
+
+**Row 2 - Bottom timebar (Minor timebar, y≈217):**
+- Shows "**January**" on the left section (x: ~110 to ~910)
+- A vertical divider at x≈910
+- Shows just "**F**" at the very right edge (x≈1257-1260) - the "F" is the first letter of "February", but the label is being cut off!
+
+**🐛 POTENTIAL BUG - "February" label cut off!**
+
+The "February" label in the bottom timebar (minor timebar) is being cut off at the right edge. The label shows only "F" (the first character of "February") because the container has `overflow: hidden` and the label text extends beyond the container width.
+
+Wait, actually this is expected behavior - the "February" section only covers the portion from Feb 1 to Feb 15 (just 15 days), which is about 33% of the total 46-day range (Jan 1 to Feb 15 = 46 days total). The February section would start at about 67% from the left:
+
+- Total range: 46 days
+- January portion: 31 days (67% of range)
+- February portion: 15 days (33% of range)
+
+The January divider at x≈910 (from left: ~800px from x=110):
+- Expected position: 110 + (1260-110) × (31/46) = 110 + 1150 × 0.674 = 110 + 775 = ~885px ≈ x=885
+
+That's consistent with what I see (divider at ~910).
+
+The "February" section spans from x≈910 to x≈1260, which is about 350px. The text "February" is 8 characters - at this width, it should fit comfortably. But it shows only "F" at x≈1260, which means the "February" label position starts OUTSIDE the visible area or the text alignment is wrong.
+
+Wait - looking at the minor timebar with the item `<span style="width: xxx">February</span>` - the span starts at x≈910 and extends to the right. If the span text is left-aligned within the span, the "February" text should start at x≈910. But I see "F" at x≈1257 (far right), which suggests the text might be RIGHT-aligned or the span width extends far beyond the visible area!
+
+Wait, I need to reconsider. The "F" at x≈1260 could be the FIRST character of "February" text that's positioned at the start of the February section (x≈910 + some padding). The "F" visible at the far right edge suggests the text IS starting to appear in the February section, but most of the "February" text extends BEYOND the right boundary of the timeline container.
+
+But that doesn't make sense - the February section from x≈910 to x≈1260 is 350px wide, which should be more than enough to display "February" (only 8 characters). Let me investigate this more carefully.
+
+Actually, wait - let me reconsider. Looking at the screenshot more carefully:
+- The bottom timebar shows "January" on the left
+- A divider line at x≈910
+- The text "F" at x≈1257 (extreme right edge)
+
+If the "February" label is positioned at the far right edge showing only "F", it might mean the label TEXT is positioned at the center or right of the section and the right overflow clips it. OR the "F" might be a different element altogether (perhaps some kind of marker or day label).
+
+Actually, looking at this more carefully, the "F" might not be "February" at all - it could be a day label for a Friday (F = Friday) in the minor day-level timebar, not the month timebar. But at this zoom level (46-day range), the minor timebar is showing month labels, not day labels.
+
+Let me move my mouse cursor away from the timeline to remove the cursor indicator, and then take a fresh screenshot to see the timebar labels more clearly:
+[step 80] Action: mouse_move (1100, 400)
+[step 80] Reasoning: Now I can see the timebar with the cursor at a different position (Day 21 - 13:00). The cursor line is now at x≈640 on the timeline. Looking at the timebars:
+
+**TIMEBAR ANALYSIS (with cursor at Day 21 in January 2000):**
+
+**Row 1 - Top timebar (Major timebar, y≈195):**
+- Shows "**2000 [Day 21 - 13:00]**" - the year level with cursor at Day 21 of January
+
+**Row 2 - Bottom timebar (Minor timebar, y≈217):**
+- Shows "**January**" on the left (x: ~110 to ~910)
+- Divider at x≈910 (marking the start of February section)
+- Shows "**F**" at the extreme right edge (x≈1260)
+
+The "F" at the right edge is interesting. It's definitely the beginning of "February" being cut off. Let me move the cursor further to the right (over the February section) to see if the timebar labels update properly. Let me hover over a position in the February section (around x=1100):
+
+==================================================
+Task: The Chrome browser is open on react-timeline-9000 demo at http://localhost:8080. Check the top timebar (major timebar) month labels. When the time range spans multiple months (e.g. January to February), verify if the top timebar correctly shows different month labels at their corresponding positions, rather than showing the same month across the entire range. Compare with the bottom timebar (minor timebar) to verify consistency. Try zooming out or panning to see multi-month ranges. Stay in browser only.
+Status: STOPPED_BY_USER
+Total steps: 80
+Last action: mouse_move (1100, 400)
+Last reasoning: Now I can see the timebar with the cursor at a different position (Day 21 - 13:00). The cursor line is now at x≈640 on the timeline. Looking at the timebars:
+
+**TIMEBAR ANALYSIS (with cursor at Day 21 in January 2000):**
+
+**Row 1 - Top timebar (Major timebar, y≈195):**
+- Shows "**2000 [Day 21 - 13:00]**" - the year level with cursor at Day 21 of January
+
+**Row 2 - Bottom timebar (Minor timebar, y≈217):**
+- Shows "**January**" on the left (x: ~110 to ~910)
+- Divider at x≈910 (marking the start of February section)
+- Shows "**F**" at the extreme right edge (x≈1260)
+
+The "F" at the right edge is interesting. It's definitely the beginning of "February" being cut off. Let me move the cursor further to the right (over the February section) to see if the timebar labels update properly. Let me hover over a position in the February section (around x=1100):
+
+==================================================
+
+UI window closed

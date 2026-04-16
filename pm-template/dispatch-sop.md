@@ -10,37 +10,45 @@
 |------|--------|------|
 | **选卡排产** | Pichai | 决定哪个 Worker 跑哪些卡，更新 dispatch-log.json 状态为 `assigned` |
 | **发送派发消息** | Mycroft | 读 dispatch-log.json，向 Worker 1v1 通道发送任务消息（见 dispatch-sop-mycroft.md） |
-| **状态同步** | Pichai | 收到林菡通知"某群有更新"后，查看 Worker 消息，更新 dispatch-log.json |
+| **确认派发** | Pichai | Mycroft 报告消息已发送后，更新 dispatch-log.json 状态为 `dispatched` |
 | **异常处理** | Pichai | Worker 报异常时判断和干预 |
 | **巡检** | Pichai | 监控 Worker 进度，催促无响应的 Worker |
-| **Dashboard** | cron | 读 dispatch-log.json 生成统计报告 |
+| **Dashboard** | cron | 扫 `results/` 目录生成 `dashboard/progress.json` |
 
 ---
 
 ## 二、核心数据文件
 
-| 文件 | 路径 | 用途 |
-|------|------|------|
-| dispatch-log.json | `pm-template/dispatch-log.json` | **唯一事实来源**，727 张卡全量在册 |
-| 完整任务卡（含 ground_truth） | `tasks/pool/` | L2 抽检、FTY 终审用，**不发给 Worker** |
-| 干净任务卡（无 ground_truth） | `tasks/pool-clean/` | Mycroft 发给 Worker 的卡 |
-| 执行手册 | `worker-config/worker-execution-guide.md` | Worker 执行参考 |
+| 文件 | 路径 | 用途 | 谁写 |
+|------|------|------|------|
+| dispatch-log.json | `pm-template/dispatch-log.json` | **分发追踪**，只管卡从未分配到已派发 | Pichai |
+| progress.json | `dashboard/progress.json` | **执行结果**，只看 result 文件 | cron 自动 |
+| 完整任务卡 | `tasks/pool/` | L2 抽检、FTY 终审用，**不发给 Worker** | 智子 |
+| 干净任务卡 | `tasks/pool-clean/` | Mycroft 发给 Worker 的卡 | 从 pool 清洗 |
+| 执行手册 | `worker-config/worker-execution-guide.md` | Worker 执行参考 | Pichai |
+| result 文件 | `results/worker-XX/*.json` | Worker 执行结果 | Worker push |
 
 ---
 
 ## 三、整体工作流
 
 ```
-Pichai 选卡 → 更新 dispatch-log.json（status: assigned）→ push
+Pichai 选卡 → 更新 dispatch-log（status: assigned）→ push
     ↓
-Mycroft 读 dispatch-log.json → 找 status=assigned 的卡 → 发消息给 Worker（Mycroft 不改 dispatch-log）
+Mycroft 读 dispatch-log → 找 status=assigned 的卡 → 发消息给 Worker
     ↓
-Worker ACK → 林菡通知 Pichai → Pichai 更新 status=in_progress → push
+Mycroft 报告"已发送" → Pichai 更新 dispatch-log（status: dispatched）→ push
     ↓
-Worker 逐 case 完成 → 林菡通知 Pichai → Pichai 更新 status=completed/failed（填 result）→ push
+（dispatch-log 的使命到此结束，不再变动）
     ↓
-批次完成 → Pichai 选下一批 → 循环
+Worker 执行 → push result 文件到 results/worker-XX/
+    ↓
+cron 每小时扫 result 文件 → 更新 dashboard/progress.json
 ```
+
+**两个文件完全解耦：**
+- dispatch-log 只管分发（Pichai 操作）
+- progress.json 只看执行结果（cron 自动扫 result 文件）
 
 ---
 
@@ -48,34 +56,29 @@ Worker 逐 case 完成 → 林菡通知 Pichai → Pichai 更新 status=complete
 
 ```json
 {
-  "version": "2.0",
-  "updated_at": "2026-04-16T14:00:00+08:00",
+  "version": "3.0",
+  "updated_at": "2026-04-16T23:48:00+08:00",
   "summary": {
     "total": 727,
-    "unassigned": 699,
+    "unassigned": 488,
     "assigned": 0,
-    "in_progress": 20,
-    "completed": 8,
-    "failed": 0
+    "dispatched": 239
   },
   "tasks": {
     "task_id": {
-      "status": "unassigned|assigned|in_progress|completed|failed",
+      "status": "unassigned|assigned|dispatched",
       "worker": "worker-02",
       "batch": 2,
-      "assigned_at": "2026-04-16T12:33:00+08:00",
-      "completed_at": "2026-04-16T13:20:00+08:00",
-      "result": "abnormal|normal|unclear|deploy_failed|timeout|mano_cua_error",
-      "note": "备注"
+      "assigned_at": "2026-04-16T12:33:00+08:00"
     }
   }
 }
 ```
 
-### 状态流转
+### 状态流转（只有 3 个状态）
 
 ```
-unassigned → assigned（Pichai 选卡）→ in_progress（Worker ACK）→ completed/failed（Worker 完成）
+unassigned → assigned（Pichai 选卡）→ dispatched（Mycroft 发送后 Pichai 确认）
 ```
 
 所有状态变更由 Pichai 操作，Mycroft 不修改 dispatch-log。
@@ -87,48 +90,47 @@ unassigned → assigned（Pichai 选卡）→ in_progress（Worker ACK）→ com
 ### 5.1 选卡排产
 
 1. `git pull` 最新 dispatch-log.json
-2. 从 `status: unassigned` 的卡中选卡（规则：纯净优先、同项目同 Worker、每批 5 张）
+2. 从 `status: unassigned` 的卡中选卡
 3. **前置筛选（必须，按优先级依次检查）**：
    
-   **硬性排除（直接跳过，标 failed + deploy_failed）：**
+   **硬性排除（直接跳过，不放入 dispatch-log）：**
    - `backend_risk: true` 的卡
-   - `repo_size_kb > 500000`（>500MB）的卡（交叉查 `tasks/pool/` 中对应卡的 `repo_size_kb` 字段）
-   - `test_page` 是 `/login`、`/auth`、`/signin`、`/dashboard` 等需要认证的页面
-   - 项目明显需要数据库（如看板工具、CRM、项目管理类应用）
-   - 项目需要 OAuth/第三方认证（Google、GitHub 登录等）
+   - `repo_size_kb > 500000`（>500MB）的卡
+   - `test_page` 是需要认证的页面（/login、/auth、/signin、/dashboard 等）
+   - 项目明显需要数据库（看板工具、CRM、项目管理类应用）
+   - 项目需要 OAuth/第三方认证
    - `deploy_commands` 含 docker、database、prisma 关键词
-   - 跳过的卡标 `status: "failed"`，`result: "deploy_failed"`，`note: "前置筛选跳过：[具体原因]"`
    
    **排产优先级（从高到低）：**
    - 优先选 `deploy_commands` 步骤 ≤3 的简单项目
    - 优先选 `repo_size_kb` 小的项目（<100MB 优先）
-   - 同项目打包，每批 5 张，复用 clone + install
-   - 100-200MB 的项目降优先级但不排除，视 Worker 能力分配
+   - 同项目打包，复用 clone + install
+   - 100-200MB 的项目降优先级但不排除
    
 4. 更新选中卡的状态为 `assigned`，填入 `worker`、`batch`、`assigned_at`
 5. 更新 `summary` 统计
 6. `git push`
+7. 通知 Mycroft 派发
 
-> **注意：** `repo_size_kb` 字段目前只在 `tasks/pool/` 的完整卡中有，`tasks/pool-clean/` 暂未同步。选卡时交叉查 pool 中对应卡获取该字段。
+### 5.2 确认派发
 
-### 5.2 状态同步（收到林菡通知时）
+1. Mycroft 报告"X/X 全部派发到位"
+2. 把对应卡从 `assigned` → `dispatched`
+3. 更新 `summary`
+4. `git push`
 
-1. 林菡说"worker-XX 有更新"
-2. 查看对应 Worker 1v1 群的最近消息
-3. 根据消息内容更新 dispatch-log.json：
-   - Worker ACK → `status: in_progress`
-   - Worker 完成某 case → `status: completed`，填 `result`、`completed_at`、`note`
-   - Worker 报异常 → 在 `note` 中记录，判断是否干预
-4. 更新 `summary` 统计
-5. `git push`
+### 5.3 选卡时避免重复分配
 
-### 5.3 异常处理
+- dispatch-log 里 `assigned` 或 `dispatched` 的跳过
+- `results/` 目录下已有 result 文件的跳过
+
+### 5.4 异常处理
 
 | 场景 | 处理 |
 |------|------|
 | Worker 30 分钟未 ACK | 在 1v1 通道 @Worker 催促 |
 | Worker ACK 后 20 分钟无进度 | @Worker 询问状态 |
-| Worker 报 deploy_failed | 建议 nvm 切版本或标 failed 跳过 |
+| Worker 报 deploy_failed | 建议 nvm 切版本或跳过 |
 | Worker 完成批次 | 选下一批卡，走选卡排产流程 |
 
 ---
@@ -151,8 +153,9 @@ unassigned → assigned（Pichai 选卡）→ in_progress（Worker ACK）→ com
 
 ## 七、关键规则
 
-1. **dispatch-log.json 是唯一事实来源** — 所有角色通过它同步状态
-2. **每次修改后必须 push** — git pull → 改 → push
-3. **Mycroft 只从 pool-clean/ 读卡** — pool/ 含 ground_truth，绝不发给 Worker
-4. **所有 Worker 汇报必须 @Pichai** — 不带 mention 字段的消息 PM 收不到
-5. **每批 5 张，同项目同 Worker** — 复用部署提效
+1. **dispatch-log 只管分发** — unassigned → assigned → dispatched，不跟踪执行结果
+2. **progress.json 只看 result 文件** — completed/failed/blocked/pending，不读 dispatch-log
+3. **每次修改 dispatch-log 后必须 push**
+4. **Mycroft 只从 pool-clean/ 读卡** — pool/ 含 ground_truth，绝不发给 Worker
+5. **所有 Worker 汇报必须 @Pichai** — 不带 mention 字段的消息 PM 收不到
+6. **同项目同 Worker** — 复用部署提效
