@@ -1,0 +1,18 @@
+{
+  "task_id": "medium-editor-751",
+  "repo": "yabwe/medium-editor",
+  "worker": "worker-06",
+  "status": "completed",
+  "sess_id": "sess-20260416213930-4c16dfb36e0b4eb38db556d9bee36b31",
+  "expected_result_used": true,
+  "duration_seconds": 723,
+  "timestamp": "2026-04-16T21:39:30-07:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 55,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "同一段落中已存在链接时，选中其他文字点击链接按钮无法弹出链接输入对话框（多次点击均失败），但在无链接的段落中链接按钮正常工作。Bug已确认：段落内已有链接会阻止创建第二个链接",
+    "last_reasoning": "Again, \"Christian\" is still selected but the link input form did NOT appear after clicking the link button at (641, 155). Looking at the link button, I can see it's at approximately x=641 in the toolbar. The toolbar appears unchanged (still showing B, I, U, link, H2, H3, quote buttons without the input form). This confirms the bug: When a paragraph already contains a link, clicking the link button for non-linked text in that same paragraph does NOT open the link input dialog. The link input form appears for fresh text (in paragraphs without existing links) but fails for text in paragraphs that already have links."
+  }
+}

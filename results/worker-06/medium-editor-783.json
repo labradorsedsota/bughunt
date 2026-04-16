@@ -1,0 +1,18 @@
+{
+  "task_id": "medium-editor-783",
+  "repo": "yabwe/medium-editor",
+  "worker": "worker-06",
+  "status": "completed",
+  "sess_id": "sess-20260416220258-deac53c1b10743cdb3fe141650e462d7",
+  "expected_result_used": true,
+  "duration_seconds": 703,
+  "timestamp": "2026-04-16T22:02:58-07:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 48,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "静态工具栏编辑器清空内容后，点击H2/H3格式化按钮，占位符'Type your text'未消失仍然显示，按钮高亮表示格式已应用但placeholder未正确移除。Bug确认：占位符在格式变化后应消失但实际持续显示",
+    "last_reasoning": "This final screenshot confirms the bug definitively: After clicking H2 (and previously H3) in the static toolbar on an empty editor: 1. The placeholder 'Type your text' STILL shows 2. The static toolbar is hidden (editor is now blurred) 3. The Left Align editor area shows ONLY the placeholder text - the H2 formatting that was applied is NOT creating any visible content. Bug Result: FAIL - The placeholder text does NOT correctly disappear after clicking the static toolbar heading buttons."
+  }
+}
