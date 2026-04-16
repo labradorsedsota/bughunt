@@ -1,0 +1,117 @@
+Session created: sess-20260417003154-0a94b281d4614a9b8ab14c6046212e8f
+UI panel initialized successfully
+UI window displayed
+Expected result: None
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: left_click (640, 308)
+[step 1] Reasoning: I can see FactorioLab is open with the welcome screen showing "Factorio" as the current game mode. I need to switch to Satisfactory mode. Let me click on the game selector dropdown.
+[step 2] Action: left_click (601, 391)
+[step 2] Reasoning: I can see a dropdown with game options including Satisfactory. Let me click on "Satisfactory".
+[step 3] Action: left_click (640, 355)
+[step 3] Reasoning: Satisfactory mode is now selected (URL changed to `localhost:4200/?s=sfy&v=10`). Now I need to click "Add items" to search for Gas Filter.
+[step 4] Action: type: Gas Filter
+[step 4] Reasoning: The "Select an item" dialog is open. I can see a search box. Let me type "Gas Filter" to search for it.
+[step 5] Action: left_click (343, 254)
+[step 5] Reasoning: I can see "Equipment" category appeared with what appears to be a Gas Filter item icon. Let me click on it.
+[step 6] Action: left_click (275, 429)
+[step 6] Reasoning: Gas Filter has been added to the output list. I can see the page now shows "Gas Filter | FactorioLab" in the title and the URL has changed. The Factory section shows the production tree. Now I need to view the Gas Filter recipe details. I can see the first row in the Factory section shows Gas Filter. Let me click on the expand arrow (triangle) next to the Gas Filter row to see recipe details, or click on the item to see recipe details.
+
+Let me click on the small triangle/arrow next to the first row to expand it and see the recipe details.
+[step 7] Action: left_click (401, 468)
+[step 7] Reasoning: I can see the Gas Filter row expanded showing Item, Recipe, Machine, Recipes tabs. Let me click on the "Recipe" tab to see the recipe details.
+[step 8] Action: mouse_move (567, 533)
+[step 8] Reasoning: I can see the Recipe tab is now active and showing "Inputs" section with 3 items:
+- 4 (first item with icon)
+- 2 (second item with icon)
+- 2 (third item with icon)
+
+The quantities are 4, 2, and 2 but the item names are shown as small icons. I need to hover over these icons to identify the materials. Let me hover over each item icon to see their names. Let me first zoom in to see better, or hover over the icons to get tooltips.
+[step 9] Action: mouse_move (567, 570)
+[step 9] Reasoning: I can see "Coal" tooltip appeared when hovering over the first item (4 Coal). Now let me hover over the second item icon to see what it is.
+[step 10] Action: mouse_move (567, 606)
+[step 10] Reasoning: The second item is "Fabric" (2 Fabric). Now let me hover over the third item icon to identify it.
+[step 11] Action: DONE
+[step 11] Reasoning: Excellent! Now I have all the information I need. The third item is "Rubber" (2 Rubber). Let me take a final screenshot to confirm all the recipe details are visible.
+
+The Gas Filter recipe in Satisfactory mode shows the following **Inputs** (required materials):
+
+| Qty | Material |
+|-----|----------|
+| 4   | Coal     |
+| 2   | Fabric   |
+| 2   | Rubber   |
+
+---
+
+## 📋 Gas Filter Recipe — Verified Results (Satisfactory Mode)
+
+Here is what FactorioLab actually shows for the **Gas Filter recipe** in **Satisfactory** game mode:
+
+### ✅ Required Materials (Inputs):
+| Quantity | Material |
+|----------|----------|
+| **4**    | 🪨 **Coal** |
+| **2**    | 🧶 **Fabric** |
+| **2**    | 🔴 **Rubber** |
+
+---
+
+### ❌ Verification of the Proposed Recipe:
+The task asked to verify if the recipe is: **2 Fabric, 4 Coal, 2 Iron Plate**
+
+| Proposed Material | Proposed Qty | Actual Material | Actual Qty | Match? |
+|---|---|---|---|---|
+| Fabric | 2 | Fabric | 2 | ✅ Correct |
+| Coal | 4 | Coal | 4 | ✅ Correct |
+| Iron Plate | 2 | **Rubber** | 2 | ❌ **WRONG** |
+
+### 🔍 Conclusion:
+The recipe is **NOT exactly** as proposed. The quantities of **Fabric (2)** and **Coal (4)** are correct, but the **third ingredient is Rubber (2), NOT Iron Plate (2)**. The actual Gas Filter recipe in Satisfactory mode requires **4 Coal, 2 Fabric, and 2 Rubber**.
+
+==================================================
+Task: Chrome is open on factoriolab at http://localhost:4200. Task: Check Gas Filter recipe in Satisfactory mode. Steps: 1) Switch to Satisfactory game mode if not already selected. 2) Add Gas Filter item to the output list (search for it). 3) View Gas Filter recipe details and check required materials. 4) Verify if the recipe is: 2 Fabric, 4 Coal, 2 Iron Plate. Report what materials are shown. Stay in browser only.
+Status: COMPLETED
+Total steps: 11
+Last action: DONE
+Last reasoning: Excellent! Now I have all the information I need. The third item is "Rubber" (2 Rubber). Let me take a final screenshot to confirm all the recipe details are visible.
+
+The Gas Filter recipe in Satisfactory mode shows the following **Inputs** (required materials):
+
+| Qty | Material |
+|-----|----------|
+| 4   | Coal     |
+| 2   | Fabric   |
+| 2   | Rubber   |
+
+---
+
+## 📋 Gas Filter Recipe — Verified Results (Satisfactory Mode)
+
+Here is what FactorioLab actually shows for the **Gas Filter recipe** in **Satisfactory** game mode:
+
+### ✅ Required Materials (Inputs):
+| Quantity | Material |
+|----------|----------|
+| **4**    | 🪨 **Coal** |
+| **2**    | 🧶 **Fabric** |
+| **2**    | 🔴 **Rubber** |
+
+---
+
+### ❌ Verification of the Proposed Recipe:
+The task asked to verify if the recipe is: **2 Fabric, 4 Coal, 2 Iron Plate**
+
+| Proposed Material | Proposed Qty | Actual Material | Actual Qty | Match? |
+|---|---|---|---|---|
+| Fabric | 2 | Fabric | 2 | ✅ Correct |
+| Coal | 4 | Coal | 4 | ✅ Correct |
+| Iron Plate | 2 | **Rubber** | 2 | ❌ **WRONG** |
+
+### 🔍 Conclusion:
+The recipe is **NOT exactly** as proposed. The quantities of **Fabric (2)** and **Coal (4)** are correct, but the **third ingredient is Rubber (2), NOT Iron Plate (2)**. The actual Gas Filter recipe in Satisfactory mode requires **4 Coal, 2 Fabric, and 2 Rubber**.
+
+==================================================
+
+UI window closed
