@@ -38,14 +38,14 @@ cd bughunt-dispatch
 
 按 `worker` 分组，每个 Worker 的卡作为一批。
 
-### 步骤 3：向每个 Worker 发送 3 类消息
+### 步骤 3：向每个 Worker 发送 2 条消息
 
 **严格按顺序，每条间隔 200-300ms。**
 
-#### 消息 1：派发指令（必须 @Worker）
+#### 消息 1：派发指令（不需要 mention）
 
 ```
-@{worker名} 📋 第 {batch} 批任务（共 {N} 张）
+📋 第 {batch} 批任务（共 {N} 张）
 
 任务列表：
 1. {task_id_1}
@@ -59,15 +59,10 @@ cd bughunt-dispatch
 同项目多张卡共享 clone + install，只需切换 buggy_commit。
 ```
 
-payload **必须** 带 mention 字段：
-```json
-{"mention": {"uids": ["{worker_uid}"]}}
-```
-
-#### 消息 2：汇报规则（不需要 mention）
+#### 消息 2：汇报规则（必须 @Worker，payload 带 mention 字段）
 
 ```
-⚠️ 汇报规则（必须遵守）：
+@{worker名} ⚠️ 汇报规则（必须遵守）：
 
 1. 收到任务 → @Pichai 回复"收到，开始执行第 {batch} 批"
 2. 每完成 1 个 case → @Pichai 发状态（✅/❌/⚠️ task_id | 耗时 | 判定 | 摘要）
@@ -85,15 +80,12 @@ payload **必须** 带 mention 字段：
 现在请先 @Pichai 回复 ACK。
 ```
 
-#### 消息 3-N：逐张发任务卡 JSON（不需要 mention）
-
-从 `tasks/pool-clean/{task_id}.json` 读取 JSON（**注意是 pool-clean，不是 pool！**），每张卡一条：
-
+payload **必须** 带 mention 字段：
+```json
+{"mention": {"uids": ["{worker_uid}"]}}
 ```
-📄 任务卡 {序号}/{总数}: {task_id}
 
-{JSON 内容，pretty-print}
-```
+**不需要逐张发任务卡 JSON。** Worker 自行从 repo 的 `tasks/pool-clean/` 读取。
 
 ### 步骤 4：清理
 
