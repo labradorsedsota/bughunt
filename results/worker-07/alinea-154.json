@@ -1,0 +1,22 @@
+{
+  "task_id": "alinea-154",
+  "repo": "alineacms/alinea",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T20:40:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "monorepo 构建链无法完成：esbx build 超过 3 分钟仍挂起，不生成 JS 产物。@alinea/ui 等本地包无 dist/index.js，Next.js 启动报 Module not found。better-sqlite3 在 Node 23 编译失败，切 Node 18 后 yarn install 通过，但 esbx build 仍无法完成。",
+    "attempted": [
+      "Node 23 yarn install → better-sqlite3 编译失败",
+      "切 Node 18 yarn install → 成功，但 esbx build 挂起 3+ 分钟无 JS 产出",
+      "手动创建空 generated.css 绕过 CSS 缺失 → Next.js 启动但报 @alinea/ui 找不到",
+      "等待 esbx build 180 秒后检查 → packages/ui/dist/ 只有 .d.ts 无 .js"
+    ],
+    "recommendation": "跳过。项目 monorepo 构建依赖 esbx 自定义工具链，esbx build 可能有未解决的依赖或配置问题。"
+  }
+}

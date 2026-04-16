@@ -1,0 +1,20 @@
+{
+  "task_id": "alinea-205",
+  "repo": "alineacms/alinea",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T20:41:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "同项目 alinea，构建链相同（esbx monorepo）。alinea-154 已确认 esbx build 挂起无法生成 JS 产物，@alinea/ui 等本地包无 dist，Next.js 无法启动。不同 commit 不影响构建工具链。",
+    "attempted": [
+      "alinea-154 已尝试: Node 23 → Node 18、yarn install、esbx build 等待 3+ 分钟",
+      "同项目连续失败，按手册跳过"
+    ],
+    "recommendation": "同 alinea-154，跳过。esbx 构建工具链在当前环境无法完成编译。"
+  }
+}

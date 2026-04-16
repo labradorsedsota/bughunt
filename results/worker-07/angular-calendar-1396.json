@@ -1,0 +1,26 @@
+{
+  "task_id": "angular-calendar-1396",
+  "worker": "worker-07",
+  "status": "tool_error",
+  "result": "unclear",
+  "timestamp": "2026-04-16T21:12:00-07:00",
+  "repo": "mattlewis92/angular-calendar",
+  "buggy_commit": "dd7a99eeea",
+  "deploy_status": "success",
+  "deploy_notes": "npm install with --legacy-peer-deps --ignore-scripts, replaced node-sass with sass@1.32, installed highlight.js, fixed rrule import. Node 16 required. ng serve compiled successfully on port 4200.",
+  "mano_cua_session_ids": [
+    "sess-20260416204425-55e0d5ac724946a0ba22926ddff9bbdc",
+    "sess-20260416210039-507ce7efaad84735917969789c6f863b",
+    "sess-20260416210830-0e98dd7e18ce46c6a6aa62da2ae829c2"
+  ],
+  "mano_cua_result": "tool_error",
+  "reasoning": "mano-cua 无法在 Chrome 中注册点击事件。3 次尝试均失败：(1) 翻译栏出现后所有点击无响应 (2) 禁用翻译后仍然点击无响应 (3) 指示不最小化面板后仍然无法点击。Day/Week/Month 按钮、右键菜单、Chrome 菜单栏、DevTools 快捷键全部无效。部署本身成功，curl 返回 200。",
+  "failure_category": "mano_cua_interaction_failure",
+  "attempts": 3,
+  "checklist": {
+    "deploy_verified": true,
+    "mano_cua_ran": true,
+    "result_based_on_observation": true,
+    "no_fabricated_data": true
+  }
+}
