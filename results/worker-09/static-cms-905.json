@@ -1,0 +1,18 @@
+{
+  "task_id": "static-cms-905",
+  "repo": "StaticJsCMS/static-cms",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260416195629-59dfc1ce301d41ce8c72ed14f9ae5844",
+  "expected_result_used": true,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-16T19:56:29+08:00",
+  "mano_cua": {
+    "status": "TIMEOUT",
+    "total_steps": 47,
+    "last_action": "key: ctrl+shift+i",
+    "result": "unclear",
+    "result_summary": "在 Kitchen Sink 集合中找到 Related Post (relation widget)。点击后下拉列表正常显示帖子列表，输入 'post' 可过滤。但 mano-cua 在尝试使用 DevTools 检查焦点环样式时陷入右键菜单循环（context menu 反复弹出），导致超时被杀。从可见截图观察：(1) relation widget 获得焦点时焦点环不明显或缺失；(2) 下拉列表正常显示帖子列表不被遮挡；(3) 加载图标与箭头图标间距未能详细检查。因 DevTools 循环卡死，无法完成全部检查项。",
+    "last_reasoning": "mano-cua 陷入 DevTools console 右键菜单循环，无法继续操作。超时被杀。"
+  }
+}

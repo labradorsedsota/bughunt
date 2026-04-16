@@ -1,0 +1,18 @@
+{
+  "task_id": "static-cms-937",
+  "repo": "StaticJsCMS/static-cms",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260416202606-e96abc3f13b749c18d5a129d18348f17",
+  "expected_result_used": true,
+  "duration_seconds": 420,
+  "timestamp": "2026-04-16T20:26:06+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 21,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Bug 复现。i18n Playground 新建条目中，双栏分屏布局的语言切换功能存在数据交叉污染。在右栏 FR（法语）模式下 Description 输入 'Test i18n Beitrag'，切换回 DE（德语）后 Description 字段仍显示相同内容。DE 和 FR 的字段共享同一数据状态，语言切换下拉仅改变标签未切换底层数据绑定。附加发现：右栏 Slug 字段不可编辑（显示灰色占位符继承 EN 值，点击无法聚焦）。语言切换按钮本身不崩溃不白屏。",
+    "last_reasoning": "FR Description 输入的 'Test i18n Beitrag' 在切换到 DE 后仍然显示。右侧语言面板字段数据跨语言共享而非独立存储。Bug 确认。"
+  }
+}

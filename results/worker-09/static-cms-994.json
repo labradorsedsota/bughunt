@@ -1,0 +1,18 @@
+{
+  "task_id": "static-cms-994",
+  "repo": "StaticJsCMS/static-cms",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260416203940-97b823e272034f5e9bbb457a4f497cac",
+  "expected_result_used": true,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-16T20:39:40+08:00",
+  "mano_cua": {
+    "status": "TIMEOUT",
+    "total_steps": 39,
+    "last_action": "key: Down",
+    "result": "abnormal",
+    "result_summary": "Bug 确认。预览面板完全不渲染 Body 内容。Posts 集合打开 'This is post # 1' 后，预览面板仅显示 Title、Cover Image 和 Written 日期，Body 区域以下全部空白。即使未插入表格，预览已不显示任何 Body 内容（链接、粗体、普通文本、代码、图片等均不可见）。在 step 14 成功通过工具栏插入 2x2 表格后，预览面板状态无变化（仍空白）。mano-cua 在尝试定位编辑器末尾添加额外文本时因 End 键跳至文档尾部、编辑器导航困难最终超时。核心观测：预览面板 Body 渲染完全失败，与表格插入无直接因果关系——属于预览面板整体渲染 bug。",
+    "last_reasoning": "导航回 Posts 列表重新打开同一文章后，预览面板仍然为空（无 Body 内容），确认为预加载状态就存在的 bug，非由表格插入触发。"
+  }
+}
