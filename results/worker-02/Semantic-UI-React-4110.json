@@ -1,0 +1,27 @@
+{
+  "task_id": "Semantic-UI-React-4110",
+  "repo": "Semantic-Org/Semantic-UI-React",
+  "issue_number": 4110,
+  "pr_number": 4144,
+  "buggy_commit": "0fadae0581",
+  "fix_commit": "ad261ddd9d",
+  "worker": "worker-02",
+  "timestamp": "2026-04-17T03:55:00+08:00",
+  "result": "normal",
+  "confidence": "high",
+  "steps_used": 28,
+  "max_steps": 80,
+  "session_id": "sess-20260417035031-5d5687c40ccd4c5580a588e80c9a3b93",
+  "reasoning": "Sidebar.Pushable与Modal交互正常，未复现bug。测试流程：1)导航到Sidebar页面→点击Overlay按钮→侧边栏正常显示(Home/Games/Channels)→再次点击→正常关闭；2)导航到Modal页面→点击Show Modal→Modal正常弹出(Select a Photo)→点击Nope关闭→Modal正常关闭；3)返回Sidebar页面→点击Overlay→侧边栏仍正常显示→再次点击→正常关闭。Modal打开/关闭前后Sidebar toggle行为一致，无状态异常。注意：文档站点中Sidebar和Modal在不同页面，非同一Pushable容器内，测试的是跨页面场景而非issue描述的同容器内场景。",
+  "observations": [
+    "Sidebar页面Transitions示例包含Overlay/Push/Scale Down/Uncover/Slide Along/Slide Out按钮",
+    "首次点击Overlay→侧边栏正常显示(Home/Games/Channels菜单)→再次点击→正常关闭",
+    "导航到Modal页面→Show Modal→Modal正常弹出(Select a Photo对话框)→点击Nope→正常关闭",
+    "返回Sidebar页面→点击Overlay→侧边栏仍正常显示→再次点击→正常关闭",
+    "文档站点中Sidebar和Modal示例在不同页面，非同一Pushable容器内共存的场景",
+    "Modal交互前后Sidebar toggle行为完全一致，无功能异常"
+  ],
+  "deploy_method": "npx cross-env NODE_ENV=development gulp --series start:docs",
+  "deploy_notes": "复用上一case的node_modules(v2.0 commit)，直接切commit启动成功",
+  "log_file": "logs/Semantic-UI-React-4110.log"
+}
