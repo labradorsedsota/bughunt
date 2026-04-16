@@ -1,0 +1,23 @@
+{
+  "task_id": "media-chrome-814",
+  "repo": "muxinc/media-chrome",
+  "worker": "worker-05",
+  "status": "completed",
+  "sess_id": "sess-20260417023956-02b927c34a93453bad92d446e716a050",
+  "expected_result_used": true,
+  "duration_seconds": 600,
+  "timestamp": "2026-04-17T02:50:00+08:00",
+  "mano_cua": {
+    "status": "TIMEOUT",
+    "total_steps": 116,
+    "last_action": "left_click",
+    "result": "normal",
+    "result_summary": "菜单项各区域点击均正常触发：Console记录3条ITEM CLICKED消息，分别对应前缀图标区域、文本区域(Speed)、后缀箭头区域(>)的点击。菜单交互正常工作。mano-cua超时但已完成核心测试。",
+    "last_reasoning": "Console showed 3 ITEM CLICKED messages confirming clicks on prefix icon area, text label 'Speed', and suffix arrow '>' all triggered events. Menu interaction works correctly across all areas."
+  },
+  "deploy_notes": {
+    "port": 8000,
+    "url": "http://localhost:8000/examples/vanilla/control-elements/media-settings-menu.html",
+    "node_version": "18.20.8"
+  }
+}
