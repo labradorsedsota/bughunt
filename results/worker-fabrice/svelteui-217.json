@@ -1,0 +1,17 @@
+{
+  "task_id": "svelteui-217",
+  "repo": "svelteuidev/svelteui",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T00:17:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "buggy_commit b63396ea58 在仓库完整历史（961 commits）中不存在，疑似被 force push 覆盖",
+    "attempted": ["git clone via SSH 成功", "git checkout 失败，commit 不存在"],
+    "recommendation": "仓库历史已被重写，所有 svelteui 任务卡的 buggy_commit 需要更新"
+  }
+}

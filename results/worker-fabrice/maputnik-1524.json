@@ -1,0 +1,20 @@
+{
+  "task_id": "maputnik-1524",
+  "repo": "maplibre/maputnik",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T23:33:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "仓库 ~190MB，git clone 和 fetch --unshallow 均因网络中断失败（curl 18/92 错误）",
+    "attempted": [
+      "git clone --depth 50 + fetch --unshallow（HTTP/2 stream 中断）",
+      "全量 git clone HTTP/1.1 + postBuffer 512MB（curl 18 传输中断）"
+    ],
+    "recommendation": "需要更稳定的网络环境或预置 clone"
+  }
+}

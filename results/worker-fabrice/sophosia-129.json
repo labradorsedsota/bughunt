@@ -1,0 +1,20 @@
+{
+  "task_id": "sophosia-129",
+  "repo": "sophosia/sophosia",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T20:40:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "buggy_commit 3e1ea09ea3 在仓库完整历史（86 commits）中不存在，可能已被 force push 覆盖",
+    "attempted": [
+      "git clone --depth 50 + checkout（commit 不在浅历史）",
+      "git fetch --unshallow（获取全部 86 commits，commit 仍不存在）"
+    ],
+    "recommendation": "该 commit 可能已被 rebase/force push 删除，任务卡需更新 buggy_commit"
+  }
+}
