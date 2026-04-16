@@ -1,10 +1,10 @@
 {
   "version": "2.0",
-  "updated_at": "2026-04-16T14:25:51+08:00",
+  "updated_at": "2026-04-16T14:39:52+08:00",
   "summary": {
     "total": 727,
-    "unassigned": 678,
-    "assigned": 13,
+    "unassigned": 683,
+    "assigned": 8,
     "dispatched": 0,
     "in_progress": 4,
     "completed": 32,
@@ -18,7 +18,7 @@
       "assigned_at": "2026-04-16T10:30:00+08:00",
       "completed_at": "2026-04-16T11:15:00+08:00",
       "result": "deploy_failed",
-      "note": "Next.js SSR localStorage error [也被worker-fabrice执行: deploy_failed]"
+      "note": "⚠️ 重复执行：worker-02(batch1) + worker-09(batch1) + worker-fabrice(batch2)，均为deploy_failed"
     },
     "Analog-259": {
       "status": "unassigned"
@@ -30,7 +30,7 @@
       "assigned_at": "2026-04-16T11:29:00+08:00",
       "completed_at": "2026-04-16T12:25:00+08:00",
       "result": "unclear",
-      "note": "Tauri桌面应用，Chrome看到渲染但非原生 [也被worker-fabrice执行: abnormal]"
+      "note": "⚠️ 重复执行：worker-09(batch1) + worker-fabrice(batch2)"
     },
     "BongoCat-438": {
       "status": "completed",
@@ -657,34 +657,24 @@
       "status": "unassigned"
     },
     "editor.js-2084": {
-      "status": "assigned",
-      "worker": "worker-03",
-      "batch": 3,
-      "assigned_at": "2026-04-16T14:20:00+08:00"
+      "status": "unassigned",
+      "note": "后续分配给worker-03（林菡指定）"
     },
     "editor.js-2089": {
-      "status": "assigned",
-      "worker": "worker-03",
-      "batch": 3,
-      "assigned_at": "2026-04-16T14:20:00+08:00"
+      "status": "unassigned",
+      "note": "后续分配给worker-03（林菡指定）"
     },
     "editor.js-2208": {
-      "status": "assigned",
-      "worker": "worker-03",
-      "batch": 3,
-      "assigned_at": "2026-04-16T14:20:00+08:00"
+      "status": "unassigned",
+      "note": "后续分配给worker-03（林菡指定）"
     },
     "editor.js-2261": {
-      "status": "assigned",
-      "worker": "worker-03",
-      "batch": 3,
-      "assigned_at": "2026-04-16T14:20:00+08:00"
+      "status": "unassigned",
+      "note": "后续分配给worker-03（林菡指定）"
     },
     "editor.js-2297": {
-      "status": "assigned",
-      "worker": "worker-03",
-      "batch": 3,
-      "assigned_at": "2026-04-16T14:20:00+08:00"
+      "status": "unassigned",
+      "note": "后续分配给worker-03（林菡指定）"
     },
     "editor.js-2386": {
       "status": "unassigned"
@@ -1212,7 +1202,7 @@
       "assigned_at": "2026-04-16T12:33:00+08:00",
       "completed_at": "2026-04-16T13:33:00+08:00",
       "result": "normal",
-      "note": "锚点预览功能正常 [也被worker-fabrice执行过: normal]"
+      "note": "⚠️ 重复执行：worker-02(batch2) + worker-fabrice(试跑)，均为normal/completed"
     },
     "medium-editor-1057": {
       "status": "completed",
@@ -1321,7 +1311,7 @@
       "worker": "worker-05",
       "batch": 1,
       "assigned_at": "2026-04-16T12:33:00+08:00",
-      "note": "BLOCKED: macOS屏幕录制权限未授予，等待修复 [也被worker-fabrice执行过: deploy_failed]"
+      "note": "⚠️ 重复：assigned给worker-05(blocked) + worker-fabrice(试跑,deploy_failed)"
     },
     "mint-ui-290": {
       "status": "assigned",
