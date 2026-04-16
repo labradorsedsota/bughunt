@@ -1,0 +1,24 @@
+{
+  "task_id": "react-timeline-9000-35",
+  "repo": "React9k/react-timeline-9000",
+  "worker": "worker-05",
+  "status": "completed",
+  "sess_id": "sess-20260417041140-d61c36c875274be2bcd725f507f4ddfb",
+  "expected_result_used": true,
+  "duration_seconds": 600,
+  "timestamp": "2026-04-17T04:22:00+08:00",
+  "mano_cua": {
+    "status": "TIMEOUT",
+    "total_steps": 80,
+    "last_action": "screenshot",
+    "result": "abnormal",
+    "result_summary": "拖拽条目后Item Click事件被意外触发：Console日志显示dragEnd后紧跟Item Click 94事件，导致条目选中状态被意外改变。dragStart显示Array(0)而之前Item Click应已选中item 94，说明React异步setState与拖拽事件存在竞态条件。拖拽操作不应触发click选中。",
+    "last_reasoning": "Console shows dragEnd fires then Item Click 94 fires immediately after drag, which toggles selection state unexpectedly. dragStart shows Array(0) even after Item Click should have set selectedItems to [94], confirming async setState race condition with drag events."
+  },
+  "deploy_notes": {
+    "port": 8080,
+    "url": "http://localhost:8080",
+    "node_version": "16.20.2",
+    "deploy_fix": "CHOKIDAR_USEPOLLING=true, removed fsevents"
+  }
+}
