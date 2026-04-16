@@ -1,0 +1,18 @@
+{
+  "task_id": "vue-pdf-125",
+  "repo": "TaTo30/vue-pdf",
+  "worker": "worker-08",
+  "status": "completed",
+  "sess_id": "sess-20260416213326-39ebfb6abba4456592c6e0c47b59d2ad",
+  "expected_result_used": true,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-16T21:48:28+08:00",
+  "mano_cua": {
+    "status": "TIMEOUT",
+    "total_steps": 70,
+    "last_action": "DONE",
+    "result": "unclear",
+    "result_summary": "PDF 正常加载渲染为 canvas，但 App.vue 未启用 text-layer 和 highlight-text 功能。页面无搜索 UI，无文本层，无高亮功能入口。mano-cua 通过 DOM 检查和源码确认 VuePDF 组件仅使用 :pdf='pdf' prop，未配置文本层或高亮。跨行连字符高亮功能无法测试。",
+    "last_reasoning": "The text highlight search functionality for cross-line hyphenated words cannot be found or tested in the current demo page. The demo only shows basic PDF canvas rendering without the text layer or highlight features."
+  }
+}
