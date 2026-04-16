@@ -1,0 +1,20 @@
+{
+  "task_id": "react-page-1262",
+  "repo": "react-page/react-page",
+  "worker": "worker-09",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T18:17:29+00:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Next.js examples 启动失败: ERR_PACKAGE_PATH_NOT_EXPORTED - Package subpath './lib/parser' is not defined by exports in postcss/package.json。Next.js 10 + webpack 4 + postcss-scss 在 Node 23 上不兼容。",
+    "attempted": [
+      "npm install --legacy-peer-deps（安装成功但运行时postcss报错）",
+      "NODE_OPTIONS=--openssl-legacy-provider（无法解决postcss exports问题）"
+    ],
+    "recommendation": "需要 Node 14-18 运行 Next.js 10，或升级 Next.js 版本"
+  }
+}

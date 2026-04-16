@@ -1,0 +1,18 @@
+{
+  "task_id": "blinko-1138",
+  "repo": "blinkospace/blinko",
+  "issue_number": 1138,
+  "pr_number": 1142,
+  "buggy_commit": "428a822980",
+  "fix_commit": "f8cfb52d57",
+  "timestamp": "2026-04-16T16:51:50+00:00",
+  "session_id": null,
+  "status": "deploy_failed",
+  "result": "deploy_failed",
+  "total_steps": 0,
+  "reason": "Blinko 需要 PostgreSQL 数据库（docker-compose.yml 依赖 postgres:14），本机未安装 PostgreSQL，Prisma 无法连接数据库，服务端无法启动。",
+  "remarks": "Blinko 是全栈应用（Vite 前端 + Bun 后端 + Prisma ORM + PostgreSQL），不支持纯前端 dev 模式。所有 blinko case 统一标记 deploy_failed。",
+  "dev_url": "http://localhost:3000",
+  "deploy_success": false,
+  "mano_cua_success": false
+}
