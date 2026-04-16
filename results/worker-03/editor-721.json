@@ -1,0 +1,18 @@
+{
+  "task_id": "editor-721",
+  "repo": "mdx-editor/editor",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260417022320-87d4d1bfc2e141b88311d96e865a05dd",
+  "expected_result_used": true,
+  "duration_seconds": 360,
+  "timestamp": "2026-04-17T02:35:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 31,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "从链接外部拖拽选择文本并在链接内部释放鼠标时，链接编辑提示框（tooltip）不恰当弹出。从外部拖入链接结束 → tooltip 弹出（Bug）；从链接内部拖出 → 不弹出（正常）；完全经过链接拖到外部 → 不弹出（正常）。",
+    "last_reasoning": "drag 从 'Some informative text' 开始，在 'A link' 上释放 → 链接 tooltip 弹出显示 https://google.com/ 及编辑/复制/取消链接按钮。这是拖拽选择操作，不是点击，tooltip 不应出现。"
+  }
+}

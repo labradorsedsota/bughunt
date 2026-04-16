@@ -1,0 +1,18 @@
+{
+  "task_id": "editor-706",
+  "repo": "mdx-editor/editor",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260417021101-fa3c8939516b4a9ca785acf4a191ac9a",
+  "expected_result_used": true,
+  "duration_seconds": 480,
+  "timestamp": "2026-04-17T02:25:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 44,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "列表项内换行符在 Source mode 往返后丢失。Shift+Enter 创建列表内换行 → Source mode 复制 → 清空编辑器 → Source mode 粘贴 → 切回 Rich text mode 后，两行文本合并为一行：'First line of list itemSecond line after line break'，换行符完全丢失。",
+    "last_reasoning": "Source mode 显示 line 5 为 '- First line of list itemSecond line after line break'，原本分隔在两行的文本合并到一行，换行符在 rich-text → source → rich-text 的往返中丢失。"
+  }
+}
