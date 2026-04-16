@@ -1,0 +1,38 @@
+{
+  "task_id": "mint-ui-307",
+  "repo": "ElemeFE/mint-ui",
+  "worker": "worker-05",
+  "status": "completed",
+  "sess_id": "sess-20260416181218-a35247fcf91c4ac3ad2198b210d9396a",
+  "expected_result_used": true,
+  "duration_seconds": 600,
+  "timestamp": "2026-04-16T18:24:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 63,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Switch组件样式bug确认：(1) 未选中状态(false)下存在多余的灰色边框环，选中状态(true)正常无边框；(2) 点击Switch触发浏览器右键上下文菜单而非正常切换。",
+    "bugs_found": [
+      {
+        "id": "BUG-01",
+        "location": "Switch组件 未选中状态",
+        "description": "Switch在false状态下有多余的灰色边框环（双层圆圈样式），true状态下正常无边框。所有value=false的Switch都受影响。",
+        "severity": "medium"
+      },
+      {
+        "id": "BUG-02",
+        "location": "Switch组件 点击交互",
+        "description": "左键点击Switch触发浏览器右键上下文菜单而非正常切换。Switch状态无法可靠切换。",
+        "severity": "high"
+      }
+    ],
+    "last_reasoning": "Switch在未选中状态有多余灰色边框环，选中状态正常。点击交互触发右键菜单。CSS可能与Safari 10兼容问题相关。"
+  },
+  "deploy_notes": {
+    "port": 8790,
+    "url": "http://localhost:8790/#/switch",
+    "node_version": "16.20.2",
+    "vue_version": "2.6.14"
+  }
+}
