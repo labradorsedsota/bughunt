@@ -1,0 +1,22 @@
+{
+  "task_id": "Semantic-UI-React-2221",
+  "repo": "Semantic-Org/Semantic-UI-React",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T17:40:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "other",
+    "symptom": "mano-cua 屏幕录制权限异常，Chrome 窗口在 CUA 截图中不可见。screencapture 命令报 'could not create image from display'。连续 3 次执行（sess-170355/172255/173012）均失败。",
+    "attempted": [
+      "关闭重开 Chrome + osascript activate + set bounds",
+      "新建 Chrome 窗口",
+      "caffeinate 唤醒显示器",
+      "pkill Chrome 后完全重启"
+    ],
+    "recommendation": "物理检查 Mac Mini 屏幕状态，确认 mano-cua 的 macOS 屏幕录制权限"
+  }
+}
