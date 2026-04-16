@@ -1,0 +1,16 @@
+{
+  "task_id": "open5e-694",
+  "repo": "open5e/open5e",
+  "worker": "worker-03",
+  "status": "deploy_failed",
+  "expected_result_used": false,
+  "duration_seconds": 60,
+  "timestamp": "2026-04-16T19:25:00+08:00",
+  "mano_cua": {
+    "status": "SKIPPED",
+    "total_steps": 0,
+    "result": "unclear",
+    "result_summary": "外部API依赖不可用。open5e前端依赖api.open5e.com的v2 API获取怪物数据，但该API当前返回HTML而非JSON（疑似Cloudflare拦截或API下线）。v1 API可用但应用使用v2。所有怪物详情页SSR渲染内容为空，客户端也无法加载数据导致TypeError崩溃。无法测试Languages字段渲染。",
+    "last_reasoning": "API dependency: composables/api.ts uses v2 endpoints (v2/monsters/), but https://api.open5e.com/v2/monsters/srd_veteran/ returns HTML not JSON. The v1 endpoint works (returns JSON) but the app is hardcoded to v2. All monster detail pages render empty on SSR and crash on client with TypeError: Cannot read properties of undefined."
+  }
+}
