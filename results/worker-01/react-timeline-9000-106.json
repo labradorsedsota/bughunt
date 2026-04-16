@@ -1,0 +1,18 @@
+{
+  "task_id": "react-timeline-9000-106",
+  "repo": "React9k/react-timeline-9000",
+  "worker": "worker-01",
+  "status": "completed",
+  "sess_id": "sess-20260416235901-58d191b2a66e4e53b4fbab45e2d27304",
+  "expected_result_used": false,
+  "duration_seconds": 800,
+  "timestamp": "2026-04-17T00:12:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 80,
+    "last_action": "mouse_move (1100, 400)",
+    "result": "abnormal",
+    "result_summary": "Top timebar(major timebar)存在两个bug：(1)光标位置指示器'[Day 220 - 09:15]'同时显示在所有年份标签中(2000和2001都显示cursor位置)，应只显示在cursor所在年份；(2)当时间范围跨月份时(如Jan-Feb)，底部timebar的February标签被截断只显示'F'。月份级别的bottom timebar正确显示不同月份(January/February/March/April)在对应位置，但年份级别时2001标签不可见或被截断。",
+    "last_reasoning": "Timebar analysis: Top timebar shows '2000 [Day 220 - 09:15]' and '2001 [Day 220 - 09:15]' - cursor indicator appears in both year labels which is incorrect. Bottom timebar shows '2000' and divider then right section with label cut off. At month zoom level, bottom timebar correctly shows January/February/March/April at their positions."
+  }
+}
