@@ -33,11 +33,11 @@
 ```
 Pichai 选卡 → 更新 dispatch-log.json（status: assigned）→ push
     ↓
-Mycroft 读 dispatch-log.json → 找 status=assigned 的卡 → 发消息给 Worker → 标记 status=dispatched → push
+Mycroft 读 dispatch-log.json → 找 status=assigned 的卡 → 发消息给 Worker（Mycroft 不改 dispatch-log）
     ↓
 Worker ACK → 林菡通知 Pichai → Pichai 更新 status=in_progress → push
     ↓
-Worker 逐 case 完成 → 林菡通知 Pichai → Pichai 更新 status=completed（填 result）→ push
+Worker 逐 case 完成 → 林菡通知 Pichai → Pichai 更新 status=completed/failed（填 result）→ push
     ↓
 批次完成 → Pichai 选下一批 → 循环
 ```
@@ -54,17 +54,16 @@ Worker 逐 case 完成 → 林菡通知 Pichai → Pichai 更新 status=complete
     "total": 727,
     "unassigned": 699,
     "assigned": 0,
-    "dispatched": 0,
     "in_progress": 20,
-    "completed": 8
+    "completed": 8,
+    "failed": 0
   },
   "tasks": {
     "task_id": {
-      "status": "unassigned|assigned|dispatched|in_progress|completed",
+      "status": "unassigned|assigned|in_progress|completed|failed",
       "worker": "worker-02",
       "batch": 2,
       "assigned_at": "2026-04-16T12:33:00+08:00",
-      "dispatched_at": "2026-04-16T12:35:00+08:00",
       "completed_at": "2026-04-16T13:20:00+08:00",
       "result": "abnormal|normal|unclear|deploy_failed|timeout|mano_cua_error",
       "note": "备注"
@@ -76,8 +75,10 @@ Worker 逐 case 完成 → 林菡通知 Pichai → Pichai 更新 status=complete
 ### 状态流转
 
 ```
-unassigned → assigned（Pichai 选卡）→ dispatched（Mycroft 发送完成）→ in_progress（Worker ACK）→ completed（Worker 完成）
+unassigned → assigned（Pichai 选卡）→ in_progress（Worker ACK）→ completed/failed（Worker 完成）
 ```
+
+所有状态变更由 Pichai 操作，Mycroft 不修改 dispatch-log。
 
 ---
 

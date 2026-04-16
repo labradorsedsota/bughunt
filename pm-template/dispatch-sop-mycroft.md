@@ -6,12 +6,13 @@
 
 ## 一、你的职责
 
-**读 dispatch-log.json → 找待发送的卡 → 发消息给 Worker → 标记已发送 → push**
+**读 dispatch-log.json → 找待发送的卡 → 发消息给 Worker**
 
 你不需要：
 - 决定哪个 Worker 跑哪些卡（Pichai 决定）
 - 判断 Worker 状态或异常（Pichai 处理）
 - 理解任务卡内容（你只是搬运）
+- **修改 dispatch-log.json**（所有状态变更由 Pichai 操作）
 
 ---
 
@@ -88,22 +89,7 @@ payload **必须** 带 mention 字段：
 {JSON 内容，pretty-print}
 ```
 
-### 步骤 4：更新 dispatch-log.json
-
-所有消息发送完毕后：
-1. 把刚发送的卡的 `status` 从 `assigned` 改为 `dispatched`
-2. 添加 `dispatched_at` 时间戳
-3. 更新 `summary` 中的统计数字
-
-### 步骤 5：push
-
-```bash
-git add pm-template/dispatch-log.json
-git commit -m "dispatch-log: Mycroft 已发送 worker-XX 第 N 批"
-git push origin main
-```
-
-### 步骤 6：清理
+### 步骤 4：清理
 
 ```bash
 rm -rf /tmp/bughunt-dispatch
@@ -154,4 +140,4 @@ curl -s -X POST "https://im.deepminer.com.cn/api/v1/bot/sendMessage" \
 1. **绝对不读 `tasks/pool/`** — 那里有 ground_truth，只用 `tasks/pool-clean/`
 2. **不自行决定派发哪些卡** — 只发 dispatch-log.json 中 `status: assigned` 的
 3. **不修改任务卡内容** — 原样发送 JSON
-4. **发完必须更新 dispatch-log.json 并 push** — 不能只发消息不记录
+4. **不修改 dispatch-log.json** — 所有状态变更由 Pichai 操作
