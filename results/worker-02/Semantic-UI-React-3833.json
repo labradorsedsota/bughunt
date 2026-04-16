@@ -1,0 +1,18 @@
+{
+  "task_id": "Semantic-UI-React-3833",
+  "repo": "Semantic-Org/Semantic-UI-React",
+  "worker": "worker-02",
+  "status": "completed",
+  "sess_id": "sess-20260417020102-f58099bc1e9e4017ad02a978517b55f4",
+  "expected_result_used": true,
+  "duration_seconds": 720,
+  "timestamp": "2026-04-17T02:13:00+08:00",
+  "mano_cua": {
+    "status": "TIMEOUT_KILL",
+    "total_steps": 80,
+    "last_action": "type: 2",
+    "result": "abnormal",
+    "result_summary": "Dropdown disabled选项在search+selection模式下可通过Enter键被选中。multiple模式：输入Choice 2过滤至仅剩disabled选项后按Enter，disabled选项被添加为tag（Choice 2 ×），不应被选中。single模式：同样按Enter后disabled选项被选中为当前值。blur测试：multiple模式下blur正确（未选中disabled），single模式下blur也选中了disabled选项。",
+    "last_reasoning": "在single search+selection模式下通过Enter键和blur均可选中disabled选项。在multiple search+selection模式下Enter键可选中disabled选项，blur正确排除。disabled选项未被正确保护，与expected_result一致——存在bug。"
+  }
+}
