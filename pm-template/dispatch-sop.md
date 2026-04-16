@@ -88,9 +88,14 @@ unassigned → assigned（Pichai 选卡）→ in_progress（Worker ACK）→ com
 
 1. `git pull` 最新 dispatch-log.json
 2. 从 `status: unassigned` 的卡中选卡（规则：纯净优先、同项目同 Worker、每批 5 张）
-3. 更新选中卡的状态为 `assigned`，填入 `worker`、`batch`、`assigned_at`
-4. 更新 `summary` 统计
-5. `git push`
+3. **前置筛选（必须）**：检查每张卡的项目类型和 `test_page`，跳过以下情况：
+   - `test_page` 是 `/login`、`/auth`、`/signin`、`/dashboard` 等需要认证的页面
+   - 项目明显需要数据库（如看板工具、CRM、项目管理类应用）
+   - 项目需要 OAuth/第三方认证（Google、GitHub 登录等）
+   - 跳过的卡标 `status: "failed"`，`result: "deploy_failed"`，`note: "需要数据库/认证，前置筛选跳过"`
+4. 更新选中卡的状态为 `assigned`，填入 `worker`、`batch`、`assigned_at`
+5. 更新 `summary` 统计
+6. `git push`
 
 ### 5.2 状态同步（收到林菡通知时）
 

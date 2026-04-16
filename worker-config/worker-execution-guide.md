@@ -275,6 +275,7 @@ failure.type 取值：`deploy_failed` | `timeout` | `mano_cua_error` | `url_devi
 |------|------|
 | 端口被占用 | `lsof -ti:${PORT} \| xargs kill -9`，确认释放后重新启动 |
 | 部署失败 | 自行排查一次（端口、依赖、版本），仍失败 → 上报 PM |
+| **需要数据库/认证/OAuth** | **立即标 deploy_failed，note 写明原因（如"需要 OAuth 登录"/"需要 PostgreSQL"），不要花时间尝试绕过（不创建用户、不配数据库、不模拟登录）。这类任务成本远大于数据价值，直接跳过** |
 | Node 版本不兼容 | 用 nvm 切版本：先查 `package.json` 的 `engines` 字段；没有则根据框架年代判断（老 Angular → Node 14，一般项目 → Node 18/20）。最多试 2 个版本，还不行就标 deploy_failed |
 | 同项目连续 3 个 case 部署失败 | 标 PROJECT_BLOCKED，整批跳过 |
 | mano-cua 软超时（>10min） | 标 WARN，继续等 |
