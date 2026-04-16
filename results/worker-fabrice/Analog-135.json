@@ -1,0 +1,21 @@
+{
+  "task_id": "Analog-135",
+  "repo": "analogdotnow/Analog",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260416102907-197906d8e04443a9ba17f3e6898407cf",
+  "duration_seconds": 0,
+  "timestamp": "2026-04-16T11:05:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "应用需要 PostgreSQL 数据库 + OAuth (Google/Microsoft) 配置才能使用。/calendar 被 middleware 重定向到登录页，无法进入日历功能测试",
+    "attempted": [
+      "配置 .env 基础字段（DATABASE_URL, BETTER_AUTH_SECRET）",
+      "stub @simpleanalytics/next 解决依赖 404",
+      "mano-cua 尝试 147 步，均卡在登录页无法绕过"
+    ],
+    "recommendation": "跳过，需要完整 PostgreSQL + OAuth 环境才能测试日历功能"
+  }
+}
