@@ -1,0 +1,18 @@
+{
+  "task_id": "kan-206",
+  "repo": "kanbn/kan",
+  "worker": "worker-08",
+  "status": "completed",
+  "sess_id": "sess-20260416163355-cad3e7ebc4324bd5a700c8b56b4a72c6",
+  "expected_result_used": true,
+  "duration_seconds": 930,
+  "timestamp": "2026-04-16T08:49:00+00:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 55,
+    "last_action": "DONE",
+    "result": "normal",
+    "result_summary": "超长URL评论在当前测试用例下正确换行，未超出评论容器边界。URL在连字符处自然断行，两行文字均在评论气泡内。但CSS未设置overflow-wrap/word-break属性，更长无断点字符串存在溢出风险。",
+    "last_reasoning": "评论中超长URL显示为两行：第一行到spaces-处断行(~366px)，第二行aaa...(67字符,~332px)，均在评论气泡(~486px)边界内，无水平溢出。URL在连字符(-)处自然换行。评论文本元素(div.mt-2.text-sm)未设置overflow-wrap或word-break CSS属性，换行依赖自然断点。"
+  }
+}
