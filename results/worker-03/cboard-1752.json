@@ -1,0 +1,18 @@
+{
+  "task_id": "cboard-1752",
+  "repo": "cboard-org/cboard",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260418000125-placeholder",
+  "expected_result_used": true,
+  "duration_seconds": 300,
+  "timestamp": "2026-04-18T00:05:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 24,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Quiet Builder Mode 开关能正确显示状态并切换（OFF→ON 视觉翻转正常），但点击 SAVE 保存后设置不持久化——重新进入 Navigation and Buttons 页面时开关恢复为 OFF。另发现锁解锁计数器始终显示 '3 clicks to unlock' 不递减。",
+    "last_reasoning": "开关切换功能正常（灰色→红色），但保存后不持久化，返回页面开关恢复 OFF，说明设置保存逻辑有 bug。"
+  }
+}
