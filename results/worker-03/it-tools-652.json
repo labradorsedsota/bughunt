@@ -1,0 +1,18 @@
+{
+  "task_id": "it-tools-652",
+  "repo": "CorentinTh/it-tools",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260417153221-9b0ffc2ba3434c28ab3e5132bfb86d05",
+  "expected_result_used": true,
+  "duration_seconds": 480,
+  "timestamp": "2026-04-17T15:42:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 35,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "切换 RC4 后 Decrypt 区域存在多个 bug：1) 下拉框长时间呈展开状态无法关闭，RC4 选项多次点击无响应；2) 最终选中 RC4 后解密功能无输出（显示 placeholder 而非解密文本）；3) Encrypt 区域 RC4 加密正常可用。UI 元素（输入框/按钮）仍完整可见但功能异常",
+    "last_reasoning": "Decrypt 下拉框 RC4 选项点击多次无效（dropdown stuck），最终选中后解密仍无输出。Encrypt 区 RC4 正常产出密文。确认为 RC4 解密功能 bug。"
+  }
+}
