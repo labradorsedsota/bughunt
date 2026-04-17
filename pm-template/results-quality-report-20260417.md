@@ -118,11 +118,23 @@
 
 ---
 
-## 六、sess_id 缺失情况
+## 六、sess_id 情况
 
-- **completed 但无 sess_id**：大量（几乎所有卡）
-- 原因分析：多数 Worker 把 sess_id 写在 mano_cua 内部而非顶层，但字段名可能不一致
-- 需要确认 FTY 需要从哪个字段提取 sess_id
+**sess_id 在 result JSON 顶层**（不在 mano_cua 下面）。
+
+| 情况 | 数量 |
+|------|------|
+| 顶层有 sess_id | 244 张 |
+| 无 sess_id | 91 张 |
+
+无 sess_id 的 91 张卡的 status 分布：
+- failed: 52 张（部署失败等，未执行 mano-cua，无 session）
+- completed: 14 张 ⚠️（已完成但缺 sess_id，需补录）
+- deploy_failed: 13 张（非标准 status，部署失败无 session）
+- missing: 11 张（缺 status 字段的卡）
+- unclear: 1 张
+
+**结论：** failed/deploy_failed 的卡无 sess_id 是合理的（未执行 mano-cua）。需关注的是 14 张 completed 但无 sess_id 的卡。
 
 ---
 
@@ -130,7 +142,8 @@
 
 | 问题类型 | 数量 | 严重度 |
 |----------|------|--------|
-| mano_cua 缺 sess_id | ~250 张 | 🟡 需确认字段位置 |
+| mano_cua 缺 sess_id | — | — 已修正：sess_id 在顶层，非 mano_cua 下 |
+| completed 但无 sess_id | 14 张 | 🟡 需补录 |
 | status 非标准（deploy_failed/missing/unclear）| 25 张 | 🔴 需修正 |
 | status=completed 但 result=deploy_failed | 22 张 | 🔴 逻辑矛盾 |
 | mano_cua 缺 status/total_steps | 11 张 | 🟡 Semantic-UI-React + emoji-mart |
