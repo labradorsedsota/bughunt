@@ -1,0 +1,18 @@
+{
+  "task_id": "vue-pdf-99",
+  "repo": "TaTo30/vue-pdf",
+  "worker": "worker-06",
+  "status": "completed",
+  "sess_id": "sess-20260417163526-6892269d77334cc992d610cddcadd4c9",
+  "expected_result_used": true,
+  "duration_seconds": 904,
+  "timestamp": "2026-04-17T08:50:26-07:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 62,
+    "last_action": "left_click",
+    "result": "unclear",
+    "result_summary": "200%缩放时PDF右侧内容被截断（右列文本到x=760，白色空白到x=1280），但mano-cua未能明确验证水平滚动条是否出现。playground过于简单无缩放控件，仅通过浏览器缩放测试，62步超时未得出明确结论",
+    "last_reasoning": "At 200% zoom, PDF content appears cut off on the right side with ~520px white space. The right column text ends around x=760 while viewport extends to x=1280. However, mano-cua could not definitively confirm whether horizontal scrollbar appeared or content was clipped without scrolling capability."
+  }
+}
