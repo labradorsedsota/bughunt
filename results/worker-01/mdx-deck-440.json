@@ -1,0 +1,21 @@
+{
+  "task_id": "mdx-deck-440",
+  "repo": "jxnblk/mdx-deck",
+  "worker": "worker-01",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T20:15:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm install / yarn install 反复被系统 SIGKILL（内存不足），Gatsby monorepo + Puppeteer 依赖过重",
+    "attempted": [
+      "npm install --legacy-peer-deps（SIGKILL）",
+      "npm install --legacy-peer-deps --ignore-scripts（SIGKILL）",
+      "yarn install --ignore-scripts + PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1（SIGKILL）"
+    ],
+    "recommendation": "跳过，monorepo 依赖安装超出环境内存限制"
+  }
+}

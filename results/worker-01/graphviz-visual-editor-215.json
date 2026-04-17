@@ -1,0 +1,18 @@
+{
+  "task_id": "graphviz-visual-editor-215",
+  "repo": "magjac/graphviz-visual-editor",
+  "worker": "worker-01",
+  "status": "completed",
+  "sess_id": "sess-20260417193013-df2d31df1d2d4ac888b30d5b21997fab",
+  "expected_result_used": true,
+  "duration_seconds": 180,
+  "timestamp": "2026-04-17T19:33:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 18,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "边创建功能存在严重bug：通过右键Delta→双击'Dallas Fort Worth International Airport'创建边时，生成的DOT代码未对多单词节点名加引号（Delta -> Dallas Fort Worth International Airport），导致DOT只将'Dallas'解析为目标节点，创建了错误的新节点'Dallas'，原节点'Dallas Fort Worth International Airport'未被连接。图形从2个节点变成3个节点。",
+    "last_reasoning": "The test results are now clear. Steps: 1) Opened Graphviz Visual Editor. 2) Cleared editor and pasted DOT code with two nodes. 3) Right-clicked Delta node (edge creation mode). 4) Double-clicked Dallas Fort Worth International Airport node. Bug found: generated DOT code lacks quotation marks around multi-word node label, causing incorrect parsing - new erroneous 'Dallas' node created, original multi-word node remains unconnected. Graph shows 3 nodes instead of 2 connected nodes. FAIL - critical quoting bug in edge creation."
+  }
+}
