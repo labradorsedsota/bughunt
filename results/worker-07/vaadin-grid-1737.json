@@ -1,0 +1,18 @@
+{
+  "task_id": "vaadin-grid-1737",
+  "repo": "vaadin/vaadin-grid",
+  "worker": "worker-07",
+  "status": "completed",
+  "sess_id": "sess-20260417220248-4cf0bcc1ab9946cfaaadf83bf7d541ff",
+  "expected_result_used": true,
+  "duration_seconds": 1200,
+  "timestamp": "2026-04-17T14:05:00-07:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 85,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "列隐藏导致行详情内容消失。展开Laura和Ruben行详情后设cols[1].hidden=true，行详情内容（照片/文字/邮件）全部消失，仅留空白区域，checkbox仍为checked。隐藏列状态下新展开Fabien行详情同样空白。恢复cols[1].hidden=false后详情内容立刻恢复。",
+    "last_reasoning": "确认bug：1) 隐藏列时已展开行详情内容不可见（空白），Show Details checkbox保持checked状态；2) 隐藏列状态下新展开行详情也不渲染内容；3) 恢复列后行详情内容正确恢复。展开/折叠checkbox toggle功能正常，但内容渲染在列隐藏时完全失效。"
+  }
+}

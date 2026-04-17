@@ -1,0 +1,20 @@
+{
+  "task_id": "BongoCat-592",
+  "repo": "ayangweb/BongoCat",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260417205219-9eb385b9d1b845d3941dbbdc0b71ff26",
+  "duration_seconds": 420,
+  "timestamp": "2026-04-17T13:02:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "BongoCat是Tauri桌面应用，Vite dev server启动成功但页面空白。Console报TypeError: Cannot read properties of undefined (reading 'metadata') at useWindowState.ts:13，因@tauri-apps/api/window的getCurrentWindow()在浏览器中返回undefined。<div id='app'>为空，body height: 0px。",
+    "attempted": [
+      "pnpm install + npx vite --port 5173（Vite启动成功，HTTP 200）",
+      "mano-cua执行27步确认页面空白，Console错误为Tauri API不可用"
+    ],
+    "recommendation": "跳过，需要Tauri桌面运行时，无法在浏览器中测试"
+  }
+}
