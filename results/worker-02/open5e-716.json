@@ -1,0 +1,23 @@
+{
+  "task_id": "open5e-716",
+  "result": "abnormal",
+  "confidence": "high",
+  "result_summary": "子职业页面/classes/warlock/ancient-dragons无法正常加载。1) URL被重定向到search页面，显示0 results。2) API调用GET api.open5e.com/v2/classes/ancient-dragons/?is_subclass=true&subclass_of=warlock返回400 Bad Request。3) NavBar.vue:100 TypeError: Cannot set properties of undefined (setting 'subroutes')。4) Warlock职业页面Class Features表格存在滚动捕获问题，无法滚动到表格下方查看更多内容。",
+  "observation_log": [
+    "step 0-1: 直接访问/classes/warlock/ancient-dragons，被重定向到search页面，显示0 results",
+    "step 2-10: 通过Classes列表导航到Warlock，发现NavBar.vue:100 TypeError",
+    "step 11-23: 尝试通过UI找到Ancient Dragons子职业，URL重定向到search",
+    "step 28: DevTools Console确认TypeError: Cannot set properties of undefined (setting 'subroutes')",
+    "step 35: 确认API调用ancient-dragons返回400 Bad Request",
+    "step 49-54: 确认Warlock页面表格滚动被捕获，无法滚动到子职业区域"
+  ],
+  "reproduction_steps": [
+    "访问 http://localhost:3000/classes/warlock/ancient-dragons",
+    "页面被重定向到/search?text=/?is_subclass=true&subclass_of=warlock...",
+    "显示0 results而非子职业特性页面"
+  ],
+  "sess_id": "sess-20260418063439-5f2286c497d44436947c59ee5dc98be9",
+  "total_steps": 67,
+  "worker": "worker-02",
+  "timestamp": "2026-04-18T07:00:00+08:00"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "beercss-532",
+  "repo": "beercss/beercss",
+  "worker": "worker-02",
+  "status": "completed",
+  "sess_id": "sess-20260418050452-4cc8c6f3f2a54679a86c2cf88073695f",
+  "expected_result_used": true,
+  "duration_seconds": 720,
+  "timestamp": "2026-04-18T05:16:00+08:00",
+  "mano_cua": {
+    "status": "KILLED",
+    "total_steps": 65,
+    "last_action": "key: F12",
+    "result": "normal",
+    "result_summary": "滑块拖动释放后正确恢复非激活视觉状态，无残留高亮；按钮点击后鼠标移开涟漪效果正常消退，恢复正常外观无残留变暗。outlined按钮hover时有轻微灰色背景（正常hover效果），鼠标移开后恢复白色/透明。65步分析期间未发现持久性异常视觉状态。",
+    "last_reasoning": "The outlined button at Row 3 (at y≈92) is now highlighted/selected in the page - it has a visible blue outline/selection indicator. This confirms the button is now focused after the click (keyboard focus). The button at (249, 92) shows a visible focus indicator (blue outline around it). This is normal browser behavior (focus ring after click), not a persistent visual bug in the component library."
+  }
+}

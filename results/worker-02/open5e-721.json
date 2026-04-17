@@ -1,0 +1,25 @@
+{
+  "task_id": "open5e-721",
+  "result": "abnormal",
+  "confidence": "high",
+  "result_summary": "导航菜单中Classes存在3个严重bug：1) SPA路由失效——从Classes列表点击任意职业链接后URL更新但内容不变，仍显示Classes列表而非职业详情页；2) NavMenu.vue:100 TypeError: Cannot set properties of undefined (setting 'subroutes')，导致导航菜单无法展开显示子职业链接；3) 导航菜单不展开显示职业子列表。Classes列表本身加载正常（26个条目完整），直接URL访问职业详情页也正常。",
+  "observation_log": [
+    "step 1-8: 访问/classes页面，看到26个职业列表完整加载",
+    "step 9-10: 点击Fighter SRD-2024，URL变为/classes/srd-2024_fighter但内容不更新",
+    "step 11-15: 通过direct URL访问Fighter可正常加载，确认SPA路由问题",
+    "step 13: DevTools Console发现TypeError: Cannot set properties of undefined (setting 'subroutes') at NavMenu.vue:100",
+    "step 16: 源码分析确认findIndex返回-1时output[-1]为undefined",
+    "step 26-37: 多次点击不同职业（Barbarian, Wizard），均重现SPA路由失效bug",
+    "step 38-41: 确认Console始终有1个TypeError错误"
+  ],
+  "reproduction_steps": [
+    "访问 http://localhost:3000/classes",
+    "点击任意职业链接（如Fighter SRD-2024）",
+    "观察URL更新但页面内容不变，仍显示Classes列表",
+    "打开DevTools Console查看TypeError"
+  ],
+  "sess_id": "sess-20260418065144-87081b1a99b54fa2a22426c675d61256",
+  "total_steps": 42,
+  "worker": "worker-02",
+  "timestamp": "2026-04-18T07:10:00+08:00"
+}
