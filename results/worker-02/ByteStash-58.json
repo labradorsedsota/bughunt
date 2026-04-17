@@ -1,0 +1,18 @@
+{
+  "task_id": "ByteStash-58",
+  "repo": "jordan-dalby/ByteStash",
+  "issue_number": 58,
+  "pr_number": null,
+  "buggy_commit": "a0dea08f0e",
+  "fix_commit": "5f29bd3fbf",
+  "timestamp": "2026-04-18T01:15:00+08:00",
+  "worker": "worker-02",
+  "status": "abnormal",
+  "session_id": "sess-20260418005400-bytestash58",
+  "total_steps": 46,
+  "dev_url": "http://localhost:3000",
+  "visual_anomalies": [],
+  "reasoning_summary": "mano-cua 创建标题为 'Typing Test' 的 snippet 后观察卡片标题。DevTools 检查 h3 元素发现使用了 leading-none (line-height:1) + overflow:hidden CSS 组合。在高缩放级别下清晰可见下伸字母(y,p,g)的底部被裁切。h3 元素高度仅 20px，line-height:1 导致无额外空间容纳 descender，overflow:hidden 直接裁切。",
+  "deploy_method": "npm install + npm start (vite client:3000 + express server:5000)",
+  "notes": "Bug 确认：snippet 卡片标题 h3 使用 leading-none + overflow:hidden 导致下伸字母(y,p,g)底部被裁切。"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "ByteStash-156",
+  "repo": "jordan-dalby/ByteStash",
+  "issue_number": 156,
+  "pr_number": null,
+  "buggy_commit": "37d7e45589",
+  "fix_commit": "9588263d84",
+  "timestamp": "2026-04-18T01:30:00+08:00",
+  "worker": "worker-02",
+  "status": "abnormal",
+  "session_id": "sess-20260418010500-bytestash156",
+  "total_steps": 32,
+  "dev_url": "http://localhost:3000",
+  "visual_anomalies": [],
+  "reasoning_summary": "mano-cua 打开应用后检查静态资源和 Network 面板。静态资源（logo、SVG图标等）全部正常加载(200/304)。但 DevTools Network 过滤 status-code:404 发现 7/676 请求返回404，全部为 API 调用：/api/auth/config(x3)、/api/auth/login、/api/public/snippets(x2)。BASE_PATH 设置导致前端 API 路径与后端路由不匹配，所有 API 均 404，登录功能完全不可用。",
+  "deploy_method": "npm install + npm start (vite client:3000 + express server:5000) BASE_PATH=/bytestash",
+  "notes": "Bug 确认：BASE_PATH 配置下所有 API 路由返回 404。静态资源正常但 API 路径未正确添加 BASE_PATH 前缀。"
+}

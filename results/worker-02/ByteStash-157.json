@@ -1,0 +1,18 @@
+{
+  "task_id": "ByteStash-157",
+  "repo": "jordan-dalby/ByteStash",
+  "issue_number": 157,
+  "pr_number": null,
+  "buggy_commit": "5a6cdb1040",
+  "fix_commit": "ad57beca21",
+  "timestamp": "2026-04-18T01:50:00+08:00",
+  "worker": "worker-02",
+  "status": "abnormal",
+  "session_id": "sess-20260418012900-bytestash157",
+  "total_steps": 5,
+  "dev_url": "http://localhost:3000",
+  "visual_anomalies": [],
+  "reasoning_summary": "mano-cua 登出后在登录页面找到 'Sign in with Single Sign-On' 按钮并点击。页面跳转到 localhost:3000/undefined/api/auth/oidc/auth，URL 中包含 undefined 字段。正确路径应为 /api/auth/oidc/auth，undefined 表示构建 OIDC 认证 URL 时某个变量（如 base path）未被正确赋值。",
+  "deploy_method": "npm install + npm start (vite client:3000 + express server:5000) OIDC_ENABLED=true",
+  "notes": "Bug 确认：OIDC SSO 跳转 URL 包含 undefined (localhost:3000/undefined/api/auth/oidc/auth)，功能完全不可用。"
+}
