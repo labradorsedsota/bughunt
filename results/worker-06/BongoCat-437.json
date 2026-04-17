@@ -1,0 +1,20 @@
+{
+  "task_id": "BongoCat-437",
+  "repo": "ayangweb/BongoCat",
+  "worker": "worker-06",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": "sess-20260417205152-4a44f3940fe24d0491de3b6bc0a5f025",
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T06:31:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "BongoCat是Tauri桌面应用，vite dev server在port 1420启动成功但页面#app div为空，Vue组件需要Tauri runtime API（window.__TAURI_INTERNALS__）才能渲染，浏览器中无法使用",
+    "attempted": [
+      "pnpm run dev:vite 启动vite dev server（port 1420，HTTP 200）",
+      "mano-cua尝试在DevTools注入__TAURI_INTERNALS__ mock但仍有大量Tauri API依赖（invoke/store/plugin）无法模拟"
+    ],
+    "recommendation": "跳过，Tauri桌面应用无法在浏览器中测试"
+  }
+}
