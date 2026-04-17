@@ -1,0 +1,22 @@
+{
+  "task_id": "organice-1006",
+  "repo": "200ok-ch/organice",
+  "worker": "worker-06",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T10:25:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "node-sass 4.13依赖需Node 14或更低版本，当前环境仅有Node 18/23，node-gyp编译失败（gyp ERR），CRA dev server停留在Starting the development server无法编译",
+    "attempted": [
+      "npm install --legacy-peer-deps（node-gyp rebuild失败）",
+      "npm install --ignore-scripts + npm rebuild node-sass（同样失败）",
+      "安装dart-sass替代（CRA 3.x不自动回退到dart sass）",
+      "nvm检查无Node 14可用"
+    ],
+    "recommendation": "需安装Node 14环境（nvm install 14）或将项目node-sass升级为dart-sass"
+  }
+}
