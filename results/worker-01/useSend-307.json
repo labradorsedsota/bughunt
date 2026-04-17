@@ -1,0 +1,17 @@
+{
+  "task_id": "useSend-307",
+  "repo": "usesend/useSend",
+  "worker": "worker-01",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T22:24:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "项目需要PostgreSQL数据库(DATABASE_URL)、NextAuth(NEXTAUTH_SECRET)、AWS(AWS_SECRET_KEY)、GitHub/Google OAuth等外部服务，属于需要数据库+认证的项目",
+    "attempted": [],
+    "recommendation": "跳过，需要PostgreSQL + 多个OAuth provider + AWS配置才能运行"
+  }
+}
