@@ -1,0 +1,18 @@
+{
+  "task_id": "jodit-514",
+  "repo": "xdan/jodit",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260417163550-6740c7e80ba24972a12865f54aa2de5b",
+  "expected_result_used": true,
+  "duration_seconds": 300,
+  "timestamp": "2026-04-17T16:40:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 14,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "对 H1 标题执行插入无序列表命令后，生成的 HTML 为 <h1><ul><li>Hello Jodit World!</li></ul></h1>，即 ul 被错误嵌套在 h1 内部。正确结构应为 <ul><li>text</li></ul>（h1 应被替换/解包）。源代码模式和状态栏 breadcrumb (h1 ul li) 均确认此无效嵌套。",
+    "last_reasoning": "切换到源代码模式后清晰看到 HTML 结构为 <h1><ul><li>Hello Jodit World!</li></ul></h1>，确认 bug：列表插入命令未正确处理标题元素，将 ul 嵌套在 h1 内而非替换 h1。"
+  }
+}

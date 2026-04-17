@@ -1,0 +1,18 @@
+{
+  "task_id": "jodit-1327",
+  "repo": "xdan/jodit",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260417154648-58d50922215048049c23a00329170708",
+  "expected_result_used": true,
+  "duration_seconds": 480,
+  "timestamp": "2026-04-17T15:56:00+08:00",
+  "mano_cua": {
+    "status": "TIMEOUT_KILL",
+    "total_steps": 73,
+    "last_action": "type (console JS command)",
+    "result": "abnormal",
+    "result_summary": "图片属性对话框整体布局基本可用，但 lock icon（锁定宽高比按钮）尺寸异常：实测 13.99×18px，非正方形（SVG viewBox 为 1792×1792 正方形），按钮过小。宽高输入框(200/300)排列正确，flexbox row+center 对齐。右侧表单字段（src/title/alt/link）排列正常。对话框无严重错位，但 lock icon 偏小可能影响可用性。",
+    "last_reasoning": "通过 DevTools 检测 lock icon 实际渲染尺寸为 13.99×18px，与 SVG viewBox 1792×1792 的正方形比例不匹配。对话框整体布局使用 flexbox row + center alignment，宽高输入框在图片预览下方正确排列。"
+  }
+}

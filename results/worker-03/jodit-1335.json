@@ -1,0 +1,18 @@
+{
+  "task_id": "jodit-1335",
+  "repo": "xdan/jodit",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260417160743-9cc77e539eac4594a2e77c585e3163da",
+  "expected_result_used": true,
+  "duration_seconds": 600,
+  "timestamp": "2026-04-17T16:17:00+08:00",
+  "mano_cua": {
+    "status": "TIMEOUT_KILL",
+    "total_steps": 58,
+    "last_action": "key: F12 (opening DevTools for further inspection)",
+    "result": "abnormal",
+    "result_summary": "设置 allowResizeY:true, allowResizeX:true, showWordsCounter:false, showCharsCounter:false 后，编辑器底部 resize handle (.jodit-editor__resize) 存在于 DOM 中但 height=0px 不可见。DevTools 检测：display:block, height:0px, position:relative, cursor:auto（应为 se-resize）。从编辑器底部边框拖拽无任何缩放效果。两个编辑器（默认配置+自定义配置）的 resize handle 均 height=0，resize 功能完全失效。",
+    "last_reasoning": "通过 DevTools 获取 .jodit-editor__resize 元素的 getBoundingClientRect 和 getComputedStyle，确认 height=0px、cursor=auto。尝试从编辑器底部拖拽验证无缩放效果。"
+  }
+}
