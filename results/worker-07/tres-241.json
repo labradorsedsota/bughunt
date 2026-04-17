@@ -1,0 +1,21 @@
+{
+  "task_id": "tres-241",
+  "repo": "Tresjs/tres",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T17:40:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "TresJS monorepo部署失败。pnpm postinstall中vite build失败(Node 23不兼容，要求>=16 <17)。VitePress docs server可启动但@tresjs/core和@tresjs/cientos包未构建，3D场景组件无法渲染(Failed to resolve entry for package)。所有tres卡共享同一部署问题。",
+    "attempted": [
+      "修复peerDependencies(three: latest -> *)",
+      "pnpm install --no-frozen-lockfile --no-strict-peer-dependencies",
+      "直接启动vitepress docs(HTTP 200但3D组件无法加载)"
+    ],
+    "recommendation": "跳过，需要Node 16.x环境构建monorepo核心包"
+  }
+}
