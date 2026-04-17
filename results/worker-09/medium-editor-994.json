@@ -1,0 +1,18 @@
+{
+  "task_id": "medium-editor-994",
+  "repo": "yabwe/medium-editor",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260417141029-e964fb67bf8347a495bff525f8d903b7",
+  "expected_result_used": true,
+  "duration_seconds": 960,
+  "timestamp": "2026-04-16T23:30:00-07:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 77,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "h1标签使用MediumEditor后，清空内容再输入文字/按Enter，编辑器在h1内创建非法嵌套的<p>元素（如<h1><p>abc</p><p><br></p><br></h1>），导致：1)输入文字字体比h1应有样式小（p的16px vs h1的2em）；2)编辑器高度异常增大（800x210px）；3)DOM结构累积污染。Console无JS运行时错误。Backspace/Delete在空状态下不崩溃。",
+    "last_reasoning": "MediumEditor默认使用<p>作为换行容器，应用于h1时产生非法HTML嵌套，破坏视觉样式和DOM结构。"
+  }
+}

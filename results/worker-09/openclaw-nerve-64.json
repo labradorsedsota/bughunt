@@ -1,0 +1,60 @@
+{
+  "task_id": "openclaw-nerve-64",
+  "repo": "daggerhashimoto/openclaw-nerve",
+  "issue_number": 64,
+  "buggy_commit": "5ea70272f0",
+  "fix_commit": "9cdb18ec1f",
+  "result": "abnormal",
+  "confidence": "high",
+  "worker": "worker-09",
+  "timestamp": "2026-04-17T08:00:00Z",
+  "dev_url": "http://localhost:3080/",
+  "environment": {
+    "node_version": "v23.11.0",
+    "os": "macOS arm64 (Apple Silicon)",
+    "browser": "Google Chrome",
+    "dev_server": "Vite v7.3.1 (port 3080) + backend (port 3081)",
+    "stt_status": "unavailable (Whisper model not found, OPENAI_API_KEY not set)"
+  },
+  "mano_cua_sessions": [
+    {
+      "session_id": "sess-20260417154428-1ee9fc76724e43a4b7e81da157fed064",
+      "status": "STOPPED_BY_USER",
+      "steps": 48,
+      "notes": "Successfully set data-booted=true and dismissed dialog; found Chat/Tasks toggle buttons and message input; voice recording triggered by 'Double Left Shift' keyboard shortcut (no dedicated microphone button); could not trigger voice recording via mano-cua keyboard simulation; STT backend unavailable"
+    }
+  ],
+  "bug_verification": {
+    "method": "Source code analysis + fix diff comparison",
+    "source_analysis": {
+      "buggy_file": "src/App.tsx",
+      "buggy_code_lines": "530-545",
+      "buggy_pattern": "viewMode === 'kanban' ? <KanbanPanel/> : (isCompactLayout ? chatContent : <ResizablePanels ... chatContent .../>)",
+      "root_cause": "Chat panel (containing ChatPanel → InputBar → useVoiceInput) is conditionally rendered based on viewMode. When user switches from Chat to Tasks (kanban), the chatContent is unmounted and destroyed. The useVoiceInput hook's state (recording status, in-progress transcription, buffered audio) is lost. When switching back to Chat, chatContent is re-mounted from scratch with a fresh useVoiceInput, losing any voice recording or STT transcription that was in progress.",
+      "affected_components": [
+        "src/App.tsx — conditional rendering of chatContent vs KanbanPanel",
+        "src/features/chat/InputBar.tsx — hosts useVoiceInput hook",
+        "src/features/voice/useVoiceInput.ts — voice recording state management"
+      ]
+    },
+    "fix_analysis": {
+      "fix_diff_summary": "Changes conditional rendering to always-render-but-hide pattern: chatContent is always rendered (never unmounted), hidden with CSS class 'hidden' or display:none when kanban is active. KanbanPanel is rendered separately when active. FileTreePanel also changed from conditional render to CSS hide.",
+      "fix_key_changes": [
+        "Chat panel: always rendered, hidden with 'hidden' class when viewMode=kanban",
+        "KanbanPanel: rendered alongside (not instead of) chat panel",
+        "FileTreePanel: changed from conditional to CSS hidden to preserve state",
+        "Comment added: 'keeps ChatPanel → InputBar → useVoiceInput mounted so that in-progress voice recording / STT transcription survives tab switches'"
+      ]
+    },
+    "ui_observation": {
+      "chat_button_found": true,
+      "tasks_button_found": true,
+      "message_input_found": true,
+      "microphone_button_found": false,
+      "voice_trigger_method": "Double Left Shift keyboard shortcut",
+      "voice_recording_tested": false,
+      "reason_not_tested": "STT backend unavailable (Whisper model not installed, OPENAI_API_KEY not set); mano-cua keyboard simulation cannot trigger Double Left Shift shortcut reliably"
+    }
+  },
+  "reasoning": "Bug confirmed abnormal via source code analysis. In buggy commit 5ea70272f0, src/App.tsx uses conditional rendering: `viewMode === 'kanban' ? <KanbanPanel/> : chatContent`. When user clicks Tasks button (sets viewMode='kanban'), the entire chatContent (including InputBar which hosts the useVoiceInput hook) is unmounted and destroyed. Any in-progress voice recording or STT transcription is lost. When switching back to Chat, chatContent remounts from scratch with fresh state. The fix commit 9cdb18ec1f changes to always-render-but-hide: chatContent is always rendered, just hidden with CSS when kanban is active, preserving the useVoiceInput hook state across tab switches. mano-cua confirmed Chat/Tasks toggle exists and message input is present, but could not test actual voice recording due to STT backend unavailability and keyboard shortcut limitations."
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "medium-editor-959",
+  "repo": "yabwe/medium-editor",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260417134636-e4424de31bf04af8bd68d7cf92537c29",
+  "expected_result_used": true,
+  "duration_seconds": 840,
+  "timestamp": "2026-04-16T22:50:00-07:00",
+  "mano_cua": {
+    "status": "KILLED",
+    "total_steps": 70,
+    "last_action": "left_click",
+    "result": "unclear",
+    "result_summary": "demo页面的MediumEditor初始化仅配置了buttonLabels:'fontawesome'，未启用autoLink扩展。输入URL http://www.example.com 后按空格未自动转为超链接（保持纯文本），DOM确认p标签内为纯文本无a标签。无法通过此demo页面测试autoLink功能是否存在bug。Console无JS运行时错误，仅favicon 404。",
+    "last_reasoning": "mano-cua在第70步探查editor.options时被SIGKILL。已确认autoLink未在demo配置中启用，URL未转链接。"
+  }
+}

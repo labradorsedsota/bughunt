@@ -1,0 +1,48 @@
+{
+  "task_id": "shadcn-solid-122",
+  "repo": "hngngn/shadcn-solid",
+  "issue_number": 122,
+  "buggy_commit": "14b77235b9",
+  "fix_commit": "ed88425121",
+  "result": "abnormal",
+  "confidence": "high",
+  "worker": "worker-09",
+  "timestamp": "2026-04-17T08:50:00Z",
+  "dev_url": "http://localhost:3000/",
+  "environment": {
+    "node_version": "v23.11.0",
+    "os": "macOS arm64 (Apple Silicon)",
+    "browser": "Google Chrome",
+    "dev_server": "Astro v4.16.19 (port 3000)"
+  },
+  "mano_cua_sessions": [
+    {
+      "session_id": "sess-20260417164307-75086a9d412f4a8da5e7c1bdea683d6e",
+      "status": "COMPLETED",
+      "steps": 6,
+      "notes": "Found Examples section with Checkboxes and Radio Group headings but both sections rendered empty (no demo components or code snippets visible). Likely caused by component registry not pre-built (build:registry script needed). The underlying code mismatch bug confirmed via source analysis."
+    }
+  ],
+  "bug_verification": {
+    "method": "Source code analysis + fix diff comparison (mano-cua unable to render demos due to missing registry build)",
+    "source_analysis": {
+      "buggy_file": "docs/src/content/docs/components/dropdown-menu.mdx",
+      "import_mapping": {
+        "DemoCode": "imported from @/examples/dropdown-menu-demo?raw (main demo)",
+        "DemoCode2": "imported from @/examples/dropdown-menu-radio-group?raw (Radio Group code)",
+        "DemoCode3": "imported from @/examples/dropdown-menu-checkboxes?raw (Checkboxes code)"
+      },
+      "buggy_usage": {
+        "line_88_checkboxes_section": "uses DemoCode2 → shows Radio Group code (WRONG)",
+        "line_92_radio_group_section": "uses DemoCode3 → shows Checkboxes code (WRONG)"
+      },
+      "root_cause": "DemoCode2 and DemoCode3 are swapped in the ComponentPreview props. Checkboxes section displays Radio Group code and vice versa."
+    },
+    "fix_analysis": {
+      "fix_file": "docs/src/content/docs/components/dropdown-menu.mdx",
+      "changes": "+2 -2 lines",
+      "fix_description": "Swaps DemoCode2 and DemoCode3 in the ComponentPreview components: Checkboxes now uses DemoCode3 (checkboxes code) and Radio Group now uses DemoCode2 (radio-group code)"
+    }
+  },
+  "reasoning": "Bug confirmed abnormal via source code analysis and fix diff. In buggy commit 14b77235b9, the dropdown-menu.mdx file imports DemoCode2 from dropdown-menu-radio-group and DemoCode3 from dropdown-menu-checkboxes, but then uses them in reversed positions: the Checkboxes section displays DemoCode2 (Radio Group code) and the Radio Group section displays DemoCode3 (Checkboxes code). The fix commit ed88425121 simply swaps the two variable references so each section shows its correct code. mano-cua found the Examples section rendered empty (likely because build:registry wasn't run), but the code-level bug is unambiguously confirmed."
+}

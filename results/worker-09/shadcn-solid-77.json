@@ -1,0 +1,38 @@
+{
+  "task_id": "shadcn-solid-77",
+  "repo": "hngngn/shadcn-solid",
+  "issue_number": 77,
+  "buggy_commit": "2d8bd40ef7",
+  "fix_commit": "146b9167d5",
+  "result": "abnormal",
+  "confidence": "high",
+  "worker": "worker-09",
+  "timestamp": "2026-04-17T08:14:00Z",
+  "dev_url": "http://localhost:3000/",
+  "environment": {
+    "node_version": "v23.11.0",
+    "os": "macOS arm64 (Apple Silicon)",
+    "browser": "Google Chrome",
+    "dev_server": "vinxi v0.3.14 (SolidStart + Vite SSR, port 3000)"
+  },
+  "mano_cua_sessions": [
+    {
+      "session_id": "sess-20260417162649-55b46acf5a944bf2a1a88114684ecd39",
+      "status": "COMPLETED",
+      "steps": 26,
+      "notes": "Bug confirmed: Astro logo completely invisible in light mode (white SVG on white background). Dark mode shows logo clearly. Also found: /docs/installation/astro/ (trailing slash) throws TypeError: Cannot read properties of undefined (reading 'frontmatter')."
+    }
+  ],
+  "bug_verification": {
+    "method": "mano-cua visual testing + theme toggle comparison",
+    "observations": [
+      "Page /docs/installation/ loaded successfully showing Frameworks grid with Solid Start and Astro cards",
+      "Theme toggle found in header navigation (sun/moon icon dropdown with Light/Dark/System options)",
+      "In Light Mode: Solid Start card shows clearly visible gray/silver logo; Astro card shows NO VISIBLE LOGO - blank area above 'Astro' text",
+      "In Dark Mode: Astro logo is clearly visible (white SVG on dark background)",
+      "Root cause: Astro logo uses white-colored SVG that has zero contrast against white/light card background in light mode",
+      "Additional bug: /docs/installation/astro/ (with trailing slash) throws TypeError: Cannot read properties of undefined (reading 'frontmatter')"
+    ]
+  },
+  "reasoning": "Bug confirmed abnormal via mano-cua visual testing. In buggy commit 2d8bd40ef7, the Astro logo on the /docs/installation/ page uses a white-colored SVG icon. In dark mode, this white logo is clearly visible against the dark background. However, in light mode (white background), the white logo has zero contrast against the white card background, making it completely invisible to users. The Solid Start logo on the same page uses adaptive gray tones visible in both modes. The Astro logo should use a dark/colored variant in light mode or adapt its color based on the current theme. Additionally, the /docs/installation/astro/ URL (with trailing slash) throws a TypeError preventing the Astro installation guide page from rendering."
+}
