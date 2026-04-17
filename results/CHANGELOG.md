@@ -87,3 +87,10 @@
 | 2 | BongoCat-777 | worker-08 | sess_id=N/A-tauri-app-browser-incompatible |
 
 共 2 张卡。
+
+## 2026-04-17 — Round 4: TOS 无数据清理（32 张）
+
+**原因：** Emily/智子排查 TOS 发现 32 个 session ID 在 TOS 上无数据（轨迹未上传）
+**操作：** 对应 32 张 result JSON 从 results/ 移入 trash，dispatch-log 改回 unassigned
+**影响：** 31 个 task_id（Analog-135 有两份），32 个文件
+**涉及 Worker：** worker-01(3), worker-03(1), worker-04(2), worker-05(3), worker-06(3), worker-07(1), worker-08(14), worker-09(2), worker-fabrice(4) — 注 Analog-135 同时在 worker-09 和 worker-fabrice
