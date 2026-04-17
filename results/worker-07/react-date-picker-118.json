@@ -1,0 +1,18 @@
+{
+  "task_id": "react-date-picker-118",
+  "repo": "wojtekmaj/react-date-picker",
+  "worker": "worker-07",
+  "status": "completed",
+  "sess_id": "sess-20260417171621-2b99e8dafc3242aebf312902d0b0b4b3",
+  "expected_result_used": true,
+  "duration_seconds": 480,
+  "timestamp": "2026-04-17T17:30:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 60,
+    "last_action": "left_click",
+    "result": "abnormal",
+    "result_summary": "ar-EG locale下DatePicker组件立即触发TypeError: Cannot read properties of null (reading '0'), 位于DateInput.js:183的_renderCustomInputs函数。页面白屏, 两个DatePicker都无法渲染。错误栈确认发生在Sample.jsx:31 (locale='ar-EG'的DatePicker)。刷新后错误复现, 确认为稳定bug。",
+    "last_reasoning": "页面加载时立即报错TypeError, ar-EG locale的DateInput组件在renderCustomInputs时matches[index]为null, 导致读取'0'属性失败。页面完全白屏无法使用。"
+  }
+}
