@@ -1,0 +1,25 @@
+{
+  "task_id": "multiple-select-308",
+  "repo": "wenzhixin/multiple-select",
+  "issue_number": 308,
+  "pr_number": 409,
+  "buggy_commit": "4bc2bd3594",
+  "fix_commit": "6e4eca7945",
+  "framework": "vue",
+  "deploy_commands": [
+    "git clone https://github.com/wenzhixin/multiple-select.git",
+    "cd multiple-select",
+    "git checkout 4bc2bd3594",
+    "npm install",
+    "npm run dev"
+  ],
+  "deploy_verify": "curl -s http://localhost:5173 | grep -q '<'",
+  "dev_url": "http://localhost:5173",
+  "test_page": "/",
+  "app_name": "multiple-select",
+  "test_description_zh": "测试 multiple-select 插件的「全选」(Select All) 功能的显示效果。操作步骤：1. 在浏览器中打开页面，找到一个带有多选下拉框（multiple-select）的示例；2. 点击下拉框展开选项列表；3. 观察「Select All」选项的复选框与文字之间的间距是否正常，不应有多余的空白；4. 如果页面支持动态添加/移除选项，尝试动态修改选项后刷新插件（refresh），再次展开下拉框，检查「Select All」复选框与文字之间的间距是否仍然正常、没有多余的空白字符。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。",
+  "expected_result_zh": "Select All 选项中，复选框与文字之间的间距正常，不存在多余的空白间隔，动态刷新插件后也保持一致。",
+  "max_steps": 80,
+  "timeout_minutes": 15,
+  "repo_size_kb": 7525
+}

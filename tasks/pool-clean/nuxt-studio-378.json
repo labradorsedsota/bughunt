@@ -1,0 +1,25 @@
+{
+  "task_id": "nuxt-studio-378",
+  "repo": "nuxt-content/nuxt-studio",
+  "issue_number": 378,
+  "pr_number": 388,
+  "buggy_commit": "a92e1fd1dd",
+  "fix_commit": "5d63fff8cc",
+  "framework": "vue",
+  "deploy_commands": [
+    "git clone https://github.com/nuxt-content/nuxt-studio.git",
+    "cd nuxt-studio",
+    "git checkout a92e1fd1dd",
+    "pnpm install --no-frozen-lockfile",
+    "npm run dev"
+  ],
+  "deploy_verify": "curl -s http://localhost:5173 | grep -q '<'",
+  "dev_url": "http://localhost:5173",
+  "test_page": "/",
+  "app_name": "nuxt-studio",
+  "test_description_zh": "测试 Nuxt Studio 的内容编辑器中，当网站已部署最新版本时，编辑器是否正确判断 GitHub 上的内容与网站版本一致。具体步骤：1. 打开 Nuxt Studio 首页或文档页面；2. 观察页面是否正常加载，检查是否有内容差异相关的警告提示；3. 查看编辑器界面中的内容同步状态显示是否正确。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。",
+  "expected_result_zh": "当网站内容与 GitHub 上的源文件数据一致时，编辑器不应显示内容不一致的警告，页面应正常展示无误差提示。",
+  "max_steps": 80,
+  "timeout_minutes": 15,
+  "repo_size_kb": 10116
+}

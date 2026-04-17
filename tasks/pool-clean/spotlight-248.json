@@ -1,0 +1,25 @@
+{
+  "task_id": "spotlight-248",
+  "repo": "Renumics/spotlight",
+  "issue_number": 248,
+  "pr_number": 265,
+  "buggy_commit": "40927bce7b",
+  "fix_commit": "017bb9c019",
+  "framework": "react",
+  "deploy_commands": [
+    "git clone https://github.com/Renumics/spotlight.git",
+    "cd spotlight",
+    "git checkout 40927bce7b",
+    "npm install",
+    "npm run dev"
+  ],
+  "deploy_verify": "curl -s http://localhost:5173 | grep -q '<'",
+  "dev_url": "http://localhost:5173",
+  "test_page": "/",
+  "app_name": "@renumics/spotlight",
+  "test_description_zh": "测试 Spotlight 应用在使用不同布局（layout）参数多次调用 show 时，界面布局是否能正确更新。具体步骤：1. 打开浏览器访问 Spotlight 应用主页面。2. 观察当前页面的布局结构（例如包含哪些面板、图表、嵌入视图等组件）。3. 如果页面上有可视化面板（如散点图、表格、音频检查器等），记录当前布局的组件组成和排列方式。4. 此测试主要验证：当后端以不同的 layout 配置重新启动或刷新时，前端页面是否能正确反映最新的布局配置，而不是显示之前缓存的旧布局。请检查页面上显示的面板和组件是否与当前预期的布局一致，不应出现需要手动清除浏览器缓存才能看到新布局的情况。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。",
+  "expected_result_zh": "页面应正确显示当前配置的布局，各面板和组件应与最新传入的 layout 参数一致，无需清除浏览器缓存即可看到更新后的布局。",
+  "max_steps": 80,
+  "timeout_minutes": 15,
+  "repo_size_kb": 52416
+}

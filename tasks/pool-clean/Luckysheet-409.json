@@ -1,0 +1,25 @@
+{
+  "task_id": "Luckysheet-409",
+  "repo": "dream-num/Luckysheet",
+  "issue_number": 409,
+  "pr_number": 1089,
+  "buggy_commit": "5151467a44",
+  "fix_commit": "42ab04f05b",
+  "framework": "unknown",
+  "deploy_commands": [
+    "git clone https://github.com/dream-num/Luckysheet.git",
+    "cd Luckysheet",
+    "git checkout 5151467a44",
+    "npm install",
+    "npm run dev"
+  ],
+  "deploy_verify": "curl -s http://localhost:3000 | grep -q '<'",
+  "dev_url": "http://localhost:3000",
+  "test_page": "/",
+  "app_name": "luckysheet",
+  "test_description_zh": "测试Luckysheet中合并单元格的冻结功能。操作步骤：1. 打开Luckysheet电子表格页面；2. 选中一片区域（例如A1:C3），将其合并为一个合并单元格；3. 选中该合并单元格或将光标定位到该合并单元格上；4. 使用菜单栏中的冻结功能（视图菜单或工具栏中的冻结按钮），对当前选中的合并单元格执行冻结行列操作；5. 观察冻结线的位置是否正确地出现在合并单元格的左上角位置（即冻结范围应以合并单元格整体的左上角为基准）；6. 滚动表格，验证冻结效果是否正常，冻结区域内容是否固定不动。始终在浏览器内操作，禁止打开Terminal或其他应用程序。如果在浏览器中找不到目标功能，直接报告able unclear。",
+  "expected_result_zh": "对合并单元格执行冻结操作后，冻结线应出现在合并单元格整体的左上角位置，冻结效果与预期一致，滚动时冻结区域内容保持固定。",
+  "max_steps": 80,
+  "timeout_minutes": 15,
+  "repo_size_kb": 28155
+}

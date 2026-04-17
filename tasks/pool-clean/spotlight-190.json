@@ -1,0 +1,25 @@
+{
+  "task_id": "spotlight-190",
+  "repo": "Renumics/spotlight",
+  "issue_number": 190,
+  "pr_number": 191,
+  "buggy_commit": "0a2132bd57",
+  "fix_commit": "9672bb088d",
+  "framework": "react",
+  "deploy_commands": [
+    "git clone https://github.com/Renumics/spotlight.git",
+    "cd spotlight",
+    "git checkout 0a2132bd57",
+    "npm install",
+    "npm run dev"
+  ],
+  "deploy_verify": "curl -s http://localhost:5173 | grep -q '<'",
+  "dev_url": "http://localhost:5173",
+  "test_page": "/",
+  "app_name": "@renumics/spotlight",
+  "test_description_zh": "测试数据集过滤器功能对特殊字符输入的处理。操作步骤：1. 打开应用主页面，等待数据加载完成；2. 找到过滤器（Filter）功能区域，点击添加新的过滤器；3. 在过滤器的输入框中输入包含特殊正则表达式字符的字符串，例如输入 '*test*'（注意星号在前面）；4. 观察应用是否正常响应，页面不应崩溃或出现白屏；5. 验证过滤器能够正确处理该输入，应用应保持可用状态，可以给出提示信息或将输入作为普通文本进行匹配过滤。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。",
+  "expected_result_zh": "在过滤器中输入 '*test*' 等特殊字符串后，应用不应崩溃或白屏，页面应保持正常可用状态，过滤器应能优雅处理该输入（例如将其作为普通字符串进行包含匹配或显示提示信息）。",
+  "max_steps": 80,
+  "timeout_minutes": 15,
+  "repo_size_kb": 52416
+}

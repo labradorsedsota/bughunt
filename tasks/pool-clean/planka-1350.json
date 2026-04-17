@@ -1,0 +1,25 @@
+{
+  "task_id": "planka-1350",
+  "repo": "plankanban/planka",
+  "issue_number": 1350,
+  "pr_number": 1379,
+  "buggy_commit": "1df346d590",
+  "fix_commit": "e080d30b32",
+  "framework": "unknown",
+  "deploy_commands": [
+    "git clone https://github.com/plankanban/planka.git",
+    "cd planka",
+    "git checkout 1df346d590",
+    "npm install",
+    "npm run dev"
+  ],
+  "deploy_verify": "curl -s http://localhost:3000 | grep -q '<'",
+  "dev_url": "http://localhost:3000",
+  "test_page": "/",
+  "app_name": "planka",
+  "test_description_zh": "测试在卡片详情页中评论输入框与任务列表交互时的行为。具体步骤：1. 打开 Planka 应用并登录，进入一个项目看板；2. 打开一张已有任务列表（checklist）的卡片（如果没有，先创建一张卡片并添加一个任务列表及若干任务项）；3. 在卡片详情页底部的评论区域，点击评论输入框并输入一些文字内容；4. 不提交评论，直接将焦点移开，点击任务列表中的某个任务项将其勾选为完成状态；5. 观察评论输入区域下方的「Add comment」提交按钮是否仍然可见；6. 确认在评论输入框中有文字内容的情况下，无论焦点是否在输入框上，提交按钮都应该保持显示。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。",
+  "expected_result_zh": "当评论输入框中已有文字内容时，即使用户将焦点移到其他区域（如勾选任务列表中的任务项），评论区域的「Add comment」提交按钮应始终保持可见，不会消失。",
+  "max_steps": 80,
+  "timeout_minutes": 15,
+  "repo_size_kb": 58003
+}

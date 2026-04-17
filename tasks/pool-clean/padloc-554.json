@@ -1,0 +1,25 @@
+{
+  "task_id": "padloc-554",
+  "repo": "padloc/padloc",
+  "issue_number": 554,
+  "pr_number": 578,
+  "buggy_commit": "e3b42edd1c",
+  "fix_commit": "0345800b0e",
+  "framework": "unknown",
+  "deploy_commands": [
+    "git clone https://github.com/padloc/padloc.git",
+    "cd padloc",
+    "git checkout e3b42edd1c",
+    "npm install",
+    "npm run dev"
+  ],
+  "deploy_verify": "curl -s http://localhost:3000 | grep -q '<'",
+  "dev_url": "http://localhost:3000",
+  "test_page": "/settings",
+  "app_name": "padloc",
+  "test_description_zh": "测试生物识别解锁（Biometric Unlock）功能的切换开关交互行为。操作步骤：1. 打开应用并登录（如果需要登录）；2. 导航到设置页面（Settings），找到安全相关的设置区域；3. 找到「Biometric Unlock」（生物识别解锁）的切换开关（toggle）；4. 观察该切换开关的状态，确认在当前设备/运行环境不支持生物识别的情况下，该开关是否处于禁用（disabled）状态，不可点击；5. 尝试点击该开关，验证其交互行为是否符合预期。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。",
+  "expected_result_zh": "当设备或运行环境不支持生物识别解锁时，Biometric Unlock 的切换开关应处于禁用（disabled）状态，用户无法点击或切换该开关。",
+  "max_steps": 80,
+  "timeout_minutes": 15,
+  "repo_size_kb": 50533
+}
