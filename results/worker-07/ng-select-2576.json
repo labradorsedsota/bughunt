@@ -1,0 +1,18 @@
+{
+  "task_id": "ng-select-2576",
+  "repo": "ng-select/ng-select",
+  "worker": "worker-07",
+  "status": "completed",
+  "sess_id": "sess-20260418002118-fc2db6bc4508405aade74d5ec3107e56",
+  "expected_result_used": true,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-17T16:45:00-07:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 33,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "RTL模式下appendTo=body的ng-select下拉面板使用left:454px定位（LTR风格）而非RTL应用的right属性。当前视觉效果因面板宽度与输入框一致(812px)恰好对齐，但底层CSS实现使用了错误的定位方向。DevTools检查内联样式确认：left:454px,width:812px,min-width:812px,top:502px——缺少right属性锚定。",
+    "last_reasoning": "通过DevTools Console检查面板CSS内联样式和getBoundingClientRect，确认面板位置与输入框视觉对齐(left=454,right=1266,width=812)，但CSS使用left而非right属性定位，RTL模式下应使用right属性锚定。"
+  }
+}
