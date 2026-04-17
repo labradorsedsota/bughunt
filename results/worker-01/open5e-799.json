@@ -1,0 +1,18 @@
+{
+  "task_id": "open5e-799",
+  "repo": "open5e/open5e",
+  "worker": "worker-01",
+  "status": "completed",
+  "sess_id": "sess-20260418014625-b0a86d21283b47718f580059e9911b21",
+  "expected_result_used": true,
+  "duration_seconds": 571,
+  "timestamp": "2026-04-18T01:55:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 48,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "MdViewer内联模式下strong标签被渲染为块级元素。Lich怪物页Spellcasting区域的'At Will:'/'2/Day Each:'/'1/Day Each:'等strong标签computed display为block（继承自li的list-item），导致加粗文本独占一行。根因：MdViewer.vue:75的CSS规则'.markdown-inline :not(ul,table,...) {display:inherit}'使strong继承了父li的list-item显示值。",
+    "last_reasoning": "DevTools验证：strong元素computed display为block，box-sizing 691.13px×20px（占满整行）。而normal段落中的strong为inline，89.56px×20px（仅文字宽度）。确认CSS display:inherit规则导致li子元素strong继承list-item块级显示。"
+  }
+}
