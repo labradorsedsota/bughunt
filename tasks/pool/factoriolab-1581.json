@@ -1,0 +1,34 @@
+{
+  "task_id": "factoriolab-1581",
+  "repo": "factoriolab/factoriolab",
+  "issue_number": 1581,
+  "pr_number": 1582,
+  "buggy_commit": "95c84df7d5",
+  "fix_commit": "8c2d5fb5f0",
+  "framework": "angular",
+  "deploy_commands": [
+    "git clone https://github.com/factoriolab/factoriolab.git",
+    "cd factoriolab",
+    "git checkout 95c84df7d5",
+    "npm install",
+    "npm run dev"
+  ],
+  "deploy_verify": "curl -s http://localhost:4200 | grep -q '<'",
+  "dev_url": "http://localhost:4200",
+  "test_page": "/",
+  "app_name": "factoriolab",
+  "test_description_zh": "测试 FactorioLab 中保存状态（Save State）功能的正确性。操作步骤：1. 打开应用后，先添加一些配方（recipe）到当前工厂方案中，例如点击添加配方按钮并选择一个配方。2. 找到设置区域中的状态管理下拉菜单（saved states dropdown），将当前方案保存为一个状态（输入名称并保存）。3. 保存成功后，再添加一个新的配方到当前方案中。4. 再次打开状态管理下拉菜单，选择\"Save\"选项来更新/覆盖之前保存的状态。5. 观察保存后下拉菜单是否仍然选中当前状态。6. 然后重新选择该已保存的状态加载它，验证加载后的方案中是否包含了第二次添加的新配方（即保存操作是否确实更新了状态）。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。",
+  "expected_result_zh": "保存状态后，下拉菜单应保持选中当前状态；重新加载该状态后，应包含最新添加的配方，说明保存操作成功更新了已有状态。",
+  "max_steps": 80,
+  "timeout_minutes": 15,
+  "repo_size_kb": 117513,
+  "ground_truth": {
+    "bug_type": "",
+    "issue_title": "Space Age: saved states not getting updated",
+    "summary": "fix: Fix saved states save/delete menu options, closes #1581",
+    "changed_files": 1,
+    "ui_score": 12,
+    "has_screenshot": false
+  },
+  "_description_source": "llm"
+}

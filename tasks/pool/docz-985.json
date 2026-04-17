@@ -1,0 +1,34 @@
+{
+  "task_id": "docz-985",
+  "repo": "doczjs/docz",
+  "issue_number": 985,
+  "pr_number": 1023,
+  "buggy_commit": "044f3511dc",
+  "fix_commit": "b90ea82505",
+  "framework": "unknown",
+  "deploy_commands": [
+    "git clone https://github.com/doczjs/docz.git",
+    "cd docz",
+    "git checkout 044f3511dc",
+    "npm install",
+    "npm run dev"
+  ],
+  "deploy_verify": "curl -s http://localhost:3000 | grep -q '<'",
+  "dev_url": "http://localhost:3000",
+  "test_page": "/",
+  "app_name": "docz",
+  "test_description_zh": "测试 docz 文档站点的页面导航和头部组件功能。启动 docz 开发服务器后，在浏览器中访问文档站点首页，检查页面是否正常渲染，包括顶部 Header 导航栏和侧边栏导航链接（NavLink）是否正确显示当前文档的高亮状态。点击侧边栏中的不同文档链接，验证导航切换是否正常工作，当前文档的标识是否正确更新。同时观察页面的主题样式（如边框、颜色等）是否正确应用，没有样式异常或渲染错误。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。",
+  "expected_result_zh": "文档站点首页正常渲染，Header 组件和 NavLink 组件均正确显示，当前文档高亮状态正常，主题样式（边框、颜色等）正确应用，页面导航切换流畅无报错。",
+  "max_steps": 80,
+  "timeout_minutes": 15,
+  "repo_size_kb": 10054,
+  "ground_truth": {
+    "bug_type": "",
+    "issue_title": "gatsby-theme-docz v2 build broken",
+    "summary": "fix(docz): remove window check from useCurrentDoc fixes #985",
+    "changed_files": 1,
+    "ui_score": 10,
+    "has_screenshot": false
+  },
+  "_description_source": "llm"
+}

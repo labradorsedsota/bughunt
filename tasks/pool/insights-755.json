@@ -1,0 +1,36 @@
+{
+  "task_id": "insights-755",
+  "repo": "frappe/insights",
+  "issue_number": 755,
+  "pr_number": 756,
+  "buggy_commit": "5852e399a1",
+  "fix_commit": "d8a5ffbf04",
+  "framework": "unknown",
+  "deploy_commands": [
+    "git clone https://github.com/frappe/insights.git",
+    "cd insights",
+    "git checkout 5852e399a1",
+    "npm install",
+    "npm run dev"
+  ],
+  "deploy_verify": "curl -s http://localhost:3000 | grep -q '<'",
+  "dev_url": "http://localhost:3000",
+  "test_page": "/",
+  "app_name": "insights",
+  "test_description_zh": "测试在 Frappe Insights 中，当数据源启用'Apply User Permissions'时，通过自定义字段（Custom Field）关联的子表（Child Table）的查询功能。具体步骤：1. 打开 Frappe Insights 应用；2. 进入数据源设置页面，找到站点数据库的数据源配置；3. 确认'Apply User Permissions'已启用；4. 进入查询构建器（Query Builder），尝试从一个通过自定义字段关联到父级 DocType 的子表中查询数据；5. 检查查询预览是否能正常返回数据行，以及生成的 SQL 是否正确包含权限条件而非 WHERE FALSE。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。",
+  "expected_result_zh": "当数据源启用'Apply User Permissions'时，通过自定义字段关联的子表查询应能正常返回数据，查询预览显示正确的结果行数，生成的 SQL 不应包含 WHERE FALSE 条件，而应正确识别父子关系并应用相应的读取权限。",
+  "max_steps": 80,
+  "timeout_minutes": 15,
+  "repo_size_kb": 53215,
+  "ground_truth": {
+    "bug_type": "",
+    "issue_title": "Apply User Permissions:  fails for Child Tables linked via Custom Fields",
+    "summary": "fix: include Custom Fields when checking child table permissions",
+    "changed_files": 1,
+    "ui_score": 12,
+    "has_screenshot": false
+  },
+  "_backend_risk": true,
+  "_backend_risk_note": "LLM判断此项目核心功能需要外部后端，Worker部署后可能遇到空壳页面/登录墙",
+  "_description_source": "llm"
+}

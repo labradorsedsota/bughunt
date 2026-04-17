@@ -1,0 +1,36 @@
+{
+  "task_id": "devhub-17",
+  "repo": "devhubapp/devhub",
+  "issue_number": 17,
+  "pr_number": 21,
+  "buggy_commit": "1fe69d51de",
+  "fix_commit": "486d377168",
+  "framework": "unknown",
+  "deploy_commands": [
+    "git clone https://github.com/devhubapp/devhub.git",
+    "cd devhub",
+    "git checkout 1fe69d51de",
+    "npm install",
+    "npm run dev"
+  ],
+  "deploy_verify": "curl -s http://localhost:3000 | grep -q '<'",
+  "dev_url": "http://localhost:3000",
+  "test_page": "/",
+  "app_name": "devhub",
+  "test_description_zh": "测试 DevHub 应用在浏览器中的整体布局和间距显示是否正常。启动应用后，观察页面中各个卡片、列表项、文本区域之间的间距是否均匀合理，特别关注带有渐变文本遮罩（TransparentTextOverlay）效果的区域，检查其布局是否正确、没有异常的间距或重叠问题。查看主页面上的各列（columns）内容区域，确认内容项之间的垂直和水平间距显示正常，文本和图标之间没有异常挤压或过大空白。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。",
+  "expected_result_zh": "页面中所有元素的间距显示正常，卡片、列表项、文本遮罩区域之间没有异常的间距偏移、重叠或空白过大的问题，整体布局整齐一致。",
+  "max_steps": 80,
+  "timeout_minutes": 15,
+  "repo_size_kb": 121540,
+  "ground_truth": {
+    "bug_type": "",
+    "issue_title": "Wrong spacing on Firefox and Edge",
+    "summary": "Some fixes for Firefox and Edge",
+    "changed_files": 4,
+    "ui_score": 8,
+    "has_screenshot": true
+  },
+  "_backend_risk": true,
+  "_backend_risk_note": "LLM判断此项目核心功能需要外部后端，Worker部署后可能遇到空壳页面/登录墙",
+  "_description_source": "llm"
+}
