@@ -1,0 +1,21 @@
+{
+  "task_id": "react-native-reanimated-carousel-864",
+  "repo": "dohooo/react-native-reanimated-carousel",
+  "worker": "worker-04",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T11:40:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "464MB repo clone 反复被 SIGKILL（shallow clone、filter=tree:0、sparse checkout 均失败），无法获取代码",
+    "attempted": [
+      "git clone --depth=1（SIGKILL）",
+      "git clone --filter=tree:0（SIGKILL）",
+      "sparse checkout + fetch --depth=1（SIGKILL）"
+    ],
+    "recommendation": "跳过，repo 过大无法在当前环境 clone"
+  }
+}
