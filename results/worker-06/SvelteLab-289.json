@@ -1,0 +1,21 @@
+{
+  "task_id": "SvelteLab-289",
+  "repo": "SvelteLab/SvelteLab",
+  "worker": "worker-06",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T08:28:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "33MB repo下载超时（代理带宽仅~12KB/s），curl在2.4MB处中断。前一批次(batch 5)该commit部署后SSR返回空body",
+    "attempted": [
+      "直连GitHub超时（443端口连接失败）",
+      "代理下载180秒超时，仅下载2.4MB/33MB",
+      "尝试curl -C resume但GitHub不支持byte ranges"
+    ],
+    "recommendation": "跳过，网络带宽不足以下载33MB repo"
+  }
+}

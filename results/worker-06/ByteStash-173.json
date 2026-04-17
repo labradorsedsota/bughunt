@@ -1,0 +1,22 @@
+{
+  "task_id": "ByteStash-173",
+  "repo": "jordan-dalby/ByteStash",
+  "worker": "worker-06",
+  "status": "failed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260417225207-8445bc1cf786460f86e950454c9202ed",
+  "duration_seconds": 904,
+  "timestamp": "2026-04-17T08:07:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "ByteStash是client/server架构，需要后端数据库。仅启动前端vite dev server可渲染登录页，但/api/auth/login和/api/auth/register均返回500（无数据库），无法登录也无法注册用户，mano-cua无法进入主界面测试Compact View功能",
+    "attempted": [
+      "npm install + vite启动前端（port 3000，HTTP 200）",
+      "mano-cua尝试登录admin/admin返回500",
+      "mano-cua尝试/api/auth/register也500",
+      "mano-cua尝试/api/setup端点不存在"
+    ],
+    "recommendation": "需要docker-compose启动完整环境（含SQLite/Postgres后端），仅前端无法测试。建议跳过"
+  }
+}
