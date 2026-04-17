@@ -1,0 +1,19 @@
+{
+  "task_id": "git-city-11",
+  "repo": "srizzon/git-city",
+  "worker": "worker-09",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 120,
+  "timestamp": "2026-04-17T05:25:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Next.js app requires Supabase backend + GitHub Token + Stripe keys. Cannot run without database/auth. Bug confirmed via source code: 1) claim-free-item API returns 409 on re-claim causing frontend button reset loop; 2) handleClaimFreeGift() lacks debounce guard (if claimingGift return); 3) useState initializer reads localStorage causing SSR hydration mismatch.",
+    "attempted": [
+      "Source code analysis of buggy vs fix commit (14 files changed)"
+    ],
+    "recommendation": "跳过，需要 Supabase + GitHub Token + Stripe，无法纯前端测试"
+  }
+}

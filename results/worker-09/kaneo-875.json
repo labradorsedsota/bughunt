@@ -1,0 +1,19 @@
+{
+  "task_id": "kaneo-875",
+  "repo": "usekaneo/kaneo",
+  "worker": "worker-09",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 90,
+  "timestamp": "2026-04-17T05:27:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Kaneo is a monorepo (Hono API + React frontend) requiring PostgreSQL database + AUTH_SECRET. Cannot run without database. Bug confirmed via source code: create-project-modal.tsx Key input field lacks maxLength attribute, allowing unlimited input that overflows modal layout. Fix adds maxLength={8}.",
+    "attempted": [
+      "Source code analysis of buggy vs fix commit"
+    ],
+    "recommendation": "跳过，需 PostgreSQL + AUTH_SECRET。Bug 简单明确：Key 输入框缺 maxLength={8}"
+  }
+}

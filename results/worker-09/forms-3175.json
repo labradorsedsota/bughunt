@@ -1,0 +1,19 @@
+{
+  "task_id": "forms-3175",
+  "repo": "nextcloud/forms",
+  "worker": "worker-09",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 120,
+  "timestamp": "2026-04-17T05:22:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Nextcloud Forms is a Nextcloud server plugin requiring full Nextcloud backend + database + auth. Cannot run standalone in browser. Bug confirmed via source code analysis: SubmissionService.php exportData() calls $file->getContent() without try-catch, fails on S3 placeholder files (single-space content). Fix adds exception handling and trim() check for whitespace-only files.",
+    "attempted": [
+      "Source code analysis of buggy vs fix commit"
+    ],
+    "recommendation": "跳过，Nextcloud 插件需要完整后端环境，无法纯前端测试。Bug 已通过源码确认：exportData() 未处理 getContent() 异常和 S3 占位文件"
+  }
+}

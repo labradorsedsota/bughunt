@@ -1,0 +1,18 @@
+{
+  "task_id": "lumen-254",
+  "repo": "lumen-notes/lumen",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260417203041-4ebc2ad18f6e4e5c9f13a4df012fac6a",
+  "expected_result_used": false,
+  "duration_seconds": 780,
+  "timestamp": "2026-04-17T05:40:00-07:00",
+  "mano_cua": {
+    "status": "KILLED",
+    "total_steps": 60,
+    "last_action": "left_click (640, 643)",
+    "result": "abnormal",
+    "result_summary": "External link arrow icon (::after pseudo-element with display:inline-block) can wrap independently to next line from link text at narrow viewport widths. At 110px forced container width, mano-cua observed 'exampl' on one line and '↗ (son' on the next — arrow separated from link text. Root cause: .link-external class lacks white-space:nowrap. Fix adds white-space:nowrap to .link-external.",
+    "last_reasoning": "mano-cua confirmed via DevTools: <a> element has display:inline, white-space:normal; ::after pseudo-element has display:inline-block, width:8px, white-space:normal. No nowrap protection means arrow can wrap independently. Verified by injecting 110px container width — arrow appeared on separate line from link text."
+  }
+}

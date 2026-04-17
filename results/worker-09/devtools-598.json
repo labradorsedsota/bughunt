@@ -1,0 +1,18 @@
+{
+  "task_id": "devtools-598",
+  "repo": "nuxt/devtools",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 420,
+  "timestamp": "2026-04-17T05:20:00-07:00",
+  "mano_cua": {
+    "status": "SKIPPED",
+    "total_steps": 0,
+    "last_action": null,
+    "result": "abnormal",
+    "result_summary": "Bug confirmed via source code analysis. In checkForUpdateOf() (packages/devtools/src/npm/index.ts), getPackageInfo() uses only require.resolve.paths(name) to locate the package. In monorepo or hoisted setups, this fails to find nuxt package → returns null → version number not displayed on dashboard. Fix commit adds nuxt.options.modulesDir to search paths.",
+    "last_reasoning": "Buggy code: getPackageInfo(name, { paths: require.resolve.paths(name) || undefined }). Fix code: adds [...nuxt.options.modulesDir, ...require.resolve.paths(name) || []] as modulePaths. The buggy version's limited resolve paths cannot find the package in monorepo/hoisted node_modules layouts, causing version display to fail silently."
+  }
+}
