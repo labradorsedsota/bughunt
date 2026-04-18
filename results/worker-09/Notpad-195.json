@@ -1,0 +1,18 @@
+{
+  "task_id": "Notpad-195",
+  "repo": "Muhammed-Rahif/Notpad",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260419003805-a4b50e2af3a94c7aa9339f89c5dd8cc4",
+  "expected_result_used": true,
+  "duration_seconds": 120,
+  "timestamp": "2026-04-19T00:40:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 8,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "View菜单中主题切换按钮标签不会动态变化。浅色模式下标签正确显示'Dark Mode'，但切换到深色模式后重新打开菜单，标签仍显示'Dark Mode'而非期望的'Light Mode'。主题切换功能本身正常（背景确实变化），但按钮标签始终固定为'Dark Mode'",
+    "last_reasoning": "Bug confirmed: In View menu, theme toggle button label stays 'Dark Mode' regardless of current theme. Light mode → label 'Dark Mode' ✓; switch to Dark mode → open menu again → label still 'Dark Mode' ✗ (expected 'Light Mode'). Switch back to Light mode → label 'Dark Mode' ✓. The label never dynamically updates to reflect current state."
+  }
+}
