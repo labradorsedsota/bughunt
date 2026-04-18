@@ -2,12 +2,18 @@
   "task_id": "saleor-dashboard-5985",
   "repo": "saleor/saleor-dashboard",
   "worker": "worker-03",
-  "status": "completed",
+  "status": "failed",
+  "sess_id": null,
   "expected_result_used": false,
+  "duration_seconds": 0,
   "timestamp": "2026-04-18T00:36:00+08:00",
-  "mano_cua": {
-    "status": "NOT_STARTED",
-    "result": "unclear",
-    "result_summary": "Saleor Dashboard 需要 Saleor 后端（GraphQL API）。backend_risk: True。测试要求在产品列表页筛选并导出，需要完整的电商后端（产品数据、认证等），本地无法搭建。"
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Saleor Dashboard 需要 Saleor 后端（GraphQL API）。backend_risk: True。测试要求在产品列表页筛选并导出，需要完整的电商后端（产品数据、认证等），本地无法搭建。",
+    "attempted": [
+      "确认项目需要外部后端/API，按规范立即标 deploy_failed"
+    ],
+    "recommendation": "跳过，需要外部后端服务"
   }
 }

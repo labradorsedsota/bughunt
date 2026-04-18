@@ -1,5 +1,63 @@
 # Results CHANGELOG
 
+## 2026-04-18 11:30 — worker-03 合规修复 27 张结果卡
+
+**操作人：** worker-03（林菡确认）
+**原因：** Pichai 合规扫描发现 worker-03 提交的 90 张结果中 27 张不符合 `worker-execution-guide.md` 标准 schema（缺少顶层必填字段、sess_id 问题、mano_cua 缺字段、failure 为 null、JSON 解析失败）
+**审计报告：** `reports/worker-03-audit.md`
+**修复脚本：** `scripts/fix-worker03.py`（可复现）
+
+**修复分类：**
+
+| 类型 | 数量 | 修复方式 |
+|------|------|----------|
+| A: 有 log 可提取真实数据 | 2 | 从 log 提取正确 sess_id / 修复 JSON 转义 |
+| B: 信息存在但格式非标准 | 4 | 重组为标准 failure 对象 |
+| C: completed 但 mano_cua 未启动 → failed | 21 | status 改 failed + 构建 failure 对象 + mano_cua 设 null |
+
+**修复后 status 分布（90 张）：**
+
+| status | 数量 |
+|--------|------|
+| completed | 60 |
+| failed | 30 |
+
+**影响卡清单（27 张）：**
+
+| # | 文件 | 修复前问题 | 修复后 status | 修复方式 |
+|---|------|-----------|---------------|----------|
+| 1 | `cboard-1752.json` | sess_id 格式错误：`sess-20260418000125-placeholder` | completed | 从 log 提取真实 sess_id：`sess-20260418000150-452ee47d7c8141999938126b5add74c7` |
+| 2 | `open5e-622.json` | JSON 解析失败：last_reasoning 中 CSS content 转义错误 | completed | JSON 重建 + 从 log 提取 total_steps(90)/last_action/last_reasoning |
+| 3 | `cloudinary-179.json` | status=failed 但 failure 为 null，使用非标字段 failure_reason/failure_detail | failed (deploy_failed) | 重组为标准 failure 对象 + 补 sess_id=null/expected_result_used |
+| 4 | `open5e-783.json` | status=failed 但 failure 为 null | failed (deploy_failed) | 从 mano_cua.result_summary 构建 failure 对象，mano_cua 设 null |
+| 5 | `saltcorn-3596.json` | status=failed 但 failure 为 null | failed (deploy_failed) | 从 mano_cua.result_summary 构建 failure 对象，mano_cua 设 null |
+| 6 | `saltcorn-3859.json` | status=failed 但 failure 为 null | failed (deploy_failed) | 从 mano_cua.result_summary 构建 failure 对象，mano_cua 设 null |
+| 7 | `VueTorrent-2391.json` | status=completed 但 mano_cua 未启动，缺 sess_id/duration_seconds，mano_cua 缺 total_steps/last_action/last_reasoning | failed (deploy_failed) | completed→failed，构建标准 failure 对象（需 qBittorrent 后端），mano_cua 设 null |
+| 8 | `VueTorrent-2413.json` | 同 #7 | failed (deploy_failed) | 同 #7 |
+| 9 | `VueTorrent-2433.json` | 同 #7 | failed (deploy_failed) | 同 #7 |
+| 10 | `VueTorrent-2440.json` | 同 #7 | failed (deploy_failed) | 同 #7 |
+| 11 | `VueTorrent-2489.json` | 同 #7 | failed (deploy_failed) | 同 #7 |
+| 12 | `VueTorrent-2492.json` | 同 #7 | failed (deploy_failed) | 同 #7 |
+| 13 | `VueTorrent-2570.json` | 同 #7 | failed (deploy_failed) | 同 #7 |
+| 14 | `VueTorrent-2573.json` | 同 #7 | failed (deploy_failed) | 同 #7 |
+| 15 | `VueTorrent-2587.json` | 同 #7 | failed (deploy_failed) | 同 #7 |
+| 16 | `VueTorrent-2657.json` | 同 #7 | failed (deploy_failed) | 同 #7 |
+| 17 | `VueTorrent-2676.json` | 同 #7 | failed (deploy_failed) | 同 #7 |
+| 18 | `CopilotKit-3263.json` | 同 #7（需 LLM API 后端） | failed (deploy_failed) | completed→failed，构建 failure 对象（需 OpenAI API key） |
+| 19 | `cboard-2039.json` | 同 #7（需登录+ElevenLabs API Key） | failed (deploy_failed) | completed→failed，构建 failure 对象（需账号+API key） |
+| 20 | `console-2604.json` | 同 #7（需 Appwrite 后端） | failed (deploy_failed) | completed→failed，构建 failure 对象（需 Appwrite 后端服务） |
+| 21 | `devhub-107.json` | 同 #7（需 GitHub OAuth） | failed (deploy_failed) | completed→failed，构建 failure 对象（需 GitHub OAuth 认证） |
+| 22 | `pluely-153.json` | 同 #7（Tauri 桌面应用+需 LLM API） | failed (deploy_failed) | completed→failed，构建 failure 对象（需 LLM API key） |
+| 23 | `saleor-dashboard-5985.json` | 同 #7（需 Saleor GraphQL 后端） | failed (deploy_failed) | completed→failed，构建 failure 对象（需电商后端） |
+| 24 | `shopify-268.json` | 同 #7（需 Shopify API 凭证） | failed (deploy_failed) | completed→failed，构建 failure 对象（需 Storefront API Token） |
+| 25 | `sim-3922.json` | 同 #7（需外部 AI 后端） | failed (deploy_failed) | completed→failed，构建 failure 对象（需 MCP/Ollama 服务） |
+| 26 | `sim-3974.json` | 同 #7（需外部 AI 后端） | failed (deploy_failed) | completed→failed，构建 failure 对象（需 MCP/Ollama 服务） |
+| 27 | `wanderlust-392.json` | 同 #7（需 MongoDB 后端） | failed (deploy_failed) | completed→failed，构建 failure 对象（需 MongoDB 服务） |
+
+共 27 张卡，修复后 90/90 通过合规检查。
+
+---
+
 ## 2026-04-18 11:15 — worker-01 合规修复 16 张结果卡
 
 **操作人：** worker-01（林菡确认）

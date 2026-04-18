@@ -2,12 +2,18 @@
   "task_id": "cboard-2039",
   "repo": "cboard-org/cboard",
   "worker": "worker-03",
-  "status": "completed",
+  "status": "failed",
+  "sess_id": null,
   "expected_result_used": false,
+  "duration_seconds": 0,
   "timestamp": "2026-04-18T00:26:00+08:00",
-  "mano_cua": {
-    "status": "NOT_STARTED",
-    "result": "unclear",
-    "result_summary": "需要登录账号 + ElevenLabs API Key 配置。backend_risk: True。测试要求登录后配置 ElevenLabs 语音 API 并验证功能，本地无测试账号和 API key，无法测试。"
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "需要登录账号 + ElevenLabs API Key 配置。backend_risk: True。测试要求登录后配置 ElevenLabs 语音 API 并验证功能，本地无测试账号和 API key，无法测试。",
+    "attempted": [
+      "确认项目需要外部后端/API，按规范立即标 deploy_failed"
+    ],
+    "recommendation": "跳过，需要外部后端服务"
   }
 }

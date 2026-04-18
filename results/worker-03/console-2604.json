@@ -2,12 +2,18 @@
   "task_id": "console-2604",
   "repo": "appwrite/console",
   "worker": "worker-03",
-  "status": "completed",
+  "status": "failed",
+  "sess_id": null,
   "expected_result_used": false,
+  "duration_seconds": 0,
   "timestamp": "2026-04-18T00:32:00+08:00",
-  "mano_cua": {
-    "status": "NOT_STARTED",
-    "result": "unclear",
-    "result_summary": "Appwrite Console 需要 Appwrite 后端服务。backend_risk: True。测试要求创建 API Key 和 File Token 并设置过期时间，需要完整的 Appwrite 后端（数据库、认证等），本地无法搭建。"
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Appwrite Console 需要 Appwrite 后端服务。backend_risk: True。测试要求创建 API Key 和 File Token 并设置过期时间，需要完整的 Appwrite 后端（数据库、认证等），本地无法搭建。",
+    "attempted": [
+      "确认项目需要外部后端/API，按规范立即标 deploy_failed"
+    ],
+    "recommendation": "跳过，需要外部后端服务"
   }
 }

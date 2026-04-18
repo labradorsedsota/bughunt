@@ -2,12 +2,18 @@
   "task_id": "sim-3922",
   "repo": "simstudioai/sim",
   "worker": "worker-03",
-  "status": "completed",
+  "status": "failed",
+  "sess_id": null,
   "expected_result_used": false,
+  "duration_seconds": 0,
   "timestamp": "2026-04-18T00:43:00+08:00",
-  "mano_cua": {
-    "status": "NOT_STARTED",
-    "result": "unclear",
-    "result_summary": "SimStudio AI 工作流平台，backend_risk: True。测试要求配置 MCP 服务器/Ollama 本地模型并在工作流中调用，需要外部 AI 后端服务，本地无法搭建。"
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "SimStudio AI 工作流平台，backend_risk: True。测试要求配置 MCP 服务器/Ollama 本地模型并在工作流中调用，需要外部 AI 后端服务，本地无法搭建。",
+    "attempted": [
+      "确认项目需要外部后端/API，按规范立即标 deploy_failed"
+    ],
+    "recommendation": "跳过，需要外部后端服务"
   }
 }

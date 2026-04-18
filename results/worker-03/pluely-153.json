@@ -2,12 +2,18 @@
   "task_id": "pluely-153",
   "repo": "iamsrikanthnani/pluely",
   "worker": "worker-03",
-  "status": "completed",
+  "status": "failed",
+  "sess_id": null,
   "expected_result_used": false,
+  "duration_seconds": 0,
   "timestamp": "2026-04-18T00:35:00+08:00",
-  "mano_cua": {
-    "status": "NOT_STARTED",
-    "result": "unclear",
-    "result_summary": "Tauri 桌面应用 + AI 聊天功能。测试要求在对话界面输入代码观察语法高亮，需要 LLM API key（OpenAI/Claude/Gemini 等）才能生成带代码块的回复。本地无 API key 且 Tauri IPC 在浏览器不可用，双重限制无法测试。"
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Tauri 桌面应用 + AI 聊天功能。测试要求在对话界面输入代码观察语法高亮，需要 LLM API key（OpenAI/Claude/Gemini 等）才能生成带代码块的回复。本地无 API key 且 Tauri IPC 在浏览器不可用，双重限制无法测试。",
+    "attempted": [
+      "确认项目需要外部后端/API，按规范立即标 deploy_failed"
+    ],
+    "recommendation": "跳过，需要外部后端服务"
   }
 }
