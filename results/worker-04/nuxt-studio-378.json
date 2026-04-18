@@ -1,0 +1,21 @@
+{
+  "task_id": "nuxt-studio-378",
+  "repo": "nuxt-content/nuxt-studio",
+  "worker": "worker-04",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T18:55:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "pnpm dev:prepare卡死在nuxi prepare(CPU 0%不动)，直接nuxi dev也立即退出无输出，端口5173无服务",
+    "attempted": [
+      "pnpm install成功",
+      "npm run dev(dev:prepare卡死)",
+      "kill后直接npx nuxi dev playground/docus(退出无输出)"
+    ],
+    "recommendation": "跳过，nuxt-studio需要特殊环境配置(STUDIO_DEV_SERVER等)"
+  }
+}

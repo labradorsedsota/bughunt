@@ -1,0 +1,21 @@
+{
+  "task_id": "padloc-554",
+  "repo": "padloc/padloc",
+  "worker": "worker-04",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T19:00:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "lerna monorepo，npm install被SIGKILL，lerna bootstrap被SIGKILL，手动安装子包失败（内部@padloc/*包互相依赖不在npm registry）",
+    "attempted": [
+      "npm install --legacy-peer-deps --ignore-scripts（成功但缺子包link）",
+      "npx lerna bootstrap（SIGKILL）",
+      "手动cd packages/core npm install（@padloc/locale@4.3.0 not in registry）"
+    ],
+    "recommendation": "跳过，lerna monorepo内部包依赖需要完整bootstrap但进程被杀"
+  }
+}
