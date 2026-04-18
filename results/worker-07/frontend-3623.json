@@ -1,0 +1,21 @@
+{
+  "task_id": "frontend-3623",
+  "repo": "source-academy/frontend",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T22:20:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Source Academy frontend使用yarn 4 PnP模式(packageManager: yarn@4.13.0)。yarn install持续超时被SIGKILL(多次尝试均失败)，npm install --legacy-peer-deps同样被杀。项目依赖安装无法完成。backend_risk:true。",
+    "attempted": [
+      "corepack enable + yarn install (SIGKILL)",
+      "npm install --legacy-peer-deps (SIGKILL)",
+      "配置PLAYGROUND_ONLY=TRUE绕过后端依赖(安装阶段就失败)"
+    ],
+    "recommendation": "跳过，yarn 4 PnP安装超时"
+  }
+}
