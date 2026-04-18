@@ -3,7 +3,20 @@
   "repo": "riccardoperra/codeimage",
   "worker": "worker-05",
   "status": "failed",
-  "failure_reason": "deploy_failed",
-  "failure_detail": "SolidJS+vanilla-extract+pnpm monorepo部署失败: esbuild@0.11.23安装损坏(vanilla-extract依赖), vite-plugin-dts有.js.js双扩展名bug, @codeimage/ui的tsx build工具与Node18不兼容。尝试了: 1)逐个build内部packages 2)patch vite config去除dts 3)创建dist stub 4)Node16(pnpm要求>=18)。均无法解决esbuild核心问题。",
-  "timestamp": "2026-04-17T05:38:35+08:00"
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-17T05:38:35+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "SolidJS+vanilla-extract+pnpm monorepo部署失败: esbuild@0.11.23安装损坏(vanilla-extract依赖), vite-plugin-dts有.js.js双扩展名bug, @codeimage/ui的tsx build工具与Node18不兼容",
+    "attempted": [
+      "逐个build内部packages",
+      "patch vite config去除dts",
+      "创建dist stub",
+      "切换Node16(pnpm要求>=18)"
+    ],
+    "recommendation": "跳过，esbuild@0.11.23核心问题无法解决"
+  }
 }

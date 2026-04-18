@@ -1,5 +1,42 @@
 # Results CHANGELOG
 
+## 2026-04-18 12:10 — worker-05 合规修复 8 张结果卡
+
+**操作人：** worker-05（林菡确认）
+**原因：** Pichai 合规扫描发现 worker-05 提交的 50 张结果中 8 张不符合 `worker-execution-guide.md` 标准 schema（缺少顶层必填字段、failure 为 null、mano_cua.result 非法值、status 错误）
+**审计报告：** `reports/worker-05-audit.md`
+
+**修复分类：**
+
+| 类型 | 数量 | 修复方式 |
+|------|------|----------|
+| A: 旧格式→标准 failed（缺字段 + 非标字段名） | 3 | 删 failure_reason/failure_detail，构建标准 failure 对象，补 sess_id/expected_result_used/duration_seconds/mano_cua |
+| B: completed→failed（部署失败但错标 completed + result 非法值） | 5 | status 改 failed，mano_cua 设 null，删 deploy_notes，构建标准 failure 对象 |
+
+**修复后 status 分布（50 张）：**
+
+| status | 数量 |
+|--------|------|
+| completed | 42 |
+| failed | 8 |
+
+**影响卡清单（8 张）：**
+
+| # | 文件 | 修复前问题 | 修复后 status | 修复方式 |
+|---|------|-----------|---------------|----------|
+| 1 | `codeimage-420.json` | 缺 sess_id/expected_result_used/duration_seconds；使用非标字段 failure_reason/failure_detail；status=failed 但 failure 为 null | failed (deploy_failed) | 删旧字段，构建标准 failure 对象（symptom: esbuild@0.11.23安装损坏；attempted: 4项）；补 sess_id=null, expected_result_used=false, duration_seconds=0, mano_cua=null |
+| 2 | `codeimage-445.json` | 同 #1（同项目同原因） | failed (deploy_failed) | 同 #1 |
+| 3 | `codeimage-641.json` | 同 #1（同项目同原因） | failed (deploy_failed) | 同 #1 |
+| 4 | `lms-1931.json` | status=completed 但 mano-cua 未执行（sess_id=null, total_steps=0, status=SKIPPED）；mano_cua.result=`deploy_failed`（非法值） | failed (deploy_failed) | status 改 failed；mano_cua 设 null；删 deploy_notes；构建 failure 对象（symptom: Frappe需Python+MariaDB+Redis；attempted: 5种clone方式） |
+| 5 | `lms-1932.json` | 同 #4（同项目同原因） | failed (deploy_failed) | 同 #4 |
+| 6 | `lms-2098.json` | 同 #4（同项目同原因） | failed (deploy_failed) | 同 #4 |
+| 7 | `svelte-splitpanes-3.json` | status=completed 但 mano-cua 未执行；mano_cua.result=`deploy_failed`（非法值）；duration_seconds=300（应为0） | failed (deploy_failed) | status 改 failed；mano_cua 设 null；删 deploy_notes；duration_seconds 改 0；构建 failure 对象（symptom: vite-plugin-svelte ESM/CJS兼容性错误；attempted: 4项） |
+| 8 | `think-83.json` | status=completed 但 mano-cua 未执行；mano_cua.result=`deploy_failed`（非法值）；duration_seconds=300（应为0） | failed (deploy_failed) | status 改 failed；mano_cua 设 null；删 deploy_notes；duration_seconds 改 0；构建 failure 对象（symptom: SASS resolve失败+缺manifest+需MySQL；attempted: 2项） |
+
+共 8 张卡，修复后 50/50 通过合规检查。
+
+---
+
 ## 2026-04-18 12:05 — worker-07 合规修复 2 张结果卡
 
 **操作人：** worker-07（林菡确认）
