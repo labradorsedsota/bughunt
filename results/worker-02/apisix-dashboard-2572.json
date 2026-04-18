@@ -1,0 +1,22 @@
+{
+  "task_id": "apisix-dashboard-2572",
+  "repo": "apache/apisix-dashboard",
+  "worker": "worker-02",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T03:41:27+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "APISIX Dashboard需要真实APISIX后端API才能登录和操作。Mock模式仅提供基础UmiJS mock（user/route/notices），不支持插件管理、路由详情、全局规则等完整API。登录接口/apisix/admin/user/login无响应。",
+    "attempted": [
+      "yarn install --ignore-scripts + NODE_OPTIONS=--openssl-legacy-provider启动dev server成功",
+      "尝试MOCK=none模式（无mock，登录接口不可用）",
+      "尝试默认mock模式（mock不覆盖APISIX业务API）",
+      "curl POST /apisix/admin/user/login 无响应（mock不处理此endpoint）"
+    ],
+    "recommendation": "需要部署APISIX后端服务（etcd+APISIX gateway+Manager API）才能测试Dashboard前端"
+  }
+}
