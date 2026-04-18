@@ -1,0 +1,20 @@
+{
+  "task_id": "elements-1062",
+  "repo": "muxinc/elements",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-19T04:10:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "monorepo 的 npm run dev 只启动各子包的 watch 构建（turbo run dev），不启动 web server。120秒内 localhost:3000 全部返回 000，无 HTTP 服务。",
+    "attempted": [
+      "npm install + npm run dev 按任务卡执行，turbo 成功构建所有子包但无 server",
+      "检查 package.json scripts，无 start/serve 命令，仅有 dev（turbo watch）"
+    ],
+    "recommendation": "跳过，此项目为组件库 monorepo，无独立 dev server 可部署"
+  }
+}
