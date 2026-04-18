@@ -1,0 +1,22 @@
+{
+  "task_id": "factoriolab-1581",
+  "repo": "factoriolab/factoriolab",
+  "worker": "worker-03",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T10:22:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "other",
+    "symptom": "buggy_commit 95c84df7d5 在 repo 中不存在。完整 clone（--no-single-branch）后 1029 commits 均不匹配。PR #1582 的 baseRefOid 指向该 commit，但 repo 历史疑似被 force push 重写，该 commit 已不可达。",
+    "attempted": [
+      "gh repo clone（shallow）→ commit not found",
+      "git fetch --unshallow → commit still not found",
+      "git clone --no-single-branch（full history）→ 1029 commits, commit still not found",
+      "git fetch origin <full_hash> → fatal: early EOF"
+    ],
+    "recommendation": "buggy_commit 不存在，建议从任务池移除此卡"
+  }
+}
