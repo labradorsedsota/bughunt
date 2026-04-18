@@ -1,0 +1,18 @@
+{
+  "task_id": "medium-editor-959",
+  "repo": "yabwe/medium-editor",
+  "worker": "worker-06",
+  "status": "completed",
+  "sess_id": "sess-20260419025124-9f4da8a6716e4524885cf107e10a21a7",
+  "expected_result_used": true,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-19T02:51:24-07:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 73,
+    "last_action": "left_click (25, 643)",
+    "result": "abnormal",
+    "result_summary": "autoLink功能正常将URL转为超链接(<a>标签+data-auto-link属性)，但editableInput事件未在autoLink转换后触发：事件仅在输入URL文本和按空格时触发(innerHTML仍为纯文本)，autoLink DOM转换完成后未再触发editableInput事件",
+    "last_reasoning": "Console shows: editableInput fired 3 times (initial, URL typed, space added) but none after autoLink conversion. innerHTML confirms URL was converted to <a href> with data-auto-link span, but editableInput event did NOT fire for the autoLink conversion step. This means the editor does not properly notify event listeners when autoLink modifies the DOM."
+  }
+}
