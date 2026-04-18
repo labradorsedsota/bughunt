@@ -1,0 +1,21 @@
+{
+  "task_id": "vaadin-grid-2055",
+  "repo": "vaadin/vaadin-grid",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-19T06:00:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm start 依赖 polymer-cli (polymer serve)，但 polymer 未安装且 npx polymer 不可用。npm install --ignore-scripts 完成但 prestart 脚本 polymer analyze 失败。",
+    "attempted": [
+      "npm install --legacy-peer-deps --ignore-scripts（成功安装依赖）",
+      "npm start（prestart 报 polymer: command not found）",
+      "npx polymer serve（could not determine executable to run）"
+    ],
+    "recommendation": "需要全局安装 polymer-cli (npm i -g polymer-cli)，但该工具已废弃且与 Node 23 不兼容"
+  }
+}
