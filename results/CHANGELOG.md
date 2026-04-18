@@ -1,5 +1,66 @@
 # Results CHANGELOG
 
+## 2026-04-18 11:40 — worker-09 合规修复 29 张结果卡
+
+**操作人：** worker-09（林菡确认）
+**原因：** Pichai 合规扫描发现 worker-09 提交的 97 张结果中 29 张不符合 `worker-execution-guide.md` 标准 schema（缺少顶层必填字段、status 非法值 None、failure 为 null、sess_id 缺失）
+**审计报告：** `reports/worker-09-audit.md`
+**修复脚本：** `scripts/fix-worker09.py`（可复现）
+
+**修复分类：**
+
+| 类型 | 数量 | 修复方式 |
+|------|------|----------|
+| A: 旧格式→completed（有 log + mano-cua COMPLETED） | 3 | 从 log 提取 sess_id/last_action/last_reasoning，重构为标准 completed 格式 |
+| A: 旧格式→failed（mano-cua 未正常完成或未执行） | 4 | 重构为标准 failed 格式，源码分析保留在 recommendation |
+| B: failed 但 failure=null（非标准字段名） | 16 | failure_reason/reason/notes/error_detail→标准 failure 对象，补缺失字段 |
+| C: completed 但 mano-cua 未执行→failed | 6 | status 改 failed + 构建 failure 对象 + mano_cua 设 null，源码分析保留在 recommendation |
+
+**修复后 status 分布（97 张）：**
+
+| status | 数量 |
+|--------|------|
+| completed | 65 |
+| failed | 32 |
+
+**影响卡清单（29 张）：**
+
+| # | 文件 | 修复前问题 | 修复后 status | 修复方式 |
+|---|------|-----------|---------------|----------|
+| 1 | `openclaw-nerve-27.json` | status=None, 缺必填字段, 旧格式 | completed (abnormal) | 从 log 提取 last_action=DONE/last_reasoning; sess_id 取最后 COMPLETED session |
+| 2 | `shadcn-solid-77.json` | status=None, 缺必填字段, 旧格式 | completed (abnormal) | 从 log 提取 last_action=DONE/last_reasoning; mano-cua COMPLETED 26步 |
+| 3 | `shadcn-solid-122.json` | status=None, 缺必填字段, 旧格式 | completed (abnormal) | 从 log 提取 last_action=DONE/last_reasoning; mano-cua COMPLETED 6步 |
+| 4 | `Luckysheet-528.json` | status=None, 缺必填字段, 旧格式 | failed (mano_cua_error) | 72步 SIGKILL→failed; 源码分析保留在 symptom/recommendation |
+| 5 | `Starkiller-5.json` | status=None, 缺必填字段, 旧格式 | failed (deploy_failed) | 需 Empire C2 后端; 源码分析保留在 recommendation |
+| 6 | `Task-Board-608.json` | status=None, 缺必填字段, 旧格式 | failed (deploy_failed) | Obsidian 插件无法浏览器运行; 源码分析保留在 recommendation |
+| 7 | `openclaw-nerve-64.json` | status=None, 缺必填字段, 旧格式 | failed (deploy_failed) | STT 后端不可用→deploy_failed; 源码分析保留在 recommendation |
+| 8 | `kaneo-1066.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | failure_reason/notes→标准 failure 对象; 补缺失字段 |
+| 9 | `kaneo-1081.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #8 |
+| 10 | `kaneo-1087.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #8 |
+| 11 | `kaneo-1131.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #8 |
+| 12 | `kaneo-1140.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #8 |
+| 13 | `megadraft-283.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | reason/error_detail→标准 failure 对象; 补缺失字段 |
+| 14 | `megadraft-286.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #13 |
+| 15 | `megadraft-288.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #13 |
+| 16 | `megadraft-302.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #13 |
+| 17 | `megadraft-319.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #13 |
+| 18 | `megadraft-324.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #13 |
+| 19 | `react-hot-toast-10.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #13 |
+| 20 | `react-hot-toast-27.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #13 |
+| 21 | `react-hot-toast-45.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #13 |
+| 22 | `react-hot-toast-50.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #13 |
+| 23 | `react-hot-toast-101.json` | failure=null, 缺 sess_id/expected_result_used/duration_seconds | failed (deploy_failed) | 同 #13 |
+| 24 | `devtools-598.json` | sess_id=null (completed 但 mano-cua 未执行) | failed (deploy_failed) | completed→failed; 源码分析保留在 recommendation |
+| 25 | `maker.js-556.json` | sess_id=null (completed 但 mano-cua 未执行) | failed (deploy_failed) | 同 #24 |
+| 26 | `ngx-datatable-1702.json` | sess_id=null (completed 但 mano-cua 未执行) | failed (deploy_failed) | 同 #24 |
+| 27 | `ngx-page-scroll-2.json` | sess_id=null (completed 但 mano-cua 未执行) | failed (deploy_failed) | 同 #24 |
+| 28 | `react-grid-layout-918.json` | sess_id=null (completed 但 mano-cua 未执行) | failed (deploy_failed) | 同 #24 |
+| 29 | `shikwasa-44.json` | sess_id=null (completed 但 mano-cua 未执行) | failed (deploy_failed) | 同 #24 |
+
+共 29 张卡，修复后 97/97 通过合规检查。
+
+---
+
 ## 2026-04-18 11:30 — worker-03 合规修复 27 张结果卡
 
 **操作人：** worker-03（林菡确认）

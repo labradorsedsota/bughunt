@@ -3,8 +3,15 @@
   "repo": "usekaneo/kaneo",
   "worker": "worker-09",
   "status": "failed",
-  "failure_reason": "deploy_failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
   "timestamp": "2026-04-16T09:50:00+08:00",
   "mano_cua": null,
-  "notes": "同 kaneo-1066：API 需要 PostgreSQL（pg ECONNREFUSED），本机未安装。前端 Vite 可启动但所有业务操作依赖后端 API + 数据库。"
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "同 kaneo-1066：API 需要 PostgreSQL（pg ECONNREFUSED），本机未安装。前端 Vite 可启动但所有业务操作依赖后端 API + 数据库。",
+    "attempted": [],
+    "recommendation": "跳过，需 PostgreSQL"
+  }
 }

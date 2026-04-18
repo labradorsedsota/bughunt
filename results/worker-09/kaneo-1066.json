@@ -3,8 +3,15 @@
   "repo": "usekaneo/kaneo",
   "worker": "worker-09",
   "status": "failed",
-  "failure_reason": "deploy_failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
   "timestamp": "2026-04-16T09:40:00+08:00",
   "mano_cua": null,
-  "notes": "API 需要 PostgreSQL 数据库（connectionString: postgresql://kaneo_user:kaneo_password@localhost:5432/kaneo），本机未安装 PostgreSQL，API 启动后 ECONNREFUSED。前端 Vite 可启动（port 5173），但测试需要创建项目/issue/标签等操作依赖后端 API，无法执行。"
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "API 需要 PostgreSQL 数据库（connectionString: postgresql://kaneo_user:kaneo_password@localhost:5432/kaneo），本机未安装 PostgreSQL，API 启动后 ECONNREFUSED。前端 Vite 可启动（port 5173），但测试需要创建项目/issue/标签等操作依赖后端 API，无法执行。",
+    "attempted": [],
+    "recommendation": "跳过，需 PostgreSQL"
+  }
 }
