@@ -1,0 +1,21 @@
+{
+  "task_id": "editor-1842",
+  "repo": "playcanvas/editor",
+  "worker": "worker-06",
+  "status": "failed",
+  "sess_id": "sess-20260418234240-9977ed20e7894115863603aa6a5f90ac",
+  "expected_result_used": true,
+  "duration_seconds": 120,
+  "timestamp": "2026-04-18T23:42:40-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "项目构建成功但dist目录无index.html，serve只显示目录列表。PlayCanvas Editor是嵌入式JS库，需要PlayCanvas平台后端提供HTML shell才能运行",
+    "attempted": [
+      "npm run develop (watch+serve) 构建成功",
+      "访问localhost:3487只显示dist/目录列表",
+      "搜索项目所有html文件为空"
+    ],
+    "recommendation": "跳过，需要PlayCanvas平台后端"
+  }
+}

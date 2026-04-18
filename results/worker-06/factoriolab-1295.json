@@ -1,0 +1,18 @@
+{
+  "task_id": "factoriolab-1295",
+  "repo": "factoriolab/factoriolab",
+  "worker": "worker-06",
+  "status": "completed",
+  "sess_id": "sess-20260419002633-dc608844356c4ea98ee3368678eeb723",
+  "expected_result_used": true,
+  "duration_seconds": 420,
+  "timestamp": "2026-04-19T00:24:03-07:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 35,
+    "last_action": "DONE",
+    "result": "normal",
+    "result_summary": "Flow View功能正常：添加Electronic circuit后排除Copper cable，勾选Hide excluded items，Sankey图和Box-line图均正常渲染无报错，被排除物品正确隐藏，两种模式切换正常",
+    "last_reasoning": "The Sankey mode is now restored and showing correctly:\n- **Flow** section shows \"Sankey\" header\n- **Visualization Type**: Sankey (selected in dropdown)\n- **Sankey Align**: Justify\n- **Link Size**: Items\n- **Link Text**: Items\n- **☑ Hide excluded items** (checked in blue)\n- The main flow diagram shows: \"1/m Iron ore\" → \"1/m Iron plate\" → \"1/m Electronic circuit\" (Sankey-style colored boxes without copper cable)\n\n**Summary of findings:**\n\n1. ✅ **Added Electronic circuit** as a product to the factory list\n2. ✅ **Copper cable was marked as excluded** (URL shows `i=copper-cable*1`, row shows prohibition icons in List view)\n3. ✅ **Switched to Flow View** (Flow tab clicked successfully)\n4. ✅ **\"Hide excluded items\" option found and enabled** (checkbox is checked in Flow settings in left panel)\n5. ✅ **Sankey mode renders correctly** - Shows 3 items (Iron ore, Iron plate, Electronic circuit) without the excluded copper cable\n6. ✅ **Box-line mode renders correctly** - Shows the same flow as a box diagram with arrows and labels\n7. ✅ **Both modes switch correctly** - No errors encountered when switching between Sankey and Box-line modes"
+  }
+}
