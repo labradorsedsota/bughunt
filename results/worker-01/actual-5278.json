@@ -1,0 +1,17 @@
+{
+  "task_id": "actual-5278",
+  "repo": "actualbudget/actual",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T15:40:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "repo 536MB，远超机器内存限制。同批次52MB的Scriptis已clone失败（OOM SIGKILL），536MB无法下载",
+    "attempted": ["检查repo_size_kb=536553，基于历史经验判断不可行"],
+    "recommendation": "需更大内存机器或预构建镜像"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "multiple-select-65",
+  "repo": "wenzhixin/multiple-select",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T16:10:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm install被SIGKILL（OOM），5次尝试均失败（含--maxsockets 1 --ignore-scripts组合）。已清理旧项目释放内存仍不够。repo仅7.5MB/24个devDeps但机器连续运行多批次后内存碎片化严重",
+    "attempted": ["npm install --legacy-peer-deps（SIGKILL）", "npm install --maxsockets 1（SIGKILL）", "npm install --maxsockets 1 --ignore-scripts（SIGKILL×3）", "清理旧projects释放空间后重试（SIGKILL）"],
+    "recommendation": "机器需重启释放内存，或在新session中单独执行"
+  }
+}
