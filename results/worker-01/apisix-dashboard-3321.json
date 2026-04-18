@@ -1,0 +1,18 @@
+{
+  "task_id": "apisix-dashboard-3321",
+  "repo": "apache/apisix-dashboard",
+  "worker": "worker-01",
+  "status": "completed",
+  "sess_id": "sess-20260419000014-apisix",
+  "expected_result_used": true,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-19T01:00:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 94,
+    "last_action": "type: localhost:5173/ui...",
+    "result": "abnormal",
+    "result_summary": "Settings页面(/ui/settings)加载即报JS错误'Cannot read properties of undefined (reading percent)'。点击右上角语言切换器图标(Ha)也触发同样错误导致页面崩溃。无法切换语言，因此无法验证Services页面的国际化空状态提示。语言切换器组件存在明确JS bug。另外Services页面(/ui/services)返回API 500错误（后端未运行），但语言切换器的JS崩溃是前端bug与后端无关。",
+    "last_reasoning": "点击语言切换器图标后反复触发'Cannot read properties of undefined (reading percent)'错误，页面崩溃无法恢复"
+  }
+}

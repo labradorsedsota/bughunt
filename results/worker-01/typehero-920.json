@@ -1,0 +1,17 @@
+{
+  "task_id": "typehero-920",
+  "repo": "typehero/typehero",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-19T01:12:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "repo 104MB，git clone --depth 1 被 SIGKILL（OOM）。同项目所有卡均无法部署",
+    "attempted": ["git clone --depth 1"],
+    "recommendation": "需更大内存机器或预构建镜像"
+  }
+}

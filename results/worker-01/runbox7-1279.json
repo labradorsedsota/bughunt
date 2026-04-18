@@ -1,0 +1,17 @@
+{
+  "task_id": "runbox7-1279",
+  "repo": "runbox/runbox7",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-19T01:10:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm install --legacy-peer-deps --maxsockets=2 被 SIGKILL（OOM）。Angular项目依赖重，加上backend_risk标记（需远程Runbox后端代理）",
+    "attempted": ["npm install --legacy-peer-deps --maxsockets=2"],
+    "recommendation": "需更大内存机器或预构建node_modules"
+  }
+}
