@@ -1,0 +1,18 @@
+{
+  "task_id": "org-chart-215",
+  "repo": "bumbeishvili/org-chart",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260419033354-7aa0b1657ff04d2d8fa925ea65ed944e",
+  "expected_result_used": true,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-18T19:48:00-07:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 70,
+    "last_action": "scroll down",
+    "result": "unclear",
+    "result_summary": "页面 Swap Layouts 按钮仅提供 right/bottom/left/top 四种布局，无 Sky 布局选项。mano-cua 遍历所有布局模式并查看页面源码确认 chart.layout([\"right\",\"bottom\",\"left\",\"top\"]) 无 sky 选项。无法测试 Sky 布局下的连接线功能。",
+    "last_reasoning": "页面源码显示 Swap Layouts 按钮仅循环 right/bottom/left/top 四种布局，无 Sky 布局。d3-org-chart 在此 commit 版本不支持 Sky 布局模式。"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "svelte-tags-input-17",
+  "repo": "agustinl/svelte-tags-input",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260419035454-60401174799e4530a66657e52d28207f",
+  "expected_result_used": true,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-18T20:09:00-07:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 64,
+    "last_action": "key: F12",
+    "result": "abnormal",
+    "result_summary": "逗号键添加标签功能存在 Bug：在 Test 2（addKeys=[188]）输入框输入 test@example.com 后按逗号键，逗号被当作普通文本追加到输入框（显示 test@example.com,），未触发标签创建。通过 JS console dispatch keydown(keyCode:188) 可创建标签但内容被截断/损坏（显示 test@example.cox 而非 test@example.com）。逗号键作为 addKey 的事件处理存在缺陷。",
+    "last_reasoning": "确认两个 Bug：1) 物理按下逗号键时，keydown 事件未被组件正确拦截，逗号作为文本字符追加到输入框，不触发标签创建；2) 通过 JS dispatch keydown(keyCode:188) 可创建标签但标签内容出现损坏（test@example.cox vs test@example.com），可能存在字符截断或竞态条件。"
+  }
+}
