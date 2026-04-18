@@ -2,17 +2,19 @@
   "task_id": "svelteui-297",
   "repo": "svelteuidev/svelteui",
   "worker": "worker-06",
-  "status": "completed",
-  "sess_id": "",
+  "status": "failed",
   "expected_result_used": false,
+  "sess_id": null,
   "duration_seconds": 0,
   "timestamp": "2026-04-17T09:10:00-07:00",
-  "mano_cua": {
-    "status": "NOT_STARTED",
-    "total_steps": 0,
-    "last_action": "",
-    "result": "deploy_failed",
-    "result_summary": "同svelteui-283，monorepo workspace install失败：npm触发svelte-kit sync报错，yarn被SIGKILL。无法启动storybook",
-    "last_reasoning": ""
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "同svelteui-283，monorepo workspace install失败：npm触发svelte-kit sync报错(No routes found)，yarn被SIGKILL",
+    "attempted": [
+      "npm install --legacy-peer-deps（svelte-kit sync报错No routes found）",
+      "yarn install（被SIGKILL，依赖过多+网络带宽不足）"
+    ],
+    "recommendation": "跳过，monorepo依赖安装需高带宽网络环境"
   }
 }

@@ -1,5 +1,40 @@
 # Results CHANGELOG
 
+## 2026-04-18 11:50 — worker-06 合规修复 5 张结果卡
+
+**操作人：** worker-06（林菡确认）
+**原因：** Pichai 合规扫描发现 worker-06 提交的 62 张结果中 5 张不符合 `worker-execution-guide.md` 标准 schema（mano_cua.result 非法值、sess_id 缺失）
+**审计报告：** `reports/worker-06-audit.md`
+
+**修复分类：**
+
+| 类型 | 数量 | 修复方式 |
+|------|------|----------|
+| A: completed + result 非法值 → 修正 result 值 | 1 | mano_cua.result 从 `deploy_failed` 改为 `unclear`，更新 result_summary |
+| B: completed 但 mano-cua 未执行 → failed | 4 | status 改 failed + 构建完整 failure 对象 + mano_cua 设 null |
+
+**修复后 status 分布（62 张）：**
+
+| status | 数量 |
+|--------|------|
+| completed | 36 |
+| failed | 26 |
+
+**影响卡清单（5 张）：**
+
+| # | 文件 | 修复前问题 | 修复后 status | 修复方式 |
+|---|------|-----------|---------------|----------|
+| 1 | `SvelteLab-194.json` | mano_cua.result=`deploy_failed`（非法值） | completed (unclear) | result 改 `unclear`；result_summary 更新为"页面空白无法到达目标功能，无法判断bug是否存在" |
+| 2 | `mini-qr-59.json` | sess_id 为空 + mano_cua.result=`deploy_failed`（非法值） | failed (deploy_failed) | 重构为 failed 格式；failure.symptom: zip下载被CANCEL导致损坏；mano_cua 设 null |
+| 3 | `monaco-editor-auto-typings-32.json` | sess_id 为空 + mano_cua.result=`deploy_failed`（非法值） | failed (deploy_failed) | 重构为 failed 格式；failure.symptom: Node 23 ESM导致webpack require未定义；mano_cua 设 null |
+| 4 | `svelteui-283.json` | sess_id 为空 + mano_cua.result=`deploy_failed`（非法值） | failed (deploy_failed) | 重构为 failed 格式；failure.symptom: monorepo install失败(svelte-kit sync报错+yarn SIGKILL)；mano_cua 设 null |
+| 5 | `svelteui-297.json` | sess_id 为空 + mano_cua.result=`deploy_failed`（非法值） | failed (deploy_failed) | 重构为 failed 格式；failure.symptom: 同svelteui-283；mano_cua 设 null |
+
+共 5 张卡，修复后 62/62 通过合规检查。
+
+---
+
+
 ## 2026-04-18 11:45 — worker-04 合规修复 6 张结果卡
 
 **操作人：** worker-04（林菡确认）
