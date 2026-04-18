@@ -1,0 +1,18 @@
+{
+  "task_id": "openclaw-nerve-23",
+  "repo": "daggerhashimoto/openclaw-nerve",
+  "worker": "worker-fabrice",
+  "status": "completed",
+  "sess_id": "sess-20260418102241-4986505ba2284746abc1e9ab3481763c",
+  "expected_result_used": true,
+  "duration_seconds": 156,
+  "timestamp": "2026-04-18T10:25:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 12,
+    "last_action": "DONE",
+    "result": "unclear",
+    "result_summary": "应用始终显示 CONNECT TO GATEWAY 连接对话框，需要 WebSocket 网关 (ws://127.0.0.1:18789) 才能访问 Dashboard/Skills 页面。左侧边栏显示 Failed to load file tree 错误，CONNECT 按钮无效果。后端未运行导致无法访问目标功能。",
+    "last_reasoning": "The URL changed to /skills but the same CONNECT TO GATEWAY dialog is still showing. This confirms that the application is a Single Page Application that always shows the CONNECT TO GATEWAY dialog as the entry point. The application requires a working backend gateway connection (WebSocket at ws://127.0.0.1:18789) to function. Without that connection, no Dashboard or Skills features are accessible. Result: unclear - 未在页面中找到目标功能入口。"
+  }
+}
