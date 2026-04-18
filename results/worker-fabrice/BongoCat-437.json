@@ -1,0 +1,21 @@
+{
+  "task_id": "BongoCat-437",
+  "repo": "ayangweb/BongoCat",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "sess_id": "sess-20260418232422-8337e450105d41dfb097f5dfbafa5f92",
+  "expected_result_used": true,
+  "duration_seconds": 180,
+  "timestamp": "2026-04-19T00:01:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Tauri 桌面覆盖层应用，Vite 前端在浏览器中渲染为空白/透明页面。设置和关于页面属于 Tauri 原生窗口系统，浏览器无法访问。mano-cua 16 步确认页面全白。",
+    "attempted": [
+      "Vite dev server 启动成功（localhost:5173 返回 200）",
+      "mano-cua 尝试导航到关于页面 — 页面全白无 UI 元素",
+      "尝试 URL /settings — 地址栏自动补全显示旧项目缓存"
+    ],
+    "recommendation": "跳过，Tauri 桌面应用需要原生运行时，浏览器仅得到透明覆盖层空壳"
+  }
+}
