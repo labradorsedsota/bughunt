@@ -1,0 +1,21 @@
+{
+  "task_id": "charts-201",
+  "repo": "frappe/charts",
+  "worker": "worker-04",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T15:33:30-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "node-sass ^4.7.2 的 node-gyp 编译失败，需要 Python 2 但本机只有 Python 3.13",
+    "attempted": [
+      "Node 23 + npm install（node-gyp 报错）",
+      "nvm 切 Node 16 + npm install（同样 node-gyp 报错）",
+      "指定 --python=/opt/homebrew/bin/python3（Python 3.13 不兼容旧 node-gyp）"
+    ],
+    "recommendation": "跳过，需要 Python 2 环境或用 dart-sass 替代 node-sass"
+  }
+}

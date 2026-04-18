@@ -1,0 +1,18 @@
+{
+  "task_id": "maplibre-gl-js-4853",
+  "repo": "maplibre/maplibre-gl-js",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260418233750-cef1762b73d34f198bf54aa7f272174a",
+  "expected_result_used": true,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-18T15:52:50-07:00",
+  "mano_cua": {
+    "status": "TIMEOUT",
+    "total_steps": 67,
+    "last_action": "Open url",
+    "result": "abnormal",
+    "result_summary": "Globe模式zoom=2 pitch=85°时，球体上方天空区域渲染为纯黑色，与球体边缘的蓝色大气光晕不一致，存在明显视觉割裂。",
+    "last_reasoning": "Now I have a clear full-screen view of the globe at zoom=2 with pitch=85°. This is a critical screenshot that reveals the sky rendering behavior:\n\n**Key Visual Observations:**\n\n1. **Sky Area (upper ~60% of the screen)**: The sky area above the globe's visible horizon is rendered as **completely solid BLACK**. There is no atmospheric gradient, no sky color, no transition - just pure black.\n\n2. **Globe/Earth (lower right)**: The globe is visible in the lower right area with:\n   - Realistic Earth texture showing Asia-Pacific region\n   - A **blue atmospheric glow/haze** around the globe's edge (the atmosphere effect from the globe-atmosphere.html example)\n   - The atmosphere looks visually nice around the Earth's rim\n\n3. **Visual Inconsistency**: The atmosphere/globe rendering is visually inconsistent:\n   - The Earth itself has a beautiful blue atmosphere halo\n   - But the sky area above the visible horizon is pitch black\n   - This creates a jarring visual disconnect - the globe has nice atmosphere effects but the space above it is just black\n\n4. **This is the bug**: In Globe mode at low zoom (2) with high pitch (85°), the sky area above the globe horizon should ideally show some transition/gradient that's consistent with the globe's atmosphere rendering. Instead, it shows pure black, making the sky above the globe look like outer space rather than a sky view."
+  }
+}

@@ -1,0 +1,123 @@
+Session created: sess-20260417014823-e6c5bfb17d9645e1ba54be40d1422efb
+UI panel initialized successfully
+UI window displayed
+Expected result: 首页Supported by区域的Email us链接和页脚News区域的Email Us链接均应指向mailto:info@asyncapi.com，两处邮箱地址保持一致。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: left_click (1204, 88)
+[step 1] Reasoning: I can see the AsyncAPI homepage is open. Let me close the translation popup and then navigate to the homepage to find the "Supported by" section with the "Email us" link.
+[step 2] Action: scroll down (640, 400) scroll_amount 15
+[step 2] Reasoning: Good, the translation popup is closed. Now I need to scroll down to find the "Supported by" section with the "Email us" link. Let me scroll down significantly.
+[step 3] Action: scroll down (640, 400) scroll_amount 20
+[step 3] Reasoning: I can see the "Why AsyncAPI?" section. I need to continue scrolling to find the "Supported by" section with the "Email us" link.
+[step 4] Action: scroll down (640, 400) scroll_amount 20
+[step 4] Reasoning: I can see "Adopted by the world leading brands" and a newsletter section. I need to continue scrolling to find the "Supported by" section with the "Email us" link.
+[step 5] Action: scroll down (640, 400) scroll_amount 20
+[step 5] Reasoning: I see community meetings and blogs sections. I need to continue scrolling to find the "Supported by" section with the "Email us" link.
+[step 6] Action: scroll down (640, 400) scroll_amount 5
+[step 6] Reasoning: I can see the "Supported by" section is just appearing at the bottom. Let me scroll down a bit more to see it fully.
+[step 7] Action: right_click (686, 529)
+[step 7] Reasoning: I can now see the "Supported by" section with the "Email us" link. The text reads: "The following companies support us by letting us use their products for free. Interested in supporting us too? **Email us** for more info."
+
+Now I need to right-click on the "Email us" link to check the href/mailto address.
+[step 8] Action: left_click (731, 491)
+[step 8] Reasoning: Excellent! I can see the context menu appeared and at the bottom of the screen, I can clearly see the URL in the status bar: **`mailto:info@asyncapi.io`**
+
+The context menu options include "复制电子邮件地址" (Copy email address), which confirms this is an email link. The status bar at the bottom shows the href is `mailto:info@asyncapi.io`.
+
+Let me note this: **"Supported by" section Email us link → `mailto:info@asyncapi.io`**
+
+Now I need to copy the email address to confirm. Let me click "复制电子邮件地址" (Copy email address).
+[step 9] Action: mouse_move (686, 529)
+[step 9] Reasoning: The notification says "已复制链接" (Link copied). I can see the "Email us" link is highlighted. The status bar showed `mailto:info@asyncapi.io` when I right-clicked on it.
+
+Now I need to verify this by using the browser's developer tools or by hovering to see the actual href. Let me hover over the "Email us" link to see the URL in the status bar more clearly.
+[step 10] Action: key: End
+[step 10] Reasoning: I can clearly see in the status bar at the bottom: **`mailto:info@asyncapi.io`**
+
+So the "Supported by" section's "Email us" link points to `mailto:info@asyncapi.io`.
+
+Now I need to scroll down to the Footer section to find the "Email Us" link under the "News" heading. Let me scroll down further.
+[step 11] Action: mouse_move (860, 251)
+[step 11] Reasoning: I can now see the Footer section. I can clearly see:
+- **News** section in the footer with **"Email Us"** link
+
+Now let me hover over the "Email Us" link in the footer's News section to see its mailto address.
+[step 12] Action: right_click (860, 251)
+[step 12] Reasoning: I can now clearly see the footer's "Email Us" link under the "News" heading. The status bar at the bottom shows: **`mailto:info@asyncapi.com`**
+
+Now I have both mailto addresses:
+
+1. **"Supported by" section "Email us" link** → `mailto:info@asyncapi.io`
+2. **Footer "News" section "Email Us" link** → `mailto:info@asyncapi.com`
+
+Let me also right-click on the footer's "Email Us" link to confirm this finding.
+[step 13] Action: key: Escape
+[step 13] Reasoning: The right-click context menu confirms this is an email link (showing "复制电子邮件地址" - Copy email address). The status bar at the bottom clearly shows: **`mailto:info@asyncapi.com`**
+
+Also, I can see the "链接存储为..." option in the context menu is grayed out, but the email options are active. The status bar confirms the footer Email Us link is `mailto:info@asyncapi.com`.
+
+Let me close the context menu and do a final summary.
+[step 14] Action: DONE
+[step 14] Reasoning: The footer is visible with the "Email Us" link under the "News" section. The status bar at the bottom confirms: **`mailto:info@asyncapi.com`**
+
+## 测试结果总结
+
+通过对 AsyncAPI 网站首页的两个 "Email us/Email Us" 链接进行检测，发现：
+
+### 🔍 测试发现
+
+| 位置 | 链接文本 | mailto 地址 |
+|------|----------|-------------|
+| 首页 "Supported by" 区域 | Email us | `mailto:info@asyncapi.io` |
+| 页脚 (Footer) "News" 区域 | Email Us | `mailto:info@asyncapi.com` |
+
+### ❌ 结论：两处 mailto 链接**不一致**（存在 Bug）
+
+- **"Supported by" 区域** 的 "Email us" 链接指向：`mailto:info@asyncapi.io`（域名后缀为 **.io**）
+- **Footer "News" 区域** 的 "Email Us" 链接指向：`mailto:info@asyncapi.com`（域名后缀为 **.com**）
+
+两处邮件地址的**域名后缀不同**：一个是 `asyncapi.io`，另一个是 `asyncapi.com`。
+
+根据测试要求，**两处均应指向 `info@asyncapi.com`**，因此：
+- **Footer 的 `mailto:info@asyncapi.com` ✅ 正确**
+- **"Supported by" 的 `mailto:info@asyncapi.io` ❌ 错误**（应改为 `info@asyncapi.com`）
+
+这是一个应用程序 **Bug**：首页 "Supported by" 部分的 "Email us" 链接使用了错误的邮件域名（`.io` 而非 `.com`）。
+Evaluating task result...
+
+==================================================
+Task: 当前Chrome浏览器已打开@asyncapi/website网站，地址是http://localhost:3000。测试首页和页脚中的mailto邮件链接是否一致。步骤：1.打开首页；2.向下滚动找到Supported by区域的Email us链接，悬停或右键查看href中的mailto地址；3.继续滚动到Footer区域，找到News标题下的Email Us链接，同样查看mailto地址；4.对比两处mailto链接是否一致，均应指向info@asyncapi.com。请始终在浏览器内操作，禁止打开Terminal、Finder或其他应用程序。如果找不到目标功能直接标记result为unclear。
+Status: COMPLETED
+Total steps: 14
+Last action: DONE
+Last reasoning: The footer is visible with the "Email Us" link under the "News" section. The status bar at the bottom confirms: **`mailto:info@asyncapi.com`**
+
+## 测试结果总结
+
+通过对 AsyncAPI 网站首页的两个 "Email us/Email Us" 链接进行检测，发现：
+
+### 🔍 测试发现
+
+| 位置 | 链接文本 | mailto 地址 |
+|------|----------|-------------|
+| 首页 "Supported by" 区域 | Email us | `mailto:info@asyncapi.io` |
+| 页脚 (Footer) "News" 区域 | Email Us | `mailto:info@asyncapi.com` |
+
+### ❌ 结论：两处 mailto 链接**不一致**（存在 Bug）
+
+- **"Supported by" 区域** 的 "Email us" 链接指向：`mailto:info@asyncapi.io`（域名后缀为 **.io**）
+- **Footer "News" 区域** 的 "Email Us" 链接指向：`mailto:info@asyncapi.com`（域名后缀为 **.com**）
+
+两处邮件地址的**域名后缀不同**：一个是 `asyncapi.io`，另一个是 `asyncapi.com`。
+
+根据测试要求，**两处均应指向 `info@asyncapi.com`**，因此：
+- **Footer 的 `mailto:info@asyncapi.com` ✅ 正确**
+- **"Supported by" 的 `mailto:info@asyncapi.io` ❌ 错误**（应改为 `info@asyncapi.com`）
+
+这是一个应用程序 **Bug**：首页 "Supported by" 部分的 "Email us" 链接使用了错误的邮件域名（`.io` 而非 `.com`）。
+
+==================================================
+
+UI window closed

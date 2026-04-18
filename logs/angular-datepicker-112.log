@@ -1,0 +1,939 @@
+Session created: sess-20260417035208-3b7dfffc33db45ffa56c7e46f2936b1e
+UI panel initialized successfully
+UI window displayed
+Expected result: 页面加载后日期选择器的FormControl初始状态应为pristine（pristine=true），输入框应有ng-pristine类而非ng-dirty类，与其他控件一致。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: left_click (53, 339)
+[step 1] Reasoning: I can see the angular-datepicker application. I need to navigate to the "Day Picker directive Reactive" section to test the reactive form's initial pristine state. Let me click on that option in the left sidebar.
+[step 2] Action: scroll down (640, 400) scroll_amount 5
+[step 2] Reasoning: I've clicked on "Day Picker directive Reactive" and the page has loaded. I can see the attribute options and config options have changed (now showing "Allow Multiple Selection" option which is specific to reactive forms). Now I need to scroll down to find the reactive form section with form state information (pristine/dirty status indicators).
+[step 3] Action: scroll down (640, 400) scroll_amount 10
+[step 3] Reasoning: I can see the config options. I need to continue scrolling down to find the reactive form section with the date picker input and form state information.
+[step 4] Action: scroll down (640, 400) scroll_amount 10
+[step 4] Reasoning: I'm still in the Config options section. Let me continue scrolling down to find the reactive form section.
+[step 5] Action: key: End
+[step 5] Reasoning: The page doesn't seem to be scrolling further. The content appears to be stuck. Let me try using the URL to navigate directly to the reactive form demo page, or try using keyboard shortcuts to scroll.
+[step 6] Action: key: ctrl+Home
+[step 6] Reasoning: The page is not scrolling further. It seems like the Config options section is the last visible area. The page layout might be using a right panel that shows config options, and the actual form demo might be on the left side or elsewhere. Let me scroll up to the top to look for the reactive form demo.
+[step 7] Action: left_click (700, 400)
+[step 7] Reasoning: The page doesn't seem to be responding to keyboard scrolling. The page might be in a scrolled state. Let me click on the main content area and try scrolling to the top.
+[step 8] Action: scroll up (310, 400) scroll_amount 20
+[step 8] Reasoning: The page appears to be stuck in this view showing the Config options panel on the right side. The layout appears to show Config options (right panel), Attribute options (left panel), and somewhere there should be a demo/form area. The page might have a different layout. Let me scroll up to see the top of the page first.
+[step 9] Action: key: F12
+[step 9] Reasoning: Now I can see the full page with the "Day Picker directive Reactive" selected in the left sidebar. The page shows:
+- "Attribute options" on the left
+- "Config options" in the middle  
+- "API" on the right
+
+But I don't see a demo area with a reactive form. The layout seems to only show options panels. This is a different layout than what I expected. Looking at the top of the page, there's a date picker input at the top ("Choose a date..."). 
+
+The page seems to show the configuration options for the directive. The actual reactive form demo with form state information (pristine/dirty) might be accessible through different means. Let me look at the page structure more carefully using browser developer tools to inspect the form elements and their CSS classes.
+
+Let me open Chrome DevTools to inspect the page and check the CSS classes on form elements.
+[step 10] Action: left_click (1090, 600)
+[step 10] Reasoning: Chrome DevTools is now open. I can see the Console tab is active. I notice that:
+1. There are errors in the console - "Failed to load the resource: the server responded with a status of 403"
+2. The app is running in development mode
+
+I can see the page layout shows Attribute options, Config options, and API sections. The date picker at the top ("Choose a date...") appears to be the main demo picker.
+
+Now let me use the Console to query the DOM for the form elements and check their CSS classes to determine the initial pristine state. Let me click on the Console area and run a query.
+[step 11] Action: left_click (1090, 654)
+[step 11] Reasoning: Let me click directly on the console input area at the bottom of the DevTools to type commands.
+[step 12] Action: left_click (951, 654)
+[step 12] Reasoning: The console input area doesn't seem visible. Let me scroll down in the DevTools panel to find the console input, or click at the very bottom of the DevTools panel.
+[step 13] Action: key: Escape
+[step 13] Reasoning: I need to access the Console input in DevTools. The DevTools panel seems to be open but the console input might be below the visible area. Let me try pressing Escape to show the console drawer, or try using keyboard shortcuts to focus on the console.
+[step 14] Action: left_click (1024, 131)
+[step 14] Reasoning: The DevTools panel is still showing the Console tab but I don't see the console input area. The DevTools might be too narrow. Let me try to click specifically on the Console tab to make sure I'm on it, then look for the input area at the bottom.
+[step 15] Action: left_click (1090, 234)
+[step 15] Reasoning: Now I can see the console input cursor (the `>|` at the bottom of the DevTools panel). The console is now active and I can type commands. Let me first check the page structure by looking at all input elements that have dp-day-picker related attributes, and check their CSS classes for ng-pristine/ng-dirty.
+[step 16] Action: left_click (1090, 234)
+[step 16] Reasoning: I can see the `>` cursor in the console at the bottom of the DevTools panel. Let me type a JavaScript command to query all input elements with ng-pristine or ng-dirty class, and also check the dp-day-picker directive's input.
+[step 17] Action: type: document.querySel...
+[step 17] Reasoning: I can see the console prompt at position `>|`. Let me now type a JavaScript command to find all inputs with the dp-day-picker directive and check their CSS classes. First, let me query the main date picker input at the top of the page.
+[step 18] Action: left_click (1090, 272)
+[step 18] Reasoning: I can see a security warning: "Warning: Don't paste code into the DevTools Console that you don't understand or haven't reviewed yourself." This is a Chrome security feature that prevents pasting code directly. I need to type "allow pasting" first to enable pasting.
+
+Let me type "allow pasting" first:
+[step 19] Action: type: allow pasting
+[step 19] Reasoning: I can see the console input cursor at `>|`. I need to type "allow pasting" to enable pasting in the console. Let me type this:
+[step 20] Action: scroll up (500, 300) scroll_amount 5
+[step 20] Reasoning: I see the warning is still showing. The console doesn't seem to show the "allow pasting" text I just typed. The console input might not be focused properly. Let me check the current page first.
+
+I can observe the current page. The main date picker at the top of the page shows "Choose a date..." placeholder text. Looking at the current view, I'm on the "Day Picker directive Reactive" page.
+
+Let me first scroll up to the top of the page to see the full layout, then use the Elements panel to inspect the date picker input CSS classes.
+
+First, let me scroll up in the main page to see the date picker at the top:
+[step 21] Action: left_click (979, 131)
+[step 21] Reasoning: The page doesn't scroll. The layout seems to be full-height sections with scrolling limited to within panels. I can see:
+1. The "Day Picker directive Reactive" page is currently selected (highlighted in the left nav)
+2. There's a date picker input at the top with "Choose a date..." placeholder
+3. Below that are "Attribute options", "Config options", and "API" sections
+
+The main date picker input at the top ("Choose a date...") appears to be the dp-day-picker directive in the reactive form. Now let me use the Elements panel to inspect this input element's CSS classes.
+
+Let me click on "Elements" tab in DevTools to inspect the elements:
+[step 22] Action: left_click (922, 131)
+[step 22] Reasoning: Now I can see the Elements panel showing the HTML structure. I can see the DOM structure with `<dp-demo-root>` and `<body>`. Now I need to use the element inspector (the cursor icon) to click on the date picker input on the page to inspect it directly. Let me use the inspector icon at the top left of DevTools.
+[step 23] Action: left_click (920, 131)
+[step 23] Reasoning: Let me click on the element inspector (the cursor icon at the top-left of DevTools):
+[step 24] Action: left_click (516, 129)
+[step 24] Reasoning: The inspector icon is highlighted (active). Now let me click on the date picker input field at the top of the page ("Choose a date...") to inspect it:
+[step 25] Action: key: Escape
+[step 25] Reasoning: Clicking on the date picker input opened the calendar picker! This means that my click on the date picker input with the inspector mode actually triggered the date picker to open AND selected the div container for the calendar popup.
+
+This is **IMPORTANT**: Clicking on the date picker input has now interacted with it, which means the pristine state may have changed. But I need to first close this calendar and check the initial state.
+
+However, I notice that:
+1. The calendar is now open (showing April 2026)
+2. The inspector is now showing the calendar popup div in the Elements panel
+3. The clicking of the date picker might have changed its state from pristine to dirty (or it could still be pristine just by being focused/opened)
+
+Let me press Escape to close the calendar and then inspect the input element's CSS classes:
+[step 26] Action: key: F5
+[step 26] Reasoning: The calendar closed and I can see the date picker input is now selected/focused (it has a border around it). The page has navigated to the "Day Picker directive Reactive" section.
+
+Now I need to check the CSS classes of the date picker input. The Elements panel currently shows the body element selected. Let me reload the page first to reset the state, then inspect the input element without interacting with it.
+
+Actually, I should first navigate to the page and then check the initial state WITHOUT interacting. Since I've already interacted with the date picker (clicked on it), the state may have changed. Let me reload the page to get a fresh initial state:
+[step 27] Action: left_click (1024, 131)
+[step 27] Reasoning: Good, the page has reloaded and is showing the same "Day Picker directive Reactive" page. The date picker input shows "Choose a date..." and the calendar is closed. Now the state should be reset to initial pristine state.
+
+Now I need to inspect the input element for the date picker WITHOUT interacting with it. Let me use the Console to run JavaScript and check the CSS classes of the dp-day-picker input.
+
+Let me switch to Console tab and type commands there:
+[step 28] Action: left_click (1090, 271)
+[step 28] Reasoning: I can see the Console tab is now showing:
+1. A warning about "Don't paste code into the DevTools Console..."
+2. The `>` cursor at the bottom
+
+The warning says: "**Warning: Don't paste code into the DevTools Console that you don't understand or haven't reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type 'allow pasting' below and press Enter to allow pasting.**"
+
+I need to type "allow pasting" in the console input to enable pasting. Let me click on the `>` console input area:
+[step 29] Action: type: allow pasting
+[step 29] Reasoning: I can see the console input cursor `>|` at the bottom right of the console panel. Let me type "allow pasting" to enable pasting in the console:
+[step 30] Action: screenshot
+[step 30] Reasoning: The console doesn't seem to be showing the typed text. The cursor is at `>|` but the text "allow pasting" doesn't appear visible. Let me check if I need to click elsewhere to focus the console input. Let me take a fresh screenshot to see the console state:
+[step 31] Action: left_click (979, 131)
+[step 31] Reasoning: The DevTools console still shows the same state. The console input area is at `> ` at the bottom. I see the warning text and the `>` prompt. The typing doesn't seem to appear in the console. 
+
+Let me try a different approach - I'll use the Elements panel to inspect the DOM tree and find the input element for the dp-day-picker. First, let me switch to Elements tab:
+[step 32] Action: left_click (930, 199)
+[step 32] Reasoning: I'm now in the Elements panel. I can see the DOM structure. Let me expand the `<dp-demo-root>` element to see the form and the date picker input. Let me click on the expand arrow next to `<dp-demo-root>`:
+[step 33] Action: left_click (929, 220)
+[step 33] Reasoning: Excellent! I can see the DOM structure is now expanded! I can see:
+- `<dp-demo-root ng-version="4.1.0">`
+  - `<router-outlet></router-outlet>`
+  - `<dp-demo nghost-c8 ng-version="4.1.0">` ...`</dp-demo>`
+  - `</dp-demo-root>`
+
+Now I need to expand the `<dp-demo>` element to see the form and date picker inside it. Let me click on the expand arrow for `<dp-demo>`:
+[step 34] Action: key: ctrl+f
+[step 34] Reasoning: I can see the `<dp-demo>` element is now selected (highlighted in the breadcrumbs: `dp-demo-root > dp-demo`). The element is showing `<dp-demo _nghost-c8 ng-version="4.1.0">` which is a collapsed element. The style shows `[_nghost-c0]` with font-family settings.
+
+Now I need to expand the `<dp-demo>` element to find the form and date picker input. However, I see in the Elements panel that the `<dp-demo>` element is showing collapsed (with `==$0`). Let me click on the expand arrow of the `<dp-demo>` node to see its children:
+
+Looking at the DOM structure in the Elements panel:
+- `<dp-demo-root ng-version="4.1.0">`
+  - `<router-outlet></router-outlet>`
+  - `<dp-demo _nghost-c8 ng-version="4.1.0">` ...`</dp-demo>` (collapsed)
+
+I need to expand the dp-demo. Let me use Ctrl+F in Elements panel to search for the date picker input:
+[step 35] Action: left_click (1024, 131)
+[step 35] Reasoning: The Ctrl+F didn't open a search box in the Elements panel. Let me try a different approach. I'll use the Console tab to use JavaScript to find the date picker input and check its classes. Let me click on the Console tab and try again:
+[step 36] Action: left_click (932, 271)
+[step 36] Reasoning: I'm on the Console tab. I can see the warning about "Don't paste code" and the `>` console input area. I need to click on the console input area at the bottom to focus it. Let me click specifically on the `>` symbol area:
+[step 37] Action: type: allow pasting
+[step 37] Reasoning: I can see the console input is at the bottom row with `>|`. The cursor is after the `>` symbol. Let me now try to type a simple command to test if the console input is focused:
+[step 38] Action: scroll down (1090, 270) scroll_amount 3
+[step 38] Reasoning: I notice the text "allow pasting" doesn't appear in the console input area. The console input at the bottom doesn't seem to show the text I typed. The console view hasn't changed. Let me try scrolling down in the console panel to see the console input area better:
+[step 39] Action: left_click (1090, 271)
+[step 39] Reasoning: I can see at the very bottom of the console panel, there's a `>|` cursor. The console seems to accept input, but the cursor appears to be positioned after `>` at the bottom. I notice my "allow pasting" text I typed earlier shows as `> |` but didn't appear to be typed successfully.
+
+Let me try a more targeted approach - I'll resize the DevTools panel to make it larger so I can see the console input area better, and try to click directly on the input:
+[step 40] Action: key: ctrl+a
+[step 40] Reasoning: I can see the console input at `> |` at the bottom of the panel. Let me now try to type just a simple expression first without pasting - I'll type it directly character by character. Let me type a simple test first to see if the console is accepting input:
+[step 41] Action: left_click (1233, 131)
+[step 41] Reasoning: The console is showing `> |` at the bottom. The console input cursor `|` is visible after the `>` prompt. It seems the console is accepting focus but my typed text isn't appearing. 
+
+Let me try a completely different approach - I'll undock the DevTools to a separate window to make it bigger, which will make it easier to work with. Let me use the DevTools menu to undock it:
+[step 42] Action: left_click (1265, 90)
+[step 42] Reasoning: The DevTools Settings opened. Let me close this Settings panel and go back to the main DevTools view. I'll press Escape to close the Settings:
+[step 43] Action: left_click (950, 272)
+[step 43] Reasoning: I'm back at the Console tab. I can see the console with the warning text and the `>` prompt. Now let me try a different approach to interact with the console. I need to click specifically on the console input line at the very bottom of the console panel (after the `>` symbol):
+
+Looking at the screenshot, the `>` cursor appears at approximately y=271 in the DevTools panel. The console output area shows the warning text from approximately y=224 to y=257, and then the `>` cursor is at y=271.
+
+Let me try to click in an area that's clearly in the console input, slightly to the right of the `>` symbol:
+[step 44] Action: left_click_drag (640, 400)
+[step 44] Reasoning: I notice the console still shows the same content and the cursor is at `> ` at the bottom. The console input area doesn't seem to accept input from typing.
+
+Let me try a completely different approach - I'll use the keyboard shortcut `Ctrl+Shift+J` to focus directly on the console. First, let me click on the main browser window to defocus DevTools, then use keyboard shortcut:
+
+Actually, looking more carefully at the screenshot, the `> ` cursor at the bottom of the console panel (at approximately y=271) seems to be after the console output area but the console might be cut off. The DevTools panel is quite small (about 370px wide at the right side of the screen).
+
+Let me try resizing the DevTools panel by dragging the divider between the main page and the DevTools panel to make it bigger:
+[step 45] Action: left_click (960, 216)
+[step 45] Reasoning: Excellent! Now the DevTools panel is much wider and I can see the Console panel more clearly! I can see:
+- The warning text: "Warning: Don't paste code into the DevTools Console that you don't understand or haven't reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type 'allow pasting' below and press Enter to allow pasting."
+- The console input prompt `> |` at y≈216
+
+Now I need to click on the console input area (the `> |` line) to focus it, then type "allow pasting":
+[step 46] Action: left_click (1100, 297)
+[step 46] Reasoning: Excellent! Now the DevTools is showing at a better size. I can see:
+- Console tab is active
+- Warning: "Don't paste code into the DevTools Console..."
+- The `> ` cursor is at the bottom-left of the console panel at approximately (969, 297)
+
+Let me click specifically on the console input area (the `>` prompt at the bottom):
+[step 47] Action: type: allow pasting
+[step 47] Reasoning: Now I can see at the bottom of the console panel, there's a `> |` cursor visible (at approximately y=297). The cursor is now shown and I can see it's focused. Now let me type "allow pasting" to enable pasting in the console:
+[step 48] Action: left_click (1024, 131)
+[step 48] Reasoning: The console still shows the same warning and the console input area seems to show the `> |` cursor but the text "allow pasting" doesn't appear visible. The DevTools console input doesn't seem to accept keyboard input from me in this current state.
+
+Let me try a completely different approach. Instead of using the console, I'll use the Elements panel's search functionality to find the date picker input and check its CSS classes. Let me try switching to the Elements panel and using the search feature there.
+
+First, let me try clicking on the Elements tab in DevTools and then using `Ctrl+F` to search for "dp-day-picker":
+[step 49] Action: left_click (1110, 290)
+[step 49] Reasoning: Now I'm in the Elements panel. I can see the HTML DOM structure. The breadcrumb at the bottom shows: `html > body > dp-demo-root > dp-demo` - so the dp-demo element is selected/highlighted.
+
+Looking at the DOM tree, I can see:
+- `<dp-demo _nghost-c8 ng-version="4.1.0">` is expanded (the arrow is pointing down at that level)
+
+Now I need to navigate inside `<dp-demo>` to find the date picker input. I can see the Styles panel shows `[_nghost-c0]` styles.
+
+Let me use `Ctrl+F` to search for "dp-day-picker" in the Elements panel. This should work in the Elements tab:
+[step 50] Action: key: ctrl+f
+[step 50] Reasoning: I see I clicked on a `<script>` element in the Elements panel. The breadcrumb at the bottom shows "script" is selected. 
+
+Now let me try using the search functionality in the Elements panel. I'll press `Ctrl+F` while the Elements panel is focused to open the search bar:
+[step 51] Action: left_click (1110, 200)
+[step 51] Reasoning: The Ctrl+F doesn't seem to have opened a search bar in the Elements panel. Let me try clicking directly on the DOM tree area in the Elements panel first to focus it, then use the search:
+[step 52] Action: key: ctrl+f
+[step 52] Reasoning: I clicked on the `<dp-demo-root>` element in the Elements panel. I can see it's selected (highlighted in blue) and the Styles panel at the bottom shows this element's styles. The breadcrumb at the bottom shows `dp-demo-root`.
+
+Now let me try to use `Ctrl+F` to open the search bar in the Elements panel while the DOM tree area is focused:
+[step 53] Action: left_click (966, 131)
+[step 53] Reasoning: The Ctrl+F still didn't open a search bar in the Elements panel. The Elements panel is showing the DOM tree but the search doesn't seem to be opening.
+
+Let me try a completely different approach. I'll use the element inspector tool (the magnifying glass icon at the top-left of DevTools) to click on the date picker input at the top of the page:
+
+Let me first click on the "Select an element" button (the inspector cursor icon) at the top left of the DevTools panel:
+[step 54] Action: mouse_move (541, 130)
+[step 54] Reasoning: The inspector tool icon is now highlighted (selected/active). Now let me hover over the date picker input at the top of the page ("Choose a date...") to see the element. I'll hover first without clicking to see the element details:
+[step 55] Action: left_click (541, 130)
+[step 55] Reasoning: This is exactly what I needed! The Element Inspector is hovering over the date picker input and showing important information:
+
+**Inspector tooltip shows:**
+- **Element type**: `input.ng-dirty.ng-valid.ng-touche d` (the class text is cut off)
+- The tooltip clearly shows the class: **`ng-dirty`** and **`ng-valid`** and **`ng-touche d`** (which is `ng-touched`)
+
+**In the Elements panel on the right**, I can already see important information:
+- The input element has classes: `ng-dirty` (visible in the tooltip overlay)
+- The form element shows: `<form _ngcontent-c0 novalidate ng-reflect-form="[Obje ct]" class="ng-dirty ng-valid ng-touched">`
+
+Wait! This is **CRITICAL**: The inspector tooltip shows `input.ng-dirty.ng-valid.ng-touched` - this means the date picker input already has:
+- **`ng-dirty`** (NOT pristine!)
+- `ng-valid`
+- `ng-touched`
+
+And in the Elements panel on the right, I can see:
+- The `<form>` element has class: `ng-dirty ng-valid ng-touched`
+- The `<input>` element has `ng-dirty`
+
+But wait - I previously clicked on the date picker which opened it (I did that with the inspector mode earlier). So the current state might not be the initial state. Let me check if the previous page reload reset the state properly.
+
+However, looking at this more carefully - the page was reloaded after I opened the calendar. After the reload, the page should be at initial state. But the inspector is now showing `ng-dirty` which is suspicious.
+
+Let me click on the input to select it in the Elements panel to see the full class list:
+[step 56] Action: key: Escape
+[step 56] Reasoning: Excellent! Now I have very important information! The calendar has opened (showing April 2026), and the Elements panel is now showing the selected input element with its full CSS classes.
+
+**Key observations from the Elements panel breadcrumb at the bottom:**
+
+Looking at the breadcrumb path: `e > form.ng-dirty.ng-valid.ng-touched > input.ng-dirty.ng-valid.ng-touched`
+
+This shows:
+1. **The `<form>` element** has classes: `ng-dirty`, `ng-valid`, `ng-touched`
+2. **The `<input>` element** (the date picker input) has classes: `ng-dirty`, `ng-valid`, `ng-touched`
+
+Looking at the HTML structure in the Elements panel:
+- `<input _ngcontent-c0 formcontrolname="datePicker" name="datePicker" ng-reflect-required="false" ng-reflect-config="[Objec t Object]" ng-reflect-theme="dp-material" placeholder="Choose a date..." class="ng-dirty ng-valid ng-touched">` (visible at line ending with `==$0`)
+
+Wait - the input clearly shows **`class="ng-dirty ng-valid ng-touched"`**. This means that even after the page reload, the date picker's initial state shows `ng-dirty` instead of `ng-pristine`.
+
+But I also need to consider that clicking the inspector tool on the input (without selecting a date) might have triggered the `touched` and `dirty` states. Let me check by reloading the page again and checking BEFORE clicking.
+
+Let me press Escape to close the calendar and reload the page:
+[step 57] Action: key: F5
+[step 57] Reasoning: Excellent! Now I can see something very important! The DevTools console drawer has opened at the bottom, and I can see:
+1. The calendar is still open (April 2026)
+2. The Elements panel shows the input element selected 
+3. **The breadcrumb at the bottom shows: `e > form.ng-dirty.ng-valid.ng-touched > input.ng-dirty.ng-valid.ng-touched`**
+4. The Console tab is now showing at the bottom with the warning
+
+This clearly shows:
+- **Form**: `class="ng-dirty ng-valid ng-touched"`  
+- **Input (date picker)**: `class="ng-dirty ng-valid ng-touched"`
+
+Now I need to verify whether this `ng-dirty` state is the initial state (i.e., a bug) or if it was caused by my interaction.
+
+Let me reload the page and use the Elements inspector to check WITHOUT clicking the date picker. I need to navigate to the form input using the Elements panel tree navigation instead of clicking the actual element:
+
+Let me reload the page fresh:
+[step 58] Action: left_click (540, 61)
+[step 58] Reasoning: The page didn't reload properly - the calendar is still showing and the breadcrumb at the bottom still shows `form.ng-dirty.ng-valid.ng-touched > input.ng-dirty.ng-valid.ng-touched`. The F5 key seems to not have worked. Let me try clicking on the browser address bar and pressing Enter to reload the page:
+[step 59] Action: key: Return
+[step 59] Reasoning: I can see the URL bar is now focused showing `localhost:4200/#`. I can also see a very important detail in the Elements panel breadcrumb at the bottom:
+- **`form.ng-dirty.ng-valid.ng-touched`** 
+- **`input.ng-dirty.ng-valid.ng-touched`**
+
+This is still showing the dirty/touched state. The calendar is still open. But now I can use the Console to query the DOM elements. Let me press Enter to reload the page at localhost:4200/#:
+[step 60] Action: key: ctrl+shift+r
+[step 60] Reasoning: The page is still showing the same state - the calendar is open and the breadcrumb shows `form.ng-dirty.ng-valid.ng-touched > input.ng-dirty.ng-valid.ng-touched`. The Styles panel now shows `input:focus-visible` styles (because the input is currently focused after being clicked).
+
+The page didn't reload by pressing Enter on the URL. This is because the URL `localhost:4200/#` is the same URL (it's a single-page application with hash routing).
+
+I need to force a page refresh. Let me use Ctrl+Shift+R (hard reload) to reload the page:
+[step 61] Action: left_click (63, 61)
+[step 61] Reasoning: The page still looks the same - the calendar is still open. The Ctrl+Shift+R didn't seem to trigger a page reload. This might be because the browser shortcut was captured by the DevTools rather than the page.
+
+Let me try clicking on the page reload button in the browser toolbar:
+[step 62] Action: left_click (1204, 89)
+[step 62] Reasoning: Excellent! The page has successfully reloaded! I can see:
+1. The page is now at `localhost:4200` (reloaded)
+2. The calendar is now CLOSED - showing "Choose a date..." in the input
+3. The Elements panel shows a fresh DOM structure
+4. The "Day Picker directive Reactive" page is selected in the left sidebar (highlighted in blue)
+5. The console at the bottom shows: "Angular is running in the development mode. Call enableProdMode() to enable the production mode."
+6. A Google Translate dialog appeared - let me close it
+7. The date picker input at the top shows "Choose a date..." which means it's in its initial state
+
+Now the page is in a fresh state with NO interactions performed yet. I need to:
+1. Check the initial CSS classes of the date picker input (should be ng-pristine if it's properly initialized)
+2. Do this WITHOUT clicking on the date picker
+
+Let me close the Google Translate dialog first:
+[step 63] Action: left_click (975, 645)
+[step 63] Reasoning: The Google Translate dialog is now closed. The page is showing the "Day Picker directive Reactive" page with:
+1. The date picker input at the top showing "Choose a date..." (no date selected, initial state)
+2. The Elements panel in DevTools showing the DOM structure
+3. The console at the bottom showing the Angular development mode message and a 403 Forbidden error
+
+Now I need to inspect the date picker input WITHOUT clicking on it. I'll use the Console to run JavaScript to check the CSS classes. Let me try to use the console input area. I can see the console drawer at the bottom. Let me click on the `>` cursor in the console:
+[step 64] Action: left_click (1075, 131)
+[step 64] Reasoning: Good, I can see the console drawer at the bottom is still showing the 403 error and the Angular development mode message. The console input `>` cursor is at the bottom. Let me click on the Console tab in the DevTools to go to the full console view, and then try to enter the JavaScript command:
+[step 65] Action: left_click (1100, 235)
+[step 65] Reasoning: Excellent! Now the Console tab is open and I can see:
+1. The Console is showing the Angular development mode message
+2. The 403 error for GitHub API
+3. The `>` prompt at the bottom (around y=235)
+4. The date picker input at the top shows "Choose a date..." (initial state, no interaction yet!)
+
+Now I need to click on the console input to focus it, and then type a JavaScript command to check the CSS classes of the input element. The `>` prompt appears to be at approximately y=235.
+
+Let me click on the `>` cursor in the console:
+[step 66] Action: type: allow pasting
+[step 66] Reasoning: I can now see the console input is focused - I can see the cursor `|` is positioned after `> ` at line y≈235. The console is ready to accept input.
+
+Now let me type "allow pasting" first to enable pasting:
+[step 67] Action: left_click (1100, 283)
+[step 67] Reasoning: I can see the **warning message** has appeared in the console: 
+"**⚠ Warning: Don't paste code into the DevTools Console that you don't understand or haven't reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type 'allow pasting' below and press Enter to allow pasting.**"
+
+This means the "allow pasting" text I typed triggered the warning display (Chrome detected the pasting attempt). Now I need to look at the `>` cursor at the bottom (around y=283) and type "allow pasting" directly:
+[step 68] Action: type: document.querySel...
+[step 68] Reasoning: I can see the cursor `> |` at y≈283. The console is now ready for input. The warning message is displayed. I can see the `> ` prompt at y≈283. The text cursor `|` is visible. Now I can type commands directly.
+
+The Chrome security warning says to type "allow pasting" and press Enter to enable pasting. But I need to type actual JavaScript commands. Let me type a simple JavaScript command to find and check the CSS classes of the dp-day-picker input:
+[step 69] Action: left_click (1100, 283)
+[step 69] Reasoning: I can see the warning changed from a yellow triangle warning to a red error circle - this is the Chrome pasting security warning again! The console is showing:
+- Red ⊘ "Warning: Don't paste code into the DevTools Console..." 
+- The `> |` cursor at y≈283
+
+The Chrome console is treating my typed text as "pasted" text because it was typed via the automation tool. Now I need to actually type "allow pasting" to enable pasting, and then I can execute JavaScript.
+
+Let me type "allow pasting" in the console input:
+[step 70] Action: key: a
+[step 70] Reasoning: Good. The console cursor is at `> |` (y≈283). The warning is showing. I need to type "allow pasting" to enable pasting in the console. Let me type each character carefully:
+[step 71] Action: key: Escape
+[step 71] Reasoning: Excellent! I can see the console input at y≈283 now shows `> a` - the letter "a" was typed! And an emoji picker appeared above the console input. Now I can see the console is accepting keyboard input. Let me continue typing "llow pasting" to complete "allow pasting":
+[step 72] Action: left_click (1100, 283)
+[step 72] Reasoning: The emoji picker closed and the `> ` cursor is back at the bottom of the console. The console shows the warning "Please type 'allow pasting' below and press Enter to allow pasting." The `> ` is at y≈283.
+
+Now I can see the console is accepting individual keystrokes. Let me type "allow pasting" one character at a time. First let me click on the console input to focus it:
+[step 73] Action: key: a l l o w space p...
+[step 73] Reasoning: I can see the console cursor `|` is visible at y≈283. The console prompt `>` is at the left side. Now I can see the console is ready to accept input. The cursor `|` is positioned after the `>` prompt.
+
+Now let me carefully type "allow pasting" using individual key presses:
+[step 74] Action: left_click (1100, 283)
+[step 74] Reasoning: The key syntax was incorrect. Let me try pressing each key individually:
+[step 75] Action: key: a
+[step 75] Reasoning: The console input is focused (I can see the `> |` cursor at y≈283). Now let me use the `key` action to type individual characters for "allow pasting". I'll press each character key one by one using the `key` action:
+[step 76] Action: key: Escape
+[step 76] Reasoning: I can see the letter "a" has been typed in the console: the console now shows `> a` (at y≈283). The emoji picker also appeared above it showing emoji suggestions. The console is accepting input!
+
+Now let me press Escape to dismiss the emoji picker and continue typing the rest of "llow pasting":
+[step 77] Action: left_click (1027, 131)
+[step 77] Reasoning: The emoji picker closed but the console input has been cleared - I can see `> ` at y≈283 (the "a" was dismissed). It seems like pressing Escape cleared the input. This is a problem. 
+
+Let me try a different approach. Instead of typing "allow pasting" to enable pasting, let me use the Elements panel to navigate the DOM tree and find the input element and check its CSS classes. This way I don't need to use the console.
+
+I notice from my earlier exploration that the Elements panel showed the input element in the DOM tree. Let me switch to the Elements panel and navigate the tree to find the date picker input:
+
+Let me also try using the keyboard shortcut to navigate the Elements panel. Let me switch to the Elements tab first:
+[step 78] Action: left_click (975, 199)
+[step 78] Reasoning: The Elements tab is now active. I can see the DOM tree showing:
+- `<!DOCTYPE html>`
+- `<html>` → `<body>` → `$0`
+- `<body>` is selected (as shown in the breadcrumb at the bottom)
+- Scripts and `<div>` elements are visible
+
+The console drawer at the bottom still shows the pasting warning. I can see `> ` console input at y≈645.
+
+Now I need to navigate the DOM tree to find the date picker input. Let me expand the `<dp-demo-root>` element. I can see the Elements panel shows the `<body>` element is selected. Let me click on `<dp-demo-root>` in the DOM tree to select it and then expand it:
+
+Looking at the DOM tree on the right side, I can see:
+- `<script id="ga-analitics"></script>` at y≈188
+- `<dp-demo-root ng-version="4.1.0">` at y≈199
+- Various `<script>` tags
+- `<div _ngcontent...` at y≈293
+
+Let me click on the triangle/arrow next to `<dp-demo-root>` to expand it:
+[step 79] Action: left_click (968, 199)
+[step 79] Reasoning: I can see the `<dp-demo-root ng-version="4.1.0">` element is now selected and shown in the DOM tree. The breadcrumb shows `html > body > dp-demo-root`. The element is highlighted and shows `==$0` after it, meaning it's the currently selected element.
+
+I notice the `dp-demo-root` element appears to be collapsed (it shows `ng-version="4.1.0">...<`) but doesn't show children. Let me click the triangle/expand arrow to expand it:
+[step 80] Action: left_click (1026, 491)
+[step 80] Reasoning: A context menu has appeared in the Elements panel with options like:
+- Add attribute
+- Edit as HTML
+- Duplicate element
+- Delete element
+- Cut
+- Copy
+- Paste
+- Hide element
+- Force state
+- Break on
+- Expand recursively
+- Collapse children
+- Capture node screenshot
+- Scroll into view
+- Focus
+- Badge settings
+- Store as global variable
+
+I can see **"Store as global variable"** option at the bottom! This is very useful. Let me click on "Store as global variable" to store the `dp-demo-root` element as a global variable (temp1), which I can then use in the console to navigate the DOM tree:
+[step 81] Action: left_click (1100, 645)
+[step 81] Reasoning: Excellent! I can see in the console drawer at the bottom:
+- `temp1` was created as a global variable storing the `dp-demo-root` element
+- The console shows: `← < <dp-demo-root ng-version="4.1.0">...</dp-demo-root>`
+- The console input `> |` is ready at y≈645
+
+The "Store as global variable" action automatically ran in the console and the element is now accessible as `temp1`. Now I can use the console to navigate the DOM and find the input element. Let me click on the console input area (the `> |` at y≈645) and type a JavaScript command to find the date picker input and check its CSS classes:
+[step 82] Action: left_click (1100, 645)
+[step 82] Reasoning: The console shows:
+- `your computer. Please type 'allow pasting' below and press Enter to allow pasting.`
+- `temp1` 
+- `← ▶ <dp-demo-root ng-version="4.1.0">...</dp-demo-root>`
+- `> |` cursor at y≈645
+
+The console input is focused at `> |`. Now the `temp1` variable is available. Let me now type the command to query the input element using `temp1`. But first, let me try to use the console to type JavaScript without pasting. Let me type the command manually using individual keystrokes.
+
+I'll use `temp1.querySelector` to find the input with `formcontrolname="datePicker"`:
+
+Let me type the JavaScript command character by character:
+[step 83] Action: left_click (979, 199)
+[step 83] Reasoning: The console input shows `>` at the bottom. The cursor is not very visible. Let me try a different approach - I'll use the console to type `temp1` and check if it works first. Then I can try to navigate the DOM.
+
+Let me use the Elements panel directly. First let me try to expand the `dp-demo-root` element in the Elements panel by clicking on the triangle to the left of the element. I need to scroll the Elements panel a bit to see the `dp-demo-root` element and its expand arrow:
+
+Looking at the Elements panel, I can see:
+- `← ▶ <dp-demo-root ng-version="4.1.0">` at y≈199 (indicated by the `▶` arrow)
+
+Let me try clicking the expand arrow (triangle) at the `▶` of `dp-demo-root`:
+[step 84] Action: left_click (988, 220)
+[step 84] Reasoning: Excellent! The `<dp-demo-root>` element is now expanded! I can see its children:
+- `<router-outlet></router-outlet>`
+- `▶ <dp-demo _nghost-c8 ng-version="4.1.0">` ... `</dp-demo>`
+- `</dp-demo-root>`
+
+The `<dp-demo>` element is the component I need to explore. Let me click on the expand arrow `▶` next to `<dp-demo _nghost-c8 ng-version="4.1.0">` to expand it:
+[step 85] Action: left_click (998, 230)
+[step 85] Reasoning: Excellent! The `<dp-demo _nghost-c8 ng-version="4.1.0">` element is now expanded and I can see:
+- `▶ <div _ngcontent-c0 class="dp-demo-page">` at y≈230 (collapsed)
+- `</dp-demo>`
+- `</dp-demo-root>`
+
+The breadcrumb at the bottom shows: `html > body > dp-demo-root > dp-demo`
+
+Now I need to expand the `<div class="dp-demo-page">` to find the form and date picker input inside. Let me click on its expand arrow:
+[step 86] Action: right_click (1130, 252)
+[step 86] Reasoning: I can now see the `<div class="dp-demo-page">` is expanded and shows:
+- `▶ <div _ngcontent-c0 class="dp-demo-menu">` ... `</div>` at y≈241
+- `▶ <div _ngcontent-c0 class="dp-demo-container" ng-reflect-...` at y≈252
+- `▶ <div _ngcontent-c0 class="dp-page-content" ng-reflect-...` at y≈263 (collapsed child)
+
+The breadcrumb shows: `html > body > dp-demo-root > dp-demo > div.dp-demo-page`
+
+I need to expand one of the child `<div>` elements to find the form with the date picker. The `dp-demo-container` class sounds like it might contain the demo form. Let me right-click on `<div _ngcontent-c0 class="dp-demo-container"...>` to use "Expand recursively" to see all its children:
+[step 87] Action: left_click (1183, 457)
+[step 87] Reasoning: A context menu appeared with the option "Expand recursively" visible! I can also see that:
+1. The tooltip shows `div.dp-demo-container 1224 × 120` - This is the demo container
+2. The context menu has "Expand recursively" option
+
+Also, very important! At the bottom of the page, in the tooltip showing the element I'm hovering over, it shows `div.dp-demo-container 1224 × 120`. This is the container that has the date picker!
+
+But wait - at the top of the page, I can see the date picker placeholder has CHANGED! It was "Choose a date..." before, but now the label shows `dp-demo-container 1224 × 120` tooltip. The tooltip is overlaying the date picker input area.
+
+I notice that hovering over the `dp-demo-container` div in the Elements panel has highlighted the `div.dp-demo-container` on the main page (which is the top section with the "Choose a date..." input).
+
+Let me click "Expand recursively" to expand this `dp-demo-container` and all its children:
+[step 88] Action: scroll down (1100, 250) scroll_amount 3
+[step 88] Reasoning: Excellent! The "Expand recursively" worked and now I can see the DOM tree has expanded! I can see:
+- `<div _ngcontent-c0 class="dp-demo-container" ng-reflect-...` (highlighted)
+  - `<h2 _ngcontent-c0 class="dp-page-header">Angular Date/Time/Mo...`
+  - `<form _ngcontent-c0 novalidate class="ng-untouched ng-pri...`
+
+**CRITICAL FINDING!** At the very bottom of the visible Elements panel content, I can see:
+
+`<form _ngcontent-c0 novalidate class="ng-untouched ng-pri...`
+
+This shows that the `<form>` element has class **`ng-untouched ng-pri...`** which starts with **`ng-pristine`**! This is the initial state - the form is `ng-pristine` and `ng-untouched`!
+
+Let me scroll down in the Elements panel to see more of the form and its children to find the date picker input element's classes. Let me scroll down in the Elements panel:
+[step 89] Action: scroll down (1100, 230) scroll_amount 3
+[step 89] Reasoning: I can now see the expanded DOM tree more clearly! I can see:
+- `<div _ngcontent-c0 class="dp-demo-container" ng-reflect...` (selected, showing `$0`)
+  - `<h2 _ngcontent-c0 class="dp-page-header">Angular Date/Ti...`
+  - A `<form>` element (the next line after h2) - I can see the beginning of the form element on the third visible line
+  
+Looking at the Elements panel content I can see:
+- Line 1: `▼ <div _ngcontent-c0 class="dp-demo-container" ng-reflect-... == $0`
+- Line 2: `<h2 _ngcontent-c0 class="dp-page-header">Angular Date/Ti...`
+- Line 3: `<!-- ng-reflect-ng-if: "false"` - which is an Angular comment
+- Lines 4-8: More Angular binding comments
+- Line 9: `< ←bindings{`
+
+I can see there are Angular template bindings and comments. The form element should be visible below. I can also see the `div.dp-demo-container` is highlighted on the main page (showing as a blue highlighted area at the top).
+
+The key information I need is the initial class of the `<form>` element. From the previous screenshot, I can see: `<form _ngcontent-c0 novalidate class="ng-untouched ng-pri...` - This shows `ng-untouched ng-pri...` which should complete as `ng-pristine`.
+
+Let me scroll down a bit more in the Elements panel to find the `<form>` element and the `<input>` element with the date picker:
+[step 90] Action: scroll down (1100, 230) scroll_amount 3
+[step 90] Reasoning: I can see the DOM tree is showing Angular binding comments (`<!--bindings{ "ng-reflect-ng-if": "false" }-->`). These are `*ngIf` conditionally rendered sections. The form structure seems to continue below. I need to scroll down more to find the `<form>` element with the date picker input.
+
+Let me continue scrolling down in the Elements panel:
+[step 91] Action: scroll down (1100, 230) scroll_amount 3
+[step 91] Reasoning: Excellent! Now I can see some very interesting elements in the Elements panel! I can see:
+- An Angular `<!--bindings{ "ng-reflect-ng-if": "true" }-->` comment - This one has **"true"** as the value! This means the element inside this block IS rendered/visible.
+- `▼ <div _ngcontent-c8 class="dp-picker-time-picker">` at y≈238
+  - `▶ <dp-date-picker _ngcontent-c8 id="daytimePicker" name=...` at y≈249 showing: `ng-reflect-config="[object Object]" ng-reflect-type="day" ng-reflect-disabled="false" ng-reflect-required="false" ng-reflect-name="daytimePicker`
+
+Wait - I can see a `<dp-date-picker>` component but it says `id="daytimePicker"`. This might not be the reactive form's date picker. Let me continue scrolling to find the reactive form's date picker (which should have `formcontrolname="datePicker"`).
+
+Also, from the previous screenshot, I could see:
+- `<!--bindings{ "ng-reflect-ng-if": "true" }-->` - this section is active/visible
+
+Let me scroll down more to find the form element and the reactive form's date picker:
+[step 92] Action: left_click (1100, 252)
+[step 92] Reasoning: **CRITICAL FINDING!** I can now see crucial information in the Elements panel! Looking at the DOM tree:
+
+At the top I can see the `<dp-date-picker>` element with attributes:
+- `id="daytimePicker"` 
+- `ng-reflect-name="daytimePicker"`
+- **`ng-reflect-name="ng-untouched ng-pristine ng-va...`** - I can see the attribute value starts with `ng-untouched ng-pristine ng-va...`
+
+Wait, let me look more carefully. Looking at the elements shown in the panel:
+- `▶ <dp-date-picker _ngcontent-c8 id="daytimePicker" name=...` 
+  - Showing `reflect-config="[object Object]" ng-reflect-type="T..."` 
+  - Then `hoose a date..." ng-reflect-disabled="false" ng-refle...`
+  - Then `se" ng-reflect-required="false" ng-reflect-name="daytimePic...`
+
+Looking at the second visible element in the tree:
+- `<div _ngcontent-c1>` at y≈199
+  - `<!--bindings{ "ng-reflect-ng-if": "true" }-->` at y≈208-230
+    - `<div _ngcontent-c1 class="dp-input-container">` at y≈241
+      - **`<input _ngcontent-c1 class="dp-picker-input" type="text" ng-reflect-is-disabled="false" place...`** at y≈252
+      - `<!--bindings{ "ng-reflect-ng-if": "true" }-->` at y≈263
+
+I can see the `<input>` element with `class="dp-picker-input"`. This is the actual input element used by the date picker. 
+
+But wait - I notice the `dp-date-picker` element at the top shows `ng-reflect-name="ng-untouched ng-pristine ng-va...` as part of its attribute? That doesn't seem right - `ng-reflect-name` is for reflecting the `name` attribute value.
+
+Let me look at the `dp-date-picker` element more carefully. The key part I see is:
+- The `<dp-date-picker>` element has a class that contains `ng-untouched ng-pristine ng-va...`
+
+Let me click on the `<input>` element at y≈252 to select it and see its full class list:
+[step 93] Action: scroll down (1100, 230) scroll_amount 5
+[step 93] Reasoning: **CRITICAL FINDING!** I have found the key information I needed!
+
+When I clicked on the `<input>` element in the Elements panel, the browser highlighted the element on the main page with a tooltip showing:
+
+**`input.dp-picker-input.ng-untouched.ng-pristine.ng-valid`**
+
+This is the **date picker input's initial CSS class state**! Let me read this carefully:
+- **`dp-picker-input`** - It's the date picker's input field
+- **`ng-untouched`** - The form control has NOT been touched
+- **`ng-pristine`** - The form control is in PRISTINE state (has NOT been modified!)
+- **`ng-valid`** - The form control is valid
+
+Also, at the bottom of the screen, I can see the breadcrumb:
+**`← -input-container > input.dp-picker-input.ng-untouched.ng-pristine.ng-valid`**
+
+This clearly shows the input has the class **`ng-pristine`** initially!
+
+But wait - this is the internal input element inside the `<dp-date-picker>` component, which is for the **template form** (daytimePicker), not the **reactive form** (datePicker). 
+
+Let me also check:
+1. The `<dp-date-picker>` element at the top shows: `ng-reflect-name="daytimePic...` - this confirms it's the `daytimePicker` (NOT the reactive form datePicker)
+2. The `<dp-date-picker>` also shows in its class: Looking at the top of the panel: `ng-untouched ng-pristine ng-va...`
+
+But I need to find the **reactive form** date picker (not the daytimePicker). The reactive form component should have a different ID or formControlName.
+
+However, looking at the current page state, the page is "Day Picker directive Reactive" and the date picker input at the top shows "Choose a date..." - this is the main form demo for this page. Let me scroll down more in the Elements panel to find the reactive form's `<form>` element with `formcontrolname="datePicker"`.
+
+Wait - looking back at the previous screenshot, I remember seeing this line in the Elements panel:
+- `<dp-date-picker _ngcontent-c8 id="daytimePicker" name=...`
+
+This is the `daytimePicker` - it might be for the **template-driven form** section, not the reactive form. For the reactive form section, there should be a separate `<dp-date-picker>` with `formControlName="datePicker"`.
+
+But also, looking at the current page - the page title in the left navigation shows "**Day Picker directive Reactive**" - this means the ENTIRE page is for the reactive form demo. The `daytimePicker` might actually be the date picker used in the reactive form on this page.
+
+Wait - I also recall that previously when I expanded the form using `Expand recursively`, I saw:
+- `<form _ngcontent-c0 novalidate class="ng-untouched ng-pri...` 
+
+This `<form>` had `ng-pristine` in its class! And the form's child input (the `<input>` inside `dp-date-picker`) showed `class="dp-picker-input ng-untouched ng-pristine ng-valid"`.
+
+But I see the breadcrumb shows: `-input-container > input.dp-picker-input.ng-untouched.ng-pristine.ng-valid` - let me trace this back to understand the full path of this element.
+
+Let me look at the page more carefully. The current page shows "Day Picker directive Reactive" in the nav on the left. The date picker at the top is the only visible date picker. But I need to check if this is actually a reactive form or template-driven form.
+
+Let me scroll down in the Elements panel to find any `<form>` element with `[formGroup]` or `<input formControlName="datePicker">`:
+[step 94] Action: scroll up (1100, 230) scroll_amount 5
+[step 94] Reasoning: Excellent! I can see more of the DOM structure now! In the Elements panel I can see:
+- `<button _ngcontent-c1 class="dp-current-location...`
+- `</button>`
+- `</div>`
+- `</div>`
+- `</dp-date-picker>`
+- `▼ <div _ngcontent-c0 class="dp-validations">` at y≈198
+  - `<!--bindings{ "ng-reflect-ng-if": null }-->` at y≈208-230
+  - `<!--bindings{ "ng-reflect-ng-if": null }-->` at y≈241-263
+  - `<!--bindings{ "ng-reflect-ng-if": null }-->` at y≈274-296
+
+And in the breadcrumb at the bottom: `← -input-container > input.dp-picker-input.ng-untouched.ng-pristine.ng-valid`
+
+The breadcrumb still shows the input is selected with `ng-untouched.ng-pristine.ng-valid` classes!
+
+I can also see at the top of the panel:
+- `</dp-date-picker>` - this is the end of the first dp-date-picker
+
+Now I see there's a `dp-validations` div below. This confirms I'm still inside the form structure. Let me scroll down more to see if there's another section of the form or another `<form>` element for the reactive form.
+
+But wait - the breadcrumb still shows `input.dp-picker-input.ng-untouched.ng-pristine.ng-valid` - meaning the input element is still selected and shows **ng-pristine** state!
+
+Let me also look at what the current page navigation shows - the left sidebar shows "Day Picker directive Reactive" is highlighted. This page is specifically for the reactive form.
+
+Now I need to check: Is the date picker displayed on this page actually using a **reactive form** with `formControlName`? Let me scroll up a bit to find the parent `<form>` element:
+[step 95] Action: left_click (1075, 131)
+[step 95] Reasoning: Now I can see the Elements panel again clearly. I can see:
+- `▶ <dp-date-picker _ngcontent-c8 id="daytimePicker" name=...` at y≈148 - This is the `daytimePicker` 
+  - Inside it: Shows attributes: `ng-reflect-config="[object Object]" ng-reflect-type="T..."` ... `ng-reflect-name="ng-untouched ng-pristine ng-va...`
+
+Wait! I see something very interesting! The `<dp-date-picker>` element for `daytimePicker` has the attribute: `ng-reflect-name="ng-untouched ng-pristine ng-va...`
+
+This doesn't look right - `ng-reflect-name` should reflect the `name` attribute value, not CSS classes. But the value shows `ng-untouched ng-pristine ng-va...`. Could this be that the element's CSS class contains these Angular state classes?
+
+Let me look at the Elements panel more carefully. I can see the `<dp-date-picker>` element at the top (y≈148) and it shows attributes including what appears to be class-related Angular state classes.
+
+Now looking at the elements below:
+- `<div _ngcontent-c1>` at y≈199
+  - `<!--bindings{ "ng-reflect-ng-if": "true" }-->` at y≈208-220
+    - `<div _ngcontent-c1 class="dp-input-container">` at y≈241
+      - **`<input _ngcontent-c1 class="dp-picker-input" type="text"...`** at y≈252 (highlighted/selected, showing `== $0`)
+
+And in the breadcrumb at the bottom: **`← -input-container > input.dp-picker-input.ng-untouched.ng-pristine.ng-valid`**
+
+This clearly shows the input has **`ng-pristine`** in its class!
+
+But I also see in the first line (y≈148): `<dp-date-picker _ngcontent-c8 id="daytimePicker"`. This element has `id="daytimePicker"`. But the current page is "Day Picker directive Reactive". Let me check whether this `daytimePicker` is actually the reactive form datepicker.
+
+Wait - I recall that on the "Day Picker directive Reactive" page, the form uses `dp-day-picker` directive (NOT the `dp-date-picker` component). The directive is applied to an `<input>` element directly with `dp-day-picker` attribute. 
+
+Let me check the current page more carefully. Looking at the current view:
+- The top section shows the date picker with "Choose a date..." placeholder 
+- The `<dp-date-picker>` element with `id="daytimePicker"` is inside the container
+
+Hmm, but the page is "Day Picker directive Reactive" - this should use the `dp-day-picker` directive on an input, not the `dp-date-picker` component. Let me check what type of element is being used.
+
+Actually, looking at the DOM structure:
+- `<dp-date-picker _ngcontent-c8 id="daytimePicker">` - this is the dp-date-picker COMPONENT
+- But the page says it's the "directive" version
+
+Let me look for an `<input>` with `dp-day-picker` attribute. Let me scroll down in the Elements panel to find the reactive form section:
+
+Wait - I need to reconsider. Looking at the page navigation:
+- "Day Picker directive" - uses dp-day-picker directive
+- "Day Picker directive Reactive" - uses dp-day-picker directive with reactive forms
+
+But what I see in the DOM is `<dp-date-picker>` (the component), not an input with `dp-day-picker` attribute.
+
+Let me use the console to find all inputs with `dp-day-picker` attribute. But first, let me try navigating to the specific "Day Picker directive Reactive" page using the URL hash.
+
+Looking at the URL bar: `localhost:4200` - There's no hash after it. The page is already showing this navigation based on the left sidebar selection.
+
+Let me try a different approach. Let me look at the URL with hash navigation to understand which page section I'm on. Looking at the browser URL bar at the top: `localhost:4200`
+
+Wait - looking at the left sidebar navigation again, "Day Picker directive Reactive" is highlighted in the left menu. But the current page at the top shows "Angular Date/Time/Month Picker" header, and below it is the demo with "Choose a date..." input. This is a Single Page Application - the left nav selects different demos.
+
+Now let me look at the `<dp-date-picker>` element's class attribute. The `ng-reflect` attributes in Angular reflect bound property values. But I see `id="daytimePicker"` which suggests this might be the daytime-related picker.
+
+Let me scroll down more in the DOM to find any input with `dp-day-picker` directive attribute or any form element with `formControlName` attribute:
+
+Actually, I need to think about this differently. The page currently shows the demo. Looking at the application - the LEFT SIDE navigation shows "Day Picker directive Reactive" is highlighted. This means the MAIN CONTENT AREA should show a reactive form with a dp-day-picker directive.
+
+Let me check the `<dp-date-picker id="daytimePicker">` - I notice the id says "daytimePicker" which is quite different from "datePicker". Let me look for the form element that contains this, and specifically look for `formControlName` attributes.
+
+Actually, let me take a completely different approach. Let me use the Console to run a JavaScript command to find the input with dp-day-picker attribute and check its initial CSS classes. The "allow pasting" security prompt in the console can be bypassed by typing individual keys.
+
+Let me switch to the Console tab and try to type the command character by character:
+[step 96] Action: left_click (1100, 314)
+[step 96] Reasoning: The Console tab is now open full view. I can see:
+1. Angular running in development mode message
+2. 403 Forbidden error for the GitHub API
+3. **Warning: Don't paste code into the DevTools Console** message
+4. `> temp1` - which ran the temp1 command that showed `← ▶ <dp-demo-root ng-version="4.1.0">...</dp-demo-root>`
+5. `> |` - the console input cursor at y≈314
+
+Now I can see the console. The console input shows `> ` at y≈314. Let me click on it to focus:
+[step 97] Action: left_click (980, 314)
+[step 97] Reasoning: I can see the console is showing the same content. The `> ` cursor at y≈314 is the active console input. Let me try to type "allow pasting" character by character using the `key` action. I'll type each character separately.
+
+But first, let me try the approach of using the `key` action with a single letter to check if the console is focused:
+[step 98] Action: key: a
+[step 98] Reasoning: The console shows `> |` at y≈314 (with the cursor visible after `>`). The console input is now focused and I can see the cursor blinking after `>`. The console is ready to accept keyboard input.
+
+Let me now type "allow pasting" in the console:
+[step 99] Action: key: Escape
+[step 99] Reasoning: Excellent! **SUCCESS!** The letter "a" is now visible in the console input at `> a` (y≈314)! The emoji picker appeared below showing emoji suggestions (because macOS has an emoji autocorrect feature). The console is now accepting keyboard input!
+
+Let me press Escape to dismiss the emoji picker and then continue typing "llow pasting":
+[step 100] Action: left_click (140, 61)
+[step 100] Reasoning: The emoji picker is gone but the console shows `> ` again at y≈314. It seems the Escape key cleared the "a" I typed. The console input shows the `> ` cursor but without the "a".
+
+Looking at the console at y≈314 - the cursor shows `> ` with a blinking cursor (vertical line). The "a" has been cleared.
+
+The macOS emoji picker is triggered by typing "a" in the console input, and pressing Escape dismisses both the emoji picker AND clears the input.
+
+I need to type the characters without triggering the emoji picker. The emoji suggestions appear for Japanese/Chinese characters when typing Latin letters on a Japanese keyboard layout. But this seems to be the Chinese IME that's enabled on this Mac.
+
+Looking at the menu bar at the very top, I can see "阿" (Chinese character) which indicates the Chinese input method is currently active! I need to switch to English input first.
+
+Let me use a keyboard shortcut to disable the Chinese IME and switch to English input. I'll press `Ctrl+Space` or use the input method switcher:
+
+Actually, looking at the menu bar more carefully - I see several icons at the top right, but I cannot see the input method indicator clearly. Let me look at the issue differently.
+
+The emoji picker appeared because macOS Chinese IME is converting my "a" input. I need to switch to ASCII/English input mode before typing in the console.
+
+However, since pressing Escape clears the console input, I need a different approach. Let me try using the URL bar approach - I'll navigate to a special URL that runs JavaScript:
+
+Actually, the most reliable way here would be to:
+1. Focus the console
+2. Type using the `type` action but with the understanding that it might get intercepted by the IME
+
+OR I can try clicking somewhere in the page that's not the console, then use keyboard shortcut to switch input method, then click on the console again.
+
+Wait - actually the problem is that when I use `key` action with "a", macOS is using Chinese IME to try to convert it. But when I use `type` action with full words, the automation system sends the text directly (bypassing IME) but Chrome's security system blocks it as "pasting".
+
+Let me try a completely different approach. I'll use the URL bar to run JavaScript by typing `javascript:` URL:
+[step 101] Action: key: Escape
+[step 101] Reasoning: The URL bar is now selected showing `localhost:4200`. I notice there's a helpful dropdown showing suggestions including "问问 Google 有关此页面的问题 - localhost" (Ask Google about this page's issues - localhost). 
+
+The URL bar is now focused. I can see `localhost:4200` in the address bar. Now I'll try to navigate using a JavaScript URL. But Chrome usually blocks `javascript:` URLs typed in the address bar for security.
+
+Let me try a different approach. I'll use the console but first try to determine the input method state. Looking at the top menu bar I can see some Chinese characters "阿" which suggests Chinese IME is active.
+
+Let me try clicking on the console input one more time and try typing just specific keys that won't trigger the Chinese IME:
+
+Actually, let me first try pressing `ctrl+space` or use the macOS input method switcher while the console is focused, to switch to English input before typing "allow pasting":
+
+Let me first click on the console input area to focus it:
+[step 102] Action: left_click (1100, 314)
+[step 102] Reasoning: Good. The URL bar has been deselected (Escape pressed) and the page shows the URL `localhost:4200`. The console shows `> ` cursor at y≈314. Now I have an idea - let me try to find a way to use the `type` action but by pressing individual key characters that don't have spaces (to avoid the pasting detection):
+
+Wait - I have a better approach! I notice that the `type` action triggers the pasting security warning in Chrome, but using the `key` action with individual keystrokes triggers the Chinese IME. 
+
+The solution is: First disable the Chinese IME by pressing `Ctrl+Space` or `Shift` to toggle to English mode while the console is focused, then use `type` action.
+
+But looking at the menu bar, I see the input method indicator (the "阿" character in the top right area of the macOS menu bar). This indicates Chinese IME is active.
+
+Let me try another approach - I'll use the macOS keyboard shortcut to switch input method to English. On macOS, the shortcut to switch input method is typically `Ctrl+Space` or `Cmd+Space`.
+
+Let me first click on the console input to focus it:
+[step 103] Action: left_click (540, 400)
+[step 103] Reasoning: The console is focused. I can see `> ` cursor at y≈314. I notice the warning text says "Please type 'allow pasting' below and press Enter to allow pasting."
+
+Let me try using `Ctrl+Space` to toggle the input method to English:
+
+Actually, looking at the macOS menu bar - I see the icon at position approximately (1162, 10) which might be the input method indicator. Let me check if I can switch input methods.
+
+But let me try a completely different, more reliable approach:
+
+I'll use the Elements panel search (Ctrl+F in Elements panel) or I'll navigate to the `<input>` element using the breadcrumb navigation at the bottom of the Elements panel.
+
+Actually, I already have excellent information from the earlier inspection! Let me summarize what I already know:
+
+From the Element Inspector tooltip (when I hovered over the input WITHOUT clicking in the inspector mode earlier), I saw:
+1. **`input.dp-picker-input.ng-untouched.ng-pristine.ng-valid`** - shown in tooltip when hovering
+2. In the breadcrumb: **`← -input-container > input.dp-picker-input.ng-untouched.ng-pristine.ng-valid`**
+
+This was the internal input inside the `<dp-date-picker id="daytimePicker">` component.
+
+But I also need to verify:
+1. This is the date picker on the "Day Picker directive Reactive" page (which I need to confirm is using reactive forms with `dp-day-picker` directive)
+2. The form element's initial state
+
+Let me now try the console approach one more time. The emoji picker appears because my `key` action "a" is being interpreted through the Chinese IME. Let me try pressing the Shift key first to switch to ASCII mode in the Chinese IME, then type the console command.
+
+Actually, let me try a completely different strategy. I'll try to switch to the "ABC" input method first, by clicking on the macOS input method indicator in the menu bar:
+
+Looking at the screen, I see in the top-right area of the menu bar there appears to be input method indicators. Let me look for the 阿/ABC toggle.
+
+Actually looking more carefully, I see there's something at position (1162, 10) in the menu bar that might be the input method indicator. But let me not risk clicking the wrong icon.
+
+Instead, let me try the most direct approach: Use the Ctrl+Shift+J keyboard shortcut to open/focus the Chrome DevTools console (this might bypass the IME issue):
+[step 104] Action: key: Escape
+[step 104] Reasoning: I accidentally clicked on the "Select a max date" calendar picker in the Config options section! A date picker calendar is now open showing April 2026. I need to close this without selecting a date.
+
+This also reveals something very important - the Config options section has its own date pickers for "Min Selectable Date" and "Max Selectable Date" configuration. These are NOT the reactive form demo date pickers.
+
+Let me press Escape to close this calendar:
+[step 105] Action: left_click (1100, 314)
+[step 105] Reasoning: The calendar has been closed. The page is back to its normal state. The date picker at the top still shows "Choose a date..." (no date selected).
+
+Now I have enough information from my previous inspection using the Element Inspector. Let me try one more approach to use the console - I'll try using the macOS Shift key to switch Chinese IME to ASCII mode, then type the console command:
+[step 106] Action: key: shift
+[step 106] Reasoning: The console cursor `> |` is now showing at y≈314. The cursor (|) is visible after `>`. The console is focused. Now let me try to use the Shift key to switch the Chinese IME to ASCII input mode before typing:
+[step 107] Action: left_click (1100, 314)
+[step 107] Reasoning: Pressing Shift didn't change the input method - the menu bar still shows Chinese characters. The console cursor shows `> |` at y≈314. The Shift key alone doesn't toggle the Chinese IME in this environment.
+
+Let me now try a different approach to get the "allow pasting" text typed in the console. I'll try using `ctrl+shift+space` which on some Chinese IME systems switches to ASCII mode:
+
+Actually, I realize I need to think about this more carefully. The automation `type` action is being blocked by Chrome's pasting security. The `key` action with single letters is being intercepted by the Chinese IME.
+
+Let me try pressing individual digit keys (which typically don't get intercepted by Chinese IME) in the console to see if they work. If digits work but letters don't, I can try a numeric approach.
+
+Actually, I have another idea! The Chinese IME typically only intercepts alphabetic characters. Special characters and digits might work directly. Let me try typing "allow pasting" where I use `key` action for each character but include some trick.
+
+Wait - I just remembered! When I pressed `key` action with "a" earlier, the Chinese IME triggered an autocomplete popup. But then I could press a number key to select from the candidates, or press Return/Enter to confirm the "a" character without conversion. 
+
+In Chinese Pinyin IME, pressing a letter shows character candidates, and pressing a NUMBER selects a candidate, or pressing Enter/Space typically commits the raw Latin character. Let me try:
+
+1. Type "a" (shows IME popup)
+2. Press Enter or Space to confirm "a" without conversion
+3. Continue with "l", "l", "o", "w", etc.
+[step 108] Action: key: a
+[step 108] Reasoning: Console cursor `> |` is visible at y≈314. Let me try typing the "allow pasting" characters - first "a" then immediately press Enter to confirm the character without IME conversion, then continue with "l":
+
+Actually, the smarter approach here is to use a method that works WITH the Chinese IME rather than against it. The Chinese Pinyin IME for macOS typically:
+1. Shows a candidates window when you type Latin letters
+2. Pressing `Enter` or `Space` commits the raw Latin input (the pinyin itself)
+
+Let me try pressing the "a" key, then immediately pressing Enter to commit it without conversion, then continue with remaining characters:
+[step 109] Action: key: Return
+[step 109] Reasoning: I can see:
+1. The console shows `> a` at y≈314 - the letter "a" has been typed successfully!
+2. Below the console input, there's an emoji/character candidates row showing: 😀 🤧 阿 钢 噶 钶 熻 叮 (Chinese character suggestions for "a")
+
+The Chinese IME is showing candidates. Now I need to commit the "a" character without converting to Chinese. I'll press `Return` or `Delete` to cancel the IME and keep the raw "a":
+
+Actually, in macOS Pinyin IME:
+- Press `Return`/`Enter` to confirm current text (the "a") and move it to the input WITHOUT converting
+- The `Delete` key would delete the "a"
+
+Let me press `Return` to confirm "a" as a Latin character:
+[step 110] Action: key: l
+[step 110] Reasoning: I can see at the bottom of the console (y≈314), the console input now shows `> a` - the letter "a" is now committed to the console input! The emoji picker is gone and the "a" character is in the console input.
+
+This approach works! Pressing Return commits the Chinese IME candidate to confirm the Latin letter. Now I can type the rest of "llow pasting" the same way. Let me continue typing each letter followed by Return to commit each character through the Chinese IME:
+
+Actually wait - pressing Return when the IME has confirmed the "a" character, I'm worried it might execute the current "a" input as a console command rather than just confirming the IME. But looking at the console, the `> a` cursor is still in the input field (the empty line 314), not in the output area. This means the Enter pressed the IME to confirm "a" without submitting the console command. 
+
+But now if I press Return again, it will submit "a" as a console command and output `undefined`. I need to continue typing without pressing Return for now.
+
+Let me type the remaining letters. I need to type "l", "l", "o", "w", " ", "p", "a", "s", "t", "i", "n", "g":
+
+The trick is: type each letter, the IME popup appears, then press Return to confirm the Latin letter without conversion.
+
+BUT - there might be an issue. After I confirmed "a" by pressing Return (which commits the IME selection), the cursor is at `> a` (after the "a"). Now I need to type more letters WITHOUT pressing Return (which would submit the command). 
+
+The Chinese IME should allow me to continue typing more letters after confirming the first letter. Each new letter I type will be analyzed as a new Pinyin sequence.
+
+Let me continue typing "l" (to add to make "al"):
+[step 111] Action: key: Return
+[step 111] Reasoning: I can see:
+1. Console input shows `> al` at y≈314 - the "l" has been added after "a"! 
+2. The IME candidates show: 了 里 来 两 2 晓 老 路 (Chinese character suggestions for "al" pinyin)
+
+This is working! The approach is:
+1. Type the letter → IME shows candidates
+2. Press Return to confirm the Latin letter without conversion (BUT this might submit the console command!)
+
+Wait - looking at the console, I see `> al` without pressing Return yet. The IME is treating "l" as part of the current Pinyin sequence "al", not committing "a" first then starting "l". This makes sense - in Pinyin IME, "al" is analyzed as one sequence.
+
+The issue now is: if I press Return, it might submit the "al" command OR commit "al" as Latin text. Let me press Return to see what happens:
+[step 112] Action: left_click (1100, 314)
+[step 112] Reasoning: Excellent! **GREAT PROGRESS!** I can see that pressing Return committed the "al" as Latin characters AND the IME candidates were dismissed! The console now shows:
+- `> temp1` (previous command)
+- `← ▶ <dp-demo-root ng-version="4.1.0">...</dp-demo-root>` (temp1 result)
+- `> al` (the "al" that was submitted as a console command)
+- At the bottom: `> |` cursor at y≈314 (ready for new input)
+
+Wait - the console shows `> al` at the output area and then a new `> |` cursor at the bottom. This means "al" was submitted as a JavaScript command. But since "al" would just evaluate to `undefined` (or an error like "al is not defined"), and then the console moved to a new input prompt.
+
+This means the approach of: type letters → press Return to commit → new characters will require one Return press per letter to commit it through the IME, BUT pressing Return also submits the partial command to the console!
+
+This is not going to work character-by-character because pressing Return both commits the IME AND submits the console command. I need a way to type "allow pasting" all at once and then press Return.
+
+Let me think of another approach...
+
+Actually, I realize I should try typing the characters through the Chinese IME using the "English mode" shortcut. On macOS Pinyin IME, pressing `Shift` toggles between Chinese and English (ASCII) input mode within the IME. When in English mode, typing letters directly produces ASCII characters without IME conversion.
+
+Let me try:
+1. Click console input to focus
+2. Press Shift to switch Chinese IME to ASCII mode
+3. Type "allow pasting"
+[step 113] Action: key: shift
+[step 113] Reasoning: I can see the console cursor `> |` is at y≈314. The cursor is positioned after `> ` at the bottom of the console output area. The console is now ready for input.
+
+Looking at the console history:
+- `> temp1` → `← ▶ <dp-demo-root...>`
+- `> al` (the previous "al" command that was submitted by mistake)
+- `> |` (current empty input prompt)
+
+Now let me try using the Shift key to switch Chinese IME to ASCII mode. On macOS Chinese Pinyin IME, pressing `Shift` key (without any other key) switches between Chinese input and ASCII input modes:
+[step 114] Action: key: l
+[step 114] Reasoning: I see the console shows `> al` at y≈314 (with the cursor `|` after "al"). Wait - it looks like clicking on the console input area put the cursor at `> al` position - but looking more carefully, `> al` is shown as a PREVIOUS command in the output area, and the current cursor `> |` (or `> al|`) might be the current new input prompt.
+
+Let me check - I see:
+- The console output area shows:
+  - `> temp1`
+  - `← ▶ <dp-demo-root ng-version="4.1.0">...</dp-demo-root>`
+  - `> al` (the command that was accidentally submitted)
+  - No output for "al" (the "al" variable would be undefined, which doesn't show)
+  - `> al|` with cursor at y≈314
+
+Hmm, looking at the bottom of the console at y≈314, I see `> al` with what appears to be the cursor `|` after "al". 
+
+Wait - actually looking again at y≈314, the console shows "al" after the `>` sign. This might be the actual console INPUT field showing the previous input, OR it's showing the history where I can press ArrowUp to access previous commands.
+
+Let me check by pressing ArrowUp to see if it shows previous commands:
+No wait - I should NOT press ArrowUp because I'm at a fresh prompt and I need to check the console state.
+
+Let me try pressing the letter "l" to see what happens - if the cursor is at a fresh prompt, it will show `> l`; if it's still showing "al", pressing "l" will make it "all":

@@ -1,0 +1,102 @@
+Session created: sess-20260417053330-265c71fc14614da08fb8748727dc2d6a
+UI panel initialized successfully
+UI window displayed
+Expected result: 当月份模式且disableKeypress为true时，用户键盘输入应被阻止，输入框值不应因键盘按键而改变。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: left_click (38, 374)
+[step 1] Reasoning: I can see the Angular Date/Time/Month Picker application is open. I need to click on "Month Picker" in the left menu first.
+[step 2] Action: scroll down (697, 400) scroll_amount 3
+[step 2] Reasoning: I'm now on the Month Picker page. I can see the "Disable keyboard on input (disableKeypress):" option with "Disabled" and "Enabled" radio buttons, and currently "Enabled" is selected (which means disableKeypress is false/enabled means keypress is not disabled). 
+
+Wait, let me re-read: "Disabled" radio button means disableKeypress=false (keyboard not disabled), "Enabled" radio button means disableKeypress=true (keyboard disabled). Currently "Enabled" is selected (the blue dot is on "Enabled"). 
+
+Actually, looking more carefully - the label says "Disable keyboard on input (disableKeypress):" with options "Disabled" and "Enabled". I need to set disableKeypress to true, which means I need to click "Enabled" to enable the disabling of keyboard input. Currently it appears "Enabled" is already selected (the blue radio button appears to be next to "Enabled").
+
+Wait, let me look more carefully. The radio button next to "Enabled" appears to be filled (blue). So disableKeypress is currently set to "Enabled" (true). But I need to verify this. Let me zoom in on that area.
+[step 3] Action: scroll up (697, 400) scroll_amount 3
+[step 3] Reasoning: Now I can clearly see the "Disable keyboard on input (disableKeypress):" option. I can see:
+- "Disabled" radio button (not selected)
+- "Enabled" radio button (selected - blue dot)
+
+Currently "Enabled" is selected, which means disableKeypress=true (keyboard input IS disabled). This is already the state I need to test. 
+
+But wait - let me reconsider. The task says to enable disableKeypress (set to true). Looking at the current state, "Enabled" is already selected next to the disableKeypress option. This means disableKeypress is already set to true (the feature is enabled/active).
+
+However, the task says to first find and enable the disableKeypress option. Since it's already enabled, let me proceed to step 3: clicking the date picker input to focus it, then typing characters to verify keyboard input is disabled.
+
+First, let me scroll back up to see the date picker input.
+[step 4] Action: left_click (700, 133)
+[step 4] Reasoning: I can see the page. The disableKeypress option shows "Enabled" is already selected (blue dot next to "Enabled"). The date picker input is at the top - "Choose a date..." input. 
+
+Let me verify the current state of disableKeypress more carefully. I can see "Disabled ○ Enabled ●" which confirms "Enabled" is selected (disableKeypress=true). 
+
+Now I need to:
+1. First, let me make sure disableKeypress is set to "Enabled" (true) - it already appears to be
+2. Click on the date picker input
+3. Try typing characters
+4. Verify keyboard input is blocked
+
+Let me click on the date picker input at the top of the page.
+[step 5] Action: key: Escape
+[step 5] Reasoning: The month picker calendar has opened. I can see the month picker showing 2026 with all months. The input field is focused. Now I need to close this calendar first and then test keyboard input. Let me press Escape to close the calendar, then try typing directly in the input field.
+
+Actually, I should first verify the disableKeypress state. Looking at the bottom of the visible area, I can confirm "Disabled ○ Enabled ●" - "Enabled" is selected, meaning disableKeypress=true.
+
+Let me now try to type characters in the input field while the calendar is showing. First, let me press Escape to close the dropdown.
+[step 6] Action: left_click (700, 133)
+[step 6] Reasoning: Good, the calendar is closed. Now I need to:
+1. Confirm disableKeypress is "Enabled" (I can see at the bottom "Disabled ○ Enabled ●" - confirmed it's enabled/true)
+2. Click the input to focus it
+3. Try to type characters
+
+Let me click on the input field to focus it, then try typing.
+[step 7] Action: type: test123
+[step 7] Reasoning: The input is focused (I can see a cursor in the input field showing "Choose a date...| " with a text cursor) and the month picker calendar has opened again. The input currently shows "Choose a date..." placeholder text with the cursor blinking.
+
+Now let me try typing characters (numbers and letters) to test if keyboard input is properly disabled.
+[step 8] Action: screenshot
+[step 8] Reasoning: I can clearly see that **keyboard input was NOT blocked** - the text "test123" was successfully typed into the input field despite disableKeypress being set to "Enabled" (true). The input field now shows "test123" instead of the placeholder "Choose a date...".
+
+This is a **bug** - when disableKeypress is set to "Enabled" (true) in the Month Picker, the keyboard input should be disabled, but the input still accepts keyboard characters. The disableKeypress feature is NOT working correctly in month mode.
+
+Let me take a screenshot to document this state clearly, and also verify by checking if the setting was indeed "Enabled":
+[step 9] Action: DONE
+[step 9] Reasoning: The screenshot clearly confirms the issue:
+
+**Test Results Summary:**
+
+1. ✅ **Step 1**: Found and clicked "Month Picker" in the left menu successfully
+2. ✅ **Step 2**: Found the "Disable keyboard on input (disableKeypress):" configuration option in the Config options section. The "Enabled" radio button was already selected (●), meaning disableKeypress=true was already set
+3. ✅ **Step 3**: Clicked the date picker input field to give it focus - the calendar opened showing months
+4. ✅ **Step 4**: Typed "test123" using the keyboard
+5. ❌ **Step 5**: **FAILED - The input field accepted the keyboard input "test123"** despite disableKeypress being set to "Enabled" (true)
+
+**Bug Found**: The `disableKeypress` feature in Month Picker mode is **NOT working correctly**. When disableKeypress is set to "Enabled" (true), keyboard input should be blocked, but the input field still accepts keyboard characters ("test123" was visible in the input field). The input content changed due to keypresses, which should not happen when `disableKeypress=true`.
+
+This is a functional bug - the disableKeypress configuration option for Month Picker does not prevent keyboard input as expected. The feature appears broken in month mode.
+Evaluating task result...
+
+==================================================
+Task: 当前Chrome浏览器已打开angular-datepicker应用，地址是http://localhost:4200。测试日期选择器在月份模式(month mode)下的disableKeypress功能。步骤：1.在左侧菜单找到Month Picker相关选项并点击；2.在配置区域找到disableKeypress选项并启用（设为true）；3.点击日期选择器输入框使其获得焦点；4.尝试通过键盘输入字符（数字或字母）；5.验证输入框是否正确禁止了键盘输入，内容不应因按键而变化。请始终在浏览器内操作，禁止打开Terminal、Finder或其他应用程序。如果找不到目标功能直接标记result为unclear。
+Status: COMPLETED
+Total steps: 9
+Last action: DONE
+Last reasoning: The screenshot clearly confirms the issue:
+
+**Test Results Summary:**
+
+1. ✅ **Step 1**: Found and clicked "Month Picker" in the left menu successfully
+2. ✅ **Step 2**: Found the "Disable keyboard on input (disableKeypress):" configuration option in the Config options section. The "Enabled" radio button was already selected (●), meaning disableKeypress=true was already set
+3. ✅ **Step 3**: Clicked the date picker input field to give it focus - the calendar opened showing months
+4. ✅ **Step 4**: Typed "test123" using the keyboard
+5. ❌ **Step 5**: **FAILED - The input field accepted the keyboard input "test123"** despite disableKeypress being set to "Enabled" (true)
+
+**Bug Found**: The `disableKeypress` feature in Month Picker mode is **NOT working correctly**. When disableKeypress is set to "Enabled" (true), keyboard input should be blocked, but the input field still accepts keyboard characters ("test123" was visible in the input field). The input content changed due to keypresses, which should not happen when `disableKeypress=true`.
+
+This is a functional bug - the disableKeypress configuration option for Month Picker does not prevent keyboard input as expected. The feature appears broken in month mode.
+
+==================================================
+
+UI window closed
