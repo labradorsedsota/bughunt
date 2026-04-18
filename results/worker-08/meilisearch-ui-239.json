@@ -2,17 +2,20 @@
   "task_id": "meilisearch-ui-239",
   "repo": "eyeix/meilisearch-ui",
   "worker": "worker-08",
-  "status": "completed",
-  "sess_id": "",
+  "status": "failed",
+  "sess_id": null,
   "expected_result_used": false,
   "duration_seconds": 120,
   "timestamp": "2026-04-18T11:00:00+08:00",
-  "mano_cua": {
-    "status": "SKIPPED",
-    "total_steps": 0,
-    "last_action": "N/A",
-    "result": "unclear",
-    "result_summary": "同 repo meilisearch-ui。git clone/fetch 目标 commit 失败（网络不稳定，代理和直连均超时）。且需要 Meilisearch 后端服务，前一个 commit（163）已确认白屏崩溃。backend_risk 预期。",
-    "last_reasoning": "Same repo meilisearch-ui. Git clone/fetch target commit failed (network unstable). Requires Meilisearch backend. Previous commit (163) confirmed white screen crash. backend_risk as expected."
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "同 repo meilisearch-ui。git clone/fetch 目标 commit 失败（网络不稳定，代理和直连均超时）。且需要 Meilisearch 后端服务，前一个 commit（163）已确认白屏崩溃。backend_risk 预期。",
+    "attempted": [
+      "代理 clone（超时）",
+      "直连 clone（不通）",
+      "shallow clone + fetch（pack 文件损坏）"
+    ],
+    "recommendation": "需稳定网络 + Meilisearch 后端"
   }
 }

@@ -2,17 +2,18 @@
   "task_id": "epicenter-1637",
   "repo": "EpicenterHQ/epicenter",
   "worker": "worker-08",
-  "status": "completed",
-  "sess_id": "",
+  "status": "failed",
+  "sess_id": null,
   "expected_result_used": false,
   "duration_seconds": 120,
   "timestamp": "2026-04-18T01:01:00+08:00",
-  "mano_cua": {
-    "status": "SKIPPED",
-    "total_steps": 0,
-    "last_action": "N/A",
-    "result": "unclear",
-    "result_summary": "项目要求 bun@1.3.3 作为 packageManager，本机未安装 bun。npm 报 EUNSUPPORTEDPROTOCOL (catalog:)，pnpm 报 Unsupported package manager specification (bun@1.3.3)。无法安装依赖，无法部署。",
-    "last_reasoning": "Project requires bun@1.3.3 as packageManager. bun not installed. npm rejects catalog: protocol, pnpm rejects bun specification. Cannot install dependencies."
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "项目要求 bun@1.3.3 作为 packageManager，本机未安装 bun。npm 报 EUNSUPPORTEDPROTOCOL (catalog:)，pnpm 报 Unsupported package manager specification (bun@1.3.3)。无法安装依赖，无法部署。",
+    "attempted": [
+      "npm install（EUNSUPPORTEDPROTOCOL catalog: 协议不支持）"
+    ],
+    "recommendation": "需安装 bun@1.3.3"
   }
 }

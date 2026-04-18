@@ -2,17 +2,16 @@
   "task_id": "hls-downloader-491",
   "repo": "puemos/hls-downloader",
   "worker": "worker-08",
-  "status": "completed",
-  "sess_id": "",
+  "status": "failed",
+  "sess_id": null,
   "expected_result_used": false,
   "duration_seconds": 60,
   "timestamp": "2026-04-18T01:22:00+08:00",
-  "mano_cua": {
-    "status": "SKIPPED",
-    "total_steps": 0,
-    "last_action": "N/A",
-    "result": "unclear",
-    "result_summary": "Chrome 浏览器扩展项目（有 popup、background 组件，build 输出为 zip/xpi）。不是独立 web 应用，无法通过 localhost 访问。dev 命令构建扩展到 dist/ 目录，不启动 web server。需要安装为 Chrome 扩展才能测试。",
-    "last_reasoning": "Chrome browser extension project (popup + background, outputs zip/xpi). Not a standalone web app. dev command builds extension to dist/, no web server. Requires Chrome extension installation to test."
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Chrome 浏览器扩展项目（有 popup、background 组件，build 输出为 zip/xpi）。不是独立 web 应用，无法通过 localhost 访问。dev 命令构建扩展到 dist/ 目录，不启动 web server。需要安装为 Chrome 扩展才能测试。",
+    "attempted": [],
+    "recommendation": "Chrome 扩展，无法 localhost 测试"
   }
 }

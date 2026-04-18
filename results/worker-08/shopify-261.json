@@ -2,17 +2,19 @@
   "task_id": "shopify-261",
   "repo": "vuestorefront/shopify",
   "worker": "worker-08",
-  "status": "completed",
-  "sess_id": "",
+  "status": "failed",
+  "sess_id": null,
   "expected_result_used": false,
   "duration_seconds": 60,
   "timestamp": "2026-04-18T02:18:00+08:00",
-  "mano_cua": {
-    "status": "SKIPPED",
-    "total_steps": 0,
-    "last_action": "N/A",
-    "result": "unclear",
-    "result_summary": "Vue Storefront + Shopify 集成项目，需要 SHOPIFY_STOREFRONT_TOKEN 和 SHOPIFY_DOMAIN 环境变量连接 Shopify API。无 token 无法加载商品数据，无法测试分类页面的缺货商品按钮。",
-    "last_reasoning": "Vue Storefront Shopify integration requires SHOPIFY_STOREFRONT_TOKEN and SHOPIFY_DOMAIN env vars. Without Shopify API credentials, no product data can be loaded. Cannot test out-of-stock button state."
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Vue Storefront + Shopify 集成项目，需要 SHOPIFY_STOREFRONT_TOKEN 和 SHOPIFY_DOMAIN 环境变量连接 Shopify API。无 token 无法加载商品数据，无法测试分类页面的缺货商品按钮。",
+    "attempted": [
+      "clone 成功",
+      "检查 .env（需 SHOPIFY_STOREFRONT_TOKEN）"
+    ],
+    "recommendation": "需 Shopify Storefront API 凭证"
   }
 }

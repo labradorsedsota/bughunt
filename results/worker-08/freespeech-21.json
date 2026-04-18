@@ -2,17 +2,20 @@
   "task_id": "freespeech-21",
   "repo": "Merkie/freespeech",
   "worker": "worker-08",
-  "status": "completed",
-  "sess_id": "",
+  "status": "failed",
+  "sess_id": null,
   "expected_result_used": false,
   "duration_seconds": 300,
   "timestamp": "2026-04-18T01:18:00+08:00",
-  "mano_cua": {
-    "status": "SKIPPED",
-    "total_steps": 0,
-    "last_action": "N/A",
-    "result": "unclear",
-    "result_summary": "无法 clone repo。github.com 直连不通，代理 clone 62MB repo 超时。shallow clone 成功但 fetch --unshallow 获取目标 commit (ef272686dc) 也超时。网络限制导致无法部署。",
-    "last_reasoning": "Cannot clone repo. github.com direct connection down. Proxy clone of 62MB repo times out. Shallow clone works but unshallow to reach target commit also times out. Network limitation prevents deployment."
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "无法 clone repo。github.com 直连不通，代理 clone 62MB repo 超时。shallow clone 成功但 fetch --unshallow 获取目标 commit (ef272686dc) 也超时。网络限制导致无法部署。",
+    "attempted": [
+      "代理 clone（超时）",
+      "直连 clone（github.com 不通）",
+      "shallow clone + fetch --unshallow（失败）"
+    ],
+    "recommendation": "需稳定网络环境或本地镜像"
   }
 }

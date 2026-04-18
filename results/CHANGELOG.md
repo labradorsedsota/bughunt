@@ -1,5 +1,71 @@
 # Results CHANGELOG
 
+## 2026-04-18 12:20 — worker-08 合规修复 36 张结果卡
+
+**操作人：** worker-08（林菡确认）
+**原因：** Pichai 合规扫描发现 worker-08 提交的 72 张结果中 31 张不符合 `worker-execution-guide.md` 标准 schema（status=completed 但 mano-cua 未执行，sess_id 为空）。额外检查第 8 批新增 4 张同类问题 + 1 张 sess_id 为 placeholder。
+**审计报告：** `reports/worker-08-audit.md`
+**修复脚本：** `scripts/fix-worker08.py`（可复现）
+
+**修复分类：**
+
+| 类型 | 数量 | 修复方式 |
+|------|------|----------|
+| completed+SKIPPED/NOT_RUN→failed | 35 | status 改 failed；mano_cua 设 null；构建标准 failure 对象（type=deploy_failed；symptom 从原 result_summary 提取；attempted 如实填写；recommendation 基于实际情况） |
+| sess_id placeholder→真实值 | 1 | 从 mano-cua log 提取真实 sess_id |
+
+**修复后 status 分布（72 张）：**
+
+| status | 数量 |
+|--------|------|
+| completed | 37 |
+| failed | 35 |
+
+**影响卡清单（36 张）：**
+
+| # | 文件 | 修复前问题 | 修复后 status | 修复方式 |
+|---|------|-----------|---------------|----------|
+| 1 | `Task-Board-516.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 2 | `clappr-1868.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 3 | `devtools-768.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 4 | `elements-936.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 5 | `epicenter-1637.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 6 | `freespeech-21.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 7 | `frontend-3712.json` | status=completed 但 mano-cua 未执行（NOT_RUN）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 8 | `gitlight-56.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 9 | `hls-downloader-491.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 10 | `kan-320.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 11 | `karakeep-2511.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 12 | `karakeep-2569.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 13 | `karakeep-2640.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 14 | `lms-1583.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 15 | `marble-296.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 16 | `minimal-chat-99.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 17 | `misskey-hub-next-101.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 18 | `plot-2274.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 19 | `rawgraphs-app-113.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 20 | `react-design-editor-244.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 21 | `react-native-web-2794.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 22 | `react-pdf-1530.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 23 | `shopify-261.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 24 | `sorry-cypress-228.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 25 | `sorry-cypress-392.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 26 | `sorry-cypress-849.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 27 | `static-cms-790.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 28 | `suneditor-1205.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 29 | `tui.editor-1806.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 30 | `website-v2-1887.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 31 | `win11React-658.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 32 | `gitlight-222.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 33 | `meilisearch-ui-239.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 34 | `bobarr-57.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 35 | `useSend-177.json` | status=completed 但 mano-cua 未执行（SKIPPED）；sess_id 为空 | failed (deploy_failed) | completed→failed；mano_cua 设 null；构建标准 failure 对象（symptom 从原 result_summary 提取；attempted 如实填写） |
+| 36 | `batnoter-87.json` | sess_id 为 placeholder（非真实值） | completed (unchanged) | sess_id 从 `sess-20260418110115-placeholder` 更正为真实值 `sess-20260418110028-22a1eeee830f43b6a558c79ff990dc33`（从 mano-cua log 提取） |
+
+共 36 张卡，修复后 72/72 预期通过合规检查。
+
+---
+
 ## 2026-04-18 12:10 — worker-05 合规修复 8 张结果卡
 
 **操作人：** worker-05（林菡确认）

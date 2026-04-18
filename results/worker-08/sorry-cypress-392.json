@@ -2,17 +2,19 @@
   "task_id": "sorry-cypress-392",
   "repo": "sorry-cypress/sorry-cypress",
   "worker": "worker-08",
-  "status": "completed",
-  "sess_id": "",
+  "status": "failed",
+  "sess_id": null,
   "expected_result_used": false,
   "duration_seconds": 60,
   "timestamp": "2026-04-18T02:20:00+08:00",
-  "mano_cua": {
-    "status": "SKIPPED",
-    "total_steps": 0,
-    "last_action": "N/A",
-    "result": "unclear",
-    "result_summary": "sorry-cypress \u9700\u8981 MongoDB + Director/API \u540e\u7aef\u670d\u52a1\u3002Dashboard \u4e0d\u53ef\u72ec\u7acb\u8fd0\u884c\uff0c\u9700\u8981\u5b8c\u6574\u540e\u7aef\u73af\u5883\u3002",
-    "last_reasoning": "sorry-cypress requires MongoDB + Director/API backend services. Dashboard cannot run standalone."
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "sorry-cypress 需要 MongoDB + Director/API 后端服务。Dashboard 不可独立运行，需要完整后端环境。",
+    "attempted": [
+      "clone 成功",
+      "检查项目结构（需 MongoDB + Director/API 后端）"
+    ],
+    "recommendation": "需 MongoDB + Director/API 后端"
   }
 }
