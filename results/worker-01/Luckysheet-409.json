@@ -1,0 +1,18 @@
+{
+  "task_id": "Luckysheet-409",
+  "repo": "dream-num/Luckysheet",
+  "worker": "worker-01",
+  "status": "completed",
+  "sess_id": "sess-20260418095050-370b9cb9b5ba44f893cc97d15ac262d4",
+  "expected_result_used": true,
+  "duration_seconds": 902,
+  "timestamp": "2026-04-18T10:05:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 67,
+    "last_action": "type: A1:C3",
+    "result": "unclear",
+    "result_summary": "mano-cua在67步内未能完成合并单元格操作。电子表格UI中鼠标从单元格区域移动到工具栏时路径经过列头区域导致选区被意外改变，反复尝试通过名称框选区+点击合并按钮但未能成功合并。未到达冻结功能测试步骤。",
+    "last_reasoning": "核心困难：鼠标从单元格(y=144)移到工具栏(y=57)时经过列头(y=100)，触发选区扩展。尝试名称框输入A1:C3后点击合并按钮，但路径仍经过列头。67步耗尽未完成第一步合并操作。"
+  }
+}
