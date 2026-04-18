@@ -1,0 +1,596 @@
+Session created: sess-20260418092809-2d0dba5d5f1b42729cf3b297f74ed34b
+UI panel initialized successfully
+UI window displayed
+Expected result: VuePDF组件的样式应该被隔离，不应影响页面其他元素的显示。侧边栏、输入框等元素应保持正常样式。PDF内部SVG class应使用命名空间前缀。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: left_click (988, 109)
+[step 1] Reasoning: I can see the VuePDF documentation website is open. Let me navigate to the Examples section to find pages with PDF demonstrations.
+[step 2] Action: left_click (944, 157)
+[step 2] Reasoning: A dropdown appeared with options: Basic usages, Advanced usages, Events, Editor. Let me click on "Basic usages" first to find PDF demonstrations.
+[step 3] Action: key: Escape
+[step 3] Reasoning: I can see the "Basic usages" page has opened with a sidebar showing various examples. I can see the sidebar with navigation items (One Page, All Pages, Scale, Rotation, Text Layer, Annotation Layer, XFA Layer, and Advanced usages section with Watermark, Fit Parent, Highlight Text, etc.). The page shows code examples. Let me close this dropdown first and scroll down to see the actual PDF demo.
+[step 4] Action: left_click (600, 400)
+[step 4] Reasoning: The dropdown is still visible. Let me click elsewhere on the page to close it, then scroll down to see the PDF demo.
+[step 5] Action: scroll down (640, 400) scroll_amount 10
+[step 5] Reasoning: Good, the dropdown is closed now. I can see the "One Page" example page with a sidebar on the left. The sidebar looks normal with links like One Page, All Pages, Scale, Rotation, Text Layer, Annotation Layer, XFA Layer, and Advanced usages section. Let me observe the current state and note:
+
+1. **Sidebar**: The left sidebar looks visually normal with proper styling (text links, section headers)
+2. **Navigation bar**: The top nav with "VuePDF", "Search", "Guide", "Examples" looks normal
+3. The main content shows code
+
+Now let me scroll down to see the actual PDF demo section on this page.
+[step 6] Action: scroll down (640, 400) scroll_amount 10
+[step 6] Reasoning: Excellent! Now I can see the actual PDF demo section. I can see:
+1. Code showing the `<VuePDF :pdf="pdf" :page="page" />` component
+2. Below the code, there are navigation buttons: **PREV**, **1/14**, **NEXT** (pagination controls)
+3. At the bottom, I can see text that appears to be from a PDF document: "Trace-based Just-in-Time Type Specialization for Dynamic Languages"
+
+The sidebar remains properly styled - no visual anomalies in the sidebar or navigation bar so far. Let me scroll down more to see the actual PDF rendered content.
+
+**Visual observations so far:**
+- The sidebar navigation links appear styled normally
+- Navigation bar at top appears normal
+- Buttons (PREV/NEXT) appear to have proper styling with blue background
+
+Let me scroll down more to see the full PDF rendering.
+[step 7] Action: scroll down (640, 400) scroll_amount 20
+[step 7] Reasoning: Now I can see the PDF is rendering nicely. This is a paper titled "Trace-based Just-in-Time Type Specialization for Dynamic Languages" being rendered by the VuePDF component. 
+
+**Visual observations:**
+1. **Sidebar**: The left sidebar is properly displayed - navigation items (One Page, All Pages, Scale, Rotation, Text Layer, Annotation Layer, XFA Layer, Advanced usages section) all look normally styled. No signs of CSS contamination from the PDF component.
+2. **Navigation bar**: Top navigation (VuePDF logo, Search, Guide, Examples) looks normal.
+3. **PDF content**: The PDF is rendering with text content properly displayed.
+4. **Buttons**: The PREV/NEXT pagination buttons appear correctly styled.
+5. The sidebar text appears to be in the standard font/size, not affected by PDF component styles.
+
+Let me now check the Guide section to see if there are additional examples, and also check the page more carefully. But first, let me scroll back up to observe the overall layout.
+[step 8] Action: scroll up (640, 400) scroll_amount 15
+[step 8] Reasoning: I can see the bottom of the PDF rendering. The page shows:
+1. The end of the PDF document content
+2. "Edit this page" and "Last updated: 2023/7/10 10:13" - part of the documentation site
+3. "Next page: All Pages" navigation at the bottom
+4. The sidebar is still visible and properly styled on the left
+
+**Visual observations:**
+- The sidebar and navigation bar look properly styled - no apparent style contamination from PDF component
+- The "Edit this page" link and "Last updated" text appear properly styled
+- The "Next page: All Pages" navigation link looks correctly styled
+
+Now let me open DevTools to inspect the SVG elements within the PDF component to check for namespace prefixes in class names. Let me press F12 to open DevTools.
+[step 9] Action: key: F12
+[step 9] Reasoning: Good, I can now see the PDF rendering. I can observe the overall page layout with:
+1. The PREV/NEXT navigation buttons at top
+2. The PDF content (academic paper) rendered below
+3. The left sidebar with navigation links all looking properly styled
+
+Now let me open DevTools to inspect the PDF component's SVG elements and check for namespace prefixes in class names.
+[step 10] Action: left_click (65, 574)
+[step 10] Reasoning: DevTools has opened. I can see:
+1. The DevTools panel at the bottom
+2. The Console tab is active, showing "[vite] connecting..." and "[vite] connected." messages
+3. **"No Issues"** is shown in the top-right of DevTools - meaning no warnings or errors
+4. The console appears clean with no style-related warnings or errors
+
+Let me first check the Console tab more carefully for any style-related warnings, then switch to the Elements tab to inspect the SVG elements.
+
+**Console observations:**
+- "[vite] connecting..." and "[vite] connected." are normal Vite dev server messages
+- "No Issues" indicator visible - no warnings or errors detected
+- The console log area appears empty except for the two Vite messages
+
+Now let me switch to the Elements tab to inspect the SVG elements in the PDF component.
+[step 11] Action: left_click (11, 593)
+[step 11] Reasoning: Good, I'm now in the Elements tab. I can see the DOM structure at the top level:
+- `<body> = $0`
+- `<div id="app" data-v-app>...</div>`
+- `<script type="module" src="...">...</script>`
+- `</body>`
+- `</html>`
+
+And on the right side, I can see the Styles panel showing `element.style {}` and `body { margin: 0; }`.
+
+I need to navigate into the PDF component to find SVG elements. Let me use the element picker to click on the PDF rendering area, or I can expand the DOM tree. Let me use the element picker tool to click on the PDF content area.
+[step 12] Action: left_click (647, 265)
+[step 12] Reasoning: The element inspector picker is active now (I can see it hovering over the page). I can see the body element highlighted. Let me click on the PDF content area (on the PDF text) to select the SVG element within the PDF component.
+[step 13] Action: left_click (114, 574)
+[step 13] Reasoning: The element inspector doesn't seem to have selected the PDF element. The DOM still shows the same structure. Let me try clicking directly on the PDF text in a different approach - using the console to find the SVG elements. Let me switch to the Console tab and use JavaScript to find the SVG elements.
+[step 14] Action: left_click (540, 641)
+[step 14] Reasoning: Good, I'm now in the Console tab. I can see only "[vite] connecting..." and "[vite] connected." messages - no errors or warnings. Let me use the console to find SVG elements in the PDF component and check their class names.
+[step 15] Action: left_click (540, 641)
+[step 15] Reasoning: Let me click on the console input area and type a command to find SVG elements.
+[step 16] Action: type: document.querySel...
+[step 16] Reasoning: I can see the console input is now active (cursor is visible). Let me type a command to find all SVG elements and their class names within the PDF component.
+[step 17] Action: key: Return
+[step 17] Reasoning: Interesting! The console shows `document.querySelectorAll('svg').length` returned **0**. This means there are no SVG elements in the document! 
+
+This is a significant finding. The PDF is being rendered (we can see the text content of the paper), but there are **no SVG elements** in the DOM. This could mean:
+1. The PDF is being rendered as a canvas element rather than SVG
+2. Or the SVG elements haven't loaded yet
+
+Let me check what elements the PDF component is using by querying for canvas elements.
+[step 18] Action: type: document.querySel...
+[step 18] Reasoning: The result shows `< 0` - there are indeed **0 SVG elements** in the document. Now let me check for canvas elements which might be rendering the PDF, and also check what classes are used in the VuePDF component.
+[step 19] Action: type: document.querySel...
+[step 19] Reasoning: There is **1 canvas element** in the document. The PDF is being rendered as a canvas, not SVG. This is the default rendering mode for PDF.js (which VuePDF uses) - it renders the PDF pages as canvas elements.
+
+Now let me look for the VuePDF component structure and any SVG elements that might be present. Let me also look at what the PDF component wrapper looks like and its class names.
+[step 20] Action: type: document.querySel...
+[step 20] Reasoning: The canvas element has **no class name** (empty string `''`). Now let me check the parent elements of the canvas to understand the VuePDF component structure and find class names used. Let me also look for any element with class names that might be from PDF.js.
+[step 21] Action: type: document.querySel...
+[step 21] Reasoning: Excellent! Now I can see very important information. The result shows:
+```
+'<div id="drawlayer" class="canvasWrapper"><canvas dir="ltr" width="750" height="970" style="width: 500px; height: 647px;"></canvas></div>'
+```
+
+So the canvas element is inside a `div` with:
+- `id="drawlayer"`
+- `class="canvasWrapper"`
+
+The class name `canvasWrapper` does **NOT** have a namespace prefix. This is a standard PDF.js class name without any namespace prefix. Let me explore the parent structure further to see the full VuePDF component DOM structure.
+[step 22] Action: type: document.querySel...
+[step 22] Reasoning: The grandparent of the canvas element has class `'page'`. This is another standard PDF.js class name without namespace prefix. Let me continue traversing up the DOM to get the full VuePDF component structure.
+[step 23] Action: type: Array.from(docume...
+[step 23] Reasoning: The element at 3 levels above canvas also has an empty class name `''`. Let me try a different approach and get the full class structure of all VuePDF-related elements at once. Let me look at the VuePDF component container and all its children's classes.
+[step 24] Action: left_click (540, 611)
+[step 24] Reasoning: I can see a large list of class names. I can spot various classes like:
+- `'VPSwitch VPSwitchAppearance'`, `'check'`, `'icon'`, `'vpi-sun sun'`, `'vpi-moon moon'`
+- `'group'`, `'item social-links'`, `'VPSocialLinks social-links-list'`
+- `'VPSocialLink no-icon'`, `'VPNav has-sidebar empty'`
+- `'container'`, `'top'`, `'middle'`, `'bottom'`, `'divider'`, `'divider-line'`
+- `'VPLocalNav has-sidebar empty'`, `'container'`, `'menu'`, `'vpi-align-left menu-icon'`
+- `'menu-text'`, `'VPLocalNavOutlineDropdown'`, `'VPSidebar'`, `'curtain'`, `'nav'`
+- `'group'`, `'VPSidebarItem level-0 has-active'`, `'item'`, `'indicator'`, `'text'`
+
+These are all VitePress documentation framework class names (VPNav, VPSidebar, VPLocalNav, etc.). Let me look for the VuePDF component class names specifically and check if there are any PDF.js-specific classes.
+
+Let me scroll down in the console output to see more or let me click on the output to see the full array.
+[step 25] Action: type: Array.from(docume...
+[step 25] Reasoning: Now I can see the array structure is expanded showing groups:
+- `[0 - 99]`
+- `[100 - 199]`
+- `[200 - 299]`
+
+Let me expand specific ranges to see more class names. But a better approach would be to specifically look for class names that might be related to PDF.js. Let me type a more specific query.
+[step 26] Action: screenshot
+[step 26] Reasoning: Hmm, I can see the previous command is still being shown. The new command is being typed at the bottom. Let me wait for the result and take a screenshot.
+[step 27] Action: left_click (540, 656)
+[step 27] Reasoning: I see the previous command is still showing. The last result shows `[[Prototype]]: Array(0)` which appears to be from the previous Array query. There's a new command being entered in the console. Let me press Return to execute it.
+[step 28] Action: left_click (640, 670)
+[step 28] Reasoning: I can see the console input area has the command. Let me scroll down in the DevTools console to find the result from the PDF-specific query, or let me take a fresh approach. Let me click on the console input area and type a new command.
+[step 29] Action: key: Escape
+[step 29] Reasoning: I see a Keynote popup appeared! This is because clicking in the console area must have triggered something. I need to close this popup. Let me press Escape to close it.
+
+**Visual observation:** A Keynote application popup appeared saying "欢迎使用 Keynote 讲演" (Welcome to Keynote Presentations). This is a system-level popup, not part of the web application being tested. This is a distraction from the task.
+
+Let me press Escape to close this popup.
+[step 30] Action: left_click (278, 33)
+[step 30] Reasoning: The Keynote popup is still visible. Let me click on the Chrome browser icon in the taskbar to bring Chrome back to the front. I notice the menu bar now shows "Keynote 讲演" indicating Keynote has taken focus. Let me click on the Chrome browser to bring it back to focus.
+[step 31] Action: left_click (640, 660)
+[step 31] Reasoning: Chrome is now in focus again. The Keynote popup is gone. I can see:
+1. The browser tab "One page | VuePDF" is selected
+2. A tooltip showing "One page | VuePDF, localhost:5173, 内存用量: 148 MB"
+3. The console still shows the previous command
+
+Now I can see the console at the bottom still has the command. Let me click on the console prompt area to enter a new command to check the PDF component's class names.
+[step 32] Action: key: Return
+[step 32] Reasoning: I can see that the previous command has been returned with an empty Array (`[[Prototype]]: Array(0)`). This means there are no elements with class names containing 'pdf', 'PDF', 'canvas', 'page', 'layer', or 'viewer' - wait, that can't be right since we know there's a `canvasWrapper` and `page` element. Let me look more carefully at the console output.
+
+Looking at the bottom of the console I see:
+- `[200 - 299]`
+- `[300 - 319]`
+- `length: 319`  (there are 319 class names in the full array)
+- `[[Prototype]]: Array(0)` (the filtered array for PDF-specific classes is empty)
+
+Wait - the filtered array is `Array(0)` meaning 0 results! But we know there's a `class="canvasWrapper"` and `class="page"`. Let me re-examine. The `[[Prototype]]: Array(0)` text likely is the prototype of the class with 319 items, not the empty array result. Let me check if the new command that was typed with 'canvas' included has returned.
+
+Let me look at the console more carefully. The console input shows the full PDF-specific query. Let me press Enter to execute it properly.
+[step 33] Action: scroll down (640, 620) scroll_amount 3
+[step 33] Reasoning: It seems the command is being typed but the console isn't showing a new output below. The console area looks the same. I can see the command still in the input. Let me scroll down in the DevTools console to see the result.
+[step 34] Action: left_click (66, 327)
+[step 34] Reasoning: Excellent! Now I can see the result of the filter query! The result is:
+```
+(7) ['vp-doc _vue-pdf_examples_basic_one_page_', 'vue-pdf-container', 'page', 'canvasWrapper', 'pager', 'pager', 'VPLink link pager-link next']
+```
+
+This is very important! The filtered array contains 7 class names related to pdf/page/canvas/layer/viewer:
+1. **`'vp-doc _vue-pdf_examples_basic_one_page_'`** - VitePress documentation class with page path
+2. **`'vue-pdf-container'`** - VuePDF component container class name!
+3. **`'page'`** - Standard PDF.js class (no namespace prefix!)
+4. **`'canvasWrapper'`** - Standard PDF.js class (no namespace prefix!)
+5. **`'pager'`** - Pager control class
+6. **`'pager'`** - Duplicate (PREV button)
+7. **`'VPLink link pager-link next'`** - VitePress navigation link
+
+**Key finding**: The PDF component uses class names `'page'` and `'canvasWrapper'` which are **generic PDF.js class names WITHOUT any namespace prefix**. These could potentially conflict with other page styles that use the same generic class names.
+
+Now let me check if there are any SVG elements specifically. Also let me navigate to a page that might have more advanced features like Text Layer or Annotation Layer which might use SVG elements.
+
+Let me click on "Text Layer" in the sidebar to see if that page uses SVG.
+[step 35] Action: scroll down (640, 400) scroll_amount 15
+[step 35] Reasoning: I'm now on the "Text Layer" page. I can see:
+1. **Navigation**: The nav bar with VuePDF logo, Search, Guide, Examples is visible
+2. **Sidebar**: All items (One Page, All Pages, Scale, Rotation, Text Layer [selected/highlighted in blue], Annotation Layer, XFA Layer, Advanced usages section with Watermark, Fit Parent, etc.) are visible and properly styled
+3. **Main content**: Shows the Text Layer example with code
+
+The sidebar items are properly styled - text is readable, active item "Text Layer" is highlighted in blue. No visual anomalies.
+
+The code shows that this example imports `'@tato30/vue-pdf/style.css'` - this is the VuePDF library's style CSS file. Let me scroll down to see the actual demo.
+
+**Important visual note**: The DevTools console at the bottom shows the previous result with class names including `'page'` and `'canvasWrapper'` which don't have namespace prefixes.
+
+Let me scroll down to see the Text Layer demo and check if SVG elements are present.
+[step 36] Action: left_click (640, 641)
+[step 36] Reasoning: Excellent! Now I can see the Text Layer demo on the page:
+1. Code shows `<VuePDF :pdf="pdf" :text-layer="text_layer" />`
+2. There's a **"Change to true"** button (blue button) - this is for toggling the text layer on/off
+3. The PDF is rendering below with the academic paper content
+
+**Visual observations:**
+- The page title of the PDF "Trace-based Just-in-Time Type Specialization for Dynamic Languages" is clearly visible
+- The text is rendered as selectable text (text layer is working)
+- The sidebar on the left looks properly styled with no anomalies
+- The button "Change to true" has proper styling (blue background, white text)
+
+Now let me check for SVG elements on this page. The text layer in PDF.js is rendered as HTML (using a div with the textLayer class), not SVG. But let me check the console to see if there are SVG elements now.
+
+Let me click on the console input area to check for SVG elements on the text_layer page.
+[step 37] Action: left_click (66, 574)
+[step 37] Reasoning: Good, Chrome is still in focus. Now I need to check for SVG elements on this page. The text layer might introduce SVG. But looking at the text, it appears the text layer page shows text directly rendered (the PDF text is visible). Let me check the Elements tab to inspect the DOM structure. First, let me look at the Elements tab to find the VuePDF component's SVG elements.
+
+Let me click on the Elements tab.
+[step 38] Action: key: ctrl+f
+[step 38] Reasoning: I'm now in the Elements tab. I can see the DOM structure:
+- `<!DOCTYPE html>`
+- `<html class="mac" lang="en-US" dir="ltr">`
+- `<head>...</head>`
+- `<body>...</body>` (currently selected/highlighted)
+- `</html>`
+
+The right side shows the Styles panel with `element.style {}` and `body { margin: 0; }`.
+
+I need to navigate into the body to find the VuePDF component. Let me use Ctrl+F to search for specific elements in the DOM. Let me use the keyboard shortcut to search the DOM.
+[step 39] Action: left_click (11, 592)
+[step 39] Reasoning: The search box didn't appear in the Elements panel. Let me try a different approach - I'll use the element inspector (picker) to click on the PDF content area on the page to navigate to the specific element in the DOM. Let me use the inspect element button.
+[step 40] Action: left_click (647, 406)
+[step 40] Reasoning: Now I can see the element inspector is active (the cursor icon changed to an inspector). Now let me click on the PDF content area - specifically on the PDF paper title to select that element.
+[step 41] Action: left_click (8, 621)
+[step 41] Reasoning: The element inspector click doesn't seem to be navigating to the selected element in the DOM tree. The DOM tree still shows the same structure. The Elements panel shows the structure at the top level but isn't jumping to the clicked element.
+
+Let me try a different approach - I'll navigate into the body by expanding it in the Elements panel. Let me click the arrow next to the body element.
+[step 42] Action: left_click (57, 544)
+[step 42] Reasoning: A context menu appeared! I can see options like "Add attribute", "Edit as HTML", "Expand recursively", "Collapse children", etc. Let me click on "Expand recursively" to expand all children of this element. But wait - I should first close this menu and try a simpler approach. Let me click "Expand recursively" to navigate into the body.
+[step 43] Action: scroll down (450, 630) scroll_amount 3
+[step 43] Reasoning: The body element has been expanded. I can now see:
+- `<div id="app" data-v-app>`
+- `<div data-v-8f7ame4 class="Layout">` flex
+
+The body is expanded and I can see the app div and Layout div. Let me scroll down in the DevTools panel to see more of the DOM structure and find the VuePDF component elements including any SVG elements.
+[step 44] Action: scroll down (450, 630) scroll_amount 10
+[step 44] Reasoning: Now I can see the DOM structure is expanded showing:
+- `<div data-v-9j5/ee4e data-v-e7/cd8e4 class="VPNav">`
+- `<div data-v-cf6e7c5e class="wrapper">`
+- `<div data-v-cf6e7c5e class="container">` flex
+- `<div data-v-55e263fd data-v-cf6e7c5e class="VPNavBarTitle has-sidebar">`
+
+The `data-v-XXXX` attributes are Vue's scoped CSS attributes. These are good indicators that the component uses scoped CSS. The class names I see here are VitePress framework classes (VPNav, VPNavBarTitle), not VuePDF component classes.
+
+Let me scroll down more in the Elements panel to find the PDF component elements.
+[step 45] Action: left_click (114, 574)
+[step 45] Reasoning: I can see the navigation elements in the DOM:
+- `<span>` with class "visually-hidden" for "Main Navigation"
+- `<a>` link to `/vue-pdf/guide/introduction.html` with class "VPLink link VPNavBarMenuLink"
+- `<div>` with class "VPFlyout VPNavBarMenuGroup"
+
+These are the navigation bar items. I need to continue scrolling down to find the VuePDF component and its PDF-related elements. Let me switch approach and use the Console to directly query the DOM for PDF-related elements.
+[step 46] Action: left_click (640, 640)
+[step 46] Reasoning: Good, I can see the Console tab is active. I can also see from the previous results that the class names filter for PDF-related content found:
+- `'vp-doc _vue-pdf_examples_basic_one_page_'` 
+- `'vue-pdf-container'`
+- `'page'`
+- `'canvasWrapper'`
+- `'pager'`, `'pager'`
+- `'VPLink link pager-link next'`
+
+Now let me check the **Text Layer** page (current page) for SVG elements and check what the text layer class names look like. Let me click on the console input area.
+[step 47] Action: type: document.querySel...
+[step 47] Reasoning: I can see the console input is now active (there's a cursor blinking at `>`). I notice the previous result is still showing. Now let me type a command to check for SVG elements on this Text Layer page and then look at the vue-pdf-container's full structure.
+[step 48] Action: left_click (640, 640)
+[step 48] Reasoning: Excellent! Now I can see the innerHTML of the `.vue-pdf-container`. The result shows:
+
+```
+"<div><button class="button-example"> Change to <strong>true</strong></button></div><div class="page" style="position: relative; background-clip: content-box; --scale-factor: 1; --user-unit: 1; --scale-round-y: 1px; --scale-factor: calc(var(--scale-factor) * var(--user-unit));"><div id="drawlayer" class="canvasWrapper"><canvas dir="ltr" width="918" height="1188" style="width: 612px; height: 792px;"></canvas></div>x3C!------x3C!----><div class="annotationEditorLayer" id ="ann"
+```
+
+This is extremely important! From this HTML snippet, I can identify the key elements in the VuePDF component:
+
+1. **`class="page"`** - PDF.js page container (no namespace prefix)
+2. **`class="canvasWrapper"`** - Canvas wrapper (no namespace prefix)  
+3. **`class="annotationEditorLayer"`** - Annotation editor layer (no namespace prefix)
+
+These are standard PDF.js class names **WITHOUT any namespace prefix**. This is important for style isolation - these classes could potentially conflict with other CSS that uses these same generic class names.
+
+Let me also check if there's a textLayer class and SVG elements. Let me look at more of the innerHTML.
+[step 49] Action: type: document.querySel...
+[step 49] Reasoning: Good, I'm in the console area. Now let me check for text layer elements in the vue-pdf container. Since the text_layer prop is `false` by default on this page (there's a "Change to true" button to enable it), let me click the "Change to true" button to enable the text layer and then check for SVG elements and class names.
+
+But first, let me look at the complete innerHTML more carefully. Let me search for textLayer in the DOM.
+[step 50] Action: left_click (648, 282)
+[step 50] Reasoning: The result is **`false`** - the text layer is not currently enabled (the `.vue-pdf-container` does not contain 'textLayer'). This is consistent with the page showing the "Change to true" button which would enable the text layer.
+
+Now I need to enable the text layer by clicking the "Change to true" button to see if any text layer SVG elements appear with their class names. Let me click the button.
+
+But first, let me check the Annotation Layer page which should have SVG elements (annotation layers in PDF.js often use SVG). Let me navigate to the Annotation Layer page.
+
+Actually, looking at the current page carefully:
+- The PDF text is clearly visible and readable (the paper title and authors are showing) - this means the text layer IS already visible/working
+- But the `textLayer` class is not present in the DOM
+
+This could mean the text is rendered on the canvas (as pixels), not as HTML text elements. The text appears selectable because it's rendering as canvas with text rendering.
+
+Let me now click the "Change to true" button to enable the text layer and then look for SVG elements.
+[step 51] Action: left_click (640, 640)
+[step 51] Reasoning: The button now says "Change to false" - meaning the text layer has been enabled (toggled to `true`). I can see the PDF is still rendering correctly. The page layout looks normal:
+1. **Sidebar**: Still properly styled with all navigation links visible
+2. **Navigation bar**: Still normal with VuePDF logo, Search, Guide, Examples
+3. **PDF content**: Still visible with the academic paper title
+
+Now let me check the console to see if textLayer class is now present.
+[step 52] Action: type: document.querySel...
+[step 52] Reasoning: I'm in the console. Let me type to check if textLayer is now present.
+[step 53] Action: left_click (640, 640)
+[step 53] Reasoning: The result is now **`true`** - the textLayer class IS now present in the vue-pdf-container after clicking the "Change to true" button! 
+
+Now let me check for SVG elements (which might be part of the textLayer) and examine the class names.
+
+**Visual observations at this point:**
+- The button now says "Change to false" indicating text layer is enabled
+- The PDF is still rendering correctly with the text visible
+- The sidebar on the left is still properly styled (One Page, All Pages, Scale, Rotation, **Text Layer** [highlighted], Annotation Layer, XFA Layer, Advanced usages with Watermark, Fit Parent, Highlight Text)
+- No visible style contamination from the PDF component to the sidebar/navigation bar
+
+Let me now check for SVG elements with the text layer enabled.
+[step 54] Action: type: document.querySel...
+[step 54] Reasoning: Good, I'm in the console input area. Let me check for SVG elements now that the text layer is enabled.
+[step 55] Action: left_click (640, 640)
+[step 55] Reasoning: The result is **`0`** - still no SVG elements even with the text layer enabled! This confirms that the VuePDF text layer uses HTML elements (spans) rather than SVG for rendering the text layer.
+
+Now let me check what class names are present in the textLayer div. Let me look at the textLayer element structure.
+[step 56] Action: type: document.querySel...
+[step 57] Action: left_click (88, 358)
+[step 57] Reasoning: Excellent! Now I can see the textLayer element! The result shows:
+
+```html
+'<div class="textLayer" data-main-page="0" document="[object Object]" data-main-rotation="0" style="--min-font-size: 1; width: round(down, var(--total-scale-factor) * 612px, var(--scale-round-x)); height: round(down, var(--total-scale-factor) * 792px, var(--scale-round-y));"><span role="presentation"'
+```
+
+**Key finding**: The textLayer div uses the class name **`"textLayer"`** - this is a standard PDF.js class name **WITHOUT any namespace prefix**!
+
+The `textLayer` class name is the same one used by pdf.js without any namespace prefix. This could potentially affect other elements on the page if other CSS rules target `.textLayer`.
+
+Now let me check the Annotation Layer for any SVG elements - as annotation layers in PDF.js typically use SVG elements.
+
+**Visual note**: I also see:
+- `data-main-page="0"`, `document="[object Object]"`, `data-main-rotation="0"` - these are custom attributes on the textLayer div
+- The textLayer uses CSS custom properties like `--total-scale-factor`, `--scale-round-x`, `--scale-round-y`
+
+Let me navigate to the Annotation Layer page to check for SVG elements.
+[step 58] Action: scroll down (640, 400) scroll_amount 10
+[step 58] Reasoning: I'm now on the **Annotation Layer** page. I can see:
+1. The page title "Annotation Layer" is showing
+2. The code shows the annotation layer example with `import '@tato30/vue-pdf/style.css'` and `const annotation_layer = ref(false)` 
+3. The sidebar is properly styled with "Annotation Layer" highlighted in blue
+4. The console still shows the previous result from the text layer check
+
+**Important visual observation**: The page code shows:
+- `import '@tato30/vue-pdf/style.css'` - the VuePDF component imports its own style CSS
+- `const annotation_layer = ref(false)` - annotation layer is initially false
+
+Let me scroll down to see the demo and the "Change to true" button for the annotation layer. Then I can enable it and check for SVG elements.
+[step 59] Action: left_click (648, 449)
+[step 59] Reasoning: Now I can see the Annotation Layer demo:
+1. **Code**: Shows `<VuePDF :pdf="pdf" :annotation-layer="annotation_layer" />` with a button to toggle
+2. **"Change to true" button**: Blue button to enable the annotation layer
+3. **PDF rendering**: Shows "TCPDF Example 014 by Nicola Asuni - Tecnick.com www.tcpdf.org" - a form-based PDF with annotation fields
+4. **"Example of Form"** text is visible at the bottom of the screen
+
+**Visual observations:**
+- Sidebar is properly styled: All navigation items (One Page, All Pages, Scale, Rotation, Text Layer, **Annotation Layer** [highlighted blue], XFA Layer, Advanced usages section) look normal
+- The "Change to true" button has proper styling (blue background, white text)
+- The TCPDF Example PDF is rendering correctly with logo
+
+This is a form PDF which will have annotations (form fields). Let me click the "Change to true" button to enable the annotation layer and then check for SVG elements.
+
+**Important note**: Annotation layers in PDF.js typically use `<section>` elements with class `linkAnnotation`, `buttonWidgetAnnotation`, `textWidgetAnnotation`, etc. - all without namespace prefixes. Some versions may use SVG for certain annotation types.
+
+Let me click the "Change to true" button.
+[step 60] Action: left_click (120, 614)
+[step 60] Reasoning: This is a **very important finding**! After enabling the annotation layer, I can see:
+
+1. **The button now says "Change to false"** - annotation layer is now enabled
+2. **Console shows warnings**:
+   - ⚠️ `Warning: Unimplemented border style: inset`
+   - ⚠️ `Warning: Unimplemented border style: inset`
+3. **"2 Issues" indicator** in the top-right of DevTools (previously it showed "No Issues")
+4. **"All levels ▼"** shows filter, and there are **⚠ 5** and **🔴 2** count badges
+
+These warnings are CSS/style-related! The "Unimplemented border style: inset" warnings indicate that the annotation layer is trying to apply a CSS border style of `inset` which is not implemented/supported!
+
+**This is a significant style-related issue found in the console** - these are exactly the type of style-related warnings/errors we were asked to look for!
+
+Let me click on one of the warnings to see more details.
+[step 61] Action: left_click (1098, 593)
+[step 61] Reasoning: Now I can see the expanded warning detail:
+```
+▸ Warning: Unimplemented border style: inset
+    i                          @ index.mis:344
+    await in i
+    (anonymous)       @ index.mis:356
+```
+
+The warning is coming from `index.mis:344` and `index.mis:356` - these appear to be from the VuePDF library code (likely the PDF.js worker/renderer). The "Unimplemented border style: inset" is a PDF.js specific warning that appears when PDF documents use CSS border styles that pdf.js doesn't support.
+
+This is a **style-related warning** from the console. Now let me also check the "2 Issues" to understand what those are.
+
+Let me click on the "2 Issues" badge to see what the issues are.
+[step 62] Action: left_click (114, 574)
+[step 62] Reasoning: Excellent! I can see the **Issues panel** has opened! It shows:
+
+**Issue found**:
+- ℹ️ **2** - "An element doesn't have an autocomplete attribute"
+  - This is related to form elements in the PDF annotation layer
+
+The Issues panel shows 2 issues of type "An element doesn't have an autocomplete attribute" - these are accessibility-related issues with form input elements in the annotation layer (PDF form fields rendered without autocomplete attributes).
+
+I can also see from the console at the bottom:
+- `await in i`
+- `(anonymous) @ index.mis:356`
+- `Promise.then`
+- `(anonymous) @ AnnotationLayer.vue:13`
+
+The **`AnnotationLayer.vue:13`** source reference confirms this is coming from the VuePDF's AnnotationLayer component!
+
+Now let me check for SVG elements on this annotation layer page.
+[step 63] Action: left_click (640, 640)
+[step 63] Reasoning: I'm now in the Console tab. I can see the Issues panel is still showing on the right side. The bottom console still shows the AnnotationLayer.vue reference. Now let me check for SVG elements.
+
+**Visual observation**: The Issues panel is showing on the right side with:
+- "2 Issues" - "An element doesn't have an autocomplete attribute" 
+- This is from `AnnotationLayer.vue:13`
+
+The issue is that PDF form fields (text inputs) rendered by the annotation layer don't have `autocomplete` attributes.
+
+Now let me query the console for SVG elements.
+[step 64] Action: type: document.querySel...
+[step 64] Reasoning: I'm now in the Console tab. Let me check for SVG elements and annotation layer class names.
+[step 65] Action: left_click (640, 640)
+[step 65] Reasoning: The result shows: **`'0 SVGs, annotationLayer exists: true'`**
+
+This confirms:
+1. **0 SVG elements** even with the annotation layer enabled
+2. **`.annotationLayer` exists** - the annotation layer div is present in the DOM
+
+So the annotation layer also does NOT use SVG elements - it uses HTML elements (divs, sections) instead.
+
+**Very important finding**: The class name is **`annotationLayer`** (without namespace prefix), not something like `vue-pdf-annotationLayer` or any other prefixed class name.
+
+Now let me check all the class names within the annotation layer to confirm the lack of namespace prefixes.
+[step 66] Action: type: Array.from(docume...
+[step 67] Action: left_click (66, 574)
+[step 67] Reasoning: Now I can see all the class names within the annotation layer! The result shows **(19)** elements with class names:
+
+```
+['textWidgetAnnotation', 'textWidgetAnnotation', 'choiceWidgetAnnotation', 'buttonWidgetAnnotation radioButton', 'buttonWidgetAnnotation radioButton', 'buttonWidgetAnnotation radioButton', 'buttonWidgetAnnotation radioButton', 'buttonWidgetAnnotation checkBox', 'textWidgetAnnotation', 'choiceWidgetAnnotation', 'textWidgetAnnotation', 'textWidgetAnnotation', 'linkAnnotation buttonWidgetAnnotation pushButton', 'annotationContent', 'linkAnnotation buttonWidgetAnnotation pushButton', 'annotationContent', 'linkAnnotation buttonWidgetAnnotation pushButton', 'annotationContent', 'linkAnnotation']
+```
+
+**This is extremely important!** All the annotation layer class names are:
+- `textWidgetAnnotation`
+- `choiceWidgetAnnotation`
+- `buttonWidgetAnnotation radioButton`
+- `buttonWidgetAnnotation checkBox`
+- `linkAnnotation buttonWidgetAnnotation pushButton`
+- `annotationContent`
+- `linkAnnotation`
+
+**ALL of these class names are standard PDF.js class names WITHOUT any namespace prefix!**
+
+This means:
+1. If any other CSS on the page (from the documentation framework or any other library) defines styles for `.textWidgetAnnotation`, `.linkAnnotation`, `.annotationContent`, etc., they could conflict with the PDF component's styles.
+2. Conversely, the PDF component's styles for these classes could "leak out" and affect other elements outside the PDF component that happen to have the same class names.
+
+Now let me check the Elements tab to inspect these annotation layer elements in the DOM, and also use the Inspector to check any `data-v-*` Vue scoped CSS attributes that might prevent style leaking.
+
+**Visual observation update**: The page still renders correctly:
+- Sidebar: All navigation items properly styled, "Annotation Layer" highlighted in blue
+- Navigation bar: VuePDF logo, Search, Guide, Examples all normal
+- PDF form content: TCPDF Example 014 is visible with annotations rendered
+- Issues panel showing 2 autocomplete issues from AnnotationLayer.vue:13
+
+Let me check the Elements panel to inspect the annotation layer and check for Vue scoped CSS attributes.
+[step 68] Action: left_click (450, 620)
+[step 68] Reasoning: I'm now in the Elements tab. I can see the DOM tree at the top level showing:
+- `<!DOCTYPE html>`
+- `html class="mac" lang="en-US" dir="ltr"`
+- `head`
+- `body` (selected/highlighted with `$0`)
+- `div id="app" data-v-app`
+- `div data-v-8f7cd8e4 class="Layout" flex`
+
+The Styles panel on the right shows basic `body { margin: 0; }` styling.
+
+I need to navigate to the annotationLayer div to inspect it. Let me use the element inspector to click on the annotation layer elements in the PDF rendering.
+
+Let me use the search in Elements to find the annotationLayer class. Let me use Ctrl+F while in the Elements panel.
+[step 69] Action: key: Escape
+[step 69] Reasoning: I can see the element inspector is active (the page is dimmed and showing `body 1280 x 1903.04 text` at the bottom). Let me press Ctrl+F in the Elements panel to search for annotationLayer.
+[step 70] Action: left_click (450, 620)
+[step 70] Reasoning: The inspector picker is active (body element is highlighted). The DOM tree now shows the Issues panel (⚠️5, 🔴2) on the right side which has changed to showing the Styles panel. Let me click in the Elements DOM tree area and use Ctrl+F to search for elements.
+
+Let me click on the DOM tree panel area first to give it focus.
+[step 71] Action: key: Escape
+[step 71] Reasoning: I see the element inspector is still active (the page is still dimmed showing "body 1280 x 1903.04 text" tooltip). The inspector mode is intercepting my clicks. Let me press Escape to exit the inspector mode first.
+[step 72] Action: left_click (450, 630)
+[step 72] Reasoning: The inspector is still active (the page is dimmed and showing "body 1280 x 1903.04 text"). The Issues panel is now showing on the right side. Let me click directly on the Elements panel DOM tree area rather than on the page content to activate the Elements panel without triggering the inspector.
+
+Let me click on the DevTools Elements panel directly (in the DOM tree area at the bottom).
+[step 73] Action: left_click (450, 630)
+[step 73] Reasoning: Now I can see the Elements panel has navigated! The tooltip shows `div#app 1280 x 1903.04` and the DOM tree shows:
+- `<body>`
+- `<div id="app" data-v-app = $0`
+- `<div data-v-8f7cd8e4 class="Layout"> flex`
+
+The breadcrumb at bottom shows `html.mac body div#app`. Now the inspector is on `div#app`. 
+
+I can see the Styles panel on the right shows:
+- `*::before, ::after { box-sizing: border-box; ...`
+- `<style>` tag reference
+
+The important thing is that the `div#app` doesn't have a `data-v-*` attribute for Vue scoped CSS by itself, just `data-v-app` which is the VitePress/Vue app root marker.
+
+Let me now use Ctrl+F in the Elements panel to search for "annotationLayer".
+[step 74] Action: left_click (114, 574)
+[step 74] Reasoning: The Ctrl+F shortcut doesn't seem to have opened a search box in the Elements panel. The DOM tree still shows the same structure without a search input. Let me try a different approach - I'll use the console to query the annotationLayer element and its CSS properties directly.
+
+Let me switch to the Console tab and use JavaScript to inspect the annotation layer element's computed styles and check if its styles are leaking out to other elements.
+[step 75] Action: left_click (640, 641)
+[step 75] Reasoning: I'm now in the Console tab. I can see the previous results at the bottom showing the (19) array of annotation layer class names:
+```
+(19) ['textWidgetAnnotation', 'textWidgetAnnotation', 'choiceWidgetAnnotation', 'buttonWidgetAnnotation radioButton', 'buttonWidgetAnnotation radioButton', 'buttonWidgetAnnotation radioButton', 'buttonWidgetAnnotation radioButton', 'buttonWidgetAnnotation checkBox', 'textWidgetAnnotation', 'choiceWidgetAnnotation', 'textWidgetAnnotation', 'textWidgetAnnotation', 'linkAnnotation buttonWidgetAnnotation pushButton', 'annotationContent', 'linkAnnotation buttonWidgetAnnotation pushButton', 'annotationContent', 'linkAnnotation buttonWidgetAnnotation pushButton', 'annotationContent', 'linkAnnotation']
+```
+
+Now let me check the annotationLayer's parent element to see if it has any Vue scoped CSS data attributes that would prevent style leaking.
+
+**Visual observation**: The page looks correctly rendered:
+- Sidebar: properly styled with "Annotation Layer" highlighted in blue
+- Navigation bar: VuePDF logo, Search, Guide, Examples all normal
+- PDF content: TCPDF Example 014 with annotations enabled
+- The "Change to false" button indicating annotation layer is active
+- Issues panel showing "2 Issues" on the right
+
+Let me now click on the console input and check the annotationLayer's parent for Vue scoped CSS.
+[step 76] Action: type: Object.keys(docum...
+[step 76] Reasoning: I can see the console input is ready (cursor visible at `>`). Now let me check the Vue scoped CSS attributes on the VuePDF component and its children elements.
+[step 77] Action: left_click (640, 640)
+[step 77] Reasoning: The result is **`[]`** (empty array) - the parent element of the annotationLayer has **NO data attributes** at all! This is interesting. 
+
+The parent of the annotationLayer div has no `data-v-*` Vue scoped CSS attributes. This means the annotation layer elements are not using Vue's scoped CSS mechanism, which is consistent with the class names being generic PDF.js class names without namespace prefixes.
+
+Let me now check the annotationLayer element itself for any data attributes.
+[step 78] Action: type: document.querySel...
+[step 78] Reasoning: The result shows `[]` - the parent of the annotationLayer has no data attributes. The console input is ready. Now let me check the full DOM structure around the annotationLayer to understand the element hierarchy and look for Vue scoped CSS.
+
+Let me look at the entire subtree around the annotationLayer element to understand the full structure.
+
+==================================================
+Task: 当前Chrome浏览器已打开vue-pdf文档网站，地址是http://localhost:5173/vue-pdf/。测试VuePDF组件的样式隔离性。操作步骤：1) 浏览页面，找到包含PDF演示的页面（可能在Examples或Guide中）；2) 观察页面中除PDF组件之外的其他元素（如侧边栏sidebar、导航栏、输入框input等）的样式是否正常显示，有没有被PDF组件的样式异常覆盖或改变；3) 打开DevTools (F12)，在Elements面板中检查PDF组件内部的SVG元素的class名称是否使用了带前缀的命名空间；4) 查看浏览器控制台是否有样式相关的警告或错误。请始终在浏览器内操作，禁止打开Terminal、Finder或其他应用程序。如果在浏览器中找不到目标功能，直接标记result为unclear，result_summary写明'未在页面中找到目标功能入口'。
+Status: STOPPED_BY_USER
+Total steps: 78
+Last action: type: document.querySel...
+Last reasoning: The result shows `[]` - the parent of the annotationLayer has no data attributes. The console input is ready. Now let me check the full DOM structure around the annotationLayer to understand the element hierarchy and look for Vue scoped CSS.
+
+Let me look at the entire subtree around the annotationLayer element to understand the full structure.
+
+==================================================
+
+UI window closed

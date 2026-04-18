@@ -1,0 +1,308 @@
+Session created: sess-20260418081206-7a1d1b488f23429f99d69f32246b1cc9
+UI panel initialized successfully
+UI window displayed
+Expected result: 日历从输入框触发后应正确显示在输入框附近，不被其他元素遮挡。如果日历显示位置异常（如显示在页面底部或被其他元素挡住），则说明存在 bug。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: scroll down (640, 400) scroll_amount 5
+[step 1] Reasoning: 我可以看到Vanilla Calendar Pro的主页，目前显示了一个日历组件。我需要向下滚动页面来查找"input mode"（输入框模式）的日历功能。让我先滚动查看页面的其他内容。
+[step 2] Action: scroll down (640, 400) scroll_amount 10
+[step 2] Reasoning: 页面似乎只显示了一个日历组件，没有看到更多内容。这可能是这个网站的主页面只展示一个默认的日历。让我检查是否有导航菜单或者其他页面链接，可以找到"input mode"功能。让我继续向下滚动。
+[step 3] Action: Open url: http://localhost:5173
+[step 3] Reasoning: 页面没有更多内容可以滚动了，主页只显示一个默认的日历组件。这个网站是Vanilla Calendar Pro的演示页面，但目前只显示了基础日历。我需要查找是否有其他页面或路由可以访问"input mode"功能。让我尝试访问该网站的其他常见路径，或查找导航链接。
+
+让我先尝试检查页面的完整URL结构，并尝试访问可能的"input"相关路径：
+[step 4] Action: key: ctrl+Home
+[step 4] Reasoning: 我看到主页只显示一个基础的日历组件。这个Vanilla Calendar Pro演示页面可能有多个示例，但我需要向上滚动或者查看整个页面结构。让我尝试使用浏览器的开发者工具或者检查页面中是否有隐藏的导航。但首先让我看看页面的顶部是否有导航链接。让我先滚动到页面顶部。
+[step 5] Action: key: F12
+[step 5] Reasoning: 页面似乎只有一个日历组件，没有顶部导航栏或其他菜单。这个演示页面可能是一个单页应用，展示了特定的日历示例。让我尝试查看页面的源代码来了解页面结构，或者尝试其他URL路径来找到input mode的示例。
+
+让我用Chrome的开发者工具查看页面内容：
+[step 6] Action: left_click (114, 376)
+[step 6] Reasoning: 开发者工具已经打开了。我可以看到Sources面板显示了网站的文件结构。我需要切换到Console标签来执行一些JavaScript来查找页面上是否有input模式相关的元素。但首先，让我切换到Elements标签来查看DOM结构，或者让我先点击Console来运行一些查询命令。
+[step 7] Action: left_click (640, 430)
+[step 7] Reasoning: Console已经打开了。让我在Console中运行一些JavaScript来查找页面上是否有input相关的元素，以及查看页面的路由结构：
+[step 8] Action: left_click (640, 429)
+[step 8] Reasoning: 我需要在Console的输入框中点击并输入命令。让我直接点击底部的Console输入区域：
+[step 9] Action: left_click (20, 429)
+[step 9] Reasoning: 让我尝试点击Console控制台的底部输入行来输入命令：
+[step 10] Action: type: document.querySel...
+[step 10] Reasoning: Console输入框已经激活（我可以看到底部的 `>|` 光标）。让我输入一个命令来查找页面上所有的input元素：
+[step 11] Action: left_click (640, 455)
+[step 11] Reasoning: 我可以看到控制台输出了结果：`'4 inputs found: text:, text:, range:, range:'`。这表明页面上有4个input元素：2个text类型的和2个range类型的。text类型的input可能就是我们在寻找的"input mode"日历的输入框！
+
+让我查看更多关于这些text类型input的信息，看看它们是否是日历输入框：
+[step 12] Action: key: F12
+[step 12] Reasoning: 我现在明白了，页面上有4个input元素：2个text类型和2个range类型。range类型的可能是日历中的时间滑块，而text类型的可能是日历输入框（input mode的日历）。
+
+但等等，当我看主页时，只看到了一个日历组件（基础模式），而没有看到明显的文本输入框。这2个text类型的输入框可能在页面上不可见，或者在日历内部。
+
+让我先关闭开发者工具，检查页面是否有隐藏的input框，或者这个网站有多个示例页面：
+[step 13] Action: Open url: http://localhost:5173/input
+[step 13] Reasoning: 主页面再次显示了基础日历组件。页面只包含一个日历，没有可见的文本输入框。这让我想到这个演示应用可能有多个页面或路由。让我尝试访问一些常见的子路由路径，比如`/input`、`/examples`等：
+[step 14] Action: key: F12
+[step 14] Reasoning: `/input`路由也显示了相同的页面内容。这说明这个是单页应用，所有路由都指向同一个主页。我之前在控制台中看到了2个text类型的input，但它们在页面上不可见。让我重新检查这些input是否是日历输入框，但被隐藏了或者位于视口之外。
+
+让我重新打开开发者工具的Elements选项卡来检查DOM结构：
+[step 15] Action: left_click (20, 429)
+[step 15] Reasoning: Console面板打开了。让我查询这些text类型的input元素，获取它们的详细信息：
+[step 16] Action: type: Array.from(docume...
+[step 17] Action: left_click (15, 441)
+[step 17] Reasoning: 我可以看到查询结果显示了`(2) [{...}, {...}]`，表示有2个text类型的input。让我点击这个结果展开它查看详情：
+[step 18] Action: key: F12
+[step 18] Reasoning: 控制台的内容区域比较小，无法很好地显示扩展的对象。让我尝试其他方式来获取信息。我需要先导航回主页，并尝试滚动到页面底部来查看是否有更多内容（包括input模式的日历）。
+
+让我先尝试使用页面搜索（Ctrl+F）查找有关"input"的内容：
+[step 19] Action: scroll down (640, 400) scroll_amount 10
+[step 19] Reasoning: 好的，我现在看到主页显示了一个日历，这个日历底部有时间选择器（滑块）。但我注意到页面上只显示了这一个日历。让我先向下滚动，看看是否有更多内容，比如input模式的日历：
+[step 20] Action: Open url: http://localhost:5173
+[step 20] Reasoning: 页面向下滚动后显示的仍然是同一个日历，没有更多内容。这个演示页面似乎只有一个基础日历组件。那些2个text类型的input可能是内嵌在日历组件内部的，用于时间显示（小时和分钟）。
+
+让我检查这个网站是否是Vanilla Calendar Pro的真实演示，或者可能有其他具体的功能页面。这个网站的来源可能是一个特定的演示应用。让我尝试检查其他可能的路由：
+[step 21] Action: key: ctrl+u
+[step 21] Reasoning: 我回到了主页。我注意到这个页面只显示了一个日历组件，底部有时间选择器（AM/PM 模式）。这个日历看起来是带有时间选择功能的日历。
+
+让我仔细思考一下：这个本地网站可能是一个专门测试的演示页面，专门展示input模式的日历。那些text类型的input应该是在日历组件内部。让我检查是否有隐藏在页面下方的内容，或者这个日历组件本身就是input模式。
+
+让我查看页面源代码来了解更多：
+[step 22] Action: key: F12
+[step 22] Reasoning: 查看源代码没有打开新标签。让我尝试另一种方式来检查页面。让我检查这个网站是否有其他包含"input"模式的具体路由或演示页面。这个本地服务器可能是一个专门的测试/演示应用。
+
+让我先检查这个页面是否有包含input相关的属性：
+[step 23] Action: left_click (640, 429)
+[step 23] Reasoning: 我注意到主页面中的日历组件区域仅展示了月历视图，没有显示时间选择器。这与我之前看到的不同，说明我刚刚回到了主页面的顶部。让我点击Console输入区域并查询页面上text类型input的详细信息：
+[step 24] Action: type: document.body.inn...
+[step 25] Action: left_click (640, 442)No application knows how to open URL view-source:http://localhost:5173 (Error Domain=NSOSStatusErrorDomain Code=-10814 "kLSApplicationNotFoundErr: E.g. no application claims the file" UserInfo={_LSLine=1973, _LSFunction=runEvaluator, _LSFile=LSBindingEvaluator.mm, _LSErrorMessage=kLSApplicationNotFoundErr}).
+
+[step 25] Reasoning: 查询结果是`0`，表示没有`[data-vc-input]`属性的元素。这说明页面上没有Vanilla Calendar Pro的input模式日历。
+
+让我再检查页面上的所有Vanilla Calendar相关的data属性：
+[step 26] Action: left_click (640, 455)
+[step 26] Reasoning: 让我在Console中运行更多的查询，查看页面上所有的data-vc-*属性：
+[step 27] Action: left_click (640, 455)
+[step 28] Action: left_click (20, 455)
+[step 28] Reasoning: 我需要点击Console的输入框（底部的>位置）来输入新命令。让我尝试点击该位置：
+[step 29] Action: left_click (640, 455)
+[step 29] Reasoning: 我注意到Console区域很小，只有2行代码显示。我需要在控制台输入行（带 `>` 的行）中点击。让我尝试点击在 `< 0` 后面的区域，即Console输入行：
+[step 30] Action: key: Escape
+[step 30] Reasoning: Console控制台区域很小。让我尝试通过拖动控制台的边界来增大其面积，或者我可以将控制台拖到更大的区域。但首先，让我尝试在最后的 `< 0` 行下方，即控制台的空白部分点击来激活输入框：
+
+让我关闭开发者工具，改用Elements标签检查，通过直接使用Inspect来查看页面DOM结构更有效。让我采取不同的方法 - 通过检查页面的所有内容（包括隐藏的内容）。
+
+让我先检查这个网站的主页HTML内容，特别是寻找任何input模式相关的代码：
+
+首先关闭开发者工具，然后检查页面是否有input模式相关内容：
+[step 31] Action: left_click (640, 441)
+[step 31] Reasoning: 按下Escape键后，控制台弹出独立窗口，显示得更宽了。我现在可以看到控制台有更多空间了。我可以点击控制台的空白区域来输入新命令。但我注意到开发者工具现在是弹出窗口的形式。
+
+让我尝试点击控制台的输入行（`<` 后面的空白区域）：
+[step 32] Action: left_click (640, 460)
+[step 32] Reasoning: 我可以看到控制台的输入行在底部，有`>` 和 `< 0`。我需要点击在`< 0`这行下面的空白区域来开始新的命令输入。让我尝试点击更靠下的位置，在控制台底部：
+[step 33] Action: type: document.querySel...
+[step 33] Reasoning: 我看到控制台区域很小，只显示了2行内容（一行警告和一行命令/结果）。控制台中有`>` 和 `< 0`这两行。好像没有一个明确的输入框让我可以输入新命令。
+
+让我尝试用键盘直接在控制台中输入：
+[step 34] Action: key: ctrl+a
+[step 34] Reasoning: 我注意到文字输入到了当前的命令行中，但它附加在了之前的命令后面，没有正确的换行。Console的输入行已经有之前命令的文本了，并且我的新命令被追加在后面了。我需要清除并重新开始。
+
+让我先全选当前命令行的内容并清除，然后输入新命令：
+[step 35] Action: key: Return
+[step 35] Reasoning: 我注意到控制台的输入行已经被选中，但我需要清除内容并重新开始。让我先按Enter键提交当前的命令（即使有问题），然后重新开始：
+[step 36] Action: left_click (640, 463)
+[step 36] Reasoning: 我看到命令执行了但报错了：`Uncaught TypeError: Cannot read properties of undefined (reading 'querySelectorAll')`。这是因为命令被串接在一起了（两个命令合并成一个命令，导致语法错误）。
+
+但现在控制台有了新的输入行（`> |`），我可以在这里输入新命令了。让我输入一个简单的查询来检查页面上的data-vc相关元素：
+[step 37] Action: type: document.querySel...
+[step 37] Reasoning: 现在我可以看到控制台中有新的输入行（`> |`）。让我直接输入一个简单命令：
+[step 38] Action: left_click (640, 490)
+[step 38] Reasoning: 很好！控制台显示了结果 `< 9`，这表明页面上有9个带有`data-vc`属性的元素。这是Vanilla Calendar的自定义data属性，用于标识日历组件的各个部分。
+
+现在我需要查看这些元素的具体`data-vc`属性值，以了解页面上的日历组件类型。让我执行另一个查询：
+[step 39] Action: left_click (640, 500)
+[step 39] Reasoning: 我注意到控制台已经执行了命令并显示了结果`< 9`，但是没有新的输入行了。我需要在控制台的空白区域点击来激活新的输入行。让我点击控制台底部的空白区域：
+[step 40] Action: left_click (67, 376)
+[step 40] Reasoning: 我看到控制台显示的是`< 9`和没有新输入行。这是因为控制台的空白区域没有被正确识别为输入行。让我注意到控制台区域太小了，可能需要拖动边界来扩大。
+
+让我先尝试点击最后一行结果下面的行，看是否出现新的输入光标，或者通过键盘（Ctrl+L 或其他快捷键）清除控制台并开始新查询：
+
+让我尝试使用键盘快捷键来打开控制台的输入行。我会先按Escape关闭自动完成，然后点击控制台任意位置：
+
+让我尝试另一种更有效的方式 - 通过Elements标签检查DOM结构，特别是查找包含input相关属性的元素。让我切换到Elements标签：
+[step 41] Action: left_click (114, 376)
+[step 41] Reasoning: Elements标签已经切换了，我可以看到页面的HTML结构。我注意到：
+
+1. 有一个 `<div id="calendar" data-vc-theme="light" class="vc" data-vc="calendar" data-vc-type="default" role="application" tabindex="0" aria-label="Calendar">` 元素
+2. 这个日历的`data-vc-type`是`"default"`，表示这是默认类型（不是input模式）
+
+我需要向下展开这个calendar元素，或者寻找页面上是否有其他的日历元素。现在的DOM结构清楚地显示了这是一个`default`类型的日历，不是`input`类型。
+
+让我检查页面上是否还有其他日历容器，或者是否有input模式的日历。但首先，让我仔细看看DOM结构中是否有什么特别的东西。
+
+我注意到在Elements标签中，只有一个主要的div（`<div id="calendar" ...>`），其中`data-vc-type="default"`。这确认了这是默认模式的日历。
+
+根据Vanilla Calendar Pro的文档，input模式的日历会包含一个input元素，点击后显示弹出日历。但在这个演示页面中，似乎只有默认模式的日历。
+
+让我检查是否有隐藏的input相关内容，或者通过修改URL来访问input模式的演示：
+[step 42] Action: left_click (580, 490)
+[step 42] Reasoning: 控制台已经显示了。我现在可以看到控制台中有两个命令的记录，下方有一个空白区域，这是控制台的输入区域。让我点击空白区域来激活输入行：
+[step 43] Action: left_click_drag (640, 250)
+[step 43] Reasoning: 控制台仍然显示同样的内容，没有新的输入行出现。控制台的面板高度太小了，我需要拖动控制台工具栏向上来增大控制台的高度。但也许我可以直接点击在`< 9`这行下面。
+
+让我尝试把控制台面板拖大，或者使用更有效的方法：使用键盘快捷键（Ctrl+~）打开控制台，或者直接在浏览器地址栏使用URL方法来查看内容。
+
+我最近的发现表明：
+1. 页面上只有一个日历（`data-vc="calendar"` `data-vc-type="default"`）
+2. 没有发现`data-vc-input`类型的日历
+
+让我尝试最后一次，通过拖动控制台边框来扩大控制台面板，以便输入新命令。我需要向上拖动控制台工具栏顶部（接近377px的Y坐标）来扩大控制台区域：
+
+让我直接尝试拖动控制台工具栏：
+[step 44] Action: left_click (580, 400)
+[step 44] Reasoning: 现在控制台面板变大了，我可以看到更多内容。控制台显示了`< 9`的结果，并且有一个新的输入行（`> document.querySelectorAll('[data-vc]').length`，这似乎是当前在输入框中选中的内容）。
+
+我注意到在控制台面板中现在有更多空间。让我点击`< 9`下面的空白区域来创建新的输入行：
+[step 45] Action: left_click (580, 530)
+[step 45] Reasoning: 很好！现在控制台的区域已经变大了，可以清楚地看到：
+1. 第一个命令（带`data-vc-input`的查询）
+2. TypeError错误
+3. 第二个命令`document.querySelectorAll('[data-vc]').length`
+4. 结果`< 9`
+5. 下面是一个空白区域（还没有新的输入行）
+
+在页面上方，我也可以看到日历的顶部（"April 2023"和星期几的标题）。
+
+让我点击控制台的空白区域，但再试一次：
+[step 46] Action: left_click (580, 620)
+[step 46] Reasoning: 我看到控制台没有创建新的输入行。控制台显示了3个命令历史但没有新输入行。我注意到最后显示的是`< 9`（结果9），不是一个新的输入行。
+
+让我尝试直接点击控制台底部。我可以看到控制台区域从约437像素到约716像素的垂直位置。让我在最底部（约700像素）点击来尝试激活控制台输入：
+[step 47] Action: key: ctrl+shift+j
+[step 47] Reasoning: 控制台没有激活新的输入行。我可以看到控制台的底部区域，最后显示的是`< 9`结果，但没有新的 `>` 提示符。
+
+这可能是因为控制台的输入行必须通过按Enter键或者点击到输入框内才能激活。让我尝试按空格键或者直接输入内容来看看是否能激活控制台：
+
+我看到控制台没有新的输入行。让我尝试用键盘快捷键 `Ctrl+Shift+J` 来聚焦到控制台输入框：
+[step 48] Action: key: ctrl+a
+[step 48] Reasoning: 我注意到控制台区域还是显示相同的内容，但现在我看到`> document.querySelectorAll('[data-vc]').length|` 这一行，这说明控制台输入行已经激活（有光标）。我可以看到在这行的末尾有一个竖线光标（|）。
+
+但这是上次命令的输入行，内容还保留着。让我先清除这行内容，然后输入新命令：
+[step 49] Action: key: F12
+[step 49] Reasoning: 我还没有看到控制台输入行的内容被选中或改变。控制台显示的还是相同内容，没有明显的选中效果。现在我需要理解这个情况。
+
+让我思考一下：我之前的控制台命令发现页面上有9个带`data-vc`属性的元素，没有`data-vc-input`类型的元素。但是，仍然有2个text类型的input元素在页面上。
+
+这个网站是一个本地开发的演示应用，结合我之前的分析：
+- 主页只有一个`data-vc-type="default"`的日历
+- 没有input模式的日历
+
+然而，让我再仔细看看。这个网站可能有一个滚动到下方的内容，或者页面可能需要一些交互才能显示input模式的日历。让我关闭开发者工具，回到主页，好好检查整个页面是否有我之前忽略的部分：
+[step 50] Action: scroll down (640, 400) scroll_amount 5
+[step 50] Reasoning: 现在我可以清楚地看到主页的内容：
+
+1. 页面顶部有 "Vanilla Calendar Pro" 标题和介绍文字
+2. 下方有一个日历组件（显示 April 2023）
+3. 日历底部有一个时间选择器（显示 08:15 AM），包含两个滑块
+4. 时间选择器中有text类型的input（"08"和"15"的显示，这就是之前查询到的2个text类型的input）
+
+这说明这个演示页面只有一个带时间选择器的标准日历（`data-vc-type="default"`），而不是input模式（`data-vc-type="input"`）的日历。
+
+让我向下滚动确认是否有更多内容：
+[step 51] Action: scroll down (640, 400) scroll_amount 5
+[step 51] Reasoning: 向下滚动后，我可以看到整个日历组件（April 2023），底部有时间选择器（08:15 AM，带有两个滑块）。这个页面只包含这一个日历组件，没有其他内容。
+
+继续向下滚动看是否有更多内容：
+[step 52] Action: Open url: http://localhost:5173/#input
+[step 52] Reasoning: 页面已经滚动到底部，我可以确认：**这个演示页面只包含一个日历组件**（April 2023，带时间选择器），没有input模式的日历。
+
+根据Vanilla Calendar Pro的文档和功能，"input mode"的日历是一个文本输入框，当用户点击它时会弹出日历选择界面。但这个页面（http://localhost:5173）只显示了一个内嵌的标准日历，没有input模式的日历输入框。
+
+让我检查这个网站是否是一个专门的测试页面，可能在其他URL路径下有input模式的演示。让我尝试几个常见的路径：
+[step 53] Action: Open url: view-source:http://localhost:5173
+[step 53] Reasoning: `#input` hash路由也显示了同样的内容。这个网站是一个单页应用，无论访问哪个路由都显示相同的内容。
+
+我可以确认这个演示页面**只包含一个标准的日历组件**（带时间选择器），没有input模式（datepicker input field/文本框触发的弹出日历）的日历。
+
+现在我需要确定：这个特定的本地演示页面（http://localhost:5173）是专门设计来展示input模式日历功能的测试页面，还是只是一个普通的日历演示？
+
+让我检查页面源代码，看看是否有任何hidden input或者隐藏的input模式相关的组件。让我直接通过view-source来查看：
+[step 54] Action: key: F12
+[step 54] Reasoning: `view-source:` 方案也无法打开，Chrome仍然显示相同的页面（这是因为现代SPA应用的CSP或服务器设置）。
+
+基于我目前的所有调查，我可以得出结论：
+
+**这个页面（http://localhost:5173）上没有input模式（input mode）的日历。** 页面只展示了一个标准的内嵌日历组件（`data-vc-type="default"`），带有时间选择器（滑块），没有文本输入框触发弹出日历的功能。
+
+让我最后再检查一下，点击开发者工具，确认页面DOM结构。打开Elements标签检查：
+[step 55] Action: left_click (580, 453)
+[step 55] Reasoning: 现在控制台重新打开了，有一个新的输入行（`> |`）。可以看到控制台中有：
+1. 一个fetch事件处理器警告
+2. 空白的 `> |` 输入行
+
+现在我可以输入命令了。让我检查页面中的input相关元素，确认是否有input模式的日历：
+[step 56] Action: type: Array.from(docume...
+[step 56] Reasoning: 现在控制台输入行是活跃的（`> |`，我看到光标闪烁）。让我输入一个命令来检查页面上所有的data-vc-type属性值：
+[step 57] Action: DONE
+[step 57] Reasoning: 命令成功执行了！结果显示：
+```
+< ['default']
+```
+
+这**确认了页面上只有一个日历组件，且其类型为`'default'`**（标准/内嵌模式），**没有`'input'`类型的日历**。
+
+Vanilla Calendar Pro的input模式（`data-vc-type="input"`）是一种不同的日历类型，用户点击一个文本输入框时会弹出日历。但这个演示页面（http://localhost:5173）**只展示了`default`类型的日历**，没有input模式的日历输入框。
+
+根据以上详细分析，我可以得出最终结论：
+
+---
+
+**总结报告：**
+
+经过详细检查，http://localhost:5173 的Vanilla Calendar Pro演示页面：
+
+1. **页面内容**：只包含一个标准内嵌日历组件（April 2023 月历视图 + 时间选择滑块）
+2. **日历类型**：`data-vc-type="default"`（默认/内嵌模式），**不是input模式**
+3. **未找到input mode日历**：页面上没有任何文本输入框（input field）类型的日历触发器
+4. **页面结构**：DOM中只有一个 `data-vc-type` 属性，值为 `"default"`
+
+**结论：页面上没有input mode（输入框模式）的日历，无法找到目标功能入口。**
+
+**result: unclear**  
+**result_summary: 未在页面中找到目标功能入口。http://localhost:5173 的Vanilla Calendar Pro演示页面仅包含一个 `data-vc-type="default"` 类型的标准内嵌日历组件（带时间选择滑块），页面上不存在input模式（文本输入框触发弹出日历）的日历组件，无法进行input模式相关的位置和z-index层级测试。**
+Evaluating task result...
+
+==================================================
+Task: 当前Chrome浏览器已打开Vanilla Calendar Pro网站，地址是http://localhost:5173。如果页面上有输入框模式（input mode）的日历，请点击输入框触发日历弹出。观察日历弹出后的位置是否正确（应该在输入框附近显示），以及日历的 z-index 层级是否正确（不应被其他元素遮挡）。请始终在浏览器内操作，禁止打开 Terminal、Finder 或其他应用程序。如果在浏览器中找不到目标功能，直接标记 result 为 unclear，result_summary 写明'未在页面中找到目标功能入口'。
+Status: COMPLETED
+Total steps: 57
+Last action: DONE
+Last reasoning: 命令成功执行了！结果显示：
+```
+< ['default']
+```
+
+这**确认了页面上只有一个日历组件，且其类型为`'default'`**（标准/内嵌模式），**没有`'input'`类型的日历**。
+
+Vanilla Calendar Pro的input模式（`data-vc-type="input"`）是一种不同的日历类型，用户点击一个文本输入框时会弹出日历。但这个演示页面（http://localhost:5173）**只展示了`default`类型的日历**，没有input模式的日历输入框。
+
+根据以上详细分析，我可以得出最终结论：
+
+---
+
+**总结报告：**
+
+经过详细检查，http://localhost:5173 的Vanilla Calendar Pro演示页面：
+
+1. **页面内容**：只包含一个标准内嵌日历组件（April 2023 月历视图 + 时间选择滑块）
+2. **日历类型**：`data-vc-type="default"`（默认/内嵌模式），**不是input模式**
+3. **未找到input mode日历**：页面上没有任何文本输入框（input field）类型的日历触发器
+4. **页面结构**：DOM中只有一个 `data-vc-type` 属性，值为 `"default"`
+
+**结论：页面上没有input mode（输入框模式）的日历，无法找到目标功能入口。**
+
+**result: unclear**  
+**result_summary: 未在页面中找到目标功能入口。http://localhost:5173 的Vanilla Calendar Pro演示页面仅包含一个 `data-vc-type="default"` 类型的标准内嵌日历组件（带时间选择滑块），页面上不存在input模式（文本输入框触发弹出日历）的日历组件，无法进行input模式相关的位置和z-index层级测试。**
+
+==================================================
+
+UI window closed

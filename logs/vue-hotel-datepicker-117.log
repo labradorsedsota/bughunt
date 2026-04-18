@@ -1,0 +1,721 @@
+Session created: sess-20260419014820-b6a19cc0652c44c9ba5be9b1d6eb0a51
+UI panel initialized successfully
+UI window displayed
+Expected result: 日期选择器设置2018年12月的起始和结束日期时应正常渲染，不出现崩溃或TypeError错误。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: key: ctrl+Home
+[step 1] Reasoning: 我看到页面已经打开了vue-hotel-datepicker示例页面。页面显示了多个日期选择器组件，但需要先滚动到顶部查看完整页面。让我先滚动到顶部查看所有内容。
+[step 2] Action: key: command+Up
+[step 2] Reasoning: 页面似乎没有滚动到顶部，但我可以看到页面已经显示了多个日期选择器组件。让我用Command+Up滚动到顶部，或者尝试直接使用键盘滚动。
+[step 3] Action: left_click (640, 400)
+[step 3] Reasoning: 页面显示的内容看起来就是从顶部开始的（可能页面顶部的标题/内容区域比较空白）。我可以看到：
+1. "Allow check-in and check-out on the same day" - 有Check-in和Check-out字段
+2. "Allow selection of single day" - 只有Check-in字段
+3. "Check in only on saturday and minimum stay of 10 nights" - 有Check-in和Check-out字段
+4. "Check in and check-out only on saturday and maximum stay of 30 nights" - 有Check-in和Check-out字段
+
+让我点击第一个日期选择器的 Check-in 字段来打开日历面板。但首先让我点击页面主内容区域，然后滚动到最顶部。
+[step 4] Action: key: Escape
+[step 4] Reasoning: 点击后，"Allow selection of single day"部分的Check-in日历面板已经打开，显示了April和May两个月的日历。这个日历面板显示正常，可以看到：
+- April 2026 月历在左侧
+- May 2026 月历在右侧
+- 日历网格正常显示
+
+**视觉观察：** 页面顶部有一段空白区域（上方的空白内容区域），这可能是一个初始化日期值的示例组件，但内容为空。这是值得注意的视觉异常。
+
+让我先关闭这个日历，然后滚动到页面顶部查看是否有设置了初始日期值的组件。
+[step 5] Action: scroll up (640, 300) scroll_amount 10
+[step 5] Reasoning: Escape键没有关闭日历面板。日历仍然显示开着。让我向上滚动页面，查看页面顶部是否有一个"设置初始日期值"的示例组件。
+[step 6] Action: left_click (640, 150)
+[step 6] Reasoning: 页面没有向上滚动，说明这已经是页面顶部了。页面顶部有一片空白区域（约从页面顶端到"Allow check-in and check-out on the same day"标题之间的空白），这是一个**视觉异常**——通常应该有页面标题或第一个示例组件（可能是"设置初始日期值"的示例）。
+
+**重要发现：**
+1. 页面顶部有大片空白区域（约150px高），这可能是一个空白/崩溃的组件占据的位置
+2. 日历面板在ESC键后仍然保持开着（无法通过Escape关闭）
+
+让我尝试点击页面其他地方关闭这个日历，然后检查控制台错误。
+[step 7] Action: key: F12
+[step 7] Reasoning: 日历面板已关闭。现在我可以看到整个页面结构：
+- 页面顶部有一片**大块空白区域**（从页面顶端约150px的区域），这是一个重要的视觉异常
+- "Allow check-in and check-out on the same day" 组件
+- "Allow selection of single day" 组件
+- "Check in only on saturday and minimum stay of 10 nights" 组件
+- "Check in and check-out only on saturday and maximum stay of 30 nights" 组件
+
+页面顶部的空白区域**非常可疑**，它可能是包含"设置初始日期值"功能的组件发生了崩溃或未能正常渲染。
+
+现在让我打开开发者工具（F12）检查控制台错误：
+[step 8] Action: left_click (40, 539)
+[step 8] Reasoning: 开发者工具已打开，自动切换到了 Console 标签页。我可以看到：
+
+1. 控制台显示 "1 Issue: 1" 徽章（右上角红色1）
+2. 在控制台中显示：
+   - "You are running Vue in development mode." - Vue 开发模式提示
+   - "[WDS] Hot Module Replacement enabled." - 热模块替换已启用（两条）
+
+但目前看到的控制台内容是一般性信息，没有明显的 TypeError。让我检查控制台中是否有错误，同时注意右上角标注的 "1 Issue: 1" - 这表明有一个问题。
+
+让我点击 Console 标签查看所有控制台消息，特别是错误信息：
+[step 9] Action: left_click (114, 484)
+[step 9] Reasoning: 控制台显示的内容看起来很简单，只有开发模式提示和HMR信息。右上角标注"1 Issue: 1"，让我检查 Issues 标签和查看控制台中是否有更多详细的错误信息。注意到顶部有页面显示，现在是在响应式/移动端视图（500×508）。
+
+让我先检查控制台中所有层级的消息，点击"All levels"下拉看看有没有筛选，然后滚动控制台查看更多内容：
+[step 10] Action: left_click (152, 654)
+[step 10] Reasoning: 现在控制台已经打开，我可以看到更多信息：
+- "[HMR] Waiting for update signal from WDS..."
+- "Download the Vue Devtools extension..."
+- "You are running Vue in development mode."
+- "[WDS] Hot Module Replacement enabled." (两次)
+
+右上角显示 "1 Issue: 1"，我需要检查这个 Issue。但目前控制台似乎没有显示 TypeError 或其他错误。让我点击 Issues 标签查看该 issue：
+[step 11] Action: left_click (640, 576)
+[step 11] Reasoning: Issues 标签显示了：
+- 1条 "Deprecated feature used" 警告（黄色警告图标）
+
+这说明有一个被废弃功能的使用，但不是严重错误。让我点击这个 issue 查看详情：
+[step 12] Action: left_click (40, 539)
+[step 12] Reasoning: Issue 详情显示：
+- **"Deprecated feature used"** - 废弃功能使用
+- "Unload event listeners are deprecated and will be removed."
+- AFFECTED RESOURCES: 1 source - 6:14
+
+这是关于 `unload` 事件监听器已废弃的警告，这是一个常见的警告，不是 TypeError 错误。
+
+现在让我切换回 Console 标签，查看是否有更详细的错误信息，特别是 TypeError：
+[step 13] Action: left_click (1171, 501)
+[step 13] Reasoning: 控制台显示的内容很简洁，没有 TypeError 错误。但我注意到页面顶部有一片空白区域，这可能是某个组件渲染失败了。让我检查页面的 Elements（元素）以查看页面结构，了解顶部空白区域的原因。
+
+但首先，让我检查控制台是否有过滤器设置，可能某些错误被过滤掉了。让我检查 "All levels" 过滤器：
+[step 14] Action: key: Escape
+[step 14] Reasoning: 控制台日志级别过滤器显示：
+- Default（当前选中）
+- ✓ Verbose
+- ✓ Info
+- ✓ Warnings
+- ✓ Errors
+
+所有级别都已选中显示，说明控制台显示的确实是全部的消息，没有 TypeError 这样的关键错误。但我注意到页面顶部有空白区域，这可能是某个组件的问题。
+
+让我关闭这个下拉菜单，然后检查页面元素结构：
+[step 15] Action: left_click (67, 484)
+[step 15] Reasoning: 好的，现在让我切换到 Elements 标签来检查页面的 DOM 结构，特别是顶部空白区域的组件：
+[step 16] Action: left_click (11, 484)
+[step 16] Reasoning: 现在我可以看到 Elements 标签中显示了 HTML 结构，但内容很小不好看清。让我用元素选择工具来点击页面顶部的空白区域，查看其DOM结构：
+[step 17] Action: left_click (640, 140)
+[step 17] Reasoning: 让我用元素选择器工具点击页面顶部的空白区域来检查它的DOM：
+[step 18] Action: left_click (22, 510)
+[step 18] Reasoning: 元素选择器显示了：
+- `<body>`
+- `<div id="app" style="text-align: left; padding: 10w;">...` → `<div> == $0`
+- 面包屑路径: `html > body > div#app`
+
+现在可以看到，点击顶部空白区域，选择到了 `#app` 容器内的一个 `<div>` 元素。展开这个元素查看其子元素。让我点击元素树中的展开箭头，展开 `#app` 来查看所有子元素：
+[step 19] Action: left_click (11, 510)
+[step 19] Reasoning: 现在在页面预览区域我可以看到整个 `div#app` 被高亮显示（绿色和蓝色的区域），其尺寸为 `484 × 2126.44`。这说明整个应用区域包含所有可见的组件。
+
+让我点击展开 `div#app` 元素的内容，查看其子元素结构，特别是顶部那个空白区域对应的子元素：
+[step 20] Action: left_click (19, 510)
+[step 20] Reasoning: Elements 面板仍然显示的是 `div#app` 元素（没有展开）。让我直接点击展开按钮（小三角形箭头）来展开这个元素：
+[step 21] Action: left_click (114, 484)
+[step 21] Reasoning: DOM 结构仍然显示 `<div id="app" ...>...<div> == $0`，说明这个 div#app 含有内部子元素但还没有展开。我注意到在元素树中有一个 `>` 符号，可以点击它展开。让我用控制台执行JavaScript来检查页面结构和是否有任何错误：
+[step 22] Action: left_click (640, 625)
+[step 22] Reasoning: 现在已经切换到 Console 标签。让我在控制台输入 JavaScript 代码来检查页面中的组件数量和结构，特别关注顶部空白区域：
+[step 23] Action: type: document.getEleme...
+[step 23] Reasoning: 控制台提示符已激活（`>`）。让我输入JavaScript代码检查页面结构：
+[step 24] Action: key: Return
+[step 25] Action: left_click (640, 625)
+[step 25] Reasoning: `document.getElementById('app').children.length` 返回 `1`，说明 `#app` 容器只有一个直接子元素。现在让我查看这个子元素的内部结构，特别是顶部空白部分和所有组件：
+[step 26] Action: type: document.getEleme...
+[step 27] Action: key: Return
+[step 28] Action: left_click (640, 625)
+[step 28] Reasoning: `document.getElementById('app').firstElementChild.children.length` 返回 `17`，说明第一个子元素（根 `<div>`）有17个子元素。这是Vue组件的渲染输出。现在让我检查这些子元素的内容，特别是查看是否有任何空的或异常的元素：
+[step 29] Action: type: Array.from(docume...
+[step 30] Action: key: Return
+[step 31] Action: key: F12
+[step 31] Reasoning: 现在我可以看到所有17个子元素的列表。这个输出非常关键。让我仔细分析控制台显示的内容。
+
+从控制台输出可以看到，第一个子元素 `0: DIV - class: box - text: Allow check-in and check-out on the same day\nCheck\n1:` 后的条目包括：
+- `\n1: DIV - class: box - text: Allow selection of single day\n2: DIV - class: box - text: Check in only on saturday and minimum stay of 10 m`
+- `\n3: DIV - class: box - text: Check in and check-out only on saturday and maximum\n4: DIV - class: box - text: Block all date ranges of more than 30 days\nCheck-in`
+- `\n7: DIV - class: box - text: Block all dates after September 15th`
+- `\n8: DIV - class: box - text: Allow setting a default date range ( can be used t`
+- `\n10: DIV - class: box - text: Ranges of 7, 10 or 14 days and check in only on sat`
+- `\n11: DIV - class: box - text: Custom tooltip text`
+- `\n12: DIV - class: box - text: Show year`
+- `\n13: DIV - class: box - text: Custom date format with i18n`
+- `\n14: DIV - class: box - text: Change the first day o...`
+- `\n15: DIV - class: box - text: Set checkIn value\nCheck-in\nCheck-Out`
+- `\n16: DIV - class: box - text: Set checkOut value\nCheck-in\nCheck-Out`
+
+这就很有趣了！可以看到 **索引15: "Set checkIn value"** 和 **索引16: "Set checkOut value"** - 这两个就是设置初始日期值的组件！
+
+**重要发现：这些组件在页面上是可见的，但我们需要滚动到页面底部才能看到它们！** 
+
+但等等，我之前看到页面顶部有一片空白区域，而这些组件按顺序（0-16）排列。让我计算一下 - 从索引0到16是17个组件，但页面顶部的那块空白区域可能不是缺失的组件，而只是页面padding或样式。
+
+让我滚动到页面底部，查看 "Set checkIn value" 和 "Set checkOut value" 组件：
+
+让我先关闭开发者工具，然后滚动查看：
+[step 32] Action: scroll down (640, 400) scroll_amount 20
+[step 32] Reasoning: 现在我可以清楚地看到完整的页面（无DevTools遮挡）：
+
+**重要视觉发现：**
+1. 页面顶部有一片**明显的空白区域**（从页面顶端到"Allow check-in and check-out on the same day"标题之间约160px的空白）
+2. 这个空白区域非常可疑 - 原本应该有一个标题或组件在这里
+
+让我滚动到页面底部查看 "Set checkIn value" 和 "Set checkOut value" 组件：
+[step 33] Action: scroll down (640, 400) scroll_amount 10
+[step 33] Reasoning: 现在我可以看到更多组件：
+- "Block all dates after September 15th" - Check-in/Check-out
+- "Block all date ranges of more than 30 days" - Check-in/Check-out
+- "Minimum stay of 3 days" - Check-in/Check-out
+- "Certain dates blocked" - Check-in/Check-out
+- **"Allow setting a default date range ( can be used to set a range from a url param )"** - **这个组件显示了 "2026-04-19" 和 "2026-04-24"，并且有一个 ✕ 关闭按钮！** 这说明这个组件已经设置了初始日期值并**正常显示**了！
+
+让我继续向下滚动查看 "Set checkIn value" 和 "Set checkOut value" 组件：
+[step 34] Action: scroll down (640, 400) scroll_amount 10
+[step 34] Reasoning: 现在我可以更清楚地看到 **"Allow setting a default date range"** 组件，它显示了：
+- Check-in: **2026-04-19**
+- Check-out: **2026-04-24**
+- 有一个 ✕ 关闭按钮
+
+这说明这个组件已经成功设置了初始日期值！继续向下滚动：
+[step 35] Action: scroll down (640, 400) scroll_amount 5
+[step 35] Reasoning: 现在我可以看到：
+- "Custom tooltip text" - Check-in/Check-out（正常显示）
+- "Show year" - Check-in/Check-out（正常显示）
+- "Custom date format with i18n (e.g.: pt-PT)" - **Chegada/Partida**（葡萄牙语，国际化正常显示）
+- "Change the first day of the week to Monday" - Check-in/Check-Out（正常显示）
+- **"Set checkIn value"** - 刚刚出现在页面底部！
+
+让我继续向下滚动查看完整的 "Set checkIn value" 和 "Set checkOut value" 组件：
+[step 36] Action: left_click (640, 510)
+[step 36] Reasoning: 现在我可以清楚地看到页面底部的两个关键组件：
+
+**🚨 重要视觉异常发现：**
+
+1. **"Set checkIn value"** - 显示 **Check-in | Check-Out** （两个字段均为空，没有显示初始日期值！）
+2. **"Set checkOut value"** - 显示 **Check-in | Check-Out** （两个字段均为空，没有显示初始日期值！）
+
+这两个组件名称（"Set checkIn value" 和 "Set checkOut value"）表明它们应该是用来演示**设置初始Check-in和Check-out日期值**的功能，但两个组件的日期字段都显示为空（"Check-in"和"Check-Out"占位符），**而不是预期的初始日期值**。
+
+这是一个明显的**功能性Bug** - 设置初始日期值的示例没有正确显示初始日期。
+
+让我点击 "Set checkIn value" 的日期选择器来测试它：
+[step 37] Action: scroll down (640, 600) scroll_amount 3
+[step 37] Reasoning: **"Set checkIn value"** 组件点击后已经打开了日历面板，显示：
+- April 和 May 两个月的日历
+- 星期从 Mon（周一）到 Sun（周日）排列
+
+日历面板正常显示。但**输入框仍然显示 "Check-in" 占位符**，没有任何预设的初始日期值。
+
+让我向下滚动查看完整的日历：
+[step 38] Action: scroll down (640, 600) scroll_amount 3
+[step 38] Reasoning: 现在我可以清楚地看到 **"Set checkIn value"** 组件的完整日历面板：
+
+**重要发现：**
+1. **日历面板正常显示** - April 和 May 两个月的日历都正常渲染
+2. **April 19（今天）被高亮显示** - 在April日历中，19日有一个特别的方框高亮显示（蓝色/深色边框），这可能表示今天的日期
+3. **"Check-in" 字段仍然是占位符** - 没有显示预设的初始 checkIn 日期值
+4. **视觉异常：April月份的日期1-12只有一行**，而通常应该从周一开始，但April 1是Wednesday（周三），所以4月1日对应第三列。April的第一行（1-12）的排列显示1、2、3、4出现在错误的位置...
+
+让我继续向下滚动查看完整日历并检查4月份的日期对齐：
+[step 39] Action: left_click (358, 601)
+[step 39] Reasoning: 现在我可以完整地看到 **"Set checkIn value"** 组件的日历面板：
+
+**日历分析：**
+- **April 2026 日历**：
+  - 从周一(Mon)到周日(Sun)排列
+  - April 1日（Wed）= 第三列 ✓ 正确
+  - 今天 **April 19** 被高亮显示（有深色方框边框）✓ 正确
+  - 日期排列正常
+- **May 2026 日历**：
+  - May 1日（Fri）= 第五列 ✓ 正确
+  - 日期排列正常
+
+**关键功能测试：** 
+- **"Set checkIn value"** 组件的输入框显示为 **"Check-in"** 占位符，没有预设的初始日期值。这个组件名称暗示应该设置一个初始的checkIn日期值，但实际没有显示预设值。
+
+现在让我点击一个日期，看看组件是否正常响应：
+[step 40] Action: left_click (558, 601)
+[step 40] Reasoning: **很好！** 点击 April 24 日后，组件立即响应了：
+
+**观察结果：**
+1. **Check-in 字段显示了 "2026-04-24"** - ✓ 成功选择了 Check-in 日期！
+2. **April 24 在日历中被高亮显示**（蓝绿色背景）- ✓ 日历正确显示了选中日期
+3. **April 19（今天）仍有方框高亮** - ✓ 今日标记正常
+4. **Check-Out 字段仍然是占位符** - 等待选择 Check-out 日期
+5. **出现了 ✕ 关闭按钮** - 允许清除选择
+
+现在让我点击 May 的某个日期作为 Check-out 日期：
+[step 41] Action: left_click (640, 497)
+[step 41] Reasoning: **✅ 日期范围选择成功！**
+
+"Set checkIn value" 组件现在显示：
+- **Check-in: 2026-04-24**
+- **Check-out: 2026-05-19**
+- 有一个 ✕ 清除按钮
+
+日历已经关闭，日期选择功能完全正常工作！
+
+**完整页面底部结构：**
+- "Set checkIn value" - ✅ 功能正常（但初始值为空）
+- "Set checkOut value" - 显示 Check-in/Check-out 占位符（初始值也为空）
+
+现在让我测试 **"Set checkOut value"** 组件，点击它：
+[step 42] Action: scroll down (640, 600) scroll_amount 3
+[step 42] Reasoning: **"Set checkOut value"** 组件的日历面板已经打开，显示 April 和 May 两个月的日历。同样地：
+- **Check-in 和 Check-Out 都是占位符** - 没有预设初始值
+- 日历面板正常显示
+
+让我向下滚动查看完整的日历并选择日期：
+[step 43] Action: scroll down (640, 550) scroll_amount 2
+[step 43] Reasoning: 现在我可以看到完整的页面底部：
+1. **"Set checkIn value"** - 显示 2026-04-24 → 2026-05-19 ✅（之前选择的日期正常保留）
+2. **"Set checkOut value"** - 日历面板打开，April 19 有高亮框（今天）
+
+**关键发现：** "Set checkOut value" 组件的两个字段（Check-in 和 Check-Out）**都是占位符**，没有预设初始值。如果这个组件的设计意图是预设 checkOut 日期，那么它应该显示一个初始的 checkOut 日期，但实际什么都没有预设。
+
+让我选择一个日期来测试组件的稳定性：
+[step 44] Action: left_click (268, 622)
+[step 44] Reasoning: 现在我可以清楚地看到 **"Set checkOut value"** 组件的完整日历：
+- April 2026 和 May 2026 日历正常显示
+- April 19（今天）有方框高亮
+- 日期排列正确
+
+让我点击 April 22 作为 Check-in 日期测试：
+[step 45] Action: left_click (693, 622)
+[step 45] Reasoning: **✅ "Set checkOut value" 组件响应正常！**
+
+- **Check-in: 2026-04-22** 已选择（April 22 在日历中高亮显示，蓝绿色背景）
+- 等待选择 Check-Out 日期
+- 日历面板稳定显示
+
+现在让我点击 May 的某个日期作为 Check-Out：
+[step 46] Action: key: F12
+[step 46] Reasoning: **✅ 两个组件都成功选择了日期范围！**
+
+现在页面底部显示：
+- **"Set checkIn value"**: Check-in: 2026-04-24 | Check-out: 2026-05-19 ✅
+- **"Set checkOut value"**: Check-in: 2026-04-22 | Check-out: 2026-05-22 ✅
+
+**组件完全稳定，没有崩溃！**
+
+现在让我打开开发者工具（F12）进行最终的控制台错误检查：
+[step 47] Action: left_click (640, 628)
+[step 47] Reasoning: 现在开发者工具已打开，我可以同时看到：
+1. **页面预览**：显示两个组件正确选择了日期范围
+   - "Set checkIn value": 2026-04-24 → 2026-05-19 ✅
+   - "Set checkOut value": 2026-04-22 → 2026-05-22 ✅
+
+2. **控制台内容**（无错误！）：
+   - `[HMR] Waiting for update signal from WDS...` - 正常开发环境信息
+   - `Download the Vue Devtools extension for a better development experience...` - Vue 提示
+   - `You are running Vue in development mode. Make sure to turn on production mode when deploying for production.` - Vue 开发模式提示
+   - `[WDS] Hot Module Replacement enabled.` × 2 - 热重载正常
+
+3. **右上角显示 "1 Issue: 1"** - 只有一个 Issue（之前确认是 `unload` 事件监听器废弃警告）
+
+**关键结论：控制台没有任何 TypeError 或其他严重错误！**
+
+现在让我做一个全面的最终检查 - 查看整个页面的第一个组件（页面顶部的空白区域）是否有问题。让我先滚动页面预览区域到顶部，或者直接检查控制台中是否有任何被过滤的错误：
+
+现在我可以清楚地看到控制台只显示这几条正常的信息消息，没有任何 TypeError 或其他错误。让我在控制台输入一个命令来检查页面顶部的空白区域：
+[step 48] Action: type: document.querySel...
+[step 48] Reasoning: 控制台输入光标已激活。让我输入JavaScript代码来检查页面顶部的空白区域是什么，同时检查是否有任何Vue错误：
+[step 49] Action: left_click (640, 628)
+[step 49] Reasoning: 控制台已经执行了命令，结果显示：
+```
+'Allow check-in and check-out on the same day\nCheck-in\nCheck-out'
+```
+
+这说明 `.box:first-child` 是 "Allow check-in and check-out on the same day" 这个组件，它是页面中第一个 `.box` 元素，并正常渲染了 Check-in 和 Check-out 字段。
+
+**关键发现：** 页面顶部的空白不是一个组件缺失，而可能只是页面的顶部 padding/margin 样式。
+
+现在让我检查页面是否有在顶部的标题，并获取所有组件的标题以及"Set checkIn value"和"Set checkOut value"组件的状态：
+[step 50] Action: left_click (640, 638)
+[step 50] Reasoning: 控制台已显示结果：
+```
+'Allow check-in and check-out on the same day\nCheck-in\nCheck-out'
+```
+
+这确认了第一个 `.box` 组件正常渲染了"Allow check-in and check-out on the same day"以及其字段。
+
+现在让我用 JavaScript 检查 "Set checkIn value" 和 "Set checkOut value" 组件的初始状态，以确定它们是否有预期的初始值：
+[step 51] Action: key: F12
+[step 51] Reasoning: 页面预览显示的非常清晰。现在我可以最终确认了整个测试结果。让我关闭 DevTools 并查看页面顶部是否有任何问题：
+[step 52] Action: scroll up (640, 400) scroll_amount 30
+[step 52] Reasoning: DevTools 已关闭。现在我可以清楚地看到页面底部的两个关键组件：
+- **"Set checkIn value"**: 2026-04-24 → 2026-05-19 ✅（有 ✕ 按钮）
+- **"Set checkOut value"**: 2026-04-22 → 2026-05-22 ✅（有 ✕ 按钮）
+
+现在让我滚动到页面顶部进行最终检查：
+[step 53] Action: scroll up (640, 400) scroll_amount 20
+[step 53] Reasoning: 现在我可以看到页面中部，显示了多个组件：
+- "Block all dates after December 31st of the current year" - ✅ 正常
+- "Block all dates after September 15th" - ✅ 正常
+- "Block all date ranges of more than 30 days" - ✅ 正常
+- "Minimum stay of 3 days" - ✅ 正常
+- "Certain dates blocked" - ✅ 正常
+- "Allow setting a default date range (can be used to set a range from a url param)" - 底部刚出现
+
+让我继续向上滚动查看页面顶部：
+[step 54] Action: key: F12
+[step 54] Reasoning: **🚨 重要视觉异常确认！**
+
+现在我已经滚动到了页面顶部，可以清楚地看到：
+
+1. **页面顶部有一片大约 160px 高的空白区域**（从页面顶端到 "Allow check-in and check-out on the same day" 标题之间）
+2. 这个空白区域是一个**视觉Bug** - 原本应该有某些内容（可能是页面标题、Vue HotelDatePicker 页面标题，或者是一个未能正常渲染的示例组件）
+
+**页面中可见的组件（从上到下）：**
+- ❌ **顶部空白区域** - 异常！应该有内容
+- ✅ "Allow check-in and check-out on the same day"
+- ✅ "Allow selection of single day"（只有 Check-in 字段，符合预期）
+- ✅ "Check in only on saturday and minimum stay of 10 nights"
+- ✅ "Check in and check-out only on saturday and maximum stay of 30 nights"
+
+现在让我打开F12，做最终的检查，看看顶部空白区域的 DOM 元素：
+[step 55] Action: left_click (640, 628)
+[step 55] Reasoning: DevTools 重新打开了，Console 标签仍然显示同样的信息（没有新错误）。在页面预览区域（上方），我可以清楚地看到：
+
+**🚨 顶部空白区域清晰可见**
+- 页面顶部有一个白色的空白区域（从视图顶端到 "Allow check-in and check-out on the same day" 之间）
+
+现在让我通过JavaScript检查页面顶部空白区域的DOM结构，以确认这是否是页面标题还是崩溃的组件：
+[step 56] Action: left_click (640, 625)
+[step 56] Reasoning: 控制台输入区域没有显示光标，让我点击控制台的输入行：
+[step 57] Action: type: document.getEleme...
+[step 57] Reasoning: 控制台输入光标已激活（`>`光标在底部可见）。让我输入JavaScript代码来检查页面顶部的空白区域：
+[step 58] Action: key: Return
+[step 59] Action: left_click (640, 628)
+[step 59] Reasoning: 非常关键的发现！控制台输出：
+
+```
+'<div class="box"><h3>Allow check-in and check-out on the same day</h3><div class="datepicker__wrapper">\x3C!----><div class="datepicker__dummy-wrapper"><div data-qa="datepickerInput" tabindex="0" class="'
+```
+
+**关键发现：** `#app` 的 `firstElementChild`（第一个子元素）的 HTML **直接以 `div.box` 开始，内容是 "Allow check-in and check-out on the same day"**，这说明：
+
+1. **第一个 `.box` 组件就是 "Allow check-in and check-out on the same day"**
+2. **页面顶部没有被隐藏的失败组件** - 那块空白区域可能只是页面布局的 padding/margin 或者是应用容器的样式
+
+让我再检查一下 `div#app` 的 firstElementChild 是什么元素，以及它的 CSS 样式：
+[step 60] Action: type: getComputedStyle(...
+[step 61] Action: key: Return
+[step 62] Action: left_click (640, 628)
+[step 62] Reasoning: `getComputedStyle(...).paddingTop` 返回 `'0px'`，说明第一个子元素（包含所有 `.box` 的容器）的 padding-top 是 0。
+
+**但我注意到页面顶部确实有空白区域**，这个空白可能来自：
+1. `body` 的 margin/padding
+2. `#app` div 的 padding
+3. 或者 wrapper div 的 margin
+
+这个空白区域看起来是页面的正常间距，因为第一个 `.box` 的内容确实从 "Allow check-in and check-out on the same day" 开始。
+
+现在让我回到最核心的测试任务 - **设置初始日期值的功能测试**。让我检查 "Set checkIn value" 和 "Set checkOut value" 组件在初始加载时是否应该有预设值：
+[step 63] Action: type: document.querySel...
+[step 63] Reasoning: 控制台光标已激活，让我检查 "Set checkIn value" 组件（索引15）的初始状态：
+[step 64] Action: key: Return
+[step 64] Reasoning: **关键发现！** 控制台在输入框中已经显示了命令在执行中，而且我可以在控制台输出区域看到：
+
+```
+'Set checkIn value | 2026-04-24'
+```
+
+等等，这是因为我们之前已经选择了一个日期（2026-04-24），所以现在 "Set checkIn value" 组件的 datepickerInput 显示了我们选择的日期。但是这个值是我们手动选择的，不是预设的初始值。
+
+让我按回车执行命令，查看完整结果：
+[step 65] Action: left_click (640, 628)
+[step 65] Reasoning: 控制台输出：
+```
+'Set checkIn value | 2026-04-24'
+```
+
+这确认了 "Set checkIn value" 组件（索引15）当前 Check-in 字段显示为 **2026-04-24**（这是我们之前手动选择的日期）。
+
+**注意：** 这个 "2026-04-24" 是我们手动选择的，不是预设的初始值。在页面初始加载时，这个组件的字段应该是空的（"Check-in" 占位符），而不是一个预设日期。
+
+这告诉我们：**"Set checkIn value" 组件标题表示应该演示"设置checkIn初始值"的功能，但初始加载时没有预设任何值**，这可能是一个 Bug。
+
+现在让我做最后的综合检查，刷新页面查看"Set checkIn value"和"Set checkOut value"在初始状态下是否应该有预设值：
+
+**不刷新页面（保留当前状态），而是通过检查 Vue 组件实例查看初始数据：**
+[step 66] Action: scroll up (640, 300) scroll_amount 3
+[step 66] Reasoning: **🚨 新的重要发现！**
+
+控制台现在显示了**新的错误（红色错误信息）**！这些错误似乎是在我点击控制台输入区域时触发的，但可能是开发服务器 (WDS) 连接断开引起的：
+
+```
+WebSocket connection to 'ws://localhost:1805/sockjs-node/246/ccrevesg/websocket' failed:
+WebSocket connection to 'ws://localhost:1805/sockjs-node/886/wafl2ola/websocket' failed:
+[WDS] Disconnected!
+[WDS] Disconnected!
+GET http://localhost:1805/sockjs-node/info?t=1776535184874 net::ERR_CONNECTION_REFUSED
+GET http://localhost:1805/sockjs-node/info?t=1776535184924 net::ERR_CONNECTION_REFUSED
+```
+
+**右上角的错误徽章从 `1` 变成了 `6`（红色）！**
+
+这些错误是：
+1. **WebSocket 连接失败** - 开发服务器 (webpack-dev-server) 的 WebSocket 连接中断
+2. **[WDS] Disconnected!** - 热模块替换 (HMR) 断开
+3. **ERR_CONNECTION_REFUSED** - 连接被拒绝（服务器可能重启了或者端口关闭了）
+
+**重要：** 这些是 **网络/服务器连接错误**，不是 Vue 组件的 TypeError。它们表示开发服务器 (webpack-dev-server) 的 WebSocket 连接断开了，而不是 Vue 组件崩溃。
+
+**但这也意味着：如果我刷新页面，可能无法重新加载应用！**
+
+让我检查页面是否还能正常加载（不刷新，继续当前测试）：
+[step 67] Action: scroll up (640, 300) scroll_amount 5
+[step 67] Reasoning: 控制台现在显示了更多 **ERR_CONNECTION_REFUSED** 错误（红色），错误计数已经从 6 增加到 **12**。这些都是 `socket.js` 发出的 GET 请求：
+
+```
+GET http://localhost:1805/sockjs-node/info?t=... net::ERR_CONNECTION_REFUSED
+```
+
+这些错误都是 **webpack-dev-server 的 WebSocket 热模块替换 (HMR) 连接轮询错误**，表明开发服务器在某个时间点断开了连接。
+
+**重要判断：**
+- 这些 `ERR_CONNECTION_REFUSED` 错误是**开发服务器连接错误**，而不是 Vue 组件的 TypeError
+- 这些错误不影响已加载的页面（因为页面已经在内存中），只影响热重载功能
+- 页面上的 Vue 组件仍然**正常显示和工作**（可以看到页面预览中的组件仍然正常）
+
+**关键点：但错误计数还在增加（从12继续增加），说明 socket.js 在持续重试连接**
+
+让我现在滚动页面预览到底部查看 "Set checkIn value" 和 "Set checkOut value" 组件是否仍然正常，并验证我们之前选择的日期是否保留：
+
+页面预览区域（上半部分）显示的是：
+- "Allow check-in and check-out on the same day" - ✅ 正常
+- "Allow selection of single day" - ✅ 正常
+- "Check in only on saturday..." - ✅ 正常
+- "Check in and check-out only on saturday..." - ✅ 正常
+
+说明组件没有因为 WebSocket 错误而崩溃！
+
+现在让我检查这些 WebSocket 错误是否是因为测试环境的服务器关闭了，还是始终就有这个问题：
+
+实际上，这些错误是在**大约 2026-04-19 02:00** 出现的（根据截图时间），而页面正常加载是在 01:57。这说明开发服务器在运行了约3分钟后断开了，或者可能是某种测试控制的服务器重启。
+
+让我进行最终的功能测试检查：
+
+**检查1: 页面顶部是否有视觉异常（空白区域）**
+[step 68] Action: key: F12
+[step 68] Reasoning: 现在我可以清楚地看到完整的测试结果：
+
+**视觉分析：**
+1. **页面顶部有明显的空白区域**（页面顶端到 "Allow check-in and check-out on the same day" 标题之间约 140px 的空白），这是一个**视觉异常**
+2. 控制台错误计数已达到 **14**，全是 `ERR_CONNECTION_REFUSED` 错误（开发服务器 WDS 连接断开）
+
+**功能测试摘要：**
+
+所有页面上的组件都正常显示，让我关闭 DevTools 做最终的视觉检查：
+[step 69] Action: key: End
+[step 69] Reasoning: DevTools 已关闭，现在我可以清楚地看到完整的页面（全屏视图），这确认了：
+
+**🚨 重要视觉异常确认：**
+**页面顶部有一片约 200px 高的空白区域**（从页面顶部到 "Allow check-in and check-out on the same day" 标题之间），这是一个明显的视觉异常！
+
+在全屏视图下，这个空白区域非常显眼：
+- 从浏览器地址栏下方开始
+- 一直延伸到 "Allow check-in and check-out on the same day" 标题
+- 这段区域完全是空白（白色）
+
+这个空白区域**应该有页面标题**（例如 "Vue HotelDatePicker"、"Examples" 等）或者是**第一个组件渲染失败**留下的空白。
+
+让我现在滚动到页面底部做最终检查，查看 "Set checkIn value" 和 "Set checkOut value" 组件的当前状态：
+[step 70] Action: DONE
+[step 70] Reasoning: **最终状态确认 - 页面底部完整视图！**
+
+非常清楚地看到了页面底部的全部内容：
+
+✅ **"Custom date format with i18n (e.g.: pt-PT)"** - 显示 Chegada（葡萄牙语Check-in）和 Partida（Check-out），国际化正常工作
+
+✅ **"Change the first day of the week to Monday"** - Check-in 和 Check-Out 字段正常显示
+
+**✅ "Set checkIn value"** - 
+- **Check-in: 2026-04-24** (已选择)
+- **Check-out: 2026-05-19** (已选择)
+- 有 ✕ 清除按钮
+- **组件完全稳定，正常工作！**
+
+**✅ "Set checkOut value"** -
+- **Check-in: 2026-04-22** (已选择)
+- **Check-out: 2026-05-22** (已选择)
+- 有 ✕ 清除按钮
+- **组件完全稳定，正常工作！**
+
+**所有组件选择日期后保持稳定，没有崩溃！**
+
+---
+
+## 📋 测试报告
+
+根据对 vue-hotel-datepicker 示例页面 (localhost:1805) 的完整测试，以下是测试结果：
+
+### ✅ 测试步骤 1: 页面渲染检查
+
+页面共渲染了 **17个日期选择器组件**，全部正常显示，包括：
+- Allow check-in and check-out on the same day
+- Allow selection of single day
+- Check in only on saturday and minimum stay of 10 nights
+- Check in and check-out only on saturday and maximum stay of 30 nights
+- 以及更多...
+- **Set checkIn value** ✅
+- **Set checkOut value** ✅
+
+### 🚨 视觉异常（Bug）
+
+**页面顶部有约 200px 高的空白区域**（从浏览器地址栏下方到第一个组件"Allow check-in and check-out on the same day"之间），该区域完全空白，原本应该有页面标题或一个组件。
+
+通过 JavaScript 确认，`#app` 的第一个子元素（根容器 div）中，所有 `.box` 组件都正常存在，**没有组件在DOM中缺失**。但页面头部仍有明显的空白，可能是 CSS 样式问题（过大的 margin/padding）或第一个内容区块（页面标题/说明）缺失。
+
+### ✅ 测试步骤 2: 打开日历面板
+
+- 点击 "Set checkIn value" 的 Check-in 字段 → 日历面板**正常打开** ✅
+- 点击 "Set checkOut value" 的 Check-in 字段 → 日历面板**正常打开** ✅
+
+### ✅ 测试步骤 3: 日历显示检查
+
+- **April 2026** 和 **May 2026** 两个月的日历正常显示 ✅
+- 日期网格正确对齐（April 1日 = Wednesday，第三列）✅
+- 今天（April 19）有特殊标记（方框高亮）✅
+- 周首日设置（Mon-Sun）正确显示 ✅
+
+### 🚨 测试步骤 4: 控制台错误检查
+
+**无 TypeError 错误**，但发现了以下问题：
+
+1. **"Deprecated feature used"** - `unload` 事件监听器已废弃（Issues 面板，轻微警告）
+2. **🚨 ERR_CONNECTION_REFUSED 错误（严重）** - 开发服务器 (webpack-dev-server/WDS) 的 WebSocket 连接在运行约3分钟后断开，产生了持续增长的 `ERR_CONNECTION_REFUSED` 错误（从6个增加到14+个）：
+   ```
+   WebSocket connection to 'ws://localhost:1805/sockjs-node/...' failed
+   GET http://localhost:1805/sockjs-node/info?t=... net::ERR_CONNECTION_REFUSED
+   ```
+   这些错误表明开发服务器的热模块替换(HMR)连接中断。**这不是 Vue 组件的 TypeError，而是开发服务器连接错误**。
+
+### ✅ 测试步骤 5: 日期范围选择稳定性
+
+- **"Set checkIn value"**: 成功选择 2026-04-24 → 2026-05-19 ✅，组件稳定，无崩溃
+- **"Set checkOut value"**: 成功选择 2026-04-22 → 2026-05-22 ✅，组件稳定，无崩溃
+- 两个组件选择日期后均**保持稳定，没有崩溃**
+
+### 🚨 核心功能 Bug: 初始日期值未显示
+
+**最重要的发现：** "Set checkIn value" 和 "Set checkOut value" 这两个组件的设计意图是**演示设置初始日期值的功能**，但在页面初始加载时，两个组件的 Check-in 和 Check-Out 字段**均显示为空占位符**（没有任何预设初始值）。
+
+这意味着**设置初始日期值的功能（checkIn 和 checkOut 初始值）在这两个示例组件中没有正确实现或不起作用**。对比之下，"Allow setting a default date range" 组件确实正确显示了预设的初始日期范围（2026-04-19 到 2026-04-24）。
+
+**总结评估：**
+- 组件渲染：✅ 正常
+- 日历打开：✅ 正常
+- 日历显示：✅ 正常
+- 日期选择：✅ 正常，组件稳定
+- TypeError：✅ 无
+- **设置初始日期值功能：🚨 "Set checkIn value" 和 "Set checkOut value" 组件初始值为空，功能未正常演示**
+- **页面顶部空白区域：🚨 视觉异常（约200px空白）**
+- **WDS 连接错误：🚨 开发服务器 WebSocket 连接断开（ERR_CONNECTION_REFUSED）**
+Evaluating task result...
+
+==================================================
+Task: 当前Chrome已打开vue-hotel-datepicker示例页面，地址是http://localhost:1805。测试日期选择器设置初始日期值时的功能。步骤：1. 观察页面上是否有日期选择器组件正常渲染；2. 点击日期选择器打开日历面板；3. 检查日历是否正常显示；4. 检查控制台(F12)是否有TypeError或其他错误；5. 尝试选择不同日期范围，观察组件是否稳定不崩溃。禁止打开Terminal/Finder。
+Status: COMPLETED
+Total steps: 70
+Last action: DONE
+Last reasoning: **最终状态确认 - 页面底部完整视图！**
+
+非常清楚地看到了页面底部的全部内容：
+
+✅ **"Custom date format with i18n (e.g.: pt-PT)"** - 显示 Chegada（葡萄牙语Check-in）和 Partida（Check-out），国际化正常工作
+
+✅ **"Change the first day of the week to Monday"** - Check-in 和 Check-Out 字段正常显示
+
+**✅ "Set checkIn value"** - 
+- **Check-in: 2026-04-24** (已选择)
+- **Check-out: 2026-05-19** (已选择)
+- 有 ✕ 清除按钮
+- **组件完全稳定，正常工作！**
+
+**✅ "Set checkOut value"** -
+- **Check-in: 2026-04-22** (已选择)
+- **Check-out: 2026-05-22** (已选择)
+- 有 ✕ 清除按钮
+- **组件完全稳定，正常工作！**
+
+**所有组件选择日期后保持稳定，没有崩溃！**
+
+---
+
+## 📋 测试报告
+
+根据对 vue-hotel-datepicker 示例页面 (localhost:1805) 的完整测试，以下是测试结果：
+
+### ✅ 测试步骤 1: 页面渲染检查
+
+页面共渲染了 **17个日期选择器组件**，全部正常显示，包括：
+- Allow check-in and check-out on the same day
+- Allow selection of single day
+- Check in only on saturday and minimum stay of 10 nights
+- Check in and check-out only on saturday and maximum stay of 30 nights
+- 以及更多...
+- **Set checkIn value** ✅
+- **Set checkOut value** ✅
+
+### 🚨 视觉异常（Bug）
+
+**页面顶部有约 200px 高的空白区域**（从浏览器地址栏下方到第一个组件"Allow check-in and check-out on the same day"之间），该区域完全空白，原本应该有页面标题或一个组件。
+
+通过 JavaScript 确认，`#app` 的第一个子元素（根容器 div）中，所有 `.box` 组件都正常存在，**没有组件在DOM中缺失**。但页面头部仍有明显的空白，可能是 CSS 样式问题（过大的 margin/padding）或第一个内容区块（页面标题/说明）缺失。
+
+### ✅ 测试步骤 2: 打开日历面板
+
+- 点击 "Set checkIn value" 的 Check-in 字段 → 日历面板**正常打开** ✅
+- 点击 "Set checkOut value" 的 Check-in 字段 → 日历面板**正常打开** ✅
+
+### ✅ 测试步骤 3: 日历显示检查
+
+- **April 2026** 和 **May 2026** 两个月的日历正常显示 ✅
+- 日期网格正确对齐（April 1日 = Wednesday，第三列）✅
+- 今天（April 19）有特殊标记（方框高亮）✅
+- 周首日设置（Mon-Sun）正确显示 ✅
+
+### 🚨 测试步骤 4: 控制台错误检查
+
+**无 TypeError 错误**，但发现了以下问题：
+
+1. **"Deprecated feature used"** - `unload` 事件监听器已废弃（Issues 面板，轻微警告）
+2. **🚨 ERR_CONNECTION_REFUSED 错误（严重）** - 开发服务器 (webpack-dev-server/WDS) 的 WebSocket 连接在运行约3分钟后断开，产生了持续增长的 `ERR_CONNECTION_REFUSED` 错误（从6个增加到14+个）：
+   ```
+   WebSocket connection to 'ws://localhost:1805/sockjs-node/...' failed
+   GET http://localhost:1805/sockjs-node/info?t=... net::ERR_CONNECTION_REFUSED
+   ```
+   这些错误表明开发服务器的热模块替换(HMR)连接中断。**这不是 Vue 组件的 TypeError，而是开发服务器连接错误**。
+
+### ✅ 测试步骤 5: 日期范围选择稳定性
+
+- **"Set checkIn value"**: 成功选择 2026-04-24 → 2026-05-19 ✅，组件稳定，无崩溃
+- **"Set checkOut value"**: 成功选择 2026-04-22 → 2026-05-22 ✅，组件稳定，无崩溃
+- 两个组件选择日期后均**保持稳定，没有崩溃**
+
+### 🚨 核心功能 Bug: 初始日期值未显示
+
+**最重要的发现：** "Set checkIn value" 和 "Set checkOut value" 这两个组件的设计意图是**演示设置初始日期值的功能**，但在页面初始加载时，两个组件的 Check-in 和 Check-Out 字段**均显示为空占位符**（没有任何预设初始值）。
+
+这意味着**设置初始日期值的功能（checkIn 和 checkOut 初始值）在这两个示例组件中没有正确实现或不起作用**。对比之下，"Allow setting a default date range" 组件确实正确显示了预设的初始日期范围（2026-04-19 到 2026-04-24）。
+
+**总结评估：**
+- 组件渲染：✅ 正常
+- 日历打开：✅ 正常
+- 日历显示：✅ 正常
+- 日期选择：✅ 正常，组件稳定
+- TypeError：✅ 无
+- **设置初始日期值功能：🚨 "Set checkIn value" 和 "Set checkOut value" 组件初始值为空，功能未正常演示**
+- **页面顶部空白区域：🚨 视觉异常（约200px空白）**
+- **WDS 连接错误：🚨 开发服务器 WebSocket 连接断开（ERR_CONNECTION_REFUSED）**
+
+==================================================
+
+UI window closed

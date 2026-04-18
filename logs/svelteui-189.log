@@ -1,0 +1,335 @@
+Session created: sess-20260416183305-2f0c7d6df9504aa0aaacbb621955130d
+UI panel initialized successfully
+UI window displayed
+Expected result: 处于 disabled 状态的 Switch 组件应显示明确的禁用视觉样式，且点击时无法被切换，状态保持不变。在暗色模式下禁用状态的样式也应正确呈现。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: Open url: http://localhost:3000/docs/core/switch
+[step 1] Reasoning: I can see the SvelteUI website is open. I need to navigate to the Switch component documentation page. Let me navigate to it directly.
+[step 2] Action: Open url: http://localhost:3000/docs/switch
+[step 2] Reasoning: The page `/docs/core/switch` returned "Page not found". Let me try other URL patterns to find the Switch component page.
+[step 3] Action: unknown
+[step 3] Reasoning: Still page not found. Let me go back to the home page and navigate through the documentation to find the Switch component.
+[step 4] Action: Open url: http://localhost:3000
+[step 5] Action: unknown
+[step 5] Reasoning: I'm on the home page. Let me click "Get Started" to navigate to the documentation where I can find the Switch component.
+[step 6] Action: screenshot
+[step 7] Action: Minimize panel
+[step 7] Reasoning: I need to close the Google Translate bar to see the full page and interact with it. Let me close it and try to navigate to the docs. Let me minimize the panel first and then look for the documentation navigation.
+[step 8] Action: unknown
+[step 8] Reasoning: Good, the panel is minimized. Now I can see the home page clearly. Let me close the Google Translate bar and click "Get Started" to go to the docs.
+[step 9] Action: screenshot
+[step 10] Action: left_click (565, 524)
+[step 10] Reasoning: Let me click the "Get Started" button to navigate to the docs.
+[step 11] Action: left_click (85, 340)
+[step 11] Reasoning: I'm now in the docs page. I can see a left sidebar with navigation. I need to expand "SVELTEUI CORE (COMPONENTS)" to find the Switch component. Let me click on it.
+[step 12] Action: scroll down (85, 500) scroll_amount 3
+[step 12] Reasoning: The "SVELTEUI CORE (COMPONENTS)" section is now expanded. I can see Layout, Inputs & Actions sections. I need to scroll down to find the Switch component under "Inputs & Actions". Let me scroll down in the left sidebar.
+[step 13] Action: scroll down (85, 500) scroll_amount 3
+[step 13] Reasoning: I can see "Inputs & Actions" section with Checkbox, Button, ActionIcon, Input. I need to scroll more to find the Switch component.
+[step 14] Action: left_click (37, 640)
+[step 14] Reasoning: I can see "Switch" in the sidebar. Let me click on it.
+[step 15] Action: scroll down (640, 400) scroll_amount 3
+[step 15] Reasoning: Excellent! I found the Switch component page at `localhost:3000/core/switch`. I can see the Switch demo with a live preview. I can see there's a "Disabled" toggle at the bottom right. Let me scroll down to see more of the page and find disabled Switch instances.
+[step 16] Action: left_click (884, 555)
+[step 16] Reasoning: I can now see the Switch component demo page clearly. There's a "Disabled" toggle in the right panel. The current state shows an active blue Switch "I agree to sell my privacy". I can see the "Disabled" toggle on the right side panel. Let me first click on the "Disabled" toggle to enable the disabled state and observe the Switch's appearance.
+
+Let me look at the current state more carefully:
+- The Switch in the demo area is currently active (blue, enabled)
+- There's a "Disabled" toggle on the right side panel that appears to be in the OFF position (gray)
+
+Let me click the "Disabled" toggle to enable the disabled state:
+[step 17] Action: screenshot
+[step 17] Reasoning: I can see that the "Disabled" toggle on the right panel has been enabled (it's now blue/active). However, looking at the Switch in the demo area, it still appears the same - blue and active. I need to check if the demo Switch has actually changed to a disabled state. Let me look more carefully at the demo area Switch.
+
+Looking at the current screenshot:
+- The "Disabled" toggle in the control panel is now ON (blue)
+- The demo Switch "I agree to sell my privacy" still appears blue/active
+
+This is interesting - the disabled state should make the switch appear grayed out. Let me take a closer look at the demo Switch to see if it's actually showing a disabled visual state. Let me zoom in on the demo area.
+[step 18] Action: mouse_move (461, 444)
+[step 18] Reasoning: I notice something important: The "Disabled" toggle is ON (blue) in the control panel, but the demo Switch "I agree to sell my privacy" still appears to be blue and active - it doesn't appear to show a disabled visual state (i.e., it should be grayed out). This could be a bug.
+
+Let me zoom in on the demo Switch area to better observe its current state:
+[step 19] Action: left_click (461, 444)
+[step 19] Reasoning: I can see the "Disabled" toggle in the control panel is now ON (blue). However, the demo Switch "I agree to sell my privacy" still appears blue/enabled - it doesn't seem to be showing a disabled visual state. This is a **visual anomaly** - when the Disabled toggle is turned on, the Switch component in the demo should appear visually disabled (grayed out).
+
+Let me closely inspect the Switch by hovering over it to see if there's any cursor change indicating disabled state, and then try to click it to test if it can be toggled.
+
+First, let me try clicking on the demo Switch to see if it can be toggled (it should NOT toggle since it's disabled):
+[step 20] Action: left_click (461, 444)
+[step 20] Reasoning: Interesting! After clicking the demo Switch while the "Disabled" toggle is ON, I can see that:
+
+1. The demo Switch has now changed from blue (on) to gray (off) - it toggled! This is a **bug** - when the Disabled state is active, the Switch should NOT be toggleable.
+
+2. The Switch now appears in a gray state (dark gray/outline style), which could be the disabled visual appearance.
+
+Wait, looking more carefully, the Switch now shows in a different state - it appears dark/gray, not blue. But the issue is that it was able to be clicked and change state, which should NOT happen for a disabled switch.
+
+Let me click on the disabled Switch again to verify if it can be toggled again:
+[step 21] Action: scroll down (640, 400) scroll_amount 5
+[step 21] Reasoning: This is a critical finding! I clicked the disabled Switch again and it **toggled back to the blue/active state** (ON position). This confirms the bug:
+
+**Bug Identified**: The disabled Switch can still be toggled when clicked. A disabled Switch should not respond to user interactions - clicking it should have no effect.
+
+The "Disabled" toggle in the control panel IS ON (blue), yet the demo Switch "I agree to sell my privacy" can still be toggled on/off. This is a functional bug.
+
+Now let me also observe the visual appearance more carefully. Looking at the screenshots:
+- When the switch was "disabled but ON" (first state before I clicked): It appeared blue/active - same as non-disabled state. No visible disabled styling.
+- When I clicked it (disabled but now OFF): It turned to a gray/dark outline style.
+
+Let me scroll down to see if there are more static disabled Switch examples in the page, and also check dark mode:
+[step 22] Action: scroll down (640, 400) scroll_amount 5
+[step 22] Reasoning: Excellent! Now I can see more clearly. The code example shows:
+```html
+<Switch checked
+  label="I agree to sell my privacy"
+  disabled
+/>
+```
+
+The code snippet confirms the disabled attribute is applied to the Switch. But looking at the demo Switch (in the demo area at the top of the right panel), it's still showing as blue/active (the enabled appearance) - there's no visual disabled styling visible.
+
+Also critically, I just confirmed that when I clicked the disabled Switch twice, it toggled twice - which is a **functional bug**.
+
+Let me now scroll down more to see the "INNER LABELS AND SIZE" section to check if there are more disabled Switch examples:
+[step 23] Action: scroll down (640, 400) scroll_amount 5
+[step 23] Reasoning: I can see the "INNER LABELS AND SIZE" section with multiple Switch examples showing different sizes with ON/OFF labels. Let me scroll up a bit to see if the demo area for the current section (with Disabled) shows the Switch in disabled state. First, let me scroll up to check the demo area.
+
+Wait - I notice something. The demo area at the top of the section I was working on shows the demo Switch is no longer visible in this view. Let me scroll back up to see the demo Switch in the context area - I want to verify whether the demo Switch is currently in a disabled but blue state or not.
+
+Let me scroll down a bit more to see more content and look for any other disabled Switch examples:
+[step 24] Action: scroll down (640, 400) scroll_amount 5
+[step 24] Reasoning: I can see the page continues with more sections. Let me scroll down more to find any dedicated "Disabled" section or example, and also to check for dark mode:
+[step 25] Action: scroll down (640, 400) scroll_amount 5
+[step 25] Reasoning: I can see the "INNER LABELS AND SIZE" section with Switch examples in different sizes. Let me scroll down further to check if there's more content, including any dedicated "Disabled" section or dark mode examples:
+[step 26] Action: scroll up (640, 400) scroll_amount 15
+[step 26] Reasoning: The page seems to have stopped scrolling - I can see the same view as before. The page ends with "ACCESSIBILITY" section. Now let me go back to the usage demo section to do a more careful analysis of the disabled state.
+
+Let me scroll back up to the demo area to re-examine the disabled Switch more carefully:
+[step 27] Action: left_click (1254, 100)
+[step 27] Reasoning: Now I can see the complete picture clearly. Let me analyze what I see:
+
+**Current state of the demo:**
+1. The "Disabled" toggle in the control panel is **ON (blue)** - meaning the disabled prop is active
+2. The demo Switch "I agree to sell my privacy" shows as **blue/active** (the toggle is in the ON position, showing the blue color)
+3. The code snippet correctly shows `<Switch checked label="I agree to sell my privacy" disabled />`
+
+**Visual Analysis:**
+- The demo Switch appears in the SAME blue color as when it's enabled. There is NO visual difference between the disabled and enabled states. The switch doesn't show any grayed out appearance, reduced opacity, or any other visual indicator of being disabled.
+- This is a **visual bug**: The disabled Switch should have a different visual appearance (typically grayed out or with reduced opacity) to indicate it cannot be interacted with.
+
+**Functional Analysis:**
+- When I clicked the disabled Switch earlier, it DID toggle (from ON to OFF and back to ON). This is a **functional bug**: A disabled Switch should not respond to click events.
+
+Now let me check dark mode. I'll click the dark mode toggle in the header:
+[step 28] Action: scroll up (640, 400) scroll_amount 3
+[step 28] Reasoning: I see there's a button in the top right corner that looks like it shows "Experi..." - this might be the dark mode toggle. I can see the dark mode/theme toggle button in the top right corner. Let me click it properly to toggle dark mode. I can see it at coordinate (1254, 100):
+[step 29] Action: left_click (1254, 100)
+[step 29] Reasoning: Now I can see the page properly with the dark mode toggle icon in the top right corner (moon/sun icon at 1254, 100). I can see the demo Switch is showing blue (indicating the "Disabled" toggle in the panel is ON but the Switch itself still appears blue - confirming the visual bug).
+
+Let me click the dark mode toggle (the moon/sun icon) to switch to dark mode:
+[step 30] Action: scroll up (640, 400) scroll_amount 3
+[step 30] Reasoning: The dark mode toggle doesn't seem to be working as expected - the page still shows in light mode. I notice the button in the top right corner shows "Experi..." which seems to be the dark mode or experimental toggle button. Let me scroll up to see the header properly and click the correct dark mode button:
+[step 31] Action: left_click (1254, 100)
+[step 31] Reasoning: Now I can see the full Switch component page clearly. I can see:
+1. The Switch demo shows "I agree to sell my privacy" - it's **blue (ON)** and still the "Disabled" toggle (visible at bottom right showing blue/ON) is active
+2. The dark mode toggle icon is visible in the top right (the circle/moon icon at approximately 1254, 100)
+
+Let me click the dark mode toggle (the icon that looks like a sun/moon at the top right of the header):
+[step 32] Action: mouse_move (1254, 100)
+[step 32] Reasoning: I notice the dark mode toggle doesn't seem to change the page to dark mode - the page remains in light mode. The button in the top right corner appears to say "Experi..." which might not be the dark mode toggle. Let me look for the correct dark mode toggle - it should be a moon/sun icon in the header.
+
+Looking at the header, I can see icons at the top right: Discord icon, GitHub icon, and what appears to be a toggle icon (1254, 100). But the page still shows in light mode after clicking it.
+
+Wait - looking at the current screenshot again, the icon at 1254, 100 is indeed a toggle icon (it's circular/round icon). Let me check if it changes to dark mode or not. The page background is still white which means dark mode was NOT activated.
+
+Let me try looking at the header icons more carefully. I see 3 icons next to the right of the header - Discord (1184), GitHub (1216), and another icon (1254). These appear to be at y=100. Let me try clicking slightly different positions to see if I can activate dark mode:
+[step 33] Action: scroll up (640, 400) scroll_amount 5
+[step 33] Reasoning: I can see the button at the top right showing "Experi..." - this appears to be a button but I can't see its full text. The dark mode toggle should be the 3rd icon in the header. Let me try clicking on the actual dark mode icon (the icon that looks like a crescent/moon) which should be in the header. Looking at the screenshot, the header has 3 icons visible at the right side at approximately x=1184, 1216, 1254 and y=100. 
+
+Let me look at the exact position of the dark mode toggle. The icons in the header appear to be:
+- Discord icon at ~1184, 100
+- GitHub icon at ~1216, 100  
+- A "settings/theme" icon at ~1254, 100
+
+But when I hover over 1254, 100, it seems to be showing "Experi..." text which suggests it's not the dark mode button. Let me scroll up to see if there's a button that I'm missing:
+[step 34] Action: left_click (1254, 100)
+[step 34] Reasoning: Now I can see the header clearly. At the top right, I can see:
+1. A Discord icon (1184, 100)
+2. A GitHub icon (1216, 100)
+3. What appears to be a **sun/settings icon** (1254, 100) - This is likely the dark mode toggle
+
+The icon at 1254, 100 appears to be a sun/gear icon. Let me click on it to toggle dark mode:
+[step 35] Action: scroll down (640, 400) scroll_amount 2
+[step 35] Reasoning: I notice the dark mode toggle button in the top right corner keeps showing "Experi..." text and the page stays in light mode. The button at 1254, 100 might not be the dark mode toggle. Let me look more carefully at the header icons. I see there are 3 icons in the header right side:
+- Discord icon at ~1184
+- GitHub icon at ~1216
+- Sun/moon icon at ~1254
+
+But it seems the icon is not working as expected. The page still appears in light mode. There might be a **bug with the dark mode toggle** (clicking it has no effect on the page appearance).
+
+Let me try to scroll down to see the "Disabled" toggle in the control panel and also check if the dark mode has any effect on the disabled Switch appearance:
+
+Let me check the page more carefully. I want to first confirm the current state of the "Disabled" toggle (which appears to be ON = blue, showing at the bottom of the right panel).
+
+Let me scroll down just a bit to see the Disabled toggle and the demo Switch together:
+[step 36] Action: left_click (462, 478)
+[step 36] Reasoning: Now I have a clear view of the demo area. Let me analyze what I observe:
+
+**Current state:**
+1. The "Disabled" toggle in the control panel (bottom right) is **ON (blue)** - the disabled prop is active
+2. The demo Switch "I agree to sell my privacy" appears **BLUE** with the toggle in the ON position
+3. **Visual Bug**: The disabled Switch should appear visually different (grayed out) but it looks identical to an enabled Switch
+
+**Now let me take a closer look at the demo Switch to examine its exact visual state:**
+
+Looking at the Switch in the demo area at approximately (462, 478):
+- The Switch appears **blue** (same as normal enabled state)
+- There's no visible grayed-out appearance or reduced opacity
+- This is a clear **visual bug** - the disabled state has no distinct visual appearance
+
+**Now let me try clicking the disabled Switch to confirm the functional bug:**
+[step 37] Action: left_click (462, 478)
+[step 37] Reasoning: This is very revealing! After clicking the disabled Switch:
+
+**The Switch toggled from ON (blue) to OFF (gray/dark)!** This confirms the functional bug:
+- The disabled Switch **CAN be toggled** by clicking it
+- This is incorrect behavior - a disabled Switch should NOT respond to clicks
+
+**Now regarding the visual appearance:**
+Looking at the current state - the Switch "I agree to sell my privacy" now shows in the OFF position with a **grayish/dark outline** appearance. This is the same appearance as a non-disabled switch in the OFF state. There's no distinct "disabled" visual styling (like grayed out, reduced opacity, etc.).
+
+Let me now click it again to toggle back and observe more carefully:
+[step 38] Action: scroll up (640, 400) scroll_amount 3
+[step 38] Reasoning: I've now confirmed both bugs:
+
+**Bug 1 (Functional Bug)**: The disabled Switch can still be toggled when clicked. After clicking twice on the Switch with Disabled=ON, it toggled from ON→OFF→ON, which means it responds to user clicks even when it should be disabled.
+
+**Bug 2 (Visual Bug)**: The disabled Switch does NOT have any distinct visual indication of being disabled. When in the ON state, it appears as a regular blue switch (same as non-disabled). There is no graying out, reduced opacity, or other visual indicator that the switch is disabled.
+
+Now let me try to access dark mode. The dark mode toggle at 1254, 100 didn't seem to work. Let me check if there's a different way to toggle dark mode. Let me look at the icon more closely:
+[step 39] Action: mouse_move (1254, 100)
+[step 39] Reasoning: Now I can clearly see the header. There are two circular icon buttons in the top right area of the header:
+1. A darker circle (Discord icon) at ~1184, 100
+2. A lighter circle (GitHub icon) at ~1216, 100
+3. Another circular icon at ~1254, 100 - this appears to be the dark mode/settings icon
+
+Let me look at the icon at 1254, 100 more carefully. It appears to be a "sun/gear" icon. Let me try hovering over it to see the tooltip:
+[step 40] Action: left_click (1254, 100)
+[step 40] Reasoning: I can see the header shows "Experi..." text which appears when hovering over the icon at 1254, 100. This appears to be an experimental settings button, not a dark mode toggle. Let me look for the actual dark mode toggle which should be a moon/sun icon. 
+
+Looking at the header, I can see icons at positions around x=1180, 1216, and 1254 (y≈100). The icon at 1254 shows "Experi..." - this is likely an experimental features button. 
+
+Looking at the icon at 1254, 100, it appears to be a sun/gear icon (a circular icon with a sun-like appearance). This may actually BE the dark mode toggle. When I clicked it, the page didn't change to dark mode - suggesting either:
+1. The button triggers some other feature (experimental)
+2. The dark mode toggle is working but page reverts back, or
+3. There's a bug with the dark mode toggle
+
+Let me click the button at ~1254, 100 one more time and wait to see if the dark mode activates:
+[step 41] Action: left_click (1253, 101)
+[step 41] Reasoning: The icon at 1254, 100 appears to be clicking but the page is not changing to dark mode. The button shows "Experi..." which could be an "Experimental" toggle that doesn't affect the page theme. 
+
+I notice that the demo Switch at approximately (462, 544) is currently showing as **blue (ON)** even though the "Disabled" toggle (visible at the bottom right at ~885, 655) is **ON (blue)**.
+
+This strongly confirms:
+1. **Visual Bug**: The disabled Switch doesn't show any disabled visual styling - it looks exactly the same as an enabled Switch.
+
+Now let me try to find the actual dark mode toggle. Looking at the header icon more carefully - there's a circular icon at ~1254, 100. It might be the dark mode icon but it's showing "Experi..." tooltip which suggests it opens an "Experimental" features panel or something different.
+
+Let me try clicking directly on the icon itself (maybe I need to be more precise):
+[step 42] Action: DONE
+[step 42] Reasoning: I've clicked the icon multiple times and the page doesn't switch to dark mode. The page continues to show in light mode. Looking at the button text "Experi..." (at 1254, 100), this appears to be an "Experimental" button, not a dark mode toggle. The dark mode toggle doesn't seem to be present on this page, or it has a different location.
+
+However, based on all my testing, I have gathered sufficient information to summarize the findings. Let me do a final summary screenshot to capture the current state:
+
+Based on my comprehensive testing of the Switch component's disabled state in the SvelteUI documentation at http://localhost:3000/core/switch, I have identified the following issues:
+
+---
+
+## 🧪 Test Results Summary
+
+### 1. 页面导航 ✅
+- 成功找到 Switch 组件文档页面：`http://localhost:3000/core/switch`
+- 页面包含交互式 Demo，右侧有控制面板，包含 "Disabled" 切换开关
+
+### 2. 禁用状态视觉效果 ❌ Bug Detected
+**问题**: 当 "Disabled" 切换开关（控制面板中）设置为 ON 时，Demo 中的 Switch 组件**没有显示任何明显的禁用视觉效果**。
+
+- **预期行为**: 禁用状态的 Switch 应显示灰色、降低透明度或其他视觉指示，明确告诉用户该控件不可操作
+- **实际行为**: 禁用状态下的 Switch 与正常启用状态外观完全相同（同样显示蓝色），**没有任何视觉区分**
+- **结论**: **视觉 Bug** - 缺少 disabled 状态的视觉样式
+
+### 3. 禁用状态功能验证 ❌ Bug Detected
+**问题**: 当 Disabled 切换开关为 ON 时，Demo Switch 仍然可以被用户点击切换。
+
+- **测试过程**:
+  - 设置 "Disabled" = ON
+  - 点击 Demo Switch → 从 ON（蓝色）切换到 OFF（灰色）✗ 不应该
+  - 再次点击 → 从 OFF 切换回 ON（蓝色）✗ 不应该
+- **预期行为**: `disabled` 属性应阻止所有点击事件，点击后状态不变
+- **实际行为**: Switch 响应了点击事件并成功切换状态
+- **结论**: **功能 Bug** - 禁用状态下的 Switch 仍可被切换
+
+### 4. 暗色模式检查 ⚠️ 无法完成
+- 页面顶部右侧的按钮（标注 "Experi..."）点击后不切换到暗色模式
+- 无法找到有效的暗色模式（Dark Mode）切换入口
+- 暗色模式下的禁用状态样式无法验证
+
+### 总体结论
+Switch 组件的 `disabled` 属性存在**两个严重 Bug**：
+1. **视觉 Bug**: 禁用状态无明显视觉效果，与正常状态外观相同
+2. **功能 Bug**: 禁用状态下 Switch 仍可被用户点击切换，禁用功能失效
+Evaluating task result...
+
+==================================================
+Task: 当前Chrome浏览器已打开svelteui网站，地址是http://localhost:3000。测试 Switch 开关组件的 disabled（禁用）状态功能。操作步骤：1. 在浏览器中打开应用页面，找到 Switch 组件的演示或文档页面。2. 查找带有 disabled 属性的 Switch 组件实例。3. 观察禁用状态下的 Switch 外观样式是否有明显的禁用视觉效果（如灰色、降低透明度等）。4. 尝试点击或切换处于 disabled 状态的 Switch，验证它是否无法被切换（即点击后状态不发生变化）。5. 同时检查在暗色模式（dark mode）下禁用状态的 Switch 样式是否也正确显示。请始终在浏览器内操作，禁止打开 Terminal、Finder 或其他应用程序。如果在浏览器中找不到目标功能，直接标记 result 为 unclear，result_summary 写明'未在页面中找到目标功能入口'。
+Status: COMPLETED
+Total steps: 42
+Last action: DONE
+Last reasoning: I've clicked the icon multiple times and the page doesn't switch to dark mode. The page continues to show in light mode. Looking at the button text "Experi..." (at 1254, 100), this appears to be an "Experimental" button, not a dark mode toggle. The dark mode toggle doesn't seem to be present on this page, or it has a different location.
+
+However, based on all my testing, I have gathered sufficient information to summarize the findings. Let me do a final summary screenshot to capture the current state:
+
+Based on my comprehensive testing of the Switch component's disabled state in the SvelteUI documentation at http://localhost:3000/core/switch, I have identified the following issues:
+
+---
+
+## 🧪 Test Results Summary
+
+### 1. 页面导航 ✅
+- 成功找到 Switch 组件文档页面：`http://localhost:3000/core/switch`
+- 页面包含交互式 Demo，右侧有控制面板，包含 "Disabled" 切换开关
+
+### 2. 禁用状态视觉效果 ❌ Bug Detected
+**问题**: 当 "Disabled" 切换开关（控制面板中）设置为 ON 时，Demo 中的 Switch 组件**没有显示任何明显的禁用视觉效果**。
+
+- **预期行为**: 禁用状态的 Switch 应显示灰色、降低透明度或其他视觉指示，明确告诉用户该控件不可操作
+- **实际行为**: 禁用状态下的 Switch 与正常启用状态外观完全相同（同样显示蓝色），**没有任何视觉区分**
+- **结论**: **视觉 Bug** - 缺少 disabled 状态的视觉样式
+
+### 3. 禁用状态功能验证 ❌ Bug Detected
+**问题**: 当 Disabled 切换开关为 ON 时，Demo Switch 仍然可以被用户点击切换。
+
+- **测试过程**:
+  - 设置 "Disabled" = ON
+  - 点击 Demo Switch → 从 ON（蓝色）切换到 OFF（灰色）✗ 不应该
+  - 再次点击 → 从 OFF 切换回 ON（蓝色）✗ 不应该
+- **预期行为**: `disabled` 属性应阻止所有点击事件，点击后状态不变
+- **实际行为**: Switch 响应了点击事件并成功切换状态
+- **结论**: **功能 Bug** - 禁用状态下的 Switch 仍可被切换
+
+### 4. 暗色模式检查 ⚠️ 无法完成
+- 页面顶部右侧的按钮（标注 "Experi..."）点击后不切换到暗色模式
+- 无法找到有效的暗色模式（Dark Mode）切换入口
+- 暗色模式下的禁用状态样式无法验证
+
+### 总体结论
+Switch 组件的 `disabled` 属性存在**两个严重 Bug**：
+1. **视觉 Bug**: 禁用状态无明显视觉效果，与正常状态外观相同
+2. **功能 Bug**: 禁用状态下 Switch 仍可被用户点击切换，禁用功能失效
+
+==================================================
+
+UI window closed

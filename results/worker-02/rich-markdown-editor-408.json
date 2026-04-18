@@ -1,0 +1,18 @@
+{
+  "task_id": "rich-markdown-editor-408",
+  "repo": "outline/rich-markdown-editor",
+  "worker": "worker-02",
+  "status": "completed",
+  "sess_id": "sess-20260419010728-ae48e1d1b58d4fd1ad9593fc029e980a",
+  "expected_result_used": true,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-19T01:11:28+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 20,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "预置代码块在页面初始加载时无语法高亮（所有HTML标签、属性、文本显示为统一深色），需要用户点击/聚焦编辑器后语法高亮才出现。测试确认：1) Code story中预置HTML代码块初始状态无颜色区分；2) 点击聚焦后HTML标签变为蓝绿色，属性值有颜色区分；3) 手动创建的JavaScript代码块中const/function/return显示红色、函数名hello显示蓝绿色，语法高亮功能本身正常。核心bug：语法高亮器未在初始渲染时应用于预置代码块，仅在用户交互（focus事件）后激活。",
+    "last_reasoning": "在Code story中观察到预置HTML代码块初始加载时所有文本颜色统一（无高亮），点击聚焦后语法高亮出现。在Default story中手动创建的JavaScript代码块语法高亮正常工作。Bug确认：初始加载时预置代码不显示语法高亮。"
+  }
+}

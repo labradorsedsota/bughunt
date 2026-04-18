@@ -1,0 +1,133 @@
+Session created: sess-20260417171259-f1ba90e01555451c95dddb6bfc2fa7cd
+UI panel initialized successfully
+UI window displayed
+Expected result: 分页来回切换后，返回第一页时TemplateRef列的内容应与初始渲染完全一致，每个单元格中模板内容只出现一次，没有重复渲染。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: scroll down (640, 400) scroll_amount 4
+[step 1] Reasoning: I can see the Angular TemplateRef page is loaded. Let me scroll down to see the table content with all rows.
+[step 2] Action: scroll down (640, 400) scroll_amount 5
+[step 2] Reasoning: I can see the table now. The "Actions" column contains an "ACTION 1" button rendered via TemplateRef. I can see rows with IDs 3 and 10 so far. Let me scroll down more to see all the rows on the first page.
+[step 3] Action: scroll down (640, 400) scroll_amount 5
+[step 3] Reasoning: Now I can see more rows. The table shows the first page with rows having IDs 3, 10, 11, 22, 26 so far. The "Actions" column has "ACTION 1" buttons rendered via TemplateRef. Let me scroll down more to see all 10 rows and the pagination controls.
+[step 4] Action: scroll down (640, 400) scroll_amount 5
+[step 4] Reasoning: I can see more rows now. IDs 3, 10, 11, 22, 26, 31, 32, 37, 39... Let me scroll down more to see the complete first page and the pagination controls.
+[step 5] Action: left_click (1189, 596)
+[step 5] Reasoning: Excellent! Now I can see the complete first page. The table shows "Showing 1 to 10 of 300 entries". Here are all 10 rows on the first page:
+
+**First Page - Initial State:**
+| ID | First name | Last name | Actions (TemplateRef) |
+|----|------------|-----------|----------------------|
+| 3  | Cartman    | Whateveryournameis | ACTION 1 |
+| 10 | Cartman    | Titi | ACTION 1 |
+| 11 | Toto       | Lara | ACTION 1 |
+| 22 | Luke       | Yoda | ACTION 1 |
+| 26 | Foo        | Moliku | ACTION 1 |
+| 31 | Luke       | Someone Last Name | ACTION 1 |
+| 32 | Batman     | Lara | ACTION 1 |
+| 37 | Zed        | Kyle | ACTION 1 |
+| 39 | Louis      | Whateveryournameis | ACTION 1 |
+| 41 | Superman   | Yoda | ACTION 1 |
+
+Each row has exactly one "ACTION 1" button rendered via TemplateRef. The pagination shows page 1 is active with "Next" button visible. Now let me click the "Next" button to go to the second page.
+[step 6] Action: left_click (811, 596)
+[step 6] Reasoning: The Next button worked and I'm now on page 2 ("Showing 11 to 20 of 300 entries"). Page 2 shows rows with IDs: 42 (Batman, Moliku), 43 (Zed, Lara), 46 (Foo, Someone Last Name), 47 (Superman, Someone Last Name), 48 (Toto, Bar), 48 (Batman, Lara), 54 (Luke, Bar), 62 (Foo, Kyle), 80 (Zed, Kyle), 87 (Zed, Someone Last Name). Each row has an "ACTION 1" button. Now let me click "Previous" to go back to page 1.
+[step 7] Action: scroll down (640, 400) scroll_amount 4
+[step 7] Reasoning: **🚨 BUG DETECTED!** After clicking "Previous" to return to page 1, I can clearly see a rendering bug in the TemplateRef column. Each row now shows **TWO "ACTION 1" buttons** instead of one:
+
+- Row ID 11 (Toto, Lara): Has **ACTION 1** + **ACTION 1** (duplicated)
+- Row ID 22 (Luke, Yoda): Has **ACTION 1** + **ACTION 1** (duplicated)
+- Row ID 26 (Foo, Moliku): Has **ACTION 1** + **ACTION 1** (duplicated)
+- Row ID 31 (Luke, Someone Last Name): Has **ACTION 1** + **ACTION 1** (duplicated)
+- Row ID 32 (Batman, Lara): Has **ACTION 1** + **ACTION 1** (duplicated)
+
+This is a clear TemplateRef duplication bug - when navigating back to the first page, the buttons from the previous render are not cleaned up, causing duplicate "ACTION 1" buttons to appear in each cell. Let me scroll down to confirm all rows are affected.
+[step 8] Action: scroll down (640, 400) scroll_amount 4
+[step 8] Reasoning: The bug is confirmed across all rows. I can see that:
+
+- **ID 22 (Luke, Yoda):** Shows only 1 "ACTION 1" button
+- **ID 26 (Foo, Moliku):** Shows **2 "ACTION 1" buttons** (duplicated)
+- **ID 31 (Luke, Someone Last Name):** Shows **2 "ACTION 1" buttons** (duplicated)
+- **ID 32 (Batman, Lara):** Shows **2 "ACTION 1" buttons** (duplicated)
+- **ID 37 (Zed, Kyle):** Shows **2 "ACTION 1" buttons** (duplicated, partially visible at bottom)
+
+Let me scroll down to see the remaining rows and verify the full extent of the bug.
+[step 9] Action: DONE
+[step 9] Reasoning: The bug is now fully confirmed across all rows. After navigating Next → Previous, the TemplateRef column shows duplicate "ACTION 1" buttons in every row:
+
+**After returning to Page 1 (Bug State):**
+| ID | First name | Last name | Actions (TemplateRef) - BUGGY |
+|----|------------|-----------|-------------------------------|
+| 31 | Luke | Someone Last Name | **ACTION 1 + ACTION 1** (×2) |
+| 32 | Batman | Lara | **ACTION 1 + ACTION 1** (×2) |
+| 37 | Zed | Kyle | **ACTION 1 + ACTION 1** (×2) |
+| 39 | Louis | Whateveryournameis | **ACTION 1 + ACTION 1** (×2) |
+| 41 | Superman | Yoda | **ACTION 1 + ACTION 1** (×2) |
+
+## 🐛 **BUG REPORT: TemplateRef Content Duplication After Pagination Navigation**
+
+### Summary
+**FAIL** - A critical rendering bug was identified in the angular-datatables TemplateRef example at `http://localhost:4200/#/advanced/using-template-ref`.
+
+### Steps to Reproduce
+1. Open the TemplateRef example page
+2. Observe the table's "Actions" column on page 1 — each row correctly shows exactly **one "ACTION 1" button**
+3. Click "Next" to navigate to page 2 — page 2 shows normal rendering (one button per row)
+4. Click "Previous" to return to page 1
+
+### Expected Result
+After returning to page 1, each row in the "Actions" column should show exactly **one "ACTION 1" button**, identical to the initial state.
+
+### Actual Result (Bug)
+After navigating back to page 1, **most rows show TWO "ACTION 1" buttons** stacked vertically in the Actions column. The TemplateRef content is not cleaned up properly between page navigations — old rendered content accumulates, causing duplication.
+
+### Affected Rows
+All 10 rows on page 1 appear affected (IDs: 3, 10, 11, 22, 26, 31, 32, 37, 39, 41), with most showing 2 duplicate buttons instead of 1.
+
+### Root Cause (Likely)
+The Angular TemplateRef rendering logic does not destroy/detach previous views before re-rendering when the DataTable re-draws its rows during pagination. The `EmbeddedViewRef` from `TemplateRef.createEmbeddedView()` is being inserted into the DOM without first clearing existing views, leading to content duplication on every pagination event.
+Evaluating task result...
+
+==================================================
+Task: 当前Chrome浏览器已打开angular-datatables的TemplateRef示例页面，地址是http://localhost:4200/#/advanced/using-template-ref。测试分页导航后TemplateRef渲染是否正确。操作步骤：1. 观察表格初始渲染状态，注意每行中通过ng-template渲染的内容（特别是带有按钮或链接的列）；2. 记住第一页各行TemplateRef列的内容；3. 点击分页控件中的Next按钮跳转到下一页；4. 再点击Previous按钮返回到第一页；5. 检查返回第一页后，每行TemplateRef渲染的列内容是否与初始状态一致，不应出现重复内容。始终在浏览器内操作，禁止打开Terminal、Finder或其他应用程序。
+Status: COMPLETED
+Total steps: 9
+Last action: DONE
+Last reasoning: The bug is now fully confirmed across all rows. After navigating Next → Previous, the TemplateRef column shows duplicate "ACTION 1" buttons in every row:
+
+**After returning to Page 1 (Bug State):**
+| ID | First name | Last name | Actions (TemplateRef) - BUGGY |
+|----|------------|-----------|-------------------------------|
+| 31 | Luke | Someone Last Name | **ACTION 1 + ACTION 1** (×2) |
+| 32 | Batman | Lara | **ACTION 1 + ACTION 1** (×2) |
+| 37 | Zed | Kyle | **ACTION 1 + ACTION 1** (×2) |
+| 39 | Louis | Whateveryournameis | **ACTION 1 + ACTION 1** (×2) |
+| 41 | Superman | Yoda | **ACTION 1 + ACTION 1** (×2) |
+
+## 🐛 **BUG REPORT: TemplateRef Content Duplication After Pagination Navigation**
+
+### Summary
+**FAIL** - A critical rendering bug was identified in the angular-datatables TemplateRef example at `http://localhost:4200/#/advanced/using-template-ref`.
+
+### Steps to Reproduce
+1. Open the TemplateRef example page
+2. Observe the table's "Actions" column on page 1 — each row correctly shows exactly **one "ACTION 1" button**
+3. Click "Next" to navigate to page 2 — page 2 shows normal rendering (one button per row)
+4. Click "Previous" to return to page 1
+
+### Expected Result
+After returning to page 1, each row in the "Actions" column should show exactly **one "ACTION 1" button**, identical to the initial state.
+
+### Actual Result (Bug)
+After navigating back to page 1, **most rows show TWO "ACTION 1" buttons** stacked vertically in the Actions column. The TemplateRef content is not cleaned up properly between page navigations — old rendered content accumulates, causing duplication.
+
+### Affected Rows
+All 10 rows on page 1 appear affected (IDs: 3, 10, 11, 22, 26, 31, 32, 37, 39, 41), with most showing 2 duplicate buttons instead of 1.
+
+### Root Cause (Likely)
+The Angular TemplateRef rendering logic does not destroy/detach previous views before re-rendering when the DataTable re-draws its rows during pagination. The `EmbeddedViewRef` from `TemplateRef.createEmbeddedView()` is being inserted into the DOM without first clearing existing views, leading to content duplication on every pagination event.
+
+==================================================
+
+UI window closed

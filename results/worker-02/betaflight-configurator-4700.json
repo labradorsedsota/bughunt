@@ -1,0 +1,23 @@
+{
+  "task_id": "betaflight-configurator-4700",
+  "repo": "betaflight/betaflight-configurator",
+  "worker": "worker-02",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T23:22:04+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "git clone反复超时/失败。仓库体积大，shallow clone后无法fetch到目标commit 2b6d727eeb（deepen 500仍超时），full clone也因网络问题失败。",
+    "attempted": [
+      "git clone --depth 1（成功但checkout目标commit需要full history）",
+      "git fetch --unshallow（超时SIGKILL）",
+      "git fetch --deepen=500（超时SIGKILL）",
+      "git clone --filter=blob:none --depth 1（checkout失败，pack文件损坏）",
+      "无代理直接clone（超时/失败）"
+    ],
+    "recommendation": "仓库体积大+网络带宽不足，需要稳定网络环境或预下载"
+  }
+}

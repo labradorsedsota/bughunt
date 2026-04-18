@@ -1,0 +1,20 @@
+{
+  "task_id": "karakeep-2299",
+  "repo": "karakeep-app/karakeep",
+  "worker": "worker-02",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T23:43:39+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "git clone超时（直连75秒后Failed to connect，代理clone也超时SIGKILL）。仓库体积大。",
+    "attempted": [
+      "git clone直连（Failed to connect to github.com port 443 after 75004 ms）",
+      "git clone via proxy --depth 1（超时SIGKILL）"
+    ],
+    "recommendation": "仓库体积大，需稳定网络环境"
+  }
+}

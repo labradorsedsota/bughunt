@@ -1,0 +1,942 @@
+Session created: sess-20260417143442-8a94be70c6b841029050f0a2912fd360
+UI panel initialized successfully
+UI window displayed
+Expected result: SVG骨架屏组件内应包含title元素，且有默认的加载提示文字如Loading...；SVG元素上应有aria-labelledby属性，正确关联到title元素的id；若支持自定义title prop，修改后title文本应相应变化。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: Minimize panel
+[step 1] Reasoning: I can see the Storybook page with a ContentLoader (Facebook style) SVG skeleton screen component. Let me minimize the task panel first, then proceed to inspect the SVG element.
+[step 2] Action: left_click (700, 300)
+[step 2] Reasoning: Good, the panel is minimized. I can see the ContentLoader SVG skeleton screen on the page. Now let me right-click on the SVG skeleton screen component to open the DevTools inspector.
+[step 3] Action: right_click (594, 127)
+[step 3] Reasoning: Good, I can see the SVG skeleton screen. Now I'll right-click on the SVG component to open the context menu and select "Inspect".
+[step 4] Action: left_click (612, 387)
+[step 4] Reasoning: I can see the context menu with "检查" (Inspect) option at the bottom. Let me click on it to open DevTools.
+[step 5] Action: left_click (174, 555)
+[step 5] Reasoning: DevTools is now open. I can see the Elements panel with the HTML structure. I can see there's an SVG element in the DOM. The DevTools is currently showing a `<rect>` element is selected. I need to navigate to the SVG element to inspect it. Let me look at the DOM tree more carefully - I can see there's an `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">` element. Let me click on it to expand it and see the title element inside.
+
+Let me click on the `<svg` element in the Elements panel to select it and see its attributes and children.
+[step 6] Action: left_click (139, 555)
+[step 6] Reasoning: I can see the SVG element is selected (shown as `svg 400 × 130` in the preview). I can see the SVG element in the Elements panel: `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">`. I notice it shows `== $0` which means it's selected. However, I need to see all the attributes of the SVG element. Let me look at what attributes the SVG has. Let me click on the expand arrow to see the full SVG element structure.
+
+I can see in the DOM:
+- `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">`
+  - `<rect clip-path="url(#novnbh61ø m)" x="0" y="0" width="400" height="130" style="fill: url(#b0wh6mi7j8);">`
+  - `<defs>` ... `</defs>`
+  - `</svg>`
+
+I notice the SVG element only shows `viewBox` and `preserveAspectRatio` attributes - I don't see `aria-labelledby` or `role` attributes. Let me expand the SVG element to look for a `<title>` element and check the full attributes.
+
+Let me click on the triangle/arrow to expand the SVG element.
+[step 7] Action: left_click (141, 555)
+[step 7] Reasoning: I can see the SVG element is now showing `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet"> … </svg>` but it's collapsed (shown with `…`). Let me click the expand arrow next to the SVG element to expand it and see its children.
+[step 8] Action: left_click (114, 471)
+[step 8] Reasoning: I can see the SVG element is now expanded in the DevTools. Looking at the DOM structure, I can see:
+- `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">` 
+  - `<rect clip-path="url(#novnbh61øm)" x="0" y="0" width="400" height="130" style="fill: url(#b0wh6mi7j8);">`
+  - `<defs>` ... `</defs>`
+  - `</svg>`
+
+I notice the SVG element only shows `viewBox` and `preserveAspectRatio` attributes. I don't see `aria-labelledby` attribute. I also don't see a `<title>` element inside the SVG. Let me use the Console to inspect this more precisely. Let me switch to the Console tab to run JavaScript queries.
+[step 9] Action: left_click (640, 640)
+[step 9] Reasoning: Good, I'm now in the Console tab. I can see the console is showing the storybook-preview context. However, the SVG is rendered inside an iframe. I need to make sure I'm querying within the correct iframe context. Let me check what context is selected in the console dropdown. I can see "storybook-pre..." is selected. 
+
+I notice the console is accessing the storybook-preview iframe. Let me run a query to find the SVG element and check for title element and aria-labelledby attribute.
+[step 10] Action: left_click (640, 539)
+[step 10] Reasoning: Good, I can see the console input area is ready. The console context is set to "storybook-pre..." which means it's in the storybook-preview iframe context. Let me type the JavaScript command to inspect the SVG element.
+[step 11] Action: left_click (640, 539)
+[step 11] Reasoning: Let me click on the console input at the bottom of the console area to type a command.
+[step 12] Action: left_click (100, 539)
+[step 12] Reasoning: I need to click on the console input field to type a JavaScript query. Let me click on the area where the cursor `>` is visible at the bottom of the console.
+[step 13] Action: scroll down (640, 580) scroll_amount 3
+[step 13] Reasoning: I need to scroll down in the console to find the input field. Let me scroll down in the console area.
+[step 14] Action: left_click (640, 655)
+[step 14] Reasoning: The console doesn't seem to have a visible input area. Let me try clicking at the very bottom of the console area to activate the input.
+[step 15] Action: key: Escape
+[step 15] Reasoning: The console input isn't visible. Let me try using keyboard shortcut to focus the console. Let me try pressing `Escape` first and then clicking in the console area.
+[step 16] Action: left_click (680, 580)
+[step 16] Reasoning: Good, I can see the DevTools is still open with the Console tab active. The console area seems to be a bit truncated. Let me try to click in the console body area and then use keyboard shortcut to open the console input.
+
+Let me try clicking on the console main area (the right panel area):
+[step 17] Action: left_click (100, 538)
+[step 17] Reasoning: I can see the console with the `>` prompt at line 3 (the `>` visible). Let me try clicking on the `>` prompt area to activate the console input.
+[step 18] Action: left_click (1187, 471)
+[step 18] Reasoning: The console input area is not visible. The DevTools appears to only show the sidebar with message counts and the main area is limited. I notice the console is using a two-panel layout where the left side shows message type filters and the right side shows the actual console output. The console input seems to be hidden/missing. Let me try the "Escape" key or try clicking the "Console" tab link on the right side (which seems to be a separate view).
+
+Let me try clicking on the "Console" tab at the top right of the devtools (which I can see in the toolbar).
+[step 19] Action: left_click (680, 540)
+[step 19] Reasoning: The console input area is not showing properly. The DevTools seems to be in a split mode. The console seems to lack the input prompt. This might be a display issue with the DevTools layout. Let me try undocking and re-docking the DevTools or try using keyboard shortcut to focus the console. Let me try pressing F12 to close the DevTools and then reopen it using "Inspect" on the right-click context menu on the SVG.
+
+Actually, let me try a different approach - use the keyboard shortcut to open the DevTools console (Cmd+Option+J on Mac, or F12). But first let me try clicking in the area below the console messages to see if there's an input.
+
+Let me try clicking to the right side of the console panel more precisely:
+[step 20] Action: key: Escape
+[step 20] Reasoning: The console input field is still not appearing. It seems the DevTools is displaying in a strange layout. Let me try using Cmd+` (backtick) or Escape to toggle the console drawer. Let me also try clicking on the "Console" link in the top right of the devtools header.
+
+Actually, I see the issue - the DevTools seems to be in a special mode where the Console is showing in the sidebar panel. The console might not have the input visible because of the panel layout. Let me try switching to the Elements tab first and then back.
+
+Let me look more carefully at the DevTools UI. I see:
+- Top tabs: Elements, Console, Sources, Network, Performance, Memory, Application, Security, Lighthouse, Recorder
+- The left panel shows "2 messages", "2 user me...", "No errors", "No warni...", "2 info", "No verbose" 
+- The right panel shows the console output with "Download the React DevTools..." and "[HMR] connected"
+
+The input area seems to be below the current visible area. Let me try dragging the DevTools panel to make it taller.
+
+Let me try pressing Escape to open the console drawer:
+[step 21] Action: left_click (680, 539)
+[step 21] Reasoning: Now I can see the console input area! I can see `> |` at line 3 (the cursor is blinking). The console context is "storybook-pre..." which means it's in the storybook-preview iframe context. Now let me type the JavaScript command to inspect the SVG element's title and aria-labelledby attributes.
+
+Let me type a command to find the SVG element and check its attributes:
+[step 22] Action: left_click_drag (640, 350)
+[step 22] Reasoning: Let me try to make the DevTools panel taller by dragging the resize handle. I'll first try to drag the top border of the DevTools panel upward to make it bigger.
+[step 23] Action: left_click (600, 600)
+[step 23] Reasoning: I can now see the DevTools panel is bigger, but the console input area is still not visible at the bottom. The console area only shows the messages but the input area is still missing. Let me click on the area at the bottom of the console to see if there's input there:
+[step 24] Action: left_click (640, 605)
+[step 24] Reasoning: It looks like the layout has changed now - the DevTools is now docking at the bottom of the browser window, and the console panel is visible. I can see the console tabs at the bottom, but I need to scroll down to find the console input. Let me scroll down in the console panel to find the input area.
+
+Let me first click on the DevTools area and then try to use keyboard shortcut:
+[step 25] Action: key: ctrl+shift+j
+[step 25] Reasoning: The DevTools is still not showing the console input. Let me try using keyboard shortcut Cmd+Option+J to open the JavaScript console:
+[step 26] Action: scroll down (640, 640) scroll_amount 3
+[step 26] Reasoning: The console input is still not visible. It seems the console panel is not showing the input at the bottom because the panel might be collapsed or the layout is odd. Let me try to scroll down in the DevTools console area to see if the input is at the bottom:
+[step 27] Action: left_click (114, 605)
+[step 27] Reasoning: I see that the console is showing the sidebar with "2 messages" and "2 user me..." but the right panel area is empty/not showing the console input. The console area seems to be in a state where the console input (the `>` prompt) is not visible. 
+
+Let me try clicking the "Console" tab at the top of the DevTools:
+[step 28] Action: left_click_drag (640, 350)
+[step 28] Reasoning: I can see the DevTools is showing but the console input area is still not visible. Let me try scrolling up within the console panel to see if the messages are shown, and the input is at the bottom. Let me try to expand the DevTools by dragging the top border of DevTools upwards to give it more space:
+[step 29] Action: left_click (600, 428)
+[step 29] Reasoning: Now I can see the console input area! I can see the `> |` (cursor) at line 3, just below `[HMR] connected`. The console context is `storybook-pre...` which is the storybook-preview iframe context.
+
+Now I can see the ContentLoader SVG skeleton screen in the preview area of Storybook - showing a Facebook-style skeleton with an avatar circle and some text lines.
+
+Let me now click on the console input area and type my JavaScript command to inspect the SVG element:
+[step 30] Action: left_click (600, 507)
+[step 30] Reasoning: I can see the console panel but still cannot see the `> |` input cursor. Looking more carefully, I see ">" arrow at line 3 of the console area (after "[HMR] connected"), but the console input still seems to be hidden below the current panel height. 
+
+Looking at the console area, I can see:
+- Line 1: "Download the React DevTools for a better development experience: ..."
+- Line 2: "[HMR] connected"
+- Line 3: ">" (which is the console input area/prompt)
+
+The `>` symbol seems to be at the bottom of the console messages. The input area is just not visible because the panel height doesn't allow it. 
+
+Let me try clicking directly on the `>` symbol (around coordinate 97, 505):
+[step 31] Action: left_click (97, 505)
+[step 31] Reasoning: I can see the `>` at around coordinate (97, 505). Let me click directly on it:
+[step 32] Action: left_click (600, 505)
+[step 32] Reasoning: I can see there's a `>` symbol at line 3 of the console output. Let me now click at the right side of this `>` symbol to try to focus the console input. Looking at the screenshot, I see `>` is at approximately coordinate (97, 505). 
+
+The problem is that the console input seems to be there but the cursor isn't focused on it. Let me try clicking at a broader area of the console panel and then try typing:
+[step 33] Action: type: document.querySel...
+[step 33] Reasoning: The console input area seems to be at line 3 (the `>` prompt after "[HMR] connected"). However, the cursor is not focused there - the console input might be a hidden element or the input area is below the visible area. 
+
+Let me try a different approach - I'll try to use the keyboard shortcut to open a new console by pressing Ctrl+` (backtick), or try to use the "Show console drawer" button. But first, let me try a different approach: let me try pressing the keyboard to type directly in the console:
+[step 34] Action: left_click (600, 527)
+[step 34] Reasoning: I can see there's a security warning from Chrome: "Warning: Don't paste code into the DevTools Console that you don't understand or haven't reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type 'allow pasting' below and press Enter to allow pasting."
+
+This is the Chrome DevTools self-XSS protection message. I need to type "allow pasting" to enable pasting. Let me first clear the current input, type "allow pasting", press Enter, and then type the actual JavaScript command.
+
+Looking at the console, I can see:
+- The `>` prompt is now at the bottom, and the console is now accepting input
+- The security warning is shown in yellow
+- There's also `>` visible at line 4 (the current console prompt)
+
+Let me type "allow pasting" to enable pasting:
+[step 35] Action: type: allow pasting
+[step 35] Reasoning: I can see the console input is now visible at the bottom (line 4 shows `> |` with a cursor). The console is now focused and ready for input. I need to first type "allow pasting" to enable pasting, as requested by Chrome's security warning. Let me type "allow pasting":
+[step 36] Action: key: Return
+[step 36] Reasoning: I see the console warning count increased to "2 warnings" which might be because the input "allow pasting" was pasted. I also see the `>` prompt is now visible but I need to scroll down to see the input area. Let me now press Enter to submit "allow pasting":
+[step 37] Action: left_click (200, 527)
+[step 37] Reasoning: I still see the same warning. The console doesn't seem to have cleared the "allow pasting" step. The console still shows the security warning and the count is "4 messages" and "2 warnings". 
+
+Let me try a different approach. I need to interact with the console properly. Looking at the console, I see the `>` at the bottom. Let me try clicking on the `>` symbol at the bottom of the console (around coordinate 94, 527):
+[step 38] Action: left_click (94, 527)
+[step 38] Reasoning: I can see the console panel with the security warning. Looking more carefully at the console, I can see:
+- Line 1: "Download the React DevTools..."
+- Line 2: "[HMR] connected"
+- Line 3 (yellow warning): "Warning: Don't paste code into the DevTools Console..."
+- Line 4: `>` (console prompt)
+
+The `>` prompt seems to be at the very bottom of the console area. I see the console input is not editable - it seems the console area below the warning is the actual input field. Let me try clicking directly on the `>` at line 4:
+
+Let me try clicking at coordinate (94, 527) which seems to be at the `>` prompt:
+[step 39] Action: left_click (107, 527)
+[step 39] Reasoning: I see that the console input area is still very small (only the `>` symbol is visible at the bottom). The console messages panel is taking up most of the space, and the input area (`>`) is barely visible at the bottom. 
+
+Looking at the console layout, the input area is at the bottom right side. I need to click directly on the `>` symbol which appears to be at around x=97, y=527. The cursor should blink after clicking.
+
+Let me try clicking on line 4 more precisely:
+[step 40] Action: left_click (66, 439)
+[step 40] Reasoning: I see the console panel looks the same. The console input area (`>`) seems to be at around row 4. Looking at the DevTools layout, I notice the console is using a "sidebar" panel mode where:
+- Left side shows message type categories (4 messages, 2 user me..., No errors, 2 warnings, 2 info, No verbose)
+- Right side shows the console output messages
+
+The console input area seems to be at the bottom of the right panel. The `>` is visible at coordinate around (94, 527). 
+
+Let me try a completely different approach. Instead of trying to use the Console to run JavaScript, let me use the Elements panel to inspect the SVG element directly. Let me switch to the Elements tab:
+[step 41] Action: left_click (140, 547)
+[step 41] Reasoning: Excellent! Now I can see the Elements panel! I can see the HTML structure of the page, and the SVG element is highlighted. Looking at the DOM tree, I can see:
+
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet"> == $0
+  <rect clip-path="url(#novnbh610m)" x="0" y="0" width="400" height="130" style="fill: url(#b0wh6mi7j8);">
+  <defs>...</defs>
+</svg>
+```
+
+This is very important! The SVG element is `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">`. I can see that:
+1. The SVG element only has `viewBox` and `preserveAspectRatio` attributes - **no `aria-labelledby` attribute**
+2. The children of the SVG are a `<rect>` and `<defs>` element - **no `<title>` element**
+
+The breadcrumb at the bottom shows: `html > body > div#root > div > div > div.div.SplitPane.vertical > div.Pane.vertical.Pane2 > div.SplitPane.horizontal > div.Pane.horizontal.Pane1 > div > div > iframe#storybook-preview-iframe > html > body > div#root > div > svg`
+
+This confirms that the SVG element (`svg`) is selected. Let me now look at the SVG element's attributes more carefully. I can see it's the element with the class shown in the breadcrumb at the bottom. 
+
+Looking at the DOM tree:
+- `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">` - I see only `viewBox` and `preserveAspectRatio` attributes
+- No `aria-labelledby` attribute
+- No `title` element inside the SVG
+
+However, I need to expand the SVG element to see all its children including potential `<title>` element. The SVG seems to have `<defs>` collapsed. Let me click on the expand arrow for `<defs>` to see what's inside, and also check if there's a `<title>` element.
+
+Let me click on the `<svg` element in the Elements panel to expand it and see all children:
+[step 42] Action: left_click (140, 547)
+[step 42] Reasoning: I can see the SVG element is now collapsed showing `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">…</svg>`. The SVG is highlighted in the page preview showing the skeleton screen area. Looking at the SVG element attributes: I can see only `viewBox="0 0 400 130"` and `preserveAspectRatio="xMidYMid meet"` attributes. 
+
+Now I need to expand the SVG element to see all its children. Let me click on the triangle/expand arrow next to the `<svg` element:
+[step 43] Action: left_click (152, 569)
+[step 43] Reasoning: Now I can see the SVG element is expanded in the Elements panel. I can see the DOM structure:
+
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet"> == $0
+  <rect clip-path="url(#novnbh610m)" x="0" y="0" width="400" height="130" style="fill: url(#b0wh6mi7j8);">
+  <defs>...</defs>
+</svg>
+```
+
+This is very significant! I can see that:
+1. **The SVG element only has `viewBox` and `preserveAspectRatio` attributes** - there is **NO `aria-labelledby` attribute**
+2. **The SVG children are only `<rect>` and `<defs>`** - there is **NO `<title>` element** inside the SVG
+
+The SVG is the ContentLoader component. It does NOT have a `<title>` element for accessibility purposes, and it does NOT have `aria-labelledby` or `role="img"` attributes.
+
+Let me now check the `<defs>` element to see what's inside it - it might contain a `<title>` there (though that would be unusual):
+[step 44] Action: left_click (113, 439)
+[step 44] Reasoning: Now I can see the `<defs>` element expanded. Inside `<defs>` I can see:
+- `<clipPath id="novnbh610m">` ... `</clipPath>`
+- `<linearGradient id="b0wh6mi7j8">` ... `</linearGradient>`
+
+There is **NO `<title>` element** inside `<defs>`. 
+
+Looking at the full SVG structure:
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">
+  <rect clip-path="url(#novnbh610m)" x="0" y="0" width="400" height="130" style="fill: url(#b0wh6mi7j8);">
+  <defs>
+    <clipPath id="novnbh610m">...</clipPath>
+    <linearGradient id="b0wh6mi7j8">...</linearGradient>
+  </defs>
+</svg>
+```
+
+**Key findings so far:**
+1. ❌ **No `<title>` element** inside the SVG
+2. ❌ **No `aria-labelledby` attribute** on the SVG element
+3. ❌ **No `role` attribute** on the SVG element
+
+This is a potential accessibility issue! The SVG skeleton screen does NOT have proper accessibility attributes.
+
+Now let me switch to the Console tab to run JavaScript to verify these findings programmatically. Let me also check if there are some accessibility-related attributes that might be hidden. Let me click on the Console tab:
+[step 45] Action: left_click (120, 527)
+[step 45] Reasoning: I'm back in the Console tab. The console is showing the security warning and the `>` prompt is at the bottom (at around coordinate 94, 527). I need to first allow pasting by typing "allow pasting" and then run the JavaScript commands. 
+
+I see the console has the `>` prompt but I need to click on the console input area to focus it. The console input field appears to be at line 4 (the `>` at coordinate 94, 527). 
+
+Let me try to click directly at the `>` symbol and start typing:
+[step 46] Action: type: allow pasting
+[step 46] Reasoning: I can now see a cursor blinking at `> |` (line 4 at the bottom). The console input is now focused. Now I need to type "allow pasting" to bypass Chrome's security warning first:
+[step 47] Action: key: Return
+[step 47] Reasoning: I can see the warnings count increased to "3 warnings". The text "allow pasting" was typed but the counter shows it was entered as typing (not pasting). The console input shows `> |` at line 4. The text I typed may have been entered character by character and treated as another attempt to paste. 
+
+Looking at the console, the warning says "Please type 'allow pasting' below and press Enter to allow pasting." I need to type this text character by character (not paste it). The counter increased from 2 to 3 warnings, which might indicate the browser detected another paste attempt. 
+
+Let me press Enter to submit the "allow pasting" command:
+[step 48] Action: left_click (85, 457)
+[step 48] Reasoning: I see the security warning is still showing "3 warnings" and the console input is at line 4 `>`. It looks like the console didn't accept the "allow pasting" typed input and returned to the empty prompt `>`. The console input showed `> |` and then I pressed Enter. But the prompt shows `>` again (empty). 
+
+Let me check what happened - looking at the console output, the warning is still there and the "3 warnings" count is still showing. It looks like:
+1. The warning counted my "allow pasting" typing as another paste attempt (hence 3 warnings)
+2. After pressing Enter with the text, the console accepted the "allow pasting" and the count is now 3 warnings (but the security message persists because it detected pasting earlier)
+
+Wait - I see the console still shows `> ` at line 4 with an empty prompt. Looking at the state, the security warning still says "Please type 'allow pasting' below and press Enter to allow pasting." This means my previous attempt to type "allow pasting" was treated as text input but something went wrong.
+
+Actually, looking more carefully at the console, I notice that after pressing Enter:
+- The console input cleared (shows empty `>` at line 4)
+- The warnings count is still 3 (not decreased)
+- The security warning is still visible
+
+It seems the text "allow pasting" was typed but something happened. The issue might be that the console context is wrong - it's showing "storybook-pre..." which is the storybook iframe context, but the Chrome security warning might need to be handled at the top-level context.
+
+Let me now change the console context to the top level (the main page context) and try again. Let me click on the context selector dropdown:
+[step 49] Action: left_click (152, 524)
+[step 49] Reasoning: I can see the context selector dropdown is open. The options are:
+- **top** - `localhost:6006`
+- **DevTools Performance Metrics** - `localhost:6006`
+- **storybook-preview-iframe (iframe.html)** - (currently selected, highlighted in blue)
+- **DevTools Performance Metrics** - `localhost:6006`
+
+The SVG is inside the `storybook-preview-iframe` context. I need to stay in this context to query the SVG element. But first, let me try to select "storybook-preview-iframe (iframe.html)" context which is the correct one for the SVG content.
+
+Actually, the current context is already "storybook-pre..." which is the storybook-preview-iframe context. Let me click on it again to keep it selected:
+[step 50] Action: left_click (120, 527)
+[step 50] Reasoning: Good, I can see the context is now "storybook-pre..." (the storybook-preview-iframe context). The console shows the security warning and the `>` prompt at line 4.
+
+I need to click on the `>` at line 4 to focus the console input and then type "allow pasting":
+[step 51] Action: left_click (200, 528)
+[step 51] Reasoning: The console input `>` is at line 4. I need to click on the console area to focus it and then type. Let me try clicking right after the `>` symbol:
+[step 52] Action: type: allow pasting
+[step 52] Reasoning: I can see `> |` with a blinking cursor at line 4 of the console. Now the console input is focused. I notice the Chrome security warning says to type "allow pasting" below and press Enter. The warning message says "Please type 'allow pasting' below and press Enter to allow pasting." 
+
+Looking at the warning, it seems it's referring to pasting content. The warning was triggered because I tried to type "document.querySelector('svg')" using the `type` tool which Chrome might have detected as pasting. 
+
+However, I notice that the console context is `storybook-pre...` (the storybook preview iframe). The security warning should have been resolved when I type "allow pasting". But it seems the previous attempt to type "allow pasting" didn't work because the warning is still showing.
+
+Let me try typing "allow pasting" again, this time more carefully:
+[step 53] Action: key: Return
+[step 53] Reasoning: I can see the count increased from "3 warnings" to "4 warnings" again. The text "allow pasting" was typed but Chrome detected it as a paste attempt again! This means that when I use the `type` action from the automation tool, Chrome DevTools is detecting it as a paste/clipboard operation rather than keyboard typing. 
+
+This is an interesting behavior. The `type` action is probably using xdotool or similar that inserts text directly into the clipboard, which Chrome's DevTools security mechanism detects as pasting. 
+
+However, looking at the console output, it still says "3 warnings" wait... I see it changed from "3 warnings" to "4 warnings" after I tried to type again. The security warning counter increased, which means Chrome is still detecting the typing as paste attempts.
+
+Let me try a completely different approach. Instead of using the console to run JavaScript, let me use the Elements panel to inspect the SVG element directly. I've already seen in the Elements panel that:
+1. The SVG has only `viewBox` and `preserveAspectRatio` attributes
+2. There's no `<title>` element inside the SVG
+3. There's no `aria-labelledby` attribute
+
+But I need to be more thorough. Let me switch to the Elements tab and use the search functionality to look for "title" elements:
+
+Actually, wait - I realize the security warning might be coming from the outer page context (the top-level storybook page), not the iframe. The security warning is triggered because the `type` action from the automation tool uses a mechanism that Chrome identifies as pasting. 
+
+But I already have enough information from the Elements panel inspection to make my assessment. Let me go back to the Elements panel and do a more thorough inspection. Let me click on the Elements tab:
+[step 54] Action: left_click (66, 439)
+[step 54] Reasoning: I can see the security warning is still showing. The `>` is at line 4 of the console. The warning count changed from "4 warnings" back to "4 warnings" (I pressed Enter with "allow pasting" text). 
+
+Wait, I can see the console still shows `> ` (empty prompt) at line 4. This means the "allow pasting" text I typed was submitted (Enter was pressed) but Chrome didn't accept it because the `type` action is treated as pasting.
+
+Let me try a different approach - use the Elements panel search feature to look for `<title>` elements. Let me use the keyboard shortcut Ctrl+F in the Elements panel to search for "title":
+
+First, let me switch to the Elements tab:
+[step 55] Action: key: ctrl+f
+[step 55] Reasoning: Now I can see the Elements panel with the full DOM structure. The `<defs>` element is expanded and selected (`$0`). I can now see the complete DOM structure of the SVG element:
+
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">
+  <rect clip-path="url(#novnbh610m)" x="0" y="0" width="400" height="130" style="fill: url(#b0wh6mi7j8);">
+  <defs> == $0
+    <clipPath id="novnbh610m">...</clipPath>
+    <linearGradient id="b0wh6mi7j8">...</linearGradient>
+  </defs>
+</svg>
+```
+
+**Confirmed:**
+1. ❌ **No `<title>` element** inside the SVG 
+2. ❌ **No `aria-labelledby` attribute** on the SVG element
+3. ❌ **No `role` attribute** on the SVG element
+
+This confirms the accessibility issue. The SVG ContentLoader component is missing the required accessibility attributes.
+
+Now let me use the DevTools search feature (Ctrl+F in Elements panel) to search for "title" to make absolutely sure there's no title element anywhere:
+[step 56] Action: left_click (400, 540)
+[step 56] Reasoning: The search bar didn't appear. Let me try clicking directly on the Elements panel first to focus it, and then press Ctrl+F:
+[step 57] Action: left_click (283, 526)
+[step 57] Reasoning: I can now see the full DOM structure better. The `<rect>` element is now selected (`== $0`). The breadcrumb at the bottom shows `html > body > div#root > div > div > div.div.SplitPane.vertical > div.Pane.vertical.Pane2 > div.SplitPane.horizontal > div.Pane.horizontal.Pane1 > div > div > iframe#storybook-preview-iframe > html > body > div#root > div > svg > rect`.
+
+Now I can clearly see the complete SVG DOM structure:
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">
+  <rect clip-path="url(#novnbh610m)" x="0" y="0" width="400" height="130" style="fill: url(#b0wh6mi7j8);"> == $0
+  <defs>
+    <clipPath id="novnbh610m">...</clipPath>
+    <linearGradient id="b0wh6mi7j8">...</linearGradient>
+  </defs>
+</svg>
+```
+
+**CONFIRMED ACCESSIBILITY ISSUES:**
+1. ❌ **No `<title>` element** inside the SVG (should contain "Loading..." or similar text)
+2. ❌ **No `aria-labelledby` attribute** on the SVG element (should reference the title element's ID)
+3. ❌ **No `role="img"` attribute** on the SVG element
+
+Now let me click on the `<svg` element itself to see all its attributes clearly:
+[step 58] Action: left_click (1067, 457)
+[step 58] Reasoning: Excellent! Now I can clearly see the `<svg>` element is selected (`== $0`). The SVG element tag in the DOM is:
+
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet"> == $0
+```
+
+The breadcrumb at the bottom now shows `html > body > div#root > div > div > div.div.SplitPane.vertical > div.Pane.vertical.Pane2 > div.SplitPane.horizontal > div.Pane.horizontal.Pane1 > div > div > iframe#storybook-preview-iframe > html > body > div#root > div > svg`
+
+The SVG element only has:
+- `viewBox="0 0 400 130"` 
+- `preserveAspectRatio="xMidYMid meet"`
+
+**No `aria-labelledby`, `role`, or `aria-label` attributes.**
+
+The children of the SVG are:
+- `<rect clip-path="url(#novnbh610m)" x="0" y="0" width="400" height="130" style="fill: url(#b0wh6mi7j8);">`
+- `<defs>` containing `<clipPath>` and `<linearGradient>`
+
+**No `<title>` element inside the SVG.**
+
+Now let me look at the SVG element's full attribute list. I can see the SVG element tag shows only `viewBox` and `preserveAspectRatio`. Let me look at the Accessibility tab in the DevTools to see the accessibility properties. Let me click on "Accessibility" in the right panel:
+
+Actually, I see the right panel shows "Computed" tab and "Layout" tab. Let me look for the "Accessibility" tab. I'll need to click on the `>>` to see more tabs:
+[step 59] Action: left_click (1103, 511)
+[step 59] Reasoning: I can see a dropdown with additional tabs including "Accessibility"! Let me click on "Accessibility" to see the accessibility properties of the SVG element:
+[step 60] Action: scroll down (1038, 600) scroll_amount 3
+[step 60] Reasoning: Excellent! Now I can see the **Accessibility** panel for the `<svg>` element! This is very revealing. Let me read the accessibility information:
+
+**ARIA Attributes:**
+- "No ARIA attributes" - ❌ The SVG has NO ARIA attributes at all
+
+**Computed Properties:**
+- `aria-labelledby`: **Not specified** ❌
+- `aria-label`: **Not specified** ❌
+- `title`: **Not specified** ❌
+
+This is a critical accessibility finding! The SVG ContentLoader component:
+1. ❌ Has **NO ARIA attributes** (no `role`, no `aria-labelledby`, no `aria-label`)
+2. ❌ The computed `aria-labelledby` is **Not specified**
+3. ❌ The computed `aria-label` is **Not specified**
+4. ❌ The computed `title` is **Not specified**
+
+This confirms that the SVG ContentLoader does NOT have proper accessibility features. The `<title>` element is missing from the SVG, and `aria-labelledby` is not set.
+
+Now let me scroll down in the Accessibility panel to see if there are more computed properties:
+[step 61] Action: key: F12
+[step 61] Reasoning: Now I can see the complete Accessibility panel for the `<svg>` element. This is very detailed and informative. Let me read all the accessibility information:
+
+**ARIA Attributes:**
+- "No ARIA attributes" ❌
+
+**Computed Properties:**
+- `Name`: "" (empty string) ❌
+- `aria-labelledby`: **Not specified** ❌
+- `aria-label`: **Not specified** ❌
+- `From title`: **Not specified** ❌
+- `title`: **Not specified** ❌
+- `Role`: **image** - BUT it shows "Not specified" label badge ⚠️
+
+Wait! I can see `Role: image` but with a "Not specified" badge. This is interesting. Let me read more carefully:
+
+Looking at the Computed Properties:
+- `Name: ""`
+- `aria-labelledby: Not specified`
+- `aria-label: Not specified`
+- `From title: Not specified`
+- `title: Not specified`
+- `Role: image` - shows role is "image" but the badge says "Not specified"
+
+This confirms that:
+1. ❌ The SVG element has **NO accessible name** (Name is empty "")
+2. ❌ **No `aria-labelledby`** attribute
+3. ❌ **No `aria-label`** attribute
+4. ❌ **No `title` element** inside the SVG
+5. The role is shown as "image" (which is the default role for SVG) but it's "Not specified" (not explicitly set)
+
+This is a clear accessibility bug! The ContentLoader SVG should have:
+- A `<title>` element inside the SVG with "Loading..." text
+- An `aria-labelledby` attribute referencing the `<title>` element's ID
+- Or at minimum an `aria-label` attribute with "Loading..." text
+
+Now let me check if the Storybook page has a Knobs panel for customizing the title prop. Looking at the top of the page, I can see the URL mentions `panelRight=0&addonPanel=storybook%2Factions%2Factions-panel`. This suggests the addon panel is set to "Actions" panel. I need to look for a "Knobs" panel or similar.
+
+Let me close the DevTools and look at the Storybook UI to see if there are Knobs or Controls for the ContentLoader component. Let me first look at the current state of the page. I can see the Storybook UI in the upper half of the screen:
+- Left: Story tree with ContentLoader stories (facebook style, instagram style, etc.)
+- Center: The ContentLoader SVG preview (skeleton screen)
+- Right: ACTION LOGGER panel
+
+I notice the Storybook panel is a sidebar that shows story navigation. The bottom panel would normally show Knobs/Controls. Let me look at the bottom area more carefully. I see the current story is "facebook style" which is selected under "ContentLoader".
+
+Let me check the "controls" area. I see the page has a Storybook layout with the preview in the center and an "ACTION LOGGER" panel on the right side. But there's no Knobs panel visible. Let me close the DevTools and look at the full Storybook UI. Let me press Ctrl+Shift+I to close the DevTools:
+[step 62] Action: left_click (775, 457)
+[step 62] Reasoning: Now I can see the full Storybook page without the DevTools overlay. The page shows:
+
+**Left panel:** Story navigation with:
+- ContentLoader (collapsed/expanded)
+  - **facebook style** (currently selected, highlighted)
+  - instagram style
+  - code style
+  - list style
+  - bullet list style
+  - custom style
+  - className
+  - width and height
+  - unique-key: for SSR
+  - no animation
+  - safari bug-fix
+  - rtl content
+  - remove viewBox
+
+**Center panel (main preview area):** The ContentLoader SVG skeleton screen (facebook style) showing an avatar circle and text lines
+
+**Bottom panel:** ACTION LOGGER (with CLEAR button)
+
+I don't see a "Knobs" or "Controls" panel. The Storybook addon panels seem to only show "ACTION LOGGER". The URL mentions `addonPanel=storybook%2Factions%2Factions-panel` which confirms only the Actions panel is shown.
+
+However, I notice the bottom panel shows "ACTION LOGGER" which is the Actions addon. In older versions of Storybook (v5), Knobs would be a separate addon. Let me check the page structure to see if there's a way to switch to the Knobs panel. Looking at the layout, the bottom panel with "ACTION LOGGER" might have tabs or additional panels.
+
+Let me look at the bottom panel more carefully. I see the resize handle at the top of the "ACTION LOGGER" area (the "─ ─ ─" line at coordinate 775, 457). Let me look for tabs or panel switching options. I don't see any tabs below the main SVG content area.
+
+Let me now right-click on the SVG skeleton screen to open the DevTools and inspect the accessibility. But first, let me try clicking on the story "custom style" which might have more controls/customization options:
+
+Actually, let me first check if the current "facebook style" story has any additional controls. The bottom "ACTION LOGGER" panel might have tabs. Let me look at the area above the ACTION LOGGER - I can see a horizontal line/divider at coordinate 775, 457. Let me try to click on it to see if I can find more panels:
+[step 63] Action: right_click (760, 170)
+[step 63] Reasoning: The page looks the same - still showing the facebook style ContentLoader with the ACTION LOGGER panel at the bottom. There are no Knobs/Controls tabs visible. The Storybook seems to be using an older version (based on the UI) that might use Knobs addon.
+
+Let me check if there's a Knobs panel available by looking at the URL and the current story. The URL has `addonPanel=storybook%2Factions%2Factions-panel`. Let me try to navigate to a different URL to check if there's a Knobs panel. But first, let me right-click on the SVG element to open DevTools for a final inspection.
+
+Let me right-click on the SVG skeleton screen to open the DevTools inspector on it:
+[step 64] Action: left_click (779, 430)
+[step 64] Reasoning: I can see the context menu with the "检查" (Inspect) option at the bottom. I right-clicked on the SVG skeleton area (the text lines part). Let me click "检查" to open DevTools:
+[step 65] Action: left_click (152, 550)
+[step 65] Reasoning: The DevTools is now open again with the Elements panel and the Accessibility tab still selected. I can see the SVG element is still selected (`== $0`). The Accessibility panel shows:
+
+**ARIA Attributes:**
+- "No ARIA attributes" ❌
+
+**Computed Properties:**
+- `Name: ""`
+- `aria-labelledby: Not specified`
+- `aria-label: Not specified`
+- `From title: Not specified`
+- `title: Not specified`
+
+This is consistent with the previous findings. The SVG ContentLoader does NOT have proper accessibility features.
+
+Now let me look at the DOM tree. I can see:
+```
+<div style="width: 400px; margin-left: auto; margin-right: auto; font-family: sans-serif; font-size: 14px;">
+  <svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet"> ... </svg> == $0
+</div>
+```
+
+The `<svg>` element is collapsed showing `…`. Let me click on it to expand and see all children including whether there's a `<title>` element. Let me click on the `<svg` element in the DOM tree:
+[step 66] Action: left_click (140, 550)
+[step 66] Reasoning: Now I can see the SVG element is selected and the preview in the top-right of the Storybook preview area shows `svg 400 × 130`. The SVG element is collapsed showing `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet"> … </svg> == $0`.
+
+The Accessibility panel on the right still shows:
+- **ARIA Attributes:** "No ARIA attributes"
+- **Computed Properties:**
+  - `Name: ""`
+  - `aria-labelledby: Not specified`
+  - `aria-label: Not specified`
+  - `From title: Not specified`
+  - `title: Not specified`
+
+This confirms the accessibility issues. The SVG ContentLoader has NO accessibility features.
+
+Now let me expand the SVG element to look at all the children (specifically to confirm there's no `<title>` element):
+[step 67] Action: left_click (640, 61)
+[step 67] Reasoning: Now I can see the SVG element is expanded! Let me read the DOM structure carefully:
+
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet"> == $0
+  <rect clip-path="url(#novnbh610m)" x="0" y="0" width="400" height="130" style="fill: url(#b0wh6mi7j8);">
+  <defs>...<defs>
+</svg>
+```
+
+The SVG children are:
+1. `<rect clip-path="url(#novnbh610m)" x="0" y="0" width="400" height="130" style="fill: url(#b0wh6mi7j8);">`
+2. `<defs>...<defs>` (collapsed)
+3. `</svg>`
+
+**CONFIRMED: NO `<title>` element inside the SVG!**
+
+The `<defs>` element is collapsed showing `…`. Let me look inside it by clicking on the expand arrow. But from previous investigation, I saw that `<defs>` only contains `<clipPath>` and `<linearGradient>` elements, not a `<title>` element.
+
+Let me now check if the Storybook has Knobs panel. Looking at the URL: `localhost:6006/?selectedKind=ContentLoader&selectedStory=facebook%20style&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel`
+
+The URL shows `addonPanel=storybook%2Factions%2Factions-panel` which is the Actions panel. This means only the Actions panel is loaded/enabled. There's no Knobs panel visible.
+
+Let me check if there are other panels available. In Storybook v5, the Knobs addon might be available but not currently active. Let me try navigating to the Knobs panel by modifying the URL. Let me try changing `addonPanel=storybook%2Factions%2Factions-panel` to `addonPanel=storybook%2Fknobs%2Fpanel`:
+[step 68] Action: triple_click
+[step 68] Reasoning: I can see the URL bar is now active and showing the current URL. I can see the URL is: `localhost:6006/?selectedKind=ContentLoader&selectedStory=facebook%20style&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel`
+
+Now I can see the SVG DOM structure more clearly:
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet"> == $0
+  <rect clip-path="url(#novnbh610m)" x="0" y="0" width="400" height="130" style="fill: url(#b0wh6mi7j8);">
+  <defs>...<defs>
+</svg>
+```
+
+The SVG attributes in the DOM: `viewBox="0 0 400 130"` and `preserveAspectRatio="xMidYMid meet"` - NO `aria-labelledby` attribute.
+
+Now let me try to navigate to a URL that might have the Knobs panel. Let me modify the URL to try Knobs panel:
+[step 69] Action: Open url: http://localhost:6006/?selectedKind=ContentLoader&selectedStory=facebook%20style&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Fknobs%2Fpanel
+[step 69] Reasoning: Good, the URL is selected. Now let me navigate to a URL that shows the Knobs panel. In Storybook v5, the Knobs addon panel key would be `storybook/knobs/panel` or `storybook-addon-knobs/panel`. Let me navigate to a URL that changes the addon panel:
+[step 70] Action: left_click (519, 33)
+[step 70] Reasoning: I can see the Storybook page has loaded in a new tab with the Knobs panel URL parameter. However, the bottom panel still shows "ACTION LOGGER" and no Knobs panel. This means the Knobs addon is NOT installed or configured in this Storybook instance.
+
+The Storybook page shows:
+- Left panel: Story navigation (ContentLoader - facebook style selected)
+- Center panel: ContentLoader SVG skeleton screen (facebook style)
+- Bottom panel: "ACTION LOGGER" - still no Knobs panel
+
+This confirms that:
+1. The Storybook doesn't have a Knobs addon installed
+2. There's no way to modify the title prop through the Storybook UI
+
+Now let me check if there are any "Controls" panel or similar accessibility testing options. Looking at the bottom panel, I only see "ACTION LOGGER". 
+
+Let me close this tab and go back to the previous Storybook tab to try a different approach. Let me close this new tab:
+[step 71] Action: right_click (595, 130)
+[step 71] Reasoning: Good, we're back to the Storybook tab. The DevTools is closed and the Storybook page is showing the ContentLoader facebook style. The bottom panel shows "ACTION LOGGER" only.
+
+Looking at the page, I notice that the Storybook is showing the ContentLoader SVG skeleton screen and the bottom panel is "ACTION LOGGER". The URL now shows: `localhost:6006/?selectedKind=ContentLoader&selectedStory=facebook%20style&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Fknobs%2Fpanel`
+
+This URL shows that the Knobs panel is being requested (`addonPanel=storybook%2Fknobs%2Fpanel`) but the bottom panel still shows "ACTION LOGGER", meaning the Knobs addon is NOT installed.
+
+Now, let me do a final comprehensive check. I've already confirmed:
+1. ❌ **No `<title>` element** inside the SVG (from Elements panel inspection)
+2. ❌ **No `aria-labelledby` attribute** on the SVG (from Elements + Accessibility panel)
+3. ❌ **No `aria-label` attribute** on the SVG (from Accessibility panel)
+4. ❌ **No Knobs/Controls panel** available to customize the title prop
+
+Let me now open DevTools one more time to take a final screenshot showing the accessibility issues clearly. Let me right-click on the SVG skeleton:
+[step 72] Action: left_click (615, 390)
+[step 72] Reasoning: I can see the context menu. I right-clicked on the SVG avatar circle area (the circular placeholder). The context menu shows "检查" (Inspect) at the bottom. Let me click on "检查" to open the DevTools:
+[step 73] Action: left_click (283, 540)
+[step 73] Reasoning: Excellent! Now I can see the DevTools is open and it's now inspecting the `<rect>` element (the avatar circle fill area). The breadcrumb at the bottom shows: `html > body > div#root > div > div > div.div.SplitPane.vertical > div.Pane.vertical.Pane2 > div.SplitPane.horizontal > div.Pane.horizontal.Pane1 > div > div > iframe#storybook-preview-iframe > html > body > div#root > div > svg > rect`
+
+**Important findings from this view:**
+
+Looking at the DOM tree:
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">
+  <rect clip-path="url(#uw17k6ynih)" x="0" y="0" width="400" height="130" style="fill: url(#dycssw2s27f);"> == $0
+  <defs>...<defs>
+</svg>
+```
+
+The Accessibility panel on the right shows for the `<rect>` element:
+- **ARIA Attributes:** "No ARIA attributes"
+- **Computed Properties:** "Element not interesting for accessibility."
+- **Source Order Viewer:** "No source order information available"
+
+Now the `<rect>` element is selected. I need to click on the `<svg>` parent to see its accessibility properties. But I already verified those in previous steps.
+
+The critical findings from the Accessibility panel for the `<svg>` element were:
+1. ❌ **No ARIA attributes**
+2. ❌ `aria-labelledby: Not specified`
+3. ❌ `aria-label: Not specified`  
+4. ❌ `From title: Not specified`
+5. ❌ `title: Not specified`
+
+Let me now click on the `<svg>` element in the Elements panel to see its full accessibility view again. I can see `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">` in the DOM tree (the element before `<rect>`):
+[step 74] Action: scroll down (1038, 620) scroll_amount 3
+[step 74] Reasoning: Now I can see the comprehensive accessibility report for the `<svg>` element! Let me read the Accessibility panel on the right:
+
+**ARIA Attributes:**
+- "No ARIA attributes" ❌
+
+**Computed Properties:**
+- `Name: ""` (empty string - no accessible name) ❌
+- `aria-labelledby: Not specified` ❌
+- `aria-label: Not specified` ❌
+- `From title: Not specified` ❌
+- `title: Not specified` ❌
+
+The breadcrumb at the bottom confirms: `html > body > div#root > div > div > div.div.SplitPane.vertical > div.Pane.vertical.Pane2 > div.SplitPane.horizontal > div.Pane.horizontal.Pane1 > div > div > iframe#storybook-preview-iframe > html > body > div#root > div > svg`
+
+The SVG element is selected (shown as `svg 400 × 130` in the preview box in the upper right of the storybook preview).
+
+**The SVG DOM structure shows:**
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet"> == $0
+  <rect clip-path="url(#uw17k6ynih)" x="0" y="0" width="400" height="130" style="fill: url(#dycssw2s27f);">
+  <defs>...<defs>
+</svg>
+```
+
+**Confirmed Final Summary:**
+1. ❌ **No `<title>` element inside the SVG** (confirmed by DOM inspection - only `<rect>` and `<defs>` children)
+2. ❌ **No `aria-labelledby` attribute** on the SVG element (confirmed by Accessibility panel: "Not specified")
+3. ❌ **No `aria-label` attribute** on the SVG element (confirmed by Accessibility panel: "Not specified")
+4. ❌ **No accessible name** for the SVG (Name: "" is empty)
+5. ❌ **No Knobs/Controls panel** available in Storybook to customize the title prop
+
+This is a significant accessibility bug in the react-content-loader component. The SVG ContentLoader should have:
+- A `<title>` element with text "Loading..." or similar
+- An `aria-labelledby` attribute referencing the `<title>` element's ID
+- These are standard WCAG accessibility requirements for SVG content
+
+Let me scroll down in the Accessibility panel to see if there are more computed properties that I might have missed:
+[step 75] Action: left_click (152, 561)
+[step 75] Reasoning: Now I can see the complete Accessibility panel for the `<svg>` element after scrolling. The full Computed Properties are now visible:
+
+**ARIA Attributes:**
+- "No ARIA attributes" ❌
+
+**Computed Properties:**
+- `Name: ""` (empty string - no accessible name) ❌
+- `aria-labelledby: Not specified` ❌
+- `aria-label: Not specified` ❌
+- `From title: Not specified` ❌
+- `title: Not specified` ❌
+- `Role: image` (this is interesting - the role is "image" which is computed/inferred from the SVG element type)
+
+**Source Order Viewer:**
+- "Show source order" checkbox (unchecked)
+
+The computed `Role: image` is interesting. Chrome's accessibility tree correctly infers that an SVG element has the role of "image". However, the SVG has NO accessible name (Name is ""). For an element with `role="image"`, WCAG 2.1 requires an accessible name. 
+
+Looking at the `Role: image` - this appears to be the computed/default role for SVG elements. Chrome shows it with a different styling (not in the same yellow/red warning color as "Not specified" values).
+
+**This is a clear WCAG 2.1 accessibility violation:**
+- SVG with `role="image"` must have an accessible name (via `aria-label`, `aria-labelledby`, or `title` element)
+- The react-content-loader SVG has NO accessible name
+- Screen readers would announce this as an unlabeled image
+
+Now let me also look at the DOM structure more carefully to verify there's NO `<title>` element. Looking at the Elements panel, I can see:
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet"> == $0
+  <rect clip-path="url(#uw17k6ynih)" x="0" y="0" width="400" height="130" style="fill: url(#dycssw2s27f);">
+  <defs>...<defs>
+</svg>
+```
+
+The `<defs>` is still collapsed. Let me expand it to verify there's no `<title>` inside. Let me click on the `<defs>` expand arrow:
+[step 76] Action: DONE
+[step 76] Reasoning: Now I can see the `<defs>` element is expanded! The DOM structure is now fully visible:
+
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">
+  <rect clip-path="url(#uw17k6ynih)" x="0" y="0" width="400" height="130" style="fill: url(#dycssw2s27f);">
+  <defs> == $0
+    <clipPath id="uw17k6ynih">…</clipPath>
+    <linearGradient id="dycssw2s27f">…</linearGradient>
+  </defs>
+</svg>
+```
+
+The `<defs>` element is now selected (shown as `$0` and `defs` in the breadcrumb at the bottom). Inside `<defs>` I can see:
+1. `<clipPath id="uw17k6ynih">…</clipPath>`
+2. `<linearGradient id="dycssw2s27f">…</linearGradient>`
+
+**CONFIRMED: NO `<title>` element** inside `<defs>` either.
+
+The Accessibility panel on the right shows for the `<defs>` element:
+- **ARIA Attributes:** "No ARIA attributes"
+- **Computed Properties:** "Element not interesting for accessibility."
+
+This is the final confirmation! The entire SVG DOM structure is:
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">
+  <rect clip-path="url(#uw17k6ynih)" x="0" y="0" width="400" height="130" style="fill: url(#dycssw2s27f);">
+  <defs>
+    <clipPath id="uw17k6ynih">…</clipPath>
+    <linearGradient id="dycssw2s27f">…</linearGradient>
+  </defs>
+</svg>
+```
+
+**There is absolutely NO `<title>` element anywhere in the SVG.**
+
+Now let me take a final screenshot to document the state and then provide a comprehensive accessibility test report:
+
+Based on all the investigations performed, here is my comprehensive accessibility test report for the react-content-loader component:
+
+---
+
+## 无障碍（Accessibility）测试报告 - react-content-loader
+
+### 测试步骤与结果
+
+#### 步骤 1：查看 ContentLoader SVG 骨架屏组件
+✅ **完成** - 页面成功渲染了 ContentLoader（Facebook 风格）的 SVG 骨架屏，显示圆形头像占位符和多行文字占位符。
+
+#### 步骤 2：检查 SVG 内部是否存在 `<title>` 标签
+**右键点击 SVG 元素 → 检查（Inspect）→ DevTools Elements 面板**
+
+经过 DevTools 完整 DOM 检查，SVG 元素的完整内部结构为：
+
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">
+  <rect clip-path="url(#uw17k6ynih)" x="0" y="0" width="400" height="130" 
+        style="fill: url(#dycssw2s27f);">
+  <defs>
+    <clipPath id="uw17k6ynih">…</clipPath>
+    <linearGradient id="dycssw2s27f">…</linearGradient>
+  </defs>
+</svg>
+```
+
+❌ **BUG 发现：SVG 内部不存在 `<title>` 元素！** 
+- SVG 子元素只有 `<rect>` 和 `<defs>`
+- `<defs>` 内部只有 `<clipPath>` 和 `<linearGradient>`
+- 没有任何 `<title>` 标签（默认文本 "Loading..." 缺失）
+
+#### 步骤 3：检查 `aria-labelledby` 属性
+**通过 DevTools Accessibility 面板检查**
+
+SVG 元素的可访问性属性：
+
+| 属性 | 期望值 | 实际值 | 状态 |
+|------|--------|--------|------|
+| `aria-labelledby` | 引用 title 元素的 id | Not specified（未设置） | ❌ 缺失 |
+| `aria-label` | "Loading..." | Not specified（未设置） | ❌ 缺失 |
+| `Name`（可访问名称） | "Loading..." | ""（空字符串） | ❌ 缺失 |
+| From title | "Loading..." | Not specified | ❌ 缺失 |
+| title | 存在 | Not specified | ❌ 缺失 |
+| Role | image | image（计算值） | ⚠️ 正确推断但未显式设置 |
+| ARIA attributes | 至少1个 | "No ARIA attributes" | ❌ 缺失 |
+
+#### 步骤 4：检查 Storybook Knobs/Controls 面板（自定义 title props）
+- 尝试通过 URL 参数切换到 `storybook/knobs/panel`
+- 底部面板始终显示 "ACTION LOGGER"，无 Knobs/Controls 面板
+
+❌ **Storybook 未安装/配置 Knobs 插件，无法通过 UI 自定义 title props**
+
+### 关键发现与结论
+
+#### 无障碍功能测试结果：❌ **FAIL**
+
+**存在严重的无障碍 Bug：**
+
+1. **缺失 `<title>` 元素** - SVG 骨架屏内部没有 `<title>Loading...</title>` 标签，屏幕阅读器无法获取组件的描述信息
+
+2. **缺失 `aria-labelledby` 属性** - SVG 元素上没有 `aria-labelledby` 属性，无法引用标题元素
+
+3. **可访问名称为空** - Chrome DevTools Accessibility 面板显示 `Name: ""`（空字符串），违反 WCAG 2.1 SC 1.1.1（非文本内容）要求
+
+4. **无任何 ARIA 属性** - SVG 元素上 "No ARIA attributes"，完全不具备无障碍支持
+
+**影响：** 视障用户使用屏幕阅读器时，将无法获知页面正在加载中，导致严重的可访问性问题。
+
+**预期行为：** react-content-loader 组件应该在 SVG 内部渲染 `<title>Loading...</title>` 并在 SVG 元素上设置 `aria-labelledby="[title-id]"` 属性，以正确提供无障碍支持。
+Evaluating task result...
+
+==================================================
+Task: 当前Chrome浏览器已打开react-content-loader的Storybook演示页面，地址是http://localhost:6006。测试react-content-loader组件的无障碍（Accessibility）功能。操作步骤：1. 查看页面上渲染的ContentLoader（SVG骨架屏/占位符）组件；2. 右键点击SVG骨架屏组件，选择'检查'打开DevTools，检查SVG元素内部是否存在title标签，默认文本应为Loading...或类似加载提示文字；3. 检查SVG元素上是否有aria-labelledby属性，且该属性正确引用了title元素的id；4. 如果页面提供了自定义title的props配置选项（如Storybook的Knobs面板），尝试修改title文本，确认title标签内容随之更新。始终在浏览器内操作，禁止打开Terminal、Finder或其他应用程序。如果在浏览器中找不到目标功能，直接标记result为unclear。
+Status: COMPLETED
+Total steps: 76
+Last action: DONE
+Last reasoning: Now I can see the `<defs>` element is expanded! The DOM structure is now fully visible:
+
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">
+  <rect clip-path="url(#uw17k6ynih)" x="0" y="0" width="400" height="130" style="fill: url(#dycssw2s27f);">
+  <defs> == $0
+    <clipPath id="uw17k6ynih">…</clipPath>
+    <linearGradient id="dycssw2s27f">…</linearGradient>
+  </defs>
+</svg>
+```
+
+The `<defs>` element is now selected (shown as `$0` and `defs` in the breadcrumb at the bottom). Inside `<defs>` I can see:
+1. `<clipPath id="uw17k6ynih">…</clipPath>`
+2. `<linearGradient id="dycssw2s27f">…</linearGradient>`
+
+**CONFIRMED: NO `<title>` element** inside `<defs>` either.
+
+The Accessibility panel on the right shows for the `<defs>` element:
+- **ARIA Attributes:** "No ARIA attributes"
+- **Computed Properties:** "Element not interesting for accessibility."
+
+This is the final confirmation! The entire SVG DOM structure is:
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">
+  <rect clip-path="url(#uw17k6ynih)" x="0" y="0" width="400" height="130" style="fill: url(#dycssw2s27f);">
+  <defs>
+    <clipPath id="uw17k6ynih">…</clipPath>
+    <linearGradient id="dycssw2s27f">…</linearGradient>
+  </defs>
+</svg>
+```
+
+**There is absolutely NO `<title>` element anywhere in the SVG.**
+
+Now let me take a final screenshot to document the state and then provide a comprehensive accessibility test report:
+
+Based on all the investigations performed, here is my comprehensive accessibility test report for the react-content-loader component:
+
+---
+
+## 无障碍（Accessibility）测试报告 - react-content-loader
+
+### 测试步骤与结果
+
+#### 步骤 1：查看 ContentLoader SVG 骨架屏组件
+✅ **完成** - 页面成功渲染了 ContentLoader（Facebook 风格）的 SVG 骨架屏，显示圆形头像占位符和多行文字占位符。
+
+#### 步骤 2：检查 SVG 内部是否存在 `<title>` 标签
+**右键点击 SVG 元素 → 检查（Inspect）→ DevTools Elements 面板**
+
+经过 DevTools 完整 DOM 检查，SVG 元素的完整内部结构为：
+
+```html
+<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid meet">
+  <rect clip-path="url(#uw17k6ynih)" x="0" y="0" width="400" height="130" 
+        style="fill: url(#dycssw2s27f);">
+  <defs>
+    <clipPath id="uw17k6ynih">…</clipPath>
+    <linearGradient id="dycssw2s27f">…</linearGradient>
+  </defs>
+</svg>
+```
+
+❌ **BUG 发现：SVG 内部不存在 `<title>` 元素！** 
+- SVG 子元素只有 `<rect>` 和 `<defs>`
+- `<defs>` 内部只有 `<clipPath>` 和 `<linearGradient>`
+- 没有任何 `<title>` 标签（默认文本 "Loading..." 缺失）
+
+#### 步骤 3：检查 `aria-labelledby` 属性
+**通过 DevTools Accessibility 面板检查**
+
+SVG 元素的可访问性属性：
+
+| 属性 | 期望值 | 实际值 | 状态 |
+|------|--------|--------|------|
+| `aria-labelledby` | 引用 title 元素的 id | Not specified（未设置） | ❌ 缺失 |
+| `aria-label` | "Loading..." | Not specified（未设置） | ❌ 缺失 |
+| `Name`（可访问名称） | "Loading..." | ""（空字符串） | ❌ 缺失 |
+| From title | "Loading..." | Not specified | ❌ 缺失 |
+| title | 存在 | Not specified | ❌ 缺失 |
+| Role | image | image（计算值） | ⚠️ 正确推断但未显式设置 |
+| ARIA attributes | 至少1个 | "No ARIA attributes" | ❌ 缺失 |
+
+#### 步骤 4：检查 Storybook Knobs/Controls 面板（自定义 title props）
+- 尝试通过 URL 参数切换到 `storybook/knobs/panel`
+- 底部面板始终显示 "ACTION LOGGER"，无 Knobs/Controls 面板
+
+❌ **Storybook 未安装/配置 Knobs 插件，无法通过 UI 自定义 title props**
+
+### 关键发现与结论
+
+#### 无障碍功能测试结果：❌ **FAIL**
+
+**存在严重的无障碍 Bug：**
+
+1. **缺失 `<title>` 元素** - SVG 骨架屏内部没有 `<title>Loading...</title>` 标签，屏幕阅读器无法获取组件的描述信息
+
+2. **缺失 `aria-labelledby` 属性** - SVG 元素上没有 `aria-labelledby` 属性，无法引用标题元素
+
+3. **可访问名称为空** - Chrome DevTools Accessibility 面板显示 `Name: ""`（空字符串），违反 WCAG 2.1 SC 1.1.1（非文本内容）要求
+
+4. **无任何 ARIA 属性** - SVG 元素上 "No ARIA attributes"，完全不具备无障碍支持
+
+**影响：** 视障用户使用屏幕阅读器时，将无法获知页面正在加载中，导致严重的可访问性问题。
+
+**预期行为：** react-content-loader 组件应该在 SVG 内部渲染 `<title>Loading...</title>` 并在 SVG 元素上设置 `aria-labelledby="[title-id]"` 属性，以正确提供无障碍支持。
+
+==================================================
+
+UI window closed

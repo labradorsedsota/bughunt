@@ -1,0 +1,774 @@
+Session created: sess-20260418063439-5f2286c497d44436947c59ee5dc98be9
+UI panel initialized successfully
+UI window displayed
+Expected result: 子职业页面应正常加载，不崩溃不白屏，所有特性按等级正常排序并完整显示。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: Open url: http://localhost:3000/classes/warlock/ancient-dragons
+[step 0] Reasoning: I'll start by navigating to the specified URL and testing the subclass page functionality.
+[step 1] Action: left_click (40, 273)
+[step 1] Reasoning: The URL redirected to a search page instead of the subclass page. The page shows "0 results in your sources" which is a visual issue - the direct URL didn't work as expected. Let me navigate to the Classes section to find Warlock and then Ancient Dragons subclass.
+[step 2] Action: scroll down (640, 400) scroll_amount 5
+[step 2] Reasoning: Good, I'm now on the Classes page. I can see a list of classes. I need to scroll down to find Warlock. Let me scroll down to find it.
+[step 3] Action: scroll down (640, 400) scroll_amount 5
+[step 3] Reasoning: I can see more classes now. I need to scroll down more to find Warlock.
+[step 4] Action: scroll down (640, 400) scroll_amount 5
+[step 4] Reasoning: I can see more classes now. I need to continue scrolling to find Warlock.
+[step 5] Action: left_click (287, 636)
+[step 5] Reasoning: I can see "Warlock SRD-2024" at the bottom of the page. Let me click on it to navigate to the Warlock class page.
+[step 6] Action: screenshot
+[step 6] Reasoning: The URL changed to `localhost:3000/classes/srd-2024_warlock` but the page still seems to show the class list. Let me wait for the page to load and take a screenshot.
+[step 7] Action: scroll up (640, 400) scroll_amount 15
+[step 7] Reasoning: The page seems to be loading but still showing the classes list. The URL has changed to `localhost:3000/classes/srd-2024_warlock`. Let me scroll up to see the Warlock class page content.
+[step 8] Action: left_click (640, 61)
+[step 8] Reasoning: I notice the page is still showing the "Classes" list even though the URL is `localhost:3000/classes/srd-2024_warlock`. This appears to be a routing issue - the page title says "Classes" and shows the list of classes, but the URL shows the warlock class. This seems like the page is not properly rendering. Let me try directly typing the URL in the address bar to navigate properly.
+
+Let me try clicking directly on the address bar and type the URL for the Warlock page.
+[step 9] Action: triple_click
+[step 9] Reasoning: I can see the address bar is active with the URL `localhost:3000/classes/srd-2024_warlock`. I notice the page still shows "Classes" page title. This seems to be a client-side routing bug. The page content is not changing even when the URL changes. 
+
+Wait - looking more carefully, I think maybe the page content loaded but the scroll position shows the classes list. Actually looking at the URL `localhost:3000/classes/srd-2024_warlock`, it seems the page might have content for the Warlock class below. However, the page header says "Classes" not "Warlock", suggesting it might be showing the wrong page. Let me wait for the page to fully load and then scroll to see the actual content. But first, let me try to directly navigate.
+
+Let me type the warlock URL directly:
+[step 10] Action: key: Return
+[step 10] Reasoning: I can see the URL is selected. Let me press Enter to navigate to the current URL and see the Warlock page:
+[step 11] Action: scroll down (640, 400) scroll_amount 10
+[step 11] Reasoning: Now I can see the Warlock class page properly loaded with Class Features and a table. I need to scroll down to find the subclasses section and then find "Ancient Dragons". Let me scroll down to find subclasses.
+[step 12] Action: scroll down (640, 400) scroll_amount 15
+[step 12] Reasoning: I'm scrolling through the class features table. Let me continue scrolling down to find the subclasses section.
+[step 13] Action: scroll down (640, 400) scroll_amount 15
+[step 13] Reasoning: Still in the features table. Let me continue scrolling down more.
+[step 14] Action: key: End
+[step 14] Reasoning: The page seems to be stuck on the same table view - the scrolling doesn't appear to be moving further. The table ends at level 20. Let me try using keyboard shortcut End to jump to the bottom of the page, or use Ctrl+F to find the subclasses section.
+[step 15] Action: left_click (640, 400)
+[step 15] Reasoning: The End key doesn't seem to have scrolled the page. The table still appears to be showing. It seems the scroll might be stuck at the bottom of the table. Let me click on the main content area first, then try to scroll.
+
+Let me try clicking on the page content area first and then use keyboard shortcuts to navigate:
+[step 16] Action: key: ctrl+f
+[step 16] Reasoning: The page seems to be stuck at the table. The table appears to be the end of the visible content and there might be more content below. Let me try to use Ctrl+F to find "Ancient Dragons" or "Subclass" on this page, which will confirm if it exists.
+[step 17] Action: key: Escape
+[step 17] Reasoning: The Ctrl+F search didn't open a find bar visually. Let me try using the keyboard shortcut command+F for Mac:
+[step 18] Action: left_click (640, 61)
+[step 18] Reasoning: The page seems to be stuck. It appears the page has more content below the table but scrolling is not working. Let me notice that the table scrolls horizontally and there may be an overflow issue. Let me click on the content area (outside the table) and try to scroll. Actually - looking at this more carefully, I notice the table ends at row 20 but there's a horizontal scrollbar below it. The main page content might be scrollable. Let me try clicking somewhere outside the table and use arrow keys to scroll.
+
+Let me try clicking at the top area of the page content first:
+[step 19] Action: type: http://localhost:...
+[step 19] Reasoning: Good, the address bar is active. I notice the URL is `localhost:3000/classes/srd-2024_warlock`. Looking at the page, I can see that there's a horizontal scrollbar at the bottom. This means the page is overflowing horizontally. However, it seems like the table occupies the entire visible area and the rest of the page content is below but not visible. Let me navigate directly to the /classes path to see available subclasses and navigate through the UI to find Ancient Dragons.
+
+Let me try navigating to the classes page to explore the available subclasses:
+[step 20] Action: left_click (566, 89)
+[step 20] Reasoning: I can see in the address bar autocomplete dropdown that "Ancient Dragons - Open5e - http://localhost:3000/classes/warlock/ancient-dragons" appears. This means the page exists! Let me click on that autocomplete suggestion to navigate to the Ancient Dragons page:
+[step 21] Action: left_click (640, 61)
+[step 21] Reasoning: Interesting! I can see the URL is now `localhost:3000/search?text=/?is_subclass=true&subclass_of=warlock&fields=name,key,features` and it shows a "Search" page with "0 results in your sources". This means when I tried to navigate to `/classes/warlock/ancient-dragons`, the app redirected me to a search page instead of showing the subclass page directly. 
+
+This confirms that the URL `/classes/warlock/ancient-dragons` was redirected to the search page. Now let me try the actual URL with the correct format. Looking at the Warlock page URL which was `srd-2024_warlock`, maybe the Ancient Dragons subclass URL uses a similar format. Let me try navigating to the correct URL:
+[step 22] Action: triple_click
+[step 22] Reasoning: I can see the address bar is active. Now I need to navigate to the Warlock class page to find the Ancient Dragons subclass. Let me try a different approach - navigate to the Warlock class page and then look for subclasses. But first, let me try navigating with the slug format that might be correct:
+[step 23] Action: type: http://localhost:...
+[step 23] Reasoning: The URL is selected. Let me navigate to the Warlock class page to find the subclasses link for Ancient Dragons. But wait - I noticed that in the browser autocomplete earlier, it showed "Ancient Dragons - Open5e - http://localhost:3000/classes/warlock/ancient-dragons" which means it was in the browser history. This means the page WAS visited before and the URL IS `http://localhost:3000/classes/warlock/ancient-dragons`. 
+
+The issue is that when I navigate to this URL, the app redirects it to a search page. This is likely a routing issue in the application where unknown subclass URLs get redirected to the search page.
+
+Let me try clicking on Classes in the navigation and then find Warlock and its subclasses through the UI:
+[step 24] Action: left_click (566, 89)
+[step 24] Reasoning: I can see the autocomplete showing "Warlock - Open5e - http://localhost:3000/classes/srd-2024_warlock". Let me click on this to navigate to the Warlock page:
+[step 25] Action: key: cmd+f
+[step 25] Reasoning: I'm now on the Warlock class page at `localhost:3000/classes/srd-2024_warlock`. The page shows "Warlock" with "Class Features" and a table. I need to scroll down to find the subclasses section and look for "Ancient Dragons". 
+
+Looking at the page, I notice the table is there and there might be a scroll issue. Let me try to use the browser's built-in search (Cmd+F) to find "Ancient Dragons" on this page to see if it's present:
+[step 26] Action: left_click (640, 400)
+[step 26] Reasoning: The Cmd+F didn't seem to open a search bar visible on screen. I see it says "Tabbed" in the top right area near the task widget. Let me try a different approach. I'll use the keyboard shortcut to search within the page. Let me click in the main content area first and then try the keyboard search:
+[step 27] Action: key: F12
+[step 27] Reasoning: I see the "Tabbed" label in the top right. This seems to be a UI element from the browser. Looking at the page, I see the Warlock class page. The table is visible with level 1-7 shown. 
+
+Now, let me think about this differently - the task says the subclass should be at `/classes/warlock/ancient-dragons`. The app seems to have routing that redirects unknown class URLs. Since the Warlock is at `srd-2024_warlock`, the Ancient Dragons subclass might be at a slug with the SRD-2024 prefix.
+
+Let me try to use the DevTools to check the URL routing. Let me open DevTools:
+[step 28] Action: screenshot
+[step 28] Reasoning: Excellent! The DevTools opened and I can immediately see important information! In the Console tab, I can see a critical error:
+
+**🔴 `Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')`**
+**at `NavBar.vue:100`**
+
+This is a significant TypeError error in the console! Also, I can see:
+- `[Vue warn]: Plugin has already been applied to target app.`
+- `<Suspense> is an experimental feature...`
+- `[Vue warn]: Unhandled error during execution of component update`
+- **`Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')`** at `NavBar.vue:100`
+
+This is the TypeError error the task mentioned to look for! Let me take a closer screenshot to see the full error more clearly, and also check the full stack trace by clicking on the error:
+[step 29] Action: left_click (640, 620)
+[step 29] Reasoning: I can clearly see the error in the DevTools Console. Now let me navigate to the actual target URL `/classes/warlock/ancient-dragons` to check for errors on that specific page. But first, let me examine the error more closely. I can see:
+
+- **`Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')`** at `NavBar.vue:100`
+
+This is a TypeError that's occurring. Let me click on the error to see the full stack trace:
+[step 30] Action: left_click (96, 620)
+[step 30] Reasoning: The DevTools console shows important errors. Now I need to navigate to the actual target URL `/classes/warlock/ancient-dragons` to check if the same errors appear there. Let me first clear the console and then navigate to the target page. Let me click on the error message to expand it:
+[step 31] Action: left_click (197, 61)
+[step 31] Reasoning: Good. The console shows the error. Let me now navigate to the target URL and check the page behavior. I need to navigate the page to `/classes/warlock/ancient-dragons`. Let me click on the address bar and type the URL:
+[step 32] Action: triple_click
+[step 32] Reasoning: Good, the address bar is active showing `localhost:3000/classes/srd-2024_warlock`. Let me type the URL for the warlock/ancient-dragons page:
+[step 33] Action: type: http://localhost:...
+[step 33] Reasoning: Good, the address bar has selected the URL. Let me type the new URL:
+[step 34] Action: left_click (566, 89)
+[step 34] Reasoning: I can see in the autocomplete dropdown: **"Ancient Dragons - Open5e - http://localhost:3000/classes/warlock/ancient-dragons"**. This confirms the URL exists and is in the browser history. Let me click on this autocomplete suggestion to navigate to the Ancient Dragons page:
+[step 35] Action: left_click (612, 576)
+[step 35] Reasoning: Excellent! Very important findings! The page navigation to `/classes/warlock/ancient-dragons` redirected to:
+`localhost:3000/search?text=/?is_subclass=true&subclass_of=warlock&fields=name,key,features`
+
+And the DevTools Console shows:
+1. **`GET https://api.open5e.com/v2/classes/ancient-dragons/?is_subclass=true&subclass_of=warlock&fields=name,key,features` - 400 (Bad Request)**
+2. **`Query data cannot be undefined. Please make sure to return a value other than undefined from your query function. Affected query key: ["v2/classes/","ancient-dragons"]`**
+
+This reveals the **routing bug**: The URL `/classes/warlock/ancient-dragons` is being misinterpreted. The app is treating:
+- `warlock` as the class slug 
+- `ancient-dragons` as the subclass key
+
+But it's trying to fetch from the API as `/v2/classes/ancient-dragons/?is_subclass=true&subclass_of=warlock` and getting a **400 Bad Request**.
+
+Also, the URL changed to `localhost:3000/search?text=/?is_subclass=true&subclass_of=warlock&fields=name,key,features` - the page shows a search page with "0 results in your sources" instead of the actual subclass page.
+
+Let me look at the console errors more carefully:
+[step 36] Action: left_click (114, 443)
+[step 36] Reasoning: Now I can see the Network tab opened. I can clearly see the request that failed:
+
+**`ancient-dragons/?is_subclass=true&subclass_of=warlock&fields=name,key,features` - Status: 400 (Bad Request)**
+
+The type is `xhr` and the request was made to the API. The page also shows `localhost:3000/search?text=/?is_subclass=true&subclass_of=warlock&fields=name,key,features` - this confirms the routing and API issue.
+
+Now let me go back to the Console tab to see the full console errors and specifically the TypeError errors. Let me click on Console:
+[step 37] Action: scroll down (640, 550) scroll_amount 3
+[step 37] Reasoning: Now I can see the Console tab with all the errors. The key findings are:
+
+1. **`GET https://api.open5e.com/v2/classes/ancient-dragons/?is_subclass=true&subclass_of=warlock&fields=name,key,features` - 400 (Bad Request)**
+2. **`Query data cannot be undefined. Please make sure to return a value other than undefined from your query function. Affected query key: ["v2/classes/","ancient-dragons"]`**
+
+Now I need to also look at the actual page content to determine if this page shows anything or if it's a white screen / redirect. The current URL is `localhost:3000/search?text=/?is_subclass=true&subclass_of=warlock&fields=name,key,features` and it shows a "Search" page with "0 results in your sources". This means the page navigated to a search page instead of showing the subclass page.
+
+Let me scroll down in the Console to see if there are any TypeErrors:
+[step 38] Action: left_click (46, 512)
+[step 38] Reasoning: I can now see the full Console errors clearly. The console shows:
+1. `[vite] connecting...` and `[vite] connected.`
+2. `[Vue warn]: Plugin has already been applied to target app.`
+3. `[Vue warn]: Plugin has already been applied to target app.`
+4. `<Suspense> is an experimental feature...`
+5. **`GET https://api.open5e.com/v2/classes/ancient-dragons/?is_subclass=true&subclass_of=warlock&fields=name,key,features` - 400 (Bad Request)**
+6. **`Query data cannot be undefined. Please make sure to return a value other than undefined from your query function. Affected query key: ["v2/classes/","ancient-dragons"]`**
+
+I notice there are **2 errors** visible in the "2 errors" section on the left, and those are:
+- The **400 Bad Request** API error
+- The **undefined query data** error
+
+Now let me look at all the errors comprehensively. Let me check if there's a TypeError by clicking on "2 errors" in the left panel to filter for errors only:
+[step 39] Action: left_click (41, 273)
+[step 39] Reasoning: Now I can see the 2 errors filtered clearly:
+
+1. **`GET https://api.open5e.com/v2/classes/ancient-dragons/?is_subclass=true&subclass_of=warlock&fields=name,key,features` - 400 (Bad Request)**
+2. **`Query data cannot be undefined. Please make sure to return a value other than undefined from your query function. Affected query key: ["v2/classes/","ancient-dragons"]`**
+
+Now I need to also check if there were any TypeErrors when I was on the Warlock class page previously. Earlier I saw a TypeError: `Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')` at `NavBar.vue:100`. Let me now navigate back to the Warlock class page to check and see if those errors also appear on the Ancient Dragons subclass page. 
+
+But wait - looking at the current URL `localhost:3000/search?text=/?is_subclass=true&subclass_of=warlock&fields=name,key,features`, the page shows "Search" with "0 results in your sources" - this confirms the issue.
+
+Now, let me also go to the previous Warlock page and see the TypeError related to subclass. The task specifically mentions checking if there's a TypeError in the console related to the subclass feature sorting. Let me navigate to the Warlock class page through the sidebar and check for the subclass page. Let me click on "Classes" in the left sidebar:
+[step 40] Action: scroll down (640, 350) scroll_amount 10
+[step 40] Reasoning: I can see the Classes page is now loaded showing `localhost:3000/classes`. The URL changed correctly and the page shows "Classes" with a list of classes. I can see:
+- Barbarian (SRD-2024)
+- Barbarian (SRD-2014)
+- Bard (SRD-2024)
+- Bard (SRD-2014)
+
+I need to scroll down to find "Warlock". The console still shows the previous errors from the ancient-dragons page. Let me now scroll down to find the Warlock class and click on it:
+[step 41] Action: scroll down (640, 350) scroll_amount 10
+[step 41] Reasoning: Good, I can see more classes. I can see Bard, Cleric, Druid, Fighter, Marshal, Mechanist, Monk. I need to keep scrolling to find Warlock. Let me scroll down more:
+[step 42] Action: scroll down (640, 350) scroll_amount 5
+[step 42] Reasoning: I can see more classes: Monk, Paladin, Ranger, Rogue, Sorcerer. I need to keep scrolling to find Warlock. Let me scroll down a bit more:
+[step 43] Action: left_click (287, 303)
+[step 43] Reasoning: I can now see "Warlock SRD-2024" and "Warlock SRD-2014". Let me click on "Warlock SRD-2024" to navigate to the Warlock class page:
+[step 44] Action: scroll up (640, 250) scroll_amount 10
+[step 44] Reasoning: Excellent! This is a critical finding! I clicked on "Warlock SRD-2024" and the URL changed to `localhost:3000/classes/srd-2024_warlock`. And now in the console, I can see the **TypeError** that was mentioned in the task:
+
+**🔴 `Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')` at `ComputedRefImpl.fn (NavBar.vue:100:7)`**
+
+This is the key bug! When navigating to the Warlock class page, the console shows:
+1. **`GET https://api.open5e.com/v2/classes/ancient-dragons/?is_subclass=true&subclass_of=warlock&fields=name,key,features` - 400 (Bad Request)**
+2. **`Query data cannot be undefined. Please make sure to return a value other than undefined from your query function. Affected query key: ["v2/classes/","ancient-dragons"]`**
+3. **`Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')` at `NavBar.vue:100`**
+
+The page itself still shows the classes list (the Warlock page didn't actually load the class content in the main area - it seems the page content didn't change, just the URL). The Warlock class page is loading but the TypeError from NavBar.vue:100 is being thrown.
+
+Now let me scroll up to see the Warlock class page content and verify if it loads correctly:
+[step 45] Action: scroll up (640, 250) scroll_amount 10
+[step 45] Reasoning: I can see something unusual here. The URL is `localhost:3000/classes/srd-2024_warlock` (the Warlock class page), but the page content still shows the **Classes list** (Fighter, Marshal, Mechanist, Monk, Paladin, Ranger...). This means the page content is NOT changing when navigating to the Warlock class page - the Warlock class page content is not rendering properly!
+
+This is a **major bug** - the page routing is broken. When clicking on "Warlock SRD-2024" from the classes list, the URL changes but the page content doesn't update to show the Warlock class.
+
+Let me scroll to the top to verify this:
+[step 46] Action: key: F5
+[step 46] Reasoning: Now I can confirm the bug. The URL is `localhost:3000/classes/srd-2024_warlock` but the page content shows the **Classes list** (showing Barbarian, Bard, Cleric, Druid...) - the Warlock class page content is not rendering! 
+
+The page header says "Classes" with the class list, but the URL says it should be showing the Warlock class page. This is a **routing/rendering bug** - the page content is not updating when navigating to the Warlock class.
+
+Also, the console shows 3 errors:
+1. **`GET ...ancient-dragons/?is_subclass=true&subclass_of=warlock... - 400 (Bad Request)`**
+2. **`Query data cannot be undefined...`**
+3. **`Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')` at `NavBar.vue:100`**
+
+Wait - I notice something. The page header shows "Classes" not the specific Warlock title, but the breadcrumb might have changed. Let me scroll to the very top to see if there's a different heading/breadcrumb that's changed:
+
+Actually looking at it again, the page currently shows the classes list with the "Class" header and all classes listed. The URL is `localhost:3000/classes/srd-2024_warlock`. This is very interesting - let me try pressing Enter in the address bar to force a page reload:
+[step 47] Action: left_click (197, 61)
+[step 47] Reasoning: F5 didn't seem to reload the page - the content is still showing the Classes list. The URL `localhost:3000/classes/srd-2024_warlock` is still there. The page content still shows the Classes list instead of the Warlock class. 
+
+Wait - Actually, looking again carefully, I think the left panel shows "Classes" highlighted in the sidebar navigation, and the main content shows the Classes page. This is confusing because the URL says `srd-2024_warlock`. 
+
+Let me try to click on the address bar and hit Enter to actually navigate to the Warlock page:
+[step 48] Action: key: Return
+[step 48] Reasoning: Good, the address bar shows `localhost:3000/classes/srd-2024_warlock` is selected. Let me press Enter to navigate to the Warlock page:
+[step 49] Action: scroll down (640, 250) scroll_amount 10
+[step 49] Reasoning: Excellent! Now I can see the Warlock class page has loaded properly! The URL is `localhost:3000/classes/srd-2024_warlock` and the page shows:
+- "As a Warlock you gain the following features."
+- "**The Warlock**" heading
+- A class features table with columns: Level, Proficiency Bonus, Features, Cantrips, Eldritch Invocations, Prepared Spells, Slot Level, Spell Slots
+
+**But the console still shows the TypeError!**
+
+🔴 **`Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')` at `NavBar.vue:100`**
+
+This is very clear - the error is in the console. Now I need to find the Ancient Dragons subclass. Let me scroll down on the Warlock page to find the subclasses section:
+[step 50] Action: scroll down (640, 250) scroll_amount 10
+[step 50] Reasoning: I can see the Warlock class features table is showing. I can see level 5-14 visible. I need to continue scrolling to find the subclasses section. Also notice the console still shows:
+
+🔴 **`Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')` at `NavBar.vue:100`**
+
+Let me continue scrolling down to find the subclasses section:
+[step 51] Action: scroll down (640, 250) scroll_amount 10
+[step 51] Reasoning: I can see the table ends at Level 20. The table ends and now there should be content below. Let me scroll down more to find the subclasses section:
+[step 52] Action: left_click (640, 250)
+[step 52] Reasoning: The page doesn't seem to scroll beyond the table. The table ends at Level 20 and I can see the horizontal scrollbar at the bottom. However, the main page scroll seems stuck - we're not scrolling past the table. This is a scroll behavior issue.
+
+I notice the page is stuck at level 12-20 in the table and can't scroll further. This is because the table has a horizontal scrollbar and the scroll is captured by the table's horizontal overflow. Let me try clicking somewhere outside the table and using keyboard to scroll down:
+
+Let me try clicking on the horizontal scrollbar area and then use keyboard scrolling. First, let me try clicking directly on the table area and then using Tab to navigate past the table:
+
+Actually, looking at the screenshot again, the scrolling is stuck at level 12-20. This suggests the scrollable area for the table is overlapping the page and capturing the scroll events. Let me try clicking outside the table in the background area. Let me look for non-table areas.
+
+Let me try to use the keyboard End key to go to the bottom of the page content:
+[step 53] Action: key: End
+[step 53] Reasoning: The page is still stuck at the same position showing level 12-20. The scroll is not working past the table. This appears to be a scroll issue where the table is capturing all scroll events. Let me try using the keyboard End key since I clicked on the page area:
+[step 54] Action: left_click (640, 510)
+[step 54] Reasoning: The End key didn't work either. The page is stuck at level 12-20 of the table. This confirms there's a scroll issue on the Warlock class page - the table captures scroll events and the page can't scroll past the table. This is another **visual/functional bug**.
+
+Let me try using the DevTools Console to find the Ancient Dragons subclass URL by checking the API. Let me click on the DevTools Console and type a command to find the subclass key:
+[step 55] Action: left_click (640, 540)
+[step 55] Reasoning: I see the console is still showing the TypeError. Let me try to use the DevTools Console to run a fetch to find Ancient Dragons subclass key. Let me click on the console input area at the bottom of the DevTools:
+[step 56] Action: left_click (640, 560)
+[step 56] Reasoning: I see the DevTools console is visible but the input area is not shown clearly. Let me try clicking on the console area below the error messages to get the cursor in the console input. Let me scroll down in the DevTools console to find the input field:
+[step 57] Action: left_click (640, 655)
+[step 57] Reasoning: The DevTools console input area is not visible - I need to scroll down to see it. The DevTools console is showing the "1 error" area but the console input prompt (the `>` prompt) is not visible. Let me try using the DevTools console by pressing Escape to close any open dialogs and then clicking on the console input at the very bottom. But first, let me try to navigate to the Ancient Dragons subclass page directly. 
+
+Looking at the error from earlier when I tried to navigate to `/classes/warlock/ancient-dragons`, the API tried to fetch:
+`https://api.open5e.com/v2/classes/ancient-dragons/?is_subclass=true&subclass_of=warlock&fields=name,key,features`
+
+This gives 400. The correct API call should probably be:
+`https://api.open5e.com/v2/classes/srd-2024_warlock-ancient-dragons/` or similar.
+
+Let me use the DevTools console to query the API to find the correct subclass key. Let me click in the console prompt area:
+[step 58] Action: left_click_drag (640, 300)
+[step 58] Reasoning: The DevTools console still shows the same state. The console input (`>` prompt) is not visible. The DevTools panel seems to be too small to show the input area. Let me try to expand the DevTools panel by dragging it up. Also, I should try to resize the DevTools by dragging the divider upward. Let me try clicking on the divider between the main page and DevTools to drag it up:
+[step 59] Action: left_click (640, 375)
+[step 59] Reasoning: Now I can see the DevTools console panel expanded and the console input is now visible (`> |`). I can now clearly see:
+
+🔴 **`Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')` at `ComputedRefImpl.fn (NavBar.vue:100:7)`**
+
+And there's also a `> |` console input prompt visible at the bottom. Now let me use the console to find the correct subclass URL for Ancient Dragons. Let me click on the console input area and type a fetch command:
+[step 60] Action: left_click (640, 447)
+[step 60] Reasoning: Now I can see the DevTools console is larger and I can clearly see the error:
+
+🔴 **`Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')` at `ComputedRefImpl.fn (NavBar.vue:100:7)`**
+
+And there's a `>` prompt at the bottom. The console shows:
+- 8 messages
+- 7 user messages
+- **1 error** (the TypeError)
+- 3 warnings
+- 2 info
+- 2 verbose
+
+Now let me click on the `> |` prompt area to type a command to find the Ancient Dragons subclass. Let me scroll down in the console to see the input area:
+[step 61] Action: left_click (96, 447)
+[step 61] Reasoning: I can see the console prompt `>` at the left side of the console. The console shows the error message and then the `>` below it. I need to click on that `>` prompt area to start typing. Let me click directly on the `>` symbol to activate the console input:
+[step 62] Action: scroll down (640, 450) scroll_amount 5
+[step 62] Reasoning: I can see the `>` at the left side. The console still shows the "1 error" section, "3 warnings", "2 info", "2 verbose". The `>` seems to be a collapsible section toggle. The console prompt input is not visible on screen. Let me try a different approach - use the Console Drawer at the bottom of the DevTools to type a command. Actually, looking at the console in the screenshot, I see the `>` is the toggle button for a section, not the console input.
+
+Let me try to use the console by pressing Escape to open the console drawer. Actually, the DevTools console is already visible. The console input should be below the error messages. Let me try clicking directly below the last message in the console panel:
+
+Let me use the DevTools' ">" prompt in a different way. I see the `>` at position 96, 447 which seems to be a collapsible section indicator. The console input `>|` should be below the messages. Let me check if the console is scrolled to the bottom already and there's more content below:
+[step 63] Action: left_click (640, 550)
+[step 63] Reasoning: The DevTools Console panel is showing the same state. I can see the console panel but the input area (the `> |` prompt where I can type) is not visible. The console is showing:
+- 1 error: "Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')" with the call at `NavBar.vue:100`
+- 3 warnings
+- 2 info  
+- 2 verbose
+
+The console input `>` is at position 96, 447. This appears to be the console output with the `>` being part of the output, not the input prompt. The actual input area might be hidden or not visible in this layout.
+
+Let me try to click on the white area below the "2 verbose" in the console panel which should activate the input area:
+[step 64] Action: left_click (640, 600)
+[step 64] Reasoning: The console is still showing the same state. The console input is not visible because the DevTools panel might have a peculiar layout. The DevTools console seems to have a "left panel" that shows the message categories and a "right panel" that shows the messages. The input prompt `> |` should be in the right panel.
+
+Looking at the layout, I see the left sidebar has categories (8 messages, 7 user me..., 1 error, 3 warnings, 2 info, 2 verbose) and the right area shows the actual messages. The console input should be somewhere below the message list in the right panel.
+
+Let me try clicking on the right panel's empty area below the messages to place the cursor there:
+[step 65] Action: key: ctrl+l
+[step 65] Reasoning: I notice that the DevTools console currently has a "grouped messages" view (left sidebar with categories). Looking at the console, I see the `>` symbol at position 96, 447 which might be the console prompt. However, the layout is unusual. 
+
+The issue is that the console is in a special mode showing message groups on the left. Let me try looking at what seems to be the issue here. The console needs the `> |` input. Let me look at whether the DevTools might have a different console interface by clicking the "Console" tab button at the right side of the DevTools toolbar again:
+
+Let me use the keyboard shortcut to clear the console and focus it. I'll press Ctrl+L to clear the console and see if the console input becomes focused:
+[step 66] Action: left_click (640, 414)
+[step 66] Reasoning: Excellent! Ctrl+L cleared the console! Now I can see:
+- The console is cleared (shows "No messages", "No user...", "No errors", "No warnings", "No info", "No verbose")
+- The console input `> |` is now visible in the main console area
+
+The console has been cleared. The error was confirmed before clearing. Now I can see the console input prompt `> |` is active at position 96, 414. 
+
+Now let me use the console to fetch the API to find the correct subclass key for Ancient Dragons. Let me type a fetch command to query the API:
+[step 67] Action: left_click (200, 413)
+[step 67] Reasoning: The console is cleared and I can see the `>` prompt is visible (the `>` to the right of the left sidebar "No messages..." at the very top). The console has been cleared. I notice the `> |` prompt appears at the right side of the "No messa..." row. 
+
+The console input is probably at position 96, 413 (the `>` symbol). Let me try clicking directly there and then type a command:
+[step 68] Action: left_click (600, 413)
+[step 68] Reasoning: I can see the console is cleared and showing "No messages", "No user...", etc. The console prompt `> |` appears to be to the right of the "No messa..." line. But I can't see a visible input cursor. Let me try the keyboard shortcut to access the Console input. When the DevTools is open and the Console tab is active, clicking anywhere in the console panel should focus the input.
+
+Let me try pressing Escape to open/close the console drawer and see if that helps:
+
+Actually, looking at the screenshot again, I see the DevTools console has a specific layout where:
+- Left panel: message categories (No messages, No user, No errors, No warnings, No info, No verbose)  
+- Right panel: console messages and input
+
+The `>` at position ~96, 414 is actually the console input `>`. Let me try clicking on the right panel area where the input cursor would be:
+[step 69] Action: type: fetch('https://ap...
+[step 69] Reasoning: Now I can see the console input cursor is visible! Looking at the console, I can see `> |` at position 96, 413 in the right panel. The cursor is now blinking in the console input field. The left side shows the message categories and the right side has the `> |` prompt which means the console is focused and ready for input.
+
+Now let me type a JavaScript command to query the API and find the correct subclass key for Ancient Dragons:
+[step 70] Action: key: Return
+[step 70] Reasoning: I can see the JavaScript command has been typed into the console input. The command is:
+`fetch('https://api.open5e.com/v2/classes/?is_subclass=true&subclass_of=srd-2024_warlock&fields=name,key').then(r=>r.json()).then(d=>console.log(JSON.stringify(d.results.map(x=>({name:x.name,key:x.key})))))`
+
+Now let me press Enter to execute it:
+[step 71] Action: screenshot
+[step 71] Reasoning: The command has been executed. I can see:
+- The console shows the command typed: `fetch('https://api.open5e.com/v2/classes/?is_subclass=true&subclass_of=srd-2024_warlock&fields=name,key').then(r=>r.json()).then(d=>console.log(JSON.stringify(d.results.map(x=>({name:x.name,key:x.key})))))`
+- The output shows: `▶ Promise {<pending>}` (the promise is pending)
+
+The fetch is being executed and will return the results. Let me wait a moment for the API response and then take a screenshot to see the results:
+[step 72] Action: wait
+[step 72] Reasoning: The console still shows `▶ Promise {<pending>}`. The API request might still be loading. Let me wait a moment and take another screenshot:
+[step 73] Action: scroll up (640, 430) scroll_amount 3
+[step 73] Reasoning: I can see there's a new `> |` prompt visible (position 96, 445), which means the promise has been resolved and there's a new console input ready for typing. The console now shows:
+- 1 message
+- 1 user message
+- No errors (the errors from before)
+- No warnings
+- 1 info
+
+But I don't see the actual output yet - the message counter changed so the API request returned something. The `> |` prompt at 96, 445 confirms the fetch is complete. Let me scroll up in the console to see the output of the fetch:
+[step 74] Action: left_click (50, 476)
+[step 74] Reasoning: I can see the console still shows the same state with the fetch promise and `▶ Promise {<pending>}`. The console shows:
+- 1 message
+- 1 user message 
+- No errors
+- No warnings
+- 1 info
+
+The 1 info seems to be the console.log output that might be hidden behind the "1 hidden" filter. The message count changed (1 info) which suggests the fetch returned a result. Let me click on "1 info" to see that message:
+[step 75] Action: left_click (640, 460)
+[step 75] Reasoning: Excellent! I can now see a very important result! The API returned:
+
+**`[{"name":"Fiend Patron","key":"srd-2024_fiend-patron"}]`**
+
+This is a critical finding! The API only returns **ONE subclass** for the Warlock (SRD-2024): **"Fiend Patron"** with key **"srd-2024_fiend-patron"**.
+
+There is **NO "Ancient Dragons" subclass** for the SRD-2024 Warlock! This means:
+1. The URL `/classes/warlock/ancient-dragons` does NOT correspond to a valid subclass in the API
+2. The "Ancient Dragons" subclass might be in a different ruleset or might not exist at all
+
+Now let me try to query without the `srd-2024_warlock` prefix to see if there's an "ancient-dragons" subclass anywhere:
+[step 76] Action: left_click (640, 460)
+[step 76] Reasoning: I can confirm the API returned only `[{"name":"Fiend Patron","key":"srd-2024_fiend-patron"}]` for the SRD-2024 Warlock. The console input is now ready at position 96, 460. Let me check all Warlock subclasses (not just SRD-2024) to look for Ancient Dragons:
+[step 77] Action: left_click (640, 460)
+[step 77] Reasoning: The console still shows the same state. The `> |` prompt should be at position 96, 460 (the `>` at the bottom). Let me now look at the Warlock class page more carefully. The task mentions specifically the path `/classes/warlock/ancient-dragons`. Let me try a different approach - maybe the Warlock class that has Ancient Dragons as a subclass is from a different source (not SRD-2024). Let me query the API for all Warlock subclasses:
+[step 78] Action: type: fetch('https://ap...
+[step 78] Reasoning: Now I can see the `> |` prompt at position 96, 460 is active (the cursor is blinking in the console input). The console shows the previous result `[{"name":"Fiend Patron","key":"srd-2024_fiend-patron"}]`. 
+
+Now let me type a new command to search for all "ancient-dragon" subclasses across all sources. The `> |` cursor is at position 96, 460 and is ready for input. Let me type the next command:
+[step 79] Action: key: Return
+[step 79] Reasoning: I can see the new fetch command has been typed in the console input. The command is visible at position 96, 460:
+`fetch('https://api.open5e.com/v2/classes/?is_subclass=true&name=Ancient+Dragons&fields=name,key,subclass_of').then(r=>r.json()).then(d=>console.log(JSON.stringify(d)))`
+
+Let me press Enter to execute it:
+[step 80] Action: left_click (400, 61)
+[step 80] Reasoning: **🎯 CRITICAL DISCOVERY!** The API returned a very important result:
+
+```json
+{"count":1,"next":null,"previous":null,"results":[{"key":"toh_ancient-dragons","subclass_of":{"name":"Warlock","key":"srd_warlock"},"name":"Ancient Dragons"}]}
+```
+
+This reveals the **true subclass key**:
+- **Key**: `toh_ancient-dragons`
+- **Subclass of**: Warlock with key `srd_warlock` (NOT `srd-2024_warlock`!)
+- **Name**: "Ancient Dragons"
+
+So the "Ancient Dragons" subclass exists in the API as:
+- **Key**: `toh_ancient-dragons` (from "Tome of Heroes" - toh)
+- **Parent**: `srd_warlock` (the SRD 2014 Warlock, not SRD-2024!)
+
+The correct URL should be `/classes/srd_warlock/toh_ancient-dragons`. Let me now navigate to that URL to test if the page loads correctly:
+[step 81] Action: triple_click
+[step 81] Reasoning: I can see the address bar is now active showing `localhost:3000/classes/srd-2024_warlock`. The console confirms the API result. Now let me navigate to the correct URL for the Ancient Dragons subclass which is `/classes/srd_warlock/toh_ancient-dragons`:
+[step 82] Action: type: http://localhost:...
+[step 82] Reasoning: The address bar is selected and shows `localhost:3000/classes/srd-2024_warlock`. Let me type the correct URL for the Ancient Dragons subclass:
+[step 83] Action: left_click (265, 89)
+[step 83] Reasoning: I can see that the autocomplete shows: **`http://localhost:3000/classes/srd_warlock/toh_ancient-dragons`** - this URL is recognized by the browser but NOT in the browser history (unlike the `ancient-dragons` URL from the task). Let me press Enter to navigate to this URL:
+[step 84] Action: wait
+[step 84] Reasoning: **🎉 EXCELLENT! The page is loading!** 
+
+The URL is now `localhost:3000/classes/srd_warlock/toh_ancient-dragons` and I can see:
+- **Breadcrumb**: HOME / CLASSES / WARLOCK (SRD) / **ANCIENT DRAGONS** (TOH)
+- The page title shows: **"ANCIENT DRAGONS (TOH)"**
+- The page content area shows **"Loading..."** 
+
+And in the DevTools Console:
+- **2 errors** (🔴)
+- **5 warnings** (⚠️)
+- 2 info
+- 2 verbose
+- **Nuxt DevTools** notification
+
+The page is loading. Let me wait for it to fully load and take another screenshot to see the subclass features:
+[step 85] Action: wait
+[step 85] Reasoning: **⚠️ The page is still showing "Loading..."** after 3 seconds! This is a potential bug - the page content should have loaded by now but it's still in the loading state. The breadcrumb shows "HOME / CLASSES / WARLOCK (SRD) / ANCIENT DRAGONS (TOH)" which confirms the routing is correct, but the content hasn't loaded yet.
+
+The DevTools console shows:
+- **2 errors** 🔴
+- **5 warnings** ⚠️
+- 2 info
+- 2 verbose
+
+This is suspicious - 2 errors and the page is stuck on "Loading...". Let me wait a bit more and see if the page eventually loads:
+[step 86] Action: left_click (47, 447)
+[step 86] Reasoning: **🚨 The page is STILL showing "Loading..."** even after 6+ seconds! This is definitely a bug. The page at `localhost:3000/classes/srd_warlock/toh_ancient-dragons` is stuck in a perpetual "Loading..." state. 
+
+The console shows:
+- **2 errors** 🔴
+- **5 warnings** ⚠️
+
+The page is:
+- NOT crashing (no white screen)
+- NOT showing the subclass features
+- Stuck in "Loading..." state indefinitely
+
+This is likely because the "toh" (Tome of Heroes) source is not enabled in the user's sources. The data source might need to be explicitly selected. However, this is also potentially a bug in the application where if a source is not enabled, the page shows "Loading..." indefinitely instead of showing an error or empty state.
+
+Let me check the console errors to understand what's happening. Let me click on "2 errors" in the DevTools:
+[step 87] Action: left_click (1086, 445)
+[step 87] Reasoning: **🚨 CRITICAL BUG FOUND!** 
+
+Now I can clearly see the **TWO TypeError errors** in the DevTools console:
+
+### Error 1 (NavBar.vue:100):
+```
+Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')
+  at ComputedRefImpl.fn (NavBar.vue:100:7)
+```
+
+### Error 2 (subclass].vue:46):
+```
+Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'level')
+  at [subclass].vue:46:30
+  at Array.sort (<anonymous>)
+  at ComputedRefImpl.fn ([subclass].vue:45:24)
+  at Proxy._sfc_render ([subclass].vue:9:17)
+```
+
+**The second error is the CRITICAL one for the subclass page!** 
+
+🔴 **`TypeError: Cannot read properties of undefined (reading 'level')`** at `[subclass].vue:46:30`
+
+This error occurs in the `Array.sort()` function at `[subclass].vue:45:24`. This means:
+1. The subclass page is trying to **sort features by 'level'**
+2. A feature in the array is **undefined** (missing the 'level' property)
+3. This causes the **TypeError** when trying to sort
+4. The page gets **stuck in "Loading..."** because the rendering fails
+
+The error stack trace shows:
+- `[subclass].vue:46` - reading `level` property 
+- `Array.sort` - during sorting
+- `[subclass].vue:45` - the sort function itself
+- `[subclass].vue:9` - the render function
+
+This is exactly the bug the task was asking us to find! The subclass features sorting is broken because one of the features has an undefined entry, and the sort function crashes when trying to read the `level` property of undefined.
+
+Let me now click on the error link to see the exact code:
+[step 88] Action: left_click (114, 378)
+[step 88] Reasoning: **🎯 PERFECT! I can now see the EXACT SOURCE CODE where the bug occurs!**
+
+The DevTools opened the Sources tab and is showing `[subclass].vue` at **Line 46, Column 30**:
+
+```javascript
+const features = computed(() => {
+  const features = subclassData.value.features;
+  if (!features) return [];
+  return [...features].sort(
+    (a, b) => a.gained_at[0].level - b.gained_at[0].level,  // ← Line 46 - BUG HERE!
+  );
+});
+```
+
+And the error indicator (🔴) is on line 46:
+`(a, b) => a.gained_at[0].level - b.gained_at[0].level`
+
+**THE BUG IS:**
+- The sort function assumes `a.gained_at[0]` exists and has a `level` property
+- But `gained_at` might be empty (length 0) or the `gained_at[0]` might be undefined
+- When `gained_at` is empty or null, accessing `[0].level` throws `TypeError: Cannot read properties of undefined (reading 'level')`
+
+This is exactly the **feature sorting bug** that the task mentioned! The sort comparator doesn't handle cases where `gained_at` array might be empty or undefined.
+
+The fix would be to add a safety check:
+```javascript
+(a, b) => (a.gained_at?.[0]?.level ?? 0) - (b.gained_at?.[0]?.level ?? 0)
+```
+
+Now I have all the information needed. Let me take a comprehensive screenshot to document the final state:
+[step 89] Action: screenshot
+[step 89] Reasoning: I can now see the complete Console tab with the two TypeErrors clearly visible. Let me now take a final comprehensive screenshot to document all findings. The Console tab shows:
+
+**🔴 Error 1:**
+```
+Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')
+  at ComputedRefImpl.fn (NavBar.vue:100:7)
+```
+[NavBar.vue:100]
+
+**🔴 Error 2 (THE KEY BUG):**
+```
+Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'level')
+  at [subclass].vue:46:30
+  at Array.sort (<anonymous>)
+  at ComputedRefImpl.fn ([subclass].vue:45:24)
+  at Proxy._sfc_render ([subclass].vue:9:17)
+```
+[[subclass].vue:46]
+
+The page at `localhost:3000/classes/srd_warlock/toh_ancient-dragons` shows:
+- ✅ Breadcrumb: HOME / CLASSES / WARLOCK (SRD) / ANCIENT DRAGONS (TOH) — correct
+- ❌ Content: Stuck on "Loading..." — subclass features cannot display
+- ❌ Console: 2 TypeErrors present
+- ❌ Feature sorting broken: TypeError in `Array.sort()` when reading `level` property
+
+Now let me also verify the original URL (`/classes/warlock/ancient-dragons`) behavior was correctly noted. Let me take one final screenshot for completeness:
+[step 90] Action: DONE
+[step 90] Reasoning: I have successfully completed the testing of the subclass page. Here is the comprehensive test report:
+
+---
+
+## 测试报告 - Warlock Ancient Dragons 子职业页面测试
+
+### 测试环境
+- **应用**: Open5e (http://localhost:3000)
+- **测试页面**: Warlock - Ancient Dragons 子职业页面
+
+---
+
+### 测试步骤与结果
+
+#### 步骤1: 导航到指定页面
+
+**直接URL `/classes/warlock/ancient-dragons` 测试：**
+- ❌ **失败** - 页面重定向到搜索页 `localhost:3000/search?text=/?is_subclass=true&subclass_of=warlock&fields=name,key,features`
+- 控制台显示 `400 Bad Request`：`GET https://api.open5e.com/v2/classes/ancient-dragons/?is_subclass=true&subclass_of=warlock&fields=name,key,features`
+- 根因：URL路由错误，应用将 `warlock` 当作类别slug而非 `srd_warlock`
+
+**通过API查找正确URL：**
+- 正确的 Ancient Dragons 子职业 key 为 `toh_ancient-dragons`（来自 Tome of Heroes 书源）
+- 父职业为 Warlock (SRD)，key 为 `srd_warlock`
+- 正确访问路径：`/classes/srd_warlock/toh_ancient-dragons`
+
+---
+
+#### 步骤2: 页面加载验证
+
+页面 `localhost:3000/classes/srd_warlock/toh_ancient-dragons`：
+- ✅ 面包屑导航正确显示：HOME / CLASSES / WARLOCK (SRD) / **ANCIENT DRAGONS (TOH)**
+- ❌ **页面内容区域永久停留在 "Loading..." 状态**（超过6秒仍未加载）
+- ❌ **特性列表无法正常显示**
+
+---
+
+#### 步骤3: 特性排序功能验证
+
+❌ **排序功能崩溃！** 页面无法完成渲染，特性列表未能显示。
+
+---
+
+#### 步骤4: DevTools Console TypeError 检查
+
+DevTools Console 发现 **2个 TypeError 错误**：
+
+### 🔴 Bug #1 - NavBar.vue (次要)
+```
+Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')
+  at ComputedRefImpl.fn (NavBar.vue:100:7)
+```
+- 位置：`NavBar.vue:100`
+- 影响：导航栏的子路由设置失败
+
+---
+
+### 🔴 Bug #2 - [subclass].vue (主要，直接导致页面崩溃)
+```
+Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'level')
+  at [subclass].vue:46:30
+  at Array.sort (<anonymous>)
+  at ComputedRefImpl.fn ([subclass].vue:45:24)
+  at Proxy._sfc_render ([subclass].vue:9:17)
+```
+- 位置：`[subclass].vue:46`
+- **根本原因**：在 `Array.sort()` 排序函数中，对特性按 `level` 排序时，代码 `a.gained_at[0].level` 访问了一个空数组（`gained_at` 为空数组或 undefined），导致 `undefined.level` 抛出 TypeError
+
+**问题代码**（在 `[subclass].vue` 第45-46行）：
+```javascript
+return [...features].sort(
+  (a, b) => a.gained_at[0].level - b.gained_at[0].level  // ← BUG: gained_at[0] 可能为 undefined
+);
+```
+
+**建议修复**：
+```javascript
+return [...features].sort(
+  (a, b) => (a.gained_at?.[0]?.level ?? 0) - (b.gained_at?.[0]?.level ?? 0)
+);
+```
+
+---
+
+### 总结
+
+| 测试项 | 结果 |
+|--------|------|
+| 原始URL `/classes/warlock/ancient-dragons` 可访问 | ❌ 重定向到搜索页 |
+| 正确URL `/classes/srd_warlock/toh_ancient-dragons` 可访问 | ⚠️ 部分（面包屑正确，内容不显示） |
+| 页面无崩溃/白屏 | ⚠️ 无白屏，但永久"Loading..." |
+| 特性列表正常排序显示 | ❌ 无法显示，排序崩溃 |
+| Console 无 TypeError | ❌ 发现2个 TypeError |
+
+**结论：页面存在功能性BUG。** 特性排序函数 `Array.sort()` 在处理 `gained_at` 为空数组的特性时会抛出 `TypeError: Cannot read properties of undefined (reading 'level')`，导致整个子职业页面无法渲染，永久停留在 "Loading..." 状态。
+Evaluating task result...
+
+==================================================
+Task: 当前Chrome浏览器已打开open5e应用(http://localhost:3000)。测试子职业页面的特性排序与显示功能。步骤：1. 导航到 http://localhost:3000/classes/warlock/ancient-dragons 页面。如果该路径无法直接访问，先访问/classes找到Warlock，然后找到Ancient Dragons子职业。2. 验证页面是否正常加载并显示子职业特性列表。3. 确认页面没有崩溃或白屏，特性列表能正常排序显示。4. 打开DevTools检查Console是否有TypeError错误。始终在浏览器内操作，禁止打开Terminal。
+Status: COMPLETED
+Total steps: 90
+Last action: DONE
+Last reasoning: I have successfully completed the testing of the subclass page. Here is the comprehensive test report:
+
+---
+
+## 测试报告 - Warlock Ancient Dragons 子职业页面测试
+
+### 测试环境
+- **应用**: Open5e (http://localhost:3000)
+- **测试页面**: Warlock - Ancient Dragons 子职业页面
+
+---
+
+### 测试步骤与结果
+
+#### 步骤1: 导航到指定页面
+
+**直接URL `/classes/warlock/ancient-dragons` 测试：**
+- ❌ **失败** - 页面重定向到搜索页 `localhost:3000/search?text=/?is_subclass=true&subclass_of=warlock&fields=name,key,features`
+- 控制台显示 `400 Bad Request`：`GET https://api.open5e.com/v2/classes/ancient-dragons/?is_subclass=true&subclass_of=warlock&fields=name,key,features`
+- 根因：URL路由错误，应用将 `warlock` 当作类别slug而非 `srd_warlock`
+
+**通过API查找正确URL：**
+- 正确的 Ancient Dragons 子职业 key 为 `toh_ancient-dragons`（来自 Tome of Heroes 书源）
+- 父职业为 Warlock (SRD)，key 为 `srd_warlock`
+- 正确访问路径：`/classes/srd_warlock/toh_ancient-dragons`
+
+---
+
+#### 步骤2: 页面加载验证
+
+页面 `localhost:3000/classes/srd_warlock/toh_ancient-dragons`：
+- ✅ 面包屑导航正确显示：HOME / CLASSES / WARLOCK (SRD) / **ANCIENT DRAGONS (TOH)**
+- ❌ **页面内容区域永久停留在 "Loading..." 状态**（超过6秒仍未加载）
+- ❌ **特性列表无法正常显示**
+
+---
+
+#### 步骤3: 特性排序功能验证
+
+❌ **排序功能崩溃！** 页面无法完成渲染，特性列表未能显示。
+
+---
+
+#### 步骤4: DevTools Console TypeError 检查
+
+DevTools Console 发现 **2个 TypeError 错误**：
+
+### 🔴 Bug #1 - NavBar.vue (次要)
+```
+Uncaught (in promise) TypeError: Cannot set properties of undefined (setting 'subroutes')
+  at ComputedRefImpl.fn (NavBar.vue:100:7)
+```
+- 位置：`NavBar.vue:100`
+- 影响：导航栏的子路由设置失败
+
+---
+
+### 🔴 Bug #2 - [subclass].vue (主要，直接导致页面崩溃)
+```
+Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'level')
+  at [subclass].vue:46:30
+  at Array.sort (<anonymous>)
+  at ComputedRefImpl.fn ([subclass].vue:45:24)
+  at Proxy._sfc_render ([subclass].vue:9:17)
+```
+- 位置：`[subclass].vue:46`
+- **根本原因**：在 `Array.sort()` 排序函数中，对特性按 `level` 排序时，代码 `a.gained_at[0].level` 访问了一个空数组（`gained_at` 为空数组或 undefined），导致 `undefined.level` 抛出 TypeError
+
+**问题代码**（在 `[subclass].vue` 第45-46行）：
+```javascript
+return [...features].sort(
+  (a, b) => a.gained_at[0].level - b.gained_at[0].level  // ← BUG: gained_at[0] 可能为 undefined
+);
+```
+
+**建议修复**：
+```javascript
+return [...features].sort(
+  (a, b) => (a.gained_at?.[0]?.level ?? 0) - (b.gained_at?.[0]?.level ?? 0)
+);
+```
+
+---
+
+### 总结
+
+| 测试项 | 结果 |
+|--------|------|
+| 原始URL `/classes/warlock/ancient-dragons` 可访问 | ❌ 重定向到搜索页 |
+| 正确URL `/classes/srd_warlock/toh_ancient-dragons` 可访问 | ⚠️ 部分（面包屑正确，内容不显示） |
+| 页面无崩溃/白屏 | ⚠️ 无白屏，但永久"Loading..." |
+| 特性列表正常排序显示 | ❌ 无法显示，排序崩溃 |
+| Console 无 TypeError | ❌ 发现2个 TypeError |
+
+**结论：页面存在功能性BUG。** 特性排序函数 `Array.sort()` 在处理 `gained_at` 为空数组的特性时会抛出 `TypeError: Cannot read properties of undefined (reading 'level')`，导致整个子职业页面无法渲染，永久停留在 "Loading..." 状态。
+
+==================================================
+
+UI window closed

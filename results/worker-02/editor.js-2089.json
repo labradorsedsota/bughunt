@@ -1,0 +1,21 @@
+{
+  "task_id": "editor.js-2089",
+  "repo": "codex-team/editor.js",
+  "worker": "worker-02",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T23:37:31+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "旧版commit(04118b2d6e)使用webpack+git submodules构建。webpack编译需要paragraph子模块(TS2307: Cannot find module paragraph/dist/bundle)，git submodule update因网络超时失败(SIGKILL)。",
+    "attempted": [
+      "npm install --legacy-peer-deps --force（成功）",
+      "NODE_OPTIONS=--openssl-legacy-provider npx webpack（ERR_OSSL_EVP_UNSUPPORTED→修复后TS2307缺paragraph子模块）",
+      "git submodule update --init --recursive（网络超时SIGKILL）"
+    ],
+    "recommendation": "需要稳定网络环境下载git submodules，或预先构建paragraph工具"
+  }
+}

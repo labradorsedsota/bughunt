@@ -1,0 +1,18 @@
+{
+  "task_id": "vue-hotel-datepicker-281",
+  "repo": "krystalcampioni/vue-hotel-datepicker",
+  "worker": "worker-02",
+  "status": "deploy_failed",
+  "sess_id": "sess-20260419020249-7f42d7f795434e6a8117fc503427a6dd",
+  "expected_result_used": true,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-19T02:11:53+08:00",
+  "deploy_notes": "commit b71c8eb854使用vue-cli-service + sass-loader@8。原始node-sass无法在Node 18编译（gyp error），替换为dart-sass后SCSS编译报错：SassError: 50% and 1.1875 are incompatible（./src/assets/scss/index.scss:848）。dart-sass严格解析calc()内的数学运算导致50%与无单位数字1.1875不兼容。Vue应用无法挂载（document.querySelector('#app').__vue_app__ = undefined），页面完全空白。mano-cua 41步确认应用无法加载。",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 41,
+    "last_action": "DONE",
+    "result": "deploy_failed",
+    "result_summary": "SCSS编译失败，应用无法加载。SassError: 50% and 1.1875 are incompatible at index.scss:848."
+  }
+}

@@ -1,0 +1,1108 @@
+Session created: sess-20260417172136-4a338c6400f14a78a30bec933100d306
+UI panel initialized successfully
+UI window displayed
+Expected result: 表格正常渲染不崩溃；响应式折叠模式下展开行详情时所有列（包括TemplateRef列）的数据正确显示；visible:false的列不导致报错。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: scroll down (640, 400) scroll_amount 3
+[step 1] Reasoning: I can see the "Using Angular TemplateRef" page is loaded. The table shows columns: ID, First name, Last name, and Actions. Let me first scroll down to see the full table and then observe the current state.
+[step 2] Action: left_click (810, 257)
+[step 2] Reasoning: I can see the table with columns: ID, First name, Last name, and Actions. The table is rendering correctly with data. The "Actions" column contains an "ACTION 1" button rendered via TemplateRef. 
+
+Now I need to:
+1. First check the HTML/TS tab to understand the template structure
+2. Then resize the browser window to trigger responsive collapse
+
+Let me first check the HTML tab to understand the template structure:
+[step 3] Action: left_click (1094, 297)
+[step 3] Reasoning: I can see the HTML tab showing the template structure. The table uses `[dtOptions]="dtOptions"` directive. Let me also check the TS tab to understand the configuration, especially regarding responsive settings and column visibility:
+[step 4] Action: scroll down (640, 450) scroll_amount 3
+[step 4] Reasoning: I can see the TS tab showing the component code. Let me scroll down to see more of the TypeScript code to understand the dtOptions configuration:
+[step 5] Action: scroll down (640, 450) scroll_amount 3
+[step 5] Reasoning: I can see the TS code. The tab for TS seems to have disappeared from view. Let me scroll down more to see the dtOptions configuration:
+[step 6] Action: scroll down (640, 450) scroll_amount 3
+[step 7] Action: scroll down (640, 450) scroll_amount 5
+[step 8] Action: scroll down (640, 450) scroll_amount 5
+[step 9] Action: scroll down (640, 450) scroll_amount 5
+[step 10] Action: scroll down (640, 450) scroll_amount 5
+[step 10] Reasoning: I can see the ng-template-ref.component.ts file is starting. Let me continue scrolling to see the dtOptions configuration:
+[step 11] Action: scroll down (640, 450) scroll_amount 5
+[step 12] Action: scroll down (640, 450) scroll_amount 5
+[step 12] Reasoning: I can see `dtOptions: ADTSettings = {};` and `dtTrigger: Subject<ADTSettings> = new Subject<ADTSettings>();`. Let me scroll more to see the complete dtOptions configuration:
+[step 13] Action: scroll down (640, 450) scroll_amount 5
+[step 13] Reasoning: I can see `@ViewChild('demoNg') demoNg: TemplateRef<DemoNgComponent>;` and the ngOnInit using setTimeout. Let me scroll down to see the full dtOptions configuration:
+[step 14] Action: scroll down (640, 450) scroll_amount 5
+[step 14] Reasoning: Now I can see the dtOptions configuration with columns. Let me scroll down to see all the columns and especially looking for responsive settings and visible:false configurations:
+[step 15] Action: scroll down (640, 450) scroll_amount 5
+[step 15] Reasoning: I can see the columns: ID, First name, Last name. Let me continue to see the rest of the columns configuration:
+[step 16] Action: scroll down (640, 450) scroll_amount 5
+[step 16] Reasoning: I can now see the 'Actions' column configuration with `ngTemplateRef: { ref: this.demoNg, context: {...} }`. This is the TemplateRef column. Let me scroll down to see the rest:
+[step 17] Action: scroll down (640, 450) scroll_amount 3
+[step 17] Reasoning: Now I can see the complete dtOptions configuration. The columns are:
+1. ID (data: 'id')
+2. First name (data: 'firstName')
+3. Last name (data: 'lastName')
+4. Actions (data: null, ngTemplateRef with ref: this.demoNg)
+
+I don't see any `responsive` option or `visible: false` in the current code. Let me scroll down to see if there's more configuration:
+[step 18] Action: scroll up (640, 400) scroll_amount 30
+[step 18] Reasoning: I can now see the complete configuration. The dtOptions doesn't include `responsive: true` in this page's code. Let me now scroll back to the top to see the actual table and then resize the window to trigger responsive layout. First, let me scroll up to see the table:
+[step 19] Action: left_click (1238, 573)
+[step 19] Reasoning: I need to scroll up further to see the actual table. Let me click the "back to top" button to go back to the top of the page:
+[step 20] Action: left_click (506, 357)
+[step 20] Reasoning: I'm now at the top of the page. I can see "Using Angular TemplateRef" page title, with tabs: PREVIEW, HTML, and TS. The TS tab is currently selected (highlighted in blue). I need to click on "PREVIEW" to see the actual table. Let me click on the PREVIEW tab:
+[step 21] Action: scroll down (640, 450) scroll_amount 3
+[step 21] Reasoning: Excellent! Now I can see the PREVIEW tab is selected and the table is rendering correctly with:
+- **ID** column (showing "3")
+- **First name** column (showing "Cartman")
+- **Last name** column (showing "Whateveryournameis")
+- **Actions** column (showing a green "ACTION 1" button rendered via TemplateRef)
+
+The table appears to be rendering correctly. There's also a message area "Please click on Action button" and "You clicked on:". 
+
+Now I need to observe the table more fully and then resize the browser to trigger responsive collapse. Let me scroll down slightly to see the full table:
+[step 22] Action: left_click_drag (700, 400)
+[step 22] Reasoning: The table is rendering correctly with all 4 columns (ID, First name, Last name, Actions) and the "ACTION 1" button is rendered via TemplateRef. The table shows multiple rows:
+- Row 1: 3, Cartman, Whateveryournameis, ACTION 1
+- Row 2: 10, Cartman, Titi, ACTION 1
+- Row 3: 11, Toto, Lara, ACTION 1
+
+Now I need to resize the browser window to trigger responsive collapse. I'll drag the right edge of the browser window to the left. The browser window's right edge appears to be at approximately x=1280. Let me drag it significantly to the left:
+[step 23] Action: screenshot
+[step 23] Reasoning: The drag didn't seem to resize the window. The browser window still looks the same size (1280px wide). I need to resize the actual browser window, not just drag within the page. Let me try a different approach - I'll use the macOS window resize by dragging the right edge of the Chrome window. 
+
+The Chrome window appears to go all the way to the right edge of the screen. I need to use keyboard shortcut or try to find the window border. Let me try using the macOS resize - I need to click and drag from the right edge of the window frame. The window appears to be maximized. Let me first try un-maximizing it:
+[step 24] Action: key: F12
+[step 24] Reasoning: The browser appears to be maximized. I need to resize it to a narrower width to trigger the responsive layout. The window appears to be in a full-width state. Let me try using Chrome's DevTools to simulate a narrower viewport, which is a browser-based approach. I can use the device toolbar in DevTools to change the viewport width. Let me open DevTools:
+[step 25] Action: scroll down (640, 300) scroll_amount 3
+[step 25] Reasoning: DevTools has opened and it appears that the device mode is already active (showing "Dimensions: Responsive 400 x 501"). The viewport is already at 400px width. I can see the table preview but it's truncated. Let me close DevTools and instead look at the current state of the table. 
+
+Actually, I notice that DevTools opened in device mode view. The viewport is now 400px wide. Let me scroll up in the page to see the table and check if the responsive mode is triggered. Let me first scroll up in the page viewport to see the table:
+[step 26] Action: left_click (640, 340)
+[step 26] Reasoning: I can see the table now shows only the "ID" and "First name" columns (the table has collapsed some columns). The viewport is 400px wide and the table is showing in a responsive mode, but I don't see the expand button (+) indicator. The table seems to be showing ID and First name but truncating other columns. However, I don't see the distinctive "+" expand button that typically appears in DataTables responsive mode.
+
+Let me check if this table actually has responsive enabled. Let me close DevTools first and try a different approach - I'll close DevTools and manually use the responsive feature. Actually, let me check the console for any errors first:
+[step 27] Action: triple_click
+[step 27] Reasoning: Interesting! I can see the table is showing only "ID" and "First name" columns (the other columns have been collapsed). However, I notice there's a small icon/indicator next to the "First name" header (looks like a small circular icon with an arrow indicating there are hidden columns). 
+
+Also, the table doesn't show the typical green "+" expand button before each row. Looking at the row data, I can see rows 32 (Batman) and 42 (Batman). The "Last name" and "Actions" columns seem to be hidden.
+
+Wait - I notice the small icon next to "First name" in the header. This might be the responsive control indicator. Let me also look more carefully at whether there are expand buttons before the rows. Let me zoom into the table area to get a better view:
+
+Actually, the table view is narrow due to the DevTools viewport. Looking at the table, I notice:
+1. The table has responsive behavior (columns are being hidden at 400px)
+2. But there's no "+"/expand button visible before rows
+3. The column that is visible seems to have a small icon in the header
+
+The DataTables responsive extension typically shows a "+" button at the start of each row when some columns are hidden. Let me try reducing the viewport width further to force more columns to collapse and see if the "+" button appears. Let me change the viewport width:
+[step 28] Action: key: F12
+[step 28] Reasoning: The width input field is now selected (showing "400" highlighted). The current width is 400px. The table is showing only ID and First name columns. However, I still don't see the "+" expand button before rows. 
+
+This might be because the `responsive: true` option is NOT enabled in this demo. Looking at the TS code I reviewed earlier, the dtOptions doesn't include `responsive: true`. Let me close DevTools and check if there's a separate responsive demo page. 
+
+But first, let me look at the current state more carefully - the table IS showing responsive behavior (only 2 columns showing). This might mean responsive IS enabled somewhere. Let me look at the table more carefully. The icon next to the "First name" header might be a sorting indicator, not a responsive indicator.
+
+Let me close DevTools and navigate to a different approach - use the browser's zoom or find a dedicated responsive page:
+[step 29] Action: scroll down (150, 400) scroll_amount 5
+[step 29] Reasoning: Now DevTools is closed. I can see the table is back to full width showing all 4 columns: ID, First name, Last name, Actions. The table rows now show: Batman/Lara, Batman/Moliku, Batman/Lara with ACTION 1 buttons. It seems clicking on the table or sorting was triggered by my earlier click.
+
+Now I need to properly resize the browser window. The window seems to span the full width of the screen. I notice the window is NOT maximized (the green maximize button shows a window control) - the left side navigation is at x≈300, suggesting the page content starts at around x=300. But the actual Chrome window spans the full 1280px width.
+
+Let me try to resize the window by using the macOS window resize. In macOS, I can resize by dragging the window edges. The right edge of the Chrome window should be at x=1280. Let me try to drag from there:
+
+Actually, looking at the screenshot more carefully, the browser window appears to take up the entire screen width. To resize it, I need to drag from the very right edge of the screen. But since the screen is 1280px wide, the right edge of the window is at x=1280. 
+
+Let me try a different approach - I'll use the keyboard shortcut to resize the Chrome window. Actually, let me navigate to the responsive demo page that's specifically about responsive features. Let me look at the sidebar for responsive-related pages:
+[step 30] Action: scroll down (150, 400) scroll_amount 5
+[step 30] Reasoning: I can see the sidebar showing "Basic Examples" section with items like "Zero configuration", "With options", "AJAX using DT callback", etc. I need to scroll down more to find the "Advanced" section with responsive demo:
+[step 31] Action: scroll down (150, 400) scroll_amount 5
+[step 31] Reasoning: I can see the "Angular" section in the sidebar with "Using Pipes" and "Using TemplateRef" (which is the current page). Let me continue scrolling to find "Advanced" section:
+[step 32] Action: scroll down (150, 400) scroll_amount 5
+[step 32] Reasoning: I can see the "Angular" section with:
+- Using Pipes
+- Using TemplateRef (current page)
+- Re-render table
+- Router link
+
+And a "Filtering" section below. Let me continue scrolling to find the Advanced section with responsive demo:
+[step 33] Action: scroll down (150, 400) scroll_amount 5
+[step 33] Reasoning: I can see a "DT extensions" section now with "Buttons extension". Let me continue scrolling to see the "Advanced" section which might have a responsive demo:
+[step 34] Action: left_click (112, 549)
+[step 34] Reasoning: I can see the "DT extensions" section with:
+- Buttons extension
+- ColReorder extension
+- **Responsive extension** ← This is what I need!
+- Select extension
+
+And a "Support" section below. Let me click on "Responsive extension" to navigate to it:
+[step 35] Action: left_click (103, 117)
+[step 35] Reasoning: Excellent! This is the "DataTables Responsive extension" page! I can see exactly what I needed:
+- The table is already in responsive mode (the current full-width view shows only ID and First name columns)
+- Each row has a **green "+" button** before the ID number (this is the expand button)
+- Rows visible: 3 (Cartman), 10 (Cartman), 11 (Toto), 22 (Luke), 26 (Foo), 31 (Luke)
+
+However, this is a different page (extensions/responsive) not the using-template-ref page. The task says to test the responsive behavior on the using-template-ref page. But the task also says "如果找不到响应式折叠功能，尝试导航到其他Advanced页面查找" - which means I should navigate to other Advanced pages if I can't find responsive collapse.
+
+This responsive extension page shows responsive collapse working. But I need to go back to the using-template-ref page and combine it with responsive mode to test TemplateRef rendering in collapsed rows.
+
+Wait, let me re-read the task more carefully. The task says to test on the `using-template-ref` page. Let me go back to that page and try to resize the browser window properly. But actually - this Responsive extension page shows the responsive collapse functionality working well. 
+
+Let me first understand the task better: The task is specifically about testing on `http://localhost:4200/#/advanced/using-template-ref`. The URL confirms this is in the "advanced" section. Let me navigate back there and try to resize the window using Chrome's built-in device simulation.
+
+But first, let me document what I'm seeing on this Responsive extension page - it shows responsive working correctly. Now let me go back to the using-template-ref page. Let me click on "Using TemplateRef" in the sidebar:
+[step 36] Action: key: F12
+[step 36] Reasoning: I'm back on the "Using Angular TemplateRef" page. The table is showing all 4 columns: ID, First name, Last name, and Actions (with the "ACTION 1" button). The table is rendering correctly at full width.
+
+Now I need to resize the browser window to trigger responsive mode. Let me try using Chrome DevTools to simulate a narrower viewport more carefully. I'll open DevTools and use device mode to set a specific narrow width:
+
+First, let me try pressing F12 to open DevTools again:
+[step 37] Action: scroll down (640, 270) scroll_amount 3
+[step 37] Reasoning: DevTools is open again with device mode active. I can see the page is at 400x501 viewport. The PREVIEW tab is selected. I need to scroll down to see the table. Let me scroll down in the page viewport to see the table:
+[step 38] Action: scroll down (640, 270) scroll_amount 2
+[step 38] Reasoning: I can see the table is starting to show! The table at 400px width shows only "ID" and "First name" columns. However, I notice that the table is NOT showing the green "+" expand button in front of each row (which was visible on the Responsive extension page). This is important to check.
+
+The table currently shows just the headers (ID and First name) but the column for "Last name" and "Actions" are not visible. Let me scroll down to see the actual rows to check if there are expand buttons:
+[step 39] Action: left_click (10, 475)
+[step 39] Reasoning: Now I can see the table in responsive mode at 400px width. The table shows:
+- Columns: **ID** and **First name** only (Last name and Actions are hidden)
+- Rows: 3 (Cartman), 10 (Cartman)... 
+- **⚠️ CRITICAL BUG FOUND: There is NO green "+" expand button** before each row!
+
+This is very different from what we saw on the "Responsive extension" page where each row had a green "+" expand button. On this "Using TemplateRef" page, the responsive collapse IS working (columns are being hidden) but the **expand button is MISSING**. This means users cannot view the hidden columns (Last name, Actions/TemplateRef) for each row.
+
+This is a significant bug - the responsive expand controls are not rendering on the "Using Angular TemplateRef" page when TemplateRef columns are present.
+
+Let me also verify the Console for any JavaScript errors:
+
+I can see in the Console:
+- "Slow network is detected" (network warning - not a bug)
+- "[webpack-dev-server] Server started..." (normal dev message)
+- "Angular is running in development mode..." (normal)
+- "No errors" 
+- "No warnings" (in the filter)
+- "7 info" messages
+
+Let me expand the console log items to see if there are any actual errors:
+[step 40] Action: key: F12
+[step 40] Reasoning: I can see the "7 messages" group expanded showing:
+- polyfills.js
+- vendor.js
+- localho...
+- scripts.js
+
+These are just bundle loading messages - no errors. The console shows:
+- "No errors"
+- "No warnings"
+- "7 info" (bundle loading info messages)
+- "No verbose"
+
+No JavaScript errors. But the critical issue is that **the expand "+" button is MISSING** from the responsive mode.
+
+Now let me look more carefully at the table in the viewport. Let me take a closer screenshot of the table rows to confirm the missing expand button:
+
+Let me also check if perhaps the DataTables responsive is working in a different way. The responsive behavior might work without the "+" button if the `responsive: {details: false}` option is set, or it might use `childRow` mode (which keeps the row visible without collapsing).
+
+However, looking at the Responsive extension page, we clearly saw the "+" button. On the TemplateRef page, the button is missing. This is the bug.
+
+Now let me close DevTools and take a comprehensive screenshot to document the full state of the page:
+[step 41] Action: Minimize panel
+[step 41] Reasoning: DevTools is closed and the page is back to full width showing all 4 columns: ID, First name, Last name, and Actions. The table is showing row: 3, Cartman, Whateveryournameis, ACTION 1.
+
+Now I need to check if there's a responsive mode being triggered differently. The task says to "缩小浏览器窗口宽度（拖拽窗口右边框向左）". Let me try to actually drag the window border. The Chrome window is maximized - I need to first un-maximize it. Let me try double-clicking the title bar to un-maximize:
+
+Actually, looking at the top-right of the browser window, I can see the window controls (red/yellow/green dots). The window appears to be in a regular state (not maximized because on Mac the green button becomes a "+" for maximize). Let me minimize the task panel first so it doesn't interfere, then try to resize the browser:
+[step 42] Action: left_click_drag (750, 400)
+[step 42] Reasoning: The task panel is minimized. Now I can see the full page. The window appears to be full-width (1280px). 
+
+The Chrome window appears to be full-screen but I can see the title bar area at the top with the tab "Angular DataTables". The browser window appears to span the full desktop width. 
+
+To resize the window, I need to:
+1. First check if the window is maximized by looking at the window controls (the red/yellow/green dots in the top-left)
+2. Try to drag the right edge of the browser window
+
+Looking at the top-left of the screen, I can see the macOS window controls (the red, yellow, and green dots at coordinates approximately 16, 33). The window appears to be full-width. Let me try to drag the right edge of the Chrome browser window. Since the screen is 1280px wide, the right edge is at x=1280. Let me try dragging from the edge:
+[step 43] Action: left_click_drag (450, 400)
+[step 43] Reasoning: I was able to resize the Chrome window! The browser window is now narrower (approximately 750px wide) and I can see the table is starting to show responsive behavior. The table now shows:
+- **ID** column
+- **First name** column
+- **Last name** column
+
+The "Actions" column is now hidden! But I still don't see the expand "+" button before each row. The rows show: 3, Cartman, Whateveryournameis and 10, Cartman, Titi.
+
+I also notice there's a terminal window visible in the background (Mac-mini terminal) - I should not interact with it.
+
+The table is partially responsive (the Actions column is hidden) but still missing the expand button. I need to make it even narrower to trigger more column hiding. Let me continue resizing:
+[step 44] Action: scroll down (230, 400) scroll_amount 3
+[step 44] Reasoning: The window is now very narrow (approximately 450px wide). I can see:
+- The table header now shows: ID, First name, L... (Last name truncated)
+- A Terminal window is visible in the background (I should NOT interact with it)
+- There's also a Safari/browser window with some content in the background
+
+I can see the table is showing just the beginning of the columns. The "Actions" column is gone. Let me scroll down to see if the expand "+" button is now appearing:
+[step 45] Action: scroll down (165, 400) scroll_amount 3
+[step 45] Reasoning: The Chrome window is very narrow now. I can see the table header area starting to appear at the bottom. Let me scroll down more to see the actual table data and rows:
+[step 46] Action: left_click (165, 400)
+[step 46] Reasoning: The Chrome window is very narrow and the table content with "Show 10 entries" is visible at the bottom. The page seems to be getting overlapped by other windows (a Safari page showing "起始页" and a Terminal window). Let me click on the Chrome window to bring it to focus and try to scroll in the Angular app:
+[step 47] Action: left_click (277, 275)
+[step 47] Reasoning: Now I can clearly see the table in the narrow window! The table shows:
+- **ID** column
+- **First name** column (ONLY these two columns visible)
+- Rows: 3 (Cartman), 10 (Cartman)
+
+**⚠️ CRITICAL BUG CONFIRMED: The expand "+" button is COMPLETELY MISSING!**
+
+The table has collapsed the "Last name" and "Actions" columns (they're hidden), but there is NO expand/toggle button (the green "+" circle) before each row that would allow users to view the hidden column data. 
+
+This is a significant difference from the "Responsive extension" demo page where the "+" button was clearly visible. The "Using TemplateRef" page is missing the expand controls.
+
+Also, the "Actions" column which contains the TemplateRef-rendered "ACTION 1" button is completely hidden and there's no way to expand it - this means the TemplateRef-rendered content is inaccessible in responsive mode.
+
+Now let me try to restore the window to its full width and check the TS code again to understand why responsive controls are not showing. Let me also check if there's an error in the approach - perhaps the DataTables responsive option isn't enabled at all, and the column hiding is just because the columns are overflowing:
+
+Let me first check the TS tab to see the full dtOptions configuration:
+[step 48] Action: scroll down (165, 500) scroll_amount 10
+[step 48] Reasoning: I can see the TS tab is now open showing the component code. I can see the beginning of the TypeScript file. The code shows:
+- `import { Component, Input, OnInit, ...`
+- `import { Subject } from "rxjs";`
+- `import { IDemoNgComponentEventType...`
+- `@Component({ selector: "app-demo-ng-template-...`
+- `export class DemoNgComponent...`
+- `constructor() {}`
+- `@Output()`
+- `emitter = new Subject<IDemoNgCom...`
+
+I need to scroll down in this code view to see the `dtOptions` configuration, specifically whether `responsive: true` is set. Let me scroll down in the code view:
+[step 49] Action: scroll down (165, 500) scroll_amount 10
+[step 49] Reasoning: I can see more code now. The `DemoNgComponent` class has:
+- `@Input() data = {};`
+- `ngOnInit(): void {}`
+- `onAction1()` - emitting event with `{cmd: "action1", data: this.data}`
+- `ngOnDestroy()` - unsubscribing
+
+Let me continue scrolling to see the main component's dtOptions configuration:
+[step 50] Action: scroll down (165, 500) scroll_amount 10
+[step 50] Reasoning: I can see the interface `IDemoNgComponentE` with `cmd: string` and `data: any`. And at the bottom I can see the beginning of `ng-template-ref.component.ts` with imports. Let me continue scrolling to see the main component's dtOptions:
+[step 51] Action: scroll down (165, 500) scroll_amount 10
+[step 51] Reasoning: I can see the main component: `export class UsingNgTemplateRefCom...` with:
+- `dtOptions: ADTSettings = {};`
+- `dtTrigger: Subject<ADTSettings>...`
+
+Let me continue scrolling to see the ngAfterViewInit and dtOptions configuration:
+[step 52] Action: scroll down (165, 500) scroll_amount 10
+[step 52] Reasoning: Now I can see the dtOptions configuration beginning:
+- `ajax: 'data/data.json'`
+- `columns: [`
+  - `{ title: 'ID', data: 'id' },`
+  - (more columns below)
+
+I can see the dtOptions setup uses `setTimeout` and `const self = this`. No `responsive: true` is visible yet. Let me scroll down more:
+[step 53] Action: scroll down (165, 500) scroll_amount 10
+[step 53] Reasoning: Now I can see the complete column configuration:
+1. `{ title: 'ID', data: 'id' }` ✅
+2. `{ title: 'First name', data: 'firstName' }` ✅
+3. `{ title: 'Last name', data: 'lastName' }` ✅
+4. `{ title: 'Actions', data: null, defaultContent: '', ngTemplateRef: { ref: this.demoNg, context: { ... captureEvents: sel... }}}` ✅
+
+This is the TemplateRef column for Actions. Let me scroll down to see the rest of the configuration and check for `responsive`, `visible: false`, or other settings:
+[step 54] Action: scroll down (165, 500) scroll_amount 5
+[step 54] Reasoning: I can now see the complete dtOptions configuration. Looking at the code:
+- The `columns` array ends with `]` at line showing `}`
+- The dtOptions object ends with `};` 
+- Then `ngAfterViewInit()` is called with `setTimeout(() => { this.dtTrigger.next(th... }, 200);`
+
+**KEY OBSERVATION**: The dtOptions configuration does NOT include `responsive: true`! This confirms that the responsive mode is NOT explicitly configured in this demo. The column hiding behavior I observed was just because the columns couldn't fit within the narrow window - NOT because DataTables responsive extension was used.
+
+However, looking at the responsive collapse page earlier, we saw that some responsive configuration must exist somewhere in the global DataTables settings or in the Angular module setup.
+
+Let me also note there's no `visible: false` in any column configuration either.
+
+Now let me also check the complete column configuration - I notice it ends at `]` with no additional properties like `responsive: true`. Let me scroll down a bit more to confirm:
+[step 55] Action: left_click_drag (1280, 400)
+[step 55] Reasoning: I can now see the complete TypeScript code:
+- The dtOptions configuration ends at `});`
+- `ngAfterViewInit()` calls `this.dtTrigger.next(this.dtO... }` with a 200ms timeout (with comment "// race condition fails unit tests")
+- `onCaptureEvent(event: IDemoNgCom...)` sets `this.message = 'Event ${event...'`
+- `ngOnDestroy()` calls `this.dtTrigger.unsubscribe()`
+
+**CONFIRMED**: The dtOptions does NOT include `responsive: true`. The responsive behavior is NOT enabled on the Using TemplateRef page.
+
+Now let me restore the window to full width and run a complete test. Let me first maximize the Chrome window by clicking the green button:
+
+Actually, looking at the current state:
+- The page (`using-template-ref`) does NOT have `responsive: true` in dtOptions
+- When I narrow the window, columns overflow/hide but WITHOUT the DataTables responsive expand controls
+- There is NO green "+" expand button in narrow view
+- The TemplateRef-rendered Actions column cannot be viewed in narrow mode
+
+This is the key finding. The page doesn't appear to have responsive mode enabled. However, the columns DO collapse when the window is narrow, which might be due to DataTables default overflow handling (not responsive extension).
+
+Let me restore the browser window to full width and take a comprehensive final screenshot for the test report. I need to resize the window back to full width:
+[step 56] Action: double_click (165, 33)
+[step 56] Reasoning: The drag didn't resize the Chrome window properly. The window is still narrow. I notice the window seems stuck in a narrow state. Let me try to use the keyboard shortcut to maximize the Chrome window on Mac. On macOS, I can double-click the title bar to maximize, or use Ctrl+Command+F for full-screen:
+[step 57] Action: left_click (839, 33)
+[step 57] Reasoning: The double-click on the title bar scrolled the page to the top but didn't resize the window. The window is still narrow. I can see the PREVIEW, HTML, TS tabs. 
+
+Let me try a different approach to resize the window - I'll use the green zoom button to maximize the window:
+[step 58] Action: left_click (931, 689)
+[step 58] Reasoning: I accidentally clicked on the "expand" button and now Safari browser has come to the front showing the Safari start page. I need to get back to Chrome. Let me click on the Chrome icon in the dock:
+[step 59] Action: left_click (43, 33)
+[step 59] Reasoning: Good, Chrome is now in focus showing the "Using Angular TemplateRef" page in the narrow window. The TS tab is selected with code content visible. I can see the window is still narrow (about 320px wide). The Chrome window shows the narrow window occupying the left ~320px of the screen.
+
+Now I need to maximize the Chrome window. I can see the green zoom button at position approximately (43, 33). Let me click on it:
+[step 60] Action: left_click (506, 337)
+[step 60] Reasoning: The Chrome window is now in full-screen mode (I can see the message "若要退出全屏模式，请按住 esc"). The page now shows "Using Angular TemplateRef" in full width. The TS tab is selected showing the code.
+
+Now the window is maximized to full screen. I can see:
+- The sidebar with navigation (Row click event, Multiple tables, etc.)
+- The "Using Angular TemplateRef" page title in blue
+- The PREVIEW, HTML, TS tabs
+- The TS code showing the `DemoNgComponent` class
+
+Now let me click on the PREVIEW tab to see the actual table:
+[step 61] Action: key: Escape
+[step 61] Reasoning: Now the page is in full-screen mode and showing the PREVIEW tab with the complete table. The table is rendering correctly with all 4 columns:
+- **ID** column (showing 3, 10, 11)
+- **First name** column (Cartman, Cartman, Toto)
+- **Last name** column (Whateveryournameis, Titi, Lara)
+- **Actions** column with green "ACTION 1" buttons rendered via TemplateRef ✅
+
+The table is working correctly at full width. 
+
+**Step 1 Complete ✅**: The table renders correctly at full width. All columns including TemplateRef-rendered "Actions" column work.
+
+Now I need to resize the browser window to trigger responsive collapse. Since we're in full-screen mode, I need to exit it first and then resize the window. Let me press Escape to exit full-screen:
+[step 62] Action: key: ctrl+shift+m
+[step 62] Reasoning: The page still shows in full-screen-like mode (window is still full width). The ESC key exited full-screen mode (the menu bar is now visible at the top). The window now extends from 0 to 1280px width.
+
+Now I need to resize the window to be narrower to trigger responsive mode. I'll try to use the DataTables responsive capability by opening DevTools and using the device emulation to simulate a narrow viewport. This is a browser-internal operation that won't trigger OS-level responsive behavior but will change the CSS viewport width.
+
+Actually, looking at this more carefully - this page uses DataTables responsive extension if it's configured with `responsive: true` in dtOptions. From the code, I did NOT see `responsive: true` in the dtOptions. However, the task specifically mentions testing "响应式折叠模式" (responsive collapse mode). Let me use Chrome's responsive design mode to simulate this properly.
+
+Let me open DevTools with the device toolbar open:
+[step 63] Action: key: F12
+[step 63] Reasoning: The ctrl+shift+m shortcut didn't seem to work. Let me try using the DevTools device mode with the proper shortcut. First, let me open DevTools properly:
+[step 64] Action: scroll down (640, 270) scroll_amount 3
+[step 64] Reasoning: Excellent! Now I can see the DevTools is open with device mode active (showing "Dimensions: Responsive 400 x 551" at the top). The page is showing in a 400px wide viewport. I can see the "Using Angular TemplateRef" page with PREVIEW, HTML, TS tabs visible.
+
+The page is showing in the narrow viewport but I need to scroll down to see the table. Let me scroll down in the viewport to see the table:
+[step 65] Action: scroll down (640, 270) scroll_amount 2
+[step 65] Reasoning: Now I can see the table in the 400px wide viewport! I can see:
+- The table header shows: **ID** and **First name** columns only (Last name and Actions are hidden due to responsive/narrow view)
+- The first row shows: **3** (ID) and **Cartman** (First name)
+- **⚠️ CRITICAL BUG CONFIRMED AGAIN: There is NO green "+" expand button** before the row!
+
+This is the core bug. Let me now scroll down to see more rows and confirm that the expand button is missing across all rows:
+[step 66] Action: left_click (103, 595)
+[step 66] Reasoning: Now I can clearly see the table in narrow (400px) viewport mode showing:
+- **Table headers**: ID, First name (only 2 columns visible)
+- **Row 1**: 3, Cartman
+- **Row 2**: 10, Cartman
+- **⚠️ BUG: NO green "+" expand button** is shown before any row!
+
+The table columns have been collapsed (Last name and Actions are hidden), but the DataTables responsive expand control (the green "+" button) is **completely absent**. This means:
+1. The "Last name" column data is inaccessible in narrow view
+2. The "Actions" column (which uses TemplateRef) is inaccessible in narrow view
+3. Users cannot interact with the TemplateRef-rendered "ACTION 1" button in narrow view
+
+Let me now check the console for errors. The console shows at the bottom:
+- "3 Issues: ⚠️ 3" (3 issues indicator in top right of DevTools)
+- "7 messages" (collapsed group)
+- "[Intervention] Slow network is detected..." (browser warning, not app error)
+- "[webpack-dev-server] Server started..." (dev server info)
+- "Angular is running in development mode..." (Angular info)
+- "No errors" ✅
+- "No warnings" (from the Angular framework perspective)
+- "7 info" (info messages)
+- "No verbose"
+
+I also notice an Angular icon (🅰) has appeared in the console at the bottom. Let me click on it to see if there are any Angular-specific errors:
+[step 67] Action: left_click (1103, 497)
+[step 67] Reasoning: I can see the console is clean - "No errors" and the Angular indicator just shows the Angular DevTools icon. The table is showing in narrow mode with only ID and First name columns, no expand button.
+
+Now let me check the "3 Issues" indicator in the top-right of the DevTools to see what those issues are:
+[step 68] Action: left_click (1267, 503)
+[step 68] Reasoning: The Settings panel opened instead. Let me close it and try clicking the Issues tab properly:
+[step 69] Action: left_click (65, 497)
+[step 69] Reasoning: Good, the Settings panel is closed. Now I can see the console clearly. The console shows:
+- "3 Issues: ⚠️ 3" (3 browser issues - likely related to browser performance)
+- "7 messages" - collapsed
+- "[Intervention] Slow network is detected" - browser warning
+- "[webpack-dev-server] Server started..." - dev server
+- "Angular is running in development mode" - Angular
+- "No errors" ✅ - **No JavaScript errors in the application**
+- "No warnings"
+- "7 info"
+- "No verbose"
+
+This is critical - there are **NO JavaScript errors** even though:
+1. The responsive expand button is missing
+2. The Last name and Actions columns are hidden
+3. The TemplateRef column is not accessible in narrow view
+
+Let me now look at the table more carefully. I see the table at the top showing:
+- ID: 3, First name: Cartman
+- ID: 10, First name: Cartman
+
+There's no expand "+" button. But wait - let me look more carefully at the table rows in the viewport. The table in the device mode viewport appears at the top half. Let me look very carefully at the row structure - perhaps the column for "ID" IS the expand control area or the "+" is very small and I'm missing it.
+
+Let me take a close look at the table by using the Elements inspector. Let me click on the "Elements" tab to inspect the table structure:
+[step 70] Action: left_click (11, 497)
+[step 70] Reasoning: The Elements panel is now open. I can see the HTML structure. I need to find the table to inspect it. Let me use the element picker to click on the table rows in the viewport. First let me use the element picker tool (the cursor icon at the top left of DevTools):
+[step 71] Action: left_click (553, 360)
+[step 71] Reasoning: Let me click on the first table row (row with ID 3, Cartman) to inspect it in the Elements panel:
+[step 72] Action: left_click (171, 626)
+[step 72] Reasoning: Excellent! Now I can see the HTML structure of the table in the Elements panel. This is very revealing! Looking at the selected element and its parent structure:
+
+```html
+<tr class="odd">
+  <td class="sorting_1">3</td>  ← $0 (selected - ID cell showing "3")
+  <td>Cartman</td>              ← First name
+  <td>Whateveryournameis</td>   ← Last name
+  <td> ... </td>                ← Actions (empty looking from here)
+</tr>
+```
+
+**CRITICAL FINDING**: The row has **4 `<td>` elements** in the DOM! All columns exist in the DOM including Last name and Actions. However, they appear to be hidden via CSS (the DataTables responsive plugin marks them as hidden with CSS classes).
+
+But there's **NO `<td class="dtr-control">` or similar cell** at the beginning of the row that would contain the "+" expand button! DataTables responsive extension typically adds a special control cell (`dtr-control`) to each row when in collapse mode.
+
+Looking at the DOM structure:
+- `<tr class="odd">` - just "odd" class, no "dtr-inline" or responsive classes
+- `<td class="sorting_1">3</td>` - just the normal ID cell
+- `<td>Cartman</td>` - normal First name cell
+- `<td>Whateveryournameis</td>` - Last name cell (might be hidden)
+- `<td> ... </td>` - Actions cell (might be hidden)
+
+There's no `dtr-control` cell, confirming the responsive expand control is MISSING.
+
+Let me also look at the table element itself to see its classes and whether responsive mode is truly active:
+
+Let me look at the table element - I can see in the Elements panel:
+```
+<table datatable class="row-border hover datatable no-footer ng-reflect-dt-options="..." ng-reflect-dt-trigger="..." id="DataTables_Table_2" aria-describedby="DataTables_Table_2_info" style="width: 884px;">
+```
+
+The table has `style="width: 884px;"` - this means DataTables thinks the table should be 884px wide, but the viewport is only 400px. This is causing the overflow/column hiding, but it's not the DataTables responsive extension handling it.
+
+Looking at the table classes: `row-border hover datatable no-footer` - there's no `dtr-inline`, `dtr-column`, or `responsive` class that DataTables responsive adds.
+
+**CONCLUSION**: The DataTables Responsive extension IS being triggered (columns are being hidden at narrow viewport), but the **`responsive: true`** configuration is incomplete or not properly set up for this demo. The expand button (control cell) is NOT rendering, meaning the user cannot see the hidden column data.
+
+Let me now check the hidden columns to see if they have the DataTables responsive hiding classes. Let me look at the `<td>Whateveryournameis</td>` cell:
+[step 73] Action: left_click (994, 515)
+[step 73] Reasoning: Now I can see the selected element is `<td>Whateveryournameis</td>` which is `$0` (selected) in the Elements panel. In the top viewport, I can see the "td 309 x 52" tooltip appearing above the table, suggesting this cell is being highlighted and it IS visible (309px wide), despite what I expected.
+
+Wait - looking at the viewport again: I see "td 309 x 52" appearing in the table area above row 1. This means the "Last name" cell IS actually visible in the layout! But why can't I see the "Last name" text "Whateveryournameis" in the table?
+
+Looking at the table viewport area more carefully:
+- The table header shows: **ID** | **First name** | (then there's something at the far right - 309x52 is the highlighted td)
+- Row 1: 3 | Cartman | (hidden? or just not visible due to overflow?)
+
+Wait, the viewport window showing the table is 400px wide and only shows 2 visible columns. Let me look at the element's computed style to understand if it's hidden:
+
+Looking at the right panel (Accessibility), I can see:
+- Name: "Whateveryournameis"
+- title: "Not specified"
+
+This confirms the cell exists in the DOM. Let me look at the CSS computed properties to see if it's hidden:
+[step 74] Action: scroll right (640, 360) scroll_amount 3
+[step 74] Reasoning: Now I can see the "Computed" tab is selected in the DevTools. It shows the layout box for the selected element (`<td>Whateveryournameis</td>`):
+- The box shows: border: 0, padding: 8, **width: 289x36** (approximately)
+- The cell is **10px from left** and has **70px margin from right**
+
+This confirms the "Last name" cell (Whateveryournameis) IS present and has dimensions (289x36 in the layout box). It's NOT `display: none` or `visibility: hidden`.
+
+Looking at the viewport table area, the table is showing:
+- ID header | First name header | (something that might be truncated/overflow-hidden on the right)
+
+The table has `overflow-x: auto` on the container, so the Last name and Actions columns ARE there but just overflowing off-screen (user needs to scroll horizontally to see them).
+
+**KEY INSIGHT**: This is NOT the DataTables Responsive Extension behavior! The DataTables responsive extension would:
+1. HIDE columns using `display: none`  
+2. ADD a "+" expand button to show the hidden data as a child row
+
+What's happening here is **basic CSS overflow** - the table container has a limited width, and the columns are just overflowing off-screen. The user CAN scroll the table horizontally to see more columns.
+
+Let me verify this by scrolling the table horizontally in the narrow viewport:
+[step 75] Action: left_click (947, 515)
+[step 75] Reasoning: The horizontal scroll didn't seem to move the table content - the table still shows only ID and First name columns. The viewport shows:
+- ID: 3, Cartman  
+- ID: 10, Cartman
+
+The table content didn't scroll. This is because the table container has `overflow: hidden` rather than `overflow: auto`. The columns are simply cut off/hidden.
+
+Let me now look at the Styles panel to understand how the columns are being hidden. Let me click on "Styles" tab:
+[step 76] Action: scroll down (1040, 620) scroll_amount 3
+[step 76] Reasoning: Now I can see the Styles panel for the selected `<td>Whateveryournameis</td>` element. The CSS rules are:
+1. `element.style {}` - no inline styles
+2. `table.dataTable.row-border tr:first-child th, table.dataTable.row-border tbody tr:first-child td { border-top: none; }` from jquery.data.les.css:154
+3. `table.dataTable.row-border tbody tr td, table.dataTable.row-border tbody td { border-top: 1px solid #dddd }` from jquery.data.les.css:151
+4. `table.dataTable tbody ...` from jquery.data.les.css:147
+
+These are all normal DataTables styling rules. There's NO `display: none` or `visibility: hidden` applied to this cell! 
+
+Let me scroll down in the Styles panel to see if there are any responsive-specific CSS rules that might be hiding this column, or if there's a class being added:
+[step 77] Action: scroll down (1040, 620) scroll_amount 3
+[step 77] Reasoning: Excellent! Now I can see more CSS rules for the selected `<td>` (Last name cell):
+- `table.dataTable.row-border tbody td, ... { border-top: 1px solid #dddd; }` - normal border styling
+- `table.dataTable th, table.dataTable tbody td { padding: ▶ 8px 10px; }` - with a checkbox indicating it's active
+- `table.dataTable th, table.dataTable td { box-sizing: content-box; }` 
+- `td, th { ... }` from materialize.css:2941 - with `padding: 15px 5px; ...`
+
+Let me continue scrolling to see if there's a `display: none` or similar hiding rule:
+[step 78] Action: key: F12
+[step 78] Reasoning: I can now see more CSS properties for the selected `<td>` element:
+- `padding: 15px 5px;` (strikethrough - overridden)
+- `display: table-cell;` ✅ - **The cell IS displayed as table-cell! It's NOT hidden!**
+- `text-align: left;`
+- `vertical-align: middle;`
+- `border-radius: 2px;`
+- `table, th, td { border: none; }` from materialize.css:2902
+
+**CONFIRMED**: The `<td>Whateveryournameis</td>` cell has `display: table-cell` - it is NOT hidden by DataTables responsive! 
+
+This means the DataTables Responsive extension is NOT enabled on this page. The columns are simply overflowing (the table has a fixed wider width than the viewport, and the container clips the overflow). The behavior I observed (only seeing 2 columns) was due to the table being wider than the viewport container, not due to DataTables responsive hiding.
+
+Now I understand the full picture:
+
+**FINDINGS SUMMARY**:
+
+1. **Table Rendering at Full Width** ✅: The table renders correctly with all 4 columns (ID, First name, Last name, Actions). The TemplateRef-rendered "ACTION 1" button works correctly.
+
+2. **Responsive Mode** ❌: The DataTables Responsive extension is NOT configured (`responsive: true` is absent from dtOptions). When the viewport is narrowed, the table simply overflows - it does NOT collapse columns properly with expand buttons.
+
+3. **Missing Expand Button** 🐛 BUG: When the viewport is narrow, there is NO green "+" expand button before rows. This is because the Responsive extension is not properly configured. The DataTables responsive mode is not active.
+
+4. **TemplateRef Column Accessibility** ❌: In narrow viewport mode, the "Actions" column (TemplateRef) is inaccessible due to overflow clipping - there's no way to expand the hidden/overflowing data.
+
+5. **No JavaScript Errors** ✅: The application doesn't crash or produce errors.
+
+6. **No `visible: false` column** ✅: No columns have `visible: false` configured.
+
+Let me now check if the Responsive extension page I visited earlier uses the same TemplateRef approach or a different one. Let me navigate to the Responsive extension page to compare:
+[step 79] Action: left_click (1141, 607)
+[step 79] Reasoning: DevTools is closed and now I can see the full page at full width. The "Using Angular TemplateRef" page is showing the complete table with all 4 columns:
+- **ID** column: 3, 10, 11
+- **First name** column: Cartman, Cartman, Toto
+- **Last name** column: Whateveryournameis, Titi, Lara
+- **Actions** column with green "ACTION 1" buttons ✅
+
+The PREVIEW tab is selected (highlighted in darker blue). The page is now at full width (1280px). I can see the sidebar shows: "Using Pipes", "Using TemplateRef" (current), "Re-render table", "Router link" under the "Angular" section.
+
+**IMPORTANT**: At full width, the table renders correctly! All 4 columns are visible and the TemplateRef "ACTION 1" buttons work. Let me verify by clicking on the "ACTION 1" button to test the TemplateRef interaction:
+[step 80] Action: scroll down (150, 400) scroll_amount 10
+[step 80] Reasoning: **EXCELLENT! TemplateRef is working correctly at full width!** 🎉
+
+After clicking the "ACTION 1" button for row 3 (Cartman), the message area shows:
+> "You clicked on: **Event 'action1' with data '{"id":3,"firstName":"Cartman","lastName":"Whateveryournameis"}'**"
+
+This confirms:
+1. ✅ The TemplateRef-rendered "ACTION 1" button is interactive and functional
+2. ✅ The event emitting from the DemoNgComponent is working correctly
+3. ✅ The row data is correctly passed to the template context (id, firstName, lastName)
+4. ✅ No crash or errors when clicking the TemplateRef button
+
+Now let me compile the full test results. Let me also navigate to the Responsive extension page to compare the two pages side by side:
+
+Let me scroll down in the sidebar to find the Responsive extension page:
+[step 81] Action: left_click (112, 589)
+[step 81] Reasoning: Now I can see the sidebar clearly with:
+- "Angular" section: Using Pipes, Using TemplateRef (current page), Re-render table, Router link
+- "Filtering" section: Custom filtering - Range search, Individual column filtering
+- **"DT extensions" section**: Buttons extension, ColReorder extension, **Responsive extension**, Select extension
+- "Support" section (at bottom)
+
+The current page still shows the TemplateRef table with the "You clicked on: Event 'action1' with data..." message visible. 
+
+Now let me click on "Responsive extension" to navigate to that page and compare:
+[step 82] Action: left_click (364, 439)
+[step 82] Reasoning: This is **EXACTLY what I was looking for!** The "DataTables Responsive extension" page is now showing in the current viewport (1280px wide) and it's ALREADY showing the responsive collapse mode with:
+
+- **Green "+" buttons** (⊕) visible before each row (IDs: 3, 10, 11, 22, 26, 31, 32, 37)
+- Only **ID** and **First name** columns visible (other columns collapsed)
+
+**⚠️ VISUAL ANOMALY**: At FULL WIDTH (1280px), the Responsive extension page is ALREADY showing the collapsed view with only 2 columns! This seems unusual - normally at full width all columns should be visible. This might be because:
+1. The responsive extension is configured to collapse columns even at wider viewports
+2. OR the columns are wide enough that even at 1280px some collapse
+
+But wait - earlier when I viewed this page, it showed the same collapsed view with just ID and First name. And now at full width (1280px), it's STILL showing only 2 columns with the "+" buttons. This is the DataTables Responsive extension working - it collapses columns based on the table's breakpoints, not just based on the viewport.
+
+The key difference between the two pages:
+1. **Responsive extension page** (`#/extensions/responsive`): HAS the green "+" expand buttons ✅
+2. **Using TemplateRef page** (`#/advanced/using-template-ref`): Does NOT have the green "+" expand buttons ❌
+
+Now let me click on the "+" button in the first row (ID: 3, Cartman) to test the expand functionality on the Responsive extension page:
+[step 83] Action: left_click (1140, 309)
+[step 83] Reasoning: **The Responsive extension page works correctly!** After clicking the green "+" button (which changed to a red "-" button) for row 3 (Cartman):
+
+- The row expanded to show: **"Last name: Whateveryournameis"** ✅
+- The "+" button changed to "-" (⊖ in red) indicating the row is now expanded
+- The collapsed column data is correctly displayed as a child row
+
+This confirms the DataTables Responsive extension works properly on the Responsive extension demo page.
+
+Now let me go back to the "Using TemplateRef" page and note the key differences. Let me also check the TS tab of the Responsive extension page to see how it's configured:
+[step 84] Action: scroll down (640, 550) scroll_amount 3
+[step 84] Reasoning: Now I can see the TS tab for the "DataTables Responsive extension" page. I can see:
+- `import { Component, OnInit } from '@angular/core';`
+- `@Component({ selector: 'app-responsive-extension', templateUrl: 'responsive-extension.component.html' })`
+- `export class ResponsiveExtensionComponent implements OnInit {`
+- `// Must be declared as "any", not as "DataTables.Settings"`
+- `dtOptions: any = {};`
+- `ngOnInit(): void { this.dtOptions = { ajax: 'data/data.json', columns: [{ title: 'ID', ...`
+
+Let me scroll down to see the full dtOptions configuration, specifically to find `responsive: true`:
+[step 85] Action: scroll down (640, 550) scroll_amount 3
+[step 85] Reasoning: Now I can see the TS tab for the Responsive extension page showing:
+```typescript
+this.dtOptions = {
+  ajax: 'data/data.json',
+  columns: [{
+    title: 'ID',
+    data: 'id'
+  }, {
+    title: 'First name',
+    data: 'firstName'
+  }, {
+```
+
+Let me scroll down to see the full configuration and find the `responsive: true` setting:
+[step 86] Action: scroll down (640, 550) scroll_amount 3
+[step 86] Reasoning: Now I can see the Responsive extension component's columns configuration clearly:
+```typescript
+this.dtOptions = {
+  ajax: 'data/data.json',
+  columns: [{
+    title: 'ID',
+    data: 'id'
+  }, {
+    title: 'First name',
+    data: 'firstName'
+  }, {
+    title: 'Last name',
+    data: 'lastName',
+    class: 'none'   ← **class: 'none'** - This is the DataTables responsive 'none' class!
+  }],
+```
+
+**KEY FINDING**: The Responsive extension page uses `class: 'none'` on the "Last name" column! This is the DataTables Responsive extension way to force a column to always be hidden (collapsed) regardless of viewport width. The `class: 'none'` class tells DataTables responsive to always collapse that column and show the expand button.
+
+Let me scroll down to see the `responsive: true` option:
+[step 87] Action: left_click (103, 157)
+[step 87] Reasoning: **NOW I CAN SEE THE COMPLETE CONFIGURATION!** 🎯
+
+The Responsive extension page's dtOptions configuration is:
+```typescript
+this.dtOptions = {
+  ajax: 'data/data.json',
+  columns: [{
+    title: 'ID',
+    data: 'id'
+  }, {
+    title: 'First name',
+    data: 'firstName'
+  }, {
+    title: 'Last name',
+    data: 'lastName',
+    class: 'none'   ← Forces this column to always be in the collapsed details
+  }],
+  // Use this attribute to enable the responsive extension
+  responsive: true   ← **responsive: true IS configured here!**
+};
+```
+
+**COMPARISON**:
+- **Responsive extension page** (`#/extensions/responsive`): Has `responsive: true` AND `class: 'none'` on Last name column → ✅ Works correctly with expand button
+- **Using TemplateRef page** (`#/advanced/using-template-ref`): Does NOT have `responsive: true` → ❌ No expand button, just CSS overflow
+
+Now I have a complete picture of the issue. The "Using Angular TemplateRef" page (`#/advanced/using-template-ref`) does NOT have `responsive: true` in its dtOptions. Therefore, when the viewport is narrow, the DataTables Responsive extension is not active and the expand button is missing.
+
+Now let me go back to the "Using TemplateRef" page to do the final observation. Let me navigate back to test the original page at full width and summarize my findings:
+[step 88] Action: left_click (1139, 712)
+[step 88] Reasoning: I'm back on the "Using Angular TemplateRef" page (`http://localhost:4200/#/advanced/using-template-ref`). The table is now showing correctly at full width (1280px) with all 4 columns:
+- **ID**: 3, 10, 11
+- **First name**: Cartman, Cartman, Toto
+- **Last name**: Whateveryournameis, Titi, Lara
+- **Actions**: "ACTION 1" buttons (green) rendered via TemplateRef ✅
+
+The page is rendering correctly. The "You clicked on:" text shows no content (just empty after the colon) - this is the initial state before clicking any button.
+
+Now let me do the final comprehensive test by:
+1. Clicking the ACTION 1 button to verify TemplateRef works
+2. Then use DevTools to simulate a narrow viewport to see the responsive behavior
+
+Let me click on the ACTION 1 button in row 11 (Toto/Lara):
+[step 89] Action: key: F12
+[step 89] Reasoning: **The TemplateRef button click worked correctly!** 🎉
+
+The message now shows:
+> "You clicked on: **Event 'action1' with data '{"id":11,"firstName":"Toto","lastName":"Lara"}'**"
+
+This confirms:
+- ✅ The TemplateRef-rendered "ACTION 1" button is functional and triggers events correctly
+- ✅ The correct row data (id:11, firstName:Toto, lastName:Lara) is passed through the template context
+- ✅ No errors or crashes on button click
+- ✅ The Angular event system (Subject/Observable) is working correctly
+
+Now let me use DevTools to simulate a narrow viewport and test the responsive behavior once more:
+[step 90] Action: scroll down (640, 270) scroll_amount 5
+[step 90] Reasoning: The DevTools is now open in device mode (400x550 viewport). I can see:
+- The "Using Angular TemplateRef" page in a 400px wide viewport
+- The PREVIEW tab is selected showing the content
+- The "You clicked on: Event 'action1' with data '{"id":11,"firstName":"Toto","lastName":"Lara'}'" message is still visible
+- The Elements panel is showing at the bottom
+- The Console (right side) shows: **"5 Issues: ⚠️ 5"** (more issues now), **"2 user me..."**, **"No errors"** ✅, **"No warnin..."**, **"7 info"**, **"No verbose"**
+
+**Visual anomalies noted**:
+- The page content is being rendered in the narrow viewport (400px) but I need to scroll down to see the table
+- The layout is responsive in terms of the page layout (sidebar menu has collapsed to a hamburger menu "≡")
+- The Console shows "5 Issues" which might include accessibility or browser-level issues
+
+Let me scroll down in the device mode viewport to see the table:
+[step 91] Action: left_click (550, 374)
+[step 91] Reasoning: Now I can see the table in the 400px wide viewport clearly!
+
+**Critical observation**: The table shows:
+- **Table header**: ID | First name (only 2 columns visible, truncated due to narrow viewport)
+- **Row 1**: 3 | Cartman
+- **Row 2**: 10 | Cartman
+- **⚠️ CONFIRMED BUG: NO green "+" expand button** before either row!
+
+Comparing with the Responsive extension page which showed:
+- ⊕ 3 | Cartman
+- ⊕ 10 | Cartman
+- (green + before each row)
+
+The "Using TemplateRef" page is **missing the expand buttons entirely**. The "Last name" and "Actions" columns are hidden/overflowing but there's no way to expand them.
+
+**Contrast with Responsive extension page**: That page shows the table with:
+- The green "⊕" (plus circle) button before each row 
+- Clicking the "⊕" expands to show hidden column data (Last name: Whateveryournameis)
+
+**Bug Confirmed**: On the `#/advanced/using-template-ref` page:
+- The DataTables Responsive Extension is NOT enabled (`responsive: true` is absent from dtOptions)
+- Therefore, the expand button ("+" control) is NOT rendered
+- The "Last name" and "Actions" (TemplateRef) columns become inaccessible when the viewport is narrow
+- The TemplateRef-rendered content cannot be viewed in responsive collapse mode
+
+Let me also look at the table element HTML structure to confirm there's no `dtr-control` (the DataTables responsive control cell):
+[step 92] Action: left_click (11, 525)
+[step 92] Reasoning: I can see the Elements panel is showing the selected element in the HTML tree. The table is visible in the narrow viewport showing ID and First name columns with rows 3 (Cartman) and 10 (Cartman).
+
+I notice the element picker didn't select the table row. Let me use the element picker tool to click on the table row in the viewport to inspect its structure:
+[step 93] Action: left_click (548, 374)
+[step 93] Reasoning: Good, I can see the element picker is active. The `html` element is currently selected (shown at bottom left "html"). Now let me click on the first row (3, Cartman) to inspect the table row structure:
+[step 94] Action: left_click (544, 373)
+[step 94] Reasoning: The element picker didn't select the row (still showing `html` in the breadcrumb at bottom). The click might have been intercepted. Let me try clicking directly on the ID "3" in the table row:
+[step 95] Action: left_click (450, 600)
+[step 95] Reasoning: The element picker is still showing `html` as the selected element (breadcrumb at bottom still shows "html"). The click on the table cell in the device viewport seems to go through to the full page rather than selecting the element. This is a DevTools device mode interaction quirk.
+
+Let me try a different approach - let me search for the table in the Elements panel using Ctrl+F to find the `dtr-control` class:
+[step 96] Action: key: ctrl+f
+[step 96] Reasoning: I can see in the Elements panel that clicking has selected the `<script src="scripts.js" defer></script>` element (shown highlighted in blue). The breadcrumb shows `html > body > script`.
+
+The Styles panel on the right shows:
+- `*:before, *:after { box-sizing: inherit; }` from materialize.css:2545
+- `script { display: none; }` - from user agent stylesheet (script elements are normally hidden)
+- `@media only screen and (min-width: 0) { html { font-size: 14px; } }` from materialize.css:4466
+
+This confirms the `scripts.js` element is the normal `<script>` tag. 
+
+Now let me use Ctrl+F to search for "dtr-control" in the Elements panel to see if the DataTables responsive control exists anywhere in the DOM:
+[step 97] Action: left_click (450, 580)
+[step 97] Reasoning: The Ctrl+F search didn't open a search bar in the Elements panel. This might be because the Elements panel search requires clicking into the panel first. Let me try clicking directly in the Elements panel area and then pressing Ctrl+F:
+[step 98] Action: key: ctrl+f
+[step 98] Reasoning: I can see the `<script src="polyfills.js" type="module"></script>` element is now selected (highlighted in blue). Let me try pressing Ctrl+F to search in the Elements panel:
+[step 99] Action: left_click (114, 497)
+[step 99] Reasoning: The Ctrl+F didn't open a search bar. The Elements panel search function doesn't seem to be triggered by Ctrl+F in this context. Let me try a different approach - I'll use the Console tab to search for the `dtr-control` class in the DOM using JavaScript:
+[step 100] Action: left_click (640, 660)
+[step 100] Reasoning: Excellent! Now I'm in the Console tab and I can see the console output clearly. The console shows:
+- `[Intervention] Slow network is detected. See <URL> for more details. Fallback font will be used while loading: <URL>` - ⚠️ Browser warning (not app error)
+- `[webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.` - Dev server info
+- `Angular is running in development mode. Call enableProdMode() to enable production mode.` - Angular info
+- **"No errors"** ✅
+- **"No warnings"** ✅
+- **"7 info"** - info messages
+- **"No verbose"**
+
+And the Issues indicator shows **"5 Issues: ⚠️ 5"** (browser-level issues).
+
+**Confirmed**: The application has **NO JavaScript errors** in the console! No crashes or errors related to the TemplateRef rendering.
+
+Now let me use the Console to search for `dtr-control` to verify if DataTables responsive extension is active:
+[step 101] Action: left_click (640, 700)
+[step 101] Reasoning: I can see the console area. I need to click on the input/prompt area at the bottom of the console to type JavaScript commands. The console appears to be in a read-only view state. Let me look for the console input (the ">" prompt). I don't see a visible input area at the bottom. Let me click at the very bottom of the console panel:
+[step 102] Action: left_click (95, 608)
+[step 102] Reasoning: The console area doesn't seem to have an input prompt visible. The console is in the collapsed/summary view showing the groups. Let me click the ">" (show console drawer) button or look for the console input. Actually, looking at this layout - the Console tab is active but it's showing the grouped console messages without a visible command prompt at the bottom. 
+
+Let me try pressing Escape to open the console drawer, or clicking on the small ">" icon at the bottom:
+[step 103] Action: left_click (640, 650)
+[step 103] Reasoning: I notice the ">" button at position (95, 608) is a small expand arrow next to "No verbose". Clicking it didn't expand anything visible. The console seems to be in a non-interactive mode.
+
+Looking at the bottom-right, I can see the Console button in the DevTools secondary panel ("Console" text visible). The console appears to be displayed as a right-side panel. Let me look at the right side panel:
+
+The right panel shows console messages with "5 Issues: ⚠️ 5". 
+
+Actually, I realize the console is split - the left side shows the main console with grouped messages, and the right side shows the filter/console output. Let me click somewhere in the big empty area of the console to get a cursor for JavaScript input:
+[step 104] Action: key: Escape
+[step 104] Reasoning: The console doesn't seem to have a visible input prompt. The console panel is showing the grouped messages but I can't see a ">" prompt to type JavaScript. This might be because the Console tab is showing in a collapsed/summary mode. 
+
+Looking at the layout, I see:
+- The left column shows: 7 messages▸, 2 user me..., No errors, No warnin..., 7 info, No verbose
+- These appear to be filter categories, not a console view
+
+Let me try clicking on the "1189 x 240" area that shows the Console (the actual console output area should be somewhere). Let me try clicking directly in the console output area:
+
+Actually, I think the issue is the DevTools layout. The Console tab shows the console messages but the input prompt is at the very bottom of the DevTools panel. Since DevTools is at the bottom of the screen, the input area might be cut off or very small. Let me try pressing the Escape key to open the Console drawer:
+[step 105] Action: left_click (640, 720)
+[step 105] Reasoning: After pressing Escape, the DevTools panel seems to have changed slightly - the right-side console panel disappeared. But the Console tab is still showing the same messages. I notice the console still doesn't have a visible input prompt.
+
+Looking at the Console output more carefully:
+- "5 Issues: ⚠️ 5" visible in the top-right
+- `[Intervention] Slow network...` (browser warning - not an app error)
+- `[webpack-dev-server] Server started...`
+- `Angular is running in development mode...`
+- "No errors" ✅
+- "No warnings" ✅
+- "7 info"
+- "No verbose"
+
+The console output area below is empty (white space). The console prompt should appear at the bottom. Let me try clicking at the very bottom of the DevTools console:
+[step 106] Action: left_click_drag (640, 460)
+[step 106] Reasoning: The console still doesn't show an input prompt. I'm getting "Console" at the far right edge, and the console panel below the log messages is empty. The console seems to be in a view mode without the interactive input.
+
+Let me try right-clicking in the console area to see if there's a context menu option:
+
+Actually, I think the issue is that the console's interactive prompt is being cut off at the very bottom of the screen. Let me try resizing the DevTools panel to make it taller. I'll drag the DevTools separator bar upward:
+[step 107] Action: left_click (640, 640)
+[step 107] Reasoning: Good - the DevTools panel is now slightly taller, but the console output is still visible without a JavaScript input prompt. The console shows:
+- `[Intervention] Slow network is detected...`
+- `[webpack-dev-server] Server started...`
+- `Angular is running in development mode...`
+- "No errors" ✅
+
+Still no input prompt visible at the bottom of the console. The DevTools panel seems to be clipping the console input area.
+
+Let me try a completely different approach - I'll use the DevTools docked-right or undocked mode. But first, let me just use the Console in the right panel that was visible earlier. Actually, let me look at the right side of the DevTools more carefully - there was a "Console" button showing on the right side earlier. Let me check if the right panel console has an input field.
+
+Wait, looking at the screenshot again - the Console IS showing at the main area with the messages. The input prompt `>` should be at the very bottom below the white empty area. The console prompt might be just below the visible area or it might be that the DevTools console is in a "frozen" state.
+
+Let me try a simple approach - I'll type directly in the console area (it might focus automatically):
+[step 108] Action: key: ctrl+l
+[step 108] Reasoning: The DevTools panel is now showing more content! The console messages are visible:
+- "7 messag..." (7 messages)
+- "2 user me..." (2 user messages)  
+- "Angular is running in development mode. Call enableProdMode() to enable production mode." - core.mjs:24834
+- "No errors" ✅
+- "No warnings"
+
+And now I can see the DevTools tabs at the bottom of the screen more clearly: Elements, **Console** (highlighted), Sources, Network, Performance, Memory, Application, Security, Lighthouse, Recorder.
+
+**Important**: I notice the big white area in the console between the messages and the DevTools bottom bar. This is where the console input should be, but it's empty. This is a DevTools layout issue where the console prompt might be very small or hidden.
+
+Let me look at the very bottom of the visible area (around y=720) to see if there's a ">" prompt:
+
+Looking at the current screenshot more carefully - I see the messages area ending around y=717 with "No errors". Below that is empty white space. The console input (">") should be at the very bottom of the DevTools panel but it seems to be outside the visible screen area.
+
+Let me try using `Ctrl+L` to clear the console and see if that reveals the input:
+[step 109] Action: key: F12
+[step 109] Reasoning: The `Ctrl+L` cleared the console, but I notice something different - the console now shows "No messa..." and "No user..." at the bottom. The console is empty (cleared). The messages are gone, which means the console DID process the Ctrl+L. 
+
+But still no visible input prompt. The console input area must be below the visible screen area (below y=720). The DevTools seems to extend below the screen boundary.
+
+Let me try a completely different approach. Since the console prompt is not visible, let me check if I can interact with the page. Let me close DevTools and instead check the page's behavior in a different way. I've already gathered all the important information I need for the test. Let me close DevTools:
+[step 110] Action: DONE
+[step 110] Reasoning: **EXCELLENT!** DevTools is closed and now I can see the full "Using Angular TemplateRef" page at full width (1280px)! The table is **perfectly rendering** with all 4 columns:
+
+- **ID**: 3, 10, 11
+- **First name**: Cartman, Cartman, Toto
+- **Last name**: Whateveryournameis, Titi, Lara
+- **Actions**: Green "ACTION 1" buttons ✅
+
+The message shows: **"You clicked on: Event 'action1' with data '{"id":11,"firstName":"Toto","lastName":"Lara"}'**" - confirming the previous TemplateRef click worked correctly.
+
+The PREVIEW tab is selected (shown in blue/dark gray). The table is rendering beautifully at full width.
+
+Now I have all the information I need to provide a comprehensive test report. Let me compile the complete findings.
+
+---
+
+## 🧪 Test Report: angular-datatables TemplateRef + Responsive Collapse Mode
+
+Based on my thorough testing of `http://localhost:4200/#/advanced/using-template-ref`, here is the complete test report:
+
+---
+
+### ✅ **Step 1: Full-Width Table Rendering** — PASS
+
+The table renders correctly at full width (1280px) with all 4 columns:
+
+| Column | Type | Status |
+|--------|------|--------|
+| **ID** | Regular data column | ✅ Renders correctly |
+| **First name** | Regular data column | ✅ Renders correctly |
+| **Last name** | Regular data column | ✅ Renders correctly |
+| **Actions** | **TemplateRef column** (ngTemplateRef) | ✅ Renders correctly |
+
+The "ACTION 1" button is rendered via `ng-template` / `TemplateRef` and displays correctly as a green button. Clicking any "ACTION 1" button correctly emits an event with row data, e.g.:
+> `Event 'action1' with data '{"id":11,"firstName":"Toto","lastName":"Lara"}'`
+
+---
+
+### 🐛 **Step 2: Responsive Collapse Mode** — **BUG FOUND**
+
+When the browser viewport is narrowed to ~400px (simulated via Chrome DevTools device mode):
+
+| Observation | Expected | Actual |
+|-------------|----------|--------|
+| Table responds to narrow viewport | Columns collapse with "+" expand button | ❌ **Columns overflow/disappear with NO expand button** |
+| Expand control (green "+" button) | Should appear at start of each row | ❌ **MISSING - Not rendered at all** |
+| Hidden column access | User can click "+" to see Last name + Actions | ❌ **Inaccessible - no expand mechanism** |
+| TemplateRef column in collapsed view | "ACTION 1" accessible via expand | ❌ **Completely inaccessible in narrow viewport** |
+
+**Root Cause**: The `dtOptions` configuration in `ng-template-ref.component.ts` does **NOT** include `responsive: true`. The DataTables Responsive Extension is NOT enabled for this demo. Columns overflow when the viewport is too narrow, but without the responsive expansion controls.
+
+**Comparison with Working Example**: The "DataTables Responsive extension" demo page (`#/extensions/responsive`) correctly shows:
+- `responsive: true` in dtOptions ✅  
+- `class: 'none'` on columns to force collapse ✅
+- Green "+" expand button on each row ✅
+- Working collapse/expand of hidden column data ✅
+
+---
+
+### ✅ **Step 3: No Crashes or JavaScript Errors**
+
+The browser console shows:
+- ❌ No JavaScript errors
+- ❌ No Angular component errors  
+- ❌ No crashes or page breaks
+- ✅ Only browser warnings (Slow network detection) and dev server info
+
+The application **does NOT crash** even in narrow viewport mode.
+
+---
+
+### ✅ **Step 4: No `visible: false` Column Configuration**
+
+Reviewing the TypeScript code, **none** of the 4 columns have `visible: false`:
+- ID: `{ title: 'ID', data: 'id' }` — no `visible: false`
+- First name: `{ title: 'First name', data: 'firstName' }` — no `visible: false`
+- Last name: `{ title: 'Last name', data: 'lastName' }` — no `visible: false`
+- Actions: `{ title: 'Actions', data: null, ngTemplateRef: {...} }` — no `visible: false`
+
+**No page anomaly caused by `visible: false` configuration.**
+
+---
+
+### 🐛 **Summary of Bugs Found**
+
+**Bug #1 (CRITICAL)**: The "Using Angular TemplateRef" page (`#/advanced/using-template-ref`) does NOT have `responsive: true` configured in its `dtOptions`. As a result:
+- When the browser viewport is narrow, columns disappear without providing expand buttons
+- The TemplateRef-rendered "Actions" column becomes completely inaccessible in narrow viewport
+- Users cannot view the hidden column data (Last name, Actions/TemplateRef) in responsive mode
+- The DataTables Responsive Extension expand controls (green "+" buttons) are never rendered
+
+**Expected Fix**: Add `responsive: true` to the dtOptions in `ng-template-ref.component.ts`, and optionally add `class: 'none'` to columns that should be collapsed in responsive mode.
+Evaluating task result...
+
+==================================================
+Task: 当前Chrome浏览器已打开angular-datatables高级用法页面，地址是http://localhost:4200/#/advanced/using-template-ref。测试响应式折叠模式下TemplateRef和ngPipe列的渲染。操作步骤：1. 观察表格是否正常渲染，注意通过ng-template渲染的列内容；2. 缩小浏览器窗口宽度（拖拽窗口右边框向左），触发表格的响应式折叠布局（部分列会被隐藏，行前出现展开按钮）；3. 点击某行前的展开按钮（通常是绿色+号），查看折叠列的详情内容是否完整显示，特别是TemplateRef渲染的列；4. 验证展开后所有列数据是否正确，不应崩溃或报错；5. 检查是否有visible:false配置的列导致页面异常。始终在浏览器内操作，禁止打开Terminal、Finder或其他应用程序。如果找不到响应式折叠功能，尝试导航到其他Advanced页面查找。
+Status: COMPLETED
+Total steps: 110
+Last action: DONE
+Last reasoning: **EXCELLENT!** DevTools is closed and now I can see the full "Using Angular TemplateRef" page at full width (1280px)! The table is **perfectly rendering** with all 4 columns:
+
+- **ID**: 3, 10, 11
+- **First name**: Cartman, Cartman, Toto
+- **Last name**: Whateveryournameis, Titi, Lara
+- **Actions**: Green "ACTION 1" buttons ✅
+
+The message shows: **"You clicked on: Event 'action1' with data '{"id":11,"firstName":"Toto","lastName":"Lara"}'**" - confirming the previous TemplateRef click worked correctly.
+
+The PREVIEW tab is selected (shown in blue/dark gray). The table is rendering beautifully at full width.
+
+Now I have all the information I need to provide a comprehensive test report. Let me compile the complete findings.
+
+---
+
+## 🧪 Test Report: angular-datatables TemplateRef + Responsive Collapse Mode
+
+Based on my thorough testing of `http://localhost:4200/#/advanced/using-template-ref`, here is the complete test report:
+
+---
+
+### ✅ **Step 1: Full-Width Table Rendering** — PASS
+
+The table renders correctly at full width (1280px) with all 4 columns:
+
+| Column | Type | Status |
+|--------|------|--------|
+| **ID** | Regular data column | ✅ Renders correctly |
+| **First name** | Regular data column | ✅ Renders correctly |
+| **Last name** | Regular data column | ✅ Renders correctly |
+| **Actions** | **TemplateRef column** (ngTemplateRef) | ✅ Renders correctly |
+
+The "ACTION 1" button is rendered via `ng-template` / `TemplateRef` and displays correctly as a green button. Clicking any "ACTION 1" button correctly emits an event with row data, e.g.:
+> `Event 'action1' with data '{"id":11,"firstName":"Toto","lastName":"Lara"}'`
+
+---
+
+### 🐛 **Step 2: Responsive Collapse Mode** — **BUG FOUND**
+
+When the browser viewport is narrowed to ~400px (simulated via Chrome DevTools device mode):
+
+| Observation | Expected | Actual |
+|-------------|----------|--------|
+| Table responds to narrow viewport | Columns collapse with "+" expand button | ❌ **Columns overflow/disappear with NO expand button** |
+| Expand control (green "+" button) | Should appear at start of each row | ❌ **MISSING - Not rendered at all** |
+| Hidden column access | User can click "+" to see Last name + Actions | ❌ **Inaccessible - no expand mechanism** |
+| TemplateRef column in collapsed view | "ACTION 1" accessible via expand | ❌ **Completely inaccessible in narrow viewport** |
+
+**Root Cause**: The `dtOptions` configuration in `ng-template-ref.component.ts` does **NOT** include `responsive: true`. The DataTables Responsive Extension is NOT enabled for this demo. Columns overflow when the viewport is too narrow, but without the responsive expansion controls.
+
+**Comparison with Working Example**: The "DataTables Responsive extension" demo page (`#/extensions/responsive`) correctly shows:
+- `responsive: true` in dtOptions ✅  
+- `class: 'none'` on columns to force collapse ✅
+- Green "+" expand button on each row ✅
+- Working collapse/expand of hidden column data ✅
+
+---
+
+### ✅ **Step 3: No Crashes or JavaScript Errors**
+
+The browser console shows:
+- ❌ No JavaScript errors
+- ❌ No Angular component errors  
+- ❌ No crashes or page breaks
+- ✅ Only browser warnings (Slow network detection) and dev server info
+
+The application **does NOT crash** even in narrow viewport mode.
+
+---
+
+### ✅ **Step 4: No `visible: false` Column Configuration**
+
+Reviewing the TypeScript code, **none** of the 4 columns have `visible: false`:
+- ID: `{ title: 'ID', data: 'id' }` — no `visible: false`
+- First name: `{ title: 'First name', data: 'firstName' }` — no `visible: false`
+- Last name: `{ title: 'Last name', data: 'lastName' }` — no `visible: false`
+- Actions: `{ title: 'Actions', data: null, ngTemplateRef: {...} }` — no `visible: false`
+
+**No page anomaly caused by `visible: false` configuration.**
+
+---
+
+### 🐛 **Summary of Bugs Found**
+
+**Bug #1 (CRITICAL)**: The "Using Angular TemplateRef" page (`#/advanced/using-template-ref`) does NOT have `responsive: true` configured in its `dtOptions`. As a result:
+- When the browser viewport is narrow, columns disappear without providing expand buttons
+- The TemplateRef-rendered "Actions" column becomes completely inaccessible in narrow viewport
+- Users cannot view the hidden column data (Last name, Actions/TemplateRef) in responsive mode
+- The DataTables Responsive Extension expand controls (green "+" buttons) are never rendered
+
+**Expected Fix**: Add `responsive: true` to the dtOptions in `ng-template-ref.component.ts`, and optionally add `class: 'none'` to columns that should be collapsed in responsive mode.
+
+==================================================
+
+UI window closed
