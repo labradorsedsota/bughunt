@@ -1,0 +1,20 @@
+{
+  "task_id": "core-240",
+  "repo": "RedPlanetHQ/core",
+  "worker": "worker-02",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T19:54:23+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "需要PostgreSQL数据库。.env.example要求POSTGRES_USER/PASSWORD/DB + DATABASE_URL，packages/database使用Prisma ORM（@prisma/client 5.4.1）。Turbo monorepo，dev命令依赖dotenv加载数据库配置。",
+    "attempted": [
+      "检查.env.example确认需要PostgreSQL（DATABASE_URL=postgresql://...）",
+      "检查packages/database/package.json确认使用Prisma ORM"
+    ],
+    "recommendation": "需要部署PostgreSQL服务并配置DATABASE_URL"
+  }
+}

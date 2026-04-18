@@ -1,0 +1,20 @@
+{
+  "task_id": "blinko-323",
+  "repo": "blinkospace/blinko",
+  "worker": "worker-02",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T19:46:14+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Next.js编译500错误：markmap-view引用markmap-common中不存在的childSelector导出。安装markmap-common后仍报Attempted import error: childSelector is not exported from markmap-common。",
+    "attempted": [
+      "npm install后直接npm run dev（Module not found: Can't resolve markmap-common）",
+      "npm install markmap-common --legacy-peer-deps后重试（Attempted import error: childSelector is not exported）"
+    ],
+    "recommendation": "markmap相关包版本不兼容，需锁定正确版本或跳过"
+  }
+}

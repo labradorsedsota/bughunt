@@ -1,0 +1,20 @@
+{
+  "task_id": "condenser-3717",
+  "repo": "steemit/condenser",
+  "worker": "worker-02",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T19:53:41+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm install --legacy-peer-deps 连续两次超时（>120秒无输出被SIGKILL）。项目依赖过旧（engines: node>=8.7.0），Steemit区块链前端需要连接Steem API后端。",
+    "attempted": [
+      "npm install --legacy-peer-deps（超时SIGKILL，无任何输出）",
+      "清除npm proxy配置后重试（同样超时SIGKILL）"
+    ],
+    "recommendation": "npm install挂起，可能是过旧依赖在Node 18下有兼容问题，或某些native依赖编译卡住"
+  }
+}
