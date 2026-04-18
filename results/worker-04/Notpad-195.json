@@ -1,0 +1,18 @@
+{
+  "task_id": "Notpad-195",
+  "repo": "Muhammed-Rahif/Notpad",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260418231751-d16398b2da1249bbb0dbe7d37d4a5510",
+  "expected_result_used": true,
+  "duration_seconds": 180,
+  "timestamp": "2026-04-18T15:20:50-07:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 7,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "深色模式下 View 菜单按钮标签始终显示 Dark Mode，未动态变为 Light Mode。标签不随主题切换而更新。",
+    "last_reasoning": "## 测试结果总结\n\n### 测试结论：**FAIL** ❌\n\n**测试步骤与观察结果：**\n\n1. **初始状态（浅色模式）：** 打开 View 菜单，看到按钮标签为 **\"Dark Mode\"** ✅ （符合预期，浅色模式下显示可切换的目标模式）\n\n2. **切换到深色模式后：** 点击 \"Dark Mode\" 按钮，应用成功切换到深色模式（背景变黑）。再次打开 View 菜单，按钮标签仍然显示 **\"Dark Mode\"** ❌ （不符合预期，深色模式下应显示 \"Light Mode\"）\n\n3. **切换回浅色模式后：** 点击 \"Dark Mode\" 按钮，应用切换回浅色模式（背景变白）。再次打开 View 菜单，按钮标签显示 **\"Dark Mode\"** ✅ （符合预期，浅色模式下显示 \"Dark Mode\"）\n\n### Bug 描述：\n**按钮标签不会动态更新。** 在深色模式下，View 菜单中的按钮标签未从 \"Dark Mode\" 更改为 \"Light Mode\"。标签始终固定显示为 \"Dark Mode\"，没有根据当前主题模式动态变化。\n\n- **预期行为：** 深色模式下显示 \"Light Mode\"，浅色模式下显示 \"Dark Mode\"\n- **实际行为：** 无论当前处于何种模式，标签始终显示 \"Dark Mode\"，标签没有动态更新功能"
+  }
+}

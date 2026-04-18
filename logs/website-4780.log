@@ -1,0 +1,1334 @@
+Session created: sess-20260416204516-546a86e899ac4db58c49d2d58922faea
+UI panel initialized successfully
+UI window displayed
+Expected result: 所有导航栏链接、按钮以及文档页面侧边栏的交互元素在通过键盘Tab键获得焦点时，都应显示清晰可见的焦点指示器，用户能够明确知道当前焦点所在的元素位置。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: key: Escape
+[step 1] Reasoning: I can see the AsyncAPI website is open at localhost:3000/en. Let me first close the translation popup and navigate to the homepage, then start testing keyboard navigation.
+[step 2] Action: left_click (640, 300)
+[step 2] Reasoning: Good, the translation popup is closed. Now I can see the homepage. Let me click on the main content area first to make sure the browser page has focus, then start using Tab key to navigate through the navigation elements.
+[step 3] Action: key: Tab
+[step 3] Reasoning: Good. Now I'll press Tab key to start navigating through the page elements and observe the focus indicators. Let me press Tab multiple times and take screenshots after each press to observe focus visibility.
+[step 4] Action: key: Tab
+[step 4] Reasoning: I can see the status bar at the bottom shows "localhost:3000/docs" which means the Tab key navigated to a link, but I can't clearly see which element has focus on the navigation bar. Let me take a closer look by zooming in on the navigation area. I notice the URL at the bottom shows "/docs" which suggests the "Docs" link might be focused. However, no visible focus indicator is clearly visible. Let me press Tab again to continue navigating.
+[step 5] Action: left_click (640, 300)
+[step 5] Reasoning: I notice that when I press Tab, the status bar briefly showed a link URL but I can't clearly see any focus indicator on the navigation elements. The navigation bar elements don't appear to show obvious focus indicators. Let me try to navigate more systematically - I'll click somewhere on the page first, then use Tab to navigate and zoom in to observe each element more carefully.
+
+Let me first click on the page body to reset focus, then navigate using Tab and take zoomed screenshots of the navigation area.
+[step 6] Action: key: Tab
+[step 6] Reasoning: Now let me press Tab once and zoom in to see if there's a focus indicator on the first navigation element. I'll use the browser's zoom feature to get a better view.
+[step 7] Action: key: super+plus
+[step 7] Reasoning: I can see the status bar shows "localhost:3000/docs" which indicates focus is on the Docs link. But I cannot see any visible focus indicator around the "Docs" navigation item. The navigation bar looks the same as before - no outline, highlight, or any visual change around the "Docs" link. 
+
+Let me zoom in to the navigation bar area to get a better look. I'll use Chrome's zoom in feature (Cmd++) to zoom in.
+
+Let me take a more detailed look at the navigation area by zooming in with the browser:
+[step 8] Action: key: ctrl+equal
+[step 9] Action: key: ctrl+shift+equal
+[step 10] Action: key: ctrl+0
+[step 10] Reasoning: Let me try using the browser menu to zoom in instead:
+[step 11] Action: key: Tab
+[step 11] Reasoning: The status bar still shows "localhost:3000/docs" - focus remains on the Docs link. I can observe that there is no visible focus indicator showing around the "Docs" navigation element. The navigation bar looks completely the same without any visual focus indicator.
+
+Let me use the macOS screenshot zoom feature to check the navigation area more closely. Let me try pressing Tab more times to cycle through various nav elements and take screenshots to observe focus indicators.
+
+Let me try pressing Tab several more times while keeping track of what's being focused:
+[step 12] Action: key: Escape
+[step 12] Reasoning: The Tab key appears to have triggered the macOS dock application switcher. This means the focus left the browser and went to the macOS system. Let me click back on the browser to regain focus, and then start over with a more careful approach.
+[step 13] Action: left_click (640, 225)
+[step 13] Reasoning: Good. Now I need to carefully navigate using Tab within the browser. Let me click on the browser content area first to ensure focus is in the page, and then use Tab to navigate. I should click somewhere in the page body that doesn't trigger a link or button.
+
+Let me click on the main heading text area:
+[step 14] Action: key: Tab
+[step 14] Reasoning: I see clicking on the text selected some content. Now I need to press Tab to navigate to the next focusable element. Let me now use Tab key carefully and take screenshots to observe focus indicators on each navigation element.
+[step 15] Action: key: Escape
+[step 15] Reasoning: The Tab key is triggering the macOS dock app switcher instead of navigating within the web page. This is happening because the Mac system keyboard shortcut for the Dock is interfering. Let me press Escape to close this and click directly on the Chrome browser tab to make sure the Chrome window has focus.
+[step 16] Action: left_click (640, 150)
+[step 16] Reasoning: Good. I need to click on the actual Chrome browser content area to give focus to the webpage, then use Tab to navigate within the page. The issue is that clicking in the body text area was selecting text but not giving proper focus for tab navigation. Let me click on a neutral area in the page content and then try pressing Tab.
+
+Let me click near the top of the browser tab content, outside any text:
+[step 17] Action: left_click (574, 372)
+[step 17] Reasoning: I see text is getting selected when I click. This is because I'm double-clicking or the text area. The issue with Tab is that macOS is intercepting it. Let me try a different approach - I'll use the browser's address bar to navigate to the page first, which will set focus properly in the browser, then use Tab to navigate within the page.
+
+Let me try clicking on the "Read the docs" button which is a clear interactive element, then using Tab from there:
+[step 18] Action: screenshot
+[step 18] Reasoning: Clicking "Read the docs" opened the docs page in a new tab (localhost:3000/docs). The page is loading. Let me wait for it to load and then go back to the homepage to test the navigation.
+[step 19] Action: left_click (957, 189)
+[step 19] Reasoning: I can see the docs page has opened but there's a **Recoverable Error** overlay showing "Text content does not match server-rendered HTML." This is a Next.js rendering error - a **functional bug** in the application. There's also a "3 Issues" badge in the bottom left. Let me dismiss this error overlay and navigate back to the homepage to continue testing.
+
+Let me close the error overlay and also close the translation popup:
+[step 20] Action: left_click (694, 35)
+[step 20] Reasoning: Clicking the X button on the error overlay opened a new tab navigating to the Next.js debugging documentation. This is unexpected behavior - the X button on the error overlay should have dismissed it, not opened an external link. This is another **bug** in the application. Let me close this unwanted tab.
+[step 21] Action: left_click (310, 35)
+[step 21] Reasoning: I'm back on the docs page with the error overlay visible. The docs page shows a "Recoverable Error" overlay with "Text content does not match server-rendered HTML." This is a Next.js error. I can see the page content is blurred behind the error overlay. Let me try to navigate to the homepage first. Let me click on the AsyncAPI logo in the top left to go to the homepage.
+
+I'll click outside the error overlay to dismiss it or navigate to the homepage:
+[step 22] Action: left_click (310, 110)
+[step 22] Reasoning: Good, I'm now on the homepage (localhost:3000/en). Now I need to properly test keyboard navigation. The key issue is that when I press Tab from a non-focused element in the page, macOS is intercepting the Tab key. I need to make sure the focus is properly inside the webpage.
+
+Let me try a different approach - I'll click on the URL bar first, then press Tab to give focus to the page content, and then Tab again to navigate through page elements. Or better yet, let me click directly on the AsyncAPI logo (which is a link) to put focus there and then Tab through elements.
+[step 23] Action: left_click (1221, 90)
+[step 23] Reasoning: Clicking the AsyncAPI logo navigated to another tab with the homepage (localhost:3000/en) - now I'm on the original tab. But I notice there's also a Google Translate popup in the top right. The page is loading. I can see the homepage with the navigation bar. Let me wait for the page to fully load and then close the translate popup.
+[step 24] Action: left_click (640, 63)
+[step 24] Reasoning: Good, the translation popup is closed. The page has loaded and shows the homepage. Now I can see the navigation bar at the top. Let me carefully test keyboard navigation. I need to use a different approach to ensure focus is within the webpage and not being intercepted by macOS.
+
+Let me click on the address bar first, then press Tab to move focus to the page:
+[step 25] Action: key: Escape
+[step 25] Reasoning: Good, the address bar is now focused with the URL "localhost:3000/en" highlighted. Now I'll press Tab to move focus to the page. When I press Tab from the address bar in Chrome, it should move focus to the first focusable element in the page.
+
+Now let me press Escape to close the address bar dropdown and then press Tab to navigate into the page:
+[step 26] Action: key: Tab
+[step 26] Reasoning: I see the address bar still seems to have focus (showing "localhost:3000/en" with the cursor visible). Now let me press Tab to move focus to the first page element. This should move focus from the address bar to the first focusable element in the webpage.
+[step 27] Action: key: Escape
+[step 27] Reasoning: The macOS dock application switcher is appearing again when I press Tab. This is the system-level Tab behavior that's interfering with webpage navigation. Let me press Escape to close this and try a different approach to test focus in the browser.
+[step 28] Action: left_click (417, 110)
+[step 28] Reasoning: I see the address bar currently has focus (cursor is visible in it). The Tab key is triggering macOS dock app switcher because Chrome's address bar focus passes Tab to the macOS system. 
+
+Let me try a different approach - I'll click directly on the navigation "Docs" link in the navbar to give focus to it, and then from there use Tab to navigate to the next element. This way, the focus will be within the page:
+[step 29] Action: left_click (466, 35)
+[step 29] Reasoning: Clicking on "Docs" in the navigation opened the docs page again in a new tab and showed the same "Recoverable Error" overlay again. This error occurs every time the docs page is opened. Let me navigate back to the homepage and take a different approach.
+
+Let me close the extra tabs and go back to the original AsyncAPI tab. Let me click on the first AsyncAPI tab:
+[step 30] Action: key: Escape
+[step 30] Reasoning: I can see the Docs dropdown menu has expanded (showing Concepts, Tutorials, Guides, Tools, Reference, Migration, Community, Specification Explorer). The cursor was previously hovering over the Docs nav item which triggered this dropdown. I can see the navigation bar at the top. 
+
+Now let me close this dropdown by clicking elsewhere and try a different approach to test keyboard navigation. I'll use the browser's developer tools to understand the focus state, or I'll try clicking directly on the "Docs" link in the nav bar (not the dropdown trigger) to focus that element and then Tab through.
+
+Let me click elsewhere to close the dropdown:
+[step 31] Action: Open url: http://localhost:3000
+[step 31] Reasoning: The dropdown is still showing. Let me try a fresh approach. I'll navigate to the homepage URL directly via the address bar, and then use a proper approach to test keyboard navigation. The problem I've been facing is that clicking causes the page to navigate or show dropdown menus instead of allowing me to test Tab key focus. 
+
+Let me use the URL bar to navigate to the homepage:
+[step 32] Action: left_click (169, 32)
+[step 32] Reasoning: I can see the homepage is now loaded. There's a Google Translate bar at the top. The page is now loaded in a new Chrome tab. Let me close the translate bar and the extra tabs. 
+
+Now let me try a different approach to testing keyboard navigation. I need to click on the content area of the page (not in a text or link area) to give focus to the page body, then use Tab to navigate. Let me click on the navigation bar section that has no link elements, like the dark horizontal space between the nav and content:
+[step 33] Action: left_click (943, 35)
+[step 33] Reasoning: I see a tooltip for "OpenClaw Control" appeared. I'm now on the homepage without the translate popup. Let me click somewhere to dismiss that tooltip and try a different approach to test keyboard navigation. I'll click on the page content area and then use Tab to navigate.
+
+Let me click on the main heading area in the page and try pressing Tab:
+[step 34] Action: key: F6
+[step 34] Reasoning: Good, the homepage is now fully visible. I'm now on localhost:3000/en. Now I need to properly test keyboard Tab navigation. The issue is that Tab from address bar triggers macOS dock switcher. Let me try a completely different approach - I'll use the browser's keyboard shortcut F6 to put focus in the page, or I'll use the Tab key after clicking on a specific element in the webpage.
+
+Let me click directly on the AsyncAPI logo which is a link element in the page. This will give keyboard focus to an element in the page, and then I can use Tab to navigate forward:
+
+Wait, clicking on links navigates to them. Instead, let me try clicking on something that won't navigate - like the header background/body area that's not a link. Let me try clicking on the footer or a non-clickable area of the nav. 
+
+Actually, let me try the proper method: I'll click somewhere in the page's content that is not an interactive element (like the heading text area), and then immediately press Tab to navigate. The issue earlier was that the Tab was being intercepted by macOS. Let me try pressing F6 first to give focus to the page content, then pressing Tab:
+[step 35] Action: key: Tab
+[step 35] Reasoning: Good, F6 moved focus to the page content (address bar no longer seems focused). Now let me press Tab to navigate to the first focusable element in the page. I'll press Tab and immediately take a screenshot to observe what has focus:
+[step 36] Action: key: Escape
+[step 36] Reasoning: The macOS dock application switcher appears again. Tab key is being intercepted by macOS system. Let me press Escape and try a completely different approach.
+
+The issue is the macOS system shortcut where holding the keyboard modifier before pressing Tab triggers the macOS app switcher. 
+
+I need to find a way to properly test Tab navigation within Chrome. Let me try:
+1. First click an interactive element in the page (which gives it proper DOM focus)  
+2. Then Tab through subsequent elements
+
+Let me press Escape and try clicking on the "Read the docs" button (a proper button element) to give it focus:
+[step 37] Action: left_click (200, 300)
+[step 37] Reasoning: I see a tab hover tooltip. Now I'm back on the homepage. Let me try a completely different approach - I'll use Chrome's built-in keyboard shortcut to interact with the page and test keyboard navigation.
+
+I need to click somewhere in the page content that will give the page focus without triggering navigation. Let me try clicking on the background/white area of the page body:
+[step 38] Action: key: Tab
+[step 38] Reasoning: Good, I clicked in the page content area on the left side. Now let me try pressing Tab carefully. I need to understand why Tab is triggering the macOS dock switcher. The issue is that on macOS, pressing Tab without any modifiers shouldn't open the dock. This might be because the page body doesn't have proper focus yet.
+
+Let me try Tab now since I clicked on the page content area:
+[step 39] Action: key: Escape
+[step 39] Reasoning: The macOS dock switcher keeps appearing. The Tab key is being intercepted by the macOS system at the system level. This seems to be a macOS system setting that intercepts Tab before it can reach the browser. 
+
+On macOS, Tab key navigation in browsers works when the browser has keyboard focus, but there's a macOS system setting "Keyboard Navigation" that must be enabled in System Preferences > Keyboard for Tab key to work properly in web pages to focus all interactive elements. When this setting is not enabled, Tab only moves focus between text fields by default on macOS.
+
+However, the dock switcher appearing when pressing Tab indicates that something else is happening - perhaps the focus is going somewhere unexpected.
+
+Let me try a completely different approach. I'll use Chrome's Developer Tools console to inspect the focus states and CSS of elements, or use the browser's built-in accessibility features. Let me open Chrome DevTools and use it to check for focus styles:
+[step 40] Action: key: F12
+[step 40] Reasoning: Good. Let me try a different approach to test keyboard navigation. I'll open Chrome DevTools and use the console to:
+1. Check CSS focus styles for nav elements
+2. Programmatically trigger focus on elements to observe the visual focus indicator
+
+Let me open DevTools with Cmd+Option+I (or F12):
+[step 41] Action: key: ctrl+shift+i
+[step 41] Reasoning: DevTools didn't open with F12. Let me try the macOS way - Cmd+Option+I:
+[step 42] Action: right_click (200, 400)
+[step 42] Reasoning: DevTools is not opening. Let me try right-clicking on the page to access "Inspect" from the context menu:
+[step 43] Action: left_click (219, 629)
+[step 43] Reasoning: A context menu appeared. I can see "检查" (Inspect) at the bottom. Let me click on "检查" to open DevTools:
+[step 44] Action: left_click (1044, 132)
+[step 44] Reasoning: DevTools is now open. I can see the Chrome DevTools panel on the right side showing the HTML structure and CSS styles. Now I can use the Console to programmatically test focus on navigation elements and examine their CSS focus styles. Let me click on the Console tab to use JavaScript to test focus visibility:
+[step 45] Action: left_click (1100, 380)
+[step 45] Reasoning: I can see the DevTools Console panel. There are several warnings visible. I can also notice there's "3 Issues" badge in the console. 
+
+Now I'll use the Console to:
+1. Focus on the "Docs" navigation link and observe the visual indicator
+2. Check the CSS focus styles for nav elements
+
+Let me click on the console input area and type JavaScript to focus on the "Docs" link:
+[step 46] Action: left_click (1100, 371)
+[step 46] Reasoning: Good, the console input area (shown as ">" at the bottom) is now focused. Let me type JavaScript to focus on the Docs navigation link and check its CSS:
+[step 47] Action: left_click (1100, 371)
+[step 47] Reasoning: I need to click on the console input area. Let me scroll down in the console area to find the input cursor. I'll click at the very bottom of the DevTools panel where the console prompt (>) is:
+[step 48] Action: left_click (950, 371)
+[step 48] Reasoning: Let me try clicking directly on the ">" prompt at the bottom of the console:
+[step 49] Action: left_click (1100, 371)
+[step 49] Reasoning: I can see the console has a ">" prompt at the bottom. Let me try clicking exactly on that prompt line where the cursor should be:
+[step 50] Action: type: document.querySel...
+[step 50] Reasoning: I can see the console prompt with cursor "|" at the bottom right of the DevTools panel. Now I can type JavaScript. Let me type a command to focus on the first navigation link (Docs) and check CSS focus styles:
+[step 51] Action: key: ctrl+a
+[step 51] Reasoning: Chrome is showing a security warning: "Warning: Don't paste code into the DevTools Console that you don't understand or haven't reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type 'allow pasting' below and press Enter to allow pasting."
+
+This is a Chrome security feature. I need to type "allow pasting" first to enable pasting/executing code. But since I typed the command (not pasted), let me try pressing Enter to see if it runs:
+
+Actually, looking at the console, it seems Chrome is treating my typed command as if I'm trying to paste. This security warning blocks code execution. I need to type "allow pasting" first and press Enter, then type the actual command.
+
+Let me clear and type "allow pasting" first:
+[step 52] Action: type: allow pasting
+[step 52] Reasoning: Good, the console input seems cleared. Now I need to type "allow pasting" to enable code execution in DevTools:
+[step 53] Action: key: Return
+[step 53] Reasoning: I can see "allow pasting" is now visible in the console (I can see the security warning still there but "allow pasting" should have been typed in the input below). Let me press Enter to submit it:
+[step 54] Action: scroll down (1100, 380) scroll_amount 3
+[step 54] Reasoning: The console still shows the security warning. The "allow pasting" command might not have been typed in the correct input area. I need to scroll down the console panel or click more precisely on the console input line. Let me scroll down in the DevTools console to find the input area:
+[step 55] Action: left_click (1100, 408)
+[step 55] Reasoning: I see the console still at the same position. I can see the ">" prompt at the bottom of the visible area. The cursor position ">" and "|" appears at around y=408. Let me try to click directly on that line and type:
+[step 56] Action: type: allow pasting
+[step 56] Reasoning: I can see the cursor "|" is now at the console input line (bottom). The console prompt shows ">" with a cursor. Now let me type "allow pasting" to allow code execution:
+[step 57] Action: left_click (994, 132)
+[step 57] Reasoning: The text doesn't seem to be appearing in the console input. The console input may need focus. The text I typed isn't visible in the console. The DevTools console area may not have the keyboard focus. Let me try a different approach - I'll use the Elements panel to inspect CSS focus styles of nav elements instead.
+
+Let me switch to the Elements tab to inspect focus styles:
+[step 58] Action: left_click (936, 132)
+[step 58] Reasoning: I'm now in the Elements panel. I can see the HTML structure. Now I need to find the nav element and inspect its focus styles. Let me use the Element picker (cursor icon at top left of DevTools) to select a navigation element and then check its CSS focus styles.
+
+Let me click on the element picker icon (cursor icon) in the DevTools toolbar:
+[step 59] Action: left_click (232, 109)
+[step 59] Reasoning: Good, the element picker is now active (the cursor icon turns blue/highlighted). Now I need to click on the "Docs" navigation element in the page to select it in DevTools. Let me click on the "Docs" link in the navigation bar:
+[step 60] Action: scroll down (1100, 580) scroll_amount 3
+[step 60] Reasoning: Excellent! I selected the "Docs" navigation link element. I can see in the Elements panel that it shows:
+- `<a class="group inline-flex items-center space-x-2 font-body text-base leading-6 font-semibold hover:text-gray-900 focus:outline-none focus:text-gray-900 tracking-heading transition ease-in-out duration-150 text-gray-700" target="_self" data-testid="NavItem-Link" href="/docs">`
+
+**This is very important!** I can see the CSS classes on this nav link include `focus:outline-none` which means the focus outline is explicitly disabled! The class `focus:outline-none` in Tailwind CSS removes the default browser focus ring, and the only focus style replacement seems to be `focus:text-gray-900` which just changes the text color - not a visible focus indicator.
+
+This is a significant accessibility issue - the `focus:outline-none` CSS class removes the default focus outline without providing an adequate visible focus alternative.
+
+Let me also check the Styles panel to see if there's a `:focus` style defined for this element. Looking at the styles panel, I can see some CSS but I need to scroll in it to look for `:focus` related styles.
+
+Let me now also look at the full styles to understand what `:focus` styling is applied. Let me scroll through the Styles panel in DevTools to check for focus styles:
+[step 61] Action: scroll up (1100, 580) scroll_amount 5
+[step 61] Reasoning: I can see the Styles panel shows various CSS variables but I need to scroll up to see the actual CSS rules that include `:focus` styles. Let me scroll up in the styles panel to see the element-specific CSS. 
+
+Let me try using the DevTools to force `:focus` state on the selected element to see what visual change happens. I can use the ":hov" toggle button in the DevTools styles section or I can use the Console to check CSS. 
+
+Let me use the Styles Filter to search for "focus" styles:
+[step 62] Action: left_click (1100, 475)
+[step 62] Reasoning: I can see the styles panel showing `element.style {}` and `::before, ::after` styles. The element selected in the Elements panel shows the `<a>` tag (Nav item link for "Docs"). 
+
+Now I want to trigger the `:focus` state on this element in DevTools to visually see what happens. Let me use the ":hov" button (state toggle) in the DevTools. I can see the filter search bar in the Styles panel. Let me type "focus" in it to filter for focus-related styles:
+[step 63] Action: type: focus
+[step 63] Reasoning: Good, I can see the "Filter" search box is now highlighted/active in the Styles panel. Let me type "focus" to filter for focus-related styles:
+[step 64] Action: left_click (1178, 475)
+[step 64] Reasoning: I typed "focus" in the filter box, but it's showing CSS custom properties (variables) that contain "focus" in their names - like `--docsearch-primary-color`, `--docsearch-text-color`, etc. These are DocSearch-related CSS variables. This isn't showing the CSS `:focus` pseudo-class styles I need to see.
+
+Let me clear the filter and instead use a different approach. I'll use the DevTools ":hov" button to force the `:focus` state on the selected element and observe what visual change happens on the page. Let me first look for the toggle states button. I notice in the breadcrumb at the bottom of the DevTools it shows the element is selected (`txt-gray-900...`).
+
+Let me clear the filter first:
+[step 65] Action: left_click (1044, 132)
+[step 65] Reasoning: The filter still shows "focus" text but the X button to clear is visible. Let me click the X to clear it. But wait - looking at this more carefully, the element I selected in the DevTools is the `<a>` nav link for "Docs". 
+
+Let me try the ":hov" state toggling approach. I need to find the ":hov" button in the DevTools Styles panel. This button is usually shown as ":hov" with a checkbox icon near the top of the Styles panel. Let me scroll up in the Styles panel to find it.
+
+Actually, I see the breadcrumb shows "txt-gray-900.tracking-heading.transition.ease-in-out.duration-150.text-gray-700 span" - this is the breadcrumb for the current selected element. But what I actually need is the `:hov` toggle button in the Styles panel to force focus state.
+
+Let me try a completely different and more efficient approach. I'll use the DevTools Console to:
+1. Select the nav link element
+2. Apply `.focus()` to it programmatically
+3. Then take a screenshot to see the visual result
+
+Let me switch to the Console tab:
+[step 66] Action: left_click (950, 408)
+[step 66] Reasoning: I can see the Console panel with the security warning "Warning: Don't paste code into the DevTools Console that you don't understand or haven't reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type 'allow pasting' below and press Enter to allow pasting."
+
+I can see the console prompt ">" at the bottom (around y=408). I need to click on that input area and type "allow pasting". Let me try clicking more precisely:
+[step 67] Action: type: allow pasting
+[step 67] Reasoning: I can see the cursor "|" appears right after ">" at y=408. The Console input appears to be at around (950, 408). Now let me type "allow pasting" to unlock the console:
+[step 68] Action: left_click (942, 408)
+[step 68] Reasoning: The text I'm typing is not appearing in the console input. The console area still shows the same output. The typing is not reaching the DevTools console. The console input doesn't seem to be focused. 
+
+Let me try a different approach. I'll use the DevTools "undock" feature to undock DevTools into a separate window so I have more space, or I'll try clicking directly at a position where the console cursor ">" symbol appears.
+
+Looking at the current screenshot, I can see the ">" prompt at around y=408 and x=936 (after the ">" character). The cursor "|" should be visible right after the ">". Let me try clicking directly at (942, 408) to place cursor in the console input, then type the text:
+[step 69] Action: left_click (1271, 132)
+[step 69] Reasoning: The console input doesn't appear to be getting focus when I click on it. The DevTools console area is not responding to my clicks properly, possibly because the DevTools panel is docked on the right side and the clickable area for the console input is not where I'm clicking.
+
+Let me try a different approach to undock DevTools into a separate window, which will give me more space and better access:
+
+Let me use the DevTools menu to undock it. I'll click on the three-dot menu (kebab menu) in the DevTools toolbar:
+[step 70] Action: left_click (1271, 155)
+[step 70] Reasoning: A DevTools menu appeared. I can see various options including "Dock side" and "Run command". I can see icons for docking DevTools in different positions. Let me click the "undock into separate window" option (the separate window icon in "Dock side") to get more screen space. The 4th icon in "Dock side" appears to be the separate window option.
+
+Let me click the separate window icon (the rightmost icon in the Dock side row):
+[step 71] Action: scroll down (1100, 350) scroll_amount 10
+[step 71] Reasoning: DevTools is still docked on the right side. The separate window option didn't work from that last click. The DevTools is still showing in the same position. 
+
+Let me try a totally different approach. Instead of using the DevTools console, I'll try to use the Chrome's accessibility inspector to check focus styles, or I'll try to focus the console input differently.
+
+Looking at the console again - the input prompt ">" is at the very bottom. The issue might be that the console input at the bottom of the DevTools panel is below the visible area or it's a very small clickable area.
+
+Let me try to scroll to the bottom of the console first and then click on the input area:
+[step 72] Action: left_click (1050, 408)
+[step 72] Reasoning: The DevTools console area doesn't seem to scroll any further and the console input ">" prompt is at around y=408 in the DevTools panel. Looking at the layout more carefully:
+- DevTools panel is on the right side of the screen (from x=930 to x=1280, y=90 to y=720)
+- The console input ">" should be at the very bottom of the DevTools panel
+
+Let me try clicking more precisely at the bottom of the DevTools console area. The console input might be at a lower position that I haven't been clicking. Let me try clicking at different y positions near the bottom of the visible console area:
+[step 73] Action: key: a
+[step 73] Reasoning: I can see a blinking cursor in the console input area on the right side. The ">" prompt is visible at around line y=408. The cursor is now in the console input. Now let me type "allow pasting" to unlock the console:
+[step 74] Action: key: Escape
+[step 74] Reasoning: I can see that typing "a" in the console showed autocomplete suggestions (emoji picker appeared). The console input is now focused and typing is working! I can see "> a" in the console with emoji suggestions. Now let me press Escape to close the autocomplete, then type "allow pasting":
+[step 75] Action: key: ctrl+a
+[step 75] Reasoning: The autocomplete closed but I see the console prompt ">" at y=408. The "a" character I typed should still be in the input. Let me press Ctrl+A to select all and delete it, then type "allow pasting":
+[step 76] Action: left_click (1100, 407)
+[step 76] Reasoning: The console is still showing the same view. I can't see the console input clearly. Let me zoom in to the DevTools panel area to see the console input better. Let me try a completely different approach to resolve the console input issue.
+
+I'll try right-clicking on the console area to see if there's an option to clear the console input:
+
+Let me try clicking on the console area at the very bottom where the prompt should be, and then use keyboard shortcut:
+[step 77] Action: left_click (960, 407)
+[step 77] Reasoning: I can see the ">" prompt at the bottom of the console area at around y=407. I notice the cursor is positioned in the console input area. Let me try clicking one more time slightly to the right of the ">" symbol to be precise at the console input, and then try typing character by character with key presses:
+[step 78] Action: type: allow pasting
+[step 78] Reasoning: I can see the cursor "|" is now visible right after the ">" symbol at y=408. The console input area is focused! Now let me type "allow pasting" using the `type` action:
+[step 79] Action: key: ctrl+shift+j
+[step 79] Reasoning: The console still shows only ">" with the cursor "|". The text is not appearing in the console input. This is very strange. The typing is not being captured by the DevTools console input despite having focus there. 
+
+I think the issue is that the `type` action in the testing framework might not work well with DevTools console input when DevTools is docked. 
+
+Let me try a totally different approach. Instead of using DevTools console, I'll:
+1. Close DevTools
+2. Use the keyboard directly in the page to test Tab navigation
+3. Take screenshots carefully to observe focus indicators
+
+The key issue earlier was that Tab was triggering macOS dock. Let me try clicking on the AsyncAPI logo in the nav bar (which is a link) and then pressing Tab. When you click a link and it has focus, pressing Tab should move focus to the NEXT focusable element without triggering macOS dock switcher.
+
+Let me close DevTools first:
+[step 80] Action: left_click (994, 132)
+[step 80] Reasoning: DevTools is still open. The Ctrl+Shift+J shortcut didn't close it. Let me try using the keyboard shortcut for Chrome on macOS (Command+Option+J) to toggle DevTools. Let me try a different approach - I need to close DevTools by using the Escape key or clicking the X button:
+
+Wait, actually I notice the DevTools console panel is open and still showing the security warning. Let me try a new approach - using the DevTools "Run command" feature (Shift+P or Ctrl+Shift+P) to run DevTools commands without needing to type in the console.
+
+Actually, let me try a completely different strategy. I already know from examining the HTML in the Elements panel that the "Docs" nav link has the CSS class `focus:outline-none`. This is a Tailwind CSS class that removes the default browser focus outline. Let me now also use the Elements panel to force the `:focus` state and visually observe the change.
+
+Let me switch back to the Elements tab:
+[step 81] Action: left_click (1196, 475)
+[step 81] Reasoning: Excellent! Now I'm in the Elements panel and I can see the HTML structure and the Styles panel. This is very helpful! I can see:
+
+1. **HTML structure**: The "Docs" nav link is shown:
+   ```html
+   <a class="group inline-flex items-center space-x-2 font-body text-base leading-6 font-semibold hover:text-gray-900 focus:outline-none focus:text-gray-900 tracking-heading transition ease-in-out duration-150 text-gray-700" target="_self" data-testid="NavItem-Link" href="/docs">
+   ```
+
+2. **Styles panel** (at bottom right) shows I can search for "focus" in the filter box!
+
+I can already see in the styles panel filter there's "focus" typed in the filter box! And the Styles panel shows CSS custom properties from `:root`. 
+
+Most importantly, I can see in the HTML the CSS class `focus:outline-none` is present on the nav link - this is a **critical accessibility bug** as it removes the default browser focus ring without providing a visible alternative.
+
+Let me now look for the `:focus` CSS rules by using the state toggle. I can see the ":.hov" button in the Styles panel. Let me click on it to toggle the :focus state:
+[step 82] Action: left_click (936, 132)
+[step 82] Reasoning: Excellent! I can see the **"Force element state"** panel is now visible! I can see checkboxes for:
+- `:active`
+- `:focus`
+- `:focus-visible`
+- `:hover`
+- `:focus-within`
+- `:target`
+
+This is exactly what I need! But first I need to make sure the "Docs" nav link element is selected in the Elements panel. Looking at the HTML panel, I can see the `<a>` element with the Docs link is highlighted (shown in the Elements panel). 
+
+However, I first need to select the actual nav link element in the Elements panel. Let me use the element picker to select the "Docs" nav link, and then force the `:focus` state. Let me click on the element picker icon first:
+[step 83] Action: left_click (1100, 352)
+[step 83] Reasoning: I can see the state toggle panel is still showing with the Force element state checkboxes. The current selected element appears to be the span/a element from the breadcrumb "txt-gray-900.tracking-heading.transition.ease-in-out.duration-150.text-gray-700 span". 
+
+Looking at the Elements panel HTML, I can see the `<a>` element for the "Docs" nav link is visible. Looking at the current breadcrumb at the bottom, I can see `*xt-gray-900.tracking-heading.transition.ease-in-out.duration-150.text-gray-700` - this seems to be from the nav link element.
+
+Now I need to check if the correct element (the Docs nav `<a>` link) is selected. Looking at the Elements panel, I see the `<a>` element with `data-testid="NavItem-Link" href="/docs"` is in the tree. 
+
+Let me now click directly on that `<a>` element in the Elements panel to select it:
+[step 84] Action: left_click (935, 540)
+[step 84] Reasoning: Now I can see something very interesting! When I clicked on the `<a>` element in the Elements panel:
+
+1. **The "Docs" nav link in the page is now highlighted** with a blue outline - this is the DevTools element inspector overlay showing the selected element's bounding box (65.5 × 24 pixels).
+
+2. **The element is now selected** in the Elements panel (highlighted in blue) - the `<a class="...focus:outline-none focus:text-gray-900...">` element.
+
+3. **In the page view** I can see "Docs" text appears with a tooltip showing the element's class names and dimensions.
+
+Most importantly, I can now see the "Force element state" checkboxes in the bottom of the Styles panel:
+- `:active`
+- `:focus`
+- `:focus-visible`
+- `:hover`
+- `:focus-within`
+- `:target`
+
+Now let me check the `:focus` checkbox to force the focus state on this nav link element and observe what happens visually:
+[step 85] Action: left_click (935, 552)
+[step 85] Reasoning: **This is a critical finding!** I've forced the `:focus` state on the "Docs" nav link element and can now see the CSS focus styles in the Styles panel:
+
+1. **`.focus\:outline-none:focus`** rule shows:
+   - `outline: 2px solid transparent` ← This makes the outline **transparent/invisible**!
+   - `outline-offset: 2px`
+
+2. **`.focus\:text-gray-900:focus`** rule shows:
+   - `--tw-text-opacity: 1`
+   - `color: rgb(36 41 41 / var(--tw-text-opacity, 1))`
+
+**Key findings from the forced `:focus` state:**
+
+Looking at the page on the left side where the "Docs" link is in the navbar, I can see that the "Docs" text has NOT visually changed in any obvious way - there's no visible focus outline or ring around the "Docs" link. The CSS has:
+- `outline: 2px solid transparent` - the outline is explicitly set to **transparent** (invisible)
+- The only change is the text color (which is very subtle)
+
+This **confirms the accessibility bug**: The nav link's focus outline is removed (`focus:outline-none`) and only a subtle text color change is applied as the focus indicator, which is NOT sufficient for keyboard navigation accessibility (WCAG 2.4.7 requires visible focus indicators).
+
+Now let me also check the `:focus-visible` state, which might have a better focus indicator:
+[step 86] Action: screenshot
+[step 86] Reasoning: Now I have **both `:focus` and `:focus-visible` checked** in the Force element state panel. Looking at the page on the left, I can see the "Docs" link in the navigation bar. But the page view remains the same - there's no visible focus ring or outline indicator around the "Docs" link even with `:focus` and `:focus-visible` forced on.
+
+The CSS rules in the Styles panel still show:
+- `.focus\:outline-none:focus` → `outline: 2px solid transparent` (INVISIBLE)
+- `.focus\:text-gray-900:focus` → text color change only (very subtle)
+
+Looking at the "Docs" text in the navigation bar area in the main page view (left side), the "Docs" text appears normal without any visible focus indicator. The text color may have changed slightly (to `rgb(36 41 41)` which is very close to the default nav text color of `text-gray-700`), but there's NO visible focus ring/outline.
+
+This confirms the **accessibility bug**: The keyboard focus indicator is missing for the navigation links on the AsyncAPI website. The `focus:outline-none` class removes the browser's default focus outline, and the only replacement is a very subtle text color change that doesn't meet WCAG 2.4.7 focus visible requirements.
+
+Now let me take a screenshot of the nav bar area zoomed in to visually document this finding:
+[step 87] Action: left_click (935, 540)
+[step 87] Reasoning: I can clearly document the findings. Now let me navigate to the docs page to also check the docs page keyboard focus visibility. But before doing that, let me close the DevTools state panel by unchecking the `:focus` and `:focus-visible` states, and then use the DevTools element picker to examine other nav elements.
+
+Let me now also examine the "Star on GitHub" button and "Quick search" button for their focus styles. But first, let me check the docs page navigation. Let me close the DevTools state force states and navigate to the docs page.
+
+Let me uncheck the `:focus` and `:focus-visible` states:
+[step 88] Action: scroll up (1100, 600) scroll_amount 3
+[step 88] Reasoning: **Excellent! Another critical finding!** When I unchecked `:focus` and only kept `:focus-visible` checked, the CSS styles panel now shows:
+
+1. **`a:-webkit-any-link:focus-visible`** (user agent stylesheet):
+   - `outline-offset: 1px` ← Browser default focus style
+
+2. **`:focus-visible`** (user agent stylesheet):
+   - `outline: -webkit-focus-ring-color auto 1px` ← **Browser default focus ring IS applied for focus-visible**
+
+This means when using keyboard navigation (which triggers `:focus-visible`), the browser's native focus ring WOULD appear, BUT...
+
+Looking at the page on the left, I can see the "Docs" nav link in the navbar has a **visible focus outline/box** around it now! I can see a blue border/outline around the "Docs" text in the navbar. This is the browser's native focus ring that appears when `:focus-visible` is triggered.
+
+Wait, but looking more carefully at the Styles panel:
+- The Tailwind CSS class `focus:outline-none` maps to `outline: 2px solid transparent` which overrides both `:focus` and potentially `:focus-visible`
+- However, the `:focus-visible` user agent stylesheet shows `outline: -webkit-focus-ring-color auto 1px`
+
+Let me check if there's still a Tailwind `focus:outline-none` rule being applied when only `:focus-visible` is checked (not `:focus`). Looking at the Styles panel, it seems the user agent styles are now visible but the question is whether the Tailwind styles override them.
+
+Let me look at the "Docs" text in the page more carefully to see if there IS a visible focus indicator now:
+
+Looking at the navigation bar area in the left side of the screenshot, the "Docs" nav item appears to have a border/outline box around it! This looks like it MIGHT have a visible focus indicator when `:focus-visible` is triggered.
+
+But wait - looking at this more carefully, the "Docs" item appears highlighted with a blue box - this might just be from the DevTools element picker overlay, not an actual CSS focus ring.
+
+Let me now check what's happening. The key question is: **does the Tailwind `focus:outline-none` class also suppress `focus-visible`?**
+
+In Tailwind CSS v3, `focus:outline-none` applies to `:focus` state, NOT to `:focus-visible`. So the native focus ring SHOULD still appear for `:focus-visible`. But let me verify by looking at the Styles panel order.
+
+Actually, looking at the CSS in the styles panel:
+- `a:-webkit-any-link:focus-visible { outline-offset: 1px }` - browser default
+- `:focus-visible { outline: -webkit-focus-ring-color auto 1px }` - browser default
+
+If Tailwind's `focus:outline-none` only applies to `:focus` (not `:focus-visible`), then keyboard navigation should show a focus ring through the browser's default styles! Let me verify this by checking the full CSS cascade.
+
+Wait - looking at the page more carefully with the current state (`:focus-visible` forced), I can see in the main page area that the "Docs" link in the navbar appears to have some highlight/focus indicator. Let me scroll up in the Styles panel to see all the CSS rules including if there's any `focus-visible:outline-none` class:
+[step 89] Action: left_click (935, 540)
+[step 89] Reasoning: I can now see a very important visual observation! Looking at the page in the left area of the screenshot:
+
+1. **The "Docs" nav link appears to have a visible blue/dark outline box around it** when `:focus-visible` state is forced. Looking at the navigation bar, I can see "Docs" in the navbar with what appears to be a box around it.
+
+2. **The Styles panel shows**:
+   - `a:-webkit-any-link:focus-visible { outline-offset: 1px }` - browser agent stylesheet
+   - `:focus-visible { outline: -webkit-focus-ring-color auto 1px }` - browser agent stylesheet
+
+This suggests that when keyboard navigation is used (triggering `:focus-visible`), the browser's default focus ring MAY be visible on the nav items! The Tailwind `focus:outline-none` class generates `outline: 2px solid transparent` for `:focus` state but NOT for `:focus-visible`.
+
+But wait - looking at the page more carefully, the box I see around "Docs" might be the DevTools element selection overlay (blue box) rather than an actual CSS focus ring. Let me click elsewhere in the Elements panel to deselect the current element and see what remains visible in the "Docs" area.
+
+However, looking at the current screenshot again:
+- The "Docs" text in the navbar (x≈240, y≈110) appears to have a visible box/border around it
+- This looks like it could be the browser's native focus ring triggered by `:focus-visible`
+
+But I need to verify whether this is the DevTools inspector overlay or an actual CSS focus ring. 
+
+Let me also look at the styles more carefully to understand the CSS cascade. The key issue is:
+1. Tailwind's `focus:outline-none` → generates `outline: 2px solid transparent` for `:focus`
+2. But does this also affect `:focus-visible`?
+
+In Tailwind CSS v3, `focus:outline-none` targets `:focus` state, not `:focus-visible`. So technically, `:focus-visible` styles from the browser should still show through. But if there's also a `focus-visible:outline-none` class, that would suppress it too.
+
+Let me check if there's any `focus-visible:outline-none` in the element's class list. Looking at the HTML in the Elements panel - the `<a>` element has:
+- `focus:outline-none` (Tailwind class for `:focus`)
+- `focus:text-gray-900` (Tailwind class for `:focus`)
+
+But NO `focus-visible:outline-none` class is visible.
+
+This means with `:focus-visible`, the browser's native focus ring should appear. Let me now check what actually happens in the page by also examining what the "Docs" box I see is.
+
+Let me take a more careful look at the "Docs" area by zooming in. The key question is: is the box around "Docs" a CSS focus ring or a DevTools overlay?
+
+Looking at the current screenshot more carefully:
+- The "Docs" text at y≈110 in the navbar has what appears to be a rounded rectangle border around it
+- This border looks like a blue/dark border
+
+This appears to be the browser's native focus ring - meaning that keyboard navigation DOES show a focus indicator via the browser's `:focus-visible` mechanism!
+
+However, this is only because the browser's native focus ring is not suppressed. But the intent of `focus:outline-none` was to remove the default focus ring, so this situation suggests there may be inconsistency - when mouse clicking (`:focus` without `:focus-visible`), no focus ring shows; when keyboard navigating (`:focus` WITH `:focus-visible`), the focus ring shows.
+
+Let me now navigate to the docs page to test the sidebar navigation. First, let me navigate to the docs page via the URL bar. But before that, let me also check what happens when I force `:focus` AND `:focus-visible` together, to simulate actual keyboard navigation:
+
+Let me check the `:focus` checkbox now:
+[step 90] Action: left_click (935, 540)
+[step 90] Reasoning: Now I have both `:focus` AND `:focus-visible` checked. The Styles panel now shows:
+- `.focus\:outline-none:focus { outline: 2px solid transparent; outline-offset: 2px }` - Tailwind CSS class (removes outline)
+- `.focus\:text-gray-900:focus { color: rgb(36 41 41) }` - Tailwind class (changes text color)
+
+And the CSS cascade order means the Tailwind `.focus:outline-none` rule is overriding the browser's default focus ring. 
+
+But wait - looking at the "Docs" text in the nav bar in the page area (left side), I can see the "Docs" text still appears to have a visible box/outline around it! Let me zoom into the navigation area to see if there's a visible focus indicator.
+
+Looking at the navigation bar carefully:
+- "Docs" text appears at approximately x=240, y=110
+- There seems to be a visible border/box around the "Docs" text
+
+But I'm still not sure if this is the DevTools element inspector overlay or an actual CSS focus ring. The box around "Docs" could be the CSS focus ring from `:focus-visible` (browser default) despite the Tailwind override.
+
+The reason: In CSS specificity, `a:-webkit-any-link:focus-visible` might have different specificity than `.focus\:outline-none:focus`. The Tailwind rule targets `:focus` but the browser's rule targets `:focus-visible`. Since they target different pseudo-classes, they might coexist.
+
+Let me look at this differently. When BOTH `:focus` and `:focus-visible` are forced:
+1. `.focus\:outline-none:focus` → `outline: 2px solid transparent` (Tailwind rule)
+2. `a:-webkit-any-link:focus-visible` → `outline-offset: 1px` (browser rule)
+3. `:focus-visible` → `outline: -webkit-focus-ring-color auto 1px` (browser rule)
+
+The question is which one wins in specificity. The Tailwind rule has a class selector `.focus\:outline-none:focus` which has specificity (0,1,1) - one class + one pseudo-class. The browser rule `a:-webkit-any-link:focus-visible` has specificity (0,0,1)+(0,1,0) = (0,1,1) for link + pseudo-class.
+
+Since both have equal specificity, the one that appears LATER in the CSS wins. Looking at the order:
+- Browser default styles appear first
+- Tailwind generated styles appear later (in globals.css)
+
+This means Tailwind's `outline: 2px solid transparent` WINS and overrides the browser's focus ring! The outline becomes transparent and invisible.
+
+But wait - if Tailwind only targets `:focus` and not `:focus-visible`, then the `.focus\:outline-none:focus { outline: transparent }` rule only matches when the element has `:focus` pseudo-class active. When keyboard navigation is used and `:focus-visible` is active (along with `:focus`), BOTH pseudo-classes are active and both rules match.
+
+This is getting complex. Let me take a different approach and actually check what the page looks like in real keyboard navigation. Let me close the DevTools forced states and try actual keyboard navigation.
+
+Let me uncheck both forced states first:
+[step 91] Action: left_click (935, 552)
+[step 91] Reasoning: Now only `:focus-visible` is checked (`:focus` is unchecked). The Styles panel shows only the browser agent stylesheet rules for `:focus-visible`:
+- `a:-webkit-any-link:focus-visible { outline-offset: 1px }` - user agent stylesheet
+- `:focus-visible { outline: -webkit-focus-ring-color auto 1px }` - user agent stylesheet
+
+And in the page on the left, I can see the "Docs" nav item at x≈240, y≈110. Looking carefully at the "Docs" text, it appears to have a visible focus indicator around it! The box/border is visible around the "Docs" text in the nav bar.
+
+This means when only `:focus-visible` is triggered (i.e., real keyboard navigation), the browser's default focus ring DOES appear because the Tailwind `focus:outline-none` class only targets `:focus`, not `:focus-visible`!
+
+**This is a critical distinction:**
+- When triggered via MOUSE click (`:focus` without `:focus-visible`): No visible focus ring (Tailwind removes it)
+- When triggered via KEYBOARD navigation (`:focus` AND `:focus-visible`): The browser's focus ring may or may not appear depending on CSS specificity
+
+But there's still uncertainty. The "Docs" box I see could still be the DevTools element inspection overlay. Let me try to verify by using actual keyboard navigation.
+
+Let me now try to use actual keyboard navigation in the browser. I'll close the DevTools state panel, click on the Console tab, and try to type a command to check what happens with focus. Actually, let me try a different approach - let me use the Console tab to unlock pasting and then run JavaScript to simulate keyboard focus:
+
+First, let me now uncheck `:focus-visible`:
+[step 92] Action: left_click (625, 35)
+[step 92] Reasoning: Now all forced states are unchecked. The "Docs" nav link no longer has the box/outline around it in the navigation bar. The navigation bar now shows "Docs", "Tools", "Community", "Case Studies", "Blog", "Roadmap" - all without any focus indicators, which confirms that with no forced states, there are no visible focus indicators.
+
+This is consistent - when `:focus-visible` was forced, there WAS a visible focus ring (browser default). When no state is forced, there's no focus ring.
+
+Now let me try to do real keyboard Tab navigation to verify this. The issue I had before was that Tab was triggering macOS dock. Let me try clicking on the actual "Docs" nav element in the page (which navigates to docs page) - but first use the element picker from DevTools to click on the "Tools" nav link without triggering navigation, then from DevTools set focus on the nav item.
+
+Actually, let me try a different approach. Let me close DevTools and try to navigate using Tab key. The previous Tab navigation issue might have been that macOS needed the Chrome window to be "active" in a specific way. Let me try clicking on the Chrome tab itself (not the page, not DevTools) to ensure Chrome is fully active:
+[step 93] Action: key: Escape
+[step 93] Reasoning: I accidentally clicked on the wrong tab. I'm now on the "Welcome | AsyncAPI Initiative for event-driven APIs" tab which is showing the /docs page with the **"Recoverable Error"** overlay again. This is the same Next.js rendering error: "Text content does not match server-rendered HTML." The page content is blurred behind this error overlay.
+
+This error consistently appears on the /docs page. This is a **functional bug** - the docs page has a server-side rendering mismatch error.
+
+Let me close this error overlay by clicking somewhere outside it or by pressing Escape:
+[step 94] Action: key: Tab
+[step 94] Reasoning: The Escape key closed the "Recoverable Error" overlay and now the **Docs page** (localhost:3000/docs) is fully visible! I can see:
+
+1. **Navigation bar at the top**: "Docs", "Tools", "Community", "Case Studies", "Blog", "Roadmap", search icon, "English" dropdown, "Star on GitHub" button
+
+2. **Left sidebar** with:
+   - Search docs... (with keyboard shortcut ⌘ K)
+   - Welcome (currently selected, highlighted in green)
+   - Concepts (with expand arrow)
+   - Tutorials (with expand arrow)
+   - Tools (with expand arrow)
+   - Guides (with expand arrow)
+   - Reference (with expand arrow)
+   - Migrations (with expand arrow)
+   - Community (with expand arrow)
+
+3. **Main content area**: "Welcome to AsyncAPI Docs!" text
+
+4. **"3 Issues" badge** in the bottom left (indicating the Next.js errors)
+
+Now I can clearly see the docs page with the sidebar navigation. The DevTools is now closed. This is perfect for testing keyboard navigation!
+
+Now let me try to test Tab key navigation on this docs page. I need to click on an element in the page body (not a link that will navigate) to give focus to the page, then Tab through elements.
+
+Let me try clicking on the "Welcome" heading text (non-link area) in the main content and then Tab:
+
+Actually, wait - I notice that when I pressed Escape the error overlay closed and the page is now fully rendered. Let me now try to navigate using Tab. I'll click on the "Welcome" heading in the sidebar (which IS a link but when clicked focuses it):
+
+Let me try clicking on the "Welcome" text in the sidebar, which is currently highlighted green (active item). When I click it, it will get focus. Then I can Tab to the next element:
+
+Actually, clicking on a link navigates to it. Let me instead try to use the Tab key now that the page is loaded and I can see it. The page has focus (Escape was pressed to close the overlay, so the page has focus). Let me press Tab now:
+[step 95] Action: key: Tab
+[step 95] Reasoning: The Tab key press appears to have worked! I can see the docs page looks the same but I need to examine if any element has received focus with a visible indicator. The page looks exactly the same as before - I cannot see any visible focus indicator on any element. The Tab key may have moved focus to the first focusable element, but there's no visible focus ring showing on any nav element.
+
+Let me press Tab again and take a screenshot to see if anything changes:
+[step 96] Action: key: Tab
+[step 96] Reasoning: I pressed Tab again and the page still looks the same - no visible focus indicator is showing on any element. The navigation bar items (Docs, Tools, Community, Case Studies, Blog, Roadmap), the sidebar items, and the main content elements all appear WITHOUT any visible focus indicator.
+
+Let me press Tab multiple more times and observe if any focus indicator appears. I'll press Tab 5 more times quickly and take a screenshot to see if any element gets a visible focus indicator:
+[step 97] Action: key: Tab
+[step 97] Reasoning: Another Tab press and still NO visible focus indicator anywhere on the page. I can see the docs page looks exactly the same. The Tab key is working (macOS dock is not being triggered anymore - the error overlay closing via Escape gave the page proper focus), but no focus indicators are visible.
+
+Let me keep pressing Tab and check at the bottom status bar what URL appears (which tells me which link is currently focused):
+[step 98] Action: left_click (311, 110)
+[step 98] Reasoning: Interesting! The Tab key press caused the **address bar** to be focused (I can see the URL "localhost:3000/docs" is now highlighted/selected in the address bar at the top). This means the Tab key moved focus FROM the page back to the browser chrome (address bar) instead of cycling through page elements. This suggests that after pressing Tab multiple times through the page, it cycled back to the address bar.
+
+But the key issue is still: **I could not see any visible focus indicator on any page element while pressing Tab multiple times.** The focus was moving through elements (as confirmed by the status bar showing URLs at the bottom of Chrome and now the address bar being focused), but NO visible focus indicator was displayed on any navigation element.
+
+Wait - I notice the address bar IS highlighted/selected now. This is the browser's own focus indicator for the address bar. But for the web page elements, there were no visible indicators.
+
+Let me now navigate back to the page and try a different approach. Let me click on the AsyncAPI logo to go to the homepage, and then try pressing Shift+Tab to navigate backwards through elements more carefully:
+
+Actually, let me first try to navigate to the homepage from this page. Let me click on the AsyncAPI logo:
+[step 99] Action: key: Tab
+[step 99] Reasoning: I'm now on the homepage (localhost:3000/en). I can see the navigation bar at the top with "Docs", "Tools", "Community", "Case Studies", "Blog", "Roadmap", and buttons. I can also see the status bar at the bottom shows "localhost:3000" (the AsyncAPI logo link was focused when I clicked it).
+
+Now I can see the homepage clearly. The navigation bar and page are fully visible. Now let me try keyboard navigation. Since I clicked on the AsyncAPI logo (which navigated to the homepage), the page content should have focus. Let me now try pressing Tab to navigate through elements.
+
+Looking at the bottom status bar, it shows "localhost:3000" which means the cursor was hovering over the AsyncAPI logo link. Now let me try pressing Tab to move focus to the next element:
+[step 100] Action: key: Tab
+[step 100] Reasoning: 🎯 **CRITICAL FINDING!** I can now clearly see a **visible focus indicator** on the **AsyncAPI logo** in the navigation bar! Looking at the top-left of the navbar, the AsyncAPI logo image has a **light blue/outline border** around it. This is the browser's native focus ring (`:focus-visible` state) showing as a blue outline around the AsyncAPI logo link.
+
+The status bar at the bottom still shows "localhost:3000" confirming the AsyncAPI logo link is focused.
+
+**Observation**: The AsyncAPI logo link HAS a visible focus indicator (the browser's default blue outline ring) when Tab is pressed to navigate to it!
+
+Now let me press Tab again to move to the next element ("Docs" nav link) and see if it also has a visible focus indicator:
+[step 101] Action: key: Tab
+[step 101] Reasoning: **KEY FINDING!** After pressing Tab, the focus moved to what appears to be the "Docs" nav link (status bar shows "localhost:3000" which might be from a previous hover), but **I cannot see any visible focus indicator on the "Docs" nav link**! 
+
+Looking at the navigation bar:
+- "Docs" link - **NO visible focus indicator** (no outline, no color change visible to me)
+- AsyncAPI logo in previous screenshot had a visible blue outline
+
+The status bar shows "localhost:3000" but I'm not sure which element has focus now. Let me press Tab one more time and check the status bar to see which element is being highlighted:
+[step 102] Action: key: Tab
+[step 102] Reasoning: The page hasn't changed in terms of the navigation bar appearance. The status bar at the bottom shows "localhost:3000" and now I can also see the "Open in Studio" button at the right side of the page. The focus seems to have moved to a different navigation element (possibly "Docs" dropdown trigger or "Tools" nav link) but there's STILL NO visible focus indicator on any navigation bar element.
+
+The homepage is also showing an animated code demo section (the terminal showing asyncapi.yaml code is changing - showing more code now). This is an interactive demo element.
+
+Let me continue pressing Tab to navigate through the navigation bar elements and observe:
+[step 103] Action: key: Tab
+[step 103] Reasoning: **CRITICAL OBSERVATION!** 
+
+Looking at the screenshot:
+1. The status bar at the bottom now shows "localhost:3000/community" - this means the "Community" nav link is now focused via Tab navigation
+2. Looking at the "Community" text in the navigation bar - it appears slightly **bolder/darker** compared to the other nav items! I can see "**Community**" in the navbar appears to have slightly different styling
+3. BUT there is **NO visible focus ring, outline, or clear visual indicator** around the "Community" nav item!
+
+Wait - looking more carefully at the nav bar at the top of the page:
+- "Docs" - normal appearance
+- "Tools" - normal appearance  
+- "**Community**" - appears slightly BOLDER/different from the others? Hard to tell at this resolution
+
+But more importantly, the text color change from `focus:text-gray-900` class appears to be the ONLY focus indicator - the text may have gotten slightly darker. This is NOT a sufficient focus indicator per WCAG 2.4.7 requirements!
+
+Let me press Tab again to move to the "Case Studies" link:
+[step 104] Action: key: Tab
+[step 104] Reasoning: **ANOTHER CRITICAL OBSERVATION!**
+
+The status bar at the bottom shows "localhost:3000/casestudies" which means the "**Case Studies**" nav link now has keyboard focus after pressing Tab. 
+
+Looking at the navigation bar, I can now see the "**Case Studies**" text appears **BOLD/BOLDER** compared to the other nav items! Comparing:
+- "Docs" - normal weight
+- "Tools" - normal weight
+- "Community" - normal weight
+- **"Case Studies"** - appears BOLD/HEAVIER weight (font is noticeably thicker)
+- "Blog" - normal weight
+- "Roadmap" - normal weight
+
+The CSS class `focus:text-gray-900` changes the text color when focused. The `Case Studies` text appears slightly bolder/darker when focused vs the normal gray text. But this is a very subtle change - NOT a clearly visible focus indicator like an outline, ring, or background change.
+
+This confirms that the ONLY visual focus indicator for navigation links is a slight text color change (from `text-gray-700` to `text-gray-900`), which is:
+1. **Very subtle** - hard to see
+2. **NOT WCAG compliant** for focus visibility (WCAG 2.4.7 requires a visible focus indicator)
+3. **No outline/ring/background change** is applied
+
+Let me continue Tab navigation to verify more elements:
+[step 105] Action: key: Tab
+[step 105] Reasoning: **Status bar shows "localhost:3000/blog"** - the "Blog" nav link now has focus! Looking at the navigation bar, I can see "**Blog**" appears slightly bolder/darker than the other nav items. But again, there's NO visible outline, ring, or background change - only a very subtle text color change.
+
+The pattern is now very clear:
+- ✅ **AsyncAPI Logo**: Has a visible browser default focus ring (blue outline) - because it's an `<a>` wrapping an `<img>` without `focus:outline-none` class
+- ❌ **Docs** nav link: Only subtle text color change (no visible outline) - has `focus:outline-none` class
+- ❌ **Tools** nav link: Only subtle text color change (no visible outline) - has `focus:outline-none` class
+- ❌ **Community** nav link: Only subtle text color change (no visible outline) - has `focus:outline-none` class
+- ❌ **Case Studies** nav link: Only subtle text color change (no visible outline) - has `focus:outline-none` class
+- ❌ **Blog** nav link: Only subtle text color change (no visible outline) - has `focus:outline-none` class
+
+Let me press Tab one more time to check "Roadmap":
+[step 106] Action: key: Tab
+[step 106] Reasoning: **Status bar shows "localhost:3000/roadmap"** - the "Roadmap" nav link now has keyboard focus!
+
+Looking at the navigation bar, "**Roadmap**" appears slightly bolder/darker compared to the other nav items (Docs, Tools, Community, Case Studies, Blog). But again, there's NO visible outline, ring, or background change - confirming the same pattern.
+
+Now let me navigate to the search button and then the "Star on GitHub" button:
+[step 107] Action: key: Tab
+[step 107] Reasoning: The status bar shows "localhost:3000" (might be the search icon button focusing). Looking at the navigation bar, the search icon (magnifying glass 🔍) at around x=849, y=110 might now have focus. But there's still NO visible focus indicator on the search icon button.
+
+Let me press Tab one more time to check the "English" dropdown:
+[step 108] Action: key: Escape
+[step 108] Reasoning: **UNEXPECTED BEHAVIOR!** When I pressed Tab, it opened the **Algolia Search dialog** and typed "Tab" in the search input field! The search input now shows "Tab" as text. This is unexpected - pressing Tab should have moved focus to the next focusable element (the search icon button), not typed the word "Tab" in the search field.
+
+Looking at the search modal:
+- A search dialog has opened with the Algolia powered search
+- The search input field contains "Tab" (which is what I typed by pressing the Tab key!)
+- It shows "No recent searches" below the input field
+- Navigation hints are shown: arrow keys to navigate, Tab to close, ESC to close
+
+Wait - actually, I think what happened is:
+1. My previous Tab press focused the **Search button** in the navigation bar
+2. Pressing Tab again ACTIVATED the search button (because pressing Tab while a button is focused in some implementations activates it)
+3. The search dialog opened and "Tab" text was typed into the search field
+
+OR, more likely:
+1. The search button had focus and Enter/Space key press was not needed because the Tab key itself opened the search dialog
+2. Then the subsequent keystrokes I typed (letters from my Tab key press being captured as text "Tab")
+
+Wait, actually - looking at the search input showing "Tab" - the letters T, a, b were typed into the search input. This happened because pressing Tab opened the search dialog AND the characters "Tab" from some buffered input were typed into the search field. This is a **functional bug** - pressing Tab should not open the search dialog.
+
+But wait - looking at this more carefully:
+- When my previous Tab press focused the search button, the search button might have immediately activated (which shouldn't happen - focusing a button shouldn't activate it)
+- OR, the "Tab" key was typed as text into the search input
+
+Actually I think what happened is that the search dialog was ALREADY open (triggered by something) and I was just pressing Tab which cycled focus to the search input field, while the word "Tab" was typed because my previous Tab keystroke was interpreted as text input "Tab" (letters T-a-b from the keyboard buffer).
+
+This is confusing. Let me close this search dialog and analyze what happened:
+[step 109] Action: right_click (849, 110)
+[step 109] Reasoning: The search dialog is closed and I can see the homepage again. I notice:
+1. The AsyncAPI logo has a tooltip "AsyncAPILogo" shown below it (visible at x≈340, y≈128)
+2. The status bar at the bottom shows "localhost:3000" 
+3. Focus appears to be on the AsyncAPI logo link again (the tooltip indicates cursor/focus is on it)
+
+This suggests that after closing the search dialog with Escape, focus returned to the beginning of the navigation (AsyncAPI logo link). This is actually expected behavior when a modal/dialog closes - focus returns to the trigger element or the beginning.
+
+Now let me try a more focused test on the "Star on GitHub" button and the search button to check their focus indicators. Let me use Tab to navigate to these elements:
+
+Let me press Tab 8 times quickly to get through the nav links to the search/GitHub button:
+
+Actually, let me try a smarter approach. Let me use Shift+Tab to navigate backwards from the "Star on GitHub" button position. But first, let me click directly on the "Star on GitHub" button to give it focus, and then I can Tab backward/forward from there:
+
+Wait - clicking the "Star on GitHub" button will navigate to GitHub. Let me instead use the DevTools approach to check these elements' focus styles.
+
+Let me open DevTools again and check the "Star on GitHub" button and search icon button focus styles:
+[step 110] Action: left_click (869, 338)
+[step 110] Reasoning: A context menu appeared. I can see "检查" (Inspect) at the bottom. I right-clicked on the search icon area. Let me click "检查" to open DevTools and inspect the search button:
+[step 111] Action: left_click (936, 132)
+[step 111] Reasoning: **EXCELLENT! Very important findings!**
+
+DevTools is now open and I can see some critical information. The DevTools panel is on the right side showing the Elements panel. I can see several important things:
+
+1. **In the Elements panel**, I can see the selected element is an `<svg>` element (the search icon SVG `flex-none` `24×24` as shown in the tooltip "svg.flex-none 24×24"). 
+
+2. **Looking at the HTML in the Elements panel**, I can see:
+   - `<button type="button" class="mr-2 flex items-center space-x-2 rounded-md p-2 text-left text-gray-400 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-500 focus:text-gray-500 **focus:outline-none** text-gray-100 **focus:text-gray-500**" aria-label="Open Search" data-testid="Search-Button">` 
+
+3. **The Search button also has `focus:outline-none`** class! This means the Search button ALSO has the focus outline removed!
+
+4. **In the breadcrumb** at the bottom, I can see: `*gray-500.focus\:outline-none.text-gray-100.focus\:text-gray-500 svg.flex-none` confirming the search button has `focus:outline-none`.
+
+5. **Looking at the "GitHub" button**, I can see in the HTML: `<a data-testid="Button-Link" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-white transition-all duration-500 ease-in-out rounded-md px-3 text-sm font-medium tracking-heading ml-2 py-2" href="https://github.com/asyncapi/spec">` - the "Star on GitHub" button (anchored link to GitHub) seems to NOT have `focus:outline-none`.
+
+Wait, let me look at this more carefully. I need to scroll and see the GitHub button's CSS classes. Looking at the elements panel, I can see a link (`<a>`) for "asyncapi/spec" which is the "Star on GitHub" button. Let me check its CSS focus styles.
+
+But the most important finding so far is: **The Search button ALSO uses `focus:outline-none` which removes its focus indicator!**
+
+Now let me look at the Styles panel below to see the "Star on GitHub" button's focus styles. Actually, looking at the breadcrumb, the currently selected element is the SVG inside the search button. Let me navigate to the "Star on GitHub" link (`<a>` element) to check its focus styles.
+
+But first, let me take note of what's visible in the breadcrumb at the bottom of DevTools:
+- `*gray-500.focus\:outline-none.text-gray-100.focus\:text-gray-500 svg.flex-none`
+
+This confirms the search button element has both `focus:outline-none` (removes outline) and `focus:text-gray-500` (subtle text color change).
+
+Let me now check if the "Star on GitHub" button has focus styles by using the element picker to select it:
+[step 112] Action: left_click (822, 109)
+[step 112] Reasoning: Good, the element picker is now active. The DevTools panel is still showing the same HTML. I can see the page with the navigation bar visible. Now let me click on the "Star on GitHub" button to select it in DevTools and check its focus CSS:
+[step 113] Action: left_click (1100, 335)
+[step 113] Reasoning: I selected the "Star on GitHub" text span inside the button/link. I can see in the breadcrumb at the bottom: `*.rounded-md.px-3.text-sm.font-medium.tracking-heading.ml-2.py-2 > span.inline-block`
+
+The selected element is the `<span>` inside the "Star on GitHub" link. I need to select the parent `<a>` element to see its focus styles. Let me click on the parent `<a>` element in the Elements panel. Looking at the Elements panel HTML:
+
+```html
+<a data-testid="Button-Link" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-white transition-all duration-500 ease-in-out rounded-md px-3 text-sm font-medium tracking-heading ml-2 py-2" href="https://github.com/asyncapi/spec">
+  <span class="mr-2 inline-block"> </span>
+  <span class="inline-block">Star on GitHub</span>
+```
+
+I can see the `<a>` element for "Star on GitHub" has these CSS classes:
+- `bg-gray-800` - dark background
+- `hover:bg-gray-700` - darker background on hover
+- `text-white` - white text
+- `transition-all duration-500 ease-in-out` - transition
+- `rounded-md` - rounded corners
+- `px-3 text-sm font-medium tracking-heading ml-2 py-2` - sizing/spacing
+
+**CRITICALLY**, I can see that the "Star on GitHub" link does NOT have `focus:outline-none` in its class list! This means the browser's default focus ring SHOULD appear on the "Star on GitHub" button when it receives keyboard focus!
+
+This is different from the navigation links (Docs, Tools, Community, Case Studies, Blog, Roadmap) which explicitly have `focus:outline-none`.
+
+Let me now force the `:focus` state on this element to verify. I need to click on the `<a>` element in the Elements panel first. Let me click on the parent element:
+[step 114] Action: scroll up (1100, 550) scroll_amount 3
+[step 114] Reasoning: **Excellent!** I can now see the `<a>` element for "Star on GitHub" is selected in the Elements panel (highlighted in blue in the elements tree: `<a data-testid="Button-Link" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-white transition-all duration-500 ease-in-out rounded-md px-3 text-sm font-medium tracking-heading ml-2 py-2" href="https://github.com/asyncapi/spec">`).
+
+And I can see the tooltip in the page showing the element's class names: `a.bg-gray-800.hover:bg-gray-700.text-white.transition-a ll.duration-500.ease-in-o...` with size `147.97 × 37.17`.
+
+The **breadcrumb at the bottom** shows: `*.on-500.ease-in-out.rounded-md.px-3.text-sm.font-medium.tracking-heading.ml-2.py-2` - confirming this is the "Star on GitHub" link element.
+
+**Key observation**: The `<a>` element for "Star on GitHub" does NOT have `focus:outline-none` in its class list! The Styles panel shows:
+- `.ease-in-out { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }`
+- `.duration-500 { transition-duration: 500ms; }`
+- `.transition-all { transition-property: all; }`
+- `.text-white { color: rgb(255 255 255) }`
+
+These are basic styling rules. I don't see `focus:outline-none` here! Let me now force the `:focus` state on this element to see if there's a visible focus indicator. I need to scroll up in the Styles panel to find the ":hov" state toggle button.
+
+Let me scroll up in the Styles panel:
+[step 115] Action: scroll up (1100, 550) scroll_amount 5
+[step 115] Reasoning: I can see the Styles panel at the top shows the same CSS rules. The `<a>` element for "Star on GitHub" is highlighted in the Elements panel. The Styles panel shows CSS classes: `.ease-in-out`, `.duration-500`, `.transition-all`, `.text-white`.
+
+The ":hov" toggle button for forcing element states should be in the Styles panel. I need to scroll up in the Styles panel further. Let me scroll up more:
+[step 116] Action: left_click (1196, 475)
+[step 116] Reasoning: The Styles panel shows the same CSS rules and I still see "element.style {}" at the top. I can't see the ":hov" toggle button in the current view of the DevTools. The ":hov" button should be near the "Styles" tab - let me look more carefully. 
+
+Looking at the panel, I see the Styles tab is active and below it there's a "Filter" search box. But I can't see the ":hov" button. Looking at the row of buttons next to "Styles | Computed | Layout | Event Listeners | DOM Breakpoints | Properties", there might be a ":hov" button after the "Styles" tab name.
+
+Wait - I recall from earlier that the ":hov" button appeared when I scrolled up in the Styles panel and clicked what I thought was the "State Toggle" - but actually the state toggle panel appeared as a separate section above the CSS rules. Let me look at the current Styles panel view more carefully.
+
+Actually, looking at the icons next to the "Styles" tab at the top row: there's a gear icon, a "+" icon, and some other small icons. The ".hov" or "Force element state" button might be at row: `Styles | Computed | Layout | Event Listeners | DOM Breakpoints | Properties` - I need to click the small icon that toggles element state.
+
+Let me try clicking the ":hov" text/button. Looking at the Styles panel, it shows:
+- `Styles` tab header area with filter box and icons
+
+Wait, I see the ":hov" button appears to be right next to the filter box. Let me look at the current DevTools layout:
+- The Styles panel has a filter box at the top with "Filter" text
+- To the right of the filter box there should be ":hov" button and "+cls" button and some other buttons
+
+In the screenshot, the "Styles" panel filter box is visible, and next to it I can see some small buttons. The ":hov" button was at around x=1196, y=475 in my earlier interaction. Let me try clicking there again:
+[step 117] Action: left_click (935, 540)
+[step 117] Reasoning: **Perfect!** The "Force element state" panel is now visible! I can see the checkboxes:
+- ☐ `:active` | ☐ `:hover`
+- ☐ `:focus` | ☐ `:focus-within`
+- ☐ `:focus-visible` | ☐ `:target`
+- `▶ Force specific element state`
+
+The selected element is the `<a>` element for "Star on GitHub" (as shown in the breadcrumb: `*.on-500.ease-in-out.rounded-md.px-3.text-sm.font-medium.tracking-heading.ml-2.py-2`). Now let me check the `:focus` checkbox to force the focus state and see if the "Star on GitHub" button has a visible focus indicator:
+[step 118] Action: scroll down (1100, 600) scroll_amount 3
+[step 118] Reasoning: **Very important observation!** I forced the `:focus` state on the "Star on GitHub" button, and now looking at the navigation bar in the page:
+
+1. The "Star on GitHub" button at the top right appears to have a **visible change** - it looks like the button background may have changed slightly
+2. Looking at the button in the nav bar - it appears to have a **blue/dark outline** around it now! The "Star on GitHub" button appears to have a visible focus indicator!
+
+But I need to look more carefully. The "Star on GitHub" button is at approximately x=822, y=109. Looking at the navigation bar:
+
+Wait - looking at the "Star on GitHub" button in the current screenshot, it appears to have an **outline/border** around it that's visible. This is different from the Docs/Tools/Community/etc. nav links which had NO visible focus ring when `:focus` was forced.
+
+This confirms:
+- **"Star on GitHub" button**: HAS a visible focus indicator (browser default focus ring shows through because `focus:outline-none` was NOT applied)
+- **Navigation text links** (Docs, Tools, Community, etc.): Have `focus:outline-none` which REMOVES the focus ring
+
+But wait - I need to scroll down in the Styles panel to check if there are any `:focus` CSS rules that might be overriding the browser default for the "Star on GitHub" button. Let me scroll down in the Styles panel to see all the CSS rules for this element:
+[step 119] Action: scroll down (1100, 600) scroll_amount 3
+[step 119] Reasoning: I can see the Styles panel is showing CSS for the "Star on GitHub" `<a>` element with `:focus` state forced. Looking at the visible CSS rules:
+- `.transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }` - with highlighted background (indicating these are matched by the `:focus` state toggle)
+- `.text-white { color: rgb(255 255 255) }`
+
+And importantly - looking at the "Star on GitHub" button in the page (top right of the nav bar, x≈822, y≈109), the button appears to have a VISIBLE change when `:focus` is forced! I can see the button in the nav bar appears slightly different - it has what looks like a **border/outline** around it.
+
+Let me scroll further down in the Styles panel to see if there's any `outline` property being applied or removed:
+[step 120] Action: scroll down (1100, 600) scroll_amount 3
+[step 120] Reasoning: Looking at the Styles panel, I can see more CSS rules now:
+- `letter-spacing: -0.05em;`
+- `.font-medium { font-weight: 500; }`
+- `.text-sm { font-size: 0.875rem; line-height: 1.25rem; }`
+
+And importantly, looking at the page on the left side, the "Star on GitHub" button in the navbar is still visible. With `:focus` state forced, the button appears to have a visible change - it looks like the button might have a focus ring around it. But I need to see if there's any `outline` CSS being applied.
+
+Let me continue scrolling down in the Styles panel to find the `outline` CSS rule or the user agent stylesheet rules that might show the focus ring:
+[step 121] Action: scroll down (1100, 600) scroll_amount 5
+[step 121] Reasoning: I can see more CSS rules now:
+- `.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }` (highlighted as `:focus` active)
+- `.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }`
+- `.bg-gray-800 { ... }` (visible at bottom)
+
+And looking at the "Star on GitHub" button in the page on the left, with `:focus` forced, the button appears to have a visible change. Let me continue scrolling to find the browser's default user agent stylesheet focus rules for this element:
+[step 122] Action: scroll down (1100, 600) scroll_amount 5
+[step 122] Reasoning: I can see in the Styles panel:
+- `margin-left: 0.5rem` - with a highlighted checkbox (matched by `:focus`)
+- `a { color: inherit; text-decoration: inherit; }` - globals.css
+- `*, ::before, ::after { box-sizing: border-box; }`
+
+I'm now seeing the global CSS rules. I need to continue scrolling to find the browser's user agent stylesheet focus rules. Let me continue:
+[step 123] Action: scroll down (1100, 600) scroll_amount 5
+[step 123] Reasoning: I can see more CSS variables. The Styles panel is showing CSS custom properties (--tw-translate-y, --tw-rotate, etc.) - these are Tailwind CSS variables. The `:focus` state is still forced (☑ :focus). Looking at the "Star on GitHub" button in the page (top right of nav), the page looks the same.
+
+Let me continue scrolling down to find the user agent stylesheet focus rules:
+[step 124] Action: scroll down (1100, 600) scroll_amount 5
+[step 124] Reasoning: **IMPORTANT FINDING!** I can now see CSS custom properties related to focus ring and shadow in the Styles panel (with highlighted/active checkboxes for the `:focus` state):
+
+```css
+--tw-ring-inset: ;
+--tw-ring-offset-width: 0px;
+--tw-ring-offset-color: #fff;
+--tw-ring-color: rgb(59 130 246 / 0.5);  ← This is the focus ring color!
+--tw-ring-offset-shadow: 0 0 #0000;
+--tw-ring-shadow: 0 0 #0000;
+--tw-shadow: 0 0 #0000;
+--tw-shadow-colored: 0 0 #0000;
+--tw-blur: ;
+```
+
+`--tw-ring-color: rgb(59 130 246 / 0.5)` is the Tailwind CSS blue ring color (the default focus ring color in Tailwind). This CSS variable is being set but notice `--tw-ring-shadow: 0 0 #0000` - the ring shadow is `#0000` (completely transparent)!
+
+This means even though the Tailwind ring color variable is defined, the actual `--tw-ring-shadow` is set to transparent/no shadow. This is because the "Star on GitHub" button doesn't have a `ring-*` utility class applied - the `--tw-ring-shadow` stays at `0 0 #0000` (invisible).
+
+**Wait**, but looking at the page - when `:focus` is forced, the "Star on GitHub" button appears to have a browser-default focus ring (since there's no `focus:outline-none` class on it). The browser's default `outline: -webkit-focus-ring-color auto 1px` should still be visible for this element!
+
+Let me scroll further down to see the user agent stylesheet rules:
+[step 125] Action: scroll down (1100, 600) scroll_amount 10
+[step 125] Reasoning: Still showing more Tailwind CSS custom properties (backdrop-brightness, contrast, grayscale, etc.). The styles are very long. Let me scroll much further down to find the user agent stylesheet rules which should appear at the bottom of the CSS cascade:
+[step 126] Action: left_click (989, 458)
+[step 126] Reasoning: More CSS custom properties. These are very long CSS variables from Tailwind CSS. Looking at the page on the left side, the "Star on GitHub" button appears the same. The `:focus` state is still forced (☑ :focus).
+
+I notice the page background color appears to have changed slightly! Looking at the main heading area - the page seems to have a slightly lighter/different gradient. This might be because the `:focus` forced state is affecting some CSS. But the "Star on GitHub" button appearance seems unchanged.
+
+This tells me something important - with `:focus` forced and no `focus:outline-none` on the "Star on GitHub" button, the button SHOULD show the browser's default focus ring. But I can't clearly see from this distance whether there's a focus ring or not on the button.
+
+Let me take a more efficient approach. Instead of scrolling through the CSS, let me use the `Computed` tab in DevTools to check what `outline` style is computed for this element when `:focus` is active:
+[step 127] Action: left_click (1055, 601)
+[step 127] Reasoning: **Excellent!** I'm now in the **Computed** tab which shows the computed/final CSS values for the selected element ("Star on GitHub" button with `:focus` forced). I can see:
+
+1. **Box model diagram** at the top showing:
+   - margin: 0
+   - border: 0 (so no border)
+   - padding: 12 and 123.969×21.172 area inside
+   - Content area: 123.969×21.172 px
+
+2. **Computed properties** list at the bottom:
+   - `background-color: rgb(54, 64, 66)` ← This is the gray-800 color (dark gray)
+   - `border-bottom-color: rgb(232, 236, 237)`
+   - `border-bottom-left-radius: 6px`
+   - `border-bottom-right-radius: 6px`
+   - `border-bottom-style: solid`
+
+Now I need to search for "outline" in the computed styles to check if the outline is visible or transparent. Let me type "outline" in the filter box:
+[step 128] Action: type: outline
+[step 128] Reasoning: Good, the filter box is clicked and appears ready for input. Let me type "outline" to filter the computed styles:
+[step 129] Action: left_click (944, 458)
+[step 129] Reasoning: **CRITICAL FINDING!** 
+
+The Computed tab filter is now showing "outline" in the filter box, and the result shows:
+
+**"No matching property"** 
+
+This means the "Star on GitHub" link element has **NO computed `outline` property** when `:focus` is forced! This is very interesting.
+
+Wait - "No matching property" in the Computed tab for "outline" means:
+1. The `outline` property is not being computed at all for this element
+2. OR the outline is using the browser's default which might show as `-webkit-focus-ring-color auto` rather than a named "outline" property
+
+Actually, "No matching property" in Chrome's Computed tab when filtering for "outline" is **unexpected**. Normally, when a browser applies a focus ring via `outline: -webkit-focus-ring-color auto 1px`, it should show up in the computed styles.
+
+Wait - but the "No matching property" result when searching for "outline" in computed styles with `:focus` forced suggests that the `outline` property is either:
+1. Not defined explicitly (using browser default which might use a different mechanism)
+2. OR the outline has been set to `none` somewhere (which would make it invisible)
+
+This is a key finding. Let me check the `Styles` tab to see if there's an `outline` property defined. Let me switch back to the Styles tab and look for outline:
+[step 130] Action: left_click (1055, 476)
+[step 130] Reasoning: I'm back in the Styles panel with `:focus` still forced (☑ :focus). Looking at the Filter box, it shows "Filter" (empty). I can see some CSS properties in the Styles panel but they're scrolled down. I need to scroll to the top to see the `:focus`-specific rules. Let me scroll up:
+[step 131] Action: type: outline
+[step 131] Reasoning: Good, the filter box is focused. Let me type "outline" to filter for focus-related outline styles:
+[step 132] Action: triple_click
+[step 132] Reasoning: **EXTRAORDINARY FINDING!** 
+
+When I filtered for "outline" in the Styles panel with `:focus` forced on the "Star on GitHub" button, the Styles panel shows:
+- **NO CSS rules matching "outline"!** 
+
+The Styles panel shows the "Force element state" section with `:focus` checked, but there are **NO CSS rules containing "outline"** for the "Star on GitHub" button with `:focus` forced.
+
+This means:
+1. The "Star on GitHub" `<a>` button does NOT have `focus:outline-none` applied
+2. BUT the computed outline for the "Star on GitHub" button also shows "No matching property" (from the Computed tab earlier)
+3. The browser's default focus ring (`outline: -webkit-focus-ring-color auto 1px`) should appear but it's NOT showing in the styles
+
+Wait - looking at the DevTools element panel HTML, I can see in the nav section the HTML structure showing both:
+- **Docs/Tools/Community** links with `focus:text-gray-900 focus:outline-none` (I can see the text "outline-none text-gray-700" in the HTML on the right side)
+- **Star on GitHub** `<a>` element without `focus:outline-none`
+
+But the "Star on GitHub" button also appears to have no outline in the computed styles. This could be because:
+1. The Tailwind base styles in the global CSS include `a { outline: none }` or similar
+2. OR the global CSS resets all outlines
+
+Let me now look at the page on the left side more carefully. The "Star on GitHub" button at the top right of the navigation bar - with `:focus` forced, does it have any visible outline?
+
+Looking at the page on the left side, the "Star on GitHub" button appears the same as before - a dark gray button with "Star on GitHub" text. There's NO visible outline/ring around it even with `:focus` forced!
+
+This means the "Star on GitHub" button also has NO visible focus indicator!
+
+Let me check the Tailwind global CSS to see if there's a global `outline: none` reset. Looking at the visible HTML in the Elements panel for the `<a>` tag for "Star on GitHub":
+```
+<a data-testid="Button-Link" target="_blank" rel="noopener noreferrer" class="bg-gray-800 hover:bg-gray-700 text-white transition-all duration-500 ease-in-out rounded-md px-3 text-sm font-medium tracking-heading ml-2 py-2" href="https://github.com/asyncapi/spec">
+```
+
+The class list for "Star on GitHub" includes:
+- `bg-gray-800 hover:bg-gray-700` (colors)
+- `text-white` (text color)
+- `transition-all duration-500 ease-in-out` (animations)
+- `rounded-md` (border radius)
+- `px-3 text-sm font-medium tracking-heading ml-2 py-2` (sizing/spacing)
+
+NO `focus:*` classes! But also no `focus:outline-none`. Yet the computed outline is NOT showing.
+
+This might be because Tailwind's CSS reset (Preflight) includes `a` element style resets. Let me check the globals.css visible in the Elements panel. Actually, I can see in the Elements panel HTML (looking at the nav items visible in the HTML):
+- `focus:outline-none text-gray-700` - these Tailwind classes on nav links
+
+Now let me also check if there are any `focus:ring` utilities on the "Star on GitHub" button. Looking at the class list again - NO `focus:ring-*` classes either.
+
+The Tailwind Preflight CSS (base styles) includes:
+```css
+a { color: inherit; text-decoration: inherit; }
+```
+But this doesn't remove outlines.
+
+However, Tailwind v3's Preflight includes:
+```css
+button { cursor: pointer; }
+```
+And more importantly, the Tailwind normalize/Preflight base might reset outlines using:
+```css
+*, ::before, ::after { box-sizing: border-box; }
+```
+
+But this doesn't reset outlines either. The outline should still show from the browser default.
+
+Wait - I need to check if there's a **Tailwind CSS v3 global reset** that sets `outline-color: transparent` on all elements or links. Let me clear the filter and look at the styles from top to bottom to find any outline-related global rules.
+
+Let me clear the filter and scroll to the bottom of the Styles panel to find the user agent stylesheet rules:
+[step 133] Action: left_click (1168, 472)
+[step 133] Reasoning: I see the filter box still shows "outline" and the Styles panel is showing only the Force element state section and box model (no CSS rules matching "outline" for the "Star on GitHub" element with `:focus` forced).
+
+This confirms that the "Star on GitHub" button has **NO `outline` CSS rules defined** - not in global CSS, not in component CSS. The browser's default outline should apply, but somehow it's not showing.
+
+Wait - let me check if there's a Tailwind CSS base reset that globally removes outlines. Looking at the Elements panel HTML, I can see in the `<nav>` section:
+- `focus:outline-none` appears on many of the nav link classes (visible in the HTML text at top right of the DevTools panel)
+
+The key insight from the Elements panel HTML I can see is: In the HTML for the nav links (visible in the DevTools Elements panel at the top right), I can see text like "focus:outline-none text-gray-700" on multiple nav link elements.
+
+Let me now navigate to the docs page and test its sidebar navigation. First let me clear the filter and switch the state toggle back:
+
+Actually, I have enough information to move on to the docs page testing. Let me:
+1. Clear the filter
+2. Uncheck `:focus` state
+3. Navigate to the docs page
+
+Let me clear the filter by clicking the X button:
+[step 134] Action: scroll up (1100, 580) scroll_amount 10
+[step 134] Reasoning: The filter is now cleared and I can see the Styles panel showing CSS rules:
+- `.ease-in-out { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }` - globals.css
+- `.duration-500 { transition-duration: 500ms; }` - globals.css
+- `.transition-all { transition-property: all; }` - globals.css
+
+These are for the "Star on GitHub" button element (still with `:focus` forced). The Styles panel is showing the CSS rules for this element when `:focus` is forced. I need to scroll up to see the top of the styles (which should show any :focus-specific rules first).
+
+Let me scroll up to the top of the Styles panel:
+[step 135] Action: left_click (1055, 476)
+[step 135] Reasoning: Now I can see the top of the Styles panel for the "Star on GitHub" button element with `:focus` forced. The Styles panel shows:
+- `element.style {}` - no inline styles
+- `.ease-in-out { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }` - globals.css
+- `.duration-500 { transition-duration: 500ms; }` - globals.css
+
+And importantly, looking at the page on the left side:
+- The "Star on GitHub" button (dark gray button at top right of nav) appears the same as before with NO visible focus ring or outline around it!
+
+This confirms that the "Star on GitHub" button **does NOT display a visible focus ring** despite NOT having `focus:outline-none` class. This could be because:
+1. The Tailwind CSS `globals.css` includes a global `outline: none` reset
+2. OR the browser's default focus ring for `<a>` elements is being suppressed
+
+Let me look for any `outline` property in the CSS that might globally suppress focus outlines. Let me type "outline" in the filter to find it:
+[step 136] Action: left_click (935, 540)
+[step 136] Reasoning: The filter box is clicked but appears empty. Now let me look at the Styles panel which shows:
+- `element.style {}` - empty
+- `.ease-in-out { ... }`
+- `.duration-500 { ... }`
+
+Looking at the Element panel HTML (top right) I can read important HTML that shows the nav section. I can see text like "focus:outline-none text-gray-700" in the HTML for nav link elements.
+
+But most importantly, I need to check if the global CSS has an `outline: none` reset that affects ALL elements. Let me look at the HTML `<a>` element for the Docs link more carefully, which I know has `focus:outline-none`. The Tailwind `focus:outline-none` utility generates:
+```css
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+```
+
+This ONLY applies when `:focus` is active and the element has the class `focus:outline-none`. The "Star on GitHub" button does NOT have this class, so it shouldn't be affected.
+
+Now let me check if there's a `*` or `a` selector in the global CSS that removes outlines. Let me uncheck the `:focus` state first and then navigate to the docs page to test the sidebar navigation.
+
+Let me uncheck `:focus`:
+[step 137] Action: Open url: http://localhost:3000/docs
+[step 137] Reasoning: Good, `:focus` is now unchecked. The Force element state panel shows all states unchecked. The page is now showing the homepage normally.
+
+Now let me navigate to the docs page to test the sidebar navigation. I'll use the address bar to navigate directly to the docs page:
+[step 138] Action: key: Escape
+[step 138] Reasoning: The docs page has opened in a new tab but is showing the **"Recoverable Error"** overlay again:
+- **Error**: "Recoverable Error"
+- **Message**: "Text content does not match server-rendered HTML."
+- **Stack**: "Call Stack 13 | Show 13 ignore-listed frame(s)"
+
+This is the same Next.js hydration mismatch error that appeared every time I navigated to the /docs page. This is a **consistent functional bug** in the application.
+
+I also notice that the Google Translate bar is visible at the top.
+
+Let me press Escape to dismiss this error overlay and test the docs page:
+[step 139] Action: right_click (308, 211)
+[step 139] Reasoning: **Excellent!** The docs page is now fully visible (the error overlay was dismissed by pressing Escape). I can see:
+
+1. **Navigation bar at the top**: "Docs", "Tools", "Community", "Case Studies", "Blog", "Roadmap", search icon, "English" dropdown, "Star on GitHub" button
+
+2. **Left sidebar navigation**:
+   - Search docs... (⌘ K)
+   - ▶ Welcome (currently selected/highlighted in green)
+   - ▶ Concepts (with expand arrow)
+   - ▶ Tutorials (with expand arrow)
+   - ▶ Tools (with expand arrow)
+   - ▶ Guides (with expand arrow)
+   - ▶ Reference (with expand arrow)
+   - ▶ Migrations (with expand arrow)
+   - ▶ Community (with expand arrow)
+
+3. **Main content**: "Welcome to AsyncAPI Docs!" 
+
+4. **Right sidebar**: "ON THIS PAGE" with "Welcome to AsyncAPI Docs!" link
+
+Now let me test keyboard navigation on the docs page. Since I pressed Escape to close the error overlay, the page should have keyboard focus. Let me now use the element picker in DevTools to inspect the sidebar items' focus styles.
+
+Wait, DevTools is now closed (the new tab opened without DevTools). Let me open DevTools on this page to inspect the sidebar navigation items' focus styles. Let me right-click on the "Welcome" sidebar item to open DevTools:
+[step 140] Action: left_click (327, 415)
+[step 140] Reasoning: A context menu appeared. I can see the "Welcome" sidebar link is selected. The context menu shows options including "检查" (Inspect) at the bottom. I can also see the status bar shows "localhost:3000/docs" confirming this is the "Welcome" link. Let me click "检查" to open DevTools and inspect this element:
+[step 141] Action: left_click (1100, 270)
+[step 141] Reasoning: **Excellent!** DevTools is now open and the "Welcome" sidebar link is selected. I can see very important information:
+
+1. **In the sidebar**, the "Welcome" link is visible (highlighted with a green background). The tooltip shows "span 63.09×17" which is the selected element.
+
+2. **In the Elements panel**, I can see the HTML structure for the sidebar navigation:
+   - `<li class="mb-4" data-testid="DocsNav-item">`
+   - `<ul class="ml-3 mt-1 border-l border-gray-200 pl-4">`
+   - Multiple `<li class="mb-4" data-testid="DocsNav-item">` items for Concepts, Tutorials, Tools, Guides, Reference, Migrations, Community
+
+3. **Most importantly**, I can see the breadcrumb at the bottom: 
+   `*.text-sm.text-black.hover\:font-semibold.inline-block.w-full ▶ .a\inline-block.w-full span`
+
+4. **The current selected element is a `<span>` inside the "Welcome" `<a>` link**. The CSS breadcrumb shows the parent `<a>` element's classes: `a.inline-block.w-full`.
+
+Looking at the HTML visible in the Elements panel, I can see the sidebar structure. The status bar shows "localhost:3000/docs/concepts" indicating the cursor was hovering over a "Concepts" link.
+
+Now let me use the DevTools to check the focus CSS for the sidebar "Welcome" link. But first, let me look at the HTML visible in the Elements panel more carefully. I can see:
+
+```html
+<a class="bg-gray-300 border-gray-300 inline-..." style="margin-right: 5px; margin-bottom: -6px; padding: 2px; ">
+  <div>
+    <span>Welcome</span> == $0
+  </div>
+```
+
+Wait, this is the "Welcome" link and it has classes including `bg-gray-300 border-gray-300`. This is the ACTIVE/SELECTED sidebar item (currently visited page). The active item has `bg-gray-300` background.
+
+Now let me look at what CSS classes the "Welcome" link (`<a>` element) has. Let me click on the parent `<a>` element in the Elements panel to select it:
+[step 142] Action: left_click (981, 440)
+[step 142] Reasoning: **Critical finding!** I clicked on an element in the Elements panel and selected a `<div>` element (the "Welcome" sidebar item container). The breadcrumb at the bottom shows: `.ckw-full a.inline-block.w-full div.bg-gray-300.border-gray-300.inline-block.rounded`
+
+Looking at the Elements panel and the breadcrumb, I can see the currently selected element is a `<div>` with class `bg-gray-300 border-gray-300 inline-block rounded` (this is the active/current page indicator showing "Welcome" is the current page).
+
+And in the Styles panel at the bottom:
+- `element.style { margin-right: 5px; margin-bottom: -6px; padding: 2px; }` - inline styles
+- `.bg-gray-300 { background-color: rgb(215 223 224 / var(--tw-bg-opacity, 1)); }` - globals.css
+- `.border-gray-300 { --tw-border-opacity: 1; border-color: rgb(215 223 224 / ...); }` - globals.css
+- `.rounded { border-radius: 0.25rem; }` - globals.css
+- `.inline-block { display: inline-block; }` - globals.css
+
+The current element is the `<div>` inside the "Welcome" `<a>` link. I need to select the parent `<a>` element to check its focus styles. Let me look at the breadcrumb: `.ckw-full a.inline-block.w-full div.bg-gray-300...` - I need to click on `a.inline-block.w-full` in the breadcrumb to select the `<a>` element.
+
+Let me click on the `a.inline-block.w-full` part of the breadcrumb:
+[step 143] Action: left_click (1000, 440)
+[step 143] Reasoning: The Styles panel is still showing the `<div>` element styles (`.bg-gray-300`, `.border-gray-300`, `.rounded`, `.inline-block`). The breadcrumb still shows `.ckw-full a.inline-block.w-full div.bg-gray-300.border-gray-300.inline-block.rounded`. 
+
+Let me click directly on the `a.inline-block.w-full` text in the breadcrumb to navigate up to the `<a>` element:
+[step 144] Action: left_click (1218, 475)
+[step 144] Reasoning: **CRITICAL FINDING!** 
+
+Now I've selected the `<a>` element for the "Welcome" sidebar link! Looking at the Elements panel, I can see the highlighted `<a class="inline-block w-full" href="/docs">` element with `== $0`.
+
+And the Styles panel now shows the CSS for this `<a>` element:
+- `element.style {}` - empty
+- `.w-full { width: 100%; }` - globals.css
+- `.inline-block { display: inline-block; }` - globals.css
+- `a { color: inherit; text-decoration: inherit; }` - globals.css ← **IMPORTANT!**
+- `*, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #E5ECED; }` - globals.css
+
+**The breadcrumb at the bottom** shows: `it-body.text-sm.text-black.hover\:font-semibold.inline-block.w-full ▶ a.inline-block.w-full`
+
+This is the "Welcome" sidebar `<a>` link. Looking at its CSS classes in the Styles panel:
+- `.w-full` - full width
+- `.inline-block` - inline block
+- `a { color: inherit; text-decoration: inherit; }` - global anchor reset
+
+But I notice there's **NO `focus:*` related CSS** in the visible styles! The `<a>` element for the "Welcome" sidebar link does NOT seem to have `focus:outline-none` class. Let me scroll up in the Styles panel to see the full CSS cascade and any focus-related rules:
+
+Wait - but looking at the HTML in the Elements panel for the "Welcome" link:
+```
+<a class="inline-block w-full" href="/docs">
+```
+
+The class is just `inline-block w-full` - no `focus:*` classes! This means the sidebar navigation links do NOT have `focus:outline-none`. The sidebar links should show the browser's default focus ring.
+
+But let me verify this. Let me use the "Force element state" to check `:focus` state. Let me click the ":hov" button:
+[step 145] Action: key: Escape
+[step 145] Reasoning: I see "Add new class" appeared instead of the "Force element state" panel. The ":.hov" button was replaced by "Add new class" input. This happened because I clicked the wrong button - I clicked "+cls" (Add class) instead of ":.hov" (Force states). Let me press Escape and try to click the correct ":.hov" button.
+
+Let me press Escape to close the "Add class" input and then find the correct ":.hov" button:
+[step 146] Action: left_click (1197, 342)
+[step 146] Reasoning: **Important observations!**
+
+Now I can see the DevTools panel more clearly with the Elements panel showing the "Welcome" sidebar link (`<a class="inline-block w-full" href="/docs">`) selected (as shown in the breadcrumb: `it-body.text-sm.text-black.hover\:font-semibold.inline-block.w-full ▶ a.inline-block.w-full`).
+
+And the **Styles panel** shows:
+- `element.style {}` - empty (no inline styles)
+- `.w-full { width: 100%; }` - globals.css
+- `.inline-block { display: inline-block; }` - globals.css
+- `a { color: inherit; text-decoration: inherit; }` - globals.css ← **Removes text decoration but NOT outline!**
+- `*, ::before, ::after { ... border-style: solid; border-color: #E5ECED; }` - globals.css (visible at bottom)
+
+**Key observations:**
+1. The "Welcome" sidebar `<a>` link has class list: `inline-block w-full`
+2. NO `focus:outline-none` class!
+3. NO `focus:*` classes at all!
+4. The `a { color: inherit; text-decoration: inherit; }` global reset does NOT remove outlines
+
+This means the "Welcome" sidebar link should show the browser's default focus ring when focused via keyboard!
+
+But I also notice the Console panel at the bottom (which expanded) shows an error:
+- `⚠ Do not add <script> tags using next/head (see <script> warn-once.js:16 tag with src="https://buttons.github.io/buttons.js"). Use next/script instead.` - This is a **warning** about using `next/head` with external script tags (a Next.js best practice violation).
+
+And there's also a console warning about `MessagePort.performWorkUntilDeadline`.
+
+Now let me try to force the `:focus` state on the "Welcome" sidebar link element. I need to find the ":hov" button in the Styles panel. Looking at the Styles panel, I can see there's a filter box, and to the right of it should be the ":hov" state toggle button. Let me try clicking on it:
+[step 147] Action: left_click (933, 407)
+[step 147] Reasoning: **The "Force element state" panel is now visible!** I can see:
+- ☐ `:active` | ☐ `:hover`
+- ☐ `:focus` | ☐ `:focus-within`
+- ☐ `:focus-visible` | ☐ `:target`
+- `▶ Force specific element state`
+
+The selected element is `a.inline-block.w-full` (the "Welcome" sidebar link as shown in the breadcrumb). Now let me check `:focus` to force the focus state on this sidebar link and observe the visual change:
+[step 148] Action: left_click (933, 407)
+[step 148] Reasoning: **Critical finding!** I've forced the `:focus` state on the "Welcome" sidebar link (`<a class="inline-block w-full" href="/docs">`). 
+
+Looking at the **sidebar in the page** (left side), at the "Welcome" text:
+- The "Welcome" sidebar item appears to have a **visible blue outline/border** around it now!
+- I can see at approximately x≈121, y≈211, the "Welcome" text appears to have a **focus ring** around it
+
+This is different from the navigation bar links (Docs, Tools, Community, etc.) which had `focus:outline-none` and showed NO focus ring when forced to `:focus` state.
+
+Looking at the Styles panel, it now shows (with `:focus` forced):
+- `element.style {}` - empty
+- `.w-full { width: 100%; }` - globals.css
+- `.inline-block { display: inline-block; }` - globals.css (highlighted/active)
+
+The "Welcome" link does NOT have `focus:outline-none` so the browser's default focus ring SHOULD appear!
+
+And looking at the page area on the left side, the "Welcome" text in the sidebar appears to have **a visible box/border** around it - this is the browser's native focus ring showing through since there's no CSS explicitly removing it!
+
+**Summary of findings so far:**
+
+**Homepage Navigation Bar (top nav):**
+- ❌ "Docs" link: `focus:outline-none` → NO visible focus indicator (only subtle text color change)
+- ❌ "Tools" link: `focus:outline-none` → NO visible focus indicator (same issue)
+- ❌ "Community" link: `focus:outline-none` → NO visible focus indicator (same issue)
+- ❌ "Case Studies" link: `focus:outline-none` → NO visible focus indicator (same issue)
+- ❌ "Blog" link: `focus:outline-none` → NO visible focus indicator (same issue)
+- ❌ "Roadmap" link: `focus:outline-none` → NO visible focus indicator (same issue)
+- ❓ Search button: `focus:outline-none focus:text-gray-500` → Likely no visible focus indicator
+- ❓ "Star on GitHub" button: No `focus:outline-none` → Browser default may show
+
+**Docs Page Sidebar:**
+- ✅ "Welcome" link: No `focus:outline-none` → Browser's default focus ring appears!
+
+Now let me verify more sidebar items (Concepts, Tutorials, etc.) to see if they also have the browser's default focus ring. Let me also check the "Concepts" expand arrow (chevron button) which is the toggle button for the sidebar section.
+
+Let me uncheck `:focus` and select the "Concepts" expand button to check it:
+[step 149] Action: left_click (936, 131)
+[step 149] Reasoning: Good, `:focus` is now unchecked. The Force element state panel shows all states unchecked. The "Welcome" sidebar link in the page now appears without the forced focus ring. 
+
+Now let me use the element picker to select the "Concepts" expand button (chevron/arrow button) in the sidebar. The chevron `▶` button next to "Concepts" is a toggle button to expand/collapse the section. Let me use the element picker to select it:
+[step 150] Action: left_click (69, 238)
+[step 150] Reasoning: Good, the element picker is now active. Now let me click on the "Concepts" expand arrow (chevron ▶) button in the sidebar to select it in DevTools. The chevron button is at approximately x=69, y=238 (the small ▶ icon to the left of "Concepts" text):
+[step 151] Action: left_click (936, 131)
+[step 151] Reasoning: **Excellent!** I selected the expand arrow icon for the "Concepts" sidebar item. Looking at the Elements panel:
+
+1. **Selected element** is an `<img>` element inside a `<div>` container:
+   ```html
+   <img alt="docs arrow" src="/img/illustrations/icons/docs-arrow.svg" class="m-auto w-fit transition-transform duration-200undefined">
+   ```
+   
+2. **The breadcrumb** shows: `p-2.hover:bg-gray-100 ▶ img.m-auto.w-fit.transition-transform.duration-200undefined`
+
+3. **The parent `<div>` element** has class `"flex gap-2"` and the container has class `"m-auto w-6 cursor-pointer rounded-md p-2 hover:bg-gray-100"`.
+
+Wait - the breadcrumb shows the parent is `p-2.hover:bg-gray-100` which is the expand/collapse `<div>` container. Let me look at the full structure more carefully.
+
+The selected element is the `<img>` (arrow icon) inside a `<div class="m-auto w-6 cursor-pointer rounded-md p-2 hover:bg-gray-100">`. But this `<div>` is NOT a `<button>` - it's a clickable `<div>` with `cursor-pointer`. This might not be keyboard focusable at all!
+
+Let me check the parent element to understand the structure. Looking at the Elements panel HTML:
+```
+<li class="mb-4" data-testid="DocsNav-item">
+  <div class="flex gap-2">
+    <div class="m-auto w-6 cursor-pointer rounded-md p-2 hover:bg-gray-100">
+      <img alt="docs arrow" src="/img/illustrations/icons/docs-arrow.svg" class="m-auto w-fit transition-transform duration-200undefined">
+    </div>
+    ... (the Concepts link)
+  </div>
+```
+
+**This is very suspicious!** The expand/collapse button for "Concepts" in the sidebar is a `<div>` element with `cursor-pointer`, NOT a `<button>` or `<a>` element. This means:
+
+1. **The expand button is not keyboard focusable** (since `<div>` elements are not focusable by default and there's no `tabindex` on it)
+2. **This is a keyboard accessibility bug** - the sidebar expand button cannot be reached via Tab key navigation!
+
+Let me verify this by checking if the `<div>` has a `tabindex` attribute. Looking at the HTML: `<div class="m-auto w-6 cursor-pointer rounded-md p-2 hover:bg-gray-100">` - NO `tabindex` attribute!
+
+Also I notice the class `duration-200undefined` in the image element - this looks like a **bug** where the CSS class `duration-200` has "undefined" appended to it (should be `duration-200`, NOT `duration-200undefined`)! This is a React/Tailwind rendering bug where a variable was not properly set and "undefined" was concatenated.
+
+Let me now use the element picker to select the parent `<div>` of the sidebar item row to get a better understanding. Let me click on the "Concepts" link text to see its HTML:

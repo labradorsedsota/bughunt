@@ -1,0 +1,17 @@
+{
+  "task_id": "Analog-259",
+  "repo": "analogdotnow/Analog",
+  "worker": "worker-03",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T23:19:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "同 Analog-135，Next.js 应用需 PostgreSQL + OAuth 登录。日历视图页面重定向到 /login 登录墙，无法访问测试目标功能。",
+    "attempted": ["同项目已验证，/calendar → 307 → /login，所有功能页需认证"],
+    "recommendation": "跳过，需要 PostgreSQL + OAuth 配置"
+  }
+}

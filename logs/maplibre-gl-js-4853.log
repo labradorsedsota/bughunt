@@ -1,0 +1,656 @@
+Session created: sess-20260418233750-cef1762b73d34f198bf54aa7f272174a
+UI panel initialized successfully
+UI window displayed
+Expected result: 在Globe投影模式下，当缩放级别较低（地球呈球体显示）且俯仰角较高时，球体上方不应显示平面Mercator模式的天空效果，天空区域应被正确隐藏或以适合Globe模式的方式渲染。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: Open url: http://localhost:9966/test/
+[step 1] Reasoning: I can see the index page of the maplibre-gl website. I need to navigate to the test examples. Let me look for a Globe-Mercator projection example. I'll check the test folder.
+[step 2] Action: Open url: http://localhost:9966/test/examples/
+[step 2] Reasoning: I can see the test directory. Let me check the examples folder for Globe-related examples.
+[step 3] Action: key: ctrl+f
+[step 3] Reasoning: I can see many examples. I need to find Globe-related examples. Let me search for "globe" in the page by scrolling down or using Ctrl+F to find relevant examples.
+[step 4] Action: key: cmd+f
+[step 4] Reasoning: The search bar doesn't seem to have opened. Let me try using Command+F for Mac.
+[step 5] Action: left_click (400, 400)
+[step 5] Reasoning: The find bar doesn't seem visible in the screenshot. Let me click on the page first to make sure it's focused, then try the find shortcut.
+[step 6] Action: Open url: http://localhost:9966/test/examples/globe-mercator.html
+[step 6] Reasoning: Let me try using the browser's find functionality via the menu bar. Instead, let me look for globe examples by navigating directly. I know the maplibre examples typically have "globe" or "sky" in the filename. Let me try a direct URL approach.
+[step 7] Action: left_click (614, 33)
+[step 7] Reasoning: That file doesn't exist. Let me go back to the examples list and search through the available files. Let me scroll through the examples list to find globe-related examples.
+[step 8] Action: scroll down (400, 400) scroll_amount 5
+[step 8] Reasoning: Good, I'm back on the examples list. I need to find a globe-related example. The task mentions "Globe-Mercator" projection mode. Let me scroll down to find files starting with "g" to look for globe examples.
+[step 9] Action: scroll down (400, 400) scroll_amount 2
+[step 9] Reasoning: I can see globe-related examples now. I can see:
+- `globe-3d-model.html`
+- `globe-atmosphere.html`
+- `globe-custom-simple.html`
+- `globe-fill-extrusion.html`
+- `globe-vector-tiles.html` (partially visible)
+
+Let me scroll down a bit more to see all globe examples.
+[step 10] Action: Open url: http://localhost:9966/test/examples/globe-custom-simple.html
+[step 10] Reasoning: Now I can see the complete list of globe examples:
+- `globe-3d-model.html`
+- `globe-atmosphere.html`
+- `globe-custom-simple.html`
+- `globe-custom-tiles.html`
+- `globe-fill-extrusion.html`
+- `globe-vector-tiles.html`
+- `globe-zoom-planet-size-function.html`
+
+The task is about testing "Globe-Mercator" projection mode with sky display. The `globe-custom-simple.html` might be a good starting point as it's 11263 bytes (the largest among the globe examples). Let me also check `globe-zoom-planet-size-function.html` which seems relevant to zoom behavior. 
+
+The task says to test the Globe-Mercator projection mode. Let me first check the `globe-custom-simple.html` which seems like a comprehensive globe example.
+[step 11] Action: Open url: http://localhost:9966/test/examples/sky.html
+[step 11] Reasoning: I can see a globe map is loaded. This shows a globe/sphere view of the Earth. However, this example seems to be a custom layer example. The task requires testing the Globe-Mercator projection with sky display at low zoom levels. 
+
+I notice the map is already showing a globe/sphere. But I need to test the sky rendering behavior. Let me look for an example that specifically includes sky rendering or the Globe-Mercator projection with sky. Let me check the `globe-atmosphere.html` which might include sky/atmosphere effects.
+
+Actually, the task asks me to interact with the map by setting zoom level to ~2 and pitch to ~85 degrees. Let me first check if this current page has controls to adjust these. But actually, the task specifically tests Globe-Mercator projection mode. 
+
+Let me think about this differently. The maplibre-gl has a Globe-Mercator projection which automatically switches between globe and mercator at different zoom levels. I should look for a way to create a map with this projection and sky settings. 
+
+Let me check if there's a sky-related example or a globe with projection example by looking at the bench folder or trying some other filenames.
+[step 12] Action: Open url: http://localhost:9966/test/bench/
+[step 12] Reasoning: Not found. Let me check the bench folder for globe-sky related examples.
+[step 13] Action: Open url: http://localhost:9966/test/bench/benchmarks/
+[step 13] Reasoning: Let me check the benchmarks folder for globe-sky examples.
+[step 14] Action: Open url: http://localhost:9966/test/integration/
+[step 14] Reasoning: No globe/sky specific examples here. Let me go back to the integration tests folder which might have more specific tests.
+[step 15] Action: Open url: http://localhost:9966/test/integration/render/
+[step 15] Reasoning: Let me check the render folder which might have sky or globe render tests.
+[step 16] Action: Open url: http://localhost:9966/test/integration/render/tests/
+[step 17] Action: Open url: http://localhost:9966/test/examples/globe-custom-simple.html
+[step 17] Reasoning: This is a large list of tests. I need to find sky and globe-related tests. Let me scroll down to find those.
+
+Rather than browsing through the list manually, let me take a different approach and create a simple test page using the browser console. I'll go back to the globe-custom-simple.html example and use the browser console to set zoom and pitch to the required values, and add a sky layer.
+
+Actually, the best approach is to use the existing globe example and manipulate it via the browser console. Let me go to the globe-custom-simple.html page first.
+[step 18] Action: key: F12
+[step 18] Reasoning: Good, I can see the globe map is loaded. I can see a globe-style view with the Earth. Now I need to use the browser console to:
+1. Set the zoom level to approximately 2 (which seems to already be around that range given we can see the globe/sphere)
+2. Set the pitch to approximately 85 degrees
+3. Add a sky layer and observe its behavior
+
+Let me open the browser console (F12 or Command+Option+I) to access the map's JavaScript API.
+[step 19] Action: left_click (640, 465)
+[step 19] Reasoning: The DevTools console is now open. I can see the Console tab is selected. Let me click on the console area to make sure it's active, then type commands to manipulate the map.
+
+First, I need to find the map object. In most maplibre-gl examples, the map is typically stored in a global variable. Let me click on the console input area and type commands to find the map instance.
+[step 20] Action: left_click (640, 465)
+[step 20] Reasoning: The console is open. I can see the `>` prompt. Now I need to find the map object. Let me check what global variables are available and find the map instance.
+[step 21] Action: left_click (640, 465)
+[step 21] Reasoning: I see the console prompt is ready. Let me type a command to find the map object. I'll try typing `map` to see if it's in the global scope.
+[step 22] Action: type: map
+[step 22] Reasoning: I can see the console is ready with the `>` prompt. Let me type `map` to check if there's a global map variable.
+[step 23] Action: key: Return
+[step 23] Reasoning: Excellent! I can see that `map` is a global variable! The console shows: `Map {_moving: false, _zooming: false, transform: GlobeTransform, _bearingSnap: 7, _renderFrameCallback: f, …}`. 
+
+This confirms that:
+1. The `map` global variable exists
+2. The transform is `GlobeTransform` which indicates it's already in Globe projection mode!
+
+Now I need to:
+1. First add a sky layer to the map
+2. Set the zoom level to ~2
+3. Set the pitch to ~85 degrees
+4. Observe the sky rendering
+
+Let me first check the current zoom and pitch, then set the values. I'll type commands in the console to accomplish this. First, let me check what projection is being used.
+[step 24] Action: left_click (640, 498)
+[step 24] Reasoning: I can see the map object is confirmed with `GlobeTransform`. Now I need to add a sky layer and set the zoom/pitch. Let me first add a sky layer to the map, then set the zoom and pitch. I'll use the console to do this.
+
+Let me click on the console input and type the commands:
+[step 25] Action: left_click (640, 498)
+[step 25] Reasoning: I can see the console with the prompt. Let me first add a sky layer to the map. I need to first check if there's already a sky layer on this example, and if not, add one. I'll type the command to add a sky layer. But first, let me look at the source of the page to understand what's there. Let me type the command in console.
+
+First, let me check the current zoom level:
+[step 26] Action: type: map.getZoom()
+[step 26] Reasoning: Good, I can see the console prompt is ready (the `>` cursor at the bottom). Now let me type the command to get the current zoom level and add a sky layer. I'll do it step by step. Let me first check the zoom level:
+[step 27] Action: left_click (640, 510)
+[step 27] Reasoning: The current zoom level is 3. I can see it returned `< 3`. I need to set it to approximately 2. Now let me also check if there's already a sky layer and then set the zoom to 2 and pitch to 85. Let me first add the sky layer and then set the view.
+
+Let me type a command to add a sky layer with a gradient and then set the zoom and pitch:
+[step 28] Action: type: map.addLayer({id:...
+[step 28] Reasoning: Good. Now let me add a sky layer. I'll type in the console. First, let me check whether the example already has a sky layer by checking the layers:
+[step 29] Action: key: Return
+[step 29] Reasoning: I can see the command is typed. Let me press Enter to execute it:
+[step 30] Action: left_click (640, 527)
+[step 30] Reasoning: I see there's an error: "Uncaught SyntaxError: Unexpected identifier 'map'". This error happened because the `map.getZoom()` from the previous line got combined with the new command. The command was executed as `map.getZoom()map.addLayer(...)` without a separator.
+
+Let me try again with just the addLayer command:
+[step 31] Action: type: map.addLayer({id:...
+[step 31] Reasoning: I can see the console prompt `>` is ready. Now let me add the sky layer properly:
+[step 32] Action: key: Return
+[step 32] Reasoning: Good, I can see the command is typed in the console. Let me press Enter to execute it:
+[step 33] Action: left_click (640, 645)
+[step 33] Reasoning: I can see two important errors:
+1. `Error: layers.sky: missing required property "source"` - The sky layer needs a source
+2. `Error: layers.sky.type: expected one of [fill, line, symbol, circle, heatmap, fill-extrusion, raster, hillshade, color-relief, background], "sky" found` - The sky layer type is not supported!
+
+This is very interesting! The second error reveals a critical issue: **the sky layer type is NOT supported in this version of maplibre-gl**. The expected layer types are `fill, line, symbol, circle, heatmap, fill-extrusion, raster, hillshade, color-relief, background` - but NOT `sky`. This suggests the sky feature either hasn't been implemented yet or has been removed.
+
+This is a significant finding about the Globe-Mercator projection mode and sky display - the `sky` layer type is not available.
+
+However, the task says to test if the sky area appears correctly in Globe mode at low zoom. Let me look for whether there's an existing sky example in a different location, or whether the globe examples show a sky-like background. Let me check if there are atmosphere examples.
+
+Looking at the error messages more carefully:
+- The sky layer type is not supported
+- This means the Sky rendering feature is NOT available in this version
+
+But I still need to proceed with the test. Let me:
+1. Set zoom to ~2 (already at 3, close enough)
+2. Set pitch to ~85 degrees
+3. Observe the visual above the globe
+
+Let me do the zoom and pitch settings now:
+[step 34] Action: left_click (640, 645)
+[step 34] Reasoning: I can see the console result. The sky layer type is not supported. However, I notice there's still a globe example that might have sky. Let me also check the `globe-atmosphere.html` which might show atmosphere effects. But first, let me try to look at the current globe-custom-simple.html and set zoom to 2 and pitch to 85 to see the overall visual effect - even without a sky layer, I can observe the area above the globe.
+
+Let me set the zoom and pitch:
+[step 35] Action: Open url: http://localhost:9966/test/examples/globe-atmosphere.html
+[step 35] Reasoning: Let me first check the globe-atmosphere.html example which might have the globe with atmosphere/sky effects already implemented. But first, I also need to understand the Globe-Mercator projection. The task is specifically about "Globe-Mercator projection mode". Let me check if there's a projection test page available.
+
+Actually, looking at this more carefully, the task is asking about testing the SKY rendering in Globe-Mercator projection. The fact that the `sky` layer type throws an error ("expected one of [fill, line, symbol, circle, heatmap, fill-extrusion, raster, hillshade, color-relief, background], 'sky' found") is a significant bug finding.
+
+However, I also notice the test could be looking at how the visual area above the globe appears even without an explicit sky layer. Let me now:
+1. Navigate to `globe-atmosphere.html` which might have a more relevant visual test
+2. Or just proceed with globe-custom-simple.html, set the zoom and pitch, and see what the area above the globe looks like
+
+Let me check the globe-atmosphere.html:
+[step 36] Action: key: F12
+[step 36] Reasoning: Excellent! This is a very interesting visual! I can see the `globe-atmosphere.html` example which shows:
+- A 3D globe (Earth) in the center-right of the screen
+- The background is **solid black** (which would be the "sky" area)
+- The globe shows realistic earth appearance with clouds/atmosphere glow
+
+**Visual observation**: The background around the globe is solid black. This is the "sky" area above the globe, and it renders as pure black rather than any sky-like gradient or atmosphere color. This is the key observation for the test.
+
+Now let me:
+1. Open the browser console to manipulate the map
+2. Set the zoom to ~2 and pitch to ~85
+3. Observe what happens to the sky area above the globe
+
+Let me open the console and check the current state:
+[step 37] Action: left_click (640, 465)
+[step 37] Reasoning: I can see the globe-atmosphere.html with the DevTools console open. The map is showing the globe with a black background. I can also see "MapLibre | © MapTiler" at the bottom right corner of the map. 
+
+Now the console is open. Let me check the map object and then set the zoom and pitch. Let me click on the console input area and type commands:
+[step 38] Action: left_click (640, 465)
+[step 38] Reasoning: I can see the console area with the `>` prompt but there's no visible input field. Let me click directly at the `>` prompt in the console:
+[step 39] Action: left_click (25, 465)
+[step 39] Reasoning: I see the console is visible but the input doesn't seem focused. Let me try clicking closer to the `>` icon in the bottom left corner of the console area:
+[step 40] Action: type: map.setZoom(2); m...
+[step 40] Reasoning: Now I can see the console cursor is blinking at the `>` prompt. The console is focused now. Let me type a command to get the map object and set the zoom and pitch. I'll use a multi-step approach - first let me check what the `map` object is:
+[step 41] Action: key: Return
+[step 41] Reasoning: I can see the command `map.setZoom(2); map.setPitch(85);` is typed in the console. Let me press Enter to execute it:
+[step 42] Action: Minimize panel
+[step 42] Reasoning: Excellent! This is a very important observation! The commands executed successfully:
+- `map.setZoom(2)` and `map.setPitch(85)` returned `Map {_moving: false, _zooming: false, transform: GlobeTransform, ...}`
+- The map view has changed dramatically!
+
+Looking at the map now with zoom=2 and pitch=85:
+- The view is now tilted at 85 degrees
+- I can see the globe from a very low angle
+- The top portion of the map view (above the globe's visible edge) is showing **solid black**
+
+This is the key visual observation I need to capture! The sky area above the globe at this tilted angle (pitch=85°, zoom=2) is showing as **solid black** instead of a sky-like or atmosphere-like appearance.
+
+Let me take a clearer screenshot to see the full map view without the DevTools overlapping:
+[step 43] Action: key: F12
+[step 43] Reasoning: Now I have a clearer view! I can see the globe map on the right side of the screen with:
+- The globe tilted at 85° pitch showing Asia/East Asia from a very oblique angle
+- The **sky area** (top portion of the map) is rendered as **solid black**
+- There's a clear boundary between the globe surface and the black sky area
+- The left side of the page shows the browser's default light gray/white background
+
+**Key Visual Observations:**
+1. **The sky area (above the globe horizon) is solid black** - This is the critical finding. In Globe mode at low zoom (2) with high pitch (85°), the sky background renders as pure black.
+2. The transition between the globe's edge and the sky area appears abrupt with no gradient or atmosphere effect.
+3. The entire "above the horizon" area is just black/empty, which doesn't match what would be expected for a proper sky rendering.
+
+Now let me check the current page more carefully. The task mentions "Globe-Mercator" projection mode specifically. Let me verify what projection this example uses and also look at the transition point. Let me also look at the page source to understand how the projection is configured.
+
+Let me click on the map area to see it better first:
+[step 44] Action: key: F12
+[step 44] Reasoning: Now I have a full view of the map without DevTools! This is very revealing. Looking at the globe-atmosphere.html with zoom=2 and pitch=85:
+
+**Critical Visual Observations:**
+
+1. **The sky area above the globe horizon is completely BLACK** - The entire upper portion of the map (approximately the top 80% of the screen) is rendered as solid black.
+
+2. **Globe surface is only partially visible** - Only a small portion of the Earth's globe (lower right corner) is visible, showing Asia/Pacific region with proper globe rendering.
+
+3. **Sky Background Inconsistency**: In Globe mode at low zoom (zoom=2) with high pitch (85°), when you look "above the horizon" of the globe, the sky area renders as pure black rather than any atmospheric color, gradient, or sky effect.
+
+4. **The atmosphere effect of this example** (globe-atmosphere.html) seems to only apply around the globe rim/edge and not to the "sky" area above it.
+
+This is the key finding for the test:
+- **The sky area in Globe mode at low zoom with high pitch shows as solid black**, which may not be the expected behavior if a sky/atmosphere effect should be visible above the globe.
+
+Now, the task specifically asks about "Globe-Mercator" projection mode. The `globe-atmosphere.html` page shows this is a pure Globe mode (GlobeTransform). The fact that the sky layer type is not supported (as we saw when trying to add it to globe-custom-simple.html) combined with the black sky background is the main finding.
+
+Let me also check if this example has a sky layer configured by looking at the source. Let me open DevTools again and check the page source:
+[step 45] Action: left_click (640, 465)
+[step 45] Reasoning: The DevTools is open again. I can see the map with zoom=2 and pitch=85 on the right side. The sky area is still showing as black. Now let me check the map's current projection and also look for any sky-related configuration in this example. Let me click on the console and run some commands:
+[step 46] Action: type: map.getProjection()
+[step 46] Reasoning: The console is focused. Let me check the map's projection and sky configuration:
+[step 47] Action: left_click (640, 490)
+[step 47] Reasoning: I can see that `map.getProjection()` returned `{type: 'globe'}`. This is a pure globe projection, not a "Globe-Mercator" projection (which would likely be labeled differently). The task mentions "Globe-Mercator" projection mode specifically. 
+
+Let me check if there's a globe-mercator specific projection available. In maplibre-gl, the Globe-Mercator projection is the one where at low zoom levels it shows a globe, and at higher zoom levels it transitions to mercator. This might be a different setting. Let me look for a globe-zoom example or check what the globe-zoom-planet-size-function.html does.
+
+But wait - looking at the task description again: "将地图缩放级别设置到较低值（约2左右），使地图显示为Globe（球体）模式" (Set the map zoom to a low value of about 2, so the map displays in Globe mode). This implies that the Globe-Mercator projection automatically switches between Globe and Mercator based on zoom level. At zoom 2, it would be in Globe mode.
+
+The projection should ideally be `globe-mercator` or similar hybrid mode. Let me check if there's a `globe-mercator` projection type available, and if not, understand the current projection behavior better.
+
+Let me also check what sky layer configuration exists in this example:
+[step 48] Action: Open url: http://localhost:9966/test/integration/render/tests/sky/
+[step 48] Reasoning: Good. I can see the projection is `{type: 'globe'}`. The task mentions "Globe-Mercator" projection. The `globe-atmosphere.html` uses pure `globe` projection. Let me look at the other globe examples like `globe-zoom-planet-size-function.html` which might be about the Globe-Mercator transition. But first, let me try to find a globe-mercator example by checking the render test cases for "globe-mercator" or "sky":
+
+Let me look at the render tests folder for sky-related tests in globe mode. I'll navigate to the folder that might have "sky" and "globe" tests:
+[step 49] Action: Open url: http://localhost:9966/test/integration/render/tests/globe/
+[step 49] Reasoning: I found the sky test folder! It contains:
+- `basic/`
+- `roll10/`
+- `roll180/`
+- `roll45-with-text/`
+- `roll90/`
+
+These are sky render tests. But I don't see a "globe" specific sky test here. Let me also look for a globe-mercator sky test. Let me check if there's a "globe" subfolder in the tests:
+[step 50] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/
+[step 50] Reasoning: The `globe/` folder does not exist. Let me look at the render test structure. There might be globe-specific tests in a different location. Let me look at some specific paths:
+[step 51] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/globe/
+[step 51] Reasoning: Excellent! I found the projection folder which contains:
+- `globe/`
+- `mercator/`
+- `perspective/`
+
+Let me explore the `globe/` folder under projection to see what tests are available:
+[step 52] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/globe/fill-planet-pitched/
+[step 52] Reasoning: This is a comprehensive list of globe projection tests! I can see many globe tests including:
+- `atmosphere/` - Globe atmosphere test
+- `background/` - Background in globe
+- `hillshade/`
+- And many others
+
+But I specifically need to find a test about sky. I don't see a `sky/` folder here, but there is `atmosphere/`. The task asks about "sky" display in Globe mode. Let me look at the `hillshade/` test since it's the one that might show the sky area. Actually, let me also check if there's a specific sky-globe test.
+
+Looking at the list more carefully:
+- I see `background/` - which might show the background color (sky area)
+- I see `atmosphere/` - which shows the atmosphere effect around the globe
+- I see `fill-planet-pitched/` - which might show what happens when the planet is pitched (similar to our test scenario with pitch=85)
+
+Let me click on `fill-planet-pitched/` to see what this test looks like - it sounds most relevant to our test case of high pitch at low zoom:
+[step 53] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/globe/fill-planet-pitched/style.json
+[step 53] Reasoning: I can see this test folder contains:
+- `expected.png` - The expected rendering output
+- `style.json` - The style configuration
+
+Let me look at the style.json to understand how this test is configured (what zoom level and pitch it uses):
+[step 54] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/globe/fill-planet-pitched/expected.png
+[step 54] Reasoning: This is very revealing! The `fill-planet-pitched/style.json` shows:
+```json
+{
+  "version": 8,
+  "sky": {
+    "atmosphere-blend": 0.0
+  },
+  "center": [0.0, 0.0],
+  "pitch": 30,
+  "zoom": 2,
+  "projection": {"type": "globe"},
+  ...
+}
+```
+
+Key observations:
+1. **Zoom: 2** - This is similar to what we need to test (low zoom level)
+2. **Pitch: 30** - This has pitch at 30 degrees
+3. **Projection: globe** - Using globe projection
+4. **Sky: atmosphere-blend: 0.0** - The sky is configured with `atmosphere-blend: 0.0` meaning no atmosphere blend!
+
+This is interesting! The `sky` configuration in maplibre-gl uses a different format than what I tried earlier. It's not a layer but rather a top-level style property called `sky` with `atmosphere-blend`. But wait - earlier I saw that when trying to add a `sky` layer type, it wasn't supported.
+
+Let me look at the expected output image for this test:
+[step 55] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/globe/zoom-transition/
+[step 55] Reasoning: This is the expected output for the `fill-planet-pitched` test. I can see:
+- The expected output shows a globe with white background (the "sky" area is WHITE in the expected output)
+- The globe (Earth) is shown with a background color of white
+- The land mass (Africa) is rendered in blue
+- The sky area above the globe horizon is WHITE (from the background-color: "white" setting)
+
+This is a critical reference for what the test should look like. The sky area in Globe mode at zoom=2 with pitch=30 should show white background (from the background layer setting in style.json).
+
+Now, let me look at the actual task requirement - testing Globe-Mercator projection mode with sky. The `sky` property in the style.json here has `atmosphere-blend: 0.0`, which means zero atmosphere blend. Let me look for a more specific test that involves sky with higher atmosphere-blend values in Globe mode. But first, let me understand what the task is really asking.
+
+The task says: "观察球体上方区域的天空渲染效果，确认在Globe模式下低缩放级别时天空区域的显示是否与球体视觉风格一致。" (Observe the sky rendering effect above the globe, confirm whether the sky area display in Globe mode at low zoom level is consistent with the globe visual style.)
+
+This means I need to look at:
+1. How the sky appears above the globe at low zoom (zoom ~2)
+2. With high pitch (~85 degrees)
+3. And see if it looks visually consistent
+
+Let me look for a test case that specifically tests this behavior. Let me look at the `zoom-transition` test in the globe folder as it might show the globe-mercator transition:
+[step 56] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/globe/zoom-transition/style.json
+[step 56] Reasoning: Now let me look at the style.json for zoom-transition to understand the Globe-Mercator projection approach:
+[step 57] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/globe/atmosphere/style.json
+[step 57] Reasoning: This zoom-transition test is:
+- Testing "globe projection transitions to mercator at high zoom levels"  
+- `zoom: 16` (high zoom!)
+- `projection: globe`
+- `sky: atmosphere-blend: 0.0`
+
+This is testing the transition FROM globe TO mercator at high zoom. This isn't what I need. I need the reverse - low zoom where Globe mode shows.
+
+Let me look at the task description again more carefully. The task mentions "Globe-Mercator" projection mode. This might refer to a specific projection type called `globe-mercator` or perhaps it just means the `globe` projection type that transitions to mercator at high zoom levels.
+
+Now I need to find a page that specifically shows the sky in Globe-Mercator mode at low zoom with high pitch. Let me look at the render tests more carefully to find a sky-related globe test. Let me also look at the atmosphere test:
+[step 58] Action: Open url: http://localhost:9966/test/examples/globe-atmosphere.html
+[step 58] Reasoning: The atmosphere test's style.json returned "Not Found". This means the folder listing shows `atmosphere/` but the style.json doesn't exist - this is odd. Let me go back to the globe projection tests list and focus on finding any sky-related test:
+
+Looking at the earlier list from the glob tests folder, the closest tests to the task description would be tests involving:
+- Sky display
+- Globe at low zoom
+- High pitch
+
+The `fill-planet-pitched` test showed:
+- Pitch: 30
+- Zoom: 2
+- Sky atmosphere-blend: 0.0
+- Expected output: White sky background above the globe
+
+Now I need to perform the actual test as requested. The task says to go to the map page, set zoom to ~2 and pitch to ~85, and observe the sky. Let me do this systematically with the `globe-atmosphere.html` example since it includes atmosphere effects.
+
+Let me navigate back to the `globe-atmosphere.html` page and use the console to set zoom=2 and pitch=85, and observe the sky rendering:
+[step 59] Action: key: F12
+[step 59] Reasoning: I can see the `globe-atmosphere.html` page loaded. The map shows:
+- A globe (Earth) in the lower right area of the screen
+- The background/sky area is **solid black**
+- The Earth appears as a 3D sphere with atmosphere effects around it
+
+**Visual Observation**: The current view at the initial zoom level shows the globe as a small sphere in the lower right with a completely black background. This is already showing the globe at a relatively low zoom with some pitch/bearing adjustment.
+
+Now I need to open the browser console and set the zoom to 2 and pitch to 85. Let me open the DevTools:
+[step 60] Action: left_click (640, 465)
+[step 60] Reasoning: The DevTools is now open, but it appears to be in "Responsive" mode (showing the screen dimensions as 791x387). The console is visible with the `>` prompt at the bottom. I can see the globe map in the top-right area. The globe appears as a sphere in the black background.
+
+Now let me click on the console input and run commands to set zoom to 2 and pitch to 85:
+[step 61] Action: left_click (25, 465)
+[step 61] Reasoning: The console seems to still be empty with just the `>` prompt. Let me click more precisely on the console input area to make it active. I can see the `>` symbol at the very bottom left of the console area:
+[step 62] Action: type: map.getZoom()
+[step 62] Reasoning: Now I can see the cursor blinking in the console input area (there's a cursor blinking after the `>` prompt). The console is now focused. Let me type commands to:
+1. First, check the current zoom and projection
+2. Set zoom to 2 and pitch to 85
+3. Observe the visual change
+
+Let me type the commands:
+[step 63] Action: key: Return
+[step 63] Reasoning: I can see the console shows `> map.getZoom()` is typed. Let me press Enter to see the result:
+[step 64] Action: type: map.easeTo({zoom:...
+[step 64] Reasoning: I can see the console output shows:
+- `> map.getZoom()`
+- `< 0` (the current zoom is 0)
+
+The current zoom is 0! That's very low. This explains why the globe looks like a small sphere. Now I need to:
+1. Set zoom to 2
+2. Set pitch to 85
+3. Observe the sky area above the globe
+
+Let me type the command to set zoom and pitch:
+[step 65] Action: key: Return
+[step 65] Reasoning: I can see the command `map.easeTo({zoom: 2, pitch: 85, duration: 0})` is typed in the console. Now let me press Enter to execute it:
+[step 66] Action: key: F12
+[step 66] Reasoning: Excellent! The map has changed dramatically! I can now see:
+
+**Critical Visual Observation:**
+1. The `map.easeTo({zoom: 2, pitch: 85, duration: 0})` command executed successfully and returned the Map object with `GlobeTransform`
+2. The map view has changed to show the globe from an almost horizontal angle (pitch=85°)
+3. **The sky area above the globe is completely BLACK!** - The entire upper portion of the map view (about the top 40% of the map viewport) shows solid black background
+4. The globe's surface (Earth) is visible in the lower portion, showing North Asia/Russia/Alaska region from a very oblique angle
+5. The atmosphere around the globe (bluish glow at the horizon) is still visible around the edges of the Earth
+
+**This is the KEY FINDING about the sky rendering behavior:**
+
+In Globe mode at zoom=2 with pitch=85°:
+- The sky area above the globe horizon renders as **solid black** (no sky color, no atmospheric gradient)
+- The atmosphere effect appears only around the globe's edge (the blue glow around the Earth's rim)
+- There is NO sky rendering above the visible horizon of the globe - just empty black space
+
+This is visually inconsistent - in a realistic view:
+- The sky above the horizon should show some atmospheric gradient (blue fading to dark)
+- Or at least there should be a sky background color that matches the atmosphere color
+
+The black sky area doesn't match the atmosphere/globe visual style, which could be considered a bug in the rendering.
+
+Let me take a clearer screenshot by hiding the DevTools to see the full visual:
+[step 67] Action: Open url: http://localhost:9966/test/integration/render/tests/sky/basic/style.json
+[step 67] Reasoning: Now I have a clear full-screen view of the globe at zoom=2 with pitch=85°. This is a critical screenshot that reveals the sky rendering behavior:
+
+**Key Visual Observations:**
+
+1. **Sky Area (upper ~60% of the screen)**: The sky area above the globe's visible horizon is rendered as **completely solid BLACK**. There is no atmospheric gradient, no sky color, no transition - just pure black.
+
+2. **Globe/Earth (lower right)**: The globe is visible in the lower right area with:
+   - Realistic Earth texture showing Asia-Pacific region
+   - A **blue atmospheric glow/haze** around the globe's edge (the atmosphere effect from the `globe-atmosphere.html` example)
+   - The atmosphere looks visually nice around the Earth's rim
+
+3. **Visual Inconsistency**: The atmosphere/globe rendering is visually inconsistent:
+   - The Earth itself has a beautiful blue atmosphere halo
+   - But the "sky" area above the visible horizon is pitch black
+   - This creates a jarring visual disconnect - the globe has nice atmosphere effects but the space above it is just black
+
+4. **This is the bug**: In Globe mode at low zoom (2) with high pitch (85°), the sky area above the globe horizon should ideally show some transition/gradient that's consistent with the globe's atmosphere rendering. Instead, it shows pure black, making the sky above the globe look like outer space rather than a sky view.
+
+Now let me also check the task's specific mention of "Globe-Mercator" projection mode. The current example (`globe-atmosphere.html`) uses the `globe` projection. Let me check if there's a Globe-Mercator specific behavior. Let me look at the examples list again for a globe-mercator or similar named example.
+
+But wait - in maplibre-gl, the "globe" projection type IS the Globe-Mercator projection, as it automatically transitions to mercator at higher zoom levels. At zoom=2, we're in Globe mode, and at higher zoom (like 10+), it would transition to Mercator. The task says "Globe-Mercator" to describe this hybrid projection.
+
+Now let me look at the specific render test for the sky in globe mode. Let me check if there's a specific test case that tests this sky rendering behavior. Let me look at the sky test folder again:
+[step 68] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/globe/
+[step 68] Reasoning: This is the sky/basic test style.json. Very important findings:
+
+**Sky Configuration Format:**
+The `sky` property in maplibre-gl is a **top-level style property** (not a layer), and it accepts:
+```json
+"sky": {
+    "sky-color": "#199EF3",
+    "horizon-color": "#daeff0",
+    "sky-horizon-blend": 1,
+    "fog-ground-blend": 1
+}
+```
+
+Key parameters:
+- `sky-color` - The color of the sky
+- `horizon-color` - The color at the horizon
+- `sky-horizon-blend` - Blend factor between sky and horizon
+- `fog-ground-blend` - Blend factor for fog on ground
+
+The test has:
+- `zoom: 15` (high zoom - mercator mode)
+- `pitch: 85` 
+- `maxPitch: 85`
+- No `projection` specified (so it's using the default mercator projection)
+
+This is the SKY test for Mercator mode (zoom=15, no projection specified). Now I need to check if there's a similar sky test for Globe mode.
+
+Let me now look for a sky test in the Globe-related test folders. Let me check the projection/globe folder more carefully for sky-related tests:
+[step 69] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/globe/atmosphere/
+[step 69] Reasoning: I can now see the full list of globe projection tests. Looking through all the test folders, I can see:
+- `atmosphere/` - Globe atmosphere test
+- `background/` - Background test
+- `fill-planet-pitched/` - Pitched planet fill test
+- Various collision and text tests
+- But **NO `sky/` folder** in the globe projection tests!
+
+This is significant - there is no sky rendering test specifically for Globe projection mode. The `sky/` tests I found earlier (sky/basic, sky/roll10, etc.) are all for Mercator mode (zoom=15, no globe projection).
+
+Now, let me verify the `fill-planet-pitched/` test since it shows a pitched globe at zoom=2. Let me check if there are tests for sky in globe mode in other ways. Let me look at the `atmosphere/` test style.json:
+[step 70] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/globe/atmosphere/base/style.json
+[step 70] Reasoning: The `atmosphere/` folder has the following sub-tests:
+- `atmosphere-blend/`
+- `base/`
+- `light-position-map/`
+- `ligth-position-viewport/` (note: "ligth" appears to be a typo for "light" - this could be another bug!)
+- `zoom/`
+
+Let me check the `base/` test style.json to understand what the base atmosphere test looks like:
+[step 71] Action: Open url: http://localhost:9966/test/integration/render/tests/projection/globe/fill-planet-pitched/expected.png
+[step 71] Reasoning: Excellent! Now I can see the `atmosphere/base/style.json`. This is very informative:
+
+```json
+{
+  "description": "Tests that atmosphere is well display with blend to 1.0.",
+  "projection": {"type": "globe"},
+  "sky": {
+    "atmosphere-blend": 1.0
+  },
+  "zoom": 1,
+  "center": [0.0, 0.0],
+  ...
+  "layers": [
+    {"id": "background", "type": "background", "paint": {"background-color": "white"}},
+    {"id": "raster", "type": "raster", ...}
+  ]
+}
+```
+
+Key observations:
+1. **Globe projection** with `sky: {atmosphere-blend: 1.0}` 
+2. **Zoom: 1** (very low zoom)
+3. **No pitch** (default = 0 degrees)
+4. **Background color: white**
+5. The `sky` property uses `atmosphere-blend` to control how much the sky/atmosphere is shown
+
+This shows that the sky rendering in Globe mode uses the `sky.atmosphere-blend` property. The globe-atmosphere.html example I was looking at uses this type of sky configuration.
+
+Now, the key test is: **at low zoom with high pitch (85°)**, how does the sky area above the globe appear? Based on what I observed in the globe-atmosphere.html example at zoom=2, pitch=85:
+- The sky area is **completely BLACK** 
+- Not blending with any sky color or atmosphere gradient
+
+This is the bug! The sky area above the globe in high-pitch Globe mode at low zoom does NOT render the sky/atmosphere color - it just shows black (empty space).
+
+Now, let me also look at the `fill-planet-pitched/` test and its expected output to see if this is "expected" behavior or a bug:
+[step 72] Action: Open url: http://localhost:9966/test/examples/globe-atmosphere.html
+[step 72] Reasoning: **CRITICAL VISUAL FINDING!**
+
+This is the `expected.png` for the `fill-planet-pitched/` test. I can see:
+
+1. **The expected output shows the sky/background area above the globe as WHITE** - The upper portion of the globe viewport is WHITE (from the background-color: "white" style setting)
+2. **The globe (Earth) shows Africa/Europe in blue** with white (background color) showing where there's no land/ocean fill layer
+3. **The globe is in the lower right portion** at pitch=30, zoom=2
+
+The EXPECTED behavior is that the background color (sky area above the globe) shows the configured background color. In the `fill-planet-pitched` test, the `sky.atmosphere-blend: 0.0` means no atmosphere, and the background is white.
+
+Now let's compare with what I ACTUALLY saw in the `globe-atmosphere.html` at zoom=2, pitch=85:
+- The sky area was **solid BLACK** (no atmosphere color)
+- Yet the `globe-atmosphere.html` has atmosphere effects around the globe's rim
+
+This suggests that:
+1. **The sky area (above the globe horizon) in high-pitch Globe mode is rendered as the background color** (or black in the case of globe-atmosphere.html because the background might be set to black)
+2. This is the expected rendering - but the `globe-atmosphere.html` doesn't have a background layer with a sky-like color
+
+Let me now think about the specific test scenario. The task asks to:
+- Look at Globe-Mercator mode
+- At low zoom (~2) - Globe mode
+- With high pitch (~85°) 
+- And check if the sky area is displayed consistently with the globe visual style
+
+Looking at the fill-planet-pitched expected.png:
+- At pitch=30, zoom=2, the sky area is WHITE (from background layer)
+- The black area in the expected.png is OUTSIDE the canvas, not inside it
+
+Now let me verify by looking at the actual style.json again for fill-planet-pitched to understand the canvas boundary:
+
+The `fill-planet-pitched/style.json` has:
+- `height: 512, width: 512` - This is the canvas size
+- So the expected.png shows:
+  - White area on the right (512x512 canvas area showing white background and blue fills)
+  - Black area on the left (OUTSIDE the canvas, showing the browser's black background)
+
+So the actual canvas shows WHITE above the globe! This is the expected behavior.
+
+Now let me go back and look at the `globe-atmosphere.html` at zoom=2, pitch=85 more carefully. The entire viewport was black. But this example's canvas fills the whole browser window. The black area in `globe-atmosphere.html` IS the map canvas rendered as black sky.
+
+Let me check what this example's style has for the background color. Let me open the devtools and check:
+[step 73] Action: key: F12
+[step 73] Reasoning: Now I can see the `globe-atmosphere.html` page has reloaded to its initial state. The map shows:
+- The Earth globe in the lower right portion
+- The entire background is **solid black** (this is the map canvas background/sky rendering)
+- The globe is showing at a default zoom level (very low, probably 0 or 1) with some pitch
+
+The page appears to have reset. Let me open the DevTools and use the console to set zoom to 2 and pitch to 85. Let me also check the map's style to understand what the sky/background is configured as:
+[step 74] Action: left_click (640, 465)
+[step 74] Reasoning: The DevTools is open with an empty console. The map shows the globe (Earth sphere) in the right portion with black background. The console prompt `>` is visible. Now let me click on the console and type commands to:
+1. Check the map's style sky configuration
+2. Set zoom to 2 and pitch to 85
+
+Let me click on the console area and type the commands:
+[step 75] Action: type: JSON.stringify(ma...
+[step 75] Reasoning: The console input is focused (I can see the cursor blinking). Now let me check the map's sky configuration and background:
+[step 76] Action: key: Return
+[step 76] Reasoning: Good, the command `JSON.stringify(map.getStyle().sky)` is typed. Let me press Enter to execute it:
+[step 77] Action: type: map.easeTo({zoom:...
+[step 77] Reasoning: Excellent! The console shows the sky configuration:
+```
+'{"atmosphere-blend":["interpolate",["linear"],["zoom"],0,1,5,1,7,0]}'
+```
+
+This is very revealing! The `globe-atmosphere.html` example has the sky configured with:
+- `atmosphere-blend`: An interpolation expression that varies the atmosphere blend based on zoom level
+  - At zoom 0: blend = 1 (full atmosphere)
+  - At zoom 5: blend = 1 (full atmosphere)
+  - At zoom 7: blend = 0 (no atmosphere)
+
+So at zoom 2, the `atmosphere-blend` should be 1.0 (full atmosphere). But the sky STILL shows as black!
+
+This confirms a **bug in the sky rendering in Globe mode**: Even with `atmosphere-blend: 1.0` at zoom=2, the sky area above the globe at high pitch (85°) renders as **solid black** instead of showing the atmosphere/sky effect.
+
+Now let me set the zoom and pitch and take the definitive screenshot:
+[step 78] Action: key: Return
+[step 78] Reasoning: The command `map.easeTo({zoom: 2, pitch: 85, duration: 0})` is typed. I can see it in the console. The map has not changed yet (still showing the globe from low angle). Let me press Enter to execute:
+[step 79] Action: key: F12
+[step 79] Reasoning: The command executed successfully! I can see:
+- Console output: `Map {_moving: false, _zooming: false, transform: GlobeTransform, _bearingSnap: 7, _renderFrameCallback: f, …}` 
+- The map has changed to show the globe at zoom=2 and pitch=85
+
+**CRITICAL VISUAL OBSERVATION - THE KEY FINDING:**
+
+Looking at the map viewport in the top-right corner of the screen:
+1. **The top ~40% of the map shows solid BLACK** - This is the sky area above the globe's horizon line
+2. **The lower ~60% shows the Earth's surface** - We can see the Asia/Pacific region from an oblique angle with realistic globe rendering (ocean, landmass in green/brown colors)
+3. **The black sky area is a stark visual inconsistency** - The globe itself has beautiful texture and rendering, but the sky above it is completely empty/black
+4. The atmosphere/sky blend (`atmosphere-blend: 1.0` at zoom=2) is NOT being rendered above the globe horizon
+
+**This is the confirmed bug:** In Globe mode at low zoom (zoom=2) with high pitch (85°), the sky area above the visible globe horizon renders as **pure black** instead of showing an atmosphere effect or sky gradient, even though the `atmosphere-blend` is configured to be 1.0 at this zoom level.
+
+Now let me hide the DevTools and take a final clean screenshot to capture this observation:
+
+==================================================
+Task: 当前Chrome浏览器已打开maplibre-gl网站，地址是http://localhost:9966。测试在Globe-Mercator投影模式下低缩放级别时天空(Sky)的显示行为。操作步骤：1. 打开地图页面，确保地图加载完成。2. 将地图缩放级别设置到较低值（约2左右），使地图显示为Globe（球体）模式。3. 将地图俯仰角(pitch)调到较高值（约85度左右），使视角高度倾斜。4. 观察球体上方区域的天空渲染效果，确认在Globe模式下低缩放级别时天空区域的显示是否与球体视觉风格一致。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。 请始终在浏览器内操作，禁止打开 Terminal、Finder 或其他应用程序。如果在浏览器中找不到目标功能，直接标记 result 为 unclear，result_summary 写明未在页面中找到目标功能入口。
+Status: STOPPED_BY_USER
+Total steps: 79
+Last action: key: F12
+Last reasoning: The command executed successfully! I can see:
+- Console output: `Map {_moving: false, _zooming: false, transform: GlobeTransform, _bearingSnap: 7, _renderFrameCallback: f, …}` 
+- The map has changed to show the globe at zoom=2 and pitch=85
+
+**CRITICAL VISUAL OBSERVATION - THE KEY FINDING:**
+
+Looking at the map viewport in the top-right corner of the screen:
+1. **The top ~40% of the map shows solid BLACK** - This is the sky area above the globe's horizon line
+2. **The lower ~60% shows the Earth's surface** - We can see the Asia/Pacific region from an oblique angle with realistic globe rendering (ocean, landmass in green/brown colors)
+3. **The black sky area is a stark visual inconsistency** - The globe itself has beautiful texture and rendering, but the sky above it is completely empty/black
+4. The atmosphere/sky blend (`atmosphere-blend: 1.0` at zoom=2) is NOT being rendered above the globe horizon
+
+**This is the confirmed bug:** In Globe mode at low zoom (zoom=2) with high pitch (85°), the sky area above the visible globe horizon renders as **pure black** instead of showing an atmosphere effect or sky gradient, even though the `atmosphere-blend` is configured to be 1.0 at this zoom level.
+
+Now let me hide the DevTools and take a final clean screenshot to capture this observation:
+
+==================================================
+
+UI window closed

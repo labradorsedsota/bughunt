@@ -1,0 +1,1677 @@
+Session created: sess-20260417151710-d2703795a05c4f6cae6a2007ed4b6ab1
+UI panel initialized successfully
+UI window displayed
+Expected result: Custom Functions 的控制台输出区域应当只显示用户主动通过 console.log 写入的消息，系统内部的冗余运行时日志（如匹配 [Medium|Verbose] CustomFunctions [Execution] [Begin|End] 模式的消息）应被过滤掉，控制台界面保持清晰可读。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: Open url: https://localhost:3000
+[step 1] Action: left_click (459, 428)
+[step 1] Reasoning: I see a certificate error. Let me click "高级" (Advanced) to proceed.
+[step 2] Action: left_click (497, 515)
+[step 2] Reasoning: I can see "继续前往localhost（不安全）" link. Let me click it to proceed.
+[step 3] Action: screenshot
+[step 3] Reasoning: I can see the tab title changed to "Script Lab" which means the page is loading. Let me wait for it to finish loading.
+[step 4] Action: Open url: https://localhost:3000/custom-functions
+[step 4] Reasoning: The page has loaded. This appears to be "Script Lab" - a tool for writing and testing JavaScript code. I can see:
+- Left sidebar with: New Snippet, My Snippets, Samples, Import
+- Main area shows "Samples" page with "There aren't any samples for this host yet."
+
+This looks like it's related to Office Add-ins Script Lab, not exactly a "Custom Functions" page. But I need to look for Custom Functions functionality. Let me check if there's a way to navigate to custom functions. I notice there might be a URL path for custom functions. Let me try navigating to `/custom-functions`.
+[step 5] Action: left_click (67, 206)
+[step 5] Reasoning: I can see the URL now shows `host:3000/custom-functions#/` - I navigated to `/custom-functions` path which still shows the same "Script Lab" interface with a Samples page. The page looks the same as before. Let me check the URL more carefully - the URL bar shows `host:3000/custom-functions#/`. 
+
+This is still the Script Lab application but the `/custom-functions` path. The sidebar shows: New Snippet, My Snippets, Samples, Import. The page looks identical to the main page.
+
+Let me try navigating to `My Snippets` to see if there are any custom function snippets, or try creating a new snippet with console.log.
+[step 6] Action: left_click (67, 155)
+[step 6] Reasoning: I can see "My Snippets" page. There are no snippets saved yet. Let me try creating a new snippet by clicking "New Snippet".
+[step 7] Action: left_click (153, 92)
+[step 7] Reasoning: Excellent! A new snippet editor has opened. I can see a code editor with a "Blank Snippet" containing:
+- A `run()` function with `console.log("Hello World")`
+- A `tryCatch()` helper function
+
+This is Script Lab, not a "Custom Functions" runner per se. The URL still shows `localhost:3000/custom-functions#/`. This appears to be the Script Lab environment. 
+
+However, I need to look for Custom Functions specifically - Script Lab has a Custom Functions runner. Let me check if there's a different section. Let me also look at what tabs are available (Script, HTML, CSS, Libraries) and the top navigation. I notice there are two "Script Lab" tabs open. Let me check the other tab which was the original one at `localhost:3000`.
+
+But first, let me examine this current environment more carefully. The code has `console.log("Hello World")` which is good. Let me try to run this and observe the console output. Let me click the "Run" button.
+[step 8] Action: left_click (452, 33)
+[step 8] Reasoning: Interesting! Clicking "Run" opened a new tab trying to access `localhost:3200/?backButton=true` which is a different port (3200) and it's getting `ERR_CONNECTION_REFUSED`. The runner is trying to connect to port 3200.
+
+This tells me that Script Lab's "Run" functionality tries to run snippets in a runner environment on port 3200, but that port is not available. This is not the "Custom Functions" functionality I'm looking for.
+
+Let me go back to the Script Lab tab and explore the Custom Functions runner more specifically.
+[step 9] Action: Open url: https://localhost:3000/custom-functions#/
+[step 9] Reasoning: I'm back at the Script Lab page which shows Samples. The URL is `https://localhost:3000/#/`. This is a different tab from the custom-functions one. Let me look at this more carefully.
+
+I see there are two "Script Lab" tabs. One is at `localhost:3000/#/` (the main one) and another at `localhost:3000/custom-functions#/`. 
+
+Let me think about what the application is about. "Script Lab" is Microsoft's tool for Office Add-ins development. The `/custom-functions` path is specifically for the Custom Functions runner. 
+
+Let me try going directly to the custom-functions URL to see what's there.
+[step 10] Action: left_click (17, 92)
+[step 10] Reasoning: Now I'm in the custom-functions page with the code editor showing the "Blank Snippet". This is the Script Lab custom functions interface. The code editor shows the snippet with `console.log("Hello World")`. 
+
+The URL in the address bar shows `host:3000/custom-functions#/`. Now I need to look at this more carefully - this page appears to be the Custom Functions runner for Script Lab. But there's something important - this looks like the same snippet editor from before (not a custom functions editor).
+
+Wait, looking at the layout again - this page at `/custom-functions` is the Custom Functions runner specifically, different from the regular Script Lab runner at `/` (which handles regular scripts).
+
+Let me look at the available tabs and the hamburger menu (☰) on the left to understand what's available.
+[step 11] Action: left_click (711, 266)
+[step 11] Reasoning: Now I can see the sidebar opened showing "My Snippets" page with:
+- "My snippets on this computer" section showing "Blank Snippet"
+- "My shared gists on GitHub" section
+
+The `Blank Snippet` is now listed in My Snippets. I notice this is the `/custom-functions` path which is the Custom Functions runner for Script Lab. 
+
+But wait - I notice this interface doesn't have typical Custom Functions features (like function registration with `@customfunction` JSDoc comments). Let me look at the "Blank Snippet" to see if it has the appropriate structure for custom functions.
+
+Let me click on "Blank Snippet" to open it.
+[step 12] Action: left_click (153, 92)
+[step 12] Reasoning: I can see the code editor with the "Blank Snippet" containing:
+- Line 1: `$("#run").click(() => tryCatch(run));`
+- Lines 3-5: `async function run() { console.log("Hello World"); }`
+- Lines 7-15: The `tryCatch` helper function
+
+The code has `console.log("Hello World")` on line 4. Now I need to run this snippet and check the console output. Let me click the "Run" button (▶ Run) in the top toolbar.
+
+But wait - previously when I clicked Run, it opened a new tab at port 3200 which was refused. Let me try clicking Run again now that I'm in the custom-functions path to see if it behaves differently.
+[step 13] Action: left_click (14, 61)
+[step 13] Reasoning: Again, clicking Run opens a new tab at `localhost:3200/?backButton=true` with `ERR_CONNECTION_REFUSED`. Port 3200 is not available. This is the Script Lab runner page. 
+
+This is Script Lab's standard behavior - the "Run" button opens a separate runner at port 3200 which would display the console output. Since port 3200 is not running, the runner page can't be accessed.
+
+Let me reconsider the task. The task asks me to test the "Custom Functions" page and its console log filtering functionality. This is Script Lab - specifically looking at the `/custom-functions` route. 
+
+Looking at Script Lab's architecture:
+- The main app is at port 3000 (`/`)  
+- The runner (where snippets run) is at port 3200
+- The custom functions route is at `/custom-functions`
+
+Since port 3200 is refusing connections, I cannot run snippets. But let me check if there's anything else at the `/custom-functions` route that I haven't explored yet. Let me go back to the Script Lab tab and look at the custom-functions page more carefully, perhaps there's a console panel or other UI elements.
+
+Let me go back to the Script Lab custom functions tab.
+[step 14] Action: left_click (1048, 113)
+[step 14] Reasoning: Good, I'm back at the Script Lab custom-functions page showing the Blank Snippet code editor. I notice there's a small element on the right side of the toolbar (around x=1043, y=98) - what looks like a "G" or a collapsed panel icon. Let me check what that is.
+
+Also, I notice there's a right-side panel that appears to be collapsed (indicated by the small icon at the top right of the editor area). Let me try clicking on it.
+[step 15] Action: Minimize panel
+[step 15] Reasoning: Nothing changed. Let me minimize the task panel and try to explore the entire interface more carefully, especially looking for a console log output area.
+[step 16] Action: left_click (1205, 88)
+[step 16] Reasoning: The panel has been minimized and I can see the full interface now. There's a Google Translate popup. Let me close it and explore the interface more carefully. I notice there's no visible console output area in the current view. The editor takes up the full screen.
+
+Let me close the Google Translate popup and look at the full interface.
+[step 17] Action: Open url: https://localhost:3200
+[step 17] Reasoning: Now I can see the full Script Lab custom-functions interface. The current view shows:
+- Top toolbar: hamburger menu, "Blank Snippet" title, ▶ Run, Delete, Share buttons
+- Tabs: Script, HTML, CSS, Libraries
+- Code editor taking up most of the screen
+- Bottom status bar: "WEB" and "TypeScript | Dark"
+
+I notice there's no separate console output panel visible in this view. The code has `console.log("Hello World")` but the console output would appear in the runner page (port 3200).
+
+Wait - I notice there's something important here. Looking at the bottom right of the screen, I can see "Running" is visible at the bottom right - this is the minimized panel indicator. 
+
+But more importantly, let me reconsider the application architecture. Looking at the Script Lab source code, the `/custom-functions` page is specifically for running custom functions (Excel Custom Functions like `=HELLO()`). These are different from regular snippets.
+
+Let me look at the "Run" button dropdown in more detail. I see it's just "▶ Run" without a dropdown. Let me also look at the right side for a console panel icon.
+
+Looking at the top right, there seems to be a "G" icon or some collapsed panel. Let me look at the right side of the editor more carefully.
+
+Actually, I notice that when a snippet is run in Script Lab, the runner opens in an iframe or a separate pane. The "Run" button in the custom-functions context should behave differently from the regular runner. 
+
+Let me try a different approach - let me navigate to the runner route directly since the custom functions page runs differently.
+
+Actually, looking at this more carefully, I notice the URL shows `localhost:3000/custom-functions#/`. This page IS the custom functions runner (used inside Office). When it "Runs", it would normally send the code to port 3200 for execution.
+
+Let me check if there's a way to view a console log panel within this current page. Let me scroll down in the editor to see if there are any hidden panels below.
+
+Actually, wait - let me check the "runner" page at `localhost:3200` directly. Maybe it just needs to be accessed via HTTPS.
+[step 18] Action: left_click (609, 33)
+[step 18] Reasoning: Port 3200 is also not running. The runner service is not available at port 3200. 
+
+Now let me reconsider the architecture. The application is at port 3000 with HTTPS. In Script Lab's development setup, both the editor (port 3000) and the runner (port 3200) need to be running. Since only port 3000 is running, the runner functionality isn't available.
+
+However, looking at Script Lab's architecture more carefully - in the regular Script Lab setup, there's often an "embedded runner" mode or the running happens within an iframe in the main app. Let me try to look at the `localhost` tab that was opened earlier (which shows "localhost" in the tab list).
+
+Let me check the "localhost" tab - I see there are two localhost tabs (port 3200's page).
+[step 19] Action: left_click (769, 33)
+[step 19] Reasoning: This tab is at `localhost:3200/?backButton=true` - this was the page that opened when clicking Run in the Script Lab editor. Port 3200 is not running.
+
+Let me now navigate back to the main Script Lab tab and think about this differently. The "Custom Functions" in Script Lab specifically refers to Excel custom functions (like `=MYFUNCTION()`). The `/custom-functions` route is the Custom Functions runner, not the regular runner.
+
+Let me go to the Script Lab main tab and explore the Samples section to see if there are any Custom Functions samples that might demonstrate the console log behavior.
+[step 20] Action: Open url: https://localhost:3000/custom-functions-runner
+[step 20] Reasoning: This is the `localhost:3000/custom-functions#/` page (Script Lab custom functions) showing the Blank Snippet. I notice there's no separate console panel here. 
+
+Let me think about this differently. The Script Lab custom functions page at `/custom-functions` is different from the regular Script Lab editor. In the custom functions context, the console output typically appears in a dedicated console panel on the right side of the editor.
+
+Looking at the current layout, there should be two panes - the editor on the left and a runner/console panel on the right. But I don't see a split view. Let me check if there's a way to toggle the runner panel.
+
+Actually, looking at the top right of the editor, I see there's a small icon that appears to be at approximately x=1048, y=113 area. But I already clicked it with no effect. 
+
+Let me check the "Run" button more carefully - in Script Lab's custom functions mode, clicking "Run" in the editor might behave differently. Let me also check if the interface has changed in newer versions of Script Lab.
+
+Wait - I need to look at this from a different angle. The task says "Custom Functions (自定义函数) page" which might be a specific React Router route within the app, not specifically Microsoft's Script Lab. Let me explore what other routes are available.
+
+Let me try navigating to other possible routes.
+[step 21] Action: left_click (1205, 88)
+[step 21] Reasoning: Interesting! The URL is now `localhost:3000/custom-functions-runner#/` and the tab shows "Script Lab". This looks like the same interface (showing Blank Snippet code) but at the `/custom-functions-runner` route. This suggests the application serves the same interface at multiple routes.
+
+Let me close the Google Translate popup and look at this route more carefully. The title shows "Script Lab" and it's loading (there's a spinning indicator in the tab). Let me wait for it to fully load.
+[step 22] Action: left_click (452, 33)
+[step 22] Reasoning: This is at `localhost:3000/custom-functions-runner#/` and shows the same interface as the other Script Lab pages. The `/custom-functions-runner` is another route in this application.
+
+Let me now think about what the actual "Custom Functions" runner looks like in Script Lab. The key insight is that in Script Lab's development build:
+- The editor is at port 3000
+- The runner is at port 3200 (which is unavailable)
+
+The console log filtering feature might be in the runner's console panel. Since port 3200 is not available, I cannot directly test this feature through the normal "Run" button flow.
+
+However, let me try a different approach: let me look at the HTML page directly to see if there are embedded iframes or panels. Let me also look at specific routes that might show a console panel embedded in the main app.
+
+Let me try to look at what the actual URL hash routes are. Looking at the URL pattern, the app uses `localhost:3000/custom-functions#/`. Let me try some hash routes.
+
+Actually, wait - I should look at the application from the "runner" perspective. When Script Lab runs a snippet, it opens a runner page. This is a separate HTML page that shows the console output. Let me try to navigate to the runner directly with specific hash parameters.
+
+But more importantly, let me look at the main Script Lab tab (port 3000 at `/`) and see if there are different sections or functionality available from there.
+[step 23] Action: left_click (67, 155)
+[step 23] Reasoning: I'm now at the main Script Lab tab (`localhost:3000/#/`) showing the "Samples" page with:
+- Left sidebar: New Snippet, My Snippets, Samples (selected), Import
+- Main content: "Samples - Choose one of the samples below to get started." and "There aren't any samples for this host yet."
+
+The Samples section shows "There aren't any samples for this host yet." - this is because Script Lab needs to be connected to an actual Office host (Excel, Word, etc.) to load host-specific samples.
+
+This confirms that the application is Script Lab running in standalone mode (web browser without an Office host). The Custom Functions feature of Script Lab requires an actual Excel instance to work properly.
+
+Let me click on "New Snippet" to see if there's a way to access a custom functions editor from here.
+[step 24] Action: left_click (153, 92)
+[step 24] Reasoning: Good. I can see the same "Blank Snippet" editor but now at `localhost:3000/#/` (the main route). The code shows the same template.
+
+Now let me try clicking the "Run" button from this route to see if the behavior is different from the `/custom-functions` route.
+[step 25] Action: left_click (14, 61)
+[step 25] Reasoning: Again, clicking "Run" at `localhost:3000/#/` also redirects to `localhost:3200/?backButton=true` which gives `ERR_CONNECTION_REFUSED`.
+
+Now I have a clearer picture of the situation. The application at `localhost:3000` is Script Lab, and:
+1. The editor/snippet manager is at port 3000 (HTTPS available)
+2. The snippet runner is at port 3200 (NOT running, connection refused)
+3. The Custom Functions runner is also at port 3200 (NOT running)
+
+The console output area (which would display `console.log` output and filtered vs. unfiltered runtime logs) is part of the runner at port 3200, which is unavailable.
+
+However, I need to check if there's something I'm missing. Let me look at the main application at port 3000 to see if there's any built-in console panel within the editor itself.
+
+Let me go back to the Script Lab editor at `localhost:3000/#/` and look more carefully at the right side of the interface.
+[step 26] Action: left_click (1205, 88)
+[step 26] Reasoning: I'm back at `localhost:3000/#/` with the Blank Snippet code editor. The Google Translate popup appeared again. Let me close it and look at the interface.
+
+I notice the application shows only:
+1. The editor pane (taking up full width)
+2. No console panel visible on the right
+
+In Script Lab's full implementation, when a snippet is running, the runner appears on the right side with a console panel at the bottom. But here, the runner would be embedded via an iframe to port 3200, which is unavailable.
+
+Let me try a different approach - let me look at the JavaScript source of the application to understand if there's an embedded runner mode that doesn't require port 3200. Let me use Chrome DevTools to inspect the application structure.
+
+Actually, I should try to navigate to the runner path at localhost:3000 instead of 3200. Let me try `localhost:3000/runner`.
+[step 27] Action: Open url: https://localhost:3000/runner
+[step 27] Reasoning: Good. Now let me try to navigate to `localhost:3000/runner` to see if there's a runner page within the main app.
+[step 28] Action: left_click (700, 33)
+[step 28] Reasoning: Interesting! Navigating to `localhost:3000/runner` shows a new tab labeled "Script Lab" at `host:3000/runner#/`. This also shows the same Blank Snippet code editor. The application serves the same editor interface at:
+- `/` (root)
+- `/custom-functions`
+- `/custom-functions-runner`
+- `/runner`
+
+All routes seem to serve the same editor interface. Now let me look at the tab bar - I now have 6 tabs open (many Script Lab tabs). Let me examine the runner page specifically.
+
+Wait - looking at the current screenshot more carefully, I notice the URL in the address bar says `host:3000/runner#/` (the tab title shows "Script Lab"). This appears to be yet another instance of the same Script Lab editor.
+
+The application has the same template at all routes. This could mean:
+1. All routes serve the same React app
+2. The routing is handled client-side by React Router
+3. The console panel would appear if the runner were actually running a snippet
+
+Let me try a different approach. Let me use the Chrome Developer Tools to look at what the application's JavaScript source says about the console log filtering. Let me open DevTools.
+
+Actually, I should first try to look at the specific behavior of the "Run" button within the `/custom-functions` path. In Script Lab's Custom Functions implementation, clicking "Run" from the custom functions editor should start the Custom Functions worker (not redirect to the runner page). 
+
+Let me navigate to the custom-functions page and try clicking Run there.
+[step 29] Action: key: ctrl+u
+[step 29] Reasoning: I'm now at `localhost:3000/custom-functions#/` (Script Lab custom functions). The editor shows the same Blank Snippet template. 
+
+Let me now try something different. I notice this application might be a different application entirely - not necessarily Script Lab. The URL pattern at localhost:3000 with a custom-functions route could be a custom development environment. Let me look at the page source to understand what application is actually running.
+
+Let me view the page source.
+[step 30] Action: left_click (640, 61)
+[step 30] Reasoning: The Ctrl+U shortcut didn't open a new tab with the source. Let me try the address bar approach to view the page source.
+[step 31] Action: triple_click
+[step 31] Reasoning: The address bar is now showing the URL `https://localhost:3000/custom-functions#/`. Let me navigate to `view-source:` to view the source.
+[step 32] Action: key: Escape
+[step 32] Reasoning: Good. The address bar is selected with `https://localhost:3000/custom-functions#/`. Let me try a different approach. I'll navigate to the runner that's supposed to be at port 3000's runner route. Actually, let me try to understand the application's structure first. Let me use Chrome DevTools (F12).
+
+Actually, let me try to get the source of the runner directly. Let me check if there is a `/run` path that might have a different console panel.
+
+Actually, let me think about this more carefully. The task mentions "Custom Functions page" with a console log filtering feature. Since all the routes (/, /custom-functions, /custom-functions-runner, /runner) seem to show the same editor interface, and the "Run" button redirects to port 3200, there might be a different way this application is structured.
+
+Let me go back to basics and look at the application at localhost:3000 from the custom-functions perspective. The custom-functions route might have a DIFFERENT layout that shows a console panel that I haven't seen yet because the page state depends on how it's initialized.
+
+Let me try the Custom Functions specific path again but look for any differences in the layout. Let me navigate to `localhost:3000/custom-functions` and wait to see if anything loads differently.
+
+Actually, I realize I should look at this from a completely different angle. The "Custom Functions" feature in Script Lab might only be accessible when running inside Excel, not in the standalone browser mode. In the standalone browser mode, the app might just show the snippet editor without the custom functions-specific UI.
+
+Let me try one more thing - let me check if there's a way to activate the runner within the current page by using the console. Let me open Chrome DevTools.
+[step 33] Action: left_click (957, 33)
+[step 33] Reasoning: I'm now at `https://localhost:3000/custom-functions#/` and the application is showing the "Blank Snippet" editor. I notice:
+
+**Visual observations:**
+- The interface is clean with: hamburger menu icon, "Blank Snippet" title, Run button, Delete button, Share button
+- Code tabs: Script, HTML, CSS, Libraries
+- The code editor shows a basic TypeScript snippet with `console.log("Hello World")`
+- There is a right edge indicator (red vertical line on the right edge at around x=1270)
+- Bottom status bar shows "WEB" and "TypeScript | Dark"
+
+Now I need to understand whether there's a console output panel that becomes visible after running a snippet. Since the runner at port 3200 is not available, let me try to look at the application's custom functions runner more carefully.
+
+Let me look at the tab at position where it says "Script Lab" at around position x=957, y=33. This was the tab for `localhost:3000/custom-functions-runner`. But first, I need to check what is at `localhost:3200` since this is where the runner runs.
+
+Actually, let me reconsider. Perhaps the application itself has changed since I last looked, or maybe there's a way to embed the runner within the main page. Let me try using Chrome DevTools to look at the page structure.
+
+Let me press F12 to open DevTools and look at the application structure.
+
+Actually, the task says I should only operate within the browser and not open Terminal. But using Chrome DevTools is within the browser. However, I should check - the task says to look for the console log filtering functionality within the application. 
+
+Let me try a completely different approach. Looking at the application URL `https://localhost:3000`, this might not be Script Lab at all - it might be a completely different application that happens to look like Script Lab. Let me carefully look at the interface.
+
+Wait - looking at the tab title "Script Lab" and the code pattern with `OfficeHelpers` and `tryCatch`, this is definitely Script Lab (Microsoft's tool for Office Add-ins development).
+
+Now, for Script Lab's Custom Functions:
+1. In the `/custom-functions` route, the editor shows custom functions code
+2. The runner at `/custom-functions-runner` or port 3200 shows console output
+3. The console filtering feature would filter out internal runtime messages from custom functions
+
+Since port 3200 is not running, the runner (and therefore console output) is not accessible. The "Run" button at both routes redirects to port 3200.
+
+Let me try one more thing - let me look at what's in the Script Lab at `localhost:3000/custom-functions-runner` tab since that's a different route that might have a different behavior.
+[step 34] Action: key: ctrl+minus
+[step 34] Reasoning: I'm at `localhost:3000/custom-functions-runner#/` and it shows the exact same interface as all other routes. 
+
+Let me now look carefully at the tabs in the current browser. I see there are multiple "Script Lab" tabs and "localhost" tabs. Let me look at the "localhost" tabs which might be the runner pages (previously connected to port 3200).
+
+Wait - I notice something I missed. Looking at the tabs:
+1. "OpenClaw Control" - first tab
+2. "隐私设置错误" - privacy error tab
+3. "Script Lab" - main Script Lab tab (port 3000 root)
+4. "localhost" - this might be an older runner tab
+5. "Script Lab" - custom-functions tab
+6. "localhost" - another runner tab
+7. "Script Lab" - custom-functions-runner tab
+8. "Script Lab" - latest tab (runner page)
+
+Let me look at the "localhost" tabs (positions 4 and 6) more carefully to understand if they're the runner pages.
+
+The tabs at positions 4 and 6 show "localhost" which could be the `localhost:3200` runner page (even though it shows ERR_CONNECTION_REFUSED). But these would be the same error page.
+
+Let me now try a completely different approach. Let me look at this problem from the perspective of the application's actual code. Let me open Chrome DevTools to look at the network requests and console output.
+
+Actually, I should focus on the key question: Is the Custom Functions page accessible in this application at localhost:3000, and is there a console log filtering feature?
+
+Based on my exploration:
+1. The application at `localhost:3000` is Script Lab
+2. All routes (/, /custom-functions, /custom-functions-runner, /runner) show the same editor interface
+3. The "Run" button redirects to `localhost:3200` which is not available (ERR_CONNECTION_REFUSED)
+4. No console output panel is visible in the editor
+5. The custom functions-specific features (like the console log filtering) would be in the runner at port 3200
+
+Let me check if maybe the application shows a console panel when the right side is wider. Let me look at the application by inspecting it with DevTools.
+
+Actually, I realize I should try to use the application's own navigation more carefully. Looking at the editor, there's a split view button or some way to show the runner panel. In Script Lab's web mode, when you click "Run", it tries to open the runner.
+
+Let me try one more thing - checking if there's a split view by looking at the right edge of the toolbar or if there are any hidden buttons.
+
+Let me zoom out to see the full page width and look for any hidden UI elements.
+[step 35] Action: key: ctrl+0
+[step 36] Action: key: F12
+[step 36] Reasoning: The page still looks the same at 100% zoom. I notice there's a right-edge red vertical line which might indicate something. Let me try to zoom out to 80% to see if there are any hidden panels.
+
+Actually, let me try a completely different and more systematic approach. Let me use Chrome DevTools to inspect the actual HTML structure of the page to see if there's a runner/console panel that's hidden or not visible in the current viewport.
+
+Let me open Chrome DevTools with F12.
+[step 37] Action: left_click (1001, 540)
+[step 37] Reasoning: Excellent! Chrome DevTools is now open! I can see several important things:
+
+**Elements panel shows:**
+- `<html lang="en" dir="ltr">`
+- `<body class="ms-Fabric">`
+- `<noscript>` message
+- `<div id="loading" style="visibility: hidden;">` with a loading indicator
+- `<div id="root">` (this is the React app container)
+- Script tags including bundle.js, monaco editor, etc.
+
+**Console panel shows:**
+- "2 Issues: ▲1 ●1" and "1 error"
+- "next state ► Object" with configureStore.ts:29
+- "Unsafe attempt to load URL https://telemetryservice.firstpartyapps.oasgapps.com/telemetry-vs-from frame with URL chrome-error://chromewebdata/. Domains, protocols and ports must match."
+
+This is very revealing! The console shows:
+1. A state change log (from `configureStore.ts:29`) - this is an internal runtime log
+2. An "Unsafe attempt to load URL" error for telemetry service
+
+Now let me look at the HTML structure more carefully. I see there's a `<div id="root">` which is the React app container. The body has class `ms-Fabric` which confirms this is a Microsoft Fabric UI (Office UI Fabric) application.
+
+Let me click on the "Console" tab in DevTools to see all the console output.
+[step 38] Action: left_click (975, 219)
+[step 38] Reasoning: Good. I can see in the DevTools console at the bottom there are:
+- "next state ► Object" - configureStore.ts:29 (this is an internal log)
+- "Unsafe attempt to load URL..." error
+
+Now, let me look at the HTML structure more carefully. I need to find if there's a runner or console panel in the app's UI. Let me inspect the `<div id="root">` element to see what's rendered inside it.
+
+Let me click on the `<div id="root">` in the Elements panel to expand it.
+[step 39] Action: left_click (969, 219)
+[step 39] Reasoning: I selected the `div#root` element and can see at the bottom it shows "div#root 1308.18 × 798.18". The element takes up the full page. The `div#root` contains the React app. 
+
+Let me now expand the root div to see its children. I'll click on the expand arrow next to `<div id="root">`.
+[step 40] Action: left_click (1017, 407)
+[step 40] Reasoning: A context menu appeared. I see options like "Edit as HTML", "Expand recursively", etc. Let me click "Expand recursively" to see the full DOM structure.
+[step 41] Action: left_click (1073, 131)
+[step 41] Reasoning: Now I can see the DOM structure of the page. The HTML structure shows:
+- `<div id="root">`
+  - `<div class="sc-bwzFXH hmzEIg" style="visibility: visible; height...">` - this is the main app container
+    - `<div>` - outer wrapper
+      - `<div style="position: relative;">` 
+        - `<div data-automation-id="visibleContent" style=...>` - visible content
+          - `<div role="menubar" class="ms-CommandBar ro...">` - the command bar (top toolbar)
+            - ...
+
+This is the React app structure. There seems to be only a command bar (toolbar) and then the main content area. I don't see any console panel in the DOM structure so far. Let me scroll down in the Elements panel to see more of the DOM structure.
+
+Let me close the DevTools for now and try a different approach. Let me navigate to the actual Source files to find the console log filtering code.
+
+Actually, let me look at the Console tab in DevTools to see all the messages that are generated when the application runs, to understand what's being filtered.
+[step 42] Action: key: F12
+[step 42] Reasoning: Excellent! Now I can see the full Chrome DevTools Console output! This is very revealing. The console shows a LOT of internal/runtime messages:
+
+1. **`action ► Object`** - configureStore.ts:27 (Redux action dispatch)
+2. **`next state ► Object`** - configureStore.ts:29 (Redux state change)
+3. **`INFO (Editor): Fetched`** - loglevel-plugin-prefix.js:109 - fetching IntelliSense for office-js-helpers
+4. **`INFO (Editor): Fetched`** - loglevel-plugin-prefix.js:109 - fetching IntelliSense for hosted office.d.ts
+5. **`INFO (Editor): Fetched`** - loglevel-plugin-prefix.js:109 - fetching IntelliSense for jquery/index.d.ts
+6. **`INFO (Editor): Need to follow up`** - loglevel-plugin-prefix.js:109 - with IntelliSense for array
+7. Multiple more **`INFO (Editor): Fetched`** messages for various type definitions
+8. **`INFO (Editor): Ready to give URLs`** - loglevel-plugin-prefix.js:109 - with list of URLs
+9. **`SCREEN_UPDATE_SIZE`** - configureStore.ts:25 - Redux action with Object
+10. **`prev state ► Object`** - configureStore.ts:26
+11. **`action ► Object`** - configureStore.ts:27
+12. **`next state ► Object`** - configureStore.ts:29
+13. **`Unsafe attempt to load URL`** - [index]:1 (telemetry service error)
+
+This is in Chrome's built-in DevTools console. However, the task asks about the **application's own console output panel** - the in-app console that displays the output of running custom functions.
+
+The in-app console panel would be visible in the runner page (port 3200). Since port 3200 is unavailable, I cannot access the runner's console panel.
+
+However, I notice something important: The application at `localhost:3000/custom-functions-runner` is the Custom Functions runner page that should have its own console output panel embedded within the page. Let me look more carefully at this specific route.
+
+Wait - let me re-read the application structure. In Script Lab's custom functions mode:
+- The **editor** is at `/custom-functions` path (port 3000)
+- The **runner/worker** that actually executes the custom functions is a different component
+
+The "console log filtering" feature might be visible in the runner page itself. Let me close DevTools and try clicking "Run" at the custom-functions path to see if it shows something within the current page rather than redirecting to port 3200.
+
+Let me try navigating to the `/custom-functions` path specifically.
+[step 43] Action: left_click (1097, 33)
+[step 43] Reasoning: DevTools is closed. I'm still at `localhost:3000/custom-functions-runner#/`. Now let me navigate to the `/custom-functions` path to test the specific Custom Functions editor and its behavior when Run is clicked.
+
+Let me now look at this application from a completely different angle. Instead of exploring tabs, let me try to write a custom functions-style snippet with `@customfunction` annotation and see what happens.
+
+But first, let me check the "Script" tab to see if the current snippet can be modified to have console.log output and then run it to see the console output area.
+
+Wait - looking at the current page with the "Blank Snippet", the code already has `console.log("Hello World")`. When I click "Run", it tries to go to port 3200 where the runner would display this output.
+
+Let me now try a different strategy. Instead of clicking "Run" (which opens port 3200), let me check if there's a way to see a console output panel within the current page by inspecting the page.
+
+Actually, let me look at the tab that said "Script Lab" at the last position (position 8 in the tab bar). That was `localhost:3000/runner` - let me check that.
+[step 44] Action: key: F12
+[step 44] Reasoning: I'm now at `localhost:3000/runner#/` and it shows the same Blank Snippet editor. Every route in this Script Lab application shows the same editor interface.
+
+At this point, I've explored the application thoroughly:
+1. All routes (`/`, `/custom-functions`, `/custom-functions-runner`, `/runner`) show the same editor
+2. The "Run" button opens port 3200 which is unavailable
+3. The application's UI only shows an editor with no console output panel visible
+
+The console log filtering feature that the task mentions would be in the **runner's console panel** which requires port 3200 to be running. Since port 3200 is refusing connections, this feature is not accessible.
+
+However, let me try one more thing - let me check the Sources tab in DevTools to look at the JavaScript files and find the console log filtering code. This might help me understand if the feature exists in the application.
+
+Actually wait - I should look at this from a different angle. Let me look at the application's network requests and source code. The key file would be something like `custom-func-s-runner.js` which I noticed in the DevTools.
+
+Let me open DevTools and look at the Sources tab to find the console log filtering code.
+[step 45] Action: left_click (1120, 131)
+[step 45] Reasoning: I can see the DevTools Console again. This shows all the runtime logs that Script Lab is generating internally. Let me now navigate to the Sources tab to look at the JavaScript files and find the console log filtering feature.
+[step 46] Action: left_click (1025, 242)
+[step 46] Reasoning: Excellent! Now I can see the Sources panel which shows the file tree structure:
+- **localhost:3000** folder containing:
+  - Users/worker04/open...
+  - assets/images
+  - external/monaco-edito...
+  - static/js
+  - **runner** (this is interesting!)
+- appsforoffice.microsoft....
+- file://
+- res-1.cdn.office.net
+- spoprod-a.akamaihd.net
+- static2.sharepointonline....
+- webpack://
+- chromewebdata/
+- **workerMain.js#editorWork...** (this is a worker!)
+
+I can see there's a `runner` file under `localhost:3000/static/js` and a `workerMain.js#editorWork...` which is a web worker. Let me expand the `static/js` folder to find the runner and custom functions related files.
+
+Let me click on `static/js` to expand it.
+[step 47] Action: left_click (986, 242)
+[step 47] Reasoning: The `static/js` folder didn't expand or I need to click the triangle/arrow on the left. Let me try clicking the triangle to expand the static/js folder.
+[step 48] Action: left_click (1022, 316)
+[step 48] Reasoning: The `static/js` folder is now expanded and I can see:
+- 0.chunk.js
+- 1.chunk.js
+- bundle.js
+- main.chunk.js
+- **runner** (this is a file without .js extension or a subfolder)
+
+And outside static/js there are:
+- **runner** (at the localhost:3000 root level - probably the runner HTML page)
+
+Let me click on the `runner` file at the localhost:3000 root level to see what it contains.
+[step 49] Action: left_click (1035, 286)
+[step 49] Reasoning: Interesting! I clicked on `runner` file but it shows "Content unavailable. Resource w..." - the runner content is not available in the sources panel. This means the runner page at `localhost:3000/runner` might be a different type of resource that's not being served as a regular HTML file.
+
+Wait, I see at the top of the sources panel there's a "run..." tab that's selected (with the X button). The "runner" file is the one under localhost:3000 root (not inside static/js). And the message says "Content unavailable. Resource w..." - the content is unavailable.
+
+Now let me look at the `bundle.js` file which is the main application bundle. This might contain the console log filtering code. Let me click on `bundle.js`.
+[step 50] Action: key: ctrl+shift+f
+[step 50] Reasoning: The `bundle.js` file is now open in the Sources panel! The source map has been loaded. I can see minified code at lines 86-100+ with patterns like `/******/` which is Webpack code. However, since the source map is loaded, I can use the "Pretty print" button to make it readable, or I can use Ctrl+F to search for "console.log" or "filter" within the file.
+
+But this approach is getting complex. Let me try a different, more practical approach. Let me use the DevTools Console to search for the console log filtering behavior by running JavaScript.
+
+Actually, let me use the Search functionality in DevTools. I'll press Ctrl+Shift+F to search across all sources for "filterLog" or "console.log" filtering keywords.
+[step 51] Action: key: F12
+[step 51] Reasoning: The Search panel didn't open. Let me try using the Console tab instead and use the search functionality there. Let me click on the Console tab.
+
+Actually, let me close DevTools and take a completely different approach. Let me navigate directly to `localhost:3000/runner` (not port 3200) in the browser to see if the runner is hosted within the same port.
+[step 52] Action: left_click (700, 33)
+[step 52] Reasoning: DevTools is closed. I'm still at `localhost:3000/runner#/` which shows the Script Lab editor with the Blank Snippet.
+
+Let me now think about what I know:
+1. The application serves the same editor UI at multiple routes (/, /custom-functions, /custom-functions-runner, /runner)
+2. The "Run" button tries to connect to port 3200 which is not running
+3. The runner at port 3200 is where the actual console output would be displayed
+4. The console log filtering feature would be in the runner's UI (port 3200)
+
+Since the runner is not available, let me think about whether there's another way to test this. Let me check if the application has some embedded demo or mode that shows console output.
+
+Wait - I should try looking at the application from a completely fresh perspective. Let me navigate to the homepage `localhost:3000` and look for any navigation links or menus that I might have missed.
+
+Actually, let me reconsider the entire application structure. In newer versions of Script Lab, the runner might be embedded within the same page. Let me try clicking "Run" from the `/custom-functions` route and see if the behavior is different from clicking Run in the regular editor.
+
+Let me navigate to the custom-functions page.
+[step 53] Action: left_click (153, 92)
+[step 53] Reasoning: I'm at `https://localhost:3000/custom-functions#/` - this is the Custom Functions editor page. The interface shows the same Blank Snippet editor. Now I notice the URL is showing just the `#/` hash, which means the routing is client-side.
+
+Looking at the current state of the application:
+1. I'm at the Custom Functions path (`/custom-functions`)
+2. The Blank Snippet has `console.log("Hello World")`
+3. Clicking "Run" would go to port 3200
+
+But wait - maybe the custom-functions path has a different behavior. In Script Lab's custom functions mode, the custom functions are registered and run differently. The custom functions runner doesn't use port 3200 the same way - instead, it uses a web worker and communication via postMessage.
+
+Let me try clicking "Run" from this custom-functions path and carefully observe what happens - specifically, does it open a new tab or does something happen within the current page?
+[step 54] Action: left_click (955, 33)
+[step 54] Reasoning: I can confirm what I suspected - clicking "Run" from both the `/custom-functions` path AND other routes consistently redirects to `localhost:3200/?backButton=true` which shows:
+- "无法访问此网站" (Cannot access this website)
+- "localhost 拒绝了我们的连接请求" (localhost refused our connection request)
+- "ERR_CONNECTION_REFUSED"
+
+The runner at port 3200 is definitely not running.
+
+Now I need to make a final determination about this task. Let me go back and think:
+
+1. **The application**: Script Lab (Microsoft's Office Add-ins development tool) at `https://localhost:3000`
+2. **The Custom Functions page**: Exists at `/custom-functions` route - shows the same editor with Blank Snippet
+3. **The runner**: Should be at `localhost:3200` but is NOT running (ERR_CONNECTION_REFUSED)
+4. **Console log filtering feature**: Would be in the runner's console panel (port 3200) - NOT accessible
+
+However, I should consider one more thing - the task might be referring to a DIFFERENT application at this localhost:3000 address that is NOT Script Lab but instead a custom application that has a different "Custom Functions" page with an embedded console log panel.
+
+Let me go back to the Script Lab tab and look at the application more carefully to see if there are ANY signs of a different "Custom Functions" page with console log filtering.
+
+Let me navigate back to the Script Lab application and look at the script tab to see if the current snippet is a regular script or a custom functions script. The key difference would be the presence of `@customfunction` JSDoc annotation.
+[step 55] Action: left_click (383, 33)
+[step 55] Reasoning: I'm at `https://localhost:3000/custom-functions-runner#/` - this is the custom-functions-runner page. Looking at the interface, I see the same "Blank Snippet" editor. 
+
+The URL bar shows `host:3000/custom-functions-runner#/`. This page is specifically designed to be the Custom Functions Runner within Script Lab. In the real Office Add-in context, this page would be loaded in the task pane of Excel, and it would show:
+1. A list of registered custom functions
+2. A console output area for logging
+3. Status indicators for each function
+
+But in the standalone browser mode, it shows the same editor because there's no Excel context.
+
+Now let me look at the application at the `localhost:3000/custom-functions-runner` path and see if there's a console panel by scrolling or looking at different areas. The editor might be hiding the console panel.
+
+Let me try pressing the Run button here in the custom-functions-runner route to see if the behavior is different. It might try to run the custom functions in a web worker rather than opening port 3200.
+
+Wait, actually - I notice that the tab at position 5 shows `https://localhost:3000/custom-functions#/` (custom-functions editor) and this tab shows `custom-functions-runner`. These are different pages! The **custom-functions-runner** might be the page where the functions actually run and show console output, while the **custom-functions** is the editor.
+
+However, when I navigate to `/custom-functions-runner`, it still shows the same editor interface. This suggests the application is serving the same SPA (Single Page Application) on all routes.
+
+Let me look at this from a different perspective. Let me check if there's a way to see the split view (editor + runner panel) within the same page. Maybe I need to look at the right side of the interface for a collapsed runner panel.
+
+Actually, in Script Lab's implementation, the runner panel would be shown by split-pane inside the same page. Let me look at the `#` (hash) routing to see if there's a hash that shows the runner panel.
+
+Let me try navigating to `localhost:3000/custom-functions-runner#/logs` or similar hash routes.
+
+Actually, let me step back and consider what I know about Script Lab's web runner behavior. When you're NOT in an Office host environment (standalone browser mode), Script Lab shows a banner saying "Script Lab is running outside of Office" and some features are limited.
+
+Let me close DevTools and look at the very top of the application to see if there's any banner or notification that I might have missed.
+
+Let me first scroll up in the editor to see if there's anything above the toolbar.
+
+Actually, looking at the current screenshot - the toolbar is at the very top. There's nothing above it except the browser's address bar.
+
+Let me now try a completely new approach - let me look at the application from a fresh start. I'll navigate to the homepage `localhost:3000` and carefully examine everything visible.
+[step 56] Action: left_click (17, 92)
+[step 56] Reasoning: I'm at `https://localhost:3000/#/` - the main Script Lab page showing the Blank Snippet editor. 
+
+Let me try clicking the hamburger menu (☰) icon at the top left to see the full navigation menu.
+[step 57] Action: left_click (57, 257)
+[step 57] Reasoning: Now I can see the full navigation menu! The sidebar shows:
+- ☰ (hamburger/back to editor)
+- **+ New Snippet** - create new snippet
+- **My Snippets** (currently selected) - shows:
+  - "My Snippets - Choose a snippet that you have saved"
+  - Search bar
+  - "My snippets on this computer" section with:
+    - Warning: "Snippets you create get erased if you clear your browser cache. To save snippets permanently, export them as gists from the Share menu."
+    - **Blank Snippet** (highlighted - currently active)
+    - **Blank Snippet** (another one - appears to be a duplicate!)
+  - "My shared gists on GitHub" section with "Sign In" button
+- **Samples** - shows samples
+- **Import** - import from URL or paste code
+
+**Visual anomaly observed**: I can see TWO "Blank Snippet" entries in "My snippets on this computer" - this might be because I created a new snippet at different routes earlier. This is a potential visual anomaly or bug (duplicate snippets).
+
+Now looking at the navigation menu, I don't see any "Custom Functions" section in the navigation. This is the full navigation - New Snippet, My Snippets, Samples, Import. There's no dedicated "Custom Functions" page within this Script Lab UI at the root path.
+
+The Custom Functions functionality in Script Lab is at a different route (`/custom-functions`) and would need the Office Excel context to work properly.
+
+Let me check the Samples section to see if there are any Custom Functions samples.
+[step 58] Action: left_click (640, 62)
+[step 58] Reasoning: The Samples page shows:
+- "Samples - Choose one of the samples below to get started."
+- "**There aren't any samples for this host yet.**"
+
+This confirms that Script Lab doesn't have samples loaded for the web browser host (it needs to be running inside an Office application like Excel, Word, etc.).
+
+Now let me try navigating to the `/custom-functions` route and explore it from the hamburger menu perspective to see if it has different navigation options.
+[step 59] Action: triple_click
+[step 59] Reasoning: The address bar is now showing `https://localhost:3000/#/` and there's a dropdown with "问问 Google 有关此页面的问题 - localhost". The address bar is selected. Let me type the custom-functions path.
+[step 60] Action: type: https://localhost...
+[step 60] Reasoning: Good. The address bar is selected showing `https://localhost:3000/#/`. Let me navigate to the custom-functions page.
+[step 61] Action: key: Return
+[step 61] Reasoning: I can see the dropdown showing my recently visited URLs:
+- `Script Lab - https://localhost:3000/custom-functions`
+- `https://localhost:3000/custom-functions - Google 搜索`
+- `Script Lab - https://localhost:3000/custom-functions-runner#/`
+
+This confirms the URLs I've visited. Let me press Enter to navigate to `https://localhost:3000/custom-functions`.
+[step 62] Action: Open url: https://localhost:3000/custom-functions.html
+[step 62] Reasoning: I'm now at `https://localhost:3000/custom-functions#/` - the Custom Functions page in Script Lab. The interface shows the same Blank Snippet editor. 
+
+Now I need to see if clicking "Run" in this `/custom-functions` path has different behavior. Looking at the toolbar, I see "Run" button with a ▶ icon.
+
+At this point, let me now look carefully at what the application is actually doing. The `custom-functions` route in Script Lab is for writing and testing Excel Custom Functions. When clicking "Run", it should:
+1. Register the custom functions with the Excel instance (if running inside Excel)
+2. In standalone mode, it would try to use the runner to simulate this
+
+Since port 3200 is not running, the "Run" functionality opens a page showing `ERR_CONNECTION_REFUSED`. 
+
+But let me look very carefully at what this specific `custom-functions` page shows. I need to look for any console log panel or output area. Let me look at the right side panel carefully. I see at x=1265, y=93 there's a small blue circle icon with what appears to be a person/account icon. And at x=1265, y=655 at the bottom right of the editor, there seems to be something.
+
+Let me look at the bottom-right corner of the editor for any console output trigger. I notice the bottom status bar shows "TypeScript | Dark" and something at the far right.
+
+Let me try clicking on the area at the bottom right of the interface around x=1240, y=655.
+
+Actually, I should focus on a different strategy. Let me look at the application's JavaScript source code to understand the Custom Functions page specifically. Let me open DevTools and look at the Source files for the custom functions route.
+
+Actually, I think the most important thing I can do now is to look at this application more systematically. Let me look at the application bundle to understand what routes and features are available.
+
+Let me try to find if there's a "Custom Functions" specific UI by looking at what the `custom-functions-runner` HTML page contains. Let me navigate to the `custom-functions-runner` URL directly (not the hash route) to see if there's a different HTML page for it.
+
+Wait - earlier when I navigated to `localhost:3000/custom-functions-runner`, it showed the same editor UI (React SPA). But let me think... in Script Lab's implementation, there are TWO separate pages:
+1. The editor SPA at `localhost:3000` - handles editing
+2. The runner page (often a separate static HTML file) at `localhost:3200` or a specific path
+
+The runner page for custom functions might be at a different URL path within the main server. Let me check `localhost:3000/custom-functions.html` or similar.
+[step 63] Action: wait
+[step 63] Reasoning: Excellent! This is VERY different! When I navigate to `https://localhost:3000/custom-functions.html`, it redirects to `host:3000/#/custom-functions` and shows a **Script Lab loading screen** with:
+- The Script Lab logo (red cube icon)
+- "Script Lab" text
+- "Code • Run • Share" tagline
+- A loading indicator (dots bouncing)
+
+This is the Script Lab splash screen while the app loads! The `.html` extension triggered a redirect/loading behavior. But more importantly, the URL in the address bar shows `host:3000/#/custom-functions` which is a DIFFERENT hash route than what I saw before!
+
+Previously I was at `localhost:3000/custom-functions#/` - now I'm at `localhost:3000/#/custom-functions` (the hash is part of the path).
+
+Wait, this is actually a different URL pattern. Let me wait for the page to finish loading to see what it shows.
+
+Let me wait for the page to load.
+[step 64] Action: left_click (640, 62)
+[step 64] Reasoning: **IMPORTANT DISCOVERY!** I found the actual **Custom Functions** page! The URL is `host:3000/#/custom-functions` and the page shows:
+
+- **Script Lab logo** (red cube icon)
+- **"Custom Functions"** in orange/red text
+- A separator line
+- Message: *"Currently, Script Lab only supports Custom Functions (Preview) on Windows Desktop on the latest Insider builds on PC and Mac, and on Office Online."*
+- *"For more info, see [these instructions](...)."*
+
+**This is the actual Custom Functions page!** And it says clearly that Custom Functions is only supported in specific Office environments (Windows Desktop, Insider builds, Office Online) - NOT in standalone browser mode.
+
+This is the specific "Custom Functions" page that the task is referring to. The page is accessible at `https://localhost:3000/#/custom-functions` (note: hash-based routing, not path-based).
+
+**Visual observations:**
+- The page shows a clean informational display
+- The "Custom Functions" text is in orange/red (matching Script Lab's brand color)
+- There's a dashed separator line
+- The page looks complete and properly rendered
+
+Now I understand the issue - the `/custom-functions` path in the Script Lab editor is the Editor page for custom functions (which showed the code editor), while the `#/custom-functions` hash route shows the informational page about Custom Functions.
+
+But this page doesn't have any console log filtering functionality to test. It's just an informational page saying Custom Functions needs to run in a specific Office environment.
+
+The question remains: is there a console log filtering feature in this application that I can test? This feature would be in the custom functions runner, which requires Excel to run.
+
+Let me check if there are other hash routes related to custom functions. Let me look at the address bar carefully - it shows `host:3000/#/custom-functions`. The hash routing `/custom-functions` leads to this informational page.
+
+Let me now check if there's a `#/custom-functions-runner` hash route.
+[step 65] Action: left_click (857, 33)
+[step 65] Reasoning: Good. The address bar shows `https://localhost:3000/#/custom-functions`. Now I can see the full URL in the address bar. The page is showing the Custom Functions informational page.
+
+Now let me look at the "custom-functions-runner" app that's hosted at port 3000 (not 3200). Earlier when I navigated to `/custom-functions-runner`, it showed the editor. But the hash-based routing `#/custom-functions` showed this informational page. Let me look at the other Script Lab tabs to see if any of them have a different view.
+
+Let me navigate back to the "Script Lab" tab that was the custom-functions-runner tab earlier. Looking at the tab bar, I can see multiple Script Lab tabs. The ones I have open are:
+- Tab 4 (position): Script Lab at `localhost:3000` (root)
+- Tab 5 (position): localhost (port 3200 runner - error)  
+- Tab 6: localhost (port 3200 runner - error)
+- Tab 7: localhost (port 3200 runner - error)
+- Tab 8: Script Lab at `localhost:3000/custom-functions-runner`
+- Tab 9: Script Lab at `localhost:3000/runner`
+- Tab 10 (current): Script Lab at `localhost:3000/#/custom-functions`
+
+Now I need to understand if the `custom-functions-runner` page at the path level (not hash level) has a different UI. Let me try navigating to that tab.
+[step 66] Action: Open url: https://localhost:3000/#/runner
+[step 66] Reasoning: I'm at `https://localhost:3000/custom-functions-runner#/` - the custom-functions-runner page (path-based, not hash-based). This shows the same editor UI.
+
+Now I understand the difference:
+- **Path-based routing** (`localhost:3000/custom-functions#/`, `localhost:3000/custom-functions-runner#/`): Shows the Script Lab editor
+- **Hash-based routing** (`localhost:3000/#/custom-functions`): Shows a different UI (the Custom Functions informational page)
+
+The hash-based routing within the Script Lab SPA shows the "Custom Functions" informational page when the hash is `#/custom-functions`.
+
+Now the question is: is there a console log filtering feature within any of these pages? And if the Custom Functions page at `#/custom-functions` only shows an informational message (that Custom Functions only works in specific Office environments), then there's no way to run custom functions or see console output in the standalone browser mode.
+
+Let me now try to understand the full application by looking at all the hash routes. Maybe there's a `#/runner` or `#/custom-functions-runner` hash that shows a different view.
+
+Let me try navigating to `https://localhost:3000/#/runner` to see what that shows.
+[step 67] Action: left_click (170, 32)
+[step 67] Reasoning: I'm at `https://localhost:3000/#/runner` and it shows the same Script Lab editor with the Blank Snippet. **Visual anomaly**: I notice the toolbar buttons (Blank Snippet, Run, Delete, Share) don't have their usual icons - the "Run" button shows "Run" without the ▶ icon, and the account icon at the top right is missing the toolbar icon. This might be a rendering issue or this is the "runner" mode of the editor.
+
+Wait - looking more carefully at the toolbar, I can see:
+- "Blank Snippet" title (without the hamburger menu icon to the left!)
+- "Run" (without the ▶ icon)
+- "Delete" (without the trash icon)
+- "Share" (without the share icon)
+- The account circle icon on the right is gone!
+
+This is a **DIFFERENT layout** from the regular editor! The toolbar is stripped of some icons. The `#/runner` hash route in the SPA shows a runner mode.
+
+But the code content is the same. Let me wait for the page to load fully and see if something appears. Also note - the Google Translate popup appeared which I need to close.
+
+Let me close Google Translate and look at this page more carefully.
+[step 68] Action: key: Escape
+[step 68] Reasoning: I accidentally clicked on the "隐私设置错误" (Privacy Settings Error) tab and a popup appeared showing "localhost:3000 - 内存用量：11.4 MB" (Memory usage: 11.4 MB). This is a tab hover tooltip. Let me click somewhere else to close this.
+
+Looking at the current Script Lab editor at `localhost:3000/#/runner`, I notice the toolbar now has:
+- ☰ hamburger icon on the left
+- "Blank Snippet" title
+- ▶ Run button
+- Delete button
+- Share button
+- The account circle icon on the right (at position 1265, 92)
+
+It looks like the page loaded properly. Let me close this tooltip and navigate to the Script Lab tab showing the `#/runner` hash.
+[step 69] Action: triple_click
+[step 69] Reasoning: Now I can see the page at `https://localhost:3000/#/runner` clearly! The address bar shows `https://localhost:3000/#/runner` and the page shows the same Script Lab editor with the Blank Snippet.
+
+This `#/runner` hash route also shows the same editor. The `#/custom-functions` hash route showed the Custom Functions informational page, while `#/runner` shows the editor.
+
+Now let me try to understand the complete picture by looking at what hash routes are available. Let me try `#/custom-functions-runner`.
+[step 70] Action: type: https://localhost...
+[step 70] Reasoning: Good. The address bar is selected with `https://localhost:3000/#/runner`. Let me now navigate to the `#/custom-functions-runner` hash route.
+[step 71] Action: key: Return
+[step 71] Reasoning: Good, I can see the dropdown showing `https://localhost:3000/#/custom-functions-runner` as an option. Let me press Enter to navigate there.
+[step 72] Action: left_click (640, 441)
+[step 72] Reasoning: **IMPORTANT DISCOVERY!** When navigating to `https://localhost:3000/#/custom-functions-runner`, the application shows an **error page**:
+- Script Lab logo
+- "Script Lab" text
+- "**An unexpected error has occurred.**"
+- "Click for more info" link
+- "Close" link
+
+This is a Script Lab error state! The `#/custom-functions-runner` hash route triggers an error. Let me click "Click for more info" to see what error occurred.
+[step 73] Action: left_click (799, 33)
+[step 73] Reasoning: Now I can see the error details! The Script Lab at `#/custom-functions-runner` shows:
+- "An unexpected error has occurred."
+- **"Script error."**
+
+This is the "Script error." message which is a generic error from Script Lab. This error occurs when the application is navigated to the `#/custom-functions-runner` hash route without proper context (no Excel instance running, no snippet loaded properly).
+
+Now let me look at the `Close` link - what happens when I click it?
+
+Actually, let me first understand what I know:
+1. `https://localhost:3000` - Script Lab main page (shows editor/samples)
+2. `https://localhost:3000/#/custom-functions` - Shows "Custom Functions" informational page (Office only)
+3. `https://localhost:3000/#/custom-functions-runner` - Shows "Script error." error page
+4. `https://localhost:3000/#/runner` - Shows the Script Lab editor
+5. `https://localhost:3000/custom-functions` (path-based) - Shows the Script Lab editor
+6. `https://localhost:3000/custom-functions-runner` (path-based) - Shows the Script Lab editor
+7. `https://localhost:3000/runner` (path-based) - Shows the Script Lab editor
+
+The **key page** I need to access for testing the console log filtering in Custom Functions is the Custom Functions runner, which appears to be at `#/custom-functions-runner`. But navigating there directly causes a "Script error." because there's no snippet loaded/registered.
+
+The proper flow would be:
+1. Open the Script Lab editor (at `/custom-functions` path)
+2. Write/load a custom functions snippet with `@customfunction` annotation
+3. Click "Run" which would start the custom functions worker
+4. The custom functions runner would show at `#/custom-functions-runner` or similar
+
+But since clicking "Run" redirects to port 3200 (which is not running), this flow is broken.
+
+Let me now try another approach - let me look at the actual Script Lab application more carefully. Maybe there's a way to run custom functions that doesn't require port 3200. Let me check the `localhost:3000/custom-functions-runner` page (path-based) which showed the editor.
+
+Wait - I just realized something important. The path-based `/custom-functions-runner` serves the Script Lab SPA, which has a DIFFERENT hash routing than what I've been testing. When I navigate to `localhost:3000/custom-functions-runner`, the SPA loads, and then its internal hash routing starts at `#/`. 
+
+But when I navigate to `localhost:3000/#/custom-functions-runner`, it's the main SPA at `localhost:3000/` with hash `#/custom-functions-runner`.
+
+Let me now understand the application's routing structure better. The Script Lab SPA appears to have:
+- Path-based routes (all serve the main SPA): `/`, `/custom-functions`, `/custom-functions-runner`, `/runner`
+- Hash routes (within the SPA): `#/`, `#/editor`, `#/runner`, `#/custom-functions`, `#/custom-functions-runner`
+
+The hash routes are what the React Router in the SPA uses for navigation. So:
+- `#/custom-functions` → shows informational "Custom Functions" page
+- `#/custom-functions-runner` → shows "Script error." (needs proper context)
+- Other hashes → show the editor
+
+Now I need to understand: Is there a way to properly access the `#/custom-functions-runner` with a snippet loaded? In Script Lab, the custom functions runner would need to be opened from within the editor after registering custom functions.
+
+Let me try a different approach. Let me navigate to the `custom-functions` path-based editor and then try to run a custom functions snippet. Instead of the blank snippet, let me create a snippet with proper `@customfunction` JSDoc annotation.
+
+Let me navigate to the custom-functions editor.
+[step 74] Action: key: F12
+[step 74] Reasoning: I'm now at `https://localhost:3000/custom-functions-runner#/` - the path-based custom-functions-runner page showing the Script Lab editor with the Blank Snippet.
+
+Let me now try to write a proper custom functions snippet and see if clicking "Run" behaves differently here. Let me first clear the editor and write a proper custom functions snippet with `@customfunction` annotation.
+
+But wait - looking at this page, this is the path `/custom-functions-runner` (not the hash route). This serves the same SPA which shows the editor. If this is intended to be the runner page, it should show a console output area, not the code editor.
+
+Let me now try modifying the snippet code in the editor to include a `@customfunction` annotation and then click "Run" to see what happens. Let me click in the code editor first.
+
+Actually, before doing that, let me check if there's a way to navigate from this editor to a built-in console view. Let me look at what the "Run" button does more carefully.
+
+OK at this point, I have a comprehensive understanding of the application. Let me now try one last approach - look for the Custom Functions runner in a more intelligent way. The app might have the runner at a specific URL that's different from what I've tried.
+
+Let me look at the application from the perspective of the Custom Functions runner at port 3000. In some versions of Script Lab, the custom functions runner is a separate page that can be accessed at a specific path. Let me try some common patterns.
+
+Actually, looking at the application again, I think I've been overthinking this. Let me try the path `/custom-functions-runner` (without a hash) and see if there's a direct HTML page at this path.
+
+Wait - earlier when I navigated to `localhost:3000/custom-functions-runner`, it showed the Script Lab editor at `localhost:3000/custom-functions-runner#/`. This means the server serves the same SPA at this path. There's no separate HTML page.
+
+Let me now try a completely different approach. Let me look at the JavaScript bundle to find the console log filtering feature. I'll use Chrome DevTools' "Search" functionality to find the relevant code.
+
+But before that, let me try one more thing. In Script Lab's Custom Functions, the runner page is typically accessed through a redirect from the editor. When you click "Run" in the custom functions editor, it should communicate with the runner. In the development environment, this is through port 3200.
+
+Since port 3200 is not available, the only way to access the custom functions runner (and therefore test console log filtering) is if it's embedded within port 3000.
+
+Let me check if there is a way to access the runner that IS at port 3000. Let me look at the source files more carefully using DevTools.
+[step 75] Action: left_click (1055, 316)
+[step 75] Reasoning: Chrome DevTools is now open and I can see very important information! Looking at the Sources panel:
+
+**File tree under localhost:3000:**
+- `top`
+  - `localhost:3000`
+    - `Users/worker04/open...`
+    - `assets/images`
+    - `external/monaco-edito...`
+    - `static/js`
+      - `0.chunk.js`
+      - `1.chunk.js`
+      - `bundle.js` (currently open in editor)
+      - `main.chunk.js`
+      - **`custom-functions-run...`** ← This is a new file I haven't seen before!
+    - `appsforoffice.microsoft...`
+    - `file://`
+    - `res-1.cdn.office.net`
+    - `spoprod-a.akamaihd.net`
+
+And in the Console at the bottom, I can see:
+- `SCREEN_UPDATE_SIZE` - configureStore.ts:25
+- `prev state ► Object` - configureStore.ts:26  
+- `action ► Object` - configureStore.ts:27
+- `next state ► Object` - configureStore.ts:29
+
+These are Redux state management internal logs! The `configureStore.ts` file is logging ALL Redux actions and state changes to the console. These would be the "internal/runtime logs" that the console log filtering feature should filter out.
+
+Now I also notice the **`custom-functions-run...`** file in the static/js folder! This is the JavaScript chunk for the custom functions runner! Let me click on it to view its contents.
+[step 76] Action: left_click (1020, 148)
+[step 76] Reasoning: The `custom-functions-run...` file shows "Content unavailable. Resource w..." - this is the same "Content unavailable" message I saw before for the `runner` file. This means the file is being referenced but its content can't be displayed in DevTools (possibly because it's a chunk loaded on-demand and not yet executed).
+
+However, now I notice something interesting! Looking at the "Workspace" tab in DevTools - let me check that!
+
+Wait, I notice the Sources panel shows the `custom-functions-run...` file under `static/js`. Let me try to search for "console.log" filtering code across all source files.
+
+Let me use the global search in DevTools. I'll click the search button (magnifying glass) in the DevTools toolbar.
+[step 77] Action: left_click (975, 148)
+[step 77] Reasoning: I accidentally switched to the "Workspace" tab which shows "No workspaces set up". I can see a helpful message saying I can "Add folder manually" or use `chrome.devtools.json` to connect the project folder. The project appears to be from `/Users/worker04/open...` (probably from OpenHands or similar development environment).
+
+Let me switch back to the "Page" tab in the Sources panel to see the file tree.
+[step 78] Action: left_click (1190, 400)
+[step 78] Reasoning: Good, I'm back on the "Page" tab. I can see the file tree with all the files. The `custom-functions-run...` file is visible under `static/js`. Now I need to use the global search feature to find the console log filtering code. Let me press `Ctrl+Shift+F` within the DevTools window to search across all files.
+
+But wait, I notice I'm currently in the DevTools "Sources" panel. Let me try pressing `Ctrl+Shift+F` to open the global search.
+[step 79] Action: key: ctrl+shift+f
+[step 79] Reasoning: I'm in the DevTools Sources panel. The same view as before. Let me try to use the search functionality in DevTools by pressing Ctrl+Shift+F (which should open the "Search" panel).
+[step 80] Action: left_click (1035, 285)
+[step 80] Reasoning: The Ctrl+Shift+F shortcut didn't open the search panel in DevTools. The search functionality might be accessible differently. Let me try clicking on the three-dot menu (⋮) in the Sources panel to see if there's a "Search" option.
+
+Actually, let me try clicking in the code area first to make sure DevTools is focused, and then try the keyboard shortcut.
+
+Let me try a different approach. Let me look at the `bundle.js` file which is the main application bundle and search for "console" or "filter" within it. Let me click on `bundle.js` and then press Ctrl+F to search within the file.
+[step 81] Action: left_click (1200, 200)
+[step 81] Reasoning: The `bundle.js` file is now open in the Sources panel. I can see minified JavaScript code starting at line 85 (the file content area shows `/*****/ return` and `request.o` and `if (r` etc.). The file is heavily minified. I also notice:
+- "Source map loaded" message at the bottom with "Don't show again" button
+- "Coverage: n/a" at the top right
+
+The source map is loaded! This means I can view the actual TypeScript source code instead of the minified JavaScript. Let me click on the code area and try Ctrl+F to search within this file.
+[step 82] Action: key: ctrl+f
+[step 82] Reasoning: I can see the cursor is now at "Line 89, Column 11" in the `bundle.js` file. The file is opened. I can see the bottom shows "Source map loaded". Let me now try Ctrl+F to search within this file for "filter" or "console.log" related terms.
+[step 83] Action: left_click (977, 197)
+[step 83] Reasoning: Ctrl+F didn't open a search bar in the DevTools code panel. The cursor moved to "Line 89, Column 12". The search functionality didn't activate. Let me try a different approach.
+
+Let me look at the `Users/worker04/open...` folder in the Sources panel tree, which appears to be the source code of the application. This would contain the actual TypeScript files. Let me click on that folder to expand it.
+[step 84] Action: left_click (985, 197)
+[step 84] Reasoning: I clicked on the folder but it didn't expand. The `Users/worker04/open...` folder is listed but I need to click on the triangle/arrow to expand it. Let me try clicking on the triangle icon (▶) next to the folder.
+
+Actually, looking more carefully at the sources panel, the items are:
+- `top` (collapse/expand triangle)
+  - `localhost:3000` (expand arrow)
+    - `Users/worker04/open...` (folder icon with ▶)
+    - `assets/images`
+    - `external/monaco-edito...`
+    - `static/js`
+      - `0.chunk.js`
+      - `1.chunk.js`
+      - `bundle.js`
+      - `main.chunk.js`
+      - `custom-functions-run...`
+    - `appsforoffice.microsoft...`
+    - `file://`
+    - `res-1.cdn.office.net`
+    - `spoprod-a.akamaihd.net`
+
+The `Users/worker04/open...` folder is actually the source map folder (from the TypeScript source maps). Let me try clicking on it more precisely.
+[step 85] Action: left_click (990, 226)
+[step 85] Reasoning: Excellent! The `Users/worker04/open...` folder is now expanded and shows:
+- `node_modules` (folder)
+- `packages` (folder)
+
+This is the actual source code structure! The application is in `packages` folder. Let me expand the `packages` folder to see the source files.
+[step 86] Action: left_click (979, 226)
+[step 86] Reasoning: I clicked on `packages` but it didn't expand (no child items showed). Let me try clicking on the expand arrow (▶) directly to the left of `packages`.
+[step 87] Action: left_click (1195, 200)
+[step 87] Reasoning: The `packages` folder still doesn't expand when I click the triangle/arrow. It seems the packages folder might be empty or not accessible through the sources map at this point. 
+
+Let me try a different approach. Let me use the DevTools global search to find the console log filtering code. I'll click on the search icon (🔍) that might be in the DevTools toolbar or use the keyboard shortcut.
+
+Actually, looking at the DevTools more carefully, I should try using the command palette in DevTools. Let me press Ctrl+P (open file) or Ctrl+Shift+F (search in all files) specifically within the DevTools window.
+
+Let me first make sure the DevTools panel has focus by clicking somewhere in the code viewer area of DevTools.
+[step 88] Action: key: ctrl+f
+[step 88] Reasoning: I clicked in the code viewer area and now I'm at "Line 89, Column 10". Let me try pressing Ctrl+F now to open the search bar in the code viewer.
+[step 89] Action: left_click (1001, 539)
+[step 89] Reasoning: Ctrl+F still didn't open a search bar in the code viewer! The bundle.js is showing minified code without a search bar. The cursor is now at "Line 89, Column 11". The DevTools Sources code viewer doesn't seem to be responding to Ctrl+F. This might be because the minified code doesn't allow inline searching easily.
+
+Let me try to look at the application from a completely different angle. Let me use the Console tab in DevTools to inspect the application's JavaScript and find the console log filtering behavior.
+
+Let me click on the Console tab in DevTools.
+[step 90] Action: screenshot
+[step 90] Reasoning: Hmm, I clicked on what I thought was the Console tab but I'm still seeing the Sources panel with bundle.js open. The Console section at the bottom is still visible with "SCREEN_UPDATE_SIZE", "prev state", "action", "next state" entries from `configureStore.ts`. 
+
+Let me take a fresh screenshot to see the current state more clearly.
+[step 91] Action: left_click (1073, 131)
+[step 91] Reasoning: Good, I can see the current state clearly now. The DevTools is showing:
+- **Sources panel** with the file tree
+- **Console panel** at the bottom showing Redux logs (SCREEN_UPDATE_SIZE, prev state, action, next state)
+- The code editor on the left still shows the Blank Snippet
+
+I notice there's a command prompt `> ` at the very bottom left of the console panel. This is the console input where I can type JavaScript commands! 
+
+Now I can use the DevTools Console to explore the application. Let me click on the Console tab at the top of DevTools to switch to the full console view.
+
+Let me click on the "Console" tab in the DevTools top navigation.
+[step 92] Action: left_click (1120, 627)
+[step 92] Reasoning: Now I can see the full Console panel! This is very revealing. The console shows a lot of internal logs that the application is generating. Let me analyze what I see:
+
+**Console output (scrolled to see recent messages):**
+
+1. **`with IntelliSense fetch for: ► Array(4)`** - loglevel-plugin-prefix.js:109
+2. **`INFO (Editor): Fetched IntelliSense for https://unpkg.com/@types/core-js/index.d.ts`** - loglevel-plugin-prefix.js:109
+3. **`INFO (Editor): Fetched IntelliSense for https://unpkg.com/@types/jquery/misc.d.ts`** - loglevel-plugin-prefix.js:109
+4. **`INFO (Editor): Fetched IntelliSense for https://unpkg.com/@types/jquery/legacy.d.ts`** - loglevel-plugin-prefix.js:109
+5. **`INFO (Editor): Fetched IntelliSense for https://unpkg.com/@types/jquery/JQueryStatic.d.ts`** - loglevel-plugin-prefix.js:109
+6. **`INFO (Editor): Fetched IntelliSense for https://unpkg.com/@types/jquery/JQuery.d.ts`** - loglevel-plugin-prefix.js:109
+7. **`INFO (Editor): Ready to give URLs`** - loglevel-plugin-prefix.js:109 (with list of URLs)
+8. **`SCREEN_UPDATE_SIZE`** - configureStore.ts:25 (Redux action)
+9. **`prev state ► Object`** - configureStore.ts:26
+10. **`action ► Object`** - configureStore.ts:27
+11. **`next state ► Object`** - configureStore.ts:29
+12. 🔴 **`Unsafe attempt to load URL https://telemetryservice.firstpartyapps.oasgapps.com/telemetry-vs from frame with URL chrome-error://chromewebdata/. Domains, protocols and ports must match.`** - [index]:1 (error)
+13. **`SCREEN_UPDATE_SIZE`** - configureStore.ts:25 (Redux action)
+14. **`prev state ► Object`** - configureStore.ts:26
+15. **`action ► Object`** - configureStore.ts:27
+16. **`next state ► Object`** - configureStore.ts:29
+17. **`SCREEN_UPDATE_SIZE`** - configureStore.ts:25
+18. **`prev state ► Object`** - configureStore.ts:26
+19. **`action ► Object`** - configureStore.ts:27
+20. **`next state ► Object`** - configureStore.ts:29
+
+**These are all INTERNAL runtime logs** from the application! The console is flooded with:
+- Redux state management logs (`SCREEN_UPDATE_SIZE`, `prev state`, `action`, `next state`)
+- IntelliSense fetching logs (`INFO (Editor): Fetched...`)
+- Error logs (`Unsafe attempt to load URL...`)
+
+These are exactly the types of "system internal redundant runtime logs" that the console log filtering feature should filter out - keeping only the user's `console.log` messages from their custom functions.
+
+Now I understand the task better:
+- The **application's own console panel** (in the runner page) should show only the user's `console.log` output
+- The **browser's DevTools console** shows ALL internal logs (what I'm seeing above)
+- The console log filtering feature would ensure that in the **in-app console panel**, only user messages appear
+
+Now let me check if there IS an in-app console panel. Since the runner at port 3200 is unavailable, let me see if there's another way to access it. 
+
+Looking at this from the perspective of the `custom-functions-runner` page - this is a special page that shows the console output of custom functions running. Let me check what this page actually serves.
+
+Let me close DevTools and navigate to `localhost:3000/custom-functions-runner` again to look at it without the editor overlay.
+
+Actually, wait - I just realized something important. The test task says "Custom Functions (自定义函数) page" which might specifically be the `custom-functions` page I found at the hash route `#/custom-functions` which showed an informational message. But in the path-based routing, `localhost:3000/custom-functions` shows the EDITOR which has the actual console log filtering feature to test.
+
+Let me think about this more carefully. The task asks me to:
+1. Navigate to Custom Functions page
+2. Run a function with console.log
+3. Observe if the console only shows user messages (not internal runtime logs)
+
+The feature I need to test is in the **runner** component of Script Lab's Custom Functions. Let me now focus on finding this runner.
+
+Let me use DevTools to look at the JavaScript source code and find the console filtering code. Let me use the Console to execute JavaScript that inspects the app's structure.
+
+Let me click on the console input area at the bottom.
+[step 93] Action: scroll down (1120, 500) scroll_amount 3
+[step 93] Reasoning: I can see the full Console output. Let me now use the Console input to inspect the application's JavaScript. I need to find the ">" prompt at the bottom of the Console. I can see at the very bottom there's a ">" prompt with a cursor. Let me click on that input area and type a command to inspect the application's routing.
+
+Let me scroll down to see the console input area.
+[step 94] Action: left_click (1100, 627)
+[step 94] Reasoning: I can see the Console panel shows the same logs as before. The `>` prompt is at the very bottom (at `>` before position 974, 627). Let me click directly on the `>` prompt area at the very bottom of the Console panel.
+[step 95] Action: type: document.title
+[step 95] Reasoning: I can see the console input is now active - the cursor is in the `>` input area at the bottom right (at position 974, 627 with a blinking cursor). Now I can type JavaScript commands to inspect the application. Let me inspect the application's Redux store and routing to understand what's available.
+
+Let me type a command to look at the application's `window` object for relevant properties related to the custom functions runner.
+[step 96] Action: left_click (1120, 627)
+[step 96] Reasoning: I see a security warning appeared in the console:
+**"Warning: Don't paste code into the DevTools Console that you don't understand or haven't reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type 'allow pasting' below and press Enter to allow pasting."**
+
+This means Chrome is blocking pasting code into the console. I need to type 'allow pasting' first to enable the console. But wait - I didn't paste, I typed the command `document.title`. Let me see - I notice the warning appeared, but it seems the text I typed (`document.title`) was typed into the console input.
+
+Also, I notice there's still the blinking cursor at `>` prompt area. The warning text says Chrome is blocking pasting, which might mean that Chrome's typing simulation was detected as a paste operation. Let me type `allow pasting` to enable the console.
+[step 97] Action: left_click (1120, 627)
+[step 97] Reasoning: I can see the pasting warning is still visible: "Please type 'allow pasting' below and press Enter to allow pasting." I need to type this in the console to enable pasting. The `>` prompt is at the bottom. Let me click on the console input area and type 'allow pasting'.
+[step 98] Action: type: allow pasting
+[step 98] Reasoning: Good, the cursor is now in the console input area (I can see the blinking cursor after `>` at the bottom). The pasting warning is still visible. Let me type 'allow pasting' to enable pasting in the console.
+[step 99] Action: left_click (985, 627)
+[step 99] Reasoning: I can see there's a second warning icon now (🔴 appears twice). The second one says "Warning: Don't paste code into the DevTools Console..." - this seems like the typed "allow pasting" didn't show in the console input. Let me look at the `>` prompt at the bottom. The input at bottom shows just `>` with cursor - my text didn't appear there.
+
+Wait, looking more carefully at the console bottom at position (974, 627), I can see `> |` (cursor). The text I typed wasn't showing. This is strange. Let me try clicking directly on the `>` area more precisely and then typing.
+
+Actually wait, looking at the bottom-most area of the DevTools console, I notice there are TWO warning icons 🔴 now (at positions ~966, 575 and ~966, 605). The last one says the same "Warning: Don't paste code..." message but now there's text below it at ~position (966, 610): "Please type 'allow pasting' below and press Enter to allow pasting."
+
+Looking at the very bottom of DevTools, I see `> |` which shows the input area is active with a cursor. But my typed text "allow pasting" didn't appear there. Let me click at the `> |` area and type again.
+
+Actually, I think the issue is that there's a Google Translate popup overlapping the input area. Let me try clicking somewhere in the console to make sure it has focus.
+
+Let me try a different approach - let me click directly on the `>` text at the bottom of the Console panel.
+[step 100] Action: key: Escape
+[step 100] Reasoning: I can see the DevTools Console with the pasting warning still visible. The `>` prompt is at the bottom with a cursor. I notice the input cursor is visible at `> |`. Let me now scroll down a bit to see the console input more clearly, and then type 'allow pasting'.
+
+Actually, looking at the bottom of the screen more carefully, I see:
+- `> |` prompt at the bottom left of the Console panel
+- The Console tab is selected (highlighted)
+
+The text I typed earlier ("allow pasting") might not have registered. Let me try to use keyboard shortcuts to navigate to the console input and type. Let me press the keyboard shortcut to focus on the console input.
+
+Let me try pressing Escape first to clear any existing text, then type 'allow pasting'.
+[step 101] Action: left_click (1100, 645)
+[step 101] Reasoning: Now I can see the Console more clearly. The warning is visible:
+**"⚠ Warning: Don't paste code into the DevTools Console that you don't understand or haven't reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type 'allow pasting' below and press Enter to allow pasting."**
+
+And at the very bottom, I see `> |` prompt. The console input is at the bottom. Let me now click on the `> |` prompt and type 'allow pasting' then press Enter.
+[step 102] Action: key: a
+[step 102] Reasoning: I can now see the cursor is at the `>` input at the bottom (position 974, 645). The DevTools console input is active. Let me type 'allow pasting' and press Enter.
+
+Looking at the bottom of the DevTools console, I can see `> |` at position approximately (974, 645). Let me type the required text.
+
+Since typing via `type` action apparently doesn't always work well with DevTools, let me try pressing keys one at a time or use a different approach.
+
+Let me try pressing the keys one at a time now that the console input seems to be focused.
+[step 103] Action: key: Escape
+[step 103] Reasoning: I can see the letter 'a' was typed in the console input (at the bottom I can see `> a`) and there's also a Chinese input method (IME) popup showing autocomplete suggestions. The Chinese IME is active! I need to switch to English input mode before typing. Let me press Escape to close the IME popup and then switch to English.
+
+Also I notice the `> a` text at the very bottom of the DevTools console confirms that the console input is now receiving keystrokes.
+
+Let me close the IME popup and switch to English typing mode.
+[step 104] Action: left_click (1100, 645)
+[step 104] Reasoning: The IME popup is closed and the `>` prompt is at the bottom. The warning is still showing. Let me now switch to English input mode (the current keyboard might be set to Chinese). I need to press a key combination to switch to English. On macOS, this is typically Caps Lock or the input method switcher key. 
+
+But looking at the bottom of the DevTools, the `>` prompt is there. Let me try to click on the console input and then use the keyboard shortcut to change the input language.
+
+Actually, thinking about this differently - the `type` action in my tool should be able to type in English regardless of the IME setting. The IME issue was only with the `key` action which sent a single key press. The `type` action sends the text as a whole string which should bypass the IME.
+
+Let me try clicking on the console input and then using `type` to type 'allow pasting'.
+[step 105] Action: type: allow pasting
+[step 105] Reasoning: I can see the console input is now at the very bottom of the console area. The cursor shows as a thin blinking cursor at position approximately (1099, 645). The `>` prompt is not visible right now, but the cursor is in the console input area. Let me now type 'allow pasting' using the `type` action.
+[step 106] Action: Open url: https://localhost:3000/static/js/custom-functions-runner.chunk.js
+[step 106] Reasoning: I can see at the very bottom of the console, the `>` prompt is shown at position (974, 645) and there's still a cursor at (1099, 645). But I cannot see the text "allow pasting" in the console input. The text might not have been typed in the right place (the console was focused elsewhere).
+
+Let me take a different approach. Instead of trying to type in the DevTools console, let me directly navigate to the application's source files to understand the console log filtering feature.
+
+Let me close the DevTools and instead look at the application from the perspective of its JavaScript source to find the console filtering code.
+
+Actually, let me try a completely different approach. Let me navigate to the JavaScript source file for the custom functions runner. Looking at the Sources tab, I saw that there's a `custom-functions-run...` chunk. Let me navigate directly to that file URL.
+
+Let me try navigating to the JavaScript file directly. First let me find out the full URL of the custom functions runner chunk.
+[step 107] Action: left_click (927, 33)
+[step 107] Reasoning: Wait! Something unexpected happened! When I navigated to `localhost:3000/static/js/custom-functions-runner.chunk.js`, the browser shows:
+- The URL is `host:3000/static/js/custom-functions-runner.chunk.js#/`
+- But the page content is the **SAME Script Lab editor** with the Blank Snippet code!
+- The address bar shows `host:3000/static/js/custom-functions-runner.chunk.js#/` but the content is the Script Lab app!
+
+This is very interesting! The server is serving the Script Lab SPA for ALL paths, including what should be a static JavaScript file. This means the server is configured to serve the SPA for any path (a common setup for single-page applications with client-side routing), BUT the JavaScript files should still be accessible.
+
+Wait - looking more carefully at the address bar, it says `host:3000/static/js/custom-functions-runner.chunk.js#/`. The `#/` at the end was added by the SPA's router when it redirected from the static file path. This suggests the server IS serving the SPA at that path.
+
+But this shouldn't be happening for a static JS file! If the server is configured correctly, navigating to `/static/js/custom-functions-runner.chunk.js` should serve the raw JavaScript file, not the SPA.
+
+This is a potential configuration issue with the development server. The dev server might be configured to serve the SPA for ALL routes (even those meant to be static files). OR, the file doesn't exist at that path and the server falls back to serving the SPA.
+
+Let me try to access the file with `view-source:` to see if it's actually a JavaScript file or the SPA HTML.
+
+Actually, this is showing Script Lab editor UI which means the script is not at that URL path - it's redirecting/serving the SPA instead. The actual JavaScript chunk file URL might be different.
+
+Let me go back to DevTools to find the correct URL for the `custom-functions-runner` chunk. Let me navigate back to the previous Script Lab tab.
+
+Let me try a different approach. Instead of trying to access the JavaScript source files directly, let me look at the Network tab in DevTools to find the actual URL of the custom-functions-runner chunk.
+
+Let me navigate back to the Script Lab custom-functions-runner page and open DevTools.
+[step 108] Action: left_click (109, 33)
+[step 108] Reasoning: Excellent! I found the **Custom Functions** page! The URL is `https://localhost:3000/#/custom-functions` and the page shows:
+
+- **Script Lab logo** (red cube icon)
+- **"Custom Functions"** in large orange/red text
+- A thin separator line
+- Message: **"Currently, Script Lab only supports Custom Functions (Preview) on Windows Desktop on the latest Insider builds on PC and Mac, and on Office Online."**
+- **"For more info, see these instructions."** (with a clickable link)
+
+This is the **Custom Functions (自定义函数)** page that the task is referring to!
+
+**Key observations:**
+1. This page is ONLY an informational page - it does NOT have any code editor or runner
+2. There is NO console output area on this page
+3. The page says Custom Functions only works in specific Office environments (Windows Desktop, Mac with Insider builds, Office Online)
+4. There is NO way to run custom functions from this page
+
+**Visual observations:**
+- The page is clean and simple with just the logo, title, message, and link
+- The "Custom Functions" text is in orange/red color (distinctive and properly rendered)
+- The separator line is a thin horizontal line
+- The layout looks properly centered and well-structured
+- There are NO interactive elements other than the "these instructions" link
+
+This confirms that in the standalone browser mode (without Excel), the Custom Functions page only shows an informational message. There is no console log filtering feature accessible from this page.
+
+Now let me think about what the test is actually asking me to do:
+
+**The task says**: "测试 Custom Functions（自定义函数）页面的控制台日志过滤功能" (Test the console log filtering functionality of the Custom Functions page)
+
+Looking at the application:
+1. The Custom Functions page at `#/custom-functions` only shows an informational message
+2. There is no editor, no runner, and no console output panel on this page
+3. The console log filtering feature would require running actual custom functions in an Office environment
+
+Since the Custom Functions page in Script Lab doesn't have a console output panel (and the feature requires an Office Excel environment), I cannot directly test the console log filtering functionality from the browser without Excel.
+
+However, the task might be referring to a DIFFERENT application that has a custom implementation of "Custom Functions" with a console log filtering feature. Let me check if the first tab "OpenClaw Control" has something relevant.
+
+Wait - looking at the tab bar, I see "OpenClaw Cont..." as the first tab. Let me check what that is.
+
+Actually, looking at the tab more carefully, the first tab says "OpenClaw Cont..." - this might be an entirely different application at a different URL! But the task says to open `https://localhost:3000`. If there's another application in another tab, it might be at a different port or URL.
+
+Let me click on the "OpenClaw Cont..." tab to see what it shows.
+[step 109] Action: left_click (313, 33)
+[step 109] Reasoning: This is the **OpenClaw Control** application - a chat interface with an AI assistant (Claude Opus 4.6). The URL is `127.0.0.1:18789/chat?session=agent%3Amain%3Admwork%3Agroup%3A6d7d933c594044a688484ac815c06433`.
+
+The chat shows messages about the Script Lab application being set up:
+- "HTTPS 200！现在启动 mano-cua。" (HTTPS 200! Now starting mano-cua.)
+- Tool calls and tool outputs
+- Message: "@[lynx_bot:Pichai] 状态更新 script-lab-609:
+  - clone ✅ → commit 切换 ✅ → npm install ✅ (yarn 反复 SIGKILL, 改 npm 成功) → dev server ✅ (HTTPS :3000, 需 `--openssl-legacy-provider`) → mano-cua 已启动
+  - 部署耗时原因: yarn 3次 SIGKILL (缓存损坏+内存) → npm 替代 → Node 23 OpenSSL 不兼容 → 加 legacy provider → 发现是 HTTPS 模式，已解决，等 mano-cua 完成。"
+
+**This confirms the application setup!** The Script Lab (`script-lab-609`) was:
+1. Cloned from a repository
+2. Installed with npm (yarn had issues)
+3. Started as a dev server with HTTPS at port 3000
+4. The `--openssl-legacy-provider` was needed for Node 23 compatibility
+
+The application IS Script Lab and it's running at `localhost:3000`. The developer server is running at HTTPS on port 3000.
+
+Now I can see that the "Custom Functions" page at `https://localhost:3000/#/custom-functions` is the correct target page. But as I found:
+- The page shows only an informational message
+- There's no console output panel or code editor on this specific page
+- Running custom functions requires an Office environment (Excel)
+
+Let me now navigate back to the Custom Functions page at `localhost:3000/#/custom-functions` and look at it more carefully. Maybe there's additional functionality I can access.
+
+Also, from the OpenClaw chat, I can see the assistant was setting up Script Lab. The full URL shows `script-lab-609` which is the commit version of Script Lab being tested.
+
+Now let me think about the task requirements:
+1. Navigate to Custom Functions page ✅ (found at `#/custom-functions`)
+2. Run a custom function with console.log ❌ (not possible in standalone browser mode)
+3. Observe console log filtering ❌ (not accessible)
+
+The question is: Does the `custom-functions` path (NOT the hash-based `#/custom-functions`) have a different implementation where I can run custom functions and see the console output?
+
+Let me look at the path-based `custom-functions` route, which showed the Script Lab EDITOR with the Blank Snippet. This is the Custom Functions EDITOR (where you write custom functions), and clicking "Run" would start the custom functions runner. But the runner is at port 3200 which is not available.
+
+Wait! Looking at the OpenClaw chat again: "dev server ✅ (HTTPS :3000, 需 `--openssl-legacy-provider`)" - it only mentions port 3000! The runner at port 3200 is NOT started! This explains why port 3200 gives ERR_CONNECTION_REFUSED.
+
+So the setup has only port 3000 running (the editor/SPA), but NOT port 3200 (the runner). The "Run" button would try to connect to port 3200 which is not running.
+
+BUT - looking at the Script Lab architecture - in some versions, the runner is embedded within port 3000 (not a separate server at port 3200). Let me check if Script Lab has changed to use only port 3000 for both the editor and runner.
+
+Actually, looking at the `localhost:3000/custom-functions-runner` path which showed the SAME editor - this might mean that in this version of Script Lab, the custom functions runner is embedded within the same server at port 3000 (not a separate port 3200).
+
+Let me look more carefully at the `custom-functions-runner` page. Maybe in this version, the runner page IS at `localhost:3000/custom-functions-runner` and the "Run" button in the custom-functions editor sends the snippet to be executed by this runner page (at port 3000), not port 3200.
+
+Let me navigate to the custom-functions page and try to look at the "Run" button behavior more carefully. Maybe I need to look at the runner in a different way.
+
+Actually, wait. Looking at the URL when clicking "Run" - it goes to `localhost:3200/?backButton=true`. But wait, maybe the runner URL is configurable and in this version it's at port 3000. Let me check the JavaScript source to understand where the runner URL is configured.
+
+Let me navigate to `localhost:3000/custom-functions` and open DevTools to look at the Network requests when clicking "Run".
+[step 110] Action: key: F12
+[step 110] Reasoning: I'm now at `https://localhost:3000/custom-functions#/` - the Custom Functions editor. This shows the Blank Snippet editor with:
+- Line 1: `$("#run").click(() => tryCatch(run));`
+- Lines 3-5: `async function run() { console.log("Hello World"); }`
+- Lines 8-15: `async function tryCatch(callback) { ... }`
+
+This is the Custom Functions EDITOR page in Script Lab. The snippet has `console.log("Hello World")` on line 4.
+
+Now let me try opening DevTools with the Network tab open, and then click "Run" to see what network request is made.
+
+Actually, wait - looking at the code snippet again, this is actually a REGULAR Script Lab snippet (not a Custom Functions snippet). A Custom Functions snippet would have JSDoc annotations like `@customfunction`. The current code is just a regular snippet with jQuery (`$("#run")`) and `console.log`.
+
+The key question is: what does clicking "Run" do in the `/custom-functions` path vs. the `/` path?
+
+Let me open DevTools first before clicking Run.
+[step 111] Action: left_click (1164, 131)
+[step 111] Reasoning: Excellent! DevTools is now open and I can see the Console tab is active. I can observe several important things:
+
+**Console output at `https://localhost:3000/custom-functions#/`:**
+
+1. `next state ► Object` - configureStore.ts:29 (Redux state log)
+2. `INFO (Editor): Fetched IntelliSense for...` - loglevel-plugin-prefix.js:109 (IntelliSense logs)
+3. Multiple `INFO (Editor): Fetched IntelliSense for...` messages
+4. 🔴 **`Failed to load resource: the server responded with a status of 404 ()`** - raw.githubusercontent.com/laylists/web.yaml:1
+5. More `INFO (Editor): Fetched IntelliSense for...` messages
+6. `INFO (Editor): Need to follow up with IntelliSense fetch for... ► Array(4)` 
+7. Multiple more IntelliSense log messages
+8. `INFO (Editor): Ready to give URLs` with a list of URLs
+9. `SCREEN_UPDATE_SIZE` - configureStore.ts:25 (Redux action)
+10. `prev state ► Object` - configureStore.ts:26
+11. `action ► Object` - configureStore.ts:27
+12. `next state ► Object` - configureStore.ts:29
+13. 🔴 **`Unsafe attempt to load URL https://telemetryservice.firstpartyapps.oasgapps.com/telemetry-vs from frame with URL chrome-error://chromewebdata/. Domains, protocols and ports must match.`**
+
+These are all INTERNAL runtime logs! The console is showing:
+- Redux state management logs (from `configureStore.ts`)
+- IntelliSense fetching logs (from `loglevel-plugin-prefix.js`)
+- Error logs (404, cross-origin errors)
+
+**These are exactly the types of "system internal redundant runtime logs" that the console log filtering feature should filter out.**
+
+Now I need to click the "Network" tab to monitor what happens when I click "Run". Let me first switch to the Network tab.
+[step 112] Action: left_click (1152, 131)
+[step 112] Reasoning: I'm still seeing the Console tab. The Network tab click didn't switch to the Network panel. Looking at the DevTools header, I can see tabs: Elements, Console, Sources, and then some icons. The "Network" tab might not be visible in the current view (the DevTools might be too narrow). Let me look at the tabs more carefully.
+
+Looking at the DevTools header, I can see: `Elements | Console | Sources | ▶ 2 △ 3 ●1 [gear icon] [X icon]`. There's no "Network" tab visible. The DevTools might need to be expanded or the tabs might be hidden.
+
+Wait, actually looking at the DevTools header with `>> ▶ 2 △ 3 ●1`, the `>>` (or `≫`) might indicate more tabs that are hidden due to DevTools width. Let me click on `>>` to see the hidden tabs.
+
+Actually, I realize I don't see a "Network" tab in the current DevTools view. The visible tabs are: Elements, Console, Sources, and then some icon buttons. Let me try to click on the `>>` button to expand the hidden tabs.
+
+Let me look at the DevTools header more carefully. I see at position approximately (1145, 131): `>> ▶ 2 △ 3 ●1 [gear] [X]`. The `>>` would expand the hidden tabs.
+[step 113] Action: left_click (1179, 137)
+[step 113] Reasoning: A dropdown menu appeared showing the hidden DevTools tabs:
+- **Network**
+- Performance
+- Memory
+- Application
+- Security
+- Lighthouse
+- Recorder
+- 自动填充 (Autofill)
+
+Let me click on "Network" to open the Network panel.
+[step 114] Action: left_click (1059, 148)
+[step 114] Reasoning: The Network panel is now open! I can see:
+- Network filter options: All, Fetch/XHR, Doc, CSS, JS, Font, Img, Media, Manifest, Socket, Wasm, Other
+- The network requests list is EMPTY (no requests showing because network recording just started)
+- Bottom status shows "0 / 3 requests"
+
+The network recording is empty because it started just now. Now let me click "Run" in the Script Lab editor to see what network request is made and where it goes.
+
+But first, let me check the "Preserve log" checkbox to keep the logs when navigation happens.
+[step 115] Action: left_click (153, 93)
+[step 115] Reasoning: "Preserve log" is now checked (blue checkbox). The Network panel is recording. Now let me click the "▶ Run" button in the Script Lab editor to see what network request is made.
+[step 116] Action: left_click (14, 62)
+[step 116] Reasoning: Now I have very valuable information! When clicking "Run" from the `custom-functions` editor, the page navigated to `localhost:3200/?backButton=true` and shows the ERR_CONNECTION_REFUSED error. The Network panel shows:
+- `data:image/png;base...` - 200 - png - chrome-error:// (3 requests)
+- These are from the Chrome error page itself
+
+The "3 / 8 requests" at the bottom shows 3 active requests (the Chrome error page's images) out of 8 total.
+
+**CONFIRMED**: Clicking "Run" in the Script Lab custom-functions editor ALWAYS redirects to `localhost:3200/?backButton=true`. Since port 3200 is not running, we get ERR_CONNECTION_REFUSED.
+
+Now I have a complete picture:
+1. **The Custom Functions page**: At `https://localhost:3000/#/custom-functions` - shows only an informational message, no editor or runner
+2. **The Custom Functions editor**: At `https://localhost:3000/custom-functions#/` - shows a code editor but "Run" redirects to port 3200 (unavailable)
+3. **Port 3200 runner**: Not running - ERR_CONNECTION_REFUSED
+4. **Console log filtering**: Would be in the port 3200 runner - NOT accessible
+
+The console log filtering feature CANNOT be tested because:
+1. The runner at port 3200 is not running
+2. The Custom Functions page (`#/custom-functions`) only shows an informational message
+3. Even if the runner were accessible, it would need to be running inside Excel to work properly
+
+**SUMMARY OF FINDINGS**:
+- The application at `localhost:3000` is **Script Lab** (Microsoft's Office Add-ins development tool)
+- The **Custom Functions (自定义函数) page** is accessible at `https://localhost:3000/#/custom-functions`
+- This page only shows an informational message: "Currently, Script Lab only supports Custom Functions (Preview) on Windows Desktop on the latest Insider builds on PC and Mac, and on Office Online."
+- There is NO console output panel on this page
+- The console log filtering feature would be in the runner page at `localhost:3200` which is NOT running
+- Therefore, the console log filtering feature CANNOT be tested in the current environment
+
+Let me look at the current state and check if there's anything I might have missed. Let me go back to the custom-functions page and look more carefully.
+
+Actually, let me reconsider. The task mentions "Custom Functions (自定义函数) page" with a console log filtering feature. In Script Lab's context:
+1. The Custom Functions page (`#/custom-functions`) - just informational
+2. The Custom Functions editor (`/custom-functions`) - has a code editor but runner requires port 3200
+
+The "console log filtering" feature is something that was likely implemented in the runner. Let me now look at the runner more carefully - specifically the `custom-functions-runner` path which I need to access to see if it has its own console display.
+
+Actually, let me look at this from the perspective of what the RUNNER page at port 3200 would contain. The runner page would:
+1. Execute the user's custom functions code
+2. Display console.log output in a console panel
+3. Filter out internal runtime logs (like the Redux logs I saw earlier)
+
+But since the runner is at port 3200 which is not running, I cannot test this.
+
+Wait - I just thought of something important. What if the "Custom Functions runner" is embedded WITHIN the `/custom-functions-runner` path at port 3000 (not port 3200)? Let me look at the `/custom-functions-runner` page more carefully.
+
+Looking at what I know:
+- `localhost:3000/custom-functions-runner` → serves the same SPA as other paths
+- `localhost:3000/#/custom-functions-runner` → shows "Script error." error page
+
+The `#/custom-functions-runner` hash route shows an error because the application expects to be running in an Excel context with a snippet loaded. But maybe I can load a snippet and then navigate to this route.
+
+Actually, this is getting too complex. The key finding is:
+- The Custom Functions page at `#/custom-functions` is just informational with no executable code
+- The runner at port 3200 is not available
+- Console log filtering cannot be tested
+
+Let me provide my final report. But first, let me take one more screenshot of the current state to document what I found.
+
+Let me navigate back to the `#/custom-functions` page to document it.
+[step 117] Action: left_click (1204, 89)
+[step 117] Reasoning: Now I can see something very interesting in the Network panel! Going back to `https://localhost:3000/custom-functions#/` (using the back button), the Network panel now shows the requests:
+
+1. `data:image/png;base...` - 200 - png - chrome-error:// (from the previous ERR_CONNECTION_REFUSED page)
+2. `data:image/png;base...` - 200 - png - chrome-error://
+3. `data:image/png;base...` - 200 - png - chrome-error://
+4. **`icon-large.svg`** - 200 - svg+x... - **custom-functic** - 0.7 kB - 3 ms ← This is from `custom-functions` page!
+5. **`data:image/svg+xml;...`** - 200 - svg+x... - editor.main.css (mem...) - 0 ms
+6. `data:image/png;base...` - 200 - png - editor.main.css (mem...)
+7. `data:image/svg+xml;...` - 200 - svg+x... - editor.main.css (mem...)
+8. `data:image/svg+xml;...` - 200 - svg+x... - editor.main.css (mem...)
+9. `data:image/svg+xml;...` - 200 - svg+x... - Other (mem...)
+
+The Network panel shows that navigating back to `custom-functions#/` loaded the `icon-large.svg` file (from the script lab SVG icon) and several `data:image/svg+xml;...` inline SVG resources. This is from the Script Lab editor rendering its icons.
+
+The bottom shows "9 / 120 requests" - there were 120 requests total in the session.
+
+Now, the key observation in the Network panel: The request `icon-large.svg` shows **Initiator: `custom-functic`** which means it came from the `custom-functions` page/code. This is just the page's initial loading, not anything related to running custom functions.
+
+Let me close the Network panel and focus on understanding the application better. I now see the editor at `custom-functions#/` is loaded.
+
+Let me now look at the application's actual custom functions behavior. Since the task asks to "run a custom function with console.log", let me see if there's a way to do this without port 3200 by looking at the application's implementation.
+
+Let me try opening the "Sources" tab in DevTools to find the custom functions runner code.
+[step 118] Action: key: F12
+[step 118] Reasoning: I closed the Google Translate popup. The Network panel still shows. I notice now there are a few more requests showing at the bottom:
+- `data:image/png;base...` - chrome-error://
+- `data:image/png;base...` - chrome-error://
+
+These new requests came from clicking the "Run" button earlier and the page navigating to port 3200 (which failed).
+
+Now let me look at the key request: **`icon-large.svg`** with initiator `custom-functic` - this is the only request from the actual custom-functions page. It's just the Script Lab logo SVG.
+
+Now I need to close DevTools and try a completely different approach to test the console log filtering feature. Let me navigate to the `custom-functions-runner` page and look at what it actually contains. Maybe there's a different way to load a custom functions snippet and see its console output within this page.
+
+Let me close DevTools and try to navigate to the application at the correct URL to get to the custom functions runner with a snippet loaded.
+
+Actually, let me now try a very important test. I know that:
+1. The `/custom-functions` path shows the editor
+2. The runner goes to port 3200 (unavailable)
+
+But what if I look at the hash route `#/custom-functions-runner` which showed "Script error." when navigated to directly? What if I first load a snippet in the editor and THEN navigate to the hash route?
+
+Let me try:
+1. Close DevTools
+2. Stay at `custom-functions#/` (with the Blank Snippet loaded)
+3. Modify the URL hash to `#/custom-functions-runner` to see if it shows the runner
+[step 119] Action: left_click (230, 62)
+[step 119] Reasoning: Now I can see the full Script Lab editor at `https://localhost:3000/custom-functions#/`. DevTools is closed and I can see the complete interface with the "Blank Snippet" code. The code shows:
+- Line 1: `$("#run").click(() => tryCatch(run));`
+- Line 3: `async function run() {`
+- Line 4: `    console.log("Hello World");`
+- Line 5: `}`
+- Lines 7-15: `tryCatch` helper function
+
+Now I can see the editor in full view. There's NO console output panel visible - just the code editor. The editor takes up the full space without any runner/console panel.
+
+Now let me try something I haven't tried yet - let me modify the script in the editor to be a proper Custom Functions snippet and see if the "Run" button behavior changes. Let me click in the editor and modify the code to include `@customfunction` annotation.
+
+But actually, I know that clicking "Run" will always go to port 3200 regardless of the code content. The runner URL is hardcoded.
+
+Let me now check if there's a way to use the application's internal state to show the custom functions runner within port 3000.
+
+Let me try navigating to the `#/custom-functions-runner` hash route FROM the `/custom-functions` path (the editor), which would have the Blank Snippet in the application's local storage:
+
+Looking at the address bar: `https://localhost:3000/custom-functions#/`
+
+If I change the hash to `#/custom-functions-runner`, it might show the runner with the currently loaded snippet. Let me try this.
+[step 120] Action: triple_click
+[step 120] Reasoning: I can see the address bar is now selected showing `https://localhost:3000/custom-functions#/` with a dropdown showing "向问 Google 有关此页面的问题 - localhost". The URL is selected. Now let me modify the URL hash from `#/` to see what happens when I navigate to a different hash.
+
+Let me look at the URL - it shows `https://localhost:3000/custom-functions#/`. I need to find the runner hash route. Let me try `https://localhost:3000/custom-functions-runner#/`. 
+
+Wait - this is the PATH-based `custom-functions-runner` page which I already know shows the same editor. 
+
+Actually, looking at the runner from a different angle - the runner HTML file for Script Lab is typically a static file at `/runner` path. Let me check what the `runner` static file contains vs. the main SPA at `/`.
+
+Let me try accessing the runner HTML page with a query parameter that includes the snippet data.
+
+Actually, I've been spending a lot of time on this. Let me now make a concrete decision about what to report:
+
+The **Custom Functions (自定义函数)** page in Script Lab can be found at two locations:
+1. `https://localhost:3000/#/custom-functions` - Shows an informational page (not a runnable page)
+2. `https://localhost:3000/custom-functions#/` - Shows the Script Lab editor for writing custom functions
+
+The **console log filtering** feature would be in the runner (port 3200) which is NOT running. Therefore, I CANNOT test this feature in the current environment.
+
+However, before giving up, let me try one more thing - let me navigate to `https://localhost:3000/custom-functions-runner` and see if that page has an embedded console panel that shows custom function execution logs.
+
+Let me navigate there now.
+[step 121] Action: type: https://localhost...
+[step 121] Reasoning: Good. The address bar shows `https://localhost:3000/custom-functions#/` and it's selected. Let me now try to navigate to the script lab runner that might be embedded in port 3000.
+
+Looking at the Script Lab architecture, maybe the runner is embedded in the same port but at a different path like `/runner` or `/run`. Let me try navigating to `https://localhost:3000/runner` to see what's there (we saw that path serves the SPA editor).
+
+Actually, I realize I should look at the Script Lab source code repository to understand what paths are configured. The application is from "script-lab-609" (from the OpenClaw chat). But I can't access the terminal.
+
+Let me try one more thing - let me check if there's a way to use the Script Lab editor's `#/runner` hash route to run a snippet with an embedded runner within the `/custom-functions` path SPA.
+
+Actually, I know now that this is the standard Script Lab behavior:
+- In development mode with `react-scripts start`, the editor SPA is at port 3000
+- The runner SPA is at port 3200
+- The "Run" button opens port 3200
+
+Since port 3200 is not running, I cannot test the runner functionality. The console log filtering feature would be in the runner (port 3200) console panel.
+
+**FINAL DETERMINATION**: I've explored the application thoroughly and can now provide a comprehensive report.
+
+Let me navigate to the key pages one more time to take final screenshots for documentation.
+
+First, let me navigate to `https://localhost:3000/#/custom-functions` (the informational custom functions page):
+[step 122] Action: left_click (640, 90)
+[step 122] Reasoning: The address bar shows `https://localhost:3000/#/custom-functions` and the autocomplete shows:
+1. **Script Lab - https://localhost:3000/#/custom-functions** (previously visited)
+2. `https://localhost:3000/#/custom-functions - Google 搜索`
+3. **Script Lab - https://localhost:3000/#/custom-functions-runner** (another visited URL!)
+
+Wait! I see that the browser's history has **`https://localhost:3000/#/custom-functions-runner`** as a previously visited URL! This means I DID navigate to this page earlier and it was accessible. Let me click on the first option to go to `https://localhost:3000/#/custom-functions`.
+[step 123] Action: Open url: https://localhost:3000/#/custom-functions-runner
+[step 123] Reasoning: Excellent! Now I can clearly see the **Custom Functions (自定义函数) page** in Script Lab at `https://localhost:3000/#/custom-functions`! This is the page the task is referring to. The page shows:
+
+- **Script Lab logo** (red cube/hexagon icon with white "S" inside)
+- **"Script Lab"** subtitle in gray
+- **"Custom Functions"** in large orange/red text
+- A thin horizontal separator line
+- Message: **"Currently, Script Lab only supports Custom Functions (Preview) on Windows Desktop on the latest Insider builds on PC and Mac, and on Office Online."**
+- **"For more info, see these instructions."** (with "these instructions" as a clickable link)
+
+**Visual observations:**
+- The layout is clean and centered
+- The Script Lab logo (orange/red hexagon) is properly rendered
+- The "Custom Functions" text is in two lines (displayed as "Custom" and "Functions" on separate lines) with a warm red/orange color
+- The separator is a thin, short horizontal line centered below the title
+- The descriptive text is in gray
+- The "these instructions" link is underlined and in a different color (blue/orange)
+- The page is fully white background with centered content
+- There are NO interactive elements beyond the link (no editor, no console panel, no run button)
+
+**This is the Custom Functions page**, and it's just an informational page saying that Custom Functions only works in specific Office environments. There is:
+- ❌ No code editor
+- ❌ No run button
+- ❌ No console output panel
+- ❌ No console log filtering UI
+
+**The console log filtering feature CANNOT be tested from this page** because:
+1. This page only shows an informational message
+2. Running custom functions is not possible in standalone browser mode (requires Excel)
+3. The runner at port 3200 is not running (ERR_CONNECTION_REFUSED)
+
+Now let me also check the `custom-functions-runner` hash route since I saw it in the browser history.
+[step 124] Action: left_click (153, 93)
+[step 124] Reasoning: I see the `https://localhost:3000/#/custom-functions-runner` page. The URL shows `host:3000/#/custom-functions-runner` and the page shows:
+- The Script Lab editor with the **Blank Snippet** code
+- The same Blank Snippet template with `console.log("Hello World")`
+- Tabs: Script, HTML, CSS, Libraries
+- Toolbar: ☰ Blank Snippet, ▶ Run, 🗑 Delete, Share
+
+**Wait!** This is different from what I saw earlier! When I navigated to `#/custom-functions-runner` earlier (from the main root URL), I saw "Script error." error page. But now, coming from the `/custom-functions` editor context, the same hash route shows the **editor**!
+
+This suggests that the `#/custom-functions-runner` hash route might be context-sensitive - it shows:
+- "Script error." when no snippet is loaded (cold start)
+- The editor when there's already an active snippet in the application state
+
+Actually, looking at the address bar more carefully: `host:3000/#/custom-functions-runner` - this IS the same URL I tried before. But now it shows the editor instead of the error page. This could be because:
+1. The Blank Snippet is now in the application's local storage (I created it earlier)
+2. The application initialized differently this time
+
+This is actually very interesting! The `#/custom-functions-runner` with a snippet in memory shows the **editor** (which is the same as `#/`). But when there's no snippet (fresh start), it shows "Script error."
+
+Wait, no. Looking more carefully at the URL - the address bar shows `host:3000/#/custom-functions-runner`. But this ALSO shows the editor. Is the `#/custom-functions-runner` route supposed to show a RUNNER with console output? Or is it just showing the editor because the runner functionality requires Excel context?
+
+Looking at Script Lab's routing, the `#/custom-functions-runner` hash route is for the Custom Functions Runner page. In a proper Excel context, this would show:
+1. A list of registered custom functions
+2. A console panel for log output
+3. Controls to start/stop the runner
+
+But in standalone browser mode (without Excel), it just shows the editor because the runner doesn't have anything to display.
+
+Actually, looking at the current screenshot again - the interface shows:
+- Hamburger menu (☰) + "Blank Snippet" title
+- ▶ Run button
+- 🗑 Delete button  
+- Share button
+- Tabs: Script, HTML, CSS, Libraries
+- Code editor with the Blank Snippet template
+
+This IS the editor interface, not a runner/console interface. The `#/custom-functions-runner` route is showing the editor, not the runner.
+
+This confirms my earlier finding that the application serves essentially the same editor UI at all hash routes (except `#/custom-functions` which shows the informational page, and what might be a different view when properly inside Excel).
+
+Now let me look at the `#/custom-functions-runner` page one more time to see if there's a console panel that I might have missed. Let me scroll down to see if there's content below the editor.
+
+Actually, the interface is clean with no console panel visible. The bottom status bar shows "WEB" and "TypeScript | Dark" but no console area.
+
+Now let me try to look at this from the Script Lab Custom Functions Playground perspective. The custom-functions runner page might only show the console when inside Excel.
+
+Let me now check the hash-based routes more systematically by looking at what's at the `#/custom-functions-runner` route in this context. Since I'm now at `#/custom-functions-runner` and it shows the same editor, maybe clicking "Run" here has different behavior.
+
+Let me click "Run" from the `#/custom-functions-runner` route and see what happens.
+[step 125] Action: left_click (14, 62)
+[step 125] Reasoning: The same result - clicking "Run" from the `#/custom-functions-runner` route ALSO redirects to `localhost:3200/?backButton=true` which gives `ERR_CONNECTION_REFUSED`.
+
+This conclusively confirms that:
+1. The "Run" button in ALL Script Lab editor contexts (regardless of hash route) redirects to port 3200
+2. Port 3200 is not running
+3. The runner functionality (including console log output) is NOT accessible
+
+I now have a complete understanding of the application. Let me also check the `/custom-functions-runner` path to see if there's a static HTML page that shows a console interface.
+
+Let me go back to the Script Lab editor at `/custom-functions` to see if there's a different way to access the runner.
+
+Actually, wait. I just realized something important that I should have noticed earlier. Let me look at the `/custom-functions-runner` path more carefully. 
+
+In Script Lab's development setup:
+- Port 3000: The main editor SPA
+- Port 3200: The runner SPA
+
+BUT - the "custom-functions-runner" is a SEPARATE SPA/page that runs inside Excel as a task pane (not in a browser runner like the regular snippet runner). The custom functions runner is what registers the custom functions with Excel. It would NEVER open in a browser tab at port 3200.
+
+Instead, the custom functions runner is at the `/custom-functions-runner` PATH of the main server (port 3000). When Script Lab's custom functions mode is active in Excel:
+1. Excel opens the `custom-functions-runner` page in a hidden task pane
+2. This page registers the custom functions and shows the console output
+
+So the `custom-functions-runner` path IS within port 3000! Let me look at `localhost:3000/custom-functions-runner` more carefully. But when I navigated there before, it showed the same editor SPA...
+
+UNLESS - the `/custom-functions-runner` route serves a COMPLETELY DIFFERENT HTML page that's loaded by Excel for custom functions execution, not the editor SPA. The dev server might be intercepting the request and serving the SPA HTML instead of the dedicated runner HTML.
+
+Let me try navigating to `localhost:3000/custom-functions-runner` with the `?` query param to see if there's something different.
+
+Actually, let me try to access the runner through a more direct approach. Let me use the path `/custom-functions-runner` but without the `#/` hash (a fresh navigation).
+[step 126] Action: left_click (1204, 89)
+[step 126] Reasoning: I went back to `https://localhost:3000/#/custom-functions-runner` (which shows the editor). The Google Translate popup appeared. Let me close it and look at the page.
+
+OK - I've been at this for a while. Looking at the address bar: `https://localhost:3000/#/custom-functions-runner` and the page shows the Script Lab editor. 
+
+Looking at the address bar again, I see `https://localhost:3000/#/custom-functions-runner` - this is the hash-based route that shows the editor. The browser says "不安全" (not secure) which is expected for the self-signed certificate.
+
+Let me now take stock of what I've found and make a final determination:
+
+**Summary of findings:**
+
+1. **The application**: Script Lab (Microsoft's Office Add-ins tool) at `https://localhost:3000`
+
+2. **Custom Functions page** (`https://localhost:3000/#/custom-functions`):
+   - Shows an informational page only
+   - Content: "Currently, Script Lab only supports Custom Functions (Preview) on Windows Desktop on the latest Insider builds on PC and Mac, and on Office Online."
+   - NO editor, NO runner, NO console panel
+   - This is the "Custom Functions (自定义函数) page" that the task refers to
+
+3. **Custom Functions editor** (`https://localhost:3000/custom-functions#/`):
+   - Shows a TypeScript code editor with the Blank Snippet template
+   - Has `console.log("Hello World")` on line 4
+   - Clicking "Run" redirects to `localhost:3200/?backButton=true` (ERR_CONNECTION_REFUSED)
+   - NO console output panel visible
+
+4. **Custom Functions runner** (`https://localhost:3000/#/custom-functions-runner`):
+   - Shows the same editor interface
+   - Clicking "Run" redirects to `localhost:3200/?backButton=true` (ERR_CONNECTION_REFUSED)
+   - NO console output panel visible
+
+5. **Port 3200 runner**: NOT running (ERR_CONNECTION_REFUSED)
+   - The runner where console output would be displayed is not accessible
+
+6. **Console log filtering feature**: 
+   - The Chrome DevTools console shows many internal runtime logs:
+     - Redux state management logs (SCREEN_UPDATE_SIZE, prev state, action, next state from configureStore.ts)
+     - IntelliSense loading logs (INFO (Editor): Fetched... from loglevel-plugin-prefix.js)
+     - Error logs (Unsafe attempt to load URL telemetryservice...)
+   - These are the types of logs that should be "filtered out" in the custom functions runner's console panel
+   - But the runner is NOT accessible
+
+**CONCLUSION**: The console log filtering feature in the Custom Functions (自定义函数) page CANNOT be tested because:
+1. The Custom Functions informational page (`#/custom-functions`) has no console panel
+2. The runner page (port 3200) is not running
+3. The application requires an Office Excel environment to properly run custom functions
+
+The task is partially feasible in the sense that I CAN find the Custom Functions page, but I CANNOT test the console log filtering feature because the runner (which displays console output) is not running and requires an Office environment.
+
+Since I cannot complete all the required steps (specifically steps 2 and 3 - run a function with console.log and observe the console filtering), but I can access the Custom Functions page and see the code editor, let me now provide a detailed report based on my extensive exploration.
+
+Let me close the Google Translate popup and take a final screenshot of the Custom Functions page for documentation.
+[step 127] Action: Open url: https://localhost:3000/#/custom-functions
+[step 127] Reasoning: I'm now at `https://localhost:3000/#/custom-functions-runner` (the Custom Functions Runner hash route). This shows the Script Lab editor with the Blank Snippet. 
+
+There is NO console output panel visible on this page. The entire view is taken up by the code editor. The code contains `console.log("Hello World")` on line 4, but there is no way to see its output because:
+1. The runner (port 3200) is not accessible
+2. The current page shows only the editor, not the runner
+
+Let me now navigate to the actual Custom Functions informational page to take a final screenshot and then provide my report.
+[step 128] Action: left_click (1204, 89)
+[step 128] Reasoning: I can now clearly see the **Custom Functions (自定义函数) page** at `https://localhost:3000/#/custom-functions`. This is the final state of the page:
+
+- **URL**: `https://localhost:3000/#/custom-functions`
+- **Content**: Script Lab logo + "Custom Functions" title + informational message + link to instructions
+- **No interactive elements** (no editor, no runner, no console panel)
+
+This is the definitive **Custom Functions** page in this application. There is NO console log filtering feature accessible on this page or in the current browser environment.
+
+Let me close the Google Translate popup and document the final findings.
+
+==================================================
+Task: 请在 Chrome 中打开 https://localhost:3000 并执行以下测试（注意是 HTTPS）。如果浏览器提示证书不安全，点击高级/继续访问。测试 Custom Functions（自定义函数）页面的控制台日志过滤功能。步骤：1. 打开应用后，导航到 Custom Functions 相关页面（可能在 /custom-functions 或通过主界面进入自定义函数运行器）；2. 如果有自定义函数的示例或编辑器，尝试运行一个包含 console.log 输出的自定义函数；3. 观察控制台输出区域，检查是否只显示用户通过 console.log 写入的消息，系统内部的冗余运行时日志是否被过滤掉。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。
+Status: STOPPED_BY_USER
+Total steps: 128
+Last action: left_click (1204, 89)
+Last reasoning: I can now clearly see the **Custom Functions (自定义函数) page** at `https://localhost:3000/#/custom-functions`. This is the final state of the page:
+
+- **URL**: `https://localhost:3000/#/custom-functions`
+- **Content**: Script Lab logo + "Custom Functions" title + informational message + link to instructions
+- **No interactive elements** (no editor, no runner, no console panel)
+
+This is the definitive **Custom Functions** page in this application. There is NO console log filtering feature accessible on this page or in the current browser environment.
+
+Let me close the Google Translate popup and document the final findings.
+
+==================================================
+
+UI window closed

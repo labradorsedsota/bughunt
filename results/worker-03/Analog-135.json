@@ -1,0 +1,17 @@
+{
+  "task_id": "Analog-135",
+  "repo": "analogdotnow/Analog",
+  "worker": "worker-03",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T23:18:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Next.js 应用需 PostgreSQL + Google/Microsoft OAuth 登录。/calendar 重定向到 /login 登录墙。@simpleanalytics/next 包 404 无法安装（pkg.pr.new 上游已删），手动注释后 dev server 可启动但所有功能页需认证。",
+    "attempted": ["bun install（simpleanalytics 404）", "注释 simpleanalytics 插件和组件", "dev server 启动成功但 /calendar → 307 → /login"],
+    "recommendation": "跳过，需要 PostgreSQL + OAuth 配置"
+  }
+}

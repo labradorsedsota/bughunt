@@ -1,0 +1,452 @@
+Session created: sess-20260417232902-9415bb96a012461c8431a307d68f4e9c
+UI panel initialized successfully
+UI window displayed
+Expected result: 切换 Expert Mode 复选框时，专家模式专属的标签页应立即正确显示或隐藏，标签栏可见性始终与专家模式状态保持同步，多次切换和页面导航后不出现闪烁、残留或状态不一致的问题。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: left_click (599, 223)
+[step 1] Reasoning: I can see a Bluetooth permission dialog. Let me dismiss it first, then examine the page.
+[step 2] Action: scroll down (640, 400) scroll_amount 3
+[step 2] Reasoning: The Betaflight Configurator is now visible. I can see the left sidebar with tabs: 欢迎 (Welcome), 隐私政策 (Privacy Policy), 设置文档 & 支持 (Documentation & Support), 选项 (Options), 固件烧写工具 (Firmware Flasher).
+
+Let me first record the current visible tabs and look for Expert Mode. Let me scroll down in the Options page to see if there's an Expert Mode toggle.
+[step 3] Action: scroll up (640, 400) scroll_amount 3
+[step 3] Reasoning: I can see the Options page content. I don't see an "Expert Mode" toggle here. The Expert Mode toggle in Betaflight Configurator is typically found in the top-right area of the interface when a flight controller is connected. However, since this is a web-based version without a device connected, let me look at the top of the page more carefully, and also check the "欢迎" (Welcome) tab.
+
+Let me first scroll back up to see the top of the page and check if there's an Expert Mode toggle in the header area.
+[step 4] Action: left_click (52, 211)
+[step 4] Reasoning: I can see the Options page with various settings. I can see the left sidebar tabs: 欢迎, 隐私政策, 设置文档 & 支持, 选项, 固件烧写工具. I don't see an Expert Mode toggle here. 
+
+In Betaflight Configurator, the Expert Mode toggle is typically visible in the top header area when connected to a device, or it might be accessible via the "欢迎" (Welcome) page or through a connection. Let me click on the "欢迎" tab to see the Welcome page.
+[step 5] Action: left_click (100, 211)
+[step 5] Reasoning: The page didn't change - it's still showing the Options (选项) page. It seems clicking on "欢迎" didn't navigate to the Welcome page. The currently selected tab is "选项". Let me try clicking on "欢迎" (Welcome) again more precisely.
+[step 6] Action: screenshot
+[step 6] Reasoning: Now I'm on the Welcome (欢迎) page. I can see the left sidebar with tabs:
+1. 欢迎 (Welcome) - currently selected
+2. 隐私政策 (Privacy Policy)
+3. 设置文档 & 支持 (Documentation & Support)
+4. 选项 (Options)
+5. 固件烧写工具 (Firmware Flasher)
+
+These are all the currently visible tabs without Expert Mode. The Expert Mode toggle in Betaflight Configurator is typically visible in the top-right area or the header area when a device is connected. Let me look more carefully at the page - the Expert Mode toggle might be accessible via "启用仿真连接模式" (Enable simulation connection mode) in the Options. Let me check the Options page more carefully.
+
+But first, let me look at the top of the page more carefully. The Expert Mode toggle in Betaflight is often a small toggle in the header area. Let me check the header area.
+[step 7] Action: left_click (100, 291)
+[step 7] Reasoning: I can see the Welcome page and the left sidebar with 5 tabs. The Expert Mode toggle in Betaflight Configurator is typically only available when a flight controller is connected, and it appears in the header area near the connection status.
+
+Let me try enabling the "启用仿真连接模式" (Enable simulation connection mode) which I saw in the Options. This might allow me to simulate a connection and access more features including Expert Mode. Let me navigate to Options first.
+[step 8] Action: left_click (234, 328)
+[step 8] Reasoning: Now I'm on the Options page. I can see "启用仿真连接模式" (Enable simulation connection mode). Let me enable it to simulate a connection, which should allow me to see more tabs and find the Expert Mode toggle.
+[step 9] Action: left_click (100, 211)
+[step 9] Reasoning: I can see "启用仿真连接模式" (Enable simulation connection mode) is now turned on (the toggle appears blue/enabled). However, the left sidebar still shows only 5 tabs. I need to actually connect using this simulation mode. Let me navigate back to the Welcome page and look for a connection button, or check if there's a way to connect in simulation mode.
+
+Let me click on the Welcome tab.
+[step 10] Action: scroll up (640, 300) scroll_amount 3
+[step 10] Reasoning: I'm on the Welcome page. The left sidebar still shows only 5 tabs. I need to connect (even in simulation mode) to see more tabs. In Betaflight Configurator, there should be a "Connect" button near the top-right area of the page. Let me scroll up to see the header area and look for connection controls.
+
+Looking at the current page, I notice the header area shows the Betaflight logo but I don't see a "Connect" button. The typical Betaflight Configurator has a port selector and connect button in the top-right area. Let me scroll up to check if there's something above.
+
+The page seems to start at the header already (no scrolling needed up). Let me check if there's a connection area at the top. The page appears to only show the main content area - the connection controls might be at the top of the page but are not visible currently. Let me take a closer look at the full page structure.
+[step 11] Action: key: ctrl+minus
+[step 11] Reasoning: The page structure is already visible. It seems like this web-based version of Betaflight Configurator is showing the application without the typical "Connect" button at the top. The header shows the Betaflight logo and version, and the main content area begins immediately.
+
+This appears to be a different layout than the typical desktop Betaflight Configurator. The Expert Mode toggle might be somewhere else. Let me check the page source to understand the structure better. Let me look if there's anything in the header area by using the browser's developer tools to inspect, or let me try to look at the right side of the header.
+
+Wait - looking at the page more carefully, I notice there's no connection area visible. In this web-based version, the Expert Mode might only appear after connecting. Let me check if the "启用仿真连接模式" (simulation connection mode) actually allows a simulation connection through the interface.
+
+Let me look more carefully at the header area - maybe there's a connect button that's hidden or not visible at this zoom level.
+[step 12] Action: key: ctrl+shift+minus
+[step 13] Action: key: super+minus
+[step 14] Action: key: ctrl+0
+[step 14] Reasoning: Let me try using the browser zoom controls differently.
+[step 15] Action: key: F12
+[step 15] Reasoning: The page looks similar. The layout seems to be missing a connection area. Looking at the page, I can see the Betaflight Configurator is in a disconnected state. The layout shows:
+- Left sidebar with 5 tabs (欢迎, 隐私政策, 设置文档 & 支持, 选项, 固件烧写工具)
+- Main content area showing Welcome page
+
+In Betaflight Configurator web version, there should be a port selector and connect button at the top. The Expert Mode toggle is typically shown near the top of the sidebar or in a header area when connected.
+
+Looking at the page layout, I notice the header area at the top (above the "2026-04-17..." date line) seems sparse. Let me check if there's an Expert Mode toggle accessible from the current UI. Let me try using the browser developer tools to inspect the page source to find "expert" related elements.
+
+Let me open the Developer Console to inspect the page.
+[step 16] Action: Minimize panel
+[step 16] Reasoning: F12 didn't open the developer tools. Let me try using the View menu in Chrome to open Developer Tools.
+[step 17] Action: right_click (640, 400)
+[step 17] Reasoning: Now I can see the full page without the overlay. I can clearly see the Betaflight Configurator interface. The left sidebar shows 5 tabs:
+1. 欢迎 (Welcome) - currently selected
+2. 隐私政策 (Privacy Policy)
+3. 设置文档 & 支持 (Documentation & Support)
+4. 选项 (Options)
+5. 固件烧写工具 (Firmware Flasher)
+
+I notice there's NO connection area visible at the top right of the page (unlike the typical Betaflight Configurator desktop app). The Expert Mode toggle is typically visible in the header/toolbar area when connected to a flight controller.
+
+Let me look at the page source code to find the Expert Mode toggle. Let me use the browser's developer tools through the Chrome menu.
+[step 18] Action: left_click (683, 613)
+[step 18] Reasoning: I can see a right-click context menu. Let me click "显示网页源代码" (View page source) to look at the HTML source.
+[step 19] Action: key: ctrl+f
+[step 19] Reasoning: I can see the page source. I can see there's a `<port-picker>` component and other HTML elements. Let me search for "expert" in the source to find the Expert Mode toggle.
+[step 20] Action: key: ctrl+f
+[step 20] Reasoning: The Ctrl+F search didn't open a search box. Let me try to use Cmd+F for Mac.
+[step 21] Action: left_click (46, 83)
+[step 21] Reasoning: The search box is not appearing. Let me try clicking in the search box area at the top right.
+[step 22] Action: left_click (640, 400)
+[step 22] Reasoning: There's a search box at the top left. I see "自动操作" with a checkbox at the top. Let me click in the content area of the page source and then use Ctrl+F.
+[step 23] Action: left_click (100, 83)
+[step 23] Reasoning: This is the view-source page. The search box at top ("自动操作") seems to be a custom search input. Let me type "expert" in that input box to find all "expert" related elements in the HTML.
+[step 24] Action: key: ctrl+f
+[step 24] Reasoning: I see the "自动操作" (autorun) checkbox at the top. The search on this view-source page seems to be separate. Let me try the browser's built-in find functionality by pressing Cmd+F since we're on a Mac.
+[step 25] Action: left_click (519, 33)
+[step 25] Reasoning: The Ctrl+F/Cmd+F is not bringing up the browser's find dialog in the view-source. Let me try a different approach - navigate back to the main application and use the browser's built-in Inspector to look for expert mode elements. Let me go back to the Betaflight app tab and look more carefully for the Expert Mode toggle.
+
+In the Betaflight Configurator, the Expert Mode toggle is typically located in the header bar area (headerbar). Looking at the source, I can see there's a `div class="headerbar"` element. But when I look at the page on screen, the header seems to only show the Betaflight logo and version.
+
+Let me close this source tab and go back to the main application to look more carefully.
+[step 26] Action: right_click (640, 140)
+[step 26] Reasoning: Good, I'm back on the main Betaflight Configurator page. I can now see the full page without the task overlay. The UI shows:
+
+**Header Area:**
+- Top left: Betaflight logo (飞行器 bee logo) and "BETAFLIGHT" text, "应用版本: 2025.12.0-beta (2b6d727e)"
+- Date: "2026-04-17 @08:30:12 -- 语言已经更改"
+
+**Left Sidebar (5 tabs visible):**
+1. 欢迎 (Welcome) - currently selected
+2. 隐私政策 (Privacy Policy)
+3. 设置文档 & 支持 (Documentation & Support)
+4. 选项 (Options)
+5. 固件烧写工具 (Firmware Flasher)
+
+**Missing from the typical Betaflight Configurator:** There's no visible port selector, Connect button, or Expert Mode toggle in the header area between the logo and the date/time line. This seems like a web version that's missing the connection area UI.
+
+Looking at the page source, I saw there's a `<port-picker>` component in the HTML. Let me look more carefully at the header area on screen - there might be elements that are invisible or very small.
+
+Let me use the browser's Inspector tool to look at the page structure. Let me try right-clicking on the header area between the logo and the date/time.
+[step 27] Action: left_click (659, 368)
+[step 27] Reasoning: I can see the right-click context menu. Let me click "检查" (Inspect) to open the DevTools.
+[step 28] Action: left_click (114, 431)
+[step 28] Reasoning: Excellent! The DevTools has opened and I can now see the page in a responsive view. I can now see much more of the Betaflight Configurator interface including:
+
+1. **Connection area at the top right** with:
+   - "MSP: 1.46 | Firmware: 4.5.*" dropdown
+   - "虚拟模式 (实验性)" dropdown (Virtual Mode - Experimental)
+   - "自动连接" checkbox (Auto-connect)
+   - "更新固件" button (Update Firmware)
+   - "连接" button (Connect)
+   - "显示日本" (Show Japan?) button/label
+
+2. **Left sidebar** now shows icons (smaller view) with the tabs collapsed to icons only
+
+The interface now shows the full header area with connection controls. But I don't see an "Expert Mode" toggle here yet. Let me look more carefully at the header. I notice the page is now in responsive/mobile view. 
+
+Let me look at the full page and search for the Expert Mode toggle. I notice in the Betaflight Configurator, the Expert Mode toggle is typically in the status bar or in the sidebar. Let me search in the DevTools for "expert" or in the console.
+[step 29] Action: left_click (640, 645)
+[step 29] Reasoning: I can see the Console tab. I can see various log messages. Let me use the console to search for "expert" related settings. I can also use the console to check the store state for expert mode.
+
+Let me click on the console input area and type a command to find the Expert Mode toggle.
+[step 30] Action: key: F12
+[step 30] Reasoning: I can see the console with some logs. The page now shows the Betaflight Configurator in a smaller/responsive view. Let me close the DevTools and look at the full page. I now see the app in the DevTools responsive mode. 
+
+Looking at the top of the app (in the responsive view), I can see:
+1. Port/firmware selector dropdown
+2. "虚拟模式 (实验性)" dropdown (Virtual Mode - Experimental)
+3. "自动连接" checkbox
+4. "更新固件" (Update Firmware) button
+5. "连接" (Connect) button
+6. "显示日本" button
+
+The Expert Mode toggle is not visible yet. Looking at the sidebar in this responsive view, I can see just icons. 
+
+Let me close the DevTools to get a full view of the page, then scroll the application to find the Expert Mode toggle. Let me close DevTools first.
+[step 31] Action: key: Escape
+[step 31] Reasoning: The DevTools is still open. Let me try closing it by pressing F12 again or clicking the X button on the DevTools.
+
+Looking at the current state, I can now see the Betaflight Configurator in responsive view mode. The DevTools shows the Elements panel. In the responsive view, I can see the full Betaflight header including:
+- Port/firmware selectors
+- Connection controls
+- The sidebar with icons
+
+Now I need to find the Expert Mode toggle. In Betaflight Configurator, Expert Mode is typically accessible through the "选项" (Options) page under a settings area, or it might be in the header area when connected.
+
+Looking at the UI in this responsive view, I can see the sidebar tabs are shown as icons. To connect in "virtual mode" and get access to more tabs, I need to click the "连接" (Connect) button. Let me try that.
+
+Let me close the DevTools first by pressing Escape or clicking the X.
+[step 32] Action: left_click (640, 645)
+[step 32] Reasoning: The DevTools is still open. I can see the Betaflight Configurator in responsive view mode. I can now see that the application has a port picker with "虚拟模式 (实验性)" selected. Let me now try to click the "连接" (Connect) button to connect in virtual mode, which should enable the full Betaflight UI with more tabs. Let me click on the "连接" button.
+
+But first, I need to close the DevTools. Let me click the X button on the DevTools.
+
+Looking at the current view, I can see the Betaflight Configurator shows:
+- The "连接" button (green, top right) 
+- In the sidebar on the left, there are icons for various tabs
+
+The DevTools panel is at the bottom. Let me try to use the Console tab to query the JavaScript state for "expertMode". Let me click on the console input.
+[step 33] Action: key: ctrl+shift+i
+[step 33] Reasoning: The console is open. Let me try to first connect to the virtual device by clicking the "连接" button in the app view. But first, I need to understand if the Expert Mode is accessible. 
+
+Looking at the page in the responsive view, the full application interface IS visible. I can see the sidebar with collapsed icons. Before connecting, the sidebar has fewer tabs. After connecting, more tabs should appear.
+
+Let me first understand the current state better. The app is showing in responsive view mode (due to DevTools being open). I can see 5 tab icons in the sidebar. Let me connect using the virtual mode to see more tabs.
+
+First, let me close the DevTools by pressing the X or using keyboard shortcut.
+[step 34] Action: left_click (1089, 155)
+[step 34] Reasoning: The DevTools is still open. Now I need to first try to connect to the virtual device. I can see the "连接" (Connect) button in the app. Let me click on it. Looking at the responsive view, the "连接" (Connect) button appears to be at the top right of the app preview (approximately at coordinate 1089, 155 in screen coordinates).
+[step 35] Action: left_click (1093, 236)
+[step 35] Reasoning: Excellent! The application has connected successfully in virtual mode! I can see:
+
+1. **A new tab opened** ("Betaflight" tab opened at the top of the browser)
+2. **The app is now connected** - showing "连接: 00:01" in the status bar
+3. **More UI elements are visible** including sensor icons (陀螺仪, 加速度计, 磁力计, 气压计, GPS, 声响)
+4. **A "设置" dialog** is showing with calibration buttons
+5. **The status bar** at bottom shows "连接: 00:01" and other data
+
+However, I notice there's an error in the console: `[SERIAL] Error during connection to path 'virtual' with protocol 'VirtualSerial': TypeError: callback is not a function`
+
+Despite this error, the connection seems to have happened. Now I can see the sidebar has more icons. Let me close the DevTools and look at the full sidebar to see all the tabs now visible.
+
+Wait - I see a new browser tab "Betaflight" opened at the top of the browser. The original Betaflight tab is now in the left position. Let me click on that new tab to see the full-width view.
+
+But first let me look at the current responsive view to count the tabs in the sidebar. I can see in the sidebar:
+- Star/welcome icon
+- Some other icons
+- Settings icon (gear)
+- Screen icon
+- Globe-like icon
+
+And there's a "设置" (Settings) dialog open showing calibration options. Let me close this dialog first.
+[step 36] Action: left_click (659, 33)
+[step 36] Reasoning: I see a new tab "Page Not Found | Betaflight" has opened. It seems clicking on what I thought was the "X" button opened a new tab with a "Page Not Found" error. The original dialog is still showing.
+
+I can also see that the status bar shows "连接: 00:17" meaning the virtual connection has been running for 17 seconds. This is good - the app is connected.
+
+Now I need to look at the full-width page to see all the tabs and find the Expert Mode toggle. Let me close the DevTools and the "Page Not Found" tab, then examine the main connected view.
+
+First, let me close the "Page Not Found" tab.
+[step 37] Action: left_click (677, 33)
+[step 37] Reasoning: I see a "Page Not Found" page opened at betaflight.com/docs/wiki/configurator/setup-tab. This is an external documentation page that was opened. Let me close this tab and go back to the main Betaflight app. I can see multiple tabs:
+1. OpenClaw Control
+2. Betaflight (first one with DevTools)
+3. Betaflight (second one)
+4. Betaflight (third one - current page showing "Page Not Found")
+
+Let me close this tab and also close the extra Betaflight tabs.
+[step 38] Action: key: ctrl+shift+j
+[step 38] Reasoning: Good, now I have the main Betaflight tab with DevTools, and there's a second "Betaflight" tab. The main tab shows the app in responsive mode (due to DevTools) with the virtual connection running (连接: 00:39). 
+
+The "设置" (Setup) dialog is still open in the application. I need to look at the sidebar to identify all the currently visible tabs. But the responsive view is showing icons in the sidebar without text.
+
+Let me close the DevTools so I can see the full application. Let me use the keyboard shortcut to close DevTools.
+[step 39] Action: left_click (453, 33)
+[step 39] Reasoning: The DevTools is still showing. Let me notice something important - the "Betaflight" tab (second one) might actually be showing the full-width connected version. Let me switch to that tab.
+[step 40] Action: left_click (289, 33)
+[step 40] Reasoning: This second "Betaflight" tab shows the Welcome/disconnected state without a connection. This is a separate instance. It still shows only 5 tabs:
+1. 欢迎 (Welcome) - currently selected
+2. 隐私政策 (Privacy Policy)
+3. 设置文档 & 支持 (Documentation & Support)
+4. 选项 (Options)
+5. 固件烧写工具 (Firmware Flasher)
+
+This is the disconnected state. Let me go back to the first Betaflight tab (with DevTools) where the virtual connection is active.
+[step 41] Action: scroll right (640, 130) scroll_amount 5
+[step 41] Reasoning: Interesting! The first Betaflight tab also shows the disconnected/welcome state now. The DevTools seems to have closed when I switched to the other tab, and the virtual connection appears to have been closed. The page now shows just the Welcome page with the 5 tabs and status bar showing "循环时间: 0".
+
+It seems the app has disconnected. The status bar at the bottom shows "端口利用率: 下:0%-上:0% | 数据包错误: 0 | I2C 错误: 0 | 循环时间: 0 | CPU 负载: 0%".
+
+Looking at the page structure:
+- **Header**: Betaflight logo + version (no port selector, no connect button visible)
+- **Left sidebar**: 5 tabs (欢迎, 隐私政策, 设置文档 & 支持, 选项, 固件烧写工具)
+- **Main content**: Welcome page
+- **Status bar**: At the bottom showing performance metrics
+
+Wait - I notice there's NO port selector or Connect button visible in the header! This is different from the typical Betaflight Configurator. Looking at the header area, I only see:
+1. The Betaflight logo at the top-left
+2. "应用版本: 2025.12.0-beta (2b6d727e)"
+3. Date/time line
+
+There's NO connection UI visible in the header. This is a web version of the app and when the DevTools is open, the responsive mode shows the full header. When closed, the connection controls appear to be hidden or off-screen.
+
+Wait - looking at the header again. The date/time line says "2026-04-17 @08:35:13 -- 应用版本: 2025.12.0-beta (2b6d727e)". But earlier when DevTools was open, I could see the connection controls (port selector, virtual mode selector, connect button). Those controls are located in the top-right area of the app header.
+
+Let me scroll up to the very top of the page to see if the connection controls are there.
+
+The screen shows the top of the page already. The header area doesn't show connection controls. Looking at the other second tab that appears identical... Let me scroll UP more to see if there's a header above the current viewport.
+
+Actually, looking at the layout - the header area with connection controls (port selector, connect button) might be cut off because the browser window is too narrow or the controls are positioned at the right side of the header. Looking at the previous DevTools screenshot, the controls were on the right side of the header in the responsive (smaller) view. Since the full-width view is now showing, the controls should be on the far right of the header.
+
+Let me scroll right or check if there's a scrollbar.
+
+Wait - I now recall that in the DevTools view (responsive/small view), I could see the entire header of the Betaflight app including the connection controls at the top-right. But in the full browser view, those controls are cut off because the Betaflight app is rendered in a fixed width that extends beyond the viewport.
+
+Actually looking more carefully at the current screenshot - the Betaflight app seems to be rendering at full width but the header connection area is missing. This is a bug in the UI. Let me scroll the main page to the right to find the connection controls.
+
+Let me scroll right on the main content area to find the connection controls.
+[step 42] Action: left_click (51, 291)
+[step 42] Reasoning: The page appears to not have scrolled horizontally. The header area with connection controls is simply not visible in this full-width view. This is a UI bug where the port selector and connect button appear to be missing from the header area when viewed at full width.
+
+Looking at the header area of the page:
+- Top left: BETAFLIGHT logo + version
+- Below: Date/time info
+- The rest of the header area is EMPTY
+
+The connection controls (port selector, virtual mode, connect button) should be visible in the header area on the right side, but they are not showing.
+
+Let me check if the Expert Mode toggle is somewhere in the sidebar in the disconnected state. Looking at the 5 visible tabs, none of them appear to have an Expert Mode toggle.
+
+Let me look more carefully at the header area. In the previous DevTools responsive view, I saw the connection controls at the top right of the Betaflight app. But in this full-width view, they seem to be missing. This might indicate the connection controls are rendered off-screen or hidden by CSS.
+
+Let me use the Options tab to check if there's an Expert Mode setting there.
+[step 43] Action: left_click (677, 33)
+[step 43] Reasoning: Excellent! Now I can see the Options (选项) page in full width! I can see:
+
+**选项 (Options) section:**
+- 连接后重新打开最后使用的选项页 (Reopen last options page after connection)
+- 禁用互联网连接(适合按流量计费或慢速网络) (Disable internet connection)
+- 退出匿名的统计数据收集 (Opt out of anonymous statistics)
+- 高级 CLI 自动填充 (Advanced CLI autocomplete) - **ENABLED (orange toggle)**
+- 启用手动连接模式 (Enable manual connection mode)
+- 启用仿真连接模式 (Enable simulation connection mode) - **ENABLED (orange toggle)**
+- 为 3D 模型启用旧版渲染 (适用于低性能设备)
+- 使用暗色主题 (Use dark theme) - has a dropdown "自动" (Auto)
+- Automatically open DevTools in development mode
+- 显示耗时操作通知 (Show time-consuming operation notifications)
+- Create a backup before flashing new target
+- 选择默认语言 (Select default language) - "系统默认"
+
+**开发设置 (Developer Settings):**
+- 显示所有串口设备 (面向制造商或开发者) (Show all serial port devices)
+- 启用仅 CLI 模式 (Enable CLI-only mode)
+
+**显示警告 (Display Warnings):**
+- Some warning checkbox
+
+I notice there's NO "Expert Mode" toggle visible in these options! This is important information. But wait - the connection controls (port selector, connect button) are also NOT visible in the header at full width. This is very unusual.
+
+Also, a new "Betaflight" tab appeared at the top (third tab). Let me close that and look at the full page header area.
+
+Looking more carefully, the header area shows:
+1. BETAFLIGHT logo + "应用版本: 2025.12.0-beta (2b6d727e)"
+2. "2026-04-17 @08:37:04 -- 语言已经更改"
+
+There's STILL no connection area visible. The connection controls (port selector, virtual mode dropdown, connect button) should be in the header area but are completely invisible in full-width view.
+
+This is a **VISUAL BUG** - the connection controls in the header are not visible in full-width mode.
+
+Let me close the third "Betaflight" tab that just opened.
+[step 44] Action: left_click (254, 9)
+[step 44] Reasoning: Good. Now I can see the full Options page in the second tab. The header connection area is still not visible at full width. 
+
+Now I need to understand where the Expert Mode toggle is. In Betaflight Configurator, Expert Mode is typically:
+1. A toggle in the header/statusbar area when connected
+2. Accessible via the statusbar at the bottom
+
+Looking at the current state, the bottom status bar shows: "端口利用率: 下:0%-上:0% | 数据包错误: 0 | I2C 错误: 0 | 循环时间: 0 | CPU 负载: 0%"
+
+There's NO "Expert Mode" toggle visible anywhere in the current full-width view. 
+
+Let me think about this differently - maybe the Expert Mode toggle is in the header area but it's being cut off because the Betaflight app's connection header is hidden or positioned off-screen in the full-width browser view.
+
+Let me try to use the browser's View menu to zoom out the page to see if the header area with connection controls becomes visible.
+
+Let me try Chrome's zoom out using the browser's View menu or keyboard shortcut.
+[step 45] Action: key: Escape
+[step 45] Reasoning: I accidentally clicked on the Chrome profile picture and opened the Chrome profile dropdown. Let me close it and try to access the browser View menu instead.
+[step 46] Action: left_click (640, 400)
+[step 46] Reasoning: The Chrome profile dropdown is still showing. Let me click somewhere else to close it and then go to the Betaflight tab.
+[step 47] Action: left_click (289, 33)
+[step 47] Reasoning: Good. I'm now on the second Betaflight tab showing the Options page. The header is visible with the BETAFLIGHT logo but no connection controls.
+
+Now I need to find the Expert Mode toggle. Looking at the current tab structure and options:
+1. The Options page does NOT have an "Expert Mode" toggle directly
+2. The Expert Mode toggle in Betaflight is typically in the header/toolbar area when connected
+
+Let me go back to the first Betaflight tab where I had the connection established. But first, let me check the first tab to see if it shows a connected state.
+[step 48] Action: left_click (640, 645)
+[step 48] Reasoning: I'm back on the first Betaflight tab with DevTools and the virtual connection is still active (连接: 02:56). I can see the responsive view of the app showing the "设置" (Setup) dialog with calibration buttons.
+
+Now I need to look for the Expert Mode toggle in this connected view. In the Betaflight Configurator, the Expert Mode toggle is typically visible in the sidebar or the header area when connected. Let me scroll the app's sidebar area in the responsive view to see all the tabs.
+
+Looking at the responsive view of the app, I can see the sidebar has several icons on the left. Let me scroll down in the app's sidebar to see if there are more tabs.
+
+But first, let me check the header area of the app in the responsive view. I can see:
+- Top left: MSP: 1.46 | Firmware: 4.5.* dropdown
+- Below: 应用版本: 2025.12.0-beta (2b6d727e)
+- Status icons (陀螺仪, 加速度计, etc.)
+- Below: Date/time + "禁止解锁" 
+- "显示日本" button at right
+
+I don't see an "Expert Mode" toggle in the header of the responsive view either.
+
+Let me look at the sidebar more carefully. In the responsive view, I can see the sidebar has several icons. Let me scroll down in the sidebar of the app.
+
+Let me use the JavaScript console to find and check the expert mode state. Let me click on the console and run a query.
+[step 49] Action: left_click (640, 645)
+[step 49] Reasoning: I can see the console cursor at the bottom (the `>` prompt is at the bottom right). Let me click on the console input area at the very bottom right to type a JavaScript command to check the expert mode.
+[step 50] Action: left_click (200, 645)
+[step 50] Reasoning: I can see the console input cursor is now active (the `> |` is visible at the bottom left). Let me type a JavaScript query to find expert mode related elements in the DOM.
+[step 51] Action: left_click (200, 645)
+[step 51] Reasoning: I can see the console at the bottom. The cursor is at the `>` prompt. Let me type a query to look for expert-mode related elements in the DOM.
+
+First, let me look at the sidebar icons in the responsive view. In the sidebar, I can see some icons (at the left side of the responsive view). The sidebar shows several icons from top to bottom. Let me scroll down in the sidebar area of the app to see all the tabs when connected.
+
+Looking at the app in the responsive view, the sidebar icons I can see are:
+- A star/home icon (around y=247)
+- A flame/fire icon (around y=273)
+- A settings/gear icon (around y=299)
+- A monitor icon (around y=325)
+- A globe icon (around y=351)
+
+These are all partial views. The app seems to have a scrollable sidebar in the responsive view.
+
+Now, looking at the typical Betaflight Configurator sidebar tabs when connected:
+- 设置 (Setup)
+- 电调和电机 (ESC & Motors) - Expert
+- 调整 (Tuning/Rates)
+- 飞行模式 (Modes)
+- 电机 (Motors)
+- 接收机 (Receiver)
+- 调试 (Debug/Logging)
+- LED灯条 (LED Strip)
+- 舵机 (Servos)
+- GPS (Expert)
+- 调谐 (Tuning) - Expert
+- 电源和电池 (Power & Battery)
+- 失控保护 (Failsafe)
+- 图传 (OSD)
+- 黑盒 (Blackbox)
+- CLI
+
+The Expert Mode tabs typically include things like "PID Tuning" with advanced sub-options, "GPS", "Servos", "Transponder", etc.
+
+Let me query the DOM using JavaScript to find the expert mode toggle and check the sidebar tab visibility. Let me type in the console.
+[step 52] Action: left_click (640, 646)
+[step 52] Reasoning: I see the app is still connected (连接: 03:50). Looking at the responsive view, I can see the Betaflight app sidebar. The connection timer has been running for 3 minutes 50 seconds.
+
+Now I need to find the Expert Mode toggle in the app. Looking at the sidebar of the app, there seem to be icons. The app in the responsive view is showing the "设置" (Setup) tab content.
+
+Let me look at the sidebar more carefully. The sidebar icons visible in the responsive view are approximately at x=617 in the full screen. Let me scroll down in the app's sidebar to see all available tabs.
+
+Looking at the Betaflight Configurator connected state in the responsive view:
+
+The sidebar appears to have icons at:
+- ~y=247 (first icon - looks like a flame/propeller icon = Setup?)
+- ~y=273 (second icon)
+- ~y=299 (settings icon)  
+- ~y=325 (monitor icon)
+- ~y=351 (another icon - partially visible)
+
+Let me look at the left side of the responsive app view (the sidebar icons) around x=617.
+
+But first, let me use the JavaScript console to query the DOM for expert mode related elements. Let me click precisely on the console input at the bottom.
+[step 53] Action: left_click (110, 646)
+[step 53] Reasoning: I can see the `>` prompt at the very bottom. Let me now type a JavaScript query to find the expert mode toggle in the DOM. The cursor should be active at the `> |` area.
+
+==================================================
+Task: 当前Chrome浏览器已打开betaflight-app网站，地址是http://localhost:8000。测试 Betaflight Configurator 应用中标签栏（Tab Bar）的可见性是否能根据 Expert Mode（专家模式）切换正确响应。具体步骤：1. 打开应用首页，观察顶部或侧边的标签栏，记录当前可见的标签页列表。2. 找到 Expert Mode（专家模式）复选框或开关，点击启用专家模式，观察标签栏是否出现了额外的专家模式专属标签页。3. 再次点击关闭专家模式，确认这些专家模式专属标签页是否正确隐藏。4. 反复切换专家模式多次，确认标签页的显示和隐藏始终与专家模式状态一致，不出现闪烁或状态不同步的情况。5. 在不同标签页之间导航切换，确认标签栏的可见性状态保持正确。始终在浏览器内操作，禁止打开 Terminal 或其他应用程序。如果在浏览器中找不到目标功能，直接报告 unclear。 请始终在浏览器内操作，禁止打开 Terminal、Finder 或其他应用程序。如果在浏览器中找不到目标功能，直接标记 result 为 unclear，result_summary 写明未在页面中找到目标功能入口。
+Status: STOPPED_BY_USER
+Total steps: 53
+Last action: left_click (110, 646)
+Last reasoning: I can see the `>` prompt at the very bottom. Let me now type a JavaScript query to find the expert mode toggle in the DOM. The cursor should be active at the `> |` area.
+
+==================================================
+
+UI window closed

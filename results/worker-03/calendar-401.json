@@ -1,0 +1,30 @@
+{
+  "task_id": "calendar-401",
+  "repo": "vkurko/calendar",
+  "worker": "worker-03",
+  "status": "completed",
+  "result": "unclear",
+  "sess_id": "sess-20260418232528-a3ccc762a7ba422c8e25ead4b8329d62",
+  "expected_result_used": false,
+  "duration_seconds": 1020,
+  "steps": 89,
+  "timestamp": "2026-04-18T23:42:00+08:00",
+  "mano_cua": {
+    "session_id": "sess-20260418232528-a3ccc762a7ba422c8e25ead4b8329d62",
+    "steps": 89,
+    "max_steps_exceeded": true,
+    "reasoning_summary": "mano-cua 成功切换到 resourceTimelineWeek 视图，打开 DevTools 测量了资源行和事件的高度数据。Resource A: 52px, Resource B: 57px, Resources C-N: 35px, Resource O: 512px（填充剩余空间异常）。所有事件高度 19.3px，position: absolute，top: 0px。发现 185 个 .ec-events 容器（按日期×资源分布）。正在对比左侧资源行与右侧事件容器高度时超出步数限制被终止，未能完成最终对比判定。",
+    "observations": [
+      "Resource A row height=52px (flexBasis=51px)",
+      "Resource B row height=57px (flexBasis=56px)",
+      "Resources C-N row height=35px (flexBasis=34px)",
+      "Resource O row height=512px (flexBasis=34px) — 最后一行填充剩余容器空间",
+      "所有 9 个事件 height=19.3px, position:absolute, top:0px",
+      "185 个 .ec-events 容器，每个 day×resource cell 一个",
+      "事件使用 margin-top 定位：1px（首事件）、21.3px（重叠第二事件）、26.4px（第三层）",
+      "步数用完前未能完成左右侧高度最终对比"
+    ]
+  },
+  "failure": null,
+  "notes": "docs 目录静态站点通过 npx serve 部署成功。mano-cua 进行了大量 DevTools 分析但超出 max_steps 被终止。观测到资源行高度不一致（有事件的 A/B 行比无事件的 C-N 行高），Resource O 异常撑满容器，但未完成左右两侧高度对齐的最终确认。"
+}

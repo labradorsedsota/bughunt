@@ -1,0 +1,645 @@
+Session created: sess-20260417044855-db7fd4d238c74a05929ec56ceab11daf
+UI panel initialized successfully
+UI window displayed
+Expected result: 当min/max范围不包含今天时，今天按钮应被隐藏或禁用，不允许用户通过该按钮导航到超出有效范围的日期。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: left_click (1204, 88)
+[step 1] Reasoning: I can see the Angular Date/Time/Month Picker application. I'm currently on the "Day Time Picker" section. I need to navigate to the "Day Picker" section. Let me first close the Google Translate popup and then click on "Day Picker".
+[step 2] Action: left_click (31, 240)
+[step 2] Reasoning: Good, the Google Translate popup is closed. Now let me click on "Day Picker" in the left sidebar.
+[step 3] Action: scroll up (640, 400) scroll_amount 3
+[step 3] Reasoning: I'm now on the Day Picker section. I can see the configuration options including "Min Selectable Date (min)" and "Max Selectable Date (max)" fields. Let me scroll up first to see the top of the page with the date picker input, and then I'll look for the "showGoToCurrent" or "Go to today" button configuration.
+
+Let me first scroll up to see the date picker at the top of the page.
+[step 4] Action: left_click (700, 132)
+[step 4] Reasoning: I can see the Day Picker configuration page. I can see:
+- "Min Selectable Date (min)" field in the Config options section
+- "Max Selectable Date (max)" field in the Config options section
+
+Now let me first open the date picker by clicking on the "Choose a date..." input at the top to see the current state of the picker and check if there's a "Go to today" button.
+[step 5] Action: scroll down (700, 230) scroll_amount 3
+[step 5] Reasoning: The date picker calendar is now open showing April 2026. I can see:
+- The calendar shows April 2026 with today's date (16) highlighted
+- There's NO "Go to today" or "Current Date" button visible at the bottom of the calendar picker
+
+The calendar appears to be a compact view without a "Go to today" button in the default state. Let me scroll down within the calendar popup to see if there's a button below, or check if I need to look at the full calendar.
+
+Let me scroll down in the calendar popup to see if there's more content.
+[step 6] Action: key: Escape
+[step 6] Reasoning: The calendar popup is still showing April 2026 with the same view. I can see the calendar dates but there's no "Go to today" button visible. The calendar appears to only show the month grid. Let me close the picker and scroll down further to see if there's a "showGoToCurrent" configuration option in the Config options section.
+
+Let me press Escape to close the date picker first, then scroll down to see more configuration options.
+[step 7] Action: scroll down (640, 400) scroll_amount 5
+[step 7] Reasoning: Good, the date picker is closed. I can see the config options. Now I need to scroll down to find if there's a "showGoToCurrent" configuration option that controls the "Go to today" button. Let me scroll down to see more configuration options.
+[step 8] Action: scroll down (640, 400) scroll_amount 5
+[step 8] Reasoning: I can see more configuration options. Let me continue scrolling down to find the "showGoToCurrent" option or similar.
+[step 9] Action: scroll down (640, 400) scroll_amount 3
+[step 9] Reasoning: Excellent! I can now see the "Show go to current button (showGoToCurrent)" option! It's currently set to "Enabled". This is the configuration for the "Go to today" button. Let me scroll down a bit more to see all options.
+
+I can see:
+- **Show go to current button (showGoToCurrent):** Enabled ● Disabled ○
+
+Now I need to:
+1. First enable the "Go to today" button (it appears to already be Enabled)
+2. Set a future min date (2026-08-01) to make today outside the range
+3. Open the date picker and check if the "Go to today" button is still visible
+4. Click the button and observe the behavior
+
+Let me scroll down a bit more to see the complete options.
+[step 10] Action: left_click (700, 132)
+[step 10] Reasoning: Now I can clearly see the "Show go to current button (showGoToCurrent)" option. It's currently set to "Enabled". This confirms that the "Go to today" button feature exists. 
+
+Now let me proceed with the test:
+
+**Step 1**: The "showGoToCurrent" button is set to "Enabled". Let me first open the date picker to confirm the button is visible.
+
+Let me click on the date picker input to open the calendar.
+[step 11] Action: key: Escape
+[step 11] Reasoning: The date picker calendar is open. I can see the calendar for April 2026 showing today (16) highlighted. However, I notice that there's **no "Go to today" button** visible in the calendar, even though "showGoToCurrent" is set to "Enabled". The calendar only shows the month grid with navigation arrows.
+
+Wait - let me look more carefully. The calendar shows dates from 29 March to 9 May. Let me check if the "Go to today" button might appear at the bottom of the calendar. The calendar popup seems to be cut off. Let me scroll up to see the top of the calendar.
+
+Actually, looking at the calendar, it appears the calendar shows the grid with today (April 16) highlighted with a circle. I don't see a "Go to today" button below the grid. Let me close and check again.
+
+Let me press Escape and scroll up to see the full date picker with the "showGoToCurrent" button enabled.
+[step 12] Action: scroll up (640, 400) scroll_amount 15
+[step 12] Reasoning: I can see the configuration options. The "showGoToCurrent" is set to "Enabled". But when I opened the calendar, I didn't see a "Go to today" button. Let me scroll up to open the picker from the top of the page, and see if the "Go to today" button appears. Maybe it appears below the calendar grid.
+
+Let me scroll up to the top of the page to see the full picker.
+[step 13] Action: left_click (700, 132)
+[step 13] Reasoning: Good, I'm at the top of the Day Picker page. I can see:
+- The "Choose a date..." input at the top
+- "Min Selectable Date (min)" field in Config options
+- "Max Selectable Date (max)" field in Config options
+
+Now let me first open the date picker and see the full calendar with today's "Go to current" button. Let me click the date picker to open it.
+[step 14] Action: key: Escape
+[step 14] Reasoning: The date picker calendar is open showing April 2026. I can see the calendar with:
+- Navigation arrows (< and >) at the top
+- "Apr, 2026" in the header
+- The calendar grid with today (16) highlighted
+
+But I still don't see a "Go to today" or "Go to current" button at the bottom of the calendar. Even though "showGoToCurrent" is set to "Enabled", the button doesn't appear to be visible in the calendar popup. This could be a bug or the button may appear below the visible area.
+
+Let me take a careful look - the calendar shows dates from row 29 March to 09 May but no "Go to today" button below. This might be a **visual bug** - the "Go to today" button might be there but not visible.
+
+Let me try navigating away from the current month to a different month, then look for the "Go to today" button.
+
+Actually, let me first close the picker and check if the "showGoToCurrent" is correctly set to Enabled. Let me press Escape.
+[step 15] Action: left_click (700, 132)
+[step 15] Reasoning: Good. Let me try opening the picker using the "Open" API button to see if the "Go to today" button shows up. But first, let me check - the calendar shows today's date (April 16, 2026) is already the current month being displayed. The "Go to today" button might only show when you navigate away from the current month. Let me try opening the picker, navigating to a different month, and then see if the "Go to today" button appears.
+[step 16] Action: left_click (763, 153)
+[step 16] Reasoning: The date picker is open showing April 2026. Let me navigate to a different month by clicking the forward arrow to see if a "Go to today" button appears.
+[step 17] Action: scroll down (700, 250) scroll_amount 3
+[step 17] Reasoning: Now I'm looking at May 2026. I still don't see a "Go to today" button below the calendar grid. The calendar only shows the month grid and navigation arrows. There's no visible "Go to current" button even when navigating away from the current month.
+
+**This is a potential visual bug**: Even though "showGoToCurrent" is set to "Enabled" in the config, no "Go to today/current" button appears in the calendar popup.
+
+Let me check if maybe the button is hidden below the calendar popup and I need to look more carefully. Let me try navigating further ahead to a completely different month.
+
+Wait - let me look more carefully. The popup seems to end right at the row "31 01 02 03 04 05 06". Maybe the "Go to today" button is below the calendar popup but not visible because the popup is getting cut off. 
+
+Let me check by scrolling within the popup area.
+[step 18] Action: key: Escape
+[step 18] Reasoning: I can now see the calendar popup showing May 2026. The calendar popup still doesn't show a "Go to today" button below the grid. The calendar shows the last row "31 01 02 03 04 05 06" and then nothing below it.
+
+**Important observation**: The "showGoToCurrent" is set to "Enabled" but no "Go to today" button is visible in the calendar popup. This could be a bug where the button is not rendering properly, or perhaps it's hidden below the visible area of the popup.
+
+Let me close the picker and directly navigate to the "Min Selectable Date" to set it to a future date and test the behavior. Let me also close the picker first.
+
+Let me now proceed with **Step 2**: Setting a future minimum date (2026-08-01) in the "Min Selectable Date (min)" field.
+
+First, let me press Escape to close the date picker and then click on the "Min Selectable Date (min)" field.
+[step 19] Action: left_click (588, 254)
+[step 19] Reasoning: The date picker is closed. I can now see the "Min Selectable Date (min)" and "Max Selectable Date (max)" fields. Let me click on the "Min Selectable Date (min)" input field and type "2026-08-01".
+[step 20] Action: left_click (651, 275)
+[step 20] Reasoning: A calendar picker appeared for the "Min Selectable Date (min)" input field. I can see April 2026 calendar. I need to navigate to August 2026 and click on August 1st. Let me click the forward arrow to navigate to August 2026 (4 months forward from April).
+[step 21] Action: left_click (651, 275)
+[step 21] Reasoning: Good, I'm now on May 2026. Let me click the forward arrow 3 more times to get to August 2026.
+[step 22] Action: left_click (651, 275)
+[step 22] Reasoning: Now at June 2026. Let me click forward two more times to get to August 2026.
+[step 23] Action: left_click (651, 275)
+[step 23] Reasoning: Good, now at July 2026. One more click to get to August 2026.
+[step 24] Action: left_click (648, 316)
+[step 24] Reasoning: Now I'm on August 2026. I can see the calendar for August 2026. I need to click on August 1st (which is on the first row, Saturday = "01"). Let me click on August 1.
+[step 25] Action: left_click (700, 132)
+[step 25] Reasoning: I can see that the "Min Selectable Date (min)" field now shows "01-08-2026" (August 1, 2026). This means the minimum selectable date has been set to a future date, which means today (April 16, 2026) is now outside the allowed range.
+
+Now let me **open the date picker** (main date input at the top) to see how it behaves with this min constraint. Let me click on "Choose a date..." input.
+[step 26] Action: left_click (763, 153)
+[step 26] Reasoning: Excellent! Now the date picker is open and I can observe several important things:
+
+**Observations for Step 3 (with min=2026-08-01):**
+
+1. **The calendar is showing April 2026** - which is before the min date (August 2026)
+2. **All dates in April 2026 appear grayed out/disabled** - because they're all before the min date of August 1, 2026
+3. **The back navigation arrow (<) is MISSING** - there's no left arrow to go back in time, but there should still be a right arrow to navigate forward
+4. **The forward navigation arrow (>) is still visible** at the top right corner
+5. **No "Go to today" button is visible** in the calendar popup - even though "showGoToCurrent" is set to "Enabled"
+6. Today (16) appears to still have a circle around it but all dates are grayed out
+
+**Key bug observation**: The "showGoToCurrent" is set to "Enabled" but NO "Go to today" button is displayed in the calendar popup in any state (neither before setting min, nor after).
+
+Let me navigate forward to August 2026 to see if the "Go to today" button appears there when valid dates are selectable.
+[step 27] Action: left_click (763, 153)
+[step 27] Reasoning: Now at May 2026. All dates are still grayed out because the min date is August 1, 2026. Still no "Go to today" button. Let me continue navigating forward to August 2026 to see when dates become selectable.
+
+Let me click the forward arrow 2 more times to reach July, then August.
+[step 28] Action: left_click (763, 153)
+[step 28] Reasoning: Now at June 2026. Still all grayed out. Let me click 2 more times to get to August.
+[step 29] Action: left_click (763, 153)
+[step 29] Reasoning: Now at July 2026. I can see that July 31 (the last date visible) appears to start showing as not grayed out. The August dates (01, 02 in the last row on Fri and Sat) appear to be valid. Let me click one more time to get to August 2026.
+[step 30] Action: key: Escape
+[step 30] Reasoning: Now I'm viewing **August 2026** in the date picker. I can see:
+
+1. **August 2026 is showing with all dates active (not grayed out)** - starting from August 1 (01 in the first row on Saturday column)
+2. **No "Go to today" button is visible** below the calendar grid - even in a valid month with selectable dates
+3. The calendar has left navigation arrow ("<") and right navigation arrow (">")
+
+**Critical Observation**: Even when viewing August 2026 (the month where dates are valid according to the min constraint), there is still **NO "Go to today" button** visible. The "showGoToCurrent" configuration is set to "Enabled" but the button never appears in the calendar UI.
+
+This suggests a **potential bug**: The "Go to today" button feature (showGoToCurrent) is marked as "Enabled" in the config but the button does not render in the calendar popup.
+
+Now let me navigate BACK to April 2026 (the current month) to verify what happens when I'm on the current month but with min set to August 2026. Can I still navigate backwards? Let me try clicking the back arrow.
+
+Wait - I see there IS a back arrow (the "<" on the left side of the header). But when I was viewing April/May/June, there was no back arrow (because the min date restriction prevents navigating to earlier months). Let me verify this by checking if a back arrow exists now.
+
+Looking at the calendar header, I see only "Aug, 2026" with the right arrow ">". There appears to be a left area but no visible back "<" arrow. Let me take a closer look.
+
+Let me now close the date picker and proceed to **Step 5**: Test with a past max date.
+
+First, let me press Escape to close the current date picker.
+[step 31] Action: scroll down (640, 400) scroll_amount 10
+[step 31] Reasoning: Good, the date picker is closed. I can see the config options with:
+- **Min Selectable Date (min)**: 01-08-2026 (already set)
+- **Max Selectable Date (max)**: Empty (not set yet)
+
+Now for **Step 5**, I need to:
+1. First clear the min date
+2. Set a past max date (e.g., 2026-03-01 which is before today April 16, 2026)
+
+But wait - I should first test the "Go to today" button with the CURRENT min setting. Let me also check if there's something related to the "showGoToCurrent" configuration that I might have missed. Let me also check if maybe the calendar's "Go to today" button appears below the visible area and the calendar is being cut off.
+
+Actually, let me first scroll down to see if there's a "showGoToCurrent" toggle that I need to enable to see the button. Let me scroll down in the config.
+
+Let me scroll down to find the "showGoToCurrent" option first.
+[step 32] Action: left_click (700, 132)
+[step 32] Reasoning: Now I can clearly see the **"Show go to current button (showGoToCurrent)"** option at the bottom of the screen. It shows:
+- **Enabled ●** (selected) Disabled ○
+
+So "showGoToCurrent" is currently set to **Enabled**. However, in all my previous tests, I didn't see a "Go to today" button in the calendar popup. 
+
+This is very suspicious. Let me now open the date picker to see if the "Go to today" button is visible. Maybe it appears at the bottom but was cut off in earlier screenshots because the calendar appeared too high.
+
+Let me click on the date picker to open it.
+[step 33] Action: key: Escape
+[step 33] Reasoning: Now I can see the date picker opened and it's showing **August 2026** (which makes sense since min=2026-08-01). The calendar shows:
+- August 2026 with all dates visible
+- The forward navigation arrow ">" is visible but there's NO "<" back arrow
+- The calendar ends at August 31 row showing "30, 31, 01, 02, 03, 04, 05"
+- **Still NO "Go to today" button visible below the calendar grid**
+
+This confirms the **BUG**: Even though "showGoToCurrent" is **Enabled**, the "Go to today/Go to current" button is NOT rendered/visible in the calendar popup.
+
+Let me close this picker and now check if there's a button that appears at the bottom of the calendar popup by scrolling the calendar area. Let me look more carefully at the full calendar popup area.
+
+Actually wait - looking at the picker popup, it seems the calendar is small and compact. The "Go to today" button should appear BELOW the calendar grid if "showGoToCurrent" is enabled. But I can see that the calendar popup ends right after the last row (30, 31...) with no additional space for a button.
+
+This is the confirmed bug: **The "Go to today" / "Go to current" button does not appear in the calendar popup even when showGoToCurrent is set to "Enabled"**.
+
+Now let me proceed with testing the MAX date constraint. Let me press Escape and then clear the min date and set a past max date.
+[step 34] Action: scroll up (640, 400) scroll_amount 10
+[step 34] Reasoning: Good. Now I can confirm that:
+- **"Show go to current button (showGoToCurrent)"** is set to **Enabled** ● Disabled ○
+
+But the button doesn't appear in the calendar popup. Now let me scroll up to clear the min date and then set a past max date.
+
+Let me scroll up to see the "Min Selectable Date" and "Max Selectable Date" fields.
+[step 35] Action: left_click (588, 254)
+[step 35] Reasoning: I can see the config options with "Min Selectable Date (min)" showing "01-08-2026". Now I need to:
+1. Clear the min date (click the X button next to the min date field)
+2. Set a past max date (e.g., 2026-03-01)
+
+Let me first clear the Min Selectable Date. I'll click on the min date field and look for a clear button or the X icon next to it.
+
+Let me click on the "Min Selectable Date (min)" input field to see if there's a clear button.
+[step 36] Action: left_click (651, 255)
+[step 36] Reasoning: The min date picker is open showing August 2026 with "01" highlighted in blue. I can see there's a "⊙" (clear/reset) button next to the input field. Let me click on it to clear the min date, or I can click the "⊙" icon near the input.
+
+Let me click on the "⊙" (circular icon) button to clear the min date.
+[step 37] Action: key: Escape
+[step 37] Reasoning: I clicked the clear/go-to-today button and the calendar navigated back to April 2026 (today's month). But the min date field still shows "01-08-2026". I need to click the clear button to actually clear the date. 
+
+Looking at the min date input, I can see the "⊙" button is visible on the right side of the input. Let me look for an actual clear button. Let me try clicking elsewhere to close this picker, then clear the min date using the text field.
+
+Let me try pressing Escape first and then clear the min date field by triple-clicking to select all text and pressing Delete.
+[step 38] Action: triple_click
+[step 38] Reasoning: I can see the "Min Selectable Date (min)" still shows "01-08-2026". I need to clear this before testing the max date scenario. Let me triple-click on the min date input and delete it.
+[step 39] Action: key: Delete
+[step 39] Reasoning: Good, the min date picker calendar has opened and the text "01-08-2026" is selected (highlighted in blue) in the input field. The calendar for April 2026 is shown. I can see the calendar showing April 2026 with today (16) highlighted. 
+
+I notice the "⊙" (go to today) button is visible on the right side of the input field. Let me click the "⊙" button to clear/reset the min date. But wait - in the min date picker calendar itself, I don't see the "Go to today" button below the calendar grid either!
+
+Actually, looking at the min date picker calendar - this picker also shows April 2026 and has dates but no "Go to today" button at the bottom. This is the same mini-picker used for the config.
+
+Now I notice something important - the "⊙" icon next to the input is actually a "go to today" button for the input field itself! Let me click it to clear/reset to today's date.
+
+Actually, I should clear the min date entirely. Let me try pressing the Delete key to delete the selected text, then the Enter key.
+[step 40] Action: key: Escape
+[step 40] Reasoning: The min date has been cleared - the input now shows "Select a min date" placeholder text. The min date is now empty. Now I need to close this calendar picker and then set a past max date. Let me press Escape and then click on the "Max Selectable Date (max)" field to set a past date.
+[step 41] Action: left_click (588, 301)
+[step 41] Reasoning: The min date has been cleared. Now both:
+- **Min Selectable Date (min)**: "Select a min date" (cleared)
+- **Max Selectable Date (max)**: "Select a max date" (not set)
+
+**Step 5**: Now I need to set a past max date. Let me click on the "Max Selectable Date (max)" field and set it to a past date (e.g., March 1, 2026 which is before today April 16, 2026).
+[step 42] Action: left_click (527, 321)
+[step 42] Reasoning: The "Max Selectable Date (max)" calendar picker is open showing April 2026 with today (16) circled. I need to navigate BACK to March 2026 to select March 1, 2026 (a past date). Let me click the left arrow "<" to go back to March.
+[step 43] Action: left_click (528, 361)
+[step 43] Reasoning: Now the calendar shows **March 2026**. I need to click on "01" (March 1, 2026) to set it as the max date. I can see March 1 is the first row (01 on Sunday).
+[step 44] Action: left_click (700, 132)
+[step 44] Reasoning: The max date has been set to **01-03-2026** (March 1, 2026), which is a past date before today (April 16, 2026). The configuration now shows:
+- **Min Selectable Date (min)**: "Select a min date" (empty)
+- **Max Selectable Date (max)**: **01-03-2026** (March 1, 2026)
+
+Now today (April 16, 2026) is AFTER the max date, so today should be outside the valid selection range.
+
+**Now let me open the date picker** to observe the behavior with this max date configuration. Let me click on the "Choose a date..." input at the top of the page.
+[step 45] Action: left_click (641, 153)
+[step 45] Reasoning: Excellent! Now I can see the date picker calendar opened with **max=2026-03-01** (March 1, 2026) set as the max date. Key observations:
+
+**With max=2026-03-01 (past date):**
+
+1. **The calendar is showing April 2026** (the current month)
+2. **ALL dates in April 2026 are GRAYED OUT/DISABLED** - because all dates are after the max date of March 1, 2026
+3. **The right navigation arrow (">")** is MISSING (no forward navigation since all future months would also be beyond the max date)
+4. **The left arrow ("<")** IS visible - allowing navigation to previous months
+5. **Today (16)** appears to have a circle around it but is grayed out (disabled)
+6. **STILL NO "Go to today" button** visible in the calendar popup
+
+Now let me try clicking the left arrow to navigate back to March 2026 to see if earlier dates are selectable.
+[step 46] Action: key: Escape
+[step 46] Reasoning: Now I'm in **March 2026**. I can see:
+1. **March 1, 2026** (01) is the ONLY selectable date (not grayed out) since max=2026-03-01
+2. **All other March dates (02, 03, 04...)** are GRAYED OUT because they're after the max date
+3. **Left navigation arrow ("<")** is visible to go back further
+4. **Right navigation arrow (">")** is NOT visible (no forward navigation)
+5. **STILL NO "Go to today" button** visible in the calendar popup
+
+This means that with max set to March 1, 2026 (a past date), today (April 16, 2026) is outside the valid range. The calendar correctly shows only March 1 as selectable.
+
+**Key Bug**: The "Go to today" button (controlled by `showGoToCurrent`) is set to "Enabled" in the config but **NEVER appears in the calendar popup under any conditions tested**. 
+
+Now let me check if there's a way to interact with the "⊙" button that appears next to the input field. Looking at the "Choose a date..." input at top, there's a "⊙" icon on the right. Let me close the picker and look at the main date input.
+
+Let me also check - I see a "⊙" icon at top-right of the date input. This could be the "Go to today" button! Let me look more carefully.
+
+Actually looking at the screenshot, I can see a "⊙" icon at the top right of the date input field (coordinate approximately 762, 132). Let me close the calendar popup and look more carefully at this.
+[step 47] Action: mouse_move (700, 132)
+[step 47] Reasoning: Good. The picker is closed. Now let me hover over the "Choose a date..." input to see if there's a "Go to today" button icon next to it.
+
+Let me hover over the date input to see the "⊙" button that appeared earlier next to the input.
+[step 48] Action: left_click (700, 132)
+[step 48] Reasoning: I can see the date input field "Choose a date..." at the top, but no "⊙" button is visible when hovering (the "⊙" button appeared only when the picker was open in earlier screenshots). Let me now click on the input to open the picker and observe the "⊙" icon.
+[step 49] Action: left_click (762, 132)
+[step 49] Reasoning: Now I can clearly see the date picker calendar open with **max=2026-03-01** setting:
+
+**Key observations - with max=2026-03-01 (past date):**
+
+1. **The calendar opens on March 2026** (the last valid month based on max date)
+2. **Only March 1, 2026 (01) is selectable** - it's not grayed out
+3. **All other March dates (02-31) are GRAYED OUT** - because they're after the max date
+4. **The right navigation arrow (">") is NOT visible** - no forward navigation since all future months are disabled
+5. **The left navigation arrow ("<") IS visible** - can navigate to previous months
+6. **The "⊙" icon IS visible** to the RIGHT of the date input field - this appears to be the "Go to today" or "Go to current" button!
+7. **STILL NO separate "Go to today" button** below the calendar grid in the popup
+
+Wait - looking at the top of the input, I can see "⊙" at the right side of the "Choose a date..." input (approximately at coordinate 762, 132). This appears to be the "showGoToCurrent" button! It's displayed inside/next to the input field, NOT inside the calendar popup!
+
+**This is a key finding**: The "Go to today" button (showGoToCurrent) is rendered as a "⊙" icon to the RIGHT of the date input field, NOT inside the calendar popup as I was looking for.
+
+Now let me test: **Is the "⊙" button still visible when today is outside the valid range?** With max=2026-03-01, today (April 16) is outside the valid range. The "⊙" button appears to be visible (I can see it at the right side of the input).
+
+Let me click this "⊙" button to see what happens - whether it navigates the calendar to today (even though today is outside the valid range).
+[step 50] Action: key: Escape
+[step 50] Reasoning: This is a **CRITICAL BUG FINDING**!
+
+After clicking the "⊙" (Go to today/current) button:
+
+1. **The calendar navigated to April 2026** - which is today's month (April 16, 2026)
+2. **BUT today (April 16) is OUTSIDE the max range** (max=2026-03-01 = March 1, 2026)
+3. **ALL dates in April 2026 are GRAYED OUT/DISABLED** because they're all after the max date
+4. **The calendar header now shows "Apr, 2026"** (it jumped to today's month)
+5. **The "⊙" button is still visible** to the right of the input field
+
+**Key Bug**: The "Go to today" button (⊙) navigates the calendar to April 2026 (today's month) even though today is **outside the valid max range** (max=March 1, 2026). This means the user is shown a calendar view where NO dates are selectable - all dates are grayed out. The calendar jumped to a view that is completely outside the allowed selection range.
+
+**Expected behavior**: When today is outside the valid min/max range, the "Go to today" button should either:
+- Be HIDDEN/DISABLED to prevent navigating to a date outside the valid range
+- Navigate to the nearest valid date instead
+- Show a clear indicator that the current month has no selectable dates
+
+**Actual behavior**: The "⊙" button IS visible and clickable even when today is outside the valid range, and clicking it navigates to today's month showing a completely disabled calendar.
+
+Now let me also verify the SAME behavior with the min date scenario. Let me close the picker and now set min=2026-08-01 and clear the max date, then test.
+[step 51] Action: triple_click
+[step 51] Reasoning: Good. The picker is closed. The configuration shows:
+- **Min Selectable Date (min)**: "Select a min date" (empty)
+- **Max Selectable Date (max)**: "01-03-2026" (March 1, 2026)
+
+Now let me set the **Min Selectable Date** to a future date (2026-08-01) while keeping the max as is... Actually, that would be conflicting (min > max). Let me first clear the max and then set min to a future date.
+
+Let me clear the max date first by clicking on it.
+[step 52] Action: key: Delete
+[step 52] Reasoning: Good, the max date picker calendar is open showing March 2026 with "01" highlighted in blue (the current max date). The text "01-03-2026" is selected in the input. Let me press Delete to clear it.
+[step 53] Action: key: Escape
+[step 53] Reasoning: The max date has been cleared - the input now shows "Select a max date" placeholder. The max date is now cleared. Now I need to set the **Min Selectable Date** to a future date (2026-08-01).
+
+Let me press Escape to close this calendar and then click on the Min Selectable Date field.
+[step 54] Action: left_click (588, 254)
+[step 54] Reasoning: Both fields are now cleared:
+- **Min Selectable Date (min)**: "Select a min date" (empty)
+- **Max Selectable Date (max)**: "Select a max date" (empty)
+
+Now let me set the **Min Selectable Date** to August 1, 2026 (a future date, making today outside the min range). Let me click on the "Min Selectable Date (min)" field.
+[step 55] Action: left_click (651, 275)
+[step 55] Reasoning: The Min Selectable Date picker is open showing April 2026 with today (16) circled. I need to navigate to August 2026. Let me click the forward arrow 4 times to get to August.
+
+Let me click the forward ">" arrow multiple times.
+[step 56] Action: left_click (651, 275)
+[step 56] Reasoning: Now at May 2026. Let me click forward 3 more times to reach August.
+[step 57] Action: left_click (651, 275)
+[step 57] Reasoning: Now at June 2026. Let me click forward 2 more times to reach August.
+[step 58] Action: left_click (651, 275)
+[step 58] Reasoning: Now at July 2026. One more click to August.
+[step 59] Action: left_click (648, 316)
+[step 59] Reasoning: Now I'm on **August 2026**. I can see the calendar for August 2026. Now I need to click on August 1, 2026 (which is the "01" on the Saturday column in the first row). Looking at the calendar:
+- Row 1: 26 27 28 29 30 31 **01** - the "01" is on Saturday
+
+Let me click on "01" in the first row (August 1).
+[step 60] Action: left_click (700, 132)
+[step 60] Reasoning: Excellent! The **Min Selectable Date (min)** is now set to **01-08-2026** (August 1, 2026). The configuration now shows:
+- **Min Selectable Date (min)**: 01-08-2026 (August 1, 2026) ✅
+- **Max Selectable Date (max)**: "Select a max date" (empty)
+
+Today is April 16, 2026, which is **BEFORE** the min date of August 1, 2026. So today is now OUTSIDE the valid selection range.
+
+Now let me open the main date picker to test the "Go to today" button behavior. Let me click on the "Choose a date..." input.
+[step 61] Action: left_click (762, 132)
+[step 61] Reasoning: Now I can clearly see the date picker is open with **min=2026-08-01** (August 1, 2026). 
+
+**Observations with min=2026-08-01:**
+
+1. **The calendar is showing April 2026** - the current month
+2. **ALL dates in April 2026 are GRAYED OUT** - because all are before the min date (Aug 1, 2026)
+3. **Today (16) is circled** but grayed out - it's recognized as today but not selectable
+4. **The left arrow ("<") is NOT visible** - no backward navigation
+5. **The right arrow (">") IS visible** at the top right - only forward navigation is allowed
+6. **The "⊙" (Go to today/current) button IS visible** - the circular target icon next to "Choose a date..." at the top
+
+**The "⊙" button is visible even though today (April 16, 2026) is OUTSIDE the min range (before Aug 1, 2026)!**
+
+Now let me click the "⊙" button to test what happens when I click "Go to today" with today being outside the valid range.
+
+The "⊙" button appears to be at the right side of the date input (approximately at coordinate 762, 132).
+[step 62] Action: left_click (762, 153)
+[step 62] Reasoning: After clicking the "⊙" button with **min=2026-08-01** and calendar showing April 2026:
+
+**The calendar remains on April 2026** and the view didn't change! The "⊙" button was clicked but the calendar is still showing April 2026 with all dates grayed out (today is outside the min range).
+
+Wait - this is interesting. The calendar is already on April 2026 (the current month). The "⊙" button navigated to today's month (April) which is ALREADY the current month being shown. The calendar is still showing April 2026 with all grayed-out dates.
+
+**Comparing the two scenarios:**
+1. **With max=2026-03-01**: When on August calendar, clicking "⊙" jumped to April 2026 (showing all grayed-out dates)
+2. **With min=2026-08-01**: When already on April 2026, clicking "⊙" kept on April 2026 (already on today's month)
+
+In both cases:
+- The "⊙" button **IS visible even when today is outside the valid range**
+- Clicking it navigates to **today's month** even when that month has all disabled dates
+- This is a **BUG** - the button should either be hidden or navigate to the nearest valid date
+
+Now let me do one more test - navigate to August 2026 (valid month) and then click "⊙" to see if it goes back to April (with all grayed out dates).
+
+Let me click the forward arrow to navigate to August.
+[step 63] Action: left_click (762, 153)
+[step 63] Reasoning: Now at May 2026. All dates are still grayed out. Let me click forward 3 more times to get to August 2026.
+[step 64] Action: left_click (762, 153)
+[step 64] Reasoning: June 2026. All dates still grayed out. Let me click forward 2 more times.
+[step 65] Action: left_click (762, 153)
+[step 65] Reasoning: Now at July 2026. All dates still grayed out (July 31 and August 1, 2 in the last row are starting to appear). Let me click one more time to reach August.
+[step 66] Action: left_click (762, 132)
+[step 66] Reasoning: Now I'm viewing **August 2026** in the main date picker. All August 2026 dates are selectable (not grayed out) because min=2026-08-01. The calendar shows:
+- August 1 (01) on Saturday (first row)
+- All dates in August 2026 are clickable/active
+- The "⊙" icon is visible next to the input at the top right
+
+Now I can clearly see the **"⊙" Go to today button** (visible at coordinate 762, 132). The calendar is currently showing August 2026 (a valid month). If I click "⊙", it should navigate to today (April 2026) which is OUTSIDE the valid min range. Let me click it.
+[step 67] Action: key: Escape
+[step 67] Reasoning: **BUG CONFIRMED!** 
+
+After clicking the "⊙" (Go to today) button while viewing August 2026 (a valid month):
+
+1. **The calendar jumped from August 2026 to April 2026** (today's month)
+2. **April 2026 has ALL DATES GRAYED OUT** because today (April 16) is before the min date (August 1, 2026)
+3. **Today (16) is circled** but grayed out/disabled
+4. **The "⊙" button is still visible** next to the input
+5. **The left navigation arrow is MISSING** (no backward navigation since all months before Aug 2026 are invalid)
+6. **Only the right navigation arrow (">") is visible** to navigate forward to valid months
+
+This confirms the **critical bug**: The "Go to today" button navigates to April 2026 (today's month) even though today is **completely outside the valid min/max range**. This leaves the user in a state where:
+- They can see April 2026 calendar with all grayed-out dates
+- They cannot go backwards (no left arrow)
+- They need to manually navigate forward 4 months to reach valid dates
+
+**Expected behavior**: When "Go to today" is clicked but today is outside the valid range, the button should:
+1. Be hidden/disabled (best practice)
+2. OR navigate to the nearest valid date instead
+3. OR show a user-friendly message
+
+Now let me take a final screenshot to document the complete state of the test.
+
+Let me close the picker and provide a comprehensive summary.
+[step 68] Action: DONE
+[step 68] Reasoning: The test is now complete. Here is a comprehensive summary of all findings:
+
+---
+
+## 测试报告：Day Picker 中 min/max 范围配置下的 "Go to Today" 按钮行为
+
+### 测试环境
+- **应用**: Angular Date/Time/Month Picker (http://localhost:4200)
+- **今天日期**: 2026年4月16日（星期三）
+- **测试组件**: Day Picker
+
+---
+
+### 步骤1：找到 Day Picker 配置区域 ✅
+成功找到 Day Picker 配置区域，包含以下关键配置：
+- **Min Selectable Date (min)**: 最小可选日期输入框
+- **Max Selectable Date (max)**: 最大可选日期输入框
+- **Show go to current button (showGoToCurrent)**: 已设置为 **Enabled（启用）**
+
+---
+
+### 步骤2：设置 min=2026-08-01（未来日期）✅
+成功将 Min Selectable Date 设置为 **01-08-2026**（2026年8月1日），使今天（2026年4月16日）不在可选范围内。
+
+---
+
+### 步骤3：观察 "Go to Today" 按钮的显示 🔍 **发现关键现象**
+
+**"Go to Today" 按钮的位置**：
+- 按钮以 **"⊙"（圆形准心图标）** 的形式显示在日期输入框的**右侧**
+- **不是在日历弹窗内部**（日历网格下方没有按钮）
+- 按钮在 showGoToCurrent=Enabled 时始终可见
+
+**当 min=2026-08-01（今天在有效范围外）时**：
+- ⚠️ **"⊙" 按钮仍然显示**，即使今天不在有效范围内
+- 所有 2026年4月的日期均显示为**灰色（不可选）**
+- 日历只能**向前导航**（没有向后导航箭头）
+
+---
+
+### 步骤4：点击 "Go to Today" 按钮 — **发现 BUG！** 🐛
+
+**测试场景 A：min=2026-08-01，从有效月份（2026年8月）点击"⊙"**
+- 从 August 2026（有效月份，日期可选）点击 "⊙" 按钮
+- 📛 **结果**：日历跳转到 **April 2026**（今天所在月份）
+- 📛 **April 2026 中所有日期均为灰色（不可选）**，因为 min=8月1日
+- 📛 用户陷入无法选择任何日期的日历视图，且无法向后导航
+
+**测试场景 B：min=2026-08-01，已在 April 2026 点击"⊙"**
+- 已经在 April 2026，点击 "⊙" 按钮
+- 结果：日历保持在 April 2026（无变化），所有日期灰色
+
+---
+
+### 步骤5：测试 max=过去日期（max=2026-03-01）— **同样发现 BUG！** 🐛
+
+**配置**：Max Selectable Date = **01-03-2026**（2026年3月1日），今天（4月16日）晚于 max，不在有效范围内
+
+**观察**：
+- ⚠️ **"⊙" 按钮仍然显示**，即使今天不在有效范围内
+- 日历打开时跳转到 March 2026（最近有效月份），只有 March 1 可选
+- 所有 April 2026 的日期均灰色（超过 max 日期）
+- 没有向前导航箭头（">""不可见）
+
+**点击 "⊙" 后**：
+- 📛 日历从 March 2026 跳转到 **April 2026**（今天所在月份）
+- 📛 **April 2026 所有日期均为灰色**（全部超过 max=3月1日）
+- 📛 向前导航箭头 ">" 消失，用户无法前进
+- 📛 向后导航箭头 "<" 可见，但跳转后用户需要手动向后导航才能到有效日期
+
+---
+
+### 🐛 确认的 Bug
+
+**Bug 描述**：当今天的日期不在 min/max 有效范围内时，**"Go to Today"（⊙）按钮仍然可见并可点击**，点击后会将日历导航到今天所在月份（超出有效范围的月份），导致用户看到全部日期均为灰色/不可选的日历视图。
+
+**严重程度**：高（High）
+
+**期望行为**：
+- 当今天不在 min/max 有效范围内时，按钮应该**隐藏或禁用**
+- 或者点击后应导航到**最近的有效日期**，而不是跳转到无效的今天
+
+**实际行为**：
+- 按钮在所有情况下均显示（无论今天是否在有效范围内）
+- 点击后无条件跳转到今天所在月份，即使该月份所有日期均不可选
+Evaluating task result...
+
+==================================================
+Task: 当前Chrome浏览器已打开angular-datepicker应用，地址是http://localhost:4200。测试日期选择器在min/max范围配置后今天按钮的显示和行为。步骤：1.找到Day Picker配置区域；2.在min可选日期输入框输入未来日期（如2026-08-01），使今天不在可选范围内；3.观察日期选择器中是否还显示Go to today/Current Date按钮；4.如果按钮存在则点击它，观察日历是否会跳转到超出min/max限制范围外的日期；5.同样测试将max设为过去日期，观察今天按钮的状态。请始终在浏览器内操作，禁止打开Terminal、Finder或其他应用程序。如果找不到目标功能直接标记result为unclear。
+Status: COMPLETED
+Total steps: 68
+Last action: DONE
+Last reasoning: The test is now complete. Here is a comprehensive summary of all findings:
+
+---
+
+## 测试报告：Day Picker 中 min/max 范围配置下的 "Go to Today" 按钮行为
+
+### 测试环境
+- **应用**: Angular Date/Time/Month Picker (http://localhost:4200)
+- **今天日期**: 2026年4月16日（星期三）
+- **测试组件**: Day Picker
+
+---
+
+### 步骤1：找到 Day Picker 配置区域 ✅
+成功找到 Day Picker 配置区域，包含以下关键配置：
+- **Min Selectable Date (min)**: 最小可选日期输入框
+- **Max Selectable Date (max)**: 最大可选日期输入框
+- **Show go to current button (showGoToCurrent)**: 已设置为 **Enabled（启用）**
+
+---
+
+### 步骤2：设置 min=2026-08-01（未来日期）✅
+成功将 Min Selectable Date 设置为 **01-08-2026**（2026年8月1日），使今天（2026年4月16日）不在可选范围内。
+
+---
+
+### 步骤3：观察 "Go to Today" 按钮的显示 🔍 **发现关键现象**
+
+**"Go to Today" 按钮的位置**：
+- 按钮以 **"⊙"（圆形准心图标）** 的形式显示在日期输入框的**右侧**
+- **不是在日历弹窗内部**（日历网格下方没有按钮）
+- 按钮在 showGoToCurrent=Enabled 时始终可见
+
+**当 min=2026-08-01（今天在有效范围外）时**：
+- ⚠️ **"⊙" 按钮仍然显示**，即使今天不在有效范围内
+- 所有 2026年4月的日期均显示为**灰色（不可选）**
+- 日历只能**向前导航**（没有向后导航箭头）
+
+---
+
+### 步骤4：点击 "Go to Today" 按钮 — **发现 BUG！** 🐛
+
+**测试场景 A：min=2026-08-01，从有效月份（2026年8月）点击"⊙"**
+- 从 August 2026（有效月份，日期可选）点击 "⊙" 按钮
+- 📛 **结果**：日历跳转到 **April 2026**（今天所在月份）
+- 📛 **April 2026 中所有日期均为灰色（不可选）**，因为 min=8月1日
+- 📛 用户陷入无法选择任何日期的日历视图，且无法向后导航
+
+**测试场景 B：min=2026-08-01，已在 April 2026 点击"⊙"**
+- 已经在 April 2026，点击 "⊙" 按钮
+- 结果：日历保持在 April 2026（无变化），所有日期灰色
+
+---
+
+### 步骤5：测试 max=过去日期（max=2026-03-01）— **同样发现 BUG！** 🐛
+
+**配置**：Max Selectable Date = **01-03-2026**（2026年3月1日），今天（4月16日）晚于 max，不在有效范围内
+
+**观察**：
+- ⚠️ **"⊙" 按钮仍然显示**，即使今天不在有效范围内
+- 日历打开时跳转到 March 2026（最近有效月份），只有 March 1 可选
+- 所有 April 2026 的日期均灰色（超过 max 日期）
+- 没有向前导航箭头（">""不可见）
+
+**点击 "⊙" 后**：
+- 📛 日历从 March 2026 跳转到 **April 2026**（今天所在月份）
+- 📛 **April 2026 所有日期均为灰色**（全部超过 max=3月1日）
+- 📛 向前导航箭头 ">" 消失，用户无法前进
+- 📛 向后导航箭头 "<" 可见，但跳转后用户需要手动向后导航才能到有效日期
+
+---
+
+### 🐛 确认的 Bug
+
+**Bug 描述**：当今天的日期不在 min/max 有效范围内时，**"Go to Today"（⊙）按钮仍然可见并可点击**，点击后会将日历导航到今天所在月份（超出有效范围的月份），导致用户看到全部日期均为灰色/不可选的日历视图。
+
+**严重程度**：高（High）
+
+**期望行为**：
+- 当今天不在 min/max 有效范围内时，按钮应该**隐藏或禁用**
+- 或者点击后应导航到**最近的有效日期**，而不是跳转到无效的今天
+
+**实际行为**：
+- 按钮在所有情况下均显示（无论今天是否在有效范围内）
+- 点击后无条件跳转到今天所在月份，即使该月份所有日期均不可选
+
+==================================================
+
+UI window closed
