@@ -1,0 +1,17 @@
+{
+  "task_id": "Semantic-UI-React-3833",
+  "repo": "Semantic-Org/Semantic-UI-React",
+  "worker": "worker-03",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-18T23:22:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "文档站使用 react-static + gulp 构建，启动时报 MODULE_NOT_FOUND: react-static/node_modules/uglifyjs-webpack-plugin，随后 TypeError: Cannot read properties of undefined (reading 'DIST')。react-static 版本过旧，与 Node 20 不兼容。",
+    "attempted": ["npm install --legacy-peer-deps 成功", "npm start 启动 gulp docs 构建", "react-static 内部崩溃，uglifyjs-webpack-plugin 缺失"],
+    "recommendation": "跳过，react-static 过旧无法在当前环境运行"
+  }
+}
