@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-04-18 13:02:54",
+  "last_updated": "2026-04-18 14:02:23",
   "summary": {
     "total": 832,
-    "completed": 408,
-    "failed": 321,
+    "completed": 410,
+    "failed": 350,
     "blocked": 0,
-    "pending": 103
+    "pending": 72
   },
   "tasks": [
     {
@@ -330,9 +330,13 @@
     },
     {
       "task_id": "Piped-4072",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": "sess-20260418125513-88e85b279f2541cf9655711446dbe9d8",
+      "repo": "TeamPiped/Piped",
+      "duration_seconds": null,
+      "error": ""
     },
     {
       "task_id": "RapidRAW-658",
@@ -352,9 +356,13 @@
     },
     {
       "task_id": "Scriptis-17",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "WeBankFinTech/Scriptis",
+      "duration_seconds": null,
+      "error": "repo 52MB，git clone --depth 1 被SIGKILL（OOM），GitHub archive下载（19MB+）被SIGKILL，流式解压也被SIGKILL。无法获取源码"
     },
     {
       "task_id": "Semantic-UI-React-2221",
@@ -508,9 +516,13 @@
     },
     {
       "task_id": "Silex-755",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "silexlabs/Silex",
+      "duration_seconds": null,
+      "error": "repo 75MB，同批次Scriptis（52MB）git clone和archive下载均被SIGKILL（OOM）。此repo更大，预计同样无法下载"
     },
     {
       "task_id": "Silex-843",
@@ -544,9 +556,13 @@
     },
     {
       "task_id": "SvelteLab-265",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": "sess-20260418132402-5ddadc8c47514436ac6b071af4392b3d",
+      "repo": "SvelteLab/SvelteLab",
+      "duration_seconds": null,
+      "error": ""
     },
     {
       "task_id": "SvelteLab-289",
@@ -946,15 +962,23 @@
     },
     {
       "task_id": "adminjs-807",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "SoftwareBrothers/adminjs",
+      "duration_seconds": null,
+      "error": "adminjs是一个库/框架包，不是可独立运行的Web应用。dev脚本仅执行build --watch + bundle + types --watch，不启动HTTP服务器。无examples目录，无port 3000监听。需要外部应用集成adminjs才能测试管理面板功能"
     },
     {
       "task_id": "agency-os-101",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "directus-labs/agency-os",
+      "duration_seconds": null,
+      "error": "Nuxt项目需要Directus CMS后端（localhost:8055），服务器启动但页面请求挂起不返回（SSR尝试fetch Directus API超时）。WARN: Please ensure the directus instance is reachable at http://localhost:8055"
     },
     {
       "task_id": "alinea-154",
@@ -1206,21 +1230,33 @@
     },
     {
       "task_id": "apisix-dashboard-2572",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "apache/apisix-dashboard",
+      "duration_seconds": null,
+      "error": "APISIX Dashboard需要真实APISIX后端API才能登录和操作。Mock模式仅提供基础UmiJS mock（user/route/notices），不支持插件管理、路由详情、全局规则等完整API。登录接口/apisix/admin/user/login无响应。"
     },
     {
       "task_id": "apisix-dashboard-3276",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "apache/apisix-dashboard",
+      "duration_seconds": null,
+      "error": "APISIX Dashboard需要真实APISIX后端API才能登录和操作。Mock模式仅提供基础UmiJS mock（user/route/notices），不支持插件管理、路由详情、全局规则等完整API。登录接口/apisix/admin/user/login无响应。"
     },
     {
       "task_id": "apisix-dashboard-3283",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "apache/apisix-dashboard",
+      "duration_seconds": null,
+      "error": "APISIX Dashboard需要真实APISIX后端API才能登录和操作。Mock模式仅提供基础UmiJS mock（user/route/notices），不支持插件管理、路由详情、全局规则等完整API。登录接口/apisix/admin/user/login无响应。"
     },
     {
       "task_id": "apisix-dashboard-3321",
@@ -1234,9 +1270,13 @@
     },
     {
       "task_id": "apisix-dashboard-3362",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "apache/apisix-dashboard",
+      "duration_seconds": null,
+      "error": "APISIX Dashboard需要真实APISIX后端API才能登录和操作。Mock模式仅提供基础UmiJS mock（user/route/notices），不支持插件管理、路由详情、全局规则等完整API。登录接口/apisix/admin/user/login无响应。"
     },
     {
       "task_id": "auto-2015",
@@ -1424,9 +1464,13 @@
     },
     {
       "task_id": "builder-523",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "frappe/builder",
+      "duration_seconds": null,
+      "error": "Frappe Framework应用，需完整Frappe bench环境。Vite启动在8080端口（非3000），提示'No common_site_config.json found'，依赖showdown resolve失败。curl localhost:3000和8080均不返回内容"
     },
     {
       "task_id": "calendar-401",
@@ -1734,15 +1778,23 @@
     },
     {
       "task_id": "covid19-7625",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "Tokyo-Metro-Gov/covid19",
+      "duration_seconds": null,
+      "error": "repo 大小 6.7GB，无法 clone。网络环境不支持如此大的 repo 下载。"
     },
     {
       "task_id": "covid19-7818",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "Tokyo-Metro-Gov/covid19",
+      "duration_seconds": null,
+      "error": "同 covid19-7625。repo 大小 6.7GB，无法 clone。"
     },
     {
       "task_id": "crowi-666",
@@ -2516,15 +2568,23 @@
     },
     {
       "task_id": "git-city-12",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "srizzon/git-city",
+      "duration_seconds": null,
+      "error": "Requires Supabase + GitHub Token + Stripe. Fix diff 主要是 CONTRIBUTING.md 文档更新（添加环境变量说明表格和 troubleshooting 章节），非代码 bug。"
     },
     {
       "task_id": "git-city-46",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "srizzon/git-city",
+      "duration_seconds": null,
+      "error": "Requires Supabase + GitHub Token. Fix diff 主要是代码格式化配置（.editorconfig, .prettierrc, .prettierignore），非功能性 bug。"
     },
     {
       "task_id": "github-profile-readme-generator-249",
@@ -3252,9 +3312,13 @@
     },
     {
       "task_id": "kepler.gl-2245",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "keplergl/kepler.gl",
+      "duration_seconds": null,
+      "error": "45MB repo 代理 clone 超时被 kill。github.com 直连不通。"
     },
     {
       "task_id": "kepler.gl-2305",
@@ -3278,9 +3342,13 @@
     },
     {
       "task_id": "kepler.gl-2984",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "keplergl/kepler.gl",
+      "duration_seconds": null,
+      "error": "同 kepler.gl-2245。45MB repo 代理 clone 超时。需要 Ollama 后端。backend_risk 预期。"
     },
     {
       "task_id": "kepler.gl-3045",
@@ -3340,15 +3408,23 @@
     },
     {
       "task_id": "lightning-app-786",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "lightninglabs/lightning-app",
+      "duration_seconds": null,
+      "error": "28MB repo 代理 clone 超时被 kill。需要 lnd (Lightning Network Daemon) 后端。backend_risk 预期。"
     },
     {
       "task_id": "lin-cms-vue-267",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "TaleLin/lin-cms-vue",
+      "duration_seconds": null,
+      "error": "Lin CMS Vue 需要后端 API 服务。Bug confirmed via source: axios interceptor 中错误请求 resolve(res.data) 应为 reject()，导致登录失败时 promise 被 resolve 而非 reject，前端无法捕获错误。另外移除了多余的 console.log。"
     },
     {
       "task_id": "lin-cms-vue-343",
@@ -5078,9 +5154,13 @@
     },
     {
       "task_id": "overlayed-84",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "overlayeddev/overlayed",
+      "duration_seconds": null,
+      "error": "34MB repo 代理 clone 超时被 kill。Tauri 桌面应用，即使 clone 成功也无法在浏览器中运行。backend_risk 预期。"
     },
     {
       "task_id": "overlayed-87",
@@ -5094,9 +5174,13 @@
     },
     {
       "task_id": "padloc-369",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "padloc/padloc",
+      "duration_seconds": null,
+      "error": "Padloc 需要后端服务。Bug confirmed via source: app.ts 中 safe-area-inset CSS 值重复内联计算，fix 改为 CSS 变量 --inset-top/--inset-bottom 统一管理。attachment-dialog.ts header 布局也受影响。"
     },
     {
       "task_id": "padloc-427",
@@ -5110,9 +5194,13 @@
     },
     {
       "task_id": "padloc-552",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "padloc/padloc",
+      "duration_seconds": null,
+      "error": "Padloc 需要后端服务。Bug confirmed via source: item-view.ts 中 this.go() 第三个参数传 undefined 而非 true，导致新建 item 后返回导航不替换历史记录（用户按返回会回到已不存在的新建页面）。"
     },
     {
       "task_id": "padloc-554",
@@ -6396,9 +6484,13 @@
     },
     {
       "task_id": "shopware-pwa-1926",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "vuestorefront/shopware-pwa",
+      "duration_seconds": null,
+      "error": "Shopware PWA 需要 Shopware 后端 API。Bug confirmed via source: SwProductListingFilters.vue 排序下拉框用 v-show 而非 v-if，导致 SSR hydration 不匹配（v-show 在服务端不隐藏）。Fix 改为 v-if + 添加缺失的 created at 排序选项翻译。"
     },
     {
       "task_id": "signature_pad-120",
@@ -6700,27 +6792,43 @@
     },
     {
       "task_id": "storefront-635",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "saleor/storefront",
+      "duration_seconds": null,
+      "error": "23MB repo 代理 clone 成功但 fetch --depth=100 超时被 kill。需要 Saleor GraphQL 后端。backend_risk 预期。"
     },
     {
       "task_id": "storefront-636",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "saleor/storefront",
+      "duration_seconds": null,
+      "error": "同 storefront-635。23MB repo fetch --depth=100 超时。需要 Saleor GraphQL 后端。backend_risk 预期。"
     },
     {
       "task_id": "storefront-644",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "saleor/storefront",
+      "duration_seconds": null,
+      "error": "同 storefront-635。23MB repo fetch --depth=100 超时。需要 Saleor GraphQL 后端。backend_risk 预期。"
     },
     {
       "task_id": "storefront-902",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "saleor/storefront",
+      "duration_seconds": null,
+      "error": "同 storefront-635。23MB repo fetch --depth=100 超时。需要 Saleor GraphQL 后端。backend_risk 预期。"
     },
     {
       "task_id": "suneditor-1205",
@@ -7334,27 +7442,43 @@
     },
     {
       "task_id": "umbrel-dashboard-101",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "getumbrel/umbrel-dashboard",
+      "duration_seconds": null,
+      "error": "Umbrel Dashboard requires Bitcoin/Lightning node backend APIs. Frontend starts on :8080 but all blockchain data comes from backend. Bug confirmed via source: transition-group formatting and removal of unused <status> component, primarily cosmetic diff."
     },
     {
       "task_id": "umbrel-dashboard-143",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "getumbrel/umbrel-dashboard",
+      "duration_seconds": null,
+      "error": "Requires Bitcoin node backend. Bug confirmed via source: Blockchain.vue 的 blockchain-block-icon-bg 缺 min-width:80px，导致区块 loading 动画在窄屏被压扁。"
     },
     {
       "task_id": "umbrel-dashboard-183",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "getumbrel/umbrel-dashboard",
+      "duration_seconds": null,
+      "error": "Requires Bitcoin node backend. Bug confirmed via source: CountUp.vue 的 span 缺 word-break:break-all，大额余额数字溢出容器。"
     },
     {
       "task_id": "umbrel-dashboard-198",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "getumbrel/umbrel-dashboard",
+      "duration_seconds": null,
+      "error": "Requires Bitcoin/Lightning node backend. Bug confirmed via source: BitcoinWallet.vue review-withdraw 返回时未清 error 状态；Open.vue selectFee 未清 error；sendBTC catch 中 error.reponse 拼写错误（少了 s）。"
     },
     {
       "task_id": "useSend-177",
