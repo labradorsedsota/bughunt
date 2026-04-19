@@ -203,3 +203,14 @@
 **变更摘要：**
 - 修改文件：5 张（status: completed → failed）
 - 待重做：1 张（open5e-762 → worker-02）
+
+## 2026-04-19 11:20 — 旧结果归档
+
+**操作：** 将 `results/trash/` 下 143 张回收卡的旧 result JSON 移至 `results_archive/trash/`
+
+**原因：** 这 143 张卡已于 2026-04-18 22:51 从 `results/worker-xx/` 移入 `results/trash/`（详见上方记录），现统一归档到 `results_archive/`，保持 `results/` 目录干净，仅存放当前有效结果。
+
+**变更摘要：**
+- 移动文件：143 张（`results/trash/` → `results_archive/trash/`）
+- `results/trash/` 已清空
+- 原始数据未丢失，可在 `results_archive/trash/` 中查阅
