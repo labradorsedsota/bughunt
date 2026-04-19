@@ -1,0 +1,24 @@
+{
+  "task_id": "jodit-1335",
+  "repo": "xdan/jodit",
+  "worker": "worker-02",
+  "status": "done",
+  "expected_result_used": true,
+  "sess_id": "sess-20260419184844-94ca7c1570b04527861be3b57c50fc1a",
+  "duration_seconds": 180,
+  "timestamp": "2026-04-19T18:55:00+08:00",
+  "result": "no",
+  "result_summary": "Bug 未复现。在 buggy commit 6ce04b7d58 上，配置 allowResizeY: true、allowResizeX: true、showWordsCounter: false、showCharsCounter: false、height: 300 后，编辑器底部状态栏右下角的调整大小拖拽手柄（resize handle）清晰可见（对角线条纹图标）。字数计数器和字符计数器已被正确隐藏。拖拽手柄可正常拖拽，水平和垂直方向均可调整编辑器尺寸。工具栏行数随宽度变化自动调整。",
+  "mano_cua": {
+    "total_steps": 28,
+    "final_action": "DONE",
+    "key_observations": [
+      "状态栏显示 POWERED BY JODIT，无字数/字符计数器",
+      "编辑器右下角可见对角线条纹 resize handle 图标",
+      "从 (314,488) 拖拽到 (530,620)，编辑器宽度从约310px变为约410px，高度也增大",
+      "工具栏行数从8+行减少为3行（随宽度自适应）",
+      "水平 (allowResizeX) 和垂直 (allowResizeY) 方向均可正常拖拽调整"
+    ]
+  },
+  "notes": "端口使用 2000（非任务卡标注的 3000），需手动修改 stand.html 注入配置（allowResizeX/Y, showWordsCounter/CharsCounter）因 DevTools 控制台在 mano-cua 中操作困难。less-loader 版本不兼容需降级 less 到 4.1.3"
+}

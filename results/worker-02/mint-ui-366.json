@@ -1,0 +1,31 @@
+{
+  "task_id": "mint-ui-366",
+  "worker": "worker-02",
+  "repo": "ElemeFE/mint-ui",
+  "issue_number": 366,
+  "pr_number": 370,
+  "buggy_commit": "d3d27037ef",
+  "fix_commit": "98d76dee4a",
+  "timestamp": "2026-04-19T19:58:00+08:00",
+  "result": "yes",
+  "confidence": "high",
+  "reasoning": "Bug 已复现。在 buggy commit d3d27037ef 上，mint-ui Button 组件使用 @touchstart='handleClick' 来阻止禁用按钮的点击事件。handleClick 方法在 disabled 时调用 preventDefault() 和 stopPropagation()。但 touchstart 事件仅在触屏设备上触发，在桌面端鼠标点击时不会触发。因此在 PC 模式下，点击 disabled 按钮的 click 事件不会被阻止。测试页面中创建了 3 个 disabled 按钮（default/primary/danger），全部在桌面端鼠标点击时触发了 click 事件，Click Log 显示红色 'BUG: disabled button fired click!' 记录。fix commit 98d76dee4a 移除了 @touchstart 方法，改用原生 :disabled 属性绑定到 button 元素上。",
+  "observation_details": {
+    "test_method": "standalone_test_page",
+    "test_page_url": "http://localhost:8790/test-button.html",
+    "dev_server_port": 8790,
+    "actual_behavior": "disabled 按钮在桌面端鼠标点击时触发 click 事件（因为 @touchstart 不响应鼠标事件）",
+    "expected_behavior": "disabled 按钮在任何模式下都不应触发 click 事件",
+    "bug_root_cause": "button.vue 使用 @touchstart='handleClick' 而非原生 :disabled 属性来阻止禁用按钮的交互",
+    "click_log_entries": [
+      "19:57:58 – DISABLED-danger clicked! ⚠ BUG: disabled button fired click!",
+      "19:57:48 – DISABLED-primary clicked! ⚠ BUG: disabled button fired click!",
+      "19:57:38 – DISABLED-default clicked! ⚠ BUG: disabled button fired click!",
+      "19:57:30 – normal-primary clicked! OK"
+    ]
+  },
+  "deploy_notes": "原始 cooking dev server 编译成功但页面空白（vue-hot-reload-api 与 Vue 2.7.x 不兼容）。降级至 Vue 2.6.14 + vue-template-compiler 2.6.14。移除 cooking config 中的 lint extension。改 hostname 为 0.0.0.0。预构建 lib/index.js 与 Vue 2.6.x 不兼容（render function API 变化），故创建独立 test-button.html 内联复现 buggy button 组件代码。",
+  "mano_cua_session": "sess-20260419195711-329c15fcef634b9f9ed33f2e8fb9e330",
+  "mano_cua_steps": 6,
+  "mano_cua_status": "completed"
+}

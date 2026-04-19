@@ -1,0 +1,23 @@
+{
+  "task_id": "RapidRAW-658",
+  "repo": "CyberTimon/RapidRAW",
+  "worker": "worker-02",
+  "status": "failed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260419181820-4a164d4172904c32b4d0357388702486",
+  "duration_seconds": 0,
+  "timestamp": "2026-04-19T18:40:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "RapidRAW 是 Tauri 桌面应用，Vite dev server 在 localhost:1420 返回 200 但页面空白（灰色背景）。DevTools Console 报 Uncaught TypeError: Cannot read properties of undefined (reading 'metadata') at TitleBar.tsx:22:21，React root div 为空，整个组件树未渲染",
+    "attempted": [
+      "Node 22 + npm install 成功",
+      "npm run dev (vite) 启动成功在 localhost:1420",
+      "Chrome 打开后页面灰色空白",
+      "DevTools 确认 #root div 为空，TitleBar 组件因 @tauri-apps/api/window 不可用而崩溃",
+      "mano-cua 尝试 28 步包括注入 mock __TAURI__ 对象，仍无法恢复渲染"
+    ],
+    "recommendation": "跳过。RapidRAW 是 Tauri 桌面应用，TitleBar 组件依赖 @tauri-apps/api/window 运行时，缺少 error boundary 导致整个 React 树崩溃"
+  }
+}
