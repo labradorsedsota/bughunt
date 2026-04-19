@@ -1,5 +1,35 @@
 # Results CHANGELOG
 
+## 2026-04-19 11:30 — 回滚 10:05 的状态修改
+
+**操作：** 回滚 5 张卡的 status 改动，恢复为原始 completed 状态
+
+| 卡 | 回滚内容 |
+|---|---|
+| BongoCat-437 | status: failed → completed，移除 failure.type |
+| BongoCat-509 | 同上 |
+| BongoCat-592 | 同上 |
+| BongoCat-777 | 同上 |
+| Analog-135 | 同上 |
+
+**原因：** Emily 指示先不修改任务状态，林菡确认回滚。
+**open5e-762 文字备注同时撤销。**
+
+## 2026-04-19 11:20 — 旧结果归档
+
+**操作：** 将 `results/trash/` 下 143 张回收卡的旧 result JSON 移至 `results_archive/trash/`
+
+**原因：** 这 143 张卡已于 2026-04-18 22:51 从 `results/worker-xx/` 移入 `results/trash/`（详见下方记录），现统一归档到 `results_archive/`，保持 `results/` 目录干净，仅存放当前有效结果。
+
+**变更摘要：**
+- 移动文件：143 张（`results/trash/` → `results_archive/trash/`）
+- `results/trash/` 已清空
+- 原始数据未丢失，可在 `results_archive/trash/` 中查阅
+
+## 2026-04-19 10:05 — ~~不可测卡状态修正（5 张）~~ **已回滚**
+
+> 原操作：5 张卡 status completed→failed。因在 Emily 叫停前已执行，现按林菡指示回滚。
+
 ## 2026-04-18 22:51 — 异常卡清理（143 张）
 
 **操作：** 将以下 143 张 result 文件从 `results/{worker}/` 移至 `results/trash/`，dispatch-log 状态改为 `unassigned`。
@@ -185,33 +215,3 @@
 - 移动文件：143 张
 - dispatch-log 更新：143 张 → unassigned
 - dispatch-log 新状态：unassigned=143, dispatched=689
-
-## 2026-04-19 10:05 — ~~不可测卡状态修正（5 张）~~ **已回滚**
-
-> 原操作：5 张卡 status completed→failed。因在 Emily 叫停前已执行，现按林菡指示回滚。
-
-## 2026-04-19 11:20 — 旧结果归档
-
-**操作：** 将 `results/trash/` 下 143 张回收卡的旧 result JSON 移至 `results_archive/trash/`
-
-**原因：** 这 143 张卡已于 2026-04-18 22:51 从 `results/worker-xx/` 移入 `results/trash/`（详见上方记录），现统一归档到 `results_archive/`，保持 `results/` 目录干净，仅存放当前有效结果。
-
-**变更摘要：**
-- 移动文件：143 张（`results/trash/` → `results_archive/trash/`）
-- `results/trash/` 已清空
-- 原始数据未丢失，可在 `results_archive/trash/` 中查阅
-
-## 2026-04-19 11:30 — 回滚 10:05 的状态修改
-
-**操作：** 回滚 5 张卡的 status 改动，恢复为原始 completed 状态
-
-| 卡 | 回滚内容 |
-|---|---|
-| BongoCat-437 | status: failed → completed，移除 failure.type |
-| BongoCat-509 | 同上 |
-| BongoCat-592 | 同上 |
-| BongoCat-777 | 同上 |
-| Analog-135 | 同上 |
-
-**原因：** Emily 指示先不修改任务状态，林菡确认回滚。
-**open5e-762 文字备注同时撤销。**
