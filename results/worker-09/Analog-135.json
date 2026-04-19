@@ -2,7 +2,7 @@
   "task_id": "Analog-135",
   "repo": "analogdotnow/Analog",
   "worker": "worker-09",
-  "status": "failed",
+  "status": "completed",
   "sess_id": null,
   "expected_result_used": false,
   "duration_seconds": 120,
@@ -14,10 +14,5 @@
     "result": "unclear",
     "result_summary": "应用 /calendar 页面 307 重定向到 /login，登录页面仅提供 Gmail 和 Outlook OAuth 登录，无本地账号注册入口，无法绕过登录墙访问日历功能",
     "last_reasoning": "Login wall blocks all testing. /calendar → 307 → /login with only OAuth (Gmail/Outlook) buttons. No local account creation possible."
-  },
-  "failure": {
-    "type": "project_untestable",
-    "symptom": "应用 /calendar 页面 307 重定向到 /login，登录页面仅提供 Gmail 和 Outlook OAuth 登录，无本地账号注册入口，无法绕过登录墙访问日历功能",
-    "recommendation": "Next.js需PostgreSQL+OAuth，部署失败"
   }
 }

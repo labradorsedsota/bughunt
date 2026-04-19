@@ -186,23 +186,9 @@
 - dispatch-log 更新：143 张 → unassigned
 - dispatch-log 新状态：unassigned=143, dispatched=689
 
-## 2026-04-19 10:05 — 不可测卡状态修正（5 张）+ open5e-762 重做安排
+## 2026-04-19 10:05 — ~~不可测卡状态修正（5 张）~~ **已回滚**
 
-**操作：** 5 张项目级不可测卡 status 从 completed 改为 failed
-
-| 卡 | Worker | 原因 |
-|---|---|---|
-| BongoCat-437 | worker-09 | Tauri 桌面应用，浏览器无法渲染 UI |
-| BongoCat-509 | worker-09 | 同上 |
-| BongoCat-592 | worker-09 | 同上 |
-| BongoCat-777 | worker-09 | 同上 |
-| Analog-135 | worker-09 | Next.js 需 PostgreSQL + OAuth 登录墙 |
-
-**重做安排：** open5e-762 纳入下一批分发给 worker-02（open5e 系列 worker-02 已成功完成 8 张，熟悉项目）
-
-**变更摘要：**
-- 修改文件：5 张（status: completed → failed）
-- 待重做：1 张（open5e-762 → worker-02）
+> 原操作：5 张卡 status completed→failed。因在 Emily 叫停前已执行，现按林菡指示回滚。
 
 ## 2026-04-19 11:20 — 旧结果归档
 
@@ -214,3 +200,18 @@
 - 移动文件：143 张（`results/trash/` → `results_archive/trash/`）
 - `results/trash/` 已清空
 - 原始数据未丢失，可在 `results_archive/trash/` 中查阅
+
+## 2026-04-19 11:30 — 回滚 10:05 的状态修改
+
+**操作：** 回滚 5 张卡的 status 改动，恢复为原始 completed 状态
+
+| 卡 | 回滚内容 |
+|---|---|
+| BongoCat-437 | status: failed → completed，移除 failure.type |
+| BongoCat-509 | 同上 |
+| BongoCat-592 | 同上 |
+| BongoCat-777 | 同上 |
+| Analog-135 | 同上 |
+
+**原因：** Emily 指示先不修改任务状态，林菡确认回滚。
+**open5e-762 文字备注同时撤销。**
