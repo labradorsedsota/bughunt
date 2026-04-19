@@ -1,22 +1,25 @@
 {
   "task_id": "Analog-135",
   "repo": "analogdotnow/Analog",
-  "worker": "worker-09",
-  "status": "failed",
+  "worker": "worker-05",
+  "status": "completed",
+  "sess_id": "sess-20260417231344-84e458ed3de8418ba305211083c56a75",
   "expected_result_used": false,
-  "sess_id": "sess-20260416114634-2835c07eb4794716abfe1ffdbdb963b2",
-  "duration_seconds": 0,
-  "timestamp": "2026-04-16T11:46:34+08:00",
-  "mano_cua": null,
-  "failure": {
-    "type": "deploy_failed",
-    "symptom": "应用需要 Google/Outlook OAuth 登录才能访问 /calendar 页面。本地未配置 GOOGLE_CLIENT_ID/SECRET，/api/auth/sign-in/social 返回 500，无法完成登录。mano-cua 尝试 51 步后仍无法进入日历页面。",
-    "attempted": [
-      "使用 bun install 安装依赖并启动 dev server（成功）",
-      "配置 .env 基础变量（无 OAuth credentials）",
-      "mano-cua 多次尝试点击 Continue with Gmail 按钮（500 错误）",
-      "检查 /api/auth/get-session（返回 null）"
-    ],
-    "recommendation": "此项目需配置 Google OAuth credentials 和 PostgreSQL 数据库才能登录测试。建议跳过或提供测试账号。"
+  "duration_seconds": 600,
+  "timestamp": "2026-04-17T15:13:44+08:00",
+  "mano_cua": {
+    "status": "ERROR",
+    "total_steps": 51,
+    "last_action": "left_click (576, 311)",
+    "result": "unclear",
+    "result_summary": "应用需要OAuth登录（Google/Microsoft），无PostgreSQL后端导致auth API返回500。mano-cua在登录页卡住51步无法进入calendar页面测试日期选择器样式。session最终404断开。",
+    "last_reasoning": "Application tab查看cookies，尝试绕过登录"
+  },
+  "deploy_notes": {
+    "port": 3000,
+    "url": "http://localhost:3000",
+    "node_version": "22.22.2",
+    "framework": "next.js 15.3.2 + turbopack + bun",
+    "failure_reason": "App requires OAuth login + PostgreSQL backend. Auth endpoints return 500 without proper DB config."
   }
 }
