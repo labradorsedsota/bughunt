@@ -185,3 +185,21 @@
 - 移动文件：143 张
 - dispatch-log 更新：143 张 → unassigned
 - dispatch-log 新状态：unassigned=143, dispatched=689
+
+## 2026-04-19 10:05 — 不可测卡状态修正（5 张）+ open5e-762 重做安排
+
+**操作：** 5 张项目级不可测卡 status 从 completed 改为 failed
+
+| 卡 | Worker | 原因 |
+|---|---|---|
+| BongoCat-437 | worker-09 | Tauri 桌面应用，浏览器无法渲染 UI |
+| BongoCat-509 | worker-09 | 同上 |
+| BongoCat-592 | worker-09 | 同上 |
+| BongoCat-777 | worker-09 | 同上 |
+| Analog-135 | worker-09 | Next.js 需 PostgreSQL + OAuth 登录墙 |
+
+**重做安排：** open5e-762 纳入下一批分发给 worker-02（open5e 系列 worker-02 已成功完成 8 张，熟悉项目）
+
+**变更摘要：**
+- 修改文件：5 张（status: completed → failed）
+- 待重做：1 张（open5e-762 → worker-02）
