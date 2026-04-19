@@ -1,0 +1,21 @@
+{
+  "task_id": "script-lab-609",
+  "repo": "OfficeDev/script-lab",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-19T09:25:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "react-scripts编译通过（Compiled with warnings），端口3000/3200在LISTEN状态，但curl持续返回empty reply (000)，页面无法访问",
+    "attempted": [
+      "设置NODE_OPTIONS=--openssl-legacy-provider解决OpenSSL报错",
+      "等待60秒+多次curl重试，仍返回empty reply",
+      "尝试127.0.0.1直连，同样失败"
+    ],
+    "recommendation": "可能需要特定Node版本（项目较老），或需要Office Add-in宿主环境才能正常运行"
+  }
+}
