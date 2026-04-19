@@ -1,0 +1,19 @@
+{
+  "task_id": "Taskosaur-62",
+  "repo": "Taskosaur/Taskosaur",
+  "worker": "worker-03",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-19T17:50:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "PrismaClientInitializationError: Environment variable not found: DATABASE_URL. Backend requires PostgreSQL (schema.prisma provider=postgresql, url=env(DATABASE_URL)).",
+    "attempted": [
+      "npm install 成功，npm run dev 启动 NestJS backend 但 Prisma 初始化失败，缺少 DATABASE_URL"
+    ],
+    "recommendation": "跳过，需要 PostgreSQL 数据库"
+  }
+}

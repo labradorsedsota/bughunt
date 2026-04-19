@@ -1,0 +1,19 @@
+{
+  "task_id": "open5e-762",
+  "repo": "open5e/open5e",
+  "worker": "worker-03",
+  "status": "completed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260419181512-7540b02cb57d47c78d8afd9f3a45a409",
+  "duration_seconds": 268,
+  "timestamp": "2026-04-19T18:19:40+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 22,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Source Selector 状态同步 bug 已确认：通过左侧 EDIT SOURCES 入口勾选 Tome of Beasts + SRD 5.1 并 Update 后，页面正确过滤为 716 条结果(2/24)；但从右侧 SELECT SOURCES 入口重新打开模态框，所有源均显示未勾选(None)，两个入口状态不同步。",
+    "last_reasoning": "The modal is closed (cancelled). The page still shows 716 results with the filtered list containing SRD-2014 and TOB tagged items, confirming that 2 sources are still active (shown as '2/24' in the right toolbar). BUG DETECTED: The Source Selector modal opened via the right toolbar showed ALL items as unchecked (none selected), despite 2 sources being actively filtering results. The two entry points are NOT synchronized in their displayed states."
+  },
+  "failure": null
+}
