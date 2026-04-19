@@ -1,0 +1,18 @@
+{
+  "task_id": "emoji-mart-220",
+  "repo": "missive/emoji-mart",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260419175630-d0b4f9a5539e46adb3b8a625b6b86c78",
+  "expected_result_used": true,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-19T10:15:00+08:00",
+  "mano_cua": {
+    "status": "KILLED",
+    "total_steps": 79,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "确认严重无障碍缺陷：肤色选择器6个色块(data-skin=1~6)全部role=null、aria-label=null、tabIndex=-1。容器div.emoji-mart-skin-swatches同样无role/aria-label/aria-expanded。Tab键导航顺序为搜索栏→emoji滚动区→完全跳过肤色选择器。swatch.focus()调用后active element仍为INPUT（搜索栏）。JS审计确认可聚焦元素仅有BUTTON.emoji-mart-anchor和INPUT，肤色span不在Tab序列中。无描述性标签(Default Skin Tone/Light Skin Tone等)、无role=radiogroup容器、无aria-checked选中状态、不支持方向键导航。",
+    "last_reasoning": "All 6 skin tone swatches have role=null, aria-label=null, tabIndex=-1. Container has no role/aria-label/aria-expanded. Keyboard Tab navigation completely skips skin tone selector. Not accessible to screen readers or keyboard users."
+  }
+}
