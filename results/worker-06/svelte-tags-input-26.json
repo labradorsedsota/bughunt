@@ -1,0 +1,18 @@
+{
+  "task_id": "svelte-tags-input-26",
+  "repo": "agustinl/svelte-tags-input",
+  "worker": "worker-06",
+  "status": "completed",
+  "sess_id": "sess-20260419190111-b3fa5bfcbf2d4e2792b2fd7e42687230",
+  "expected_result_used": true,
+  "duration_seconds": 120,
+  "timestamp": "2026-04-19T04:01:11-07:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 11,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "退格键逻辑错误：输入框有未确认文本'testing'时按Backspace，整个文本消失且最后一个标签'world'被同时删除(tags从[hello,world]变为[hello])。正确行为应仅删除输入框最后一个字符，不影响已添加标签",
+    "last_reasoning": "Backspace key logic bug: when input has uncommitted text 'testing', pressing Backspace clears ALL input text AND deletes the last tag 'world' simultaneously. Tags changed from ['hello','world'] to ['hello']. Expected behavior: Backspace should only delete one character from input when input is non-empty, not affect existing tags."
+  }
+}

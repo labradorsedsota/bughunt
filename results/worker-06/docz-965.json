@@ -1,0 +1,23 @@
+{
+  "task_id": "docz-965",
+  "repo": "doczjs/docz",
+  "worker": "worker-06",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-19T03:15:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Lerna monorepo with 7 core packages需要按序构建。sharp native模块编译失败(node-gyp v4.0.0不兼容)，lerna bootstrap报yarn parse error，手动rollup build也因docz-rollup内部依赖链失败",
+    "attempted": [
+      "npm install --legacy-peer-deps (sharp node-gyp失败)",
+      "yarn install --ignore-engines (same sharp failure)",
+      "nvm切Node 18 (sharp仍失败)",
+      "npm install --ignore-scripts (安装成功但docz-core未构建)",
+      "手动rollup -c构建docz-utils (docz-rollup内部依赖链失败)"
+    ],
+    "recommendation": "跳过，需要完整lerna bootstrap + 7个包按依赖序构建，sharp需要额外配置"
+  }
+}
