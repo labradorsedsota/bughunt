@@ -162,6 +162,27 @@
 
 ---
 
+## 附录：compliance_issues 编号对照表
+
+| 编号 | 含义 | 严重度 |
+|------|------|--------|
+| #2 | 必填字段缺失 | 🔴 |
+| #3 | status 值非法（不是 completed/failed） | 🔴 |
+| #4 | completed 卡 mano_cua 不完整 | 🔴 |
+| #5 | mano_cua.result 值非法 | 🔴 |
+| #6 | sess_id 格式不合规 | 🔴 |
+| #7 | failed 卡 failure 字段不完整 | 🔴 |
+| #9 | task_id 跨 worker 重复 | 🔴 |
+| #10 | total_steps > 80 | 🟡 |
+| #11 | status=completed 但 result=deploy_failed（逻辑矛盾） | 🔴 |
+| #14 | timestamp 非标准 ISO 8601 | 🟡 |
+| #15 | failed 卡 mano_cua 非 null | 🟡 |
+| #16 | failed 卡 sess_id 非 null | 🟡 |
+
+> 🔴 = 触发 C 级评级，🟡 = 触发 B 级评级
+
+---
+
 *数据文件：*
 - CSV: `reports/integrated-assessment-20260420.csv`
 - JSON: `reports/integrated-assessment-20260420.json`
