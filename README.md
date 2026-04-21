@@ -72,10 +72,12 @@ CUA 轨迹数据的采集有两条路径：
 | 框架/库排除 | 已知名单 16 个 | angular/angular, preactjs/preact, TanStack/query 等 |
 | 框架/库排除 | 描述关键词 17 个 | framework/compiler/runtime/state management 等 |
 | 后端依赖排除 | 黑名单检测 | home-assistant-js-websocket, docker-compose 等 |
-| 候选池 | **869 个项目** | 944 → 过滤框架/库后 869 |
+| 候选池 | **711 个项目** | 944 → FRAMEWORK_REPOS(-30) → FRAMEWORK_KEYWORDS(-198) → stars>50K(-5)（来源：phase2_results.jsonl 实跑，2026-04-20 确认）|
 | 前置过滤拦截 | ~200 个项目 | 后端依赖/桌面应用（electron/express/django 等）|
-| 实际可产卡项目 | ~250 个 | 剩余为无符合条件 bug 或被 LLM 判定不可测 |
-| 预估可执行 case | **~500-700 条** | 基于实测：每可产卡项目平均 2-3 张有效卡 |
+| 实际可产卡项目 | ~674 个 | Batch 1-9 合计产卡项目（来源：tasks/pool/ 去重 repo count）|
+| 线上总量 | **3,373 张卡** | Batch 1-8: 832 + Batch 9: 2,541（来源：ls tasks/pool/*.json \| wc -l, 2026-04-21）|
+
+> ⚠️ **FRAMEWORK_KEYWORDS 子串匹配问题（2026-04-21 确认）**：Batch 1-8 使用的 FRAMEWORK_KEYWORDS 列表中包含 `orm`（原意过滤 ORM 框架），但因子串匹配导致 `form`、`platform`、`formatter`、`transformer` 等描述中含 `orm` 的项目被误杀。Batch 9 跳过了预过滤步骤，不受此影响。详见下方 6.5 节分析。
 
 **任务卡描述规范（2026-04-15 更新）：**
 
@@ -333,10 +335,12 @@ Phase 2: 精筛（已完成）
   ↓ 逐个检查
   ├── package.json 可部署性（有 dev/start 脚本、无重型依赖）→ Easy 3,884
   ├── Stars ≥100 → 2,702
-  ├── Bugs 5-500 → 2,058
-  └── 框架/库黑名单 + 二次过滤 → 723 个候选项目
+  ├── Bugs 5-500 → 944（来源：phase2_results.jsonl 实跑，2026-04-20 确认）
+  ├── FRAMEWORK_REPOS 黑名单 → -30 → 914
+  ├── FRAMEWORK_KEYWORDS 描述匹配 → -198 → 716
+  └── Stars >50K → -5 → 711
   ↓
-  最终产出：按 bug 数降序排列的候选项目清单
+  最终产出：Batch 1-8 从 711 中产卡，Batch 9 从原始 944 中产卡（跳过预过滤）
 ```
 
 ### 当前进度（2026-04-17 17:00 更新）
@@ -344,7 +348,7 @@ Phase 2: 精筛（已完成）
 | 阶段 | 进度 | 数据 |
 |------|------|------|
 | Phase 1 广搜 | ✅ 完成 | 9,542 → 7,066（Web 语言过滤）|
-| Phase 2 粗筛 | ✅ 完成 | 7,066 → Easy 3,884 → stars≥100: 2,702 → bugs 5-500: 2,058 → 框架/库过滤: 723 |
+| Phase 2 粗筛 | ✅ 完成 | 7,066 → Easy 3,884 → stars≥100: 2,702 → bugs 5-500: **944** → FRAMEWORK_REPOS: 914 → FRAMEWORK_KEYWORDS: 716 → stars>50K: **711**（phase2_results.jsonl 实跑）|
 | 框架/库过滤 | ✅ 完成 | 三层过滤：已知框架名单 + 描述关键词 + Stars>50K |
 | 后端依赖前置过滤 | ✅ 完成 | BACKEND_DEP_BLACKLIST 扩充（django/flask/rails/frappe/electron 等）|
 | Bug 级精筛脚本 | ✅ 完成 | `bug_screener.py` + `batch_card_generator.py`，关键词已优化 |
@@ -352,21 +356,20 @@ Phase 2: 精筛（已完成）
 | Batch 1（100 项目）| ✅ 完成 | Stage 1 唯一跑完的批次，产出主要卡源 |
 | Batch 2-3（LLM 补跑）| ✅ 完成 | 参数调整 + LLM 描述补跑 |
 | Batch 4（200 项目，min-bugs=5）| ✅ 完成 | 扩量批次 |
-| **线上总量** | **771 张卡** | **223 个项目** |
+| **线上总量** | **3,373 张卡** | **674 个项目**（Batch 1-8: 832/229 + Batch 9: 2,541/445，来源：tasks/pool/ count, 2026-04-21）|
 
 ### 执行进度（2026-04-17 17:00）
 
 | 指标 | 数值 | 说明 |
 |------|------|------|
-| 总卡量 | 771 | pool/ 目录 |
-| 已派发 | 417 | dispatched（含执行中 + 已完成）|
-| 待排产 | 354 | unassigned |
-| 已完成（results） | 250 | status=completed 且合规 |
-| 失败/部署失败 | 72 | failed=59 + deploy_failed=13 |
-| 不合规已清洗 | 51 | 三轮清洗移至 trash → 重置 unassigned |
-| 执行 Worker | 10 | worker01-09 + Fabrice |
+| 总卡量 | 3,373 | Batch 1-8: 832 + Batch 9: 2,541（pool/ count, 2026-04-21）|
+| Batch 1-8 已执行 | 873 | results/ JSON count，含 41 个重跑 |
+| 其中 completed | 430 | 49.3% |
+| 其中 failed | 441 | 50.5%（其中 98% 为 deploy_failed）|
+| Batch 9 待执行 | 2,541 | 尚未开始 |
+| 执行 Worker | 10 | worker-01~09 + Fabrice |
 
-> ⚠️ **历史数据纠正（2026-04-16）**：之前报的「869 候选、扫了 450 个（60%）」为错误数据。869 来自早期子集 `final_candidates.jsonl`，450 来自 Batch 1-3 的 max-repos 参数之和（非去重实际值）。实际 Stage 1 产卡仅 Batch 1（100 项目），线上 771 张卡 / 223 个项目全部来自 Batch 1 输出 + 后续 LLM 补跑 + Batch 4 扩量。
+> ⚠️ **历史数据纠正（2026-04-16 发现，2026-04-20 实跑确认）**：之前报的「869 候选、扫了 450 个（60%）」为错误数据。869 来自早期子集 `final_candidates.jsonl`，450 来自 Batch 1-3 的 max-repos 参数之和（非去重实际值）。实际候选池经实跑确认为 944（bugs 5-500）→ 711（框架过滤后）。Batch 1-8 产卡来自 711 中的 229 个项目，Batch 9 从原始 944 中重新扫描产卡（跳过预过滤）。
 >
 > **教训**：凡是量级判断，必须用生产脚本实跑验证，不能自己另起近似计算。
 
@@ -377,12 +380,15 @@ Phase 1 原始搜索          9,542 个 repo
 Phase 2 全量              7,066 个 repo
   ↓ deploy=easy            3,884
   ↓ stars≥100              2,702
-  ↓ bugs 5-500             2,058
-  ↓ 框架/库黑名单           944
-  ↓ 二次库过滤               723
-  ↓ 已产卡项目              -223
+  ↓ bugs 5-500               944  ← 实跑确认（phase2_results.jsonl, 2026-04-20）
+  ↓ FRAMEWORK_REPOS          -30 → 914
+  ↓ FRAMEWORK_KEYWORDS      -198 → 716
+  ↓ stars>50K                 -5 → 711
+  ↓
+  Batch 1-8 从 711 中产卡    229 个项目 / 832 张卡
+  Batch 9 从 944 中产卡      445 个项目 / 2,541 张卡（跳过预过滤）
   ═══════════════════
-  剩余可扫项目               ~500 个
+  合计                     674 个项目 / 3,373 张卡
 ```
 
 ### 正式筛选参数（FTY 2026-04-14 22:00 确认）
@@ -397,7 +403,7 @@ Phase 2 全量              7,066 个 repo
 | 最大 bugs | ≤500 | 跳过超大 repo，节省 API 配额 |
 | 非 GUI 过滤 | 是 | 剥离 API/CLI/后端框架类项目（~20%） |
 
-→ **944 个候选项目**
+→ **944 个候选项目**（phase2_results.jsonl 实跑，经 FRAMEWORK 过滤后 711）
 
 **Bug 级筛选：**
 
@@ -419,12 +425,11 @@ Phase 2 全量              7,066 个 repo
 
 | 步骤 | 数量 | 说明 |
 |------|------|------|
-| 候选项目池 | 723 | 经脚本实跑验证的合格项目数 |
-| 已产卡项目 | 223 | 线上 771 张卡（Batch 1-4 + POC）|
-| 剩余未扫项目 | ~500 | 723 - 223 |
-| 历史产卡率 | ~3.4 张/项目 | 771 卡 / 223 项目 |
-| **预估总量（基线）** | **~1,200 张** | 剩余按保守 35% 通过率估算新增 ~480 |
-| **预估总量（乐观）** | **~1,700 张** | 剩余按 45% 通过率估算新增 ~800 |
+| 候选项目池 | 944 | phase2_results.jsonl 实跑确认（bugs 5-500, stars≥100, deploy=easy）|
+| Batch 1-8 预过滤后 | 711 | FRAMEWORK_REPOS + KEYWORDS + stars>50K |
+| Batch 1-8 已产卡 | 229 个项目 / 832 张 | 含 POC 25 张 |
+| Batch 9 产卡（跳过预过滤）| 445 个项目 / 2,541 张 | 从 944 中去除已有项目后产卡 |
+| **合计** | **674 个项目 / 3,373 张卡** | tasks/pool/ count, 2026-04-21 |
 
 > ℹ️ 剩余项目集中在 bugs 5-49 区间，LLM 通过率可能低于前几批（高 bug 项目已扫完）。Batch 6 实测通过率较低（高 bug 大型项目后端依赖占比高），后续 Batch 以中小项目为主，预计更健康。
 
@@ -448,9 +453,15 @@ Phase 2 全量              7,066 个 repo
 | Batch 3 | 200 个项目 | min-bugs=5 | ✅ LLM 补跑完成（Stage 1 output 已丢失）|
 | Batch 4 | 200 个项目 | min-bugs=5 | ✅ 扩量完成 |
 | **Batch 1-4 合计** | | | **771 张卡 / 223 个项目** |
-| Batch 6 | 100 个项目 | bugs 高→低排序 | 🔄 Stage 2 进行中（83/154 候选，cascade skip 问题已修复）|
+| Batch 5 | 补量 | 同上 | ✅ 合并入后续批次 |
+| Batch 6 | 100 个项目 | bugs 高→低排序 | ✅ 完成（发现高 bug 项目后端依赖占比高）|
+| Batch 7 | Stage 1 补扫 | 加强 description 前置过滤 | ✅ 完成 |
+| Batch 8 | 最后一批预过滤候选 | 同上 | ✅ 完成（711 候选全部扫完）|
+| **Batch 1-8 合计** | 229 个项目 | | **832 张卡**（含 POC 25）|
+| Batch 9 | 445 个项目 | 跳过预过滤，从 944 中重新扫描 | ✅ 入库完成，**2,541 张卡**，待执行 |
+| **Batch 1-9 合计** | **674 个项目** | | **3,373 张卡** |
 
-> ⚠️ Batch 6 发现问题：高 bug 数项目多为大型后端/全栈/桌面/RN 项目，Stage 1 前置过滤不够严，cascade skip 误判率 ~33%。已临时关闭 cascade skip 恢复处理。后续 Batch 7+ 将加强 Stage 1 的 description 关键词前置过滤。
+> ⚠️ Batch 1-8 使用 FRAMEWORK_KEYWORDS 预过滤（候选池 711），其中 `orm` 子串匹配误杀了含 form/platform/formatter 的纯前端项目。Batch 9 跳过预过滤步骤，从原始 944 中重新扫描，补回了被误杀项目。详见上方框架分布分析。
 
 ---
 
@@ -461,7 +472,7 @@ Phase 2 全量              7,066 个 repo
 ```
 智子 push 任务卡到 tasks/pool/
         ↓
-Pichai pull → 按项目分配给 Worker → 移至 tasks/assigned/worker-xx/
+Pichai pull → pool-clean/ 去除 ground_truth → dispatch-log 记录派发 → Worker 执行 → results/worker-xx/ 提交
         ↓
 Worker 执行（部署 → mano-cua → 结果）
         ↓
@@ -481,26 +492,48 @@ FTY L3 按需终审
 ```
 bughunt/
 ├── README.md                    # 项目全景文档（唯一权威源）
+├── SUMMARY.md                   # Batch 1-9 全景与执行结果摘要
+├── PENDING.md                   # 归档：历史待确认事项
+├── POC-REPORT.md               # POC 阶段报告
+├── patrol-plan.md               # 巡检方案
+├── patrol-lessons.md            # 巡检教训
 ├── data/
 │   ├── candidates.jsonl         # Phase 1 广搜（13,207 条）
-│   └── phase2_results.jsonl     # Phase 2 精筛（7,066 条）
+│   ├── phase2_results.jsonl     # Phase 2 精筛（7,066 条）
+│   ├── batch9_tasks.jsonl       # Batch 9 Stage 1 原始输出
+│   ├── batch9_tasks.jsonl.final # Batch 9 最终版（2,541 张）
+│   ├── batch9_manifest.json     # Batch 9 清单
+│   └── archive/                 # 中间过程文件归档
 ├── tasks/
-│   ├── pool/                    # 待分配任务卡（智子 push）
-│   │   ├── vcal-350.json
-│   │   └── ...
-│   └── assigned/                # 已分配（Pichai 管理）
-│       ├── worker-fabrice/
-│       └── worker-moss/
-├── results/                     # 执行结果（Pichai 汇总 push）
-│   ├── worker-fabrice/
-│   │   └── vcal-350.json
-│   └── worker-moss/
-├── logs/                        # mano-cua 日志（Worker 本地保留，关键日志 push）
-├── docs/
-│   ├── worker-setup.md          # Worker 装机指南
-│   └── worker-execution-guide.md # Worker 执行手册
-└── scripts/                     # 自动化脚本
-    └── bug_screener.py          # Bug 级批量筛选
+│   ├── pool/                    # 全量任务卡 JSON（智子 push，3,373 张）
+│   └── pool-clean/              # 去除 ground_truth 后的派发版（Pichai 管理）
+├── results/                     # 执行结果（873 条，Worker push）
+│   ├── CHANGELOG.md             # 清洗变更记录
+│   ├── worker-01/ ~ worker-09/  # 各 Worker 结果
+│   └── worker-fabrice/
+├── reports/                     # 报告
+│   ├── integrated-assessment/   # 整合评估报告
+│   └── worker-audit-*.md        # Worker 审计报告
+├── dashboard/                   # 进度看板
+│   ├── index.html
+│   └── progress.json
+├── scripts/                     # 自动化脚本
+│   ├── batch9_stage1.py
+│   ├── batch9_stage2_llm.py
+│   ├── bug_screener.py
+│   ├── validate_cards.py
+│   ├── verify_pool.py
+│   └── archive/                 # 一次性修补脚本
+├── worker-config/               # Worker 配置模板
+│   ├── worker-execution-guide.md
+│   ├── worker-setup.md
+│   ├── worker-agents.md
+│   ├── worker-soul.md
+│   ├── worker-tools.md
+│   └── worker-user.md
+├── group-md-templates/          # 群聊 GROUP.md 模板
+├── logs/                        # mano-cua 执行日志
+└── pm-template/                 # PM 巡检模板
 ```
 
 ### 写权限规则
@@ -508,11 +541,12 @@ bughunt/
 | 目录 | 写权限 | 说明 |
 |------|--------|------|
 | `tasks/pool/` | 智子 | 任务卡只由智子产出 |
-| `tasks/assigned/` | Pichai | 分配由 Pichai 管理 |
-| `results/` | Pichai | Worker 不直接 push，通过群聊回报，Pichai 统一写入 |
+| `tasks/pool-clean/` | Pichai | 去除 ground_truth 后的派发版，Pichai 管理 |
+| `results/` | Worker / Pichai | Worker push 执行结果，Pichai 审核 |
 | `data/` | 智子 | 筛选数据由智子维护 |
+| `reports/` | 智子 | 质量报告、审计报告 |
 | `README.md` | 智子（方案层）/ Pichai（执行层）| 改前 pull，改完 push，互相 review |
-| `docs/` | Pichai（执行文档）/ 智子（方案文档）| 各管各的 section |
+| `worker-config/` | Pichai（执行文档）/ 智子（方案文档）| 各管各的 section |
 
 ### 结果 JSON 格式
 
@@ -565,7 +599,7 @@ Worker 每个 case 完成后在执行群发一行状态信号：
 
 ### POC 简化流程（当前生效）
 
-POC 阶段不做 `tasks/assigned/` 的文件移动，Pichai 通过 DMWork 消息直接指派。结果 Worker 在群里回报，Pichai 手动收集写入 repo。正式流程待 POC 验证后确定。
+POC 阶段不做 `tasks/pool-clean/` 的文件移动，Pichai 通过 DMWork 消息直接指派。结果 Worker 在群里回报，Pichai 手动收集写入 repo。正式流程待 POC 验证后确定。
 
 ---
 
@@ -702,7 +736,7 @@ POC 阶段不做 `tasks/assigned/` 的文件移动，Pichai 通过 DMWork 消息
 
 ---
 
-*文档版本：v2.6 | 2026-04-15 | 智子（进度更新：Batch 1 已 push 195 张，Batch 2+3 LLM 生成中；管线修正：级联跳过改 2 张采样、max-cards 改 500、ui_score 降至 3、TPL 卡剔除、后端依赖过滤扩充）*
+*文档版本：v3.0 | 2026-04-21 | 智子（全面更新：漏斗数据纠正为实跑确认值并标注统计口径，进度更新至 3,373 卡/674 项目，补全 Batch 5-9 记录，FRAMEWORK_KEYWORDS orm 误杀备注，目录结构对齐实际，删除不存在的 assigned/ 引用）*
 *文档版本：v2.5 | 2026-04-14 | 智子（SOP 去重指向 worker-execution-guide.md、matchPath 修正、result 字段保持 abnormal/normal/unclear + L2 映射说明、result_summary 统一字段名）*
 *文档版本：v2.4 | 2026-04-14 | 智子（FTY 确认正式筛选参数、产量预估 2,500-2,700、关键词优化 v2.4、周三三批次计划）*
 *文档版本：v2.3 | 2026-04-14 | 智子（FTY 数据需求确认 7 项、粗筛完成 1,124 候选、精筛脚本验证、POC 25 张卡、候选池统计、Bug 精筛逻辑、test_page 补充、待决事项关闭）*
