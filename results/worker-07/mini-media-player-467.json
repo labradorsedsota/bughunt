@@ -1,0 +1,20 @@
+{
+  "task_id": "mini-media-player-467",
+  "repo": "kalkih/mini-media-player",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-22T18:30:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm run dev 实际执行 webpack --watch，仅构建 JS bundle，无 HTTP dev server。项目是 Home Assistant 自定义 Lovelace 卡片，需要 HA 运行时才能渲染，无法独立部署测试。deploy_verify curl localhost:5173 返回 000（无服务）",
+    "attempted": [
+      "NODE_OPTIONS=--openssl-legacy-provider 修复 OpenSSL 错误后 webpack 构建成功，但仍无 HTTP 服务",
+      "检查 package.json scripts，确认 dev=webpack --watch，无 serve/start 命令"
+    ],
+    "recommendation": "整个 repo kalkih/mini-media-player 均为 HA custom card，无独立 dev server，建议全部跳过"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "mini-media-player-561",
+  "repo": "kalkih/mini-media-player",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-22T18:32:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm run dev = webpack --watch，无 HTTP server。HA custom card 无法独立运行。repo 级熔断（第2个不同 buggy_commit 确认）",
+    "attempted": ["切换到 buggy_commit 192646a48b 确认 dev script 仍为 webpack --watch"],
+    "recommendation": "repo 级熔断，剩余卡全部跳过"
+  }
+}

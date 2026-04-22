@@ -1,0 +1,21 @@
+{
+  "task_id": "todo-angular-firebase-pr141",
+  "repo": "r-park/todo-angular-firebase",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-22T18:44:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm install 失败：依赖 minx（git dep r-park/minx.git）返回 GitHub 404，仓库不存在或已删除/私有化。同时有 firebase/angularfire2 peer dep 冲突",
+    "attempted": [
+      "替换 SSH 为 HTTPS 格式 → 仍报 permission denied（npm 内部转 ssh）",
+      "替换为 git+https:// 格式 → 同样失败",
+      "curl 确认 https://github.com/r-park/minx 返回 404"
+    ],
+    "recommendation": "依赖仓库已不存在，无法安装。同 repo 第 2 张卡 (pr6) 使用不同 buggy_commit，需要确认是否也依赖 minx"
+  }
+}

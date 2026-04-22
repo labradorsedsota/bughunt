@@ -1,0 +1,20 @@
+{
+  "task_id": "todo-angular-firebase-pr6",
+  "repo": "r-park/todo-angular-firebase",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-22T18:45:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm install 失败：gulp 依赖为 git ref gulpjs/gulp.git#4.0，git checkout 4.0 报 pathspec not found。项目极早期（2016），依赖链断裂严重",
+    "attempted": [
+      "Node 16 + --legacy-peer-deps → gulp git ref 4.0 无法 checkout",
+      "同 repo pr141 commit 依赖已删除的 r-park/minx.git（404），确认 repo 级熔断"
+    ],
+    "recommendation": "repo 级熔断：r-park/todo-angular-firebase 两个不同 buggy_commit 均 deploy_failed（pr141: minx 仓库 404, pr6: gulp git ref 断裂）"
+  }
+}

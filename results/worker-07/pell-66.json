@@ -1,0 +1,21 @@
+{
+  "task_id": "pell-66",
+  "repo": "jaredreich/pell",
+  "worker": "worker-07",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-22T18:38:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm run dev = gulp，报 ReferenceError: primordials is not defined（gulp 3.x 与 Node ≥ 12 不兼容）。node-sass 在 Node 16/23 均 gyp 编译失败",
+    "attempted": [
+      "Node 23 + npm install → node-sass gyp 编译错误",
+      "Node 16 + npm install --ignore-scripts → 安装成功但 gulp 报 primordials 错误",
+      "需要 Node ≤ 11，本机 nvm 最低版本为 v16"
+    ],
+    "recommendation": "跳过，需 nvm install 10 降级到极低版本 Node"
+  }
+}
