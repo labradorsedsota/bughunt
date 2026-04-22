@@ -25,19 +25,6 @@
   "test_description_zh": "前往文件上传页面，找到用于上传密钥文件（SSH key 或 kubeconfig）的拖拽上传区域。尝试通过拖拽方式上传一个不在允许列表中的文件类型（例如 .jpg 或 .exe 文件），观察上传组件的响应行为。再尝试拖拽一个允许的文件类型进行上传，观察是否正常接受。",
   "expected_result_zh": "当用户拖拽不允许的文件类型到上传区域时，组件应拒绝该文件并给出相应的错误提示，不会将文件上传；当用户拖拽允许的文件类型（如 SSH key 或 kubeconfig 文件）时，组件应正常接受并处理上传。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": true,
-    "issue_labels": [
-      "bug",
-      "good first issue",
-      "hacktoberfest",
-      "hacktoberfest-accepted"
-    ]
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 4927,
-  "batch": 9
+  "repo_size_kb": 4927
 }

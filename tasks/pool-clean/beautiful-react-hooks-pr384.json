@@ -25,14 +25,6 @@
   "test_description_zh": "使用 beautiful-react-hooks 中与 change 事件相关的 hook（如 useGlobalEvent 或类似事件 hook），传入 passive 选项参数（例如 { passive: false }），触发对应的 change 事件，验证 passive 标志是否生效（例如在事件处理函数中调用 preventDefault() 不会报错）。",
   "expected_result_zh": "当用户将 passive 标志设置为 false 时，事件监听器应以非 passive 模式注册，允许在事件回调中正常调用 preventDefault()，不会在控制台出现 passive event listener 相关警告或错误。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 5,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 6296,
-  "batch": 9
+  "repo_size_kb": 6296
 }

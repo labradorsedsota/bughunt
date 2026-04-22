@@ -25,14 +25,6 @@
   "test_description_zh": "在页面中多次快速调用 setTheme 并传入函数形式（基于前一个状态计算新主题），观察每次切换后页面的主题是否正确反映最新状态。例如：连续使用 setTheme(prev => prev === 'light' ? 'dark' : 'light') 快速切换主题多次，检查最终主题是否与预期一致。",
   "expected_result_zh": "每次通过函数形式调用 setTheme 时，回调函数都应接收到最新的主题状态值，连续快速切换主题后，页面显示的主题（如背景色、文字颜色等）应与预期的最终状态完全一致，不会出现主题状态错乱或停留在错误主题的情况。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 7,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 773,
-  "batch": 9
+  "repo_size_kb": 773
 }

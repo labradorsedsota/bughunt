@@ -25,14 +25,6 @@
   "test_description_zh": "在 DefaultSeo 组件中设置 dangerouslySetAllPagesToNoIndex 为 true，然后在某个页面的 NextSeo 组件中显式设置 noindex: false 和 nofollow: false，检查该页面生成的 <meta name='robots'> 标签内容。",
   "expected_result_zh": "页面级别的 NextSeo 中设置的 noindex: false 和 nofollow: false 应当覆盖 DefaultSeo 中的 dangerouslySetAllPagesToNoIndex/dangerouslySetAllPagesToNoFollow 设置，最终页面的 robots meta 标签应显示 'index, follow'，而非被默认配置错误地覆盖为 'noindex, nofollow'。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 9719,
-  "batch": 9
+  "repo_size_kb": 9719
 }

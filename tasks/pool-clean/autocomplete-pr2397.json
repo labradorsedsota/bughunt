@@ -25,14 +25,6 @@
   "test_description_zh": "在终端自动补全环境中输入 `git stash` 并查看其子命令（如 `show`、`drop`、`pop`、`apply` 等）的补全建议，选择一个不需要强制参数的子命令，观察插入到命令行中的文本内容是否简洁正确，不包含多余的占位符文本。同时检查 `git stash save` 的 `message` 参数是否显示为可选参数。",
   "expected_result_zh": "选择 `git stash` 的子命令（如 `show`、`drop`、`pop`、`apply` 等）后，命令行中只插入子命令名称本身，不会附带多余的 `insertValue` 占位文本。`git stash save` 的 `message` 参数应显示为可选而非必填。所有子命令的描述文本无拼写错误。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 38860,
-  "batch": 9
+  "repo_size_kb": 38860
 }

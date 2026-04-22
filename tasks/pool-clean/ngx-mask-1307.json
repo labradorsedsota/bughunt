@@ -25,18 +25,6 @@
   "test_description_zh": "在使用日期掩码（如 'd0/M0/0000' 或 'dd/MM/yyyy'）且 leadZeroDateTime=true 的输入框中，输入完整日期值（如 15-02-2024），然后使用退格键逐步清除输入框中的内容，观察输入框在退格过程中的行为。",
   "expected_result_zh": "使用退格键逐步删除日期值时，字符应逐个正常删除，输入框内容逐渐减少直至完全清空，不应在退格过程中自动追加多余的零或其他字符，也不应出现无法完全清空输入框的情况。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug",
-      "P0",
-      "date"
-    ]
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 37186,
-  "batch": 9
+  "repo_size_kb": 37186
 }

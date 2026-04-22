@@ -25,16 +25,6 @@
   "test_description_zh": "在 Grafana 面板中加载带有 HSR（高斯平滑回归/预测线）的图表，观察 HSR 线条在时间轴上的绘制范围，特别关注是否延伸到当前时间点之后（即未来无数据的区域）",
   "expected_result_zh": "HSR 线条应仅在有实际数据的时间范围内绘制，不应延伸到未来没有数据的时间区域，图表中 HSR 的终点应与实际数据的终点一致",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": true,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 10,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 1420,
-  "batch": 9
+  "repo_size_kb": 1420
 }

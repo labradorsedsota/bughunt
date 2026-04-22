@@ -25,16 +25,6 @@
   "test_description_zh": "1. 创建一个包含表单的页面，表单使用 TanStack Form 并设置初始 defaultValues（例如 name 为空字符串）。\n2. 在表单输入框中输入一些内容。\n3. 调用 form.reset({ name: '新的默认值' })，传入一个新的值对象作为参数。\n4. 观察表单字段的值是否被重置为传入的新值（而非初始 defaultValues）。\n5. 再次修改输入框内容后，调用 form.reset()（不传参数），观察表单是否重置为上一次 reset 时传入的值。",
   "expected_result_zh": "调用 form.reset(value) 后，表单字段应重置为传入的 value 值，且 defaultValues 应被持久更新为该新值。后续再调用 form.reset()（无参数）时，表单应重置为最近一次 reset(value) 传入的值，而不是最初创建表单时的 defaultValues。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 7,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 40860,
-  "batch": 9
+  "repo_size_kb": 40860
 }

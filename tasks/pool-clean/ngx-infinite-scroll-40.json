@@ -25,16 +25,6 @@
   "test_description_zh": "打开包含无限滚动组件的页面，观察页面在静止状态下（不进行任何滚动或交互操作）的性能表现。通过浏览器开发者工具的 Performance 面板监控 CPU 使用率和变更检测周期的触发频率，持续观察页面数分钟。",
   "expected_result_zh": "页面在静止状态下（无用户交互）不应持续触发 Angular 变更检测周期，CPU 使用率应保持在较低水平，浏览器不会因为持续的变更检测循环而卡顿或崩溃。只有在用户进行滚动等交互操作时才应触发相应的变更检测。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 2667,
-  "batch": 9
+  "repo_size_kb": 2667
 }

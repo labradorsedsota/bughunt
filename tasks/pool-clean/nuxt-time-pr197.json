@@ -25,14 +25,6 @@
   "test_description_zh": "在页面中使用 <NuxtTime> 组件，并传入 camelCase 格式的 Intl.DateTimeFormat 选项（例如 timeZone: 'America/New_York'、dateStyle: 'full' 等），观察渲染出的时间文本是否正确应用了对应的格式化选项。",
   "expected_result_zh": "组件应正确识别并应用 camelCase 格式的选项，例如传入 timeZone: 'America/New_York' 后，页面上显示的时间应为纽约时区对应的时间，而非用户本地时区或默认时区的时间；其他如 dateStyle、timeStyle 等选项也应正常生效，格式化输出与 Intl.DateTimeFormat 的预期结果一致。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 7,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 2699,
-  "batch": 9
+  "repo_size_kb": 2699
 }

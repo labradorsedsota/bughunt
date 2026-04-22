@@ -25,16 +25,6 @@
   "test_description_zh": "1. 在 config/config.js 中设置 cachePage: false 和 asyncRoutes: true。\n2. 在 router/async/router.map.js 中配置两个不同的路由（如 test 和 test2），它们指向相同的 component（如 @/pages/demo）。\n3. 先访问第一个路由页面（如 /test），观察页面内容正常加载。\n4. 然后切换到第二个路由页面（如 /test2），观察页面是否重新加载并正确渲染。\n5. 再切换回第一个路由页面，观察页面内容是否重新加载。",
   "expected_result_zh": "当关闭页面缓存后，即使多个路由使用相同的 component，在路由切换时每个页面都应独立触发重新加载和渲染，页面内容应正确刷新，不会被视为同一个页面而跳过重新加载。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": true,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 7,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 9660,
-  "batch": 9
+  "repo_size_kb": 9660
 }

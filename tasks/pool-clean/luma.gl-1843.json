@@ -25,17 +25,6 @@
   "test_description_zh": "在页面中同时放置一个使用 luma.gl AnimationLoop 的 WebGL 画布和一个正在流式播放 webm 视频的 <video> 标签，观察 AnimationLoop 是否能正常初始化并开始渲染循环。",
   "expected_result_zh": "即使页面上存在正在流式传输（返回 206 Partial Content）的 <video> 元素，AnimationLoop 也应正常完成初始化，WebGL 画布能正确渲染内容，不会因为视频流请求而阻塞或导致初始化失败。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug",
-      "P1"
-    ]
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 224023,
-  "batch": 9
+  "repo_size_kb": 224023
 }

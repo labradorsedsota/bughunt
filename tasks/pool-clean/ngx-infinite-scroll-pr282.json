@@ -25,14 +25,6 @@
   "test_description_zh": "在一个使用 ngx-infinite-scroll 的长列表页面中，先向下滚动一段距离加载更多内容，然后向上滚动。观察当向上滚动到由 infiniteScrollUpDistance 参数定义的阈值位置时，scrolledUp 事件是否在正确的时机触发。",
   "expected_result_zh": "当用户向上滚动到达 infiniteScrollUpDistance 所定义的距离阈值时，scrolledUp 事件应在正确的位置被触发，而不是过早或过晚触发。向上滚动事件的触发时机应基于隐藏内容的高度进行计算，而非基于总滚动高度加内容高度。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 7,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 2667,
-  "batch": 9
+  "repo_size_kb": 2667
 }

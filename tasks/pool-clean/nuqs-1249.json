@@ -25,18 +25,6 @@
   "test_description_zh": "在使用 nuqs 的页面中，配置 useQueryStates 或 useQueryState 并设置 method 为 'debounce'，同时配置 processUrlSearchParams 回调。执行状态更新操作（如修改查询参数），观察 URL 搜索参数是否经过 processUrlSearchParams 回调正确处理后反映在浏览器地址栏中。",
   "expected_result_zh": "当使用 debounce 方式更新查询参数时，processUrlSearchParams 回调应被正常调用，URL 地址栏中的搜索参数应经过该回调函数处理后正确更新，与使用其他 method（如 'push' 或 'replace'）时的行为保持一致。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug",
-      "released",
-      "feature/time-safety"
-    ]
-  },
-  "_ui_score": 7,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 39421,
-  "batch": 9
+  "repo_size_kb": 39421
 }

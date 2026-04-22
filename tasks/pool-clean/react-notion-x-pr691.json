@@ -25,14 +25,6 @@
   "test_description_zh": "在页面中嵌入一个内联数据库视图（inline database view），并在 Notion 中将该内联数据库的 block.format.hide_inline_collection_name 设置为隐藏。观察 react-notion-x 渲染该页面时，内联数据库视图的集合标题（collection name）是否按照配置正确隐藏。同时验证链接视图（linked view）的 hide_linked_collection_name 属性也能独立正常工作。",
   "expected_result_zh": "当内联数据库视图配置了 hide_inline_collection_name 为 true 时，内联数据库的集合标题应被隐藏，不在页面上显示；当配置为 false 或未设置时，标题应正常显示。链接视图的标题隐藏行为应由 hide_linked_collection_name 独立控制，两种嵌入方式的标题显隐互不影响。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 5450,
-  "batch": 9
+  "repo_size_kb": 5450
 }

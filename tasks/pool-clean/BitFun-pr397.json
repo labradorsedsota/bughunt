@@ -25,14 +25,6 @@
   "test_description_zh": "在页面中找到一个 Markdown 文件相关的工具卡片（tool card），点击该卡片，观察文件是否在正确的编辑器标签页中打开。同时测试：1）点击 .md 或 .plan.md 文件的工具卡片，观察是否通过正常的编辑器路由打开；2）点击删除操作的工具卡片，观察是否打开 diff 标签页；3）点击工具卡片时，观察是否有额外的非预期事件触发（如冒泡导致的其他行为）。",
   "expected_result_zh": "1）点击 Markdown 文件（.md、.plan.md）的工具卡片时，文件应在正确类型的编辑器中打开，而非硬编码的 code-editor；2）删除操作的工具卡片点击后应正确打开 diff 标签页；3）点击工具卡片不应触发意外的冒泡行为，仅执行预期的文件打开操作。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 53534,
-  "batch": 9
+  "repo_size_kb": 53534
 }

@@ -25,14 +25,6 @@
   "test_description_zh": "在 Django Admin 中，创建或编辑包含 TabularInline 和 StackedInline 的模型页面，其中内联模型包含标记为 safe 的只读字段（例如包含 HTML 标签的内容）。观察这些只读字段在 TabularInline 和 StackedInline 中的显示效果。",
   "expected_result_zh": "标记为 safe 的只读字段应正确渲染其 HTML 内容（例如链接、粗体等），而不是将 HTML 标签作为纯文本原样显示（即不应出现转义后的标签字符串）。在 TabularInline 和 StackedInline 两种内联形式中，safe 标记的只读字段均应正常渲染为格式化的 HTML 内容。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 7,
-  "_description_source": "llm_api_batch9",
   "backend_risk": true,
-  "repo_size_kb": 29183,
-  "batch": 9
+  "repo_size_kb": 29183
 }

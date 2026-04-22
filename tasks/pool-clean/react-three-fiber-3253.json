@@ -25,16 +25,6 @@
   "test_description_zh": "使用 createPortal 将子组件渲染到独立 scene 中，并通过第三个参数传入自定义 camera 等 state 覆盖。之后触发父级 store 的状态更新（如窗口 resize 或其他导致父 store 变化的操作），观察 portal 内部使用的 camera 及其他被覆盖的 state 是否保持不变。",
   "expected_result_zh": "通过 createPortal 传入的自定义 state（如 camera）在父级 store 更新后仍应保持为用户指定的值，不应被回退为初始默认值。Portal 内渲染的场景应始终使用自定义 camera 进行正确渲染。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 7,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 27877,
-  "batch": 9
+  "repo_size_kb": 27877
 }

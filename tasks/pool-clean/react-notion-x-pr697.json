@@ -25,14 +25,6 @@
   "test_description_zh": "在使用自定义 components.Link 或 components.PageLink 的场景下，验证 Notion 页面中包含内联文本链接（如页面提及、跨工作区链接、内部 URL 链接）的渲染情况。检查这些内联链接在 DOM 中是否正确使用了 components.Link 组件进行渲染，观察页面中是否存在嵌套的 <a> 标签导致的 DOM 结构异常或样式错乱。",
   "expected_result_zh": "所有内联文本链接（页面提及、跨工作区链接、内部 URL）应正确使用 components.Link 组件渲染，DOM 中不应出现嵌套的 <a> 标签。当自定义 PageLink 为非 <a> 元素（如 <div>）时，内联链接仍然正常显示且可点击，页面无 DOM 嵌套警告，链接样式和交互行为正常。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 7,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 5450,
-  "batch": 9
+  "repo_size_kb": 5450
 }

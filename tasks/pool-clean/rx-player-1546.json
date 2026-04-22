@@ -25,17 +25,6 @@
   "test_description_zh": "在播放器中设置一个非常高的 wantedBufferAhead 值（例如 Infinity），播放视频内容，观察当设备内存缓冲区被填满（BUFFER_FULL 情况）时播放器的行为是否正常，是否能继续播放或正确处理缓冲策略。",
   "expected_result_zh": "当缓冲区被填满触发 BUFFER_FULL 状态时，播放器应能正确处理该情况，不会崩溃、卡死或出现播放中断，视频应继续正常播放或播放器应采取合理的缓冲释放策略。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug",
-      "Priority: 0 (Very high)"
-    ]
-  },
-  "_ui_score": 5,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 157241,
-  "batch": 9
+  "repo_size_kb": 157241
 }

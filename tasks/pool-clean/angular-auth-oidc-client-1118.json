@@ -25,16 +25,6 @@
   "test_description_zh": "1. 在应用中配置一个带有 canLoad 守卫保护的懒加载子模块，并在该子模块中定义一个子路径（例如 /customer/details）\n2. 在未登录状态下，直接在浏览器地址栏输入该子路径（如 /customer/details）并回车\n3. 页面被重定向到 OIDC 登录页面，完成登录认证\n4. 观察登录成功后页面重定向的目标路径",
   "expected_result_zh": "登录成功后，用户应被正确重定向回最初请求的完整子路径（如 /customer/details），而不是仅重定向到父模块路径（如 /customer）。完整的原始请求路径应被正确保存并在登录后恢复。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 17781,
-  "batch": 9
+  "repo_size_kb": 17781
 }

@@ -25,17 +25,6 @@
   "test_description_zh": "在浏览器中访问 /auth/login 和 /auth/register 页面，在 URL 的 error 查询参数中分别输入包含 HTML 标签和 JavaScript 代码的内容（例如 ?error=<script>alert(1)</script> 或 ?error=<img src=x onerror=alert(1)>），观察页面上错误信息的渲染方式。",
   "expected_result_zh": "页面应对 error 参数中的特殊字符进行转义或过滤，错误信息以纯文本形式展示，不会将用户输入的 HTML/JavaScript 代码作为可执行内容渲染到页面中，不会触发任何脚本弹窗或执行任意代码。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug",
-      "security"
-    ]
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 233501,
-  "batch": 9
+  "repo_size_kb": 233501
 }

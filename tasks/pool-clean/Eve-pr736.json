@@ -25,14 +25,6 @@
   "test_description_zh": "在应用根界面上进行鼠标交互操作，包括点击（mousedown/mouseup）、拖拽等操作，观察各鼠标事件是否被正确触发和响应。例如在可拖拽元素上按下鼠标并移动，或在按钮上按下鼠标后观察即时反馈。",
   "expected_result_zh": "mousedown、mouseup 等鼠标事件应在对应的鼠标动作发生时正确触发，而非被错误地绑定为 click 事件。按下鼠标时应立即响应 mousedown 事件，释放鼠标时应触发 mouseup 事件，拖拽等依赖 mousedown 的交互应正常工作，不会出现需要完成完整点击才能触发的问题。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 11529,
-  "batch": 9
+  "repo_size_kb": 11529
 }

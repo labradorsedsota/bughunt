@@ -25,17 +25,6 @@
   "test_description_zh": "访问 Swagger UI 页面路径（如 /api），验证文档内容是否为项目自身的 API 文档。然后尝试访问 /api/api 路径以及 /api/LICENSE 路径，观察返回结果。",
   "expected_result_zh": "/api 路径正常显示项目自身的 Swagger API 文档；访问 /api/api 不应返回 petshop 示例 Swagger 文档；访问 /api/LICENSE 不应返回 Apache LICENSE 文件内容。这些多余的静态资源不应被暴露，应返回 404 或被正确拦截。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug",
-      "needs triage"
-    ]
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 15357,
-  "batch": 9
+  "repo_size_kb": 15357
 }

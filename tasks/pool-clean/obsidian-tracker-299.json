@@ -25,17 +25,6 @@
   "test_description_zh": "在 Obsidian 中创建多个带有 frontmatter 数值字段的日记笔记，部分笔记中该字段值为 0 或特定非连续值，然后使用 tracker 代码块配置 summary 模板调用 maxStreak() 函数统计该 frontmatter 字段的最大连续天数，观察渲染结果。",
   "expected_result_zh": "maxStreak() 应根据 frontmatter 字段的实际值（而非字段是否存在）来计算最大连续天数。值为 0 的日期不应被计入连续天数，只有值为真（非零/非空）的连续日期才被统计，显示正确的最大连续天数。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug",
-      "help wanted"
-    ]
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 3638,
-  "batch": 9
+  "repo_size_kb": 3638
 }

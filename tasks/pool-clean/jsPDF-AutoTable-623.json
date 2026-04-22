@@ -25,16 +25,6 @@
   "test_description_zh": "创建一个使用 jsPDF-AutoTable 的表格，设置非均匀的 cellPadding（例如 left 值远大于 right 值），同时将单元格的 halign 设置为 'center'（或 valign 设置为 'middle'）。观察单元格内文本的对齐位置。",
   "expected_result_zh": "当设置非均匀 cellPadding 且 halign='center' 时，文本应在去除左右 padding 后的可用内容区域内居中对齐，而不是在包含左右 padding 的整个单元格宽度内居中。同理，valign='middle' 时文本应在去除上下 padding 后的可用区域内垂直居中。文本位置应正确反映 padding 的不对称性，视觉上不会出现偏移或错位。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 9,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 8663,
-  "batch": 9
+  "repo_size_kb": 8663
 }

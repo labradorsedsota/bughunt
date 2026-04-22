@@ -25,17 +25,6 @@
   "test_description_zh": "在 Canvas 组件上设置一个较低的初始 dpr 值（如 0.1），然后在子组件中通过 setDpr() 将 dpr 更新为更高值（如 1）。之后触发组件的重新渲染（例如通过状态更新），观察 Canvas 的渲染分辨率是否保持 setDpr 设置的值。",
   "expected_result_zh": "在子组件通过 setDpr() 动态更新 DPR 后，即使父组件或其他组件发生重新渲染，Canvas 的渲染分辨率应保持 setDpr() 所设置的值，不应被重置回初始的低 dpr 值（画面不应突然变模糊/像素化）。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug",
-      "v10"
-    ]
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 27877,
-  "batch": 9
+  "repo_size_kb": 27877
 }

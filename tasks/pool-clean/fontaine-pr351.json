@@ -25,14 +25,6 @@
   "test_description_zh": "访问首页，检查页面中由 fontaine 模块注入的 <style> 标签是否正确包含字体回退相关的 CSS 规则，并观察页面文本在字体加载过程中是否正常显示、无布局偏移或样式丢失。",
   "expected_result_zh": "页面正常渲染，fontaine 注入的 <style> 元素内包含正确的 CSS 字体回退规则（通过 innerHTML 写入），文本内容正常显示，字体加载期间无明显布局偏移（CLS），样式标签内容不为空且未被转义。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 4311,
-  "batch": 9
+  "repo_size_kb": 4311
 }

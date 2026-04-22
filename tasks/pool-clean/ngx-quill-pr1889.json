@@ -25,14 +25,6 @@
   "test_description_zh": "在 Angular 应用中配置 ngx-quill 的全局 sanitize 属性，然后在页面中使用 quill 编辑器组件，输入包含 HTML 内容（如粘贴富文本或通过 API 设置带 HTML 标签的内容），观察编辑器是否正确应用了全局 sanitize 配置来处理 HTML 内容。",
   "expected_result_zh": "当全局配置中设置了 sanitize 属性时，quill 编辑器组件应正确继承并应用该全局 sanitize 配置，HTML 内容应按照 sanitize 规则被正确清理或保留，编辑器内容显示与预期一致，不会出现未经处理的危险 HTML 或意外丢失的合法 HTML 内容。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 17525,
-  "batch": 9
+  "repo_size_kb": 17525
 }

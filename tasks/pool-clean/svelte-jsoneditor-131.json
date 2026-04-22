@@ -25,16 +25,6 @@
   "test_description_zh": "在 JSON 编辑器中加载包含反斜杠字符的 JSON 文档（如 {\"backslash\": \"\\\\\\\\\"}），开启 escapeControlCharacters 为 true，在树模式（tree mode）下观察反斜杠字段的值渲染情况。同时检查包含控制字符（如 \\n、\\t）的字段是否也正确显示转义形式。",
   "expected_result_zh": "在 escapeControlCharacters 为 true 的树模式下，反斜杠字符应被渲染为 \\\\（双反斜杠），而不是只显示单个反斜杠 \\。同时，换行符应显示为 \\n，制表符应显示为 \\t，所有控制字符均正确转义显示。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 10,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 5265,
-  "batch": 9
+  "repo_size_kb": 5265
 }

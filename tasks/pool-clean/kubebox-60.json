@@ -25,16 +25,6 @@
   "test_description_zh": "在配置了 AWS EKS 集群（使用 exec 认证方式，如 aws-iam-authenticator）的环境中，启动 kubebox 并尝试连接到 EKS 集群，观察是否能成功建立连接并显示集群信息。",
   "expected_result_zh": "kubebox 应能正确调用 aws-iam-authenticator 完成认证流程，成功连接到 EKS 集群，并在终端 UI 中正常显示集群的 Pod 列表等资源信息，而不是显示 ENOENT 错误。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 19242,
-  "batch": 9
+  "repo_size_kb": 19242
 }

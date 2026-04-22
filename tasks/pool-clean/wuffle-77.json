@@ -25,16 +25,6 @@
   "test_description_zh": "在看板中，当外部方打开一个 PR 并触发自动开发流程（dev flow）将卡片移动到对应列时，观察该 PR/Issue 上原有的 GitHub 标签是否仍然保留。具体步骤：1. 为一个 Issue 手动添加若干自定义 GitHub 标签；2. 通过外部操作（如打开关联 PR）触发看板自动将该 Issue 移动到新列；3. 检查该 Issue 在看板上以及 GitHub 上显示的标签列表。",
   "expected_result_zh": "Issue 被自动移动到新列后，除了对应列的标签发生变化（添加新列标签、移除旧列标签）外，之前由外部或用户手动添加的其他 GitHub 标签应全部保留，不会被覆盖或丢失。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 9740,
-  "batch": 9
+  "repo_size_kb": 9740
 }

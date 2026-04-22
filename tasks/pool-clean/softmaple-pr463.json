@@ -25,14 +25,6 @@
   "test_description_zh": "在文档预览页面中，输入包含HTML标签的内容（如带有<script>标签、<img onerror>事件、<iframe>等标签的文档内容），观察文档预览区域的渲染结果。",
   "expected_result_zh": "文档预览区域应正确渲染安全的HTML内容，所有潜在危险的HTML标签（如<script>、<iframe>等）和危险属性（如onerror、onclick等事件处理器）应被过滤移除，不会执行任何内嵌脚本，页面正常显示纯文本或安全的富文本内容，无弹窗或异常脚本执行。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 6477,
-  "batch": 9
+  "repo_size_kb": 6477
 }

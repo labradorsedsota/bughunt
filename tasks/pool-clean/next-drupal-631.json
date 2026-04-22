@@ -25,17 +25,6 @@
   "test_description_zh": "在 Next.js 项目中配置 next-drupal，将认证选项设置在方法级别（如 getResourceFromContext 的 withAuth 参数）而非全局认证设置。进入预览模式（Preview Mode），访问需要认证的页面资源，观察页面是否能正确获取并渲染受保护的 Drupal 资源内容。",
   "expected_result_zh": "在预览模式下，通过 getResourceFromContext 方法级别传入的认证选项应被正确使用，页面能够成功获取受认证保护的 Drupal 资源并正常渲染内容，而非返回未授权错误或显示空白/错误页面。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug",
-      "area: next-drupal"
-    ]
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 99041,
-  "batch": 9
+  "repo_size_kb": 99041
 }

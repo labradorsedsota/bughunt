@@ -25,14 +25,6 @@
   "test_description_zh": "在页面中渲染一个使用 TanStack Router 的 <Link> 组件，检查生成的 <a> 标签的 DOM 属性，观察是否存在不应暴露的内部路由属性（如 `from`、`to`、`activeProps`、`inactiveProps` 等内部 props）出现在实际的 HTML 元素上。",
   "expected_result_zh": "渲染的 <a> 标签上不应包含任何 TanStack Router 内部使用的 props（如 from、to、hash、search、params、activeProps、inactiveProps、activeOptions 等），只应包含标准的 HTML 属性（如 href、class、style、onClick 等），DOM 中不出现多余的非标准属性。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": []
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 82627,
-  "batch": 9
+  "repo_size_kb": 82627
 }

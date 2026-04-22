@@ -25,17 +25,6 @@
   "test_description_zh": "使用 jsPDF-AutoTable 生成带有 bodyStyles（包含 lineWidth 和 fillColor）以及 alternateRowStyles（包含不同 fillColor）的表格，观察表格主体行的填充颜色是否正确应用。具体步骤：1. 创建一个 autoTable 配置，在 bodyStyles 中设置 lineWidth 大于 0 并指定 fillColor；2. 在 alternateRowStyles 中设置不同的 fillColor；3. 生成表格并检查非交替行的填充颜色是否为 bodyStyles 中指定的颜色，交替行的填充颜色是否为 alternateRowStyles 中指定的颜色。",
   "expected_result_zh": "表格主体中，非交替行应正确显示 bodyStyles 中设定的 fillColor 填充颜色，交替行应正确显示 alternateRowStyles 中设定的 fillColor 填充颜色。bodyStyles 中设置 lineWidth 不应导致 fillColor 被 alternateRowStyles 的颜色覆盖或丢失。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": true,
-    "issue_labels": [
-      "bug",
-      "help wanted"
-    ]
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 8663,
-  "batch": 9
+  "repo_size_kb": 8663
 }

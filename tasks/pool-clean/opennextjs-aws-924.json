@@ -25,16 +25,6 @@
   "test_description_zh": "在中间件中配置对特定路径（如 /nope）使用 NextResponse.rewrite 重写到另一个页面并设置 status 为 404。然后在浏览器中访问该路径，观察返回的 HTTP 状态码。",
   "expected_result_zh": "访问被中间件重写的路径时，浏览器收到的 HTTP 响应状态码应为 404，而非 200。页面内容应显示重写目标页面的内容，但状态码正确反映中间件中设置的 404。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 24538,
-  "batch": 9
+  "repo_size_kb": 24538
 }

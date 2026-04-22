@@ -25,16 +25,6 @@
   "test_description_zh": "在 ChartDB 中导入一个包含 SQLite 数据库脚本的表结构，其中部分列定义了 NOT NULL 约束，部分列允许 NULL。观察生成的图表中各列的 NULL/NOT NULL 约束显示情况，检查每一列的可空性标识是否与原始 SQLite 脚本中的定义一致。",
   "expected_result_zh": "图表中每一列的 NULL/NOT NULL 约束应与 SQLite 脚本中定义的一致：定义为 NOT NULL 的列应显示为不可空，未定义 NOT NULL 的列应显示为可空（nullable），不应出现约束显示错误或反转的情况。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 68649,
-  "batch": 9
+  "repo_size_kb": 68649
 }

@@ -25,16 +25,6 @@
   "test_description_zh": "1. 创建一个路由，其 `stringifyParams` 函数会抛出错误，并为该路由或其父路由配置自定义的 `errorComponent`。\n2. 在浏览器中导航到该路由（或刷新页面触发该路由）。\n3. 观察页面是否渲染了自定义的 `errorComponent`。\n4. 刷新页面，观察页面是否仍然能正常显示错误组件，而非变成空白页。",
   "expected_result_zh": "1. 当 `stringifyParams` 抛出错误时，页面应渲染路由上配置的自定义 `errorComponent`，而不是默认的 `defaultErrorComponent`。\n2. 刷新页面后，应用不应崩溃或显示空白页，仍应正确显示自定义的错误组件。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 82627,
-  "batch": 9
+  "repo_size_kb": 82627
 }

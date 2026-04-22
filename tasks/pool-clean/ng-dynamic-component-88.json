@@ -25,16 +25,6 @@
   "test_description_zh": "在页面上使用 ng-dynamic-component 动态切换组件，当将当前动态组件替换为一个新组件时，观察新组件的初始化行为和输入属性的变化检测情况。具体步骤：1. 渲染一个带有输入属性的动态组件 A；2. 在运行时将动态组件切换为组件 B，并传入相应的输入属性；3. 观察组件 B 的 ngOnChanges 被调用的次数及其参数。",
   "expected_result_zh": "动态切换组件后，新组件的 ngOnChanges 仅被调用一次，且该次调用中 firstChange 为 true，previousValue 为 undefined（不应包含旧组件的输入值）。不会出现 ngOnChanges 被重复调用两次的情况，新组件的状态和显示内容应正确反映传入的输入属性。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 126990,
-  "batch": 9
+  "repo_size_kb": 126990
 }

@@ -25,14 +25,6 @@
   "test_description_zh": "在使用 ngx-chips 组件且配置 separatorKeys 包含空格键的场景下，切换到中文/日文等需要 IME 输入法的语言，在输入框中开始输入拼音或假名，然后按下空格键选择第一个候选词，观察标签的生成行为和输入框中的文本状态。",
   "expected_result_zh": "在 IME 输入法组合输入过程中按下空格键时，应正确选择 IME 候选词并将其填入输入框，而不是将未完成的拼音/假名直接作为标签创建。只有在 IME 组合输入结束后，再按空格键才应触发标签分隔创建逻辑。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": true,
-    "issue_labels": []
-  },
-  "_ui_score": 8,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 3601,
-  "batch": 9
+  "repo_size_kb": 3601
 }

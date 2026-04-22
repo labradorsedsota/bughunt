@@ -25,16 +25,6 @@
   "test_description_zh": "在 Nuxt 应用中，使用 Supabase 模块进行用户认证登录后，刷新页面或在服务端渲染与客户端之间切换时，观察用户的会话状态（如登录状态、用户信息）在服务端和客户端是否保持一致。",
   "expected_result_zh": "服务端渲染的用户会话状态与客户端水合后的会话状态应保持同步一致，客户端不应使用无效或过期的会话信息，页面刷新后登录状态应正确保持，不出现闪烁、状态丢失或使用错误会话的情况。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug"
-    ]
-  },
-  "_ui_score": 6,
-  "_description_source": "llm_api_batch9",
   "backend_risk": true,
-  "repo_size_kb": 8445,
-  "batch": 9
+  "repo_size_kb": 8445
 }

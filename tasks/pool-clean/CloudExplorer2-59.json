@@ -25,17 +25,6 @@
   "test_description_zh": "打开应用首页，选择一个需要登录表单的连接器（如FTP等），在弹出的登录表单中输入用户名和密码，点击登录/提交按钮，观察登录流程是否正常完成以及页面是否正确跳转回文件浏览界面。同时检查浏览器地址栏中是否不再暴露表单提交的敏感信息（如密码）。",
   "expected_result_zh": "登录表单提交后，认证请求通过 POST 方式发送，表单中的敏感信息不会出现在 URL 中；登录成功后页面正确返回到文件浏览界面，连接器正常可用，无报错或回调地址错误的问题。",
   "timeout": 600,
-  "_screening": {
-    "ui_observable": true,
-    "has_screenshot": false,
-    "issue_labels": [
-      "bug",
-      "enhancement"
-    ]
-  },
-  "_ui_score": 7,
-  "_description_source": "llm_api_batch9",
   "backend_risk": false,
-  "repo_size_kb": 4159,
-  "batch": 9
+  "repo_size_kb": 4159
 }
