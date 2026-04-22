@@ -1,0 +1,19 @@
+{
+  "task_id": "svelte-toast-pr52",
+  "repo": "zerodevx/svelte-toast",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": null,
+  "expected_result_used": true,
+  "duration_seconds": 121,
+  "timestamp": "2026-04-22T20:43:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": null,
+    "last_action": null,
+    "result": "unclear",
+    "result_summary": "mano-cua自然完成但Terminal scrollback buffer被旧session(nuxt-pr217)内容覆盖，svelte-toast-pr52实际测试结论完全不可恢复。自定义组件toast的props响应性未能验证。",
+    "last_reasoning": "Terminal buffer污染严重——当前window 2的scrollback只保留了旧的nuxt-pr217 session的步骤68-71内容，svelte-toast session的所有output已被覆盖。"
+  },
+  "note": "Terminal scrollback buffer问题在本批次反复出现。建议：1)增大Terminal scrollback设置 2)或让mano-cua直接写log文件"
+}

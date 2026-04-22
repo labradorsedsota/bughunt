@@ -1,0 +1,19 @@
+{
+  "task_id": "nuxt-95",
+  "repo": "vite-pwa/nuxt",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": null,
+  "expected_result_used": true,
+  "duration_seconds": 458,
+  "timestamp": "2026-04-22T20:10:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 12,
+    "last_action": null,
+    "result": "abnormal",
+    "result_summary": "PWA离线功能不完整——Service Worker仅缓存了主HTML文档(2个文件)，Nuxt核心JS(entry.js)、样式(default.vue CSS)、@vite/client、manifest.webmanifest、favicon.ico均未缓存，离线刷新后全部报ERR_INTERNET_DISCONNECTED。页面仅显示静态HTML骨架，无法完整加载。",
+    "last_reasoning": "开启离线模式后刷新页面，DevTools Network面板显示主HTML由ServiceWorker返回(200)，但entry.js、@vite/client、CSS样式文件、manifest.webmanifest、favicon.ico全部返回net::ERR_INTERNET_DISCONNECTED错误。PWA缓存配置未将运行时关键资源纳入缓存策略。"
+  },
+  "note": "开发模式下测试(npm run dev)，非生产构建。但问题明确：appManifest未被纳入SW缓存"
+}
