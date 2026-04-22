@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-04-22 19:42:05",
+  "last_updated": "2026-04-22 20:03:49",
   "summary": {
     "total": 3373,
-    "completed": 414,
-    "failed": 446,
+    "completed": 428,
+    "failed": 450,
     "blocked": 0,
-    "pending": 2513
+    "pending": 2495
   },
   "tasks": [
     {
@@ -6030,15 +6030,25 @@
     },
     {
       "task_id": "drawnix-141",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": null,
+      "repo": "plait-board/drawnix",
+      "duration_seconds": 360,
+      "error": "",
+      "result_summary": "空格键+鼠标拖拽未能平移画板，反而在画板上创建了水平连接线（connector line）。测试两次均相同：画板内容位置未变化，拖拽操作被当作绘图而非平移。"
     },
     {
       "task_id": "drawnix-pr274",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": null,
+      "repo": "plait-board/drawnix",
+      "duration_seconds": 197,
+      "error": "",
+      "result_summary": "macOS上菜单快捷键提示使用文字格式（Cmd+S, Cmd+Shift+E, Cmd+Backspace），而非macOS标准符号（⌘S, ⌘⇧E, ⌘⌫），不符合操作系统平台适配规范。"
     },
     {
       "task_id": "drawnix-pr317",
@@ -6048,9 +6058,14 @@
     },
     {
       "task_id": "drawnix-pr318",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "unclear",
+      "sess_id": "sess-20260422184930-ec1cb4ed35224015b36f09dc152c4d1a",
+      "repo": "plait-board/drawnix",
+      "duration_seconds": 928,
+      "error": "",
+      "result_summary": "mano-cua花费大量步骤尝试测试缩放控件的百分比显示、tooltip和not-allowed光标，但受Chrome右键菜单干扰，未能完整验证所有三个测试点。缩放百分比显示可见（60%→70%），但tooltip和not-allowed光标测试未在捕获的输出中给出明确结论。"
     },
     {
       "task_id": "drawnix-pr324",
@@ -6060,15 +6075,25 @@
     },
     {
       "task_id": "drawnix-pr333",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": "sess-20260422190912-f9d35e3d68e04a99a768777a3f84379b",
+      "repo": "plait-board/drawnix",
+      "duration_seconds": 1026,
+      "error": "",
+      "result_summary": "箭头工具首次点击打开下拉列表而非自动选中第一个选项，不选择直接在画布拖拽无法绘制任何内容。形状工具同样打开下拉列表，但忽略下拉直接拖拽可绘制矩形（部分正常）。箭头工具bug更严重。"
     },
     {
       "task_id": "drawnix-pr368",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": null,
+      "repo": "plait-board/drawnix",
+      "duration_seconds": 685,
+      "error": "",
+      "result_summary": "双击空白区域仅在文字工具(T)模式下有效，在手形/选择工具模式下双击无反应。文字工具下双击可创建文本并自动获焦、可输入文字，但文本输入光标(|)不可见——功能正常但视觉上缺少光标指示。"
     },
     {
       "task_id": "drawnix-pr376",
@@ -8047,15 +8072,25 @@
     },
     {
       "task_id": "hastic-grafana-app-316",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "hastic-zzz/hastic-grafana-app",
+      "duration_seconds": 0,
+      "error": "npm run dev webpack 编译失败：项目使用 TypeScript 2.9.2，npm install 无 lockfile 拉取最新 @types/node、@types/lodash、@types/angular、@types/jquery 等包，这些包的 .d.ts 语法需要 TS 4.x+，导致大量 TS 语法错误无法编译",
+      "result_summary": "npm run dev webpack 编译失败：项目使用 TypeScript 2.9.2，npm install 无 lockfile 拉取最新 @types/node、@types/lodash、@types/angular、@types/jquery 等包，这些包的 .d.ts 语法需要 TS 4.x+，导致大量 TS 语法错误无法编译"
     },
     {
       "task_id": "hastic-grafana-app-317",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "hastic-zzz/hastic-grafana-app",
+      "duration_seconds": 0,
+      "error": "fuse_deploy_failed",
+      "result_summary": "fuse_deploy_failed"
     },
     {
       "task_id": "hastic-grafana-app-324",
@@ -12465,51 +12500,91 @@
     },
     {
       "task_id": "mui-rte-135",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "unclear",
+      "sess_id": "sess-20260422184301-7ea372fb20594e42944892be35376889",
+      "repo": "niuware/mui-rte",
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "未在页面中找到目标功能入口——遍历全部 18 个示例选项卡（Basic、Theme、Custom Controls、Decorators、Inline Toolbar 等），所有工具栏均不含对齐控制按钮（居中/右对齐），虽然 T 按钮可创建标题块，但缺少对齐控制入口，无法执行完整测试"
     },
     {
       "task_id": "mui-rte-139",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "no_bug",
+      "sess_id": "sess-20260422185121-8417fc4bc9c844b4ba995107ce305f91",
+      "repo": "niuware/mui-rte",
+      "duration_seconds": 720,
+      "error": "",
+      "result_summary": "SVG 路径分析确认 OL 按钮使用 FormatListNumbered 图标、UL 按钮使用 FormatListBulleted 图标，图标与控件名称正确匹配。OL 功能测试通过（点击后编辑器显示有序列表 '1.'）。UL 功能测试未完成（进程被 SIGKILL），但 SVG 路径证据已充分证明图标-功能匹配正确，未发现控件与功能错位情况"
     },
     {
       "task_id": "mui-rte-142",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "no_bug",
+      "sess_id": "sess-20260422192105-7d9dcc07030446f1952e31e19c70e4eb",
+      "repo": "niuware/mui-rte",
+      "duration_seconds": 180,
+      "error": "",
+      "result_summary": "Read Only 选项卡切换后页面未自动滚动（scrollY=0，无 scroll 事件），焦点未自动进入编辑器（editor has focus=false，contenteditable=false），仅 Read Only 按钮本身接收了点击焦点。注入 scroll+focusin 事件监听器全程监控，未检测到异常行为"
     },
     {
       "task_id": "mui-rte-184",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "no_bug",
+      "sess_id": "sess-20260422192738-72f8a443507541f79e9dd050effb37f0",
+      "repo": "niuware/mui-rte",
+      "duration_seconds": 120,
+      "error": "",
+      "result_summary": "编辑器为空时点击可正常获取焦点并出现光标，输入Hello World后文字正确显示，点击外部编辑器正常失焦且内容保留，再次点击文本中间位置光标准确出现在点击处（Hell|o之间），焦点获取和光标定位功能均正常"
     },
     {
       "task_id": "mui-rte-189",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "bug_found",
+      "sess_id": "sess-20260422193127-ea5df91cb74a4fcb9218c8b2754ee7a5",
+      "repo": "niuware/mui-rte",
+      "duration_seconds": 90,
+      "error": "",
+      "result_summary": "MaxLength=10 示例中输入恰好 10 个字符 'abcdefghij' 后，按 Enter 键成功创建了新行（光标移至第二行），maxLength 限制未阻止换行操作。编辑器显示第一行 'abcdefghij' + 第二行空行，绕过了字符数限制"
     },
     {
       "task_id": "mui-rte-3",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "bug_found",
+      "sess_id": "sess-20260422193617-55610d74c6494713b668c8df82a381e6",
+      "repo": "niuware/mui-rte",
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "发现两个Bug：1) 点击工具栏B/I按钮激活样式后直接输入文字失败（焦点/选区丢失，文字无法进入编辑器，编辑区保持空白）；2) 选中文字后取消加粗/斜体时，按钮视觉状态未即时更新（文字格式已取消但按钮仍显示激活外观，需移动光标后才恢复）。Bug 1 属严重功能缺陷"
     },
     {
       "task_id": "mui-rte-pr102",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "no_bug",
+      "sess_id": "sess-20260422194436-fa8da65429834416a325d493302568cd",
+      "repo": "niuware/mui-rte",
+      "duration_seconds": 300,
+      "error": "",
+      "result_summary": "通过 DevTools 给编辑器容器 #mui-rte-container 设置 height:400px + overflow:auto 后，placeholder 'Type something here...' 仍正确显示在编辑区域左上角起始位置，无偏移/溢出/位置异常。（注：任务指定的 .MuiPaper-root 选择器在 DOM 中不存在，改用 #mui-rte-container）"
     },
     {
       "task_id": "mui-rte-pr117",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "no_bug",
+      "sess_id": "sess-20260422194949-1aba3b1fd9734bccb3c6ecfc586cd45a",
+      "repo": "niuware/mui-rte",
+      "duration_seconds": 240,
+      "error": "",
+      "result_summary": "输入 Hello World Test → 全选 → 点击 B 按钮加粗 → 确认文本变为粗体 → 重新全选 → 点击 Clear 按钮 → 文本恢复为普通无样式格式，B 按钮恢复未激活状态。Clear 清除格式功能正常"
     },
     {
       "task_id": "mui-tiptap-197",
@@ -14178,9 +14253,14 @@
     },
     {
       "task_id": "notivue-pr61",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "abnormal",
+      "sess_id": "sess-20260422183655-c1843912f6664769882e8400eee81ee2",
+      "repo": "smastrom/notivue",
+      "duration_seconds": 960,
+      "error": "",
+      "result_summary": "页面因SSR错误渲染空白，无法直接观察通知组件。mano-cua通过DevTools分析CSS发现：左侧图标.Notivue__icon margin-left为var(--nv-spacing)，右侧关闭按钮.Notivue__close margin为0、padding为calc(var(--nv-spacing)/2)，左右间距不对称（左=nv-spacing，右=nv-spacing/2）。"
     },
     {
       "task_id": "novu-pr10707",
@@ -14669,15 +14749,25 @@
     },
     {
       "task_id": "nuxt-swiper-139",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "cpreston321/nuxt-swiper",
+      "duration_seconds": 0,
+      "error": "npm run dev 启动后持续返回 HTTP 500，IPC connection closed 错误，tsconfig resolve 失败",
+      "result_summary": "npm run dev 启动后持续返回 HTTP 500，IPC connection closed 错误，tsconfig resolve 失败"
     },
     {
       "task_id": "nuxt-swiper-pr4",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "cpreston321/nuxt-swiper",
+      "duration_seconds": 0,
+      "error": "git clone 超时，github.com:443 间歇性不可达",
+      "result_summary": "git clone 超时，github.com:443 间歇性不可达"
     },
     {
       "task_id": "nuxt-time-301",
