@@ -301,7 +301,7 @@ failure.type 取值：`deploy_failed` | `timeout` | `mano_cua_error` | `url_devi
 |------|------|
 | 端口被占用 | `lsof -ti:${PORT} \| xargs kill -9`，确认释放后重新启动 |
 | 部署失败 | 自行排查一次（端口、依赖、版本），仍失败 → 上报 PM |
-| **需要数据库/认证/OAuth** | **正常尝试部署。** 如果部署因缺少后端依赖而失败，标 deploy_failed，symptom 写明原因（如"需要 OAuth 登录"/"需要 PostgreSQL"）。不要花时间自行搭建后端环境（不创建用户、不配数据库、不模拟登录），尝试部署失败即可上报 |
+| **需要数据库/认证/OAuth** | **立即标 deploy_failed，note 写明原因（如"需要 OAuth 登录"/"需要 PostgreSQL"），不要花时间尝试绕过（不创建用户、不配数据库、不模拟登录）。这类任务成本远大于数据价值，直接跳过** |
 | Node 版本不兼容 | 用 nvm 切版本：先查 `package.json` 的 `engines` 字段；没有则根据框架年代判断（老 Angular → Node 14，一般项目 → Node 18/20）。最多试 2 个版本，还不行就标 deploy_failed |
 | **同 buggy_commit 连续 2 张 deploy_failed** | **熔断：该 commit 剩余卡全部跳过，不再尝试部署。** 跳过的卡写 result JSON（status: failed, failure.type: deploy_failed, symptom: fuse_deploy_failed，详见§三熔断格式）。同 repo 不同 buggy_commit 的卡不受影响，继续正常执行 |
 | mano-cua 软超时（>10min） | 标 WARN，继续等 |
@@ -341,7 +341,7 @@ failure.type 取值：`deploy_failed` | `timeout` | `mano_cua_error` | `url_devi
 ---
 
 *文档版本：v2.1 | 2026-04-22 | Pichai*
-*v2.1 变更：熔断规则从「同项目连续 3 case → PROJECT_BLOCKED」改为「同 buggy_commit 连续 2 张 deploy_failed → 该 commit 剩余卡跳过」；新增熔断 result JSON 格式（fuse_deploy_failed）；DB/OAuth 处理改为正常尝试部署后按实际结果判定*
+*v2.1 变更：熔断规则从「同项目连续 3 case → PROJECT_BLOCKED」改为「同 buggy_commit 连续 2 张 deploy_failed → 该 commit 剩余卡跳过」；新增熔断 result JSON 格式（fuse_deploy_failed）*
 *v2.0 变更：新增 turn 拆分规则（每个 case 完成后必须先发状态再继续下一个）+ Node 版本兼容处理规则*
 *v1.9 变更：新增端口清理步骤（第 1 步前置）+ 异常处理表新增端口占用 + Checklist 新增端口检查项*
 *v1.8 变更：新增控制台 JS 类任务卡处理说明（约 5 张，排产末尾，mano-cua 自然兜底）*
