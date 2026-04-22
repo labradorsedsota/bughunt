@@ -6,15 +6,16 @@
   "expected_result_used": false,
   "sess_id": null,
   "duration_seconds": 0,
-  "timestamp": "2026-04-22T19:48:00+08:00",
+  "timestamp": "2026-04-22T22:16:00+08:00",
   "mano_cua": null,
   "failure": {
-    "type": "other",
-    "symptom": "git clone 超时，github.com:443 不可达（系统代理指向已关闭的 MonoProxy）",
+    "type": "deploy_failed",
+    "symptom": "nuxt-module-build --stub 构建失败，dist/module.cjs 缺失，dev server 返回 503",
     "attempted": [
-      "unset 环境变量代理直连 — 超时（系统级代理仍生效）",
-      "关闭 macOS 系统代理后恢复 — 待重试"
+      "Node v20.20.2 + --legacy-peer-deps — postinstall 构建失败",
+      "Node v18.20.8 + --legacy-peer-deps — 同样构建失败",
+      "Node v20 + --ignore-scripts 跳过构建 — dev server 报 Cannot find module dist/module.cjs"
     ],
-    "recommendation": "网络已恢复，需要重新 clone 部署执行"
+    "recommendation": "该 commit (28d3b801c9) nuxt-module-build 构建不兼容，跳过。nuxt-swiper repo 两个不同 commit 均 deploy_failed，触发 repo 级熔断"
   }
 }
