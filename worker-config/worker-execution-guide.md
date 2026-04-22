@@ -283,26 +283,7 @@ failure.type 取值：`deploy_failed` | `timeout` | `mano_cua_error` | `url_devi
 }
 ```
 
-**Repo 级熔断 result 示例：**
-```json
-{
-  "task_id": "luxesite-310",
-  "repo": "ivegamsft/luxesite",
-  "worker": "worker-fabrice",
-  "status": "failed",
-  "expected_result_used": false,
-  "sess_id": null,
-  "duration_seconds": 0,
-  "timestamp": "2026-04-23T11:00:00+08:00",
-  "mano_cua": null,
-  "failure": {
-    "type": "deploy_failed",
-    "symptom": "fuse_repo_blocked",
-    "attempted": ["fuse_trigger: luxesite-253 (commit abc123), luxesite-280 (commit def456)"],
-    "recommendation": "同 repo 已有 2 个不同 buggy_commit deploy_failed，repo 级熔断"
-  }
-}
-```
+**Repo 级熔断：** 与上述格式相同，区别是 `failure.symptom` 改为 `fuse_repo_blocked`，`attempted` 记录触发熔断的 2 个不同 commit 对应的 task_id（如 `["fuse_trigger: luxesite-253 (commit abc123), luxesite-280 (commit def456)"]`），`recommendation` 写明"同 repo 已有 2 个不同 buggy_commit deploy_failed，repo 级熔断"。
 
 - `symptom: fuse_deploy_failed` — commit 级熔断跳过
 - `symptom: fuse_repo_blocked` — repo 级熔断跳过
@@ -329,8 +310,8 @@ failure.type 取值：`deploy_failed` | `timeout` | `mano_cua_error` | `url_devi
 | 部署失败 | 自行排查一次（端口、依赖、版本），仍失败 → 上报 PM |
 | **需要数据库/认证/OAuth** | **立即标 deploy_failed，note 写明原因（如"需要 OAuth 登录"/"需要 PostgreSQL"），不要花时间尝试绕过（不创建用户、不配数据库、不模拟登录）。这类任务成本远大于数据价值，直接跳过** |
 | Node 版本不兼容 | 用 nvm 切版本：先查 `package.json` 的 `engines` 字段；没有则根据框架年代判断（老 Angular → Node 14，一般项目 → Node 18/20）。最多试 2 个版本，还不行就标 deploy_failed |
-| **同 buggy_commit 1 张 deploy_failed** | **Commit 级熔断：该 commit 剩余卡全部跳过**，不再尝试部署。跳过的卡写 result JSON（symptom: fuse_deploy_failed，详见§三熔断格式） |
-| **同 repo 2 个不同 buggy_commit 都 deploy_failed** | **Repo 级熔断：该 repo 所有剩余卡全部跳过**，不再尝试部署。跳过的卡写 result JSON（symptom: fuse_repo_blocked，详见§三熔断格式） |
+| **同 buggy_commit 1 张 deploy_failed** | **Commit 级熔断：该 commit 剩余卡全部跳过**，不再尝试部署。跳过的卡写 result JSON：`status: failed`，`failure.type: deploy_failed`，`failure.symptom: fuse_deploy_failed`，`failure.attempted` 记录触发卡 task_id。详见§三熔断格式 |
+| **同 repo 2 个不同 buggy_commit 都 deploy_failed** | **Repo 级熔断：该 repo 所有剩余卡全部跳过**，不再尝试部署。跳过的卡写 result JSON：`status: failed`，`failure.type: deploy_failed`，`failure.symptom: fuse_repo_blocked`，`failure.attempted` 记录 2 个触发 commit 的 task_id。详见§三熔断格式 |
 | mano-cua 软超时（>10min） | 标 WARN，继续等 |
 | mano-cua 硬超时（>15min） | `mano-cua stop`，标 BLOCKED + 诊断 |
 | mano-cua 崩溃 | 重试 1 次，仍失败 → 记录异常跳过 |
