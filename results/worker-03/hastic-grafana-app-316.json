@@ -1,0 +1,21 @@
+{
+  "task_id": "hastic-grafana-app-316",
+  "repo": "hastic-zzz/hastic-grafana-app",
+  "worker": "worker-03",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-22T18:45:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm run dev webpack 编译失败：项目使用 TypeScript 2.9.2，npm install 无 lockfile 拉取最新 @types/node、@types/lodash、@types/angular、@types/jquery 等包，这些包的 .d.ts 语法需要 TS 4.x+，导致大量 TS 语法错误无法编译",
+    "attempted": [
+      "Node 25 + NODE_OPTIONS=--openssl-legacy-provider（解决 OpenSSL 报错但 TS 类型不兼容）",
+      "切换 Node 16 + 删除 node_modules 重装（同样 @types 版本过高）",
+      "tsconfig.json 加 skipLibCheck: true（ts-loader 仍报错，无效）"
+    ],
+    "recommendation": "需要 pin 所有 @types/* 到 TS 2.x 兼容版本或安装 Node 14 + 使用 npm ci 配合 lockfile；成本高，建议跳过"
+  }
+}

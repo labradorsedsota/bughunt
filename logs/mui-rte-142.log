@@ -1,0 +1,222 @@
+Session created: sess-20260422190931-d3ec97ff5a2d43a5bba1db9754498875
+UI panel initialized successfully
+UI window displayed
+Expected result: 当 MUI-RTE 组件处于只读模式时，页面加载后焦点不应自动移动到编辑器内部，页面不应自动滚动到底部，浏览器滚动位置应保持在页面顶部或用户原本所在的位置。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: screenshot
+[step 1] Action: key: ctrl+Home
+[step 1] Reasoning: I can see the page is already showing the "ReadOnly example" content. It looks like the "Read Only" tab is already selected. Let me observe the current state more carefully - the page shows "ReadOnly example:" at the top with the editor content visible. Let me first scroll to the top to check the initial position, then click on the "Read Only" tab to observe what happens.
+[step 2] Action: left_click (113, 91)
+[step 2] Reasoning: The page appears to be already showing the ReadOnly example. Now let me first switch to a different tab (like "Basic") to reset the state, then click on "Read Only" to properly observe the behavior when switching to it.
+[step 3] Action: scroll down (640, 400) scroll_amount 5
+[step 3] Reasoning: Now I'm on the "Basic" example. The page shows "Basic example:" with an empty editor at the top of the viewport. Now I need to scroll down a bit on the page to make the "Read Only" tab not the focus, and then click on the "Read Only" tab to observe what happens with the scroll position and focus.
+
+Let me scroll down first to simulate being somewhere on the page, then click "Read Only":
+[step 4] Action: left_click (845, 91)
+[step 4] Reasoning: The Basic example page doesn't have much content to scroll. The page is at the same position. Now let me click on the "Read Only" tab and carefully observe the scroll position and focus state immediately after clicking.
+[step 5] Action: key: F12
+[step 5] Reasoning: I can see the "ReadOnly example:" page has loaded. Now let me carefully analyze what I observe:
+
+1. **Scroll position**: The page is showing from the top - I can see the tab bar, the "ReadOnly example:" label, and the toolbar at y~119. The content starts with "My Title" heading. The page appears to be at the **top** - not scrolled to the bottom.
+
+2. **Toolbar visibility**: The editor toolbar is visible (Bold, Italic, Underline etc. buttons are shown even though it's supposedly read-only).
+
+Let me now use the browser's developer tools to check the actual scroll position and focus state. Let me open the DevTools console to inspect this.
+[step 6] Action: left_click (640, 490)
+[step 6] Reasoning: The DevTools console is now open. I can see console logs showing "Loaded ReadOnly example" and "Loaded Basic example" - this tracks switching between examples. Now let me use the console to check the current scroll position and the focused element to determine if there's any auto-scrolling or auto-focus behavior.
+[step 7] Action: left_click (640, 490)
+[step 7] Reasoning: Let me click on the console input area and type commands to check the scroll position and focused element. I need to find the console input at the bottom of the DevTools panel.
+[step 8] Action: left_click (640, 490)
+[step 8] Reasoning: I need to click on the console prompt area to enter commands. Let me scroll down within the DevTools panel to find the input area, or click directly at the bottom of the console.
+[step 9] Action: left_click (200, 488)
+[step 9] Reasoning: I need to find the console prompt. I can see the `>` arrow at the bottom left of the console area (at around y=488). Let me click on that area more precisely.
+[step 10] Action: key: Escape
+[step 10] Reasoning: The DevTools panel seems very narrow and the console input area is not responding well. Let me try using the keyboard shortcut to open the console prompt directly. I'll press Escape to focus on the console prompt.
+[step 11] Action: type: console.log('scro...
+[step 11] Reasoning: Now I can see the console prompt is active (the cursor `|` is visible after `> `). Let me type a JavaScript command to check the scroll position and document.activeElement.
+[step 12] Action: key: Return
+[step 12] Reasoning: I can see the command is typed in the console. Now let me press Enter to execute it.
+[step 13] Action: type: document.activeEl...
+[step 13] Reasoning: Excellent! I can see the result clearly:
+- **scrollY: 0** - The scroll position is at 0 (top of the page)
+- **activeElement: BUTTON** - The focused element is a BUTTON
+
+This is very interesting! The active element is a BUTTON, which means when switching to the ReadOnly example, the focus is being set to a button element. But which button? The class name isn't clearly shown. Let me get more information about the focused button element.
+
+Now let me check what this button is exactly. The fact that the `activeElement` is a BUTTON while on the ReadOnly example page is noteworthy. This may be indicating that when the ReadOnly example loads, focus is automatically being set to a button (likely a toolbar button in the editor). Let me investigate more.
+[step 14] Action: key: Return
+[step 14] Reasoning: This is very revealing! I can see in the console output:
+
+```
+"<button>Read Only</button>"
+```
+
+The **actively focused element is the "Read Only" button itself** - which is the tab button I just clicked. This makes complete sense - when I clicked the "Read Only" tab button, the browser naturally focused on that button element (standard browser behavior for button clicks).
+
+So the current `document.activeElement` is the "Read Only" tab button, NOT the editor content. This means **the focus is NOT auto-moved into the editor**.
+
+Now let me do a more definitive test. Let me switch to another tab first, then click "Read Only" and immediately check the focus state programmatically. But first, let me observe the current behavior more carefully.
+
+Let me now do the proper test: switch to Basic, then click Read Only and check if the editor gets focused.
+[step 15] Action: left_click (113, 91)
+[step 15] Reasoning: The console confirms that the focused element is `<button>Read Only</button>` - which is the tab button I clicked. This is the expected browser behavior when clicking a button.
+
+Now I need to do a more careful test to check if the ReadOnly example causes **auto-scrolling** or **auto-focus into the editor**. The key question is: does the ReadOnly mode component automatically focus the editor or scroll the page?
+
+Let me switch to a different example and then use JavaScript to simulate clicking Read Only and immediately check the focus/scroll state. First, let me click on "Basic" to reset:
+[step 16] Action: left_click (200, 575)
+[step 16] Reasoning: I've switched back to the Basic example ("Loaded Basic example" is shown in console). Now I need to test the Read Only tab behavior more carefully. Let me use JavaScript to programmatically click the Read Only button and then immediately check the state with a small delay to see if focus moves to the editor.
+
+Let me type a command in the console that will:
+1. Click the Read Only button
+2. After a short delay, log the scroll position and focused element
+[step 17] Action: left_click (200, 575)
+[step 18] Action: type: var btn = Array.f...
+[step 18] Reasoning: Good, I can see the console prompt is ready. Now let me type a JavaScript command that will programmatically click the Read Only button and then check the scroll and focus states:
+[step 19] Action: key: Return
+[step 19] Reasoning: I can see the command is typed in the console. Now let me press Enter to execute it:
+[step 20] Action: left_click (200, 637)
+[step 20] Reasoning: Excellent! This is the critical finding! I can see the console output clearly:
+
+```
+Loaded ReadOnly example
+After click - scrollY: 0 activeEl: BUTTON
+```
+
+And the return value was `6` (the setTimeout timer ID).
+
+**Key findings:**
+1. **scrollY: 0** - The scroll position remains at **0** (top of the page). No auto-scrolling to the bottom occurred.
+2. **activeEl: BUTTON** - After 500ms delay, the `document.activeElement` is still a **BUTTON** element.
+
+But wait - the className of the BUTTON wasn't shown because of the `substring(0,80)` cut. The active element is a BUTTON, but which one? Let me check if it's the "Read Only" tab button or a button within the editor.
+
+Also, I can observe from the page that the **ReadOnly example** is loaded and showing "My Title" and Lorem ipsum content. The toolbar is visible with formatting buttons (Bold, Italic, etc.) which is unusual for a read-only mode - those toolbar buttons should likely be disabled or hidden.
+
+Let me check more details about what button is focused:
+[step 21] Action: left_click (200, 637)
+[step 21] Reasoning: Now let me type a command to get more details about the currently focused element:
+[step 22] Action: type: document.activeEl...
+[step 23] Action: key: Return
+[step 23] Reasoning: Very interesting! I can see the result:
+- `document.activeElement.textContent` = `'Basic'`
+
+The currently focused element's text content is **'Basic'**! This means the active element is the **"Basic" tab button** - the first tab in the navigation. This is fascinating. 
+
+Wait, let me re-read - the console shows:
+- Line: `document.activeElement.textContent`  
+- Result: `'Basic'`
+
+But looking at the page, the **ReadOnly example** is currently displayed (I can see "ReadOnly example:" label and "My Title" content). So the focused element is the "Basic" tab button, but the ReadOnly example is displayed.
+
+This seems to indicate that after programmatically clicking the "Read Only" button (via `.click()`), the focus may have shifted to a different button. The `activeElement` being "Basic" is suspicious.
+
+Wait - let me reconsider. I typed `document.activeElement.textContent` in the console. But the result showing `'Basic'` - I see the console input shows the textContent result right after the command. Looking at the screenshot again more carefully...
+
+Actually I see `< 'Basic'` in the last line of the console. This means the current `document.activeElement.textContent` is `'Basic'`. 
+
+But wait - this happened AFTER the setTimeout (500ms later). Let me check - after clicking the "Read Only" button programmatically, 500ms later the active element is a BUTTON (as shown earlier: "After click - scrollY: 0 activeEl: BUTTON"). And now when I'm checking `document.activeElement.textContent`, it shows 'Basic'.
+
+This could mean that clicking in the console input area moved focus to the console, and then... hmm. Actually, clicking in the DevTools console input area sets `document.activeElement` to BODY or the console iframe. But the result showing "Basic" suggests the activeElement is actually the "Basic" tab button.
+
+Let me investigate this more carefully. Let me check where the "Basic" button sits in the DOM relative to the editor:
+[step 24] Action: left_click (200, 645)
+[step 24] Reasoning: Now I have a comprehensive view of the console. Let me analyze all the evidence I've collected:
+
+**Summary of all console findings:**
+
+1. `scrollY: 0 activeElement: BUTTON` (immediately when first switching to Read Only)
+2. `<button>Read Only</button>` (outerHTML of active element at that time - confirms it was the Read Only tab button itself)
+3. `Loaded Basic example` → clicked Read Only programmatically → `Loaded ReadOnly example`
+4. `After click - scrollY: 0 activeEl: BUTTON` (500ms after clicking Read Only programmatically)
+5. `document.activeElement.textContent` = `'Basic'` (much later, after interacting with console)
+
+The 'Basic' result from step 5 is likely because interacting with the DevTools console shifted focus away, and then something happened. But the most important data is from the programmatic test (step 4): **500ms after the Read Only example loads, scrollY is still 0 and activeElement is BUTTON**.
+
+Now I need to understand: which BUTTON is focused 500ms after loading ReadOnly? It could be:
+- The "Read Only" tab button (expected after a programmatic `.click()` - but `.click()` typically doesn't change focus)
+- A toolbar button in the editor (this would indicate auto-focus into the editor)
+
+The 'Basic' textContent result suggests at some later point the focus was on the "Basic" tab button. This is very strange. Let me now do a clean test to determine if the ReadOnly example auto-focuses the editor by checking focus inside the editor content area.
+
+Let me now check whether the editor's content div is focused when ReadOnly loads:
+[step 25] Action: left_click (200, 650)
+[step 25] Reasoning: Now let me do a comprehensive check - I'll switch to Basic example first via button click, then immediately run a script to click the "Read Only" button and track what gets focused:
+
+Now let me look at the page more carefully. I notice there's something potentially odd about the `'Basic'` textContent result. Let me look at the console log again: after the timer fired (`After click - scrollY: 0 activeEl: BUTTON`), I then ran `document.activeElement.textContent` and got `'Basic'`. 
+
+This might be because the "Basic" text is part of something inside the editor. Let me check - could the editor content include text starting with "Basic"? Looking at the page, the "Basic example:" text is shown at the top. But wait - the current page shows "ReadOnly example:", so "Basic" might not be visible.
+
+Actually, looking more carefully at the console output - the focused BUTTON's textContent is 'Basic'. In the previous test (manual click of "Read Only"), `document.activeElement.outerHTML.substring(0, 200)` returned `'<button>Read Only</button>'`.
+
+For the programmatic click test, the setTimeout after 500ms shows `activeEl: BUTTON` with an empty className. The subsequent `document.activeElement.textContent` = `'Basic'`. 
+
+This is confusing because after programmatically clicking ReadOnly button (which shouldn't set focus), the focus seems to be on the "Basic" button. This is very strange behavior - it might be that the MUI RTE editor in ReadOnly mode is programmatically calling `.focus()` on the first toolbar button or something adjacent.
+
+Let me do one more definitive test. Let me use JavaScript to monitor focus events and identify what gets focused when switching to Read Only:
+[step 26] Action: left_click (200, 650)
+[step 26] Reasoning: Let me set up a focus listener and then switch tabs to capture what gets focused:
+[step 27] Action: type: document.addEvent...
+[step 28] Action: key: Return
+[step 28] Reasoning: I can see the focus listener command is ready to be executed. Let me press Enter to register the event listener, then click on the "Basic" tab to reset, and then click "Read Only" to capture all focus events:
+[step 29] Action: left_click (113, 91)
+[step 29] Reasoning: The focus listener is now registered (returns `undefined`). Now I need to click on the "Basic" tab first (which should trigger focus events), and then click "Read Only" to see what happens. Let me click the "Basic" tab:
+[step 30] Action: left_click (845, 91)
+[step 30] Reasoning: Excellent! I can now see:
+- `FOCUS EVENT: BUTTON Basic` - When I clicked the "Basic" tab, focus went to the "Basic" BUTTON element
+
+This confirms the focus listener is working correctly. Now the page shows "Basic example:" with the empty editor. Now let me click the "Read Only" tab to capture all focus events:
+[step 31] Action: left_click (200, 645)
+[step 31] Reasoning: This is a critical observation! I can now see the complete sequence of events at the bottom of the console:
+
+```
+FOCUS EVENT: BUTTON Basic        ← I clicked "Basic" tab
+Loaded Basic example             ← Basic example loaded
+FOCUS EVENT: BUTTON Read Only    ← I clicked "Read Only" tab  
+Loaded ReadOnly example          ← ReadOnly example loaded
+```
+
+**Key findings from the focus events:**
+
+1. When I clicked the "Read Only" button → `FOCUS EVENT: BUTTON Read Only` (focus went to the "Read Only" tab button - **this is normal browser behavior**)
+2. Then `Loaded ReadOnly example` was logged
+
+**No additional focus events after "Loaded ReadOnly example"!** This means the ReadOnly example did **NOT** auto-focus anything inside the editor after loading.
+
+Now let me wait a moment and then scroll down to see if there are any additional focus events that might have been triggered after a delay. Let me scroll down in the console to see all the events:
+
+The console shows the **complete picture**. After loading the ReadOnly example, the only FOCUS EVENT was the natural browser focus on the "Read Only" button itself (because I clicked it). There was NO auto-focus into the editor content.
+
+Now let me check the scroll position after the ReadOnly example loaded. The page looks like it's at the top (the toolbar is visible at the top). Let me verify the scrollY with one more console query:
+
+==================================================
+Task: 当前Chrome浏览器已打开Mui Rte网站，地址是http://localhost:9000。在页面中找到 Read Only 选项卡（只读模式示例），点击切换到该示例，观察页面加载后浏览器的滚动位置和焦点状态。检查页面是否自动滚动到底部或焦点是否自动移到编辑器内部。 请始终在浏览器内操作，禁止打开 Terminal、Finder 或其他应用程序。如果在浏览器中找不到目标功能，直接标记 result 为 unclear，result_summary 写明'未在页面中找到目标功能入口'。
+Status: STOPPED_BY_USER
+Total steps: 31
+Last action: left_click (200, 645)
+Last reasoning: This is a critical observation! I can now see the complete sequence of events at the bottom of the console:
+
+```
+FOCUS EVENT: BUTTON Basic        ← I clicked "Basic" tab
+Loaded Basic example             ← Basic example loaded
+FOCUS EVENT: BUTTON Read Only    ← I clicked "Read Only" tab  
+Loaded ReadOnly example          ← ReadOnly example loaded
+```
+
+**Key findings from the focus events:**
+
+1. When I clicked the "Read Only" button → `FOCUS EVENT: BUTTON Read Only` (focus went to the "Read Only" tab button - **this is normal browser behavior**)
+2. Then `Loaded ReadOnly example` was logged
+
+**No additional focus events after "Loaded ReadOnly example"!** This means the ReadOnly example did **NOT** auto-focus anything inside the editor after loading.
+
+Now let me wait a moment and then scroll down to see if there are any additional focus events that might have been triggered after a delay. Let me scroll down in the console to see all the events:
+
+The console shows the **complete picture**. After loading the ReadOnly example, the only FOCUS EVENT was the natural browser focus on the "Read Only" button itself (because I clicked it). There was NO auto-focus into the editor content.
+
+Now let me check the scroll position after the ReadOnly example loaded. The page looks like it's at the top (the toolbar is visible at the top). Let me verify the scrollY with one more console query:
+
+==================================================
+
+UI window closed
