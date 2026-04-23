@@ -1,0 +1,19 @@
+{
+  "task_id": "svelte-sonner-pr71",
+  "repo": "wobsoriano/svelte-sonner",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260423123650-6b1414aab8994f3b8cb9759c0904a2f0",
+  "duration_seconds": 0,
+  "timestamp": "2026-04-23T12:47:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "mano_cua_error",
+    "symptom": "mano API 返回 502 Bad Gateway，step 11 时中断。与 pr57 连续 502 属同一 API 故障",
+    "attempted": [
+      "sess-20260423123650 到 step 11 后 502"
+    ],
+    "recommendation": "mano API 服务端持续 502，非本地问题。同批次 pr57 也是同样故障。等 API 恢复后可重跑"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "svelte-sonner-31",
+  "repo": "wobsoriano/svelte-sonner",
+  "worker": "worker-01",
+  "status": "completed",
+  "sess_id": "sess-20260423120601-97cafa2b9da54d338dd670c2ef0cdcad",
+  "expected_result_used": true,
+  "duration_seconds": 660,
+  "timestamp": "2026-04-23T12:17:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 66,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "快速连续触发5个Toast后，所有Toast在~4-5秒内同时消失（共享第一个Toast的定时器），第2-5个Toast未获得独立持续时间。且多个堆叠Toast时无层叠视觉效果。",
+    "last_reasoning": "**CONFIRMED BUG!** After clicking the button 5 times rapidly and waiting 5 seconds, ALL Toasts have disappeared completely. When multiple Toasts are triggered in rapid succession (5 clicks), ALL Toasts disappear after approximately 4-5 seconds from the FIRST click, rather than each Toast getting its own independent 4-second duration. Expected: each Toast gets ~4s independent display. Actual: all 5 Toasts disappear within ~4-5s of the first click. Additionally, no stacking animation or shadow effect visible to indicate multiple queued Toasts."
+  }
+}

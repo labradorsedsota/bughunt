@@ -1,0 +1,21 @@
+{
+  "task_id": "svelte-sonner-pr57",
+  "repo": "wobsoriano/svelte-sonner",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260423123040-719437c701a0458a862bf8bba68d2fba",
+  "duration_seconds": 0,
+  "timestamp": "2026-04-23T12:40:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "mano_cua_error",
+    "symptom": "mano API 连续 3 次返回 502 Bad Gateway (https://mano.mininglamp.com/v1/sessions/.../step)，分别在 step 12、13、12 时中断",
+    "attempted": [
+      "第1次: sess-20260423122233 到 step 12 后 502",
+      "第2次: sess-20260423122747 到 step 13 后 502",
+      "第3次: sess-20260423123040 到 step 12 后 502"
+    ],
+    "recommendation": "mano API 服务端不稳定，非本地问题。等 API 恢复后可重跑"
+  }
+}
