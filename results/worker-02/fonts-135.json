@@ -1,0 +1,20 @@
+{
+  "task_id": "fonts-135",
+  "repo": "nuxt/fonts",
+  "worker": "worker-02",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-23T18:10:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "mano_cua_error",
+    "symptom": "mano-cua启动后无step输出，第一次尝试卡住13分钟无输出后强制stop，第二次尝试同样无step输出仅报view-source URL错误后被超时kill",
+    "attempted": [
+      "第一次运行含--expected-result，卡住13分钟无输出后mano-cua stop",
+      "第二次运行不含--expected-result，同样无step输出，15分钟后被SIGKILL"
+    ],
+    "recommendation": "mano-cua可能在此环境下有初始化问题，建议重启后重试"
+  }
+}

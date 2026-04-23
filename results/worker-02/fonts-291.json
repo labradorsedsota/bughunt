@@ -1,0 +1,20 @@
+{
+  "task_id": "fonts-291",
+  "repo": "nuxt/fonts",
+  "worker": "worker-02",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-23T18:29:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "mano_cua_error",
+    "symptom": "mano-cua在同repo fonts-135/fonts-240上连续4次卡死（view-source URL错误+404 API错误），跳过",
+    "attempted": [
+      "fonts-135: 2次尝试均卡死无step输出",
+      "fonts-240: 2次尝试（404错误+view-source卡死）"
+    ],
+    "recommendation": "mano-cua在Nuxt fonts playground有系统性兼容问题"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "task_id": "fonts-240",
+  "repo": "nuxt/fonts",
+  "worker": "worker-02",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": "sess-20260423181859-1ee34c6eabee4894941da023de24cba6",
+  "duration_seconds": 540,
+  "timestamp": "2026-04-23T18:29:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "mano_cua_error",
+    "symptom": "mano-cua在fonts playground上反复卡死：第1次报404 API错误(1步后失败)，第2次卡在view-source URL错误9分钟无step输出",
+    "attempted": [
+      "第一次运行：1步后报404 Client Error on sessions step endpoint",
+      "第二次运行：卡在view-source:localhost:3000/providers/google错误，9分钟无进展后强制stop"
+    ],
+    "recommendation": "mano-cua在此Nuxt playground环境有系统性问题，可能与view-source URL触发有关"
+  }
+}
