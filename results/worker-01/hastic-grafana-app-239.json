@@ -1,0 +1,21 @@
+{
+  "task_id": "hastic-grafana-app-239",
+  "repo": "hastic-zzz/hastic-grafana-app",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-22T17:40:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "项目是 Grafana 插件（webpack 只编译 plugin bundle 到 dist/），没有独立 dev server，localhost:4200 无法启动。需要完整 Grafana 后端才能运行。",
+    "attempted": [
+      "npm install + webpack-cli 安装（@types/grafana git 依赖有 ENOENT 警告但编译通过）",
+      "NODE_OPTIONS=--openssl-legacy-provider 修复 OpenSSL 兼容性（webpack 4.7 + Node 22）",
+      "webpack 编译成功但无 devServer 配置，curl localhost:4200 返回 000"
+    ],
+    "recommendation": "跳过，项目是 Grafana 插件，需要 Grafana 服务器作为宿主，无法独立部署"
+  }
+}

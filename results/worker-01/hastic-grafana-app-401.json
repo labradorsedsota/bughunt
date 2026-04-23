@@ -1,0 +1,19 @@
+{
+  "task_id": "hastic-grafana-app-401",
+  "repo": "hastic-zzz/hastic-grafana-app",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-22T17:41:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "同 repo（hastic-zzz/hastic-grafana-app），repo 级熔断。项目是 Grafana 插件，无独立 dev server。",
+    "attempted": [
+      "卡 1（hastic-grafana-app-239）已验证：webpack 编译成功但无 devServer，localhost:4200 不可用"
+    ],
+    "recommendation": "repo 级熔断，同 repo 2 个不同 buggy_commit 均 deploy_failed"
+  }
+}
