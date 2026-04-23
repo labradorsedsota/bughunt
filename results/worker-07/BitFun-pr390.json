@@ -1,0 +1,17 @@
+{
+  "task_id": "BitFun-pr390",
+  "repo": "GCWing/BitFun",
+  "worker": "worker-07",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-23T09:35:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "测试需要 flow chat 对话和 TaskDetailPanel 交互，需要后端 AI agent 服务。Web-only 模式下 session 创建需要 workspace（原生文件对话框）浏览器内不可用",
+    "attempted": ["BitFun-pr400/pr399 验证：编码会话、新建助理等核心功能需要后端 workspace"],
+    "recommendation": "跳过，需要 Tauri 桌面端 + AI agent 后端"
+  }
+}
