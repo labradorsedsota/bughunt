@@ -1,66 +1,111 @@
 {
-  "last_updated": "2026-04-24 00:03:48",
+  "last_updated": "2026-04-24 01:03:47",
   "summary": {
     "total": 3373,
-    "completed": 555,
-    "failed": 567,
+    "completed": 573,
+    "failed": 573,
     "blocked": 0,
-    "pending": 2251
+    "pending": 2227
   },
   "tasks": [
     {
       "task_id": "4gaBoards-19",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": null,
+      "repo": "RARgames/4gaBoards",
+      "duration_seconds": 0,
+      "error": "需要 PostgreSQL 数据库（sails-postgresql + DATABASE_URL），无法本地部署",
+      "result_summary": "需要 PostgreSQL 数据库（sails-postgresql + DATABASE_URL），无法本地部署"
     },
     {
       "task_id": "4gaBoards-265",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": null,
+      "repo": "RARgames/4gaBoards",
+      "duration_seconds": 0,
+      "error": "需要 PostgreSQL 数据库（sails-postgresql + DATABASE_URL），无法本地部署",
+      "result_summary": "需要 PostgreSQL 数据库（sails-postgresql + DATABASE_URL），无法本地部署"
     },
     {
       "task_id": "4gaBoards-443",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": null,
+      "repo": "RARgames/4gaBoards",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "4gaBoards-pr772",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": null,
+      "repo": "RARgames/4gaBoards",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "AlgerMusicPlayer-275",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260423214647-f9ab389407b443a5a87276667780c34e",
+      "repo": "algerkong/AlgerMusicPlayer",
+      "duration_seconds": 843,
+      "error": "",
+      "result_summary": "播放栏在默认窗口大小下可见（fixed bottom），但播放进度条极细（约2-3px）几乎不可见，是明显的视觉渲染Bug。播放前播放栏完全缺失，仅显示底部小箭头。"
     },
     {
       "task_id": "AlgerMusicPlayer-42",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "unclear",
+      "sess_id": "sess-20260423220421-5bcc2078b28444b997f4c6257bc4b130",
+      "repo": "algerkong/AlgerMusicPlayer",
+      "duration_seconds": 662,
+      "error": "",
+      "result_summary": "在 Chrome 中测试最小化→恢复→空格键流程：空格键未再次最小化窗口，但焦点落在导航按钮上激活了该按钮而非触发播放/暂停。此 bug 是 Electron 窗口级行为，Chrome 浏览器中无法完全复现原始 Electron 最小化场景。音乐内容区域为空（API 数据未加载）。"
     },
     {
       "task_id": "AlgerMusicPlayer-43",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "unclear",
+      "sess_id": "sess-20260423221634-ec7ba49fecbe469b8168d62ee2b9a105",
+      "repo": "algerkong/AlgerMusicPlayer",
+      "duration_seconds": 570,
+      "error": "",
+      "result_summary": "无法测试单曲循环+歌词快进功能。音乐播放器需要后端 API（网易云音乐 API，端口 3000）但未运行，导致无法搜索或播放任何歌曲。mano-cua 花费 52 步尝试各种方式播放音乐均失败，超 80 步上限后手动终止。"
     },
     {
       "task_id": "AlgerMusicPlayer-pr268",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": null,
+      "repo": "algerkong/AlgerMusicPlayer",
+      "duration_seconds": 0,
+      "error": "Electron 音乐播放器需要后端 API 服务（网易云音乐 API，端口 30488/3000）才能播放音乐，测试歌词窗口需要先有歌曲播放。AlgerMusicPlayer-43 已验证无后端时无法播放任何歌曲",
+      "result_summary": "Electron 音乐播放器需要后端 API 服务（网易云音乐 API，端口 30488/3000）才能播放音乐，测试歌词窗口需要先有歌曲播放。AlgerMusicPlayer-43 已验证无后端时无法播放任何歌曲"
     },
     {
       "task_id": "AlgerMusicPlayer-pr644",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": null,
+      "repo": "algerkong/AlgerMusicPlayer",
+      "duration_seconds": 0,
+      "error": "测试需要 Linux 系统 MPRIS 接口，当前环境为 macOS，无法测试系统媒体控制功能",
+      "result_summary": "测试需要 Linux 系统 MPRIS 接口，当前环境为 macOS，无法测试系统媒体控制功能"
     },
     {
       "task_id": "Analog-135",
@@ -86,81 +131,146 @@
     },
     {
       "task_id": "Armoria-pr115",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260423222920-56da63c863d84047898f0ea35d1096e6",
+      "repo": "Azgaar/armoria",
+      "duration_seconds": 902,
+      "error": "",
+      "result_summary": "颜色配置存在 Bug：1) 删除默认颜色后纹章生成器未测试到（步数耗尽）；2) 添加自定义颜色时反复报'颜色必须是独一无二的！'错误，即使使用明显不同的 RGB 值（如 hot pink 255,20,200）也触发唯一性校验失败，疑似颜色唯一性判断逻辑有缺陷；3) 恢复默认功能未能在有限步骤内完成验证。硬超时 15 分钟终止。"
     },
     {
       "task_id": "Armoria-pr122",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260423224738-fbef725ee3d044a694c3455c52455a79",
+      "repo": "Azgaar/armoria",
+      "duration_seconds": 902,
+      "error": "",
+      "result_summary": "描边功能部分正常：可设置描边颜色（测试红色描边在剪刀图案上清晰可见），描边 toggle 默认为 ON。发现两个异常：1) 描边 toggle 关闭后图案仍显示残留描边颜色（marten 图案爪子仍显示粉红/红色）；2) '复制编辑链接'功能疑似 Bug，链接仅为 localhost:5000 基础 URL，未编码盾徽设计数据。硬超时终止。"
     },
     {
       "task_id": "Armoria-pr125",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "normal",
+      "sess_id": "sess-20260423231144-a1f6f4acd42d49d19c3cfadbd3674562",
+      "repo": "Azgaar/armoria",
+      "duration_seconds": 572,
+      "error": "",
+      "result_summary": "图案(pattern)功能正常：1) 设置基部为方格纹(checkerboard)绿黄配色 ✅；2) 切换编辑其他图层后基部图案仍正确显示 ✅；3) 返回画廊再进入编辑器，图案类型、颜色和具体样式均正确保留 ✅；4) 不同图案间切换正常 ✅；5) 全局花纹选项不会覆盖已设置的元素图案 ✅。未检测到 Bug。"
     },
     {
       "task_id": "Armoria-pr132",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "unclear",
+      "sess_id": "sess-20260423232351-3067a50a82ad40e5bbbbea7a5ab716df",
+      "repo": "Azgaar/armoria",
+      "duration_seconds": 902,
+      "error": "",
+      "result_summary": "部分分割线样式已验证：wavy(波浪型)和 nebuly(云波浪型)在列表中找到并可选择。但 rayonne(光芒线)和 potenty(城垛线变体)在 115 步遍历 5 行 45+ 个线型图标后仍未明确找到对应项（'墙垛型'可能是 potenty 但未确认渲染效果）。因硬超时终止，未能完成全部 4 种线型的渲染效果验证。"
     },
     {
       "task_id": "Armoria-pr206",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260423234138-438b0c194d3d4d6fa5978f7a57fe3a58",
+      "repo": "Azgaar/armoria",
+      "duration_seconds": 902,
+      "error": "",
+      "result_summary": "发现 UX Bug：折叠区域收起时的 layout shift + 滚动调整导致意外点击。展开状态下按钮所在位置在折叠后因内容消失和页面自动滚动，变成其他元素的位置，快速点击可能触发非预期操作。使用 DevTools 移动端模拟和 CSS 检查确认折叠机制为自定义实现（非 HTML details/summary），但未能在有限步骤内确认 pointer-events 是否正确设置为 none。硬超时终止。"
     },
     {
       "task_id": "BitFun-126",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "unclear",
+      "sess_id": "sess-20260423235951-c899720ea95247e590cee2f2a677ec76",
+      "repo": "GCWing/BitFun",
+      "duration_seconds": 90,
+      "error": "",
+      "result_summary": "测试要求从系统文件管理器拖拽文件到聊天输入框，但浏览器约束禁止打开 Finder 等外部应用，无法执行拖拽操作。聊天界面有'添加图片'按钮暗示支持文件上传，但拖拽上传功能无法在纯浏览器内验证。"
     },
     {
       "task_id": "BitFun-188",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": null,
+      "repo": "GCWing/BitFun",
+      "duration_seconds": 0,
+      "error": "测试需要打开 1.2MB JSON 文件，但浏览器约束禁止打开 Finder 等外部应用进行文件选择，且编码会话需要 workspace（需原生文件对话框）",
+      "result_summary": "测试需要打开 1.2MB JSON 文件，但浏览器约束禁止打开 Finder 等外部应用进行文件选择，且编码会话需要 workspace（需原生文件对话框）"
     },
     {
       "task_id": "BitFun-pr390",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": null,
+      "repo": "GCWing/BitFun",
+      "duration_seconds": 0,
+      "error": "测试需要 flow chat 对话和 TaskDetailPanel 交互，需要后端 AI agent 服务。Web-only 模式下 session 创建需要 workspace（原生文件对话框）浏览器内不可用",
+      "result_summary": "测试需要 flow chat 对话和 TaskDetailPanel 交互，需要后端 AI agent 服务。Web-only 模式下 session 创建需要 workspace（原生文件对话框）浏览器内不可用"
     },
     {
       "task_id": "BitFun-pr397",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": null,
+      "repo": "GCWing/BitFun",
+      "duration_seconds": 0,
+      "error": "测试需要 Markdown 文件工具卡片交互，需要后端 AI agent 和 workspace",
+      "result_summary": "测试需要 Markdown 文件工具卡片交互，需要后端 AI agent 和 workspace"
     },
     {
       "task_id": "BitFun-pr399",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "unclear",
+      "sess_id": "sess-20260424001745-b1bdac42f787464199a067f0b82446f5",
+      "repo": "GCWing/BitFun",
+      "duration_seconds": 783,
+      "error": "",
+      "result_summary": "无法测试代理生成文件后路径链接功能。编码会话需要 workspace（原生文件对话框浏览器内不可用），新建助理按钮无响应。63 步尝试后因 mano-cua API ConnectionResetError 中断。未能触发 Plan 模式或 DeepResearch 生成文件。"
     },
     {
       "task_id": "BitFun-pr400",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260424000452-bf2b707020e7475785ff08c4e8f267be",
+      "repo": "GCWing/BitFun",
+      "duration_seconds": 722,
+      "error": "",
+      "result_summary": "Nursery 页面 Sessions 面板布局存在多个问题：1) 导航面板行高不一致（编码会话/办公会话约36px vs 助理/定制约30px）；2) 面板内容结束处与底部工具栏之间有约240px空白区域未有效利用；3) 点击'新建助理'按钮无响应（功能 Bug）；4) Settings 面板关闭按钮报错 'Cannot read properties of undefined (reading metadata)'。"
     },
     {
       "task_id": "BitFun-pr411",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": null,
+      "repo": "GCWing/BitFun",
+      "duration_seconds": 0,
+      "error": "测试需要 Flow Chat 中 Agent Dispatch 工具卡片，需要后端 AI agent 服务",
+      "result_summary": "测试需要 Flow Chat 中 Agent Dispatch 工具卡片，需要后端 AI agent 服务"
     },
     {
       "task_id": "BitFun-pr414",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": null,
+      "repo": "GCWing/BitFun",
+      "duration_seconds": 0,
+      "error": "测试用户消息字体大小需要聊天消息内容，编码/办公会话需要 workspace（原生文件对话框），浏览器内无法创建有效会话来生成消息",
+      "result_summary": "测试用户消息字体大小需要聊天消息内容，编码/办公会话需要 workspace（原生文件对话框），浏览器内无法创建有效会话来生成消息"
     },
     {
       "task_id": "BongoCat-431",
@@ -9707,15 +9817,25 @@
     },
     {
       "task_id": "inspira-ui-157",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260423183203-b1e0253078f9463ca373450b11c542bb",
+      "repo": "unovue/inspira-ui",
+      "duration_seconds": 904,
+      "error": "",
+      "result_summary": "Timeline 的 sticky section (Version 1.0) 与 navbar 重叠。sticky 元素的 top 值为 0，未考虑 navbar 高度(约 64-70px)，导致滚动时 sticky section 滑入 navbar 区域（y≈107 vs navbar y=83-130），z-index 层级关系错误"
     },
     {
       "task_id": "inspira-ui-162",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "normal",
+      "sess_id": "sess-20260423185439-0144450eac40425c822690f0feac3cb7",
+      "repo": "unovue/inspira-ui",
+      "duration_seconds": 902,
+      "error": "",
+      "result_summary": "Colorful Text 组件渲染正常。首页副标题中 stunning/beautiful 等词使用彩色文字组件，显示为粉红到紫色渐变背景+白色文字，有动态轮播切换效果。渐变色彩完整可见，无布局错乱或渲染异常。mano-cua 34 步遍历首页但因 API 响应慢触发硬超时"
     },
     {
       "task_id": "inspira-ui-204",
@@ -13714,25 +13834,25 @@
     },
     {
       "task_id": "mui-tiptap-pr418",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-03",
-      "result": "",
-      "sess_id": null,
+      "result": "unclear",
+      "sess_id": "sess-20260423232636-846cc20840c54fc1be9759d847b437fc",
       "repo": "sjdemartini/mui-tiptap",
-      "duration_seconds": 0,
-      "error": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response",
-      "result_summary": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response"
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "未在页面中找到目标功能入口。AppBar在当前页面(localhost:5173)中不可见，mano-cua任务面板遮挡了AppBar右侧区域，随后AppBar完全消失且刷新页面后仍不恢复。无法观察View in a dialog按钮的文本颜色对比度"
     },
     {
       "task_id": "mui-tiptap-pr481",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-03",
-      "result": "",
-      "sess_id": null,
+      "result": "abnormal",
+      "sess_id": "sess-20260423233435-39c2e76d750d40b2b348bb85e2181a00",
       "repo": "sjdemartini/mui-tiptap",
-      "duration_seconds": 0,
-      "error": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response",
-      "result_summary": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response"
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "编辑器字段容器外边框在focus状态下未按MUI标准变为2px粗边框。观察到：1)默认状态边框为极细1px灰色线 2)hover状态边框无明显变化 3)focus状态边框仍为1px且颜色偏蓝但未加粗到2px。与标准MUI OutlinedInput的focus 2px蓝色边框不一致"
     },
     {
       "task_id": "multiple-select-257",
@@ -13955,25 +14075,25 @@
     },
     {
       "task_id": "muya-45",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-03",
-      "result": "",
-      "sess_id": null,
+      "result": "normal",
+      "sess_id": "sess-20260423234901-0bb92634a8cf416a98d305f3ae474c6b",
       "repo": "marktext/muya",
-      "duration_seconds": 0,
-      "error": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response",
-      "result_summary": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response"
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "行内数学公式$a \\ne b$成功输入并正确渲染为'a ≠ b'。编辑器自动配对$符号，输入\\ne后实时渲染为≠符号，公式符号完整、排版正确。块级数学公式因超时未测试，但行内数学渲染功能正常"
     },
     {
       "task_id": "muya-pr103",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-03",
-      "result": "",
-      "sess_id": null,
+      "result": "abnormal",
+      "sess_id": "sess-20260424002911-78b7a3f837f343b4b3548ff56830008e",
       "repo": "marktext/muya",
-      "duration_seconds": 0,
-      "error": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response",
-      "result_summary": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response"
+      "duration_seconds": 540,
+      "error": "",
+      "result_summary": "双击表格列对齐控件时存在bug：双击Align Right按钮后列对齐方式未正确切换（保持左对齐不变），原因是双击的第一次点击切换到右对齐，第二次点击立即回退到原始对齐，净效果为无变化。单击对齐按钮功能正常（左对齐/居中/右对齐均可正确切换）。"
     },
     {
       "task_id": "muya-pr135",
