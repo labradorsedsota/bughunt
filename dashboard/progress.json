@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-04-23 17:05:07",
+  "last_updated": "2026-04-23 18:03:49",
   "summary": {
     "total": 3373,
-    "completed": 456,
-    "failed": 466,
+    "completed": 470,
+    "failed": 488,
     "blocked": 0,
-    "pending": 2451
+    "pending": 2415
   },
   "tasks": [
     {
@@ -302,51 +302,91 @@
     },
     {
       "task_id": "CatColab-1026",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": "sess-20260423172350-39439f44ad07422f8eca1e236eec8481",
+      "repo": "ToposInstitute/CatColab",
+      "duration_seconds": 645,
+      "error": "CatColab需要Rust后端服务+数据库，仅前端(Vite dev server)可启动但所有页面均显示'Error - An unknown error occurred.'，后端端口4000/8000均ERR_CONNECTION_REFUSED",
+      "result_summary": "CatColab需要Rust后端服务+数据库，仅前端(Vite dev server)可启动但所有页面均显示'Error - An unknown error occurred.'，后端端口4000/8000均ERR_CONNECTION_REFUSED"
     },
     {
       "task_id": "CatColab-1124",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "ToposInstitute/CatColab",
+      "duration_seconds": 0,
+      "error": "CatColab后端需要PostgreSQL+Firebase Auth+Axum server，当前环境无法部署",
+      "result_summary": "CatColab后端需要PostgreSQL+Firebase Auth+Axum server，当前环境无法部署"
     },
     {
       "task_id": "CatColab-579",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "ToposInstitute/CatColab",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "CatColab-732",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "ToposInstitute/CatColab",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "CatColab-796",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "ToposInstitute/CatColab",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "CatColab-797",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "ToposInstitute/CatColab",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "CatColab-819",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "ToposInstitute/CatColab",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "CatColab-828",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "ToposInstitute/CatColab",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "CloudExplorer2-39",
@@ -458,51 +498,91 @@
     },
     {
       "task_id": "ConvertX-293",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "normal",
+      "sess_id": "sess-20260423165514-07020c0521ac4aaea158de56fb5b05fd",
+      "repo": "C4illin/ConvertX",
+      "duration_seconds": 300,
+      "error": "",
+      "result_summary": "上传 test_video.mp4 并选择 h265.mp4 格式转换后，输出文件名为 test_video.h265.mp4，扩展名为 .mp4（正确的视频容器格式），转换状态 Done。注：搜索 h265 时 UI 显示 h265.mkv 和 h265.mp4 两个容器限定选项，mano-cua 选择了 h265.mp4，未观察到裸 h265 选项"
     },
     {
       "task_id": "ConvertX-320",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "abnormal",
+      "sess_id": "sess-20260423170050-49828ae701814b07a6fccd88c981215c",
+      "repo": "C4illin/ConvertX",
+      "duration_seconds": 540,
+      "error": "",
+      "result_summary": "登录表单存在严重Bug——输入凭据点击Login后页面变为空白（blank page），URL停留在/login，无错误提示也无成功跳转，6次以上尝试均复现。因登录功能完全失效，无法访问文件上传和转换功能，docx→pdf转换测试未能执行"
     },
     {
       "task_id": "ConvertX-362",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "normal",
+      "sess_id": "sess-20260423171606-0024486cea0744268f296fe762d2d353",
+      "repo": "C4illin/ConvertX",
+      "duration_seconds": 180,
+      "error": "",
+      "result_summary": "上传 test_image.emf 选择 png using imagemagick 转换成功，状态 Done，View 链接打开 test_image.png（100×100 红色方块），图片正确显示无报错"
     },
     {
       "task_id": "ConvertX-425",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "C4illin/ConvertX",
+      "duration_seconds": 0,
+      "error": "测试需要 LibreOffice 进行 PDF→DOCX 转换，但 brew install --cask libreoffice 因网络不稳被 SIGKILL，LibreOffice 未安装。ConvertX 应用本身可正常启动但无法执行目标转换测试",
+      "result_summary": "测试需要 LibreOffice 进行 PDF→DOCX 转换，但 brew install --cask libreoffice 因网络不稳被 SIGKILL，LibreOffice 未安装。ConvertX 应用本身可正常启动但无法执行目标转换测试"
     },
     {
       "task_id": "ConvertX-435",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "abnormal",
+      "sess_id": "sess-20260423172913-df183e5a151c45c084c433e5cd9bbb3c",
+      "repo": "C4illin/ConvertX",
+      "duration_seconds": 120,
+      "error": "",
+      "result_summary": "首页CSS样式异常：1) 导航栏完全缺失（无Logo/导航链接/用户菜单），仅显示纯文本Convert；2) 页面呈浅灰色背景而非预期的深色主题（bg-neutral-900），表明Tailwind CSS未完整加载；3) Convert按钮颜色过浅呈淡绿色，疑似CSS变量或opacity异常。基础HTML结构存在但样式不完整"
     },
     {
       "task_id": "ConvertX-455",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "abnormal",
+      "sess_id": "sess-20260423173247-827ee41a3ca54285be304592910bfdc2",
+      "repo": "C4illin/ConvertX",
+      "duration_seconds": 240,
+      "error": "",
+      "result_summary": "页面 footer 显示 Powered by ConvertX v0.15.0，该 commit（5268838）对应 v0.16.0 发布但 package.json version 字段仍为 0.15.0，版本号未正确 bump，与预期的 v0.16.0 不一致"
     },
     {
       "task_id": "ConvertX-464",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "abnormal",
+      "sess_id": "sess-20260423173848-c7956976b87d494a902d91f62b7e18e7",
+      "repo": "C4illin/ConvertX",
+      "duration_seconds": 240,
+      "error": "",
+      "result_summary": "设置 FFMPEG_ARGS=-preset veryfast -threads 2 后，上传 test_video.mp4 选择 webm using ffmpeg 转换失败，页面显示 Failed, check logs，输出文件未生成（ENOENT: no such file or directory ./data/output/1/1/test_video.webm），日志页面为空白无法查看详细错误"
     },
     {
       "task_id": "ConvertX-494",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "abnormal",
+      "sess_id": "sess-20260423174445-9cb28ce4510c42c48cb0dc33f65b8a7b",
+      "repo": "C4illin/ConvertX",
+      "duration_seconds": 180,
+      "error": "",
+      "result_summary": "上传 test_image.png 选择 dxf using inkscape 转换失败，页面显示 Failed, check logs，输出文件未生成（ENOENT: no such file or directory ./data/output/1/2/test_image.dxf），inkscape PNG→DXF 转换管道故障"
     },
     {
       "task_id": "CopilotKit-2543",
@@ -4053,51 +4133,91 @@
     },
     {
       "task_id": "calendar-card-pro-169",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "alexpfau/calendar-card-pro",
+      "duration_seconds": 0,
+      "error": "需要Home Assistant环境，测试描述要求在HA仪表盘中操作日历卡片",
+      "result_summary": "需要Home Assistant环境，测试描述要求在HA仪表盘中操作日历卡片"
     },
     {
       "task_id": "calendar-card-pro-174",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "alexpfau/calendar-card-pro",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "calendar-card-pro-175",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "alexpfau/calendar-card-pro",
+      "duration_seconds": 0,
+      "error": "需要Home Assistant环境，测试描述要求在HA仪表盘中操作日历卡片",
+      "result_summary": "需要Home Assistant环境，测试描述要求在HA仪表盘中操作日历卡片"
     },
     {
       "task_id": "calendar-card-pro-180",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "alexpfau/calendar-card-pro",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "calendar-card-pro-214",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "alexpfau/calendar-card-pro",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "calendar-card-pro-219",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "alexpfau/calendar-card-pro",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "calendar-card-pro-252",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "alexpfau/calendar-card-pro",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "calendar-card-pro-259",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-02",
+      "result": "",
+      "sess_id": null,
+      "repo": "alexpfau/calendar-card-pro",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "calendar-pr12",
@@ -4873,51 +4993,91 @@
     },
     {
       "task_id": "composer-pr222",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "rabix/composer",
+      "duration_seconds": 0,
+      "error": "Angular 4 + TypeScript 2.3 无 lockfile，npm install 拉取最新 @types/sizzle @types/jquery 等包使用 TS 4.x+ 语法（infer/globalThis），webpack 编译 TS 类型报错失败",
+      "result_summary": "Angular 4 + TypeScript 2.3 无 lockfile，npm install 拉取最新 @types/sizzle @types/jquery 等包使用 TS 4.x+ 语法（infer/globalThis），webpack 编译 TS 类型报错失败"
     },
     {
       "task_id": "composer-pr346",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "rabix/composer",
+      "duration_seconds": 0,
+      "error": "Angular 5 + TS 2.4 无 lockfile，ng serve 报 An asset cannot be read from a location outside the project，服务未启动",
+      "result_summary": "Angular 5 + TS 2.4 无 lockfile，ng serve 报 An asset cannot be read from a location outside the project，服务未启动"
     },
     {
       "task_id": "composer-pr354",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "rabix/composer",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "composer-pr364",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "rabix/composer",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "composer-pr369",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "rabix/composer",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "composer-pr377",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "rabix/composer",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "composer-pr381",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "rabix/composer",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "composer-pr388",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "rabix/composer",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "composition-api-127",
@@ -8081,27 +8241,47 @@
     },
     {
       "task_id": "hassio-trash-card-141",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "idaho/hassio-trash-card",
+      "duration_seconds": 0,
+      "error": "项目无 npm run dev 脚本，无独立 web 预览服务器。这是 Home Assistant 自定义 Lovelace 卡片，使用 rollup 构建 JS 文件，需要 Home Assistant Docker 容器（start:hass）才能渲染，无法通过 localhost 直接访问",
+      "result_summary": "项目无 npm run dev 脚本，无独立 web 预览服务器。这是 Home Assistant 自定义 Lovelace 卡片，使用 rollup 构建 JS 文件，需要 Home Assistant Docker 容器（start:hass）才能渲染，无法通过 localhost 直接访问"
     },
     {
       "task_id": "hassio-trash-card-164",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "idaho/hassio-trash-card",
+      "duration_seconds": 0,
+      "error": "同 repo，项目无独立 dev 服务器，需要 Home Assistant Docker 容器渲染",
+      "result_summary": "同 repo，项目无独立 dev 服务器，需要 Home Assistant Docker 容器渲染"
     },
     {
       "task_id": "hassio-trash-card-322",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "idaho/hassio-trash-card",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "hassio-trash-card-408",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "idaho/hassio-trash-card",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "hassio-trash-card-410",
@@ -20779,80 +20959,80 @@
     },
     {
       "task_id": "svelte-sonner-pr150",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-01",
-      "result": "",
-      "sess_id": null,
+      "result": "normal",
+      "sess_id": "sess-20260423172435-22869b77386b4ed1ab2fc1bdf460cbd4",
       "repo": "wobsoriano/svelte-sonner",
-      "duration_seconds": 0,
-      "error": "mano API 持续 502 Bad Gateway，同批次已累计 7 次 502，PM 指令标 failed 不再尝试",
-      "result_summary": "mano API 持续 502 Bad Gateway，同批次已累计 7 次 502，PM 指令标 failed 不再尝试"
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "触发 Default/Description/Success/Info/Warning/Error 六种类型 toast，全部在右下角正常弹出并自动消失。背景色（白色）、字体（清晰）、间距（适当）、圆角均正常渲染。阴影效果不明显，可能受全局 CSS 影响，但整体样式基本正常未被覆盖。"
     },
     {
       "task_id": "svelte-sonner-pr173",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-01",
-      "result": "",
-      "sess_id": null,
+      "result": "unclear",
+      "sess_id": "sess-20260423173221-61b45dbc20564c7fa50570240c792cf3",
       "repo": "wobsoriano/svelte-sonner",
-      "duration_seconds": 0,
-      "error": "mano API 持续 502 Bad Gateway，同批次已累计 7 次 502，PM 指令标 failed 不再尝试",
-      "result_summary": "mano API 持续 502 Bad Gateway，同批次已累计 7 次 502，PM 指令标 failed 不再尝试"
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "mano-cua 成功触发多条 toast 但无法完成 hover 展开测试。多次点击 Render a toast 按钮后仅看到单条 toast，toast 快速自动消失导致无法悬停到堆叠区域。41 步内反复尝试快速点击+立即 hover 均未成功触发展开效果。可能原因：toast 持续时间太短、堆叠区域坐标定位困难、或默认不展示堆叠效果。"
     },
     {
       "task_id": "svelte-sonner-pr57",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-01",
-      "result": "",
-      "sess_id": "sess-20260423123040-719437c701a0458a862bf8bba68d2fba",
+      "result": "unclear",
+      "sess_id": "sess-20260423155128-69c8dbe69cec48c89578623a69a640d5",
       "repo": "wobsoriano/svelte-sonner",
-      "duration_seconds": 0,
-      "error": "mano API 连续 3 次返回 502 Bad Gateway (https://mano.mininglamp.com/v1/sessions/.../step)，分别在 step 12、13、12 时中断",
-      "result_summary": "mano API 连续 3 次返回 502 Bad Gateway (https://mano.mininglamp.com/v1/sessions/.../step)，分别在 step 12、13、12 时中断"
+      "duration_seconds": 1800,
+      "error": "",
+      "result_summary": "页面 Action toast 仅展示短文本(Event has been created)+Undo 按钮，按钮尺寸看起来正常。但页面无长文本+action 按钮组合的 demo，无法验证长文本下按钮是否被压缩。mano-cua 在 step 15 后陷入 macOS 右键菜单循环，被手动停止。"
     },
     {
       "task_id": "svelte-sonner-pr71",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-01",
-      "result": "",
-      "sess_id": "sess-20260423123650-6b1414aab8994f3b8cb9759c0904a2f0",
+      "result": "abnormal",
+      "sess_id": "sess-20260423161756-e9aaa4013900406599cce20d33cd92e5",
       "repo": "wobsoriano/svelte-sonner",
-      "duration_seconds": 0,
-      "error": "mano API 返回 502 Bad Gateway，step 11 时中断。与 pr57 连续 502 属同一 API 故障",
-      "result_summary": "mano API 返回 502 Bad Gateway，step 11 时中断。与 pr57 连续 502 属同一 API 故障"
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "Toast 背景存在明显的模糊/虚化现象（backdrop-filter blur 效果），整个 toast 卡片背景呈半透明毛玻璃效果。文字内容本身清晰，但背景模糊衬托下整体渲染有模糊感。边框线条较细且在模糊背景下不够鲜明。"
     },
     {
       "task_id": "svelte-sonner-pr83",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-01",
-      "result": "",
-      "sess_id": "sess-20260423133330-0e3f0efd2fdf42e98c450c3a4f027a4f",
+      "result": "abnormal",
+      "sess_id": "sess-20260423164406-def2ab5209014f5c807f7c8f0e3c7430",
       "repo": "wobsoriano/svelte-sonner",
-      "duration_seconds": 0,
-      "error": "mano API 连续 3 次 502 Bad Gateway（step 0/4/4），自 12:22 起已累计 7 次 502",
-      "result_summary": "mano API 连续 3 次 502 Bad Gateway（step 0/4/4），自 12:22 起已累计 7 次 502"
+      "duration_seconds": 480,
+      "error": "",
+      "result_summary": "Promise toast 的 loading 阶段（Loading... + spinner）完全不渲染或持续时间极短无法被观察到，直接跳至 resolved 状态。Toast 成功状态渲染清晰无布局错位，但 loading 状态未正常显示属渲染行为 Bug。"
     },
     {
       "task_id": "svelte-sonner-pr88",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-01",
-      "result": "",
-      "sess_id": null,
+      "result": "unclear",
+      "sess_id": "sess-20260423165639-f26d218ceefb47588a1c9e30437b3687",
       "repo": "wobsoriano/svelte-sonner",
-      "duration_seconds": 0,
-      "error": "mano API 持续 502 Bad Gateway，同批次已累计 7 次 502（pr57x3+pr71x1+pr83x3），PM 指令标 failed 不再尝试",
-      "result_summary": "mano API 持续 502 Bad Gateway，同批次已累计 7 次 502（pr57x3+pr71x1+pr83x3），PM 指令标 failed 不再尝试"
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "页面上不存在设置 unstyled 属性的 UI 入口（无按钮、开关、复选框），搜索 unstyled 返回 0 结果。页面仅包含 Types/Position/Expand/Other 功能区，均无 unstyled 相关控件。源文件为 Vite 编译后 JS 无法在浏览器内编辑，无法完成设置 unstyled=true 后触发 Action toast 的操作。"
     },
     {
       "task_id": "svelte-sonner-pr99",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-01",
-      "result": "",
-      "sess_id": null,
+      "result": "unclear",
+      "sess_id": "sess-20260423170904-3a62a66e25ca43c7b2ff77509afb787e",
       "repo": "wobsoriano/svelte-sonner",
-      "duration_seconds": 0,
-      "error": "mano API 持续 502 Bad Gateway，同批次已累计 7 次 502，PM 指令标 failed 不再尝试",
-      "result_summary": "mano API 持续 502 Bad Gateway，同批次已累计 7 次 502，PM 指令标 failed 不再尝试"
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "页面上不存在深色模式切换控件，mano-cua 遍历全页面未找到 dark mode toggle。页面为简化版 demo，无 sticky 预览面板和深色主题开关。超过 80 步后手动停止。无法在浏览器内完成深色模式下观察关闭按钮样式的测试。"
     },
     {
       "task_id": "svelte-splitpanes-3",
