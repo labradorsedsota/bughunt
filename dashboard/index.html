@@ -147,7 +147,6 @@ tr:hover{background:rgba(255,255,255,.04)}
 
 <script>
 const REPO = 'labradorsedsota/bughunt';
-const FILE_PATH = 'dashboard/progress.json';
 const REFRESH_INTERVAL = 60000;
 
 let allTasks = [];
@@ -161,25 +160,41 @@ const STATUS_LABELS = {
 const RESULT_LABELS = { abnormal: '异常', normal: '正常', unclear: '不确定' };
 const WORKERS = ['worker-01','worker-02','worker-03','worker-04','worker-05','worker-06','worker-07','worker-08','worker-09','worker-fabrice'];
 
+let overallData = null;
+
+async function fetchJson(filename) {
+  // Try relative path first (GitHub Pages), then GitHub API fallback
+  try {
+    const r = await fetch(filename + '?t=' + Date.now());
+    if (r.ok) return await r.json();
+  } catch(e) {}
+  const r = await fetch(`https://api.github.com/repos/${REPO}/contents/dashboard/${filename}`);
+  if (!r.ok) throw new Error('API ' + r.status);
+  const json = await r.json();
+  return JSON.parse(atob(json.content));
+}
+
 async function loadData() {
   try {
-    // Try relative path first (GitHub Pages), then API fallback
-    let data;
-    try {
-      const r = await fetch('progress.json?t=' + Date.now());
-      if (r.ok) { data = await r.json(); }
-    } catch(e) {}
+    // 并行加载两个文件
+    const [progressResult, overallResult] = await Promise.allSettled([
+      fetchJson('progress.json'),
+      fetchJson('overall.json'),
+    ]);
 
-    if (!data) {
-      const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`);
-      if (!r.ok) throw new Error('API ' + r.status);
-      const json = await r.json();
-      data = JSON.parse(atob(json.content));
+    if (progressResult.status === 'fulfilled') {
+      const data = progressResult.value;
+      allTasks = data.tasks || [];
+      document.getElementById('lastUpdated').textContent =
+        '数据更新: ' + new Date(data.last_updated).toLocaleString('zh-CN');
     }
 
-    allTasks = data.tasks || [];
-    document.getElementById('lastUpdated').textContent =
-      '数据更新: ' + new Date(data.last_updated).toLocaleString('zh-CN');
+    if (overallResult.status === 'fulfilled') {
+      overallData = overallResult.value;
+    } else {
+      overallData = null;
+    }
+
     renderAll();
   } catch(e) {
     document.getElementById('lastUpdated').textContent = '⚠️ 加载失败: ' + e.message;
@@ -194,23 +209,35 @@ function renderAll() {
 }
 
 function renderStats() {
-  const counts = { total: allTasks.length, pending: 0, assigned: 0, running: 0, completed: 0, failed: 0, blocked: 0 };
-  allTasks.forEach(t => { if (counts[t.status] !== undefined) counts[t.status]++; });
+  let items;
+  if (overallData && overallData.overall) {
+    const o = overallData.overall;
+    items = [
+      { label: '总任务', value: o.total, color: 'var(--text)' },
+      { label: '未分配', value: o.unassigned, color: 'var(--text2)' },
+      { label: '已分配', value: o.assigned, color: 'var(--blue)' },
+      { label: '已派发', value: o.dispatched, color: 'var(--yellow)' },
+      { label: '已完成', value: o.completed, color: 'var(--green)' },
+      { label: '失败', value: o.failed, color: 'var(--red)' },
+    ];
+  } else {
+    // 降级：从 progress.json 统计（和以前一样）
+    const counts = { total: allTasks.length, pending: 0, completed: 0, failed: 0 };
+    allTasks.forEach(t => { if (counts[t.status] !== undefined) counts[t.status]++; });
+    items = [
+      { label: '总任务', value: counts.total, color: 'var(--text)' },
+      { label: '待处理', value: counts.pending, color: 'var(--text2)' },
+      { label: '已完成', value: counts.completed, color: 'var(--green)' },
+      { label: '失败', value: counts.failed, color: 'var(--red)' },
+    ];
+  }
 
-  const items = [
-    { label: '总任务', value: counts.total, color: 'var(--text)' },
-    { label: '待分配', value: counts.pending, color: 'var(--text2)' },
-    { label: '已分配', value: counts.assigned, color: 'var(--blue)' },
-    { label: '执行中', value: counts.running, color: 'var(--yellow)' },
-    { label: '已完成', value: counts.completed, color: 'var(--green)' },
-    { label: '失败/阻塞', value: counts.failed + counts.blocked, color: 'var(--red)' },
-  ];
-
+  const total = items[0].value || 1;
   document.getElementById('stats').innerHTML = items.map(i => `
     <div class="stat-card">
       <div class="number" style="color:${i.color}">${i.value}</div>
       <div class="label">${i.label}</div>
-      ${i.label !== '总任务' && counts.total ? `<div class="pct">${(i.value/counts.total*100).toFixed(1)}%</div>` : ''}
+      ${i.label !== '总任务' ? `<div class="pct">${(i.value/total*100).toFixed(1)}%</div>` : ''}
     </div>
   `).join('');
 }
