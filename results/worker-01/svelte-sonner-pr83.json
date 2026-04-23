@@ -1,0 +1,21 @@
+{
+  "task_id": "svelte-sonner-pr83",
+  "repo": "wobsoriano/svelte-sonner",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260423133330-0e3f0efd2fdf42e98c450c3a4f027a4f",
+  "duration_seconds": 0,
+  "timestamp": "2026-04-23T13:48:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "mano_cua_error",
+    "symptom": "mano API 连续 3 次 502 Bad Gateway（step 0/4/4），自 12:22 起已累计 7 次 502",
+    "attempted": [
+      "sess-20260423132800 step 0 后 502",
+      "sess-20260423133042 step 4 后 502（看到 Promise toast 但无法继续分析）",
+      "sess-20260423133330 step 4 后 502（同上）"
+    ],
+    "recommendation": "mano API 对 worker01 持续 502。建议检查是否为账号/设备级问题"
+  }
+}
