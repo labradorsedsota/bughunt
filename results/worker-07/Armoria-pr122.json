@@ -1,0 +1,18 @@
+{
+  "task_id": "Armoria-pr122",
+  "repo": "Azgaar/armoria",
+  "worker": "worker-07",
+  "status": "completed",
+  "sess_id": "sess-20260423224738-fbef725ee3d044a694c3455c52455a79",
+  "expected_result_used": true,
+  "duration_seconds": 902,
+  "timestamp": "2026-04-23T08:00:00-07:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 138,
+    "last_action": "timeout_stop",
+    "result": "abnormal",
+    "result_summary": "描边功能部分正常：可设置描边颜色（测试红色描边在剪刀图案上清晰可见），描边 toggle 默认为 ON。发现两个异常：1) 描边 toggle 关闭后图案仍显示残留描边颜色（marten 图案爪子仍显示粉红/红色）；2) '复制编辑链接'功能疑似 Bug，链接仅为 localhost:5000 基础 URL，未编码盾徽设计数据。硬超时终止。",
+    "last_reasoning": "Stroke can be set and is visible (scissors with red stroke confirmed). Default stroke is ON with black color for gallery charges. Potential bugs found: 1) Stroke toggle off may not fully remove stroke visually (marten claws still showed reddish color after toggle off). 2) Edition link feature appears to only copy base URL without encoding shield design data in URL hash."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "AlgerMusicPlayer-pr268",
+  "repo": "algerkong/AlgerMusicPlayer",
+  "worker": "worker-07",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-23T07:35:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Electron 音乐播放器需要后端 API 服务（网易云音乐 API，端口 30488/3000）才能播放音乐，测试歌词窗口需要先有歌曲播放。AlgerMusicPlayer-43 已验证无后端时无法播放任何歌曲",
+    "attempted": ["AlgerMusicPlayer-43 验证：renderer 可访问但所有音乐功能因无后端 API 不可用"],
+    "recommendation": "跳过，需要外部音乐 API 服务"
+  }
+}

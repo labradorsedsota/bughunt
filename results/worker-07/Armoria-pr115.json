@@ -1,0 +1,18 @@
+{
+  "task_id": "Armoria-pr115",
+  "repo": "Azgaar/armoria",
+  "worker": "worker-07",
+  "status": "completed",
+  "sess_id": "sess-20260423222920-56da63c863d84047898f0ea35d1096e6",
+  "expected_result_used": true,
+  "duration_seconds": 902,
+  "timestamp": "2026-04-23T07:44:00-07:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 151,
+    "last_action": "timeout_stop",
+    "result": "abnormal",
+    "result_summary": "颜色配置存在 Bug：1) 删除默认颜色后纹章生成器未测试到（步数耗尽）；2) 添加自定义颜色时反复报'颜色必须是独一无二的！'错误，即使使用明显不同的 RGB 值（如 hot pink 255,20,200）也触发唯一性校验失败，疑似颜色唯一性判断逻辑有缺陷；3) 恢复默认功能未能在有限步骤内完成验证。硬超时 15 分钟终止。",
+    "last_reasoning": "Adding custom colors repeatedly triggers '颜色必须是独一无二的！' (Color must be unique!) error even with clearly unique RGB values like hot pink (255, 20, 200) and violet (100, 50, 250). The uniqueness check appears to have a defect - possibly comparing incorrect values or retaining deleted color data in the store."
+  }
+}
