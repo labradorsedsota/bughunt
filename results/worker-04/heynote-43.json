@@ -1,0 +1,19 @@
+{
+  "task_id": "heynote-43",
+  "repo": "heyman/heynote",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260423212924-ccf5af4731fc4115a8382a471d9426af",
+  "expected_result_used": true,
+  "duration_seconds": 732,
+  "timestamp": "2026-04-23T21:42:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 41,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Cmd+Shift+K删除第一个块(Math)内容后，块分隔符被破坏：1)第一个块类型从Math变为Plain Text(类型信息丢失) 2)块分隔符(∞∞∞math)被删除或破坏 3)两个块的视觉边界不清晰。另外底部状态栏缺少Add new block below加号按钮。",
+    "last_reasoning": "删除内容后第一个块的类型变为Plain Text，块分隔符被删除或破坏，块类型信息丢失。这是一个严重bug，与issue #43描述的块损坏行为一致。"
+  },
+  "note": "高质量观测数据，mano-cua详细记录了块删除后分隔符被破坏的完整过程。"
+}

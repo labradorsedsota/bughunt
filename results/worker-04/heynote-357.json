@@ -1,0 +1,19 @@
+{
+  "task_id": "heynote-357",
+  "repo": "heyman/heynote",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260423211231-0466f109f7754747a9d53b2795ccbfd3",
+  "expected_result_used": true,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-23T21:28:00+08:00",
+  "mano_cua": {
+    "status": "ERROR",
+    "total_steps": 11,
+    "last_action": "left_click (640, 108)",
+    "result": "unclear",
+    "result_summary": "硬超时15分钟。mano-cua成功用Cmd+L切换到Math模式，但输入2+3后编辑器区域无可见文本（光标保持Ln1 Col1），多次点击重试仍无法在编辑器中输入内容，未能进入折叠测试步骤。",
+    "last_reasoning": "编辑器在Math模式下不显示输入文本，光标位置始终停留在Ln1 Col1，可能是webapp模式下的渲染问题。"
+  },
+  "note": "webapp:dev模式下编辑器可能缺少Electron preload导致输入不可见。"
+}
