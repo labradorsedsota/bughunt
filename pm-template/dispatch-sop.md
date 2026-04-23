@@ -127,7 +127,7 @@ unassigned → assigned（Pichai 选卡）→ dispatched（Mycroft 发送后 Pic
 4. 更新选中卡的状态为 `assigned`，填入 `worker`、`batch`、`assigned_at`
 5. 更新 `summary` 统计
 6. `git push`
-7. 通知 Mycroft 派发：在「执行专用」子区（channel_id: `19fe99c798914d5fac7d7de9e6fcc839____2043640961514344448`，channel_type: 2）@Mycroft 下达指令（见附录 A 指令模板）
+7. 通知 Mycroft 派发：在「执行专用」子区（channel_id: `19fe99c798914d5fac7d7de9e6fcc839____2043640961514344448`，**channel_type: 5**）@Mycroft 下达指令（见附录 A 指令模板）
 
 ### 5.2 确认派发
 
@@ -181,7 +181,7 @@ unassigned → assigned（Pichai 选卡）→ dispatched（Mycroft 发送后 Pic
 
 ## 附录 A：通知 Mycroft 派发（指令模板）
 
-在「执行专用」子区（channel_id: `19fe99c798914d5fac7d7de9e6fcc839____2043640961514344448`，channel_type: 2）@Mycroft 发送以下指令（替换 `{变量}` 后发送）：
+在「执行专用」子区（channel_id: `19fe99c798914d5fac7d7de9e6fcc839____2043640961514344448`，**channel_type: 5**）@Mycroft 发送以下指令（替换 `{变量}` 后发送）：
 
 ```
 @Mycroft 派发指令：
