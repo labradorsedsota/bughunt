@@ -1,0 +1,18 @@
+{
+  "task_id": "Raneto-pr364",
+  "repo": "ryanlelek/Raneto",
+  "worker": "worker-06",
+  "status": "completed",
+  "sess_id": "sess-20260423191450-19bb810d57ab469fb1e68cfb19c96fef",
+  "expected_result_used": true,
+  "duration_seconds": 600,
+  "timestamp": "2026-04-23T19:14:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 53,
+    "last_action": "left_click (18, 125)",
+    "result": "abnormal",
+    "result_summary": "登录功能失效：POST /login返回Cannot POST /login(404)。mano-cua花费53步反复尝试登录均失败。手动curl验证确认POST /login端点不存在。由于无法登录，无法测试分类下新增页面功能。此commit的登录路由存在bug（与Raneto-141相同的问题）。",
+    "last_reasoning": "多次尝试填写admin/password并提交登录表单，每次POST /login均返回Cannot POST /login (404)。尝试了直接URL访问/edit也404。在首页可看到Login链接和文档分类，但登录功能完全不可用，无法进入管理界面。"
+  }
+}
