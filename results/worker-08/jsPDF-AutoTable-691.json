@@ -2,16 +2,17 @@
   "task_id": "jsPDF-AutoTable-691",
   "repo": "simonbengtsson/jsPDF-AutoTable",
   "worker": "worker-08",
-  "status": "failed",
-  "expected_result_used": false,
-  "sess_id": "null"null,
-  "duration_seconds": 0,
-  "timestamp": "2026-04-23T21:52:00+08:00",
-  "mano_cua": null,
-  "failure": {
-    "type": "mano_cua_error",
-    "symptom": "mano_cua_backend_504",
-    "attempted": ["部署验证通过 (port 9000 返回 200)", "mano-cua 连续 0 次 504 Gateway Timeout on step API"],
-    "recommendation": "mano-cua 后端 mano.mininglamp.com step API 持续 504，非本机问题，待后端恢复后重新排产"
+  "status": "completed",
+  "sess_id": "sess-20260423231116-5c4ce6f15c5145eab9d0598de2238857",
+  "expected_result_used": true,
+  "duration_seconds": 2700,
+  "timestamp": "2026-04-23T23:56:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 100,
+    "last_action": "max_steps_reached",
+    "result": "unclear",
+    "result_summary": "未在页面中找到目标功能入口。网站为静态演示站（预定义示例），无代码编辑器或参数配置界面。mano-cua 尝试通过 view-source、console、地址栏 javascript: 等方式执行自定义代码均失败，最终达到 100 步上限。",
+    "last_reasoning": "Max steps (100) reached. The website at localhost:9000 is a static jsPDF-AutoTable demo site with pre-built examples. It does not provide any interactive interface to create custom tables with tableLineWidth parameter or observe cross-page border rendering behavior. Attempted multiple approaches: viewing source code, trying console execution, address bar javascript protocol - all unsuccessful within browser constraints."
   }
 }
