@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-04-23 23:03:47",
+  "last_updated": "2026-04-24 00:03:48",
   "summary": {
     "total": 3373,
-    "completed": 547,
-    "failed": 565,
+    "completed": 555,
+    "failed": 567,
     "blocked": 0,
-    "pending": 2261
+    "pending": 2251
   },
   "tasks": [
     {
@@ -4132,12 +4132,12 @@
       "task_id": "boardgame.io-1021",
       "status": "completed",
       "worker": "worker-09",
-      "result": "",
-      "sess_id": "",
+      "result": "unclear",
+      "sess_id": "sess-20260423011222-swift-crustacean",
       "repo": "boardgameio/boardgame.io",
       "duration_seconds": 405,
       "error": "",
-      "result_summary": ""
+      "result_summary": "未在页面中找到聊天消息功能入口。示例应用(Tic-Tac-Toe/Chess)中无任何聊天UI组件，DOM查询chatMessages相关元素返回0。游戏状态G对象仅含cells数组，ctx对象不含chatMessages字段。这是React组件props接口层的缺陷，示例应用未实现聊天UI，无法通过GUI操作验证。"
     },
     {
       "task_id": "boardgame.io-1096",
@@ -4163,58 +4163,58 @@
     },
     {
       "task_id": "boardgame.io-782",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-09",
-      "result": "failed",
-      "sess_id": "",
+      "result": "abnormal",
+      "sess_id": "sess-20260423220311-8094b83d3700447a97cbf71a1f26389e",
       "repo": "boardgameio/boardgame.io",
-      "duration_seconds": 0,
+      "duration_seconds": 540,
       "error": "",
-      "result_summary": "mano-cua进程连续3次被系统SIGKILL，无输出。部署成功(HTTP 200)但mano-cua无法完成执行。疑似系统内存压力导致。"
+      "result_summary": "CSS样式泄露已复现。Debug面板的button/select样式(.debug-panel :global(button, select))泄露到页面其他区域。在Undo Examples页和Random API页，游戏区域的button元素（shuffle/roll/A/B/undo/redo）显示与Debug面板相同的灰色背景和边框样式。Tic-Tac-Toe格子未受影响因为是td元素不是button。"
     },
     {
       "task_id": "boardgame.io-800",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-09",
-      "result": "failed",
-      "sess_id": "sess-20260423181230-c542a6c4c00241e099d03171c1275aa5",
+      "result": "abnormal",
+      "sess_id": "sess-20260423221608-29381780fa7246aaa1b477b1b4022060",
       "repo": "boardgameio/boardgame.io",
-      "duration_seconds": 0,
+      "duration_seconds": 480,
       "error": "",
-      "result_summary": "mano-cua连续3次执行失败。首次6步后ProxyError断连，后两次被系统SIGKILL无输出。部署成功(HTTP 200)。"
+      "result_summary": "AI对手不响应bug已复现。Chess Singleplayer中玩家落子e4后，AI(Player 1)不自动回应，ctx.currentPlayer停留在'1'，ctx.turn=2不推进，G.pgn只记录'1. e4'。游戏永久卡在AI回合。另发现3个附带bug：endTurn()按钮无效、点击AI标签导致Debug面板消失、面板折叠后无法恢复。"
     },
     {
       "task_id": "boardgame.io-810",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-09",
-      "result": "failed",
-      "sess_id": "",
+      "result": "unclear",
+      "sess_id": "sess-20260423224300-boardgame810",
       "repo": "boardgameio/boardgame.io",
-      "duration_seconds": 0,
+      "duration_seconds": 600,
       "error": "",
-      "result_summary": "同项目连续3个case(782/800)mano-cua被SIGKILL，触发PROJECT_BLOCKED跳过。部署流程验证可行但mano-cua无法存活完成测试。"
+      "result_summary": "部分测试完成。直接点击棋盘落子正常，Console无disallowed move错误。但Debug面板的clickCell操作使用键盘快捷键机制(按c键触发)，mano-cua在DevTools和游戏页面间焦点切换时无法成功触发Debug面板的move操作。Debug面板move是否报disallowed未能验证。"
     },
     {
       "task_id": "boardgame.io-848",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-09",
-      "result": "failed",
-      "sess_id": "",
+      "result": "unclear",
+      "sess_id": "sess-20260423225948-b554a10e87584427a54dc4a35834ad7c",
       "repo": "boardgameio/boardgame.io",
-      "duration_seconds": 0,
+      "duration_seconds": 600,
       "error": "",
-      "result_summary": "同项目连续3个case(782/800)mano-cua被SIGKILL，触发PROJECT_BLOCKED跳过。部署流程验证可行但mano-cua无法存活完成测试。"
+      "result_summary": "在Turn Orders Simulator中测试了setPhase/move/endTurn/pass等操作。示例应用无Stage.NULL专用页面，没有直接暴露setActivePlayers(Stage.NULL)的UI。Turn Orders Simulator中setPhase按钮有视觉高亮(blue border)但功能正常，Console无错误。但Stage.NULL的核心bug场景(setActivePlayers设置Stage.NULL后执行move)无法通过示例UI直接触发，需要代码级测试。"
     },
     {
       "task_id": "boardgame.io-855",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-09",
-      "result": "failed",
-      "sess_id": "",
+      "result": "normal",
+      "sess_id": "sess-20260423230455-855redo",
       "repo": "boardgameio/boardgame.io",
-      "duration_seconds": 0,
+      "duration_seconds": 600,
       "error": "",
-      "result_summary": "同项目连续3个case(782/800)mano-cua被SIGKILL，触发PROJECT_BLOCKED跳过。部署流程验证可行但mano-cua无法存活完成测试。"
+      "result_summary": "Debug面板Log标签正常工作未崩溃。在Tic-Tac-Toe页面：1)切到Log标签显示空白(无move记录，正常)；2)点击棋盘落子后Log面板正确显示'1 clickCell(0)''2 clickCell(1)'；3)导航到Turn Orders Simulator执行setPhase/move/endTurn操作后返回Tic-Tac-Toe，Log面板正常渲染无崩溃；4)F12 Console无错误。阶段切换后Log面板未出现崩溃。"
     },
     {
       "task_id": "bobarr-57",
@@ -6671,12 +6671,12 @@
       "task_id": "drawnix-pr324",
       "status": "completed",
       "worker": "worker-09",
-      "result": "",
-      "sess_id": "",
+      "result": "reproduced",
+      "sess_id": "sess-20260422195933-56d80a4791404274abe92d4a0cc8e043",
       "repo": "plait-board/drawnix",
       "duration_seconds": 135,
       "error": "",
-      "result_summary": ""
+      "result_summary": "Bug已复现。点击含子菜单的菜单项(Language/Export Image)时，整个菜单直接关闭，子菜单未展开。悬停(hover)时子菜单可正常展开（Language显示中文/English/Русский/عربي，Export Image显示PNG/JPG），但点击(click/tap)无法触发子菜单toggle，移动端用户完全无法使用语言切换和图片格式选择功能。"
     },
     {
       "task_id": "drawnix-pr333",
@@ -7731,91 +7731,91 @@
     },
     {
       "task_id": "fhir-emr-214",
-      "status": "completed",
+      "status": "failed",
       "worker": "worker-09",
-      "result": "unclear",
-      "sess_id": "",
+      "result": "",
+      "sess_id": null,
       "repo": "beda-software/fhir-emr",
       "duration_seconds": 0,
-      "error": "",
-      "result_summary": "fhir-emr需要Aidbox FHIR后端(Docker)运行，当前环境无Docker。前端有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏。无法进行功能测试。"
+      "error": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏",
+      "result_summary": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏"
     },
     {
       "task_id": "fhir-emr-295",
-      "status": "completed",
+      "status": "failed",
       "worker": "worker-09",
-      "result": "unclear",
-      "sess_id": "",
+      "result": "",
+      "sess_id": null,
       "repo": "beda-software/fhir-emr",
       "duration_seconds": 0,
-      "error": "",
-      "result_summary": "fhir-emr需要Aidbox FHIR后端(Docker)运行，当前环境无Docker。前端有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏。无法进行功能测试。"
+      "error": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏",
+      "result_summary": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏"
     },
     {
       "task_id": "fhir-emr-391",
-      "status": "completed",
+      "status": "failed",
       "worker": "worker-09",
-      "result": "unclear",
-      "sess_id": "",
+      "result": "",
+      "sess_id": null,
       "repo": "beda-software/fhir-emr",
       "duration_seconds": 0,
-      "error": "",
-      "result_summary": "fhir-emr需要Aidbox FHIR后端(Docker)运行，当前环境无Docker。前端有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏。无法进行功能测试。"
+      "error": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏",
+      "result_summary": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏"
     },
     {
       "task_id": "fhir-emr-54",
-      "status": "completed",
+      "status": "failed",
       "worker": "worker-09",
-      "result": "unclear",
-      "sess_id": "",
+      "result": "",
+      "sess_id": null,
       "repo": "beda-software/fhir-emr",
       "duration_seconds": 0,
-      "error": "",
-      "result_summary": "fhir-emr需要Aidbox FHIR后端(Docker)运行，当前环境无Docker。前端有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏。无法进行功能测试。"
+      "error": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏",
+      "result_summary": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏"
     },
     {
       "task_id": "fhir-emr-pr576",
-      "status": "completed",
+      "status": "failed",
       "worker": "worker-09",
-      "result": "unclear",
-      "sess_id": "",
+      "result": "",
+      "sess_id": null,
       "repo": "beda-software/fhir-emr",
       "duration_seconds": 0,
-      "error": "",
-      "result_summary": "fhir-emr需要Aidbox FHIR后端(Docker)运行，当前环境无Docker。前端有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏。无法进行功能测试。"
+      "error": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏",
+      "result_summary": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏"
     },
     {
       "task_id": "fhir-emr-pr701",
-      "status": "completed",
+      "status": "failed",
       "worker": "worker-09",
-      "result": "unclear",
-      "sess_id": "",
+      "result": "",
+      "sess_id": null,
       "repo": "beda-software/fhir-emr",
       "duration_seconds": 0,
-      "error": "",
-      "result_summary": "fhir-emr需要Aidbox FHIR后端(Docker)运行，当前环境无Docker。前端有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏。无法进行功能测试。"
+      "error": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏",
+      "result_summary": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏"
     },
     {
       "task_id": "fhir-emr-pr763",
-      "status": "completed",
+      "status": "failed",
       "worker": "worker-09",
-      "result": "unclear",
-      "sess_id": "",
+      "result": "",
+      "sess_id": null,
       "repo": "beda-software/fhir-emr",
       "duration_seconds": 0,
-      "error": "",
-      "result_summary": "fhir-emr需要Aidbox FHIR后端(Docker)运行，当前环境无Docker。前端有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏。无法进行功能测试。"
+      "error": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏",
+      "result_summary": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏"
     },
     {
       "task_id": "fhir-emr-pr764",
-      "status": "completed",
+      "status": "failed",
       "worker": "worker-09",
-      "result": "unclear",
-      "sess_id": "",
+      "result": "",
+      "sess_id": null,
       "repo": "beda-software/fhir-emr",
       "duration_seconds": 0,
-      "error": "",
-      "result_summary": "fhir-emr需要Aidbox FHIR后端(Docker)运行，当前环境无Docker。前端有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏。无法进行功能测试。"
+      "error": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏",
+      "result_summary": "需要Aidbox FHIR后端(Docker)，当前环境无Docker。前端yarn build有5个编译错误(缺少locale文件和shared/src/config模块)，页面白屏"
     },
     {
       "task_id": "firecms-127",
@@ -8700,34 +8700,34 @@
       "task_id": "hads-32",
       "status": "completed",
       "worker": "worker-09",
-      "result": "",
-      "sess_id": "",
+      "result": "reproduced",
+      "sess_id": "sess-20260422201543-b41eae5fac554999a19d2809f287950a",
       "repo": "sinedied/hads",
       "duration_seconds": 156,
       "error": "",
-      "result_summary": ""
+      "result_summary": "Bug已复现。ACE编辑器光标位置与实际文字插入位置严重不一致。点击第3行'main'和'page'之间放置光标，输入'xyz'后字符出现在'the'之后而非光标显示位置。根因：.ace_text-layer使用了非等宽字体(-apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif)，而ACE编辑器光标位置计算基于等宽字符宽度，导致累积偏移越来越大。"
     },
     {
       "task_id": "hads-pr13",
       "status": "completed",
       "worker": "worker-09",
-      "result": "",
-      "sess_id": "",
+      "result": "reproduced",
+      "sess_id": "sess-20260422202036-15dabb72383c469a89fd78216677eafb",
       "repo": "sinedied/hads",
       "duration_seconds": 244,
       "error": "",
-      "result_summary": ""
+      "result_summary": "Bug已复现。Mermaid图表正常渲染为SVG流程图，但所有Font Awesome图标(fa:fa-home, fa:fa-user, fa:fa-cog, fa:fa-check, fa:fa-envelope, fa:fa-bell, fa:fa-star)完全缺失，节点只显示纯文本。页面HTML未加载font-awesome CSS，Mermaid版本7.0.0也未完整支持FA图标渲染。"
     },
     {
       "task_id": "hads-pr43",
       "status": "completed",
       "worker": "worker-09",
-      "result": "",
-      "sess_id": "",
+      "result": "reproduced",
+      "sess_id": "sess-20260422202730-da6710b1abc344e78f0ce6c0ef717423",
       "repo": "sinedied/hads",
       "duration_seconds": 45,
       "error": "",
-      "result_summary": ""
+      "result_summary": "Bug已复现。包含不支持的语言标识符(notareallanguage)的代码块导致页面返回'Cannot GET /crash-test.md'错误，而非正常渲染。服务器进程未宕机（其他正常页面如readme.md可正常访问），但该特定页面的渲染因highlight.js未捕获异常而失败。"
     },
     {
       "task_id": "hassio-trash-card-141",
@@ -8801,12 +8801,12 @@
       "task_id": "hastic-grafana-app-223",
       "status": "completed",
       "worker": "worker-09",
-      "result": "",
+      "result": "unclear",
       "sess_id": "",
       "repo": "hastic-zzz/hastic-grafana-app",
       "duration_seconds": 0,
       "error": "",
-      "result_summary": ""
+      "result_summary": "无法测试。该项目是Grafana插件（webpack AMD输出，externals依赖angular/lodash/moment/grafana），需要运行中的Grafana实例才能加载。npm run dev仅为webpack watch模式编译，不启动独立dev server。环境中无Grafana、无Docker，brew install和curl下载Grafana二进制均被SIGKILL。"
     },
     {
       "task_id": "hastic-grafana-app-239",
@@ -8823,12 +8823,12 @@
       "task_id": "hastic-grafana-app-275",
       "status": "completed",
       "worker": "worker-09",
-      "result": "",
+      "result": "unclear",
       "sess_id": "",
       "repo": "hastic-zzz/hastic-grafana-app",
       "duration_seconds": 0,
       "error": "",
-      "result_summary": ""
+      "result_summary": "无法测试。同hastic-grafana-app-223，该项目为Grafana插件，需要Grafana运行环境。环境中无Grafana、无Docker，安装尝试被SIGKILL。"
     },
     {
       "task_id": "hastic-grafana-app-316",
@@ -8856,12 +8856,12 @@
       "task_id": "hastic-grafana-app-324",
       "status": "completed",
       "worker": "worker-09",
-      "result": "",
+      "result": "unclear",
       "sess_id": "",
       "repo": "hastic-zzz/hastic-grafana-app",
       "duration_seconds": 0,
       "error": "",
-      "result_summary": ""
+      "result_summary": "无法测试。同hastic-grafana-app-223，该项目为Grafana插件，需要Grafana运行环境。环境中无Grafana、无Docker，安装尝试被SIGKILL。"
     },
     {
       "task_id": "hastic-grafana-app-374",
@@ -9090,27 +9090,47 @@
     },
     {
       "task_id": "homer-pr1034",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "abnormal",
+      "sess_id": "sess-20260423213400-homer1034",
+      "repo": "bastienwirtz/homer",
+      "duration_seconds": 300,
+      "error": "",
+      "result_summary": "发现拼写错误：第3个分组标题显示为'Ressources'（法语写法），应为'Resources'（英语正确拼写）。该分组包含Selfhosted community和Awesome selfhosted两个服务项。mano-cua完整滚动浏览了整个页面（3个分组：Try Homer、Smart cards showcase、Ressources）。另外观察到Smart cards showcase分组中所有服务卡片图标加载失败。"
     },
     {
       "task_id": "homer-pr112",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "abnormal",
+      "sess_id": "sess-20260423222408-0105f2e3ef0c4d69a8e7121d70ec15b1",
+      "repo": "bastienwirtz/homer",
+      "duration_seconds": 960,
+      "error": "",
+      "result_summary": "Logo图标存在异常内边距。通过DevTools检查确认：img元素有padding:10px，在box-sizing:border-box下，70×70总尺寸中实际图片渲染区域只有50×50px（458×458原始图片被过度缩放）。div.logo容器76.67px高度 vs img 70px高度有6.67px的行内基线差异。fa-fw class存在于导航栏5个图标元素上（github/book/file-alt/adjust/list），虽然Logo本身是img标签不直接受fa-fw影响，但fa-fw的fixed-width样式与Logo的padding:10px共同导致头部布局不协调。"
     },
     {
       "task_id": "homer-pr115",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "abnormal",
+      "sess_id": "sess-20260423224305-8c1c9a22f9314aac8ca1e92266874f39",
+      "repo": "bastienwirtz/homer",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "导航栏中name为空的链接项（Item 3和Item 4）的图标仍然有inline style 'margin-right: 6px'，但后面没有文字内容，导致图标右侧多出6px的空白间距。有文字的链接项（Contribute!, Documentation, another page!, Settings）margin-right: 6px是合理的（用于分隔图标和文字）。通过DevTools Console分析DOM确认：所有navbar-item的<i>标签无论是否有后续文字都一律设置了margin-right:6px。右侧功能按钮（dark mode toggle等）由于使用不同模板结构，不受此bug影响。"
     },
     {
       "task_id": "homer-pr174",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "abnormal",
+      "sess_id": "sess-20260423225600-homer174",
+      "repo": "bastienwirtz/homer",
+      "duration_seconds": 480,
+      "error": "",
+      "result_summary": "两个布局bug被确认：1) 无subtitle的卡片（Dashboard icons, Selfhosted community, Pi-hole）名称文字偏向顶部约1/4位置，未垂直居中，下半部分有大量空白；而有subtitle的卡片（如Smart cards）文字整体垂直居中。2) Pi-hole卡片使用非正方形图标（圆形），图标垂直对齐有轻微偏差。CSS根因：卡片文字容器可能使用flex-direction:column但缺少justify-content:center，导致单行内容（无subtitle时）固定在顶部。"
     },
     {
       "task_id": "homer-pr239",
@@ -9334,21 +9354,36 @@
     },
     {
       "task_id": "idraw-pr107",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": "",
+      "repo": "idrawjs/idraw",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "idraw-pr134",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": "",
+      "repo": "idrawjs/idraw",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "idraw-pr193",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-06",
+      "result": "abnormal",
+      "sess_id": "sess-20260423225737-23de79583fd64053ad08c78c014e4e97",
+      "repo": "idrawjs/idraw",
+      "duration_seconds": 475,
+      "error": "",
+      "result_summary": "画布元素拖拽移动后位置正确刷新（正常），但发现多项交互异常：1)拖拽resize handle时有时移动元素而非调整大小（resize操作不可靠）；2)拖拽旋转handle时元素移动而非旋转（旋转交互失效）；3)无属性编辑面板，无法通过UI控件更新元素属性。核心画布刷新功能正常，但resize和rotate的handle交互存在bug。"
     },
     {
       "task_id": "idraw-pr234",
@@ -10170,21 +10205,36 @@
     },
     {
       "task_id": "jsPDF-AutoTable-480",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "abnormal",
+      "sess_id": "sess-20260423225102-1fb3d04c78274535b846e0739fb25102",
+      "repo": "simonbengtsson/jsPDF-AutoTable",
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "跨页 rowspan 单元格在第二页中左边框缺失。Chadd Ondricka 和 Brooks Ryan 行的第一列单元格完全没有左侧边框线，从 Elliot Feeney 行开始 rowspan 8 才有正常左边框。rowspan 跨越分页时续行丢失左边框。"
     },
     {
       "task_id": "jsPDF-AutoTable-623",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "unclear",
+      "sess_id": "sess-20260423225847-5afa112d9fbe455a830f9c99b0b13137",
+      "repo": "simonbengtsson/jsPDF-AutoTable",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "未在页面中找到目标功能入口。网站为静态演示站，所有示例预定义，无代码编辑器或参数配置界面，无法创建自定义 cellPadding + halign 配置的表格。"
     },
     {
       "task_id": "jsPDF-AutoTable-691",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "unclear",
+      "sess_id": "sess-20260423231116-5c4ce6f15c5145eab9d0598de2238857",
+      "repo": "simonbengtsson/jsPDF-AutoTable",
+      "duration_seconds": 2700,
+      "error": "",
+      "result_summary": "未在页面中找到目标功能入口。网站为静态演示站（预定义示例），无代码编辑器或参数配置界面。mano-cua 尝试通过 view-source、console、地址栏 javascript: 等方式执行自定义代码均失败，最终达到 100 步上限。"
     },
     {
       "task_id": "jsPDF-AutoTable-794",
@@ -11000,44 +11050,44 @@
       "status": "completed",
       "worker": "worker-09",
       "result": "unclear",
-      "sess_id": "sess-20260423195242-41dcdab4b52841bbb0700cdcd8d8a3ed",
+      "sess_id": "sess-20260423191359-e4aa00a364524f2daf7e5c18bc8e2e55",
       "repo": "Laverna/laverna",
-      "duration_seconds": 0,
+      "duration_seconds": 600,
       "error": "",
       "result_summary": "Laverna(2016年Backbone.js应用)依赖bower组件，多个bower仓库已删除(dropbox/pagedown-extra)。创建stub后app仍白屏无法渲染，RequireJS加载失败。mano-cua 25步全部观察到空白页面，无法进行功能测试。"
     },
     {
       "task_id": "laverna-491",
-      "status": "completed",
+      "status": "failed",
       "worker": "worker-09",
-      "result": "unclear",
-      "sess_id": "sess-20260423195242-41dcdab4b52841bbb0700cdcd8d8a3ed",
+      "result": "",
+      "sess_id": null,
       "repo": "Laverna/laverna",
       "duration_seconds": 0,
-      "error": "",
-      "result_summary": "Laverna(2016年Backbone.js应用)依赖bower组件，多个bower仓库已删除(dropbox/pagedown-extra)。创建stub后app仍白屏无法渲染，RequireJS加载失败。mano-cua 25步全部观察到空白页面，无法进行功能测试。"
+      "error": "fuse_deploy_failed",
+      "result_summary": "fuse_deploy_failed"
     },
     {
       "task_id": "laverna-493",
-      "status": "completed",
+      "status": "failed",
       "worker": "worker-09",
-      "result": "unclear",
-      "sess_id": "sess-20260423195242-41dcdab4b52841bbb0700cdcd8d8a3ed",
+      "result": "",
+      "sess_id": null,
       "repo": "Laverna/laverna",
       "duration_seconds": 0,
-      "error": "",
-      "result_summary": "Laverna(2016年Backbone.js应用)依赖bower组件，多个bower仓库已删除(dropbox/pagedown-extra)。创建stub后app仍白屏无法渲染，RequireJS加载失败。mano-cua 25步全部观察到空白页面，无法进行功能测试。"
+      "error": "fuse_deploy_failed",
+      "result_summary": "fuse_deploy_failed"
     },
     {
       "task_id": "laverna-497",
-      "status": "completed",
+      "status": "failed",
       "worker": "worker-09",
-      "result": "unclear",
-      "sess_id": "sess-20260423195242-41dcdab4b52841bbb0700cdcd8d8a3ed",
+      "result": "",
+      "sess_id": null,
       "repo": "Laverna/laverna",
       "duration_seconds": 0,
-      "error": "",
-      "result_summary": "Laverna(2016年Backbone.js应用)依赖bower组件，多个bower仓库已删除(dropbox/pagedown-extra)。创建stub后app仍白屏无法渲染，RequireJS加载失败。mano-cua 25步全部观察到空白页面，无法进行功能测试。"
+      "error": "fuse_deploy_failed",
+      "result_summary": "fuse_deploy_failed"
     },
     {
       "task_id": "laverna-540",
@@ -13620,47 +13670,47 @@
     },
     {
       "task_id": "mui-tiptap-334",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-03",
-      "result": "",
-      "sess_id": "sess-20260423203632-22fdc9a34a9e4c7e88d6435f999d6fa4",
+      "result": "unclear",
+      "sess_id": "sess-20260423225028-9eac7d44df7e4c4bbf4622f37666d761",
       "repo": "sjdemartini/mui-tiptap",
-      "duration_seconds": 0,
-      "error": "mano-cua API 连续 3 次 proxy error: HTTPSConnectionPool(host='mano.mininglamp.com', port=443) Max retries exceeded (ProxyError: Remote end closed connection without response)",
-      "result_summary": "mano-cua API 连续 3 次 proxy error: HTTPSConnectionPool(host='mano.mininglamp.com', port=443) Max retries exceeded (ProxyError: Remote end closed connection without response)"
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "mano-cua 在40步内未能找到页面顶部AppBar中的'VIEW IN A DIALOG'按钮，反复滚动缩放尝试均未发现深蓝色AppBar。AppBar可能被编辑器工具栏遮挡或页面渲染未包含该组件。无法完成dialog打开/关闭测试"
     },
     {
       "task_id": "mui-tiptap-pr214",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-03",
-      "result": "",
-      "sess_id": null,
+      "result": "normal",
+      "sess_id": "sess-20260423230259-c48e14dec3d54650bd063590244fa699",
       "repo": "sjdemartini/mui-tiptap",
-      "duration_seconds": 0,
-      "error": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response",
-      "result_summary": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response"
+      "duration_seconds": 300,
+      "error": "",
+      "result_summary": "图片上传按钮找到并点击后弹出文件选择对话框，选择test_image.png后图片成功插入编辑器中并正确显示为蓝色矩形图片。insertImages回调正常工作"
     },
     {
       "task_id": "mui-tiptap-pr231",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-03",
-      "result": "",
-      "sess_id": null,
+      "result": "abnormal",
+      "sess_id": "sess-20260423230733-9169d7b882d140b0905409518907efc0",
       "repo": "sjdemartini/mui-tiptap",
-      "duration_seconds": 0,
-      "error": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response",
-      "result_summary": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response"
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "图片拖拽缩放存在幽灵图像Bug：拖拽过程中屏幕同时出现两张图片（原图+位移预览图），部分拖拽操作后图片恢复原始大小（缩放失败）。仅右下角有1个缩放手柄，缺少其他7个手柄"
     },
     {
       "task_id": "mui-tiptap-pr406",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-03",
-      "result": "",
-      "sess_id": null,
+      "result": "abnormal",
+      "sess_id": "sess-20260423231447-f4e162c934b6460a88c43c9cff0deb12",
       "repo": "sjdemartini/mui-tiptap",
-      "duration_seconds": 0,
-      "error": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response",
-      "result_summary": "mano-cua API proxy error: mano.mininglamp.com 连续多次 ProxyError Remote end closed connection without response"
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "图片点击选中后拖拽缩放手柄时行为异常：拖拽过程中触发右键菜单而非缩放操作，图片意外缩小且无法通过Ctrl+Z恢复。刷新页面后图片点击不再产生可见的选中状态（无蓝色边框、无缩放手柄），缩放功能不可用"
     },
     {
       "task_id": "mui-tiptap-pr418",
