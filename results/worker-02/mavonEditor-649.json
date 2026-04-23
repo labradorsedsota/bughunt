@@ -1,0 +1,17 @@
+{
+  "task_id": "mavonEditor-649",
+  "repo": "hinesboy/mavonEditor",
+  "worker": "worker-02",
+  "status": "completed",
+  "sess_id": "sess-20260423213849-5cdf5b716f04495481f833c62fda819f",
+  "expected_result_used": true,
+  "duration_seconds": 300,
+  "timestamp": "2026-04-23T21:48:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 26,
+    "last_action": "scroll left (640, 400) scroll_amount 5",
+    "result": "unclear",
+    "result_summary": "mano-cua成功打开页面、输入代码块、在编辑器中操作26步，但无法找到Codestyle下拉选择器。经查看源码确认：demo页面(dev/app.vue)没有提供Codestyle下拉UI控件——codeStyle是mavon-editor组件的一个prop，需要外部页面传入select控件来切换，但demo页面未实现此功能。因此该bug无法在默认dev server页面上复现测试。"
+  }
+}

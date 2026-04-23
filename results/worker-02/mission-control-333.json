@@ -1,0 +1,18 @@
+{
+  "task_id": "mission-control-333",
+  "repo": "builderz-labs/mission-control",
+  "worker": "worker-02",
+  "status": "completed",
+  "sess_id": "sess-20260423203822-a5a484f58aad43249f6f6af5e22436e0",
+  "expected_result_used": true,
+  "duration_seconds": 120,
+  "timestamp": "2026-04-23T20:50:00+08:00",
+  "mano_cua": {
+    "status": "ERROR",
+    "total_steps": 3,
+    "last_action": "left_click (609, 33)",
+    "result": "unclear",
+    "result_summary": "mano-cua在3步后遇504 Gateway Timeout API错误中断。测试需Docker环境+OpenClaw网关来复现WebSocket连接bug，当前环境无Docker/网关。step 3观察到首页显示'Gateway connected'绿色指示灯，但无法完成完整测试。",
+    "last_reasoning": "Mission Control首页右侧设置向导可见，左侧显示'Gateway connected'(绿色点)和'Gateway: Mission Control registered'(绿色点)。mano-cua API在此步后返回504超时。"
+  }
+}

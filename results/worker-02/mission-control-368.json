@@ -1,0 +1,20 @@
+{
+  "task_id": "mission-control-368",
+  "repo": "builderz-labs/mission-control",
+  "worker": "worker-02",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 600,
+  "timestamp": "2026-04-23T21:02:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "mano_cua_error",
+    "symptom": "mano-cua启动后10分钟无任何step输出，可能是mano API服务不稳定（此前mission-control-333也遇到504 Gateway Timeout）",
+    "attempted": [
+      "部署成功（server返回307，API全部200）",
+      "mano-cua运行10分钟无输出后强制stop"
+    ],
+    "recommendation": "mano API服务不稳定，建议稍后重试"
+  }
+}

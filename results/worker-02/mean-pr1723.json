@@ -1,0 +1,17 @@
+{
+  "task_id": "mean-pr1723",
+  "repo": "linnovate/mean",
+  "worker": "worker-02",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-23T19:52:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "fuse_repo_blocked",
+    "attempted": ["fuse_trigger: mean-1328 (commit 336304f559), mean-pr1377 (commit 8f7f6389a9)"],
+    "recommendation": "同repo已有2个不同buggy_commit deploy_failed（需MongoDB），repo级熔断"
+  }
+}
