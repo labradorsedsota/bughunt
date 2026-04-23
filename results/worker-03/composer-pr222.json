@@ -1,0 +1,20 @@
+{
+  "task_id": "composer-pr222",
+  "repo": "rabix/composer",
+  "worker": "worker-03",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-23T17:55:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Angular 4 + TypeScript 2.3 无 lockfile，npm install 拉取最新 @types/sizzle @types/jquery 等包使用 TS 4.x+ 语法（infer/globalThis），webpack 编译 TS 类型报错失败",
+    "attempted": [
+      "Node 16 + --legacy-peer-deps + --ignore-scripts（安装成功但编译失败）",
+      "tsconfig.json 加 skipLibCheck: true（TS 2.3 不支持该选项，仍报错）"
+    ],
+    "recommendation": "需要 pin @types/* 到 TS 2.x 兼容版本或使用 npm ci 配合 lockfile；成本高，建议跳过"
+  }
+}

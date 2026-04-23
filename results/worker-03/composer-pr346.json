@@ -1,0 +1,19 @@
+{
+  "task_id": "composer-pr346",
+  "repo": "rabix/composer",
+  "worker": "worker-03",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-23T17:56:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Angular 5 + TS 2.4 无 lockfile，ng serve 报 An asset cannot be read from a location outside the project，服务未启动",
+    "attempted": [
+      "Node 16 + --legacy-peer-deps + --ignore-scripts（安装成功但 ng serve 失败）"
+    ],
+    "recommendation": "repo 级部署问题，建议跳过"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "composer-pr369",
+  "repo": "rabix/composer",
+  "worker": "worker-03",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-23T17:57:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "fuse_repo_blocked",
+    "attempted": ["fuse_trigger: composer-pr222 (commit 35742c62d0), composer-pr346 (commit 9a6391bf0c)"],
+    "recommendation": "同 repo 已有 2 个不同 buggy_commit deploy_failed，repo 级熔断"
+  }
+}

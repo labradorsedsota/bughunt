@@ -1,0 +1,18 @@
+{
+  "task_id": "ConvertX-494",
+  "repo": "C4illin/ConvertX",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260423174445-9cb28ce4510c42c48cb0dc33f65b8a7b",
+  "expected_result_used": true,
+  "duration_seconds": 180,
+  "timestamp": "2026-04-23T17:50:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 14,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "上传 test_image.png 选择 dxf using inkscape 转换失败，页面显示 Failed, check logs，输出文件未生成（ENOENT: no such file or directory ./data/output/1/2/test_image.dxf），inkscape PNG→DXF 转换管道故障",
+    "last_reasoning": "转换失败，状态显示 Failed, check logs。下载尝试显示 ENOENT: no such file or directory, open './data/output/1/2/test_image.dxf'，输出文件从未创建。上传PNG成功、选择dxf using inkscape成功、点击Convert成功，但转换过程本身失败——inkscape无法将PNG转为DXF格式，结果文件无法下载。"
+  }
+}
