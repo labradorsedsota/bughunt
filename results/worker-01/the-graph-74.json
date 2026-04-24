@@ -1,0 +1,18 @@
+{
+  "task_id": "the-graph-74",
+  "repo": "flowhub/the-graph",
+  "worker": "worker-01",
+  "status": "completed",
+  "sess_id": "sess-20260424152609-bcb54217a9b641b3b17d77ae9fc7a61e",
+  "expected_result_used": true,
+  "duration_seconds": 1500,
+  "timestamp": "2026-04-24T15:51:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 80,
+    "last_action": "key: Escape",
+    "result": "abnormal",
+    "result_summary": "确认bug：右键/长按节点时，编辑器自定义饼状菜单（pie menu）和浏览器默认右键上下文菜单同时弹出。原因是contextmenu事件处理器未调用event.preventDefault()来阻止浏览器默认菜单。两个菜单重叠显示，触摸设备上体验混乱。",
+    "last_reasoning": "Bug confirmed: When right-clicking on a node, both the graph editor's pie menu (circular menu) AND the browser's default context menu appear simultaneously. The graph editor opens its custom pie menu when contextmenu event fires but does NOT call event.preventDefault() to suppress the browser's default context menu. Result: both menus appear at the same time."
+  }
+}

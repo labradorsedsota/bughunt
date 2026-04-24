@@ -1,0 +1,18 @@
+{
+  "task_id": "the-graph-174",
+  "repo": "flowhub/the-graph",
+  "worker": "worker-01",
+  "status": "completed",
+  "sess_id": "sess-20260424145210-eb958bda77e6441898e25f6d92e789ae",
+  "expected_result_used": true,
+  "duration_seconds": 1500,
+  "timestamp": "2026-04-24T15:17:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 80,
+    "last_action": "left_click",
+    "result": "unclear",
+    "result_summary": "the-graph编辑器正常渲染了默认流程图（多个节点+连线），但无法通过浏览器UI创建缺少组件信息的节点。DevTools Console中appState和TheGraph均为undefined（模块作用域未暴露全局），loadGraph二次调用会因#loading元素已移除而报错。80步未能完成测试目标。",
+    "last_reasoning": "Both appState and TheGraph are undefined in global scope. The graph editor uses module-scoped variables not exposed globally. loadGraph function throws error on second call because #loading element already removed from DOM. Unable to programmatically load graph with missing component info through browser console."
+  }
+}

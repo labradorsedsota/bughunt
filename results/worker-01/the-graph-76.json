@@ -1,0 +1,18 @@
+{
+  "task_id": "the-graph-76",
+  "repo": "flowhub/the-graph",
+  "worker": "worker-01",
+  "status": "completed",
+  "sess_id": "sess-20260424155305-1cc638d69db94b8ab96409a7d0f076e3",
+  "expected_result_used": true,
+  "duration_seconds": 2520,
+  "timestamp": "2026-04-24T16:35:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 79,
+    "last_action": "Sources tab navigation",
+    "result": "unclear",
+    "result_summary": "无法通过浏览器UI测试registerComponent更新组件定义。DevTools Console中全局变量TheGraph和appState均为undefined（模块作用域），registerComponent API无法从Console调用。79步中大量时间花在尝试聚焦DevTools Console输入和查找全局暴露的API上，未能完成测试。",
+    "last_reasoning": "The graph editor uses module-scoped variables (TheGraph, appState) not exposed globally. registerComponent API cannot be called from DevTools Console. Extensive attempts to interact with DevTools Console (clicking, undocking, typing) consumed most of the 79 steps without achieving the test goal."
+  }
+}
