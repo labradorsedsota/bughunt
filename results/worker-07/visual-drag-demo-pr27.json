@@ -1,0 +1,18 @@
+{
+  "task_id": "visual-drag-demo-pr27",
+  "repo": "woai3c/visual-drag-demo",
+  "worker": "worker-07",
+  "status": "completed",
+  "sess_id": "sess-20260424150246-d746c08c390c4e2aaaaca849a4542336",
+  "expected_result_used": true,
+  "duration_seconds": 780,
+  "timestamp": "2026-04-24T00:13:00-07:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 41,
+    "last_action": "left_click_drag (750, 300)",
+    "result": "abnormal",
+    "result_summary": "发现两个异常：1) 撤销操作后右侧属性面板数据不刷新（宽度显示 474/242 等陈旧值而非实际的 200），多次复现的 stale data bug。2) 反向缩放时右中控制点从 x=700 拖拽到 x=400（过左边界100px），组件左边界从 x=500 移动到 x=400，宽度变为 100，左边界未固定，存在 flip/反向缩放坐标异常。80 步上限停止。",
+    "last_reasoning": "Multiple tests performed: bottom-center handle drag, right-center handle drag, reverse scaling test. Found recurring stale data bug where panel shows incorrect width/height after undo. Reverse scaling test showed component allows passing through opposite edge - right handle dragged 300px left past left edge, component flipped to x=400-500 with width=100, left edge moved unexpectedly."
+  }
+}

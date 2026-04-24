@@ -1,0 +1,18 @@
+{
+  "task_id": "visual-drag-demo-pr28",
+  "repo": "woai3c/visual-drag-demo",
+  "worker": "worker-07",
+  "status": "completed",
+  "sess_id": "sess-20260424151842-6c66e0466d5645ee9e393965d750de40",
+  "expected_result_used": true,
+  "duration_seconds": 840,
+  "timestamp": "2026-04-24T00:32:00-07:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 39,
+    "last_action": "key: cmd+r",
+    "result": "abnormal",
+    "result_summary": "多个异常：1) 缩放功能不正常——拖拽缩放控制点只移动组件而不缩放（step 32-33 多次确认）。2) 旋转功能同样不工作——拖动旋转控制器只移动整个组件（step 34）。3) 清空画布按钮无效——多次点击后组件仍存在于负坐标（step 18-19）。4) 画布上拖拽操作导致意外创建多个重叠图片组件（step 39）。图片渲染和属性面板展示正常。",
+    "last_reasoning": "点击画布(400,250)时选中了一个意外的大图片组件(710x364)，说明之前的拖拽操作在画布上创建了多个重叠的图片组件。缩放和旋转控制点的拖拽操作只导致组件移动而非实际缩放/旋转，属于交互 bug。"
+  }
+}

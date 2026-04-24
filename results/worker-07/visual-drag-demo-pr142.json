@@ -1,0 +1,18 @@
+{
+  "task_id": "visual-drag-demo-pr142",
+  "repo": "woai3c/visual-drag-demo",
+  "worker": "worker-07",
+  "status": "completed",
+  "sess_id": "sess-20260424145018-a7a9d4bf8c0748a8b92c2bca2395a159",
+  "expected_result_used": true,
+  "duration_seconds": 330,
+  "timestamp": "2026-04-24T00:00:00-07:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 26,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "矩形旋转45°后右键菜单位置严重偏移。三次测试均显示菜单未出现在鼠标点击位置：左顶点点击(550,435)→菜单出现在(597,550)，偏移47px右+115px下。根因是右键菜单位置计算未处理 CSS rotation transform，基于未旋转坐标系计算。",
+    "last_reasoning": "This screenshot clearly demonstrates the bug. Component rotated 45° (diamond shape). Right-clicked at (550, 435) (LEFT vertex of diamond) → Context menu appeared at approximately (597, 550) - menu appeared ~47px to the right and ~115px BELOW the click point. The context menu position calculation does NOT use the actual mouse cursor position. Instead, it calculates position based on the component's unrotated coordinate space."
+  }
+}
