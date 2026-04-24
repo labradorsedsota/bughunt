@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-04-24 14:04:27",
+  "last_updated": "2026-04-24 15:06:00",
   "summary": {
     "total": 3373,
-    "completed": 590,
-    "failed": 587,
+    "completed": 617,
+    "failed": 594,
     "blocked": 0,
-    "pending": 2196
+    "pending": 2162
   },
   "tasks": [
     {
@@ -14880,51 +14880,91 @@
     },
     {
       "task_id": "ngx-loading-bar-184",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "unclear",
+      "sess_id": "sess-20260424115719-4f5252515c4a40a79f6a4459ee8db4b3",
+      "repo": "aitboudad/ngx-loading-bar",
+      "duration_seconds": 180,
+      "error": "",
+      "result_summary": "未在页面中找到目标功能入口。页面仅有 HTTP/Router/Core/Material Progress bar 四个演示模块，无 NGXS 状态管理相关功能。mano-cua 后端标记 task failed (Server marked task as failed)。"
     },
     {
       "task_id": "ngx-loading-bar-40",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "unclear",
+      "sess_id": "sess-20260424125745-f3d61951d241400292995f52c7ecb903",
+      "repo": "aitboudad/ngx-loading-bar",
+      "duration_seconds": 660,
+      "error": "",
+      "result_summary": "mano-cua 在 80 步内反复尝试快速点击 Load 按钮触发并发 HTTP 请求，观察 loading bar 行为。Step 28/30/32/34 明确报告：loading bar 在所有请求完成后正确消失（pending requests 回到 0，顶部进度条消失）。但由于 localhost 请求完成速度极快（< 1s），无法真正制造出多个并发请求叠加的场景来触发潜在 bug。页面无搜索框，无法模拟搜索联想场景。80 步达到上限被终止。"
     },
     {
       "task_id": "ngx-loading-bar-43",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "unclear",
+      "sess_id": "sess-20260424131211-f8a593886f594777a02d6745f35c170c",
+      "repo": "aitboudad/ngx-loading-bar",
+      "duration_seconds": 720,
+      "error": "",
+      "result_summary": "mano-cua 80步达上限被终止。页面无 Observable.zip 入口，仅有 HTTP/Router/Core/Material 四个 demo 模块和对应 Load 按钮。Step 8-11 尝试点击 Load 按钮，请求完成太快（localhost）无法观察 loading bar 行为。Step 29-39 跑偏到 VS Code Terminal 中查找源码试图理解 Observable.zip 用法，但未能成功触发目标场景。"
     },
     {
       "task_id": "ngx-loading-bar-65",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "unclear",
+      "sess_id": "sess-20260424132700-d195eb05dbda428087774eb4dc29240e",
+      "repo": "aitboudad/ngx-loading-bar",
+      "duration_seconds": 360,
+      "error": "",
+      "result_summary": "mano-cua 18步自然结束。大部分步骤在处理 macOS 权限弹窗（照片/桌面/文档/下载文件夹访问）和在 Terminal 中执行 find 命令查找源码。未实际测试 loading bar 异步拦截器行为。页面本身为纯演示站，无异步拦截器配置入口。"
     },
     {
       "task_id": "ngx-loading-bar-85",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "unclear",
+      "sess_id": "sess-20260424134346-5135c8ba66b147dab49ade0218994467",
+      "repo": "aitboudad/ngx-loading-bar",
+      "duration_seconds": 120,
+      "error": "",
+      "result_summary": "mano-cua 10步自然结束。Step 1 识别了页面上的 fixed=false demo 区域，但认为需要修改源码来设置 includeSpinner=false 和 includeBar=true，于是跑到 Terminal 执行 find / 搜索源文件，卡在搜索上。未实际触发任何 loading 操作或观察 bar 行为。"
     },
     {
       "task_id": "ngx-loading-bar-93",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "no_bug",
+      "sess_id": "sess-20260424134855-c5f880aa987140758448485df8b4db3f",
+      "repo": "aitboudad/ngx-loading-bar",
+      "duration_seconds": 480,
+      "error": "",
+      "result_summary": "mano-cua 50步自然完成。系统性测试了所有 demo 区域：HTTP Load（step 4-7，请求太快但确认红色加载条快速出现又消失）、手动控制 Start/50%/+10%/Complete（step 9-12，清楚看到红色加载条、进度递增、Complete 后消失）、路由导航（step 15-16，太快捕获）、Timer（step 17-20，持续3秒加载条清晰可见）、Material Progress bar（step 21-22 观察）。所有加载条在触发后正常显示，完成后正确消失。但注意：demo 页面未配置 ViewEncapsulation.None，无法验证该特定场景。"
     },
     {
       "task_id": "ngx-loading-bar-pr159",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "has_bug",
+      "sess_id": "sess-20260424141023-9a15662c2d46496d822033781ee9197d",
+      "repo": "aitboudad/ngx-loading-bar",
+      "duration_seconds": 840,
+      "error": "",
+      "result_summary": "mano-cua 80步达上限被终止。Step 3-10: 基础功能测试正常——Load按钮触发HTTP请求，Start/50%/+10%/Complete手动控制按钮均正常工作，加载条（红色）在顶部正常显示和消失。Step 6-7 确认顶部加载条、fixed=false区域加载条、Material进度条都能显示。Step 20+ 发现严重问题：在加载进行中点击Stop按钮反复触发右键菜单而非执行停止功能。Step 27-28 确认Complete按钮也被拦截。Step 38 报告页面刷新后Load按钮同样被拦截。mano-cua 判断为 z-index/透明覆盖层bug——fixed=false的加载条组件创建了覆盖层拦截鼠标事件。注意：不排除mano-cua鼠标补丁偶发异常的可能性（前10步正常后续异常）。"
     },
     {
       "task_id": "ngx-loading-bar-pr164",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "no_bug",
+      "sess_id": "sess-20260424143347-17285ba7abb44e4f8d5929441d7a7228",
+      "repo": "aitboudad/ngx-loading-bar",
+      "duration_seconds": 660,
+      "error": "",
+      "result_summary": "mano-cua 71步自然完成。全面测试了所有功能：HTTP Load（step 3-6，请求完成太快 loading bar 来不及截图但网络活动确认请求已发）、路由导航（step 7-9，URL正确切换）、手动控制 Start/50%/+10%/Complete/Stop（step 10-15，全部正常工作）。Step 16-18 测试了 Start 后进行路由导航，loading bar 正确持续显示。Step 19-28 测试了连续快速操作（Load+路由+手动Start 混合），进度条状态正确同步。Step 30 注意到 HTTP 请求时 loading bar 不可见但判断为请求太快。Step 31-34 再次确认手动控制完全正常。"
     },
     {
       "task_id": "ngx-markdown-185",
@@ -18831,45 +18871,80 @@
     },
     {
       "task_id": "react-dropzone-1190",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "normal",
+      "sess_id": "sess-20260424120747-e677d0e39bf94dedb3235468913d2f55",
+      "repo": "react-dropzone/react-dropzone",
+      "duration_seconds": 720,
+      "error": "",
+      "result_summary": "点击设置了accept属性(image/png, text/html)的dropzone区域后，macOS文件选择对话框正常弹出，功能符合预期，未观察到bug"
     },
     {
       "task_id": "react-dropzone-1222",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "normal",
+      "sess_id": "sess-20260424131231-4703a6e071444c108be3576ced72fa25",
+      "repo": "react-dropzone/react-dropzone",
+      "duration_seconds": 360,
+      "error": "",
+      "result_summary": "点击react-dropzone文件上传区域后macOS文件选择对话框正常弹出，功能正常"
     },
     {
       "task_id": "react-dropzone-1238",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "unclear",
+      "sess_id": "sess-20260424132129-891b903ba20141b3808c490ce5d5095c",
+      "repo": "react-dropzone/react-dropzone",
+      "duration_seconds": 840,
+      "error": "",
+      "result_summary": "无法在浏览器约束内测试isDragReject+maxSize：需要修改源码配置maxSize=1（无Terminal/DevTools），且需从Finder拖拽文件到dropzone（禁止打开Finder）。页面中现有demo仅展示accept类型过滤，无maxSize配置的交互式demo"
     },
     {
       "task_id": "react-dropzone-1346",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "unclear",
+      "sess_id": "sess-20260424134230-a87656cb25e64f64b14db88e4cbddce7",
+      "repo": "react-dropzone/react-dropzone",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "无法在浏览器约束内测试：页面所有demo为只读预编译React演示，无交互式编辑器修改accept为application/ld+json；同时无法在不使用Finder/Terminal/DevTools的情况下创建或拖拽.jsonld文件"
     },
     {
       "task_id": "react-dropzone-1418",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "unclear",
+      "sess_id": "sess-20260424135354-98e7c4d91a7c4b7bb869e3c2f4eb6912",
+      "repo": "react-dropzone/react-dropzone",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "mano-cua尝试在两个Chrome窗口间拖拽.md文件到dropzone区域但无法完成有效拖拽操作，83步超步数上限被强制停止。浏览器内无法模拟从文件系统拖拽文件的hover事件"
     },
     {
       "task_id": "react-dropzone-1449",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "unclear",
+      "sess_id": "sess-20260424141625-fc815090419748dd85185c6cacf4ebb1",
+      "repo": "react-dropzone/react-dropzone",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "mano-cua打开了DevTools模拟drag事件（违反浏览器约束），通过JS模拟dragenter/dragover/drop后dropzone样式未变化（classes始终为'dropzone'，style为null），但无法确认isDragReject状态是否正确重置，测试方法不完整"
     },
     {
       "task_id": "react-dropzone-526",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "unclear",
+      "sess_id": "sess-20260424143318-15a18314f3914fb9aa076b0a986e3122",
+      "repo": "react-dropzone/react-dropzone",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "mano-cua 启动后 10+ 分钟零输出（疑似卡死），被强制停止。此外此 bug 是 Firefox 专属（isDragActive 在子元素间闪烁），当前只有 Chrome 无法复现，且需从 Finder 拖拽文件（浏览器约束禁止）"
     },
     {
       "task_id": "react-dropzone-911",
@@ -19047,51 +19122,91 @@
     },
     {
       "task_id": "react-notion-x-pr591",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "NotionX/react-notion-x",
+      "duration_seconds": 0,
+      "error": "SSR 500 - TypeError: Cannot read properties of undefined (reading 'replaceAll') in uuidToId. Notion页面渲染崩溃",
+      "result_summary": "SSR 500 - TypeError: Cannot read properties of undefined (reading 'replaceAll') in uuidToId. Notion页面渲染崩溃"
     },
     {
       "task_id": "react-notion-x-pr677",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-01",
+      "result": "unclear",
+      "sess_id": "sess-20260424142045-bace974f8fdf420b99b89ea6fc9850fb",
+      "repo": "NotionX/react-notion-x",
+      "duration_seconds": 840,
+      "error": "",
+      "result_summary": "React Notion X demo已被作者禁用，所有路由均显示'I've disabled the public demo'提示。无法渲染Notion页面内容，无法测试分栏布局内标题是否出现在TOC中。"
     },
     {
       "task_id": "react-notion-x-pr690",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "NotionX/react-notion-x",
+      "duration_seconds": 0,
+      "error": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。",
+      "result_summary": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。"
     },
     {
       "task_id": "react-notion-x-pr691",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "NotionX/react-notion-x",
+      "duration_seconds": 0,
+      "error": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。",
+      "result_summary": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。"
     },
     {
       "task_id": "react-notion-x-pr692",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "NotionX/react-notion-x",
+      "duration_seconds": 0,
+      "error": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。",
+      "result_summary": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。"
     },
     {
       "task_id": "react-notion-x-pr693",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "NotionX/react-notion-x",
+      "duration_seconds": 0,
+      "error": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。",
+      "result_summary": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。"
     },
     {
       "task_id": "react-notion-x-pr694",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "NotionX/react-notion-x",
+      "duration_seconds": 0,
+      "error": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。",
+      "result_summary": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。"
     },
     {
       "task_id": "react-notion-x-pr697",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "NotionX/react-notion-x",
+      "duration_seconds": 0,
+      "error": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。",
+      "result_summary": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。"
     },
     {
       "task_id": "react-page-1140",
@@ -19771,51 +19886,91 @@
     },
     {
       "task_id": "regex-vis-pr131",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": "sess-20260424124822-b3be325c640144c2b9116a119cedfdbf",
+      "repo": "Bowen7/regex-vis",
+      "duration_seconds": 285,
+      "error": "",
+      "result_summary": "暗色模式下主题切换下拉菜单背景始终为白色，未应用暗色主题样式（视觉一致性bug）。主题切换功能本身正常（Light/Dark持久化），多次切换无卡顿。刷新后直接显示暗色模式，截图未捕捉到白屏闪烁（但截图时间分辨率不足以捕捉毫秒级闪烁）。"
     },
     {
       "task_id": "regex-vis-pr47",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": "sess-20260424130902-71dc35c2983b4354b72ecbce6ae2adb6",
+      "repo": "Bowen7/regex-vis",
+      "duration_seconds": 313,
+      "error": "",
+      "result_summary": "拖拽选区框存在多个问题：1)接近水平拖拽时选区框高度计算异常（出现极薄细条）2)从连接线处开始纯水平拖拽时选区框完全不出现 3)选区框边界与鼠标坐标存在轻微偏差导致节点被错误排除在框外。"
     },
     {
       "task_id": "regex-vis-pr48",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "normal",
+      "sess_id": "sess-20260424132053-d430a904f64149dfb66da6c419cb9933",
+      "repo": "Bowen7/regex-vis",
+      "duration_seconds": 154,
+      "error": "",
+      "result_summary": "语言切换后可视化图形渲染完全正常，无断裂、消失、错位或布局异常。Group标签正确翻译为'组#1'，One of翻译为'其一'。仅发现Legend面板中'Character classes:'标题未翻译（i18n遗漏，非本issue关注的图形渲染bug）。"
     },
     {
       "task_id": "regex-vis-pr55",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": "sess-20260424132752-2e7b18ec9f3f4599a06cce992175c956",
+      "repo": "Bowen7/regex-vis",
+      "duration_seconds": 265,
+      "error": "",
+      "result_summary": "选中节点后右侧面板选项卡无法切换。点击可视化图节点后面板自动切至'编辑'tab，之后点击'图例'或'测试'tab完全无响应，面板始终固定显示编辑内容，激活指示线不移动。选项卡切换逻辑被锁定。"
     },
     {
       "task_id": "regex-vis-pr58",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": "sess-20260424133433-1d6d9852df6746eeaafb7100391a6d11",
+      "repo": "Bowen7/regex-vis",
+      "duration_seconds": 248,
+      "error": "",
+      "result_summary": "图形区域overflow属性配置错误：内容溢出时不显示滚动条。短正则(ab)无多余滚动条(正确)，但复杂长正则图形被截断时缺少滚动条，用户无法查看完整内容。overflow应从hidden改为auto。"
     },
     {
       "task_id": "regex-vis-pr67",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": "sess-20260424134244-7d64fbaa6d0e40b083947116163765ed",
+      "repo": "Bowen7/regex-vis",
+      "duration_seconds": 274,
+      "error": "",
+      "result_summary": "a||b中间空分支渲染丢失：末尾空分支(a|)和开头空分支(|b)能正确渲染为两点连线，但a||b的中间空分支完全未渲染，三分支结构被错误显示为与a|b相同的两分支。属于元素缺失类渲染错误。"
     },
     {
       "task_id": "regex-vis-pr75",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": "sess-20260424134950-d0d33bbeb6714325b168abe462312752",
+      "repo": "Bowen7/regex-vis",
+      "duration_seconds": 326,
+      "error": "",
+      "result_summary": "空字符类节点渲染不完整：[]和[^]节点内部完全空白且尺寸极小，缺少占位符文字。另发现范围下拉菜单显示英文'A Empty Range'(应为An Empty Range)且未翻译，编辑面板Negate标签也未翻译。页面未崩溃，空字符类可点击可编辑。"
     },
     {
       "task_id": "regex-vis-pr76",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "normal",
+      "sess_id": "sess-20260424135626-90d5e89a153348109dd36a50741869d7",
+      "repo": "Bowen7/regex-vis",
+      "duration_seconds": 232,
+      "error": "",
+      "result_summary": "量词范围输入框功能完全正常。min/max输入框正确显示初始值(2,5)，修改min为3和max为8均实时更新正则表达式、可视化图和URL。无错误值、无输入延迟、无异常。"
     },
     {
       "task_id": "research-helper-pr18",
@@ -24232,21 +24387,36 @@
     },
     {
       "task_id": "visual-drag-demo-39",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260424120429-c69d183933b142cca545469f708969c1",
+      "repo": "woai3c/visual-drag-demo",
+      "duration_seconds": 390,
+      "error": "",
+      "result_summary": "清空画布和撤销操作后，右侧属性面板未重置为空状态，仍显示已删除组件的属性（透明度、宽高、字体等），currentElement 选中状态未正确清空"
     },
     {
       "task_id": "visual-drag-demo-pr122",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "normal",
+      "sess_id": "sess-20260424121551-e33045388c0b4481a5c4a3f667c03f3e",
+      "repo": "woai3c/visual-drag-demo",
+      "duration_seconds": 720,
+      "error": "",
+      "result_summary": "同类型组件（两个按钮）切换选中时，右侧 Collapse 折叠卡片正确响应切换，通用样式展开/收起状态正常保持，属性值（坐标、内容）正确更新为当前选中组件数据，未出现卡片不显示或数据错乱。mano-cua 在第 40 步因 API 404 中断，但关键测试已完成。"
     },
     {
       "task_id": "visual-drag-demo-pr133",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "unclear",
+      "sess_id": "sess-20260424143510-4816f48ccf28401d9e37e5669d4a523a",
+      "repo": "woai3c/visual-drag-demo",
+      "duration_seconds": 630,
+      "error": "",
+      "result_summary": "mano-cua 在 39 步内未能完成组合组件创建。Shift+click 多选组件失败（只选中了最后点击的组件），未能触发「组合」功能，因此未测试到撤销组合比例和文本换行。80 步上限触发停止。"
     },
     {
       "task_id": "visual-drag-demo-pr142",
