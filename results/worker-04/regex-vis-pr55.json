@@ -1,0 +1,19 @@
+{
+  "task_id": "regex-vis-pr55",
+  "repo": "Bowen7/regex-vis",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260424132752-2e7b18ec9f3f4599a06cce992175c956",
+  "expected_result_used": true,
+  "duration_seconds": 265,
+  "timestamp": "2026-04-24T13:31:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 15,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "选中节点后右侧面板选项卡无法切换。点击可视化图节点后面板自动切至'编辑'tab，之后点击'图例'或'测试'tab完全无响应，面板始终固定显示编辑内容，激活指示线不移动。选项卡切换逻辑被锁定。",
+    "last_reasoning": "选中节点后，编辑面板状态锁定了选项卡切换逻辑，导致Tab切换事件被吞掉或状态更新被强制覆盖。点击图例和测试tab完全无响应。"
+  },
+  "note": "高质量复现，bug严重度高。"
+}

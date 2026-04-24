@@ -1,0 +1,19 @@
+{
+  "task_id": "regex-vis-pr47",
+  "repo": "Bowen7/regex-vis",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260424130902-71dc35c2983b4354b72ecbce6ae2adb6",
+  "expected_result_used": true,
+  "duration_seconds": 313,
+  "timestamp": "2026-04-24T13:14:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 17,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "拖拽选区框存在多个问题：1)接近水平拖拽时选区框高度计算异常（出现极薄细条）2)从连接线处开始纯水平拖拽时选区框完全不出现 3)选区框边界与鼠标坐标存在轻微偏差导致节点被错误排除在框外。",
+    "last_reasoning": "选区框高度计算存在bug，当垂直差值小时出现极薄细条。部分区域鼠标事件被连接线元素阻止导致无法触发选区。选区框边界与精确鼠标坐标存在偏差。"
+  },
+  "note": "mano-cua从多个角度和起始位置测试了拖拽行为，观测详细。"
+}

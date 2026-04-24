@@ -1,0 +1,19 @@
+{
+  "task_id": "regex-vis-pr58",
+  "repo": "Bowen7/regex-vis",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260424133433-1d6d9852df6746eeaafb7100391a6d11",
+  "expected_result_used": true,
+  "duration_seconds": 248,
+  "timestamp": "2026-04-24T13:37:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 11,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "图形区域overflow属性配置错误：内容溢出时不显示滚动条。短正则(ab)无多余滚动条(正确)，但复杂长正则图形被截断时缺少滚动条，用户无法查看完整内容。overflow应从hidden改为auto。",
+    "last_reasoning": "图形区域overflow:hidden导致溢出内容被截断无滚动条。短正则无滚动条行为正确，但长正则缺少滚动条是明确的UI/交互bug。"
+  },
+  "note": "mano-cua准确识别了overflow配置错误。"
+}
