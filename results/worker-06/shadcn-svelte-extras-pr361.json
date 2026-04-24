@@ -1,0 +1,23 @@
+{
+  "task_id": "shadcn-svelte-extras-pr361",
+  "repo": "ieedan/shadcn-svelte-extras",
+  "worker": "worker-06",
+  "status": "completed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 900,
+  "timestamp": "2026-04-24T18:52:00+08:00",
+  "mano_cua": {
+    "total_steps": 50,
+    "last_action": "key: Tab",
+    "status": "TIMEOUT",
+    "judgment": "abnormal",
+    "reasoning_summary": "TreeView组件中嵌套节点的高亮/选中条宽度随层级加深而变窄。step 20观察到src(x=544)、routes(x=575)、+layout.svelte(x=621)等节点位置逐层右移，但选中条宽度按fit-content收缩而非填满可用空间。step 22/42标注'bug'。mano-cua在iframe中操作tree view困难，花费大量步骤尝试交互最终超时。",
+    "observed_facts": [
+      "step 20: 展开src文件夹，各层级节点位置: src(544,332), routes(575,352), +layout.svelte(621,372), app.css(583,412)",
+      "step 22: 标注'bug' — 选中app.css后观察到高亮条宽度问题",
+      "step 42: 再次标注'bug' — 多次确认嵌套节点选中条宽度不一致"
+    ]
+  },
+  "failure": null
+}

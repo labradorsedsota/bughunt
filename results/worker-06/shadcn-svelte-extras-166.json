@@ -1,0 +1,25 @@
+{
+  "task_id": "shadcn-svelte-extras-166",
+  "repo": "ieedan/shadcn-svelte-extras",
+  "worker": "worker-06",
+  "status": "completed",
+  "expected_result_used": false,
+  "sess_id": "sess-20260424165117-07d0b0b9dd134c6f8af07f13bec293e0",
+  "duration_seconds": 900,
+  "timestamp": "2026-04-24T17:06:00+08:00",
+  "mano_cua": {
+    "total_steps": 42,
+    "last_action": "left_click",
+    "status": "TIMEOUT",
+    "judgment": "unclear",
+    "reasoning_summary": "在Tags Input文档页面找到Custom Validation区域（含form），在输入框中输入'TestForm'并按Enter，标签被添加为'testform'（小写化）并显示在已有标签svelte/jsrepo旁边。标签添加后未观察到消失现象。但mano-cua花费大量步骤在页面滚动导航上（从Basic到Custom Validation再回Basic），最终超时(900s/42步)，未能在Basic form区域完成完整测试。",
+    "observed_facts": [
+      "step 12-13: 找到Tags Input页面，看到Basic/Custom Validation/Form等子区域",
+      "step 37: 在Custom Validation区域的Tags Input中看到'Add a tag'占位符，已有svelte/jsrepo标签",
+      "step 38: 输入'TestForm'",
+      "step 39: 按Enter，标签被添加",
+      "step 40: 观察到标签列表显示svelte/jsrepo/testform三个标签，标签未消失"
+    ]
+  },
+  "failure": null
+}

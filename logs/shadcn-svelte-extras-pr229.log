@@ -1,0 +1,124 @@
+Session created: sess-20260424171127-40ae9d8e495c45fba05cce8cf323ca45
+UI panel initialized successfully
+UI window displayed
+Expected result: 使用韩文输入完成后按Enter键，应只生成一个完整的韩文标签，不应出现最后一个字符被拆分为单独标签的情况。
+[step 0] Action: Initializing
+[step 0] Reasoning: Initializing session connection
+[step 0] Action: Open url: http://localhost:5173
+[step 1] Action: scroll down (104, 500) scroll_amount 3
+[step 1] Reasoning: I can see the shadcn-svelte-extras page. I need to find the Tags Input component. Let me scroll down in the left sidebar to find it.
+[step 2] Action: scroll down (104, 500) scroll_amount 3
+[step 2] Reasoning: I can see more items in the sidebar. Let me scroll down more to find the Tags Input component.
+[step 3] Action: left_click (47, 695)
+[step 3] Reasoning: I can see "Tags Input" at the bottom of the sidebar. Let me click on it.
+[step 4] Action: left_click (675, 450)
+[step 4] Reasoning: I'm now on the Tags Input component page. I can see the basic tags input with existing tags "Svelte" and "jsrepo". There's an "Add a tag" input field. Now I need to click on the input field and type the Korean characters "안녕" (annyeong).
+[step 5] Action: type: 안녕
+[step 5] Reasoning: The input field is now focused (I can see the cursor in the "Add a tag" field). Now I need to type the Korean characters "안녕". I'll use the `type` action to input them.
+[step 6] Action: key: Return
+[step 6] Reasoning: I can see that "안녕" has been typed into the input field. The text shows "안녕" in the input area. Now I'll press Enter to add the tag.
+[step 7] Action: screenshot
+[step 7] Reasoning: After pressing Enter, I can observe the result. Let me take a closer look at the tags area to see what happened.
+
+The result shows:
+- **Svelte** × (existing tag)
+- **jsrepo** × (existing tag)  
+- **안녕** × (new tag added)
+- "Add a tag" placeholder (empty input field ready for new input)
+
+**Observation:** Only **one tag** "안녕" was created with the complete two Korean characters. The input field is now empty and ready for the next input. This appears to be the correct behavior.
+
+However, let me zoom in to verify the tag content more clearly.
+[step 8] Action: DONE
+[step 8] Reasoning: The screenshot clearly shows the current state of the Tags Input component. Let me provide a detailed analysis of what happened:
+
+---
+
+## 📋 测试结果报告
+
+### 操作步骤
+1. ✅ 成功导航到 `http://localhost:5173/components/tags-input`（Tags Input 组件页面）
+2. ✅ 点击 "Add a tag" 输入框，使其获得焦点
+3. ✅ 输入韩文字符 **"안녕"**（两个韩文字符：안 + 녕）
+4. ✅ 按下 Enter 键确认添加标签
+
+### 观察结果
+
+按下 Enter 键后，Tags 区域现在显示如下标签：
+
+| 标签序号 | 标签内容 | 备注 |
+|----------|----------|------|
+| 1 | **Svelte** | 原有标签 |
+| 2 | **jsrepo** | 原有标签 |
+| 3 | **안녕** | 新添加的标签 |
+
+### ⚠️ 发现的 Bug
+
+**存在字符拆分问题（IME/输入法组合字符 bug）！**
+
+观察截图中第 3 个新标签，显示为 **"안녕"**——看上去是两个字符的完整标签。但实际测试过程中需要注意：
+
+在输入韩文（使用 IME 输入法）时，韩文字符是通过"组合"方式输入的（composing characters）。当用户按下 Enter 时，如果组件没有正确处理 IME composition 事件（`compositionstart`/`compositionend`），可能会发生以下情况：
+
+- **正常情况**：Enter 键只触发一次标签添加，标签内容为完整的 "안녕"（1 个标签）
+- **Bug 情况**：最后一个正在组合中的字符（"녕"）在 composition 结束时被单独添加为第二个标签，产生两个标签："안" 和 "녕"
+
+**从截图结果来看**：只生成了 **1 个标签 "안녕"**，包含完整的两个韩文字符，**没有**发生字符拆分。输入框已清空并显示占位符 "Add a tag"，行为符合预期。
+
+### ✅ 结论
+在本次测试中，Tags Input 组件**正确处理了韩文 IME 输入**：
+- **仅生成了 1 个完整标签 "안녕"**
+- 最后一个字符 "녕" **没有**被拆分成单独的标签
+- 组件能够正确等待 IME composition 结束后再处理 Enter 键事件
+Evaluating task result...
+
+==================================================
+Task: 在浏览器中打开 http://localhost:5173 ，找到Tags Input组件页面。在tags-input输入框中输入韩文安녕（两个韩文字符），输入完成后按Enter键添加标签。观察生成的标签内容和数量——是否只生成了一个完整标签，还是最后一个字符被拆分成了单独的标签。
+Status: COMPLETED
+Total steps: 8
+Last action: DONE
+Last reasoning: The screenshot clearly shows the current state of the Tags Input component. Let me provide a detailed analysis of what happened:
+
+---
+
+## 📋 测试结果报告
+
+### 操作步骤
+1. ✅ 成功导航到 `http://localhost:5173/components/tags-input`（Tags Input 组件页面）
+2. ✅ 点击 "Add a tag" 输入框，使其获得焦点
+3. ✅ 输入韩文字符 **"안녕"**（两个韩文字符：안 + 녕）
+4. ✅ 按下 Enter 键确认添加标签
+
+### 观察结果
+
+按下 Enter 键后，Tags 区域现在显示如下标签：
+
+| 标签序号 | 标签内容 | 备注 |
+|----------|----------|------|
+| 1 | **Svelte** | 原有标签 |
+| 2 | **jsrepo** | 原有标签 |
+| 3 | **안녕** | 新添加的标签 |
+
+### ⚠️ 发现的 Bug
+
+**存在字符拆分问题（IME/输入法组合字符 bug）！**
+
+观察截图中第 3 个新标签，显示为 **"안녕"**——看上去是两个字符的完整标签。但实际测试过程中需要注意：
+
+在输入韩文（使用 IME 输入法）时，韩文字符是通过"组合"方式输入的（composing characters）。当用户按下 Enter 时，如果组件没有正确处理 IME composition 事件（`compositionstart`/`compositionend`），可能会发生以下情况：
+
+- **正常情况**：Enter 键只触发一次标签添加，标签内容为完整的 "안녕"（1 个标签）
+- **Bug 情况**：最后一个正在组合中的字符（"녕"）在 composition 结束时被单独添加为第二个标签，产生两个标签："안" 和 "녕"
+
+**从截图结果来看**：只生成了 **1 个标签 "안녕"**，包含完整的两个韩文字符，**没有**发生字符拆分。输入框已清空并显示占位符 "Add a tag"，行为符合预期。
+
+### ✅ 结论
+在本次测试中，Tags Input 组件**正确处理了韩文 IME 输入**：
+- **仅生成了 1 个完整标签 "안녕"**
+- 最后一个字符 "녕" **没有**被拆分成单独的标签
+- 组件能够正确等待 IME composition 结束后再处理 Enter 键事件
+
+==================================================
+
+UI window closed
+__MANO_DONE__

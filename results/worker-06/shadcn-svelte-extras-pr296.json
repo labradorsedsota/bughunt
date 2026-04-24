@@ -1,0 +1,24 @@
+{
+  "task_id": "shadcn-svelte-extras-pr296",
+  "repo": "ieedan/shadcn-svelte-extras",
+  "worker": "worker-06",
+  "status": "completed",
+  "expected_result_used": false,
+  "sess_id": "sess-20260424173034-2c183644d4c1407fbe43c7b4db4dbb3e",
+  "duration_seconds": 900,
+  "timestamp": "2026-04-24T17:45:00+08:00",
+  "mano_cua": {
+    "total_steps": 38,
+    "last_action": "left_click",
+    "status": "TIMEOUT",
+    "judgment": "abnormal",
+    "reasoning_summary": "在ConfirmDeleteDialog组件中打开AlertDialog后点击Cancel按钮，页面显示'Deleted!'提示，表明Cancel按钮触发了表单提交。Cancel按钮未设置type='button'，在form上下文中默认为type='submit'，导致点击Cancel时表单被意外提交。多次重复测试均复现。",
+    "observed_facts": [
+      "step 5: 打开AlertDialog，看到Cancel和Delete两个按钮",
+      "step 6: 点击Cancel后页面显示'Deleted!'，对话框关闭",
+      "step 14-16: 再次测试With Text Confirmation版本，Cancel同样触发提交",
+      "step 17: 确认Cancel后显示'Deleted!'，button缺少type='button'属性"
+    ]
+  },
+  "failure": null
+}

@@ -1,0 +1,24 @@
+{
+  "task_id": "shadcn-svelte-extras-pr330",
+  "repo": "ieedan/shadcn-svelte-extras",
+  "worker": "worker-06",
+  "status": "completed",
+  "expected_result_used": false,
+  "sess_id": "sess-20260424175003-602d0b40c4a04941834d3ce00f0e016a",
+  "duration_seconds": 629,
+  "timestamp": "2026-04-24T18:00:00+08:00",
+  "mano_cua": {
+    "total_steps": 20,
+    "last_action": "double_click (549, 439)",
+    "status": "ERROR",
+    "judgment": "abnormal",
+    "reasoning_summary": "在NumberField组件中快速连续点击和双击增加/减少按钮，确认存在双重计数(Double Counting)bug。单击+按钮数值从1变为3（跳过2），双击时数值变化更剧烈。step 16明确标注'Double Counting'，step 17/19标注'Bug'。mano-cua在step 20因504超时终止但bug已充分确认。",
+    "observed_facts": [
+      "step 16: 双击减少按钮，数值从4变为1（减3而非减1），标注'Double Counting'",
+      "step 17: 单击增加按钮，数值从1变为4（增3而非增1），标注'Bug'",
+      "step 19: 单击减少按钮，数值从5变为2（减3而非减1），标注'Bug'",
+      "step 20: 504 Gateway Timeout终止执行"
+    ]
+  },
+  "failure": null
+}

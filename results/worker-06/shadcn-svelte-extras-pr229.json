@@ -1,0 +1,24 @@
+{
+  "task_id": "shadcn-svelte-extras-pr229",
+  "repo": "ieedan/shadcn-svelte-extras",
+  "worker": "worker-06",
+  "status": "completed",
+  "expected_result_used": false,
+  "sess_id": "sess-20260424171127-40ae9d8e495c45fba05cce8cf323ca45",
+  "duration_seconds": 180,
+  "timestamp": "2026-04-24T17:11:00+08:00",
+  "mano_cua": {
+    "total_steps": 8,
+    "last_action": "DONE",
+    "status": "COMPLETED",
+    "judgment": "abnormal",
+    "reasoning_summary": "在Tags Input组件中输入韩文后按Enter，韩文IME composition被中断，最后一个字符被拆分为单独标签。组件未正确处理compositionstart/compositionend事件，导致IME输入时Enter键同时结束composition和添加标签，最终字符被拆分。",
+    "observed_facts": [
+      "step 5: 在Tags Input输入框中输入韩文",
+      "step 6: 按Enter添加标签",
+      "step 7: 观察到标签列表中出现拆分的字符",
+      "step 8: 确认Bug - IME composition未被正确处理，Enter导致最后字符拆分为单独标签"
+    ]
+  },
+  "failure": null
+}
