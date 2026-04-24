@@ -1,0 +1,20 @@
+{
+  "task_id": "fontaine-pr351",
+  "repo": "nuxt-modules/fontaine",
+  "worker": "worker-06",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T10:06:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "nuxt-module-build --stub 失败：Cannot use 'import.meta' outside a module，与 fontaine-500 相同（repo级问题）",
+    "attempted": [
+      "npm install --legacy-peer-deps（成功）",
+      "npx nuxt-module-build --stub（import.meta 兼容错误）"
+    ],
+    "recommendation": "fontaine 全系列 nuxt-module-build 与当前 Node/jiti 版本不兼容"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "task_id": "fontaine-500",
+  "repo": "nuxt-modules/fontaine",
+  "worker": "worker-06",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T10:02:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "nuxt-module-build --stub 失败：Cannot use 'import.meta' outside a module (SyntaxError)，导致 nuxi dev playground 无法启动",
+    "attempted": [
+      "npm install --legacy-peer-deps（成功）",
+      "npx nuxt-module-build --stub（报 import.meta 兼容错误）",
+      "npx nuxi prepare playground（同样失败，无法加载 dist/module.mjs）"
+    ],
+    "recommendation": "Node.js 版本或 unbuild/jiti 版本不兼容 import.meta 语法，可能需要降级 Node 或升级 jiti"
+  }
+}

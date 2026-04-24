@@ -1,0 +1,20 @@
+{
+  "task_id": "fontaine-pr405",
+  "repo": "nuxt-modules/fontaine",
+  "worker": "worker-06",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T10:06:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "repo级问题：fontaine 所有 commit 的 nuxt-module-build --stub 均因 import.meta 兼容性失败，playground 无法启动",
+    "attempted": [
+      "fontaine-500 (a14892c4d3) 和 fontaine-pr351 (ff203380d9) 均验证失败",
+      "fontaine-pr405 (a53aa18e9e) 跳过，同一 repo 同一构建管道"
+    ],
+    "recommendation": "fontaine 全系列 nuxt-module-build 与当前 Node/jiti 版本不兼容"
+  }
+}
