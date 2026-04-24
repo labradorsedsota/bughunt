@@ -1,0 +1,21 @@
+{
+  "task_id": "react-notion-x-pr693",
+  "repo": "NotionX/react-notion-x",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T14:40:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "project_blocked",
+    "symptom": "React Notion X demo被原作者在Notion端禁用，所有路由显示'I have disabled the public demo'。已用2个不同commit验证（pr591返回500，pr677返回disabled页面），确认为项目级问题与commit无关。",
+    "attempted": [
+      "commit af400d1175 部署成功(200)但demo内容被禁用",
+      "commit 3991343fdf 部署失败(SSR 500 uuidToId undefined)",
+      "两个commit均使用同一Notion page ID(067dd719a912471ea9a3ac10710e7fdf)，该页面已被作者禁用"
+    ],
+    "recommendation": "需要配置自有Notion页面ID或等作者恢复demo"
+  }
+}

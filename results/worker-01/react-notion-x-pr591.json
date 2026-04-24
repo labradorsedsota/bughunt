@@ -1,0 +1,21 @@
+{
+  "task_id": "react-notion-x-pr591",
+  "repo": "NotionX/react-notion-x",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T14:20:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "SSR 500 - TypeError: Cannot read properties of undefined (reading 'replaceAll') in uuidToId. Notion页面渲染崩溃",
+    "attempted": [
+      "pnpm install + pnpm build + pnpm dev（turbo monorepo）",
+      "minimal example 在 localhost:3000 启动成功但返回 500",
+      "检查HTML确认SSR阶段渲染失败，Block组件中uuid为undefined"
+    ],
+    "recommendation": "需要外部 Notion API 数据，且渲染代码有 bug 导致 SSR 500"
+  }
+}
