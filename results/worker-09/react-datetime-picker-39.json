@@ -1,0 +1,21 @@
+{
+  "task_id": "react-datetime-picker-39",
+  "repo": "wojtekmaj/react-datetime-picker",
+  "worker": "worker-09",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T20:00:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "buggy_commit 9355059e95 not found in repo (git fetch + git log --all 搜索均未找到)",
+    "attempted": [
+      "git checkout 9355059e95（error: pathspec did not match）",
+      "git fetch origin 9355059e95（fatal: couldn't find remote ref）",
+      "git fetch --all + git log --oneline --all | grep 9355059（无结果，repo共977个commit）"
+    ],
+    "recommendation": "buggy_commit 可能已被 force-push 覆盖或不存在，跳过"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "react-datetime-picker-pr132",
+  "repo": "wojtekmaj/react-datetime-picker",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260424201549-e008ad50f12d480e9b92228e988ecf33",
+  "expected_result_used": true,
+  "duration_seconds": 180,
+  "timestamp": "2026-04-24T20:15:49+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 9,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "佛历年份显示bug已复现：切换到th-TH locale后，日历弹出框正确显示2569佛历年(2026+543)，但日期输入文本框错误显示2560(差9年)。同一组件中calendar popup与text input年份不一致，text input层面的佛历年份转换有误。",
+    "last_reasoning": "The screenshot clearly confirms the bug. The calendar popup header shows เมษายน 2569 (April 2569 BE - correct Buddhist Era year for 2026 CE), but the date input text field shows 24/04/2560 20:15 (2560 is WRONG - should be 2569). The year 2560 in Buddhist Era = 2017 CE, which is 9 years ago. This confirms the bug: React Datetime Picker in th-TH locale cannot correctly parse and display Buddhist Era year in the text input field."
+  }
+}

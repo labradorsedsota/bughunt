@@ -1,0 +1,20 @@
+{
+  "task_id": "react-datetime-picker-81",
+  "repo": "wojtekmaj/react-datetime-picker",
+  "worker": "worker-09",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T20:02:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "buggy_commit f8ce0a2cc2 not found in repo (git cat-file + git fetch origin均找不到)",
+    "attempted": [
+      "git cat-file -t f8ce0a2cc2（NOT FOUND）",
+      "git fetch origin f8ce0a2cc2（fatal: couldn't find remote ref）"
+    ],
+    "recommendation": "buggy_commit 可能已被 force-push 覆盖或不存在，跳过"
+  }
+}
