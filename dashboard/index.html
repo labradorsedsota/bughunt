@@ -104,7 +104,7 @@ tr:hover{background:rgba(255,255,255,.04)}
 
   <div class="stats" id="stats"></div>
 
-  <div class="section-title">👷 Worker 概览 <span style="font-size:12px;color:var(--text2);font-weight:400">耗时为 CUA 任务耗时，仅供参考</span></div>
+  <div class="section-title">👷 Worker 概览</div>
   <div class="workers" id="workers"></div>
 
   <div class="section-title">📋 任务列表</div>
@@ -143,7 +143,7 @@ tr:hover{background:rgba(255,255,255,.04)}
           <th onclick="sortBy('status')">状态 <span class="sort-arrow">↕</span></th>
           <th onclick="sortBy('worker')">Worker <span class="sort-arrow">↕</span></th>
           <th onclick="sortBy('result')">结果 <span class="sort-arrow">↕</span></th>
-          <th onclick="sortBy('duration_seconds')">耗时 <span class="sort-arrow">↕</span></th>
+
           <th onclick="sortBy('sess_id')">Session <span class="sort-arrow">↕</span></th>
           <th>描述</th>
         </tr>
@@ -254,13 +254,13 @@ function renderStats() {
 
 function renderWorkers() {
   const wStats = {};
-  WORKERS.forEach(w => { wStats[w] = { total: 0, completed: 0, failed: 0, totalTime: 0, timeCount: 0 }; });
+  WORKERS.forEach(w => { wStats[w] = { total: 0, completed: 0, failed: 0 }; });
   allTasks.forEach(t => {
     if (t.worker && wStats[t.worker]) {
       wStats[t.worker].total++;
       if (t.status === 'completed') wStats[t.worker].completed++;
       if (t.status === 'failed' || t.status === 'blocked') wStats[t.worker].failed++;
-      if (t.duration_seconds) { wStats[t.worker].totalTime += t.duration_seconds; wStats[t.worker].timeCount++; }
+
     }
   });
 
@@ -273,15 +273,13 @@ function renderWorkers() {
   document.getElementById('workers').innerHTML = activeWorkers.map(w => {
     const s = wStats[w];
     const pct = s.total ? (s.completed / s.total * 100).toFixed(0) : 0;
-    const avg = s.timeCount ? formatDuration(s.totalTime / s.timeCount) : '-';
     const rate = s.total ? (s.completed / s.total * 100).toFixed(0) + '%' : '-';
     return `
       <div class="worker-card">
         <div class="name">🤖 ${w}</div>
         <div class="meta">
           完成: ${s.completed} / ${s.total}<br>
-          成功率: ${rate}<br>
-          平均耗时: ${avg}
+          成功率: ${rate}
         </div>
         <div class="bar"><div class="bar-fill" style="width:${pct}%"></div></div>
       </div>`;
@@ -330,7 +328,7 @@ function renderTable() {
       <td><span class="badge badge-${t.status}">${STATUS_LABELS[t.status] || t.status}</span></td>
       <td class="text-muted">${t.worker || '-'}</td>
       <td>${t.result ? `<span class="badge badge-${t.result}">${RESULT_LABELS[t.result] || t.result}</span>` : '-'}</td>
-      <td class="mono">${t.duration_seconds ? formatDuration(t.duration_seconds) : '-'}</td>
+
       <td class="mono">${t.sess_id && t.sess_id !== 'None' ? `<span class="sess-cell" data-sess="${escHtml(t.sess_id)}" style="display:inline-block;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom;cursor:default">${escHtml(t.sess_id)}</span>` : '-'}</td>
       <td class="truncate" title="${escHtml(t.test_description_zh || '')}">${escHtml(t.test_description_zh || '')}</td>
     </tr>
@@ -347,12 +345,6 @@ function sortBy(key) {
 }
 
 function shortRepo(repo) { return repo ? repo.split('/').pop() : '-'; }
-function formatDuration(s) {
-  s = Math.round(s);
-  if (s < 60) return s + 's';
-  const m = Math.floor(s / 60), rs = s % 60;
-  return m + 'm' + (rs ? rs + 's' : '');
-}
 function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
 // Tooltip for session ID
