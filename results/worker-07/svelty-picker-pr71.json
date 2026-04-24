@@ -1,0 +1,10 @@
+{
+  "task_id": "svelty-picker-pr71",
+  "repo": "mskocik/svelty-picker",
+  "worker": "worker-07",
+  "status": "failed",
+  "reason": "deploy_failed",
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T07:50:00-07:00",
+  "notes": "项目使用 Svelte 3 + SvelteKit@next + Vite 3 的旧版组合。SvelteKit@next 解析到 1.0.0 版本与 Vite 3 不兼容（isCSSRequest 导出缺失）。升级 Vite 到 4.x 后，svelte.config.js 中的 trailingSlash、prerender.default、package 选项均不被 SvelteKit 1.0 支持。移除所有过时配置后 Vite 启动成功，但 SvelteKit 路由全部返回 404（旧版路由结构 __layout.svelte 与 1.0 的 +layout.svelte 不兼容）。无法在合理时间内部署此 commit。"
+}
