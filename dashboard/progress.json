@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-04-24 22:08:12",
+  "last_updated": "2026-04-24 23:04:41",
   "summary": {
     "total": 3373,
-    "completed": 757,
-    "failed": 699,
+    "completed": 785,
+    "failed": 723,
     "blocked": 0,
-    "pending": 1917
+    "pending": 1865
   },
   "tasks": [
     {
@@ -8785,33 +8785,58 @@
     },
     {
       "task_id": "google-fonts-84",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "unclear",
+      "sess_id": "sess-20260424210726-a459d8e3a86e40b5831329120072e405",
+      "repo": "nuxt-modules/google-fonts",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "任务要求修改nuxt.config.js将head从属性改为方法形式，但浏览器内无文件编辑入口。mano-cua观察到页面标题'Google Fonts'及'Roboto'和'Mulish'文字正常显示，但无法在浏览器内完成配置文件修改操作"
     },
     {
       "task_id": "google-fonts-pr161",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "abnormal",
+      "sess_id": "sess-20260424211957-85b61826a8594466ad317586d9577f18",
+      "repo": "nuxt-modules/google-fonts",
+      "duration_seconds": 720,
+      "error": "",
+      "result_summary": "HTML head中存在两个重复的nuxt-google-fonts CSS link标签，第一个路径正确可加载，第二个路径包含绝对系统路径返回404。字体声明存在重复加载风险，模块在处理路径时产生了错误"
     },
     {
       "task_id": "google-fonts-pr21",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "abnormal",
+      "sess_id": "sess-20260424214210-f32a26a4b8f74266bd45354376afa6fd",
+      "repo": "nuxt-modules/google-fonts",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "Google Fonts通过media=print+onload异步加载（FOUT），导致页面先显示系统默认字体再切换为Roboto/Lato。源码确认字体CSS使用非阻塞方式加载，字体闪烁机制明确存在"
     },
     {
       "task_id": "google-fonts-pr25",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "abnormal",
+      "sess_id": "sess-20260424222506-a8511a5a69864afaa747467250e3acde",
+      "repo": "nuxt-modules/google-fonts",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "Google Fonts通过CSS link异步加载（media=print+onload技巧）而非task要求的script标签方式。字体不阻塞渲染、无白屏，但使用的是link标签而非script标签加载，与issue fix目标（use script to load fonts）不符。存在FOUT风险"
     },
     {
       "task_id": "google-fonts-pr28",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "abnormal",
+      "sess_id": "sess-20260424223908-ecc4701ec81f4aa895eb0e61fa48fdeb",
+      "repo": "nuxt-modules/google-fonts",
+      "duration_seconds": 720,
+      "error": "",
+      "result_summary": "两个crossorigin属性bug：(1) preconnect标签crossorigin='true'是无效值，应为'anonymous'；(2) preload标签完全缺少crossorigin属性，导致预加载资源无法复用（双重请求）。字体可能因CORS问题无法正常加载"
     },
     {
       "task_id": "graphviz-visual-editor-215",
@@ -9638,27 +9663,47 @@
     },
     {
       "task_id": "idraw-pr328",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "idrawjs/idraw",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "idraw-pr355",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "idrawjs/idraw",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "idraw-pr363",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "idrawjs/idraw",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "idraw-pr99",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "idrawjs/idraw",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "illa-builder-2090",
@@ -11204,27 +11249,47 @@
     },
     {
       "task_id": "kubebox-60",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "astefanutti/kubebox",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "kubebox-76",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "astefanutti/kubebox",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "kubebox-pr101",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "astefanutti/kubebox",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "kubebox-pr65",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "astefanutti/kubebox",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "kun-galgame-nuxt4-82",
@@ -15268,33 +15333,58 @@
     },
     {
       "task_id": "ngx-progressbar-386",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": "sess-20260424220947-4c57e03fe7ff4d3fa3645dbc557633c1",
+      "repo": "MurhafSousli/ngx-progressbar",
+      "duration_seconds": 602,
+      "error": "",
+      "result_summary": "页面正常加载，进度条组件存在且手动控制(start/complete)正常。但发现bug：1)HTTP请求触发进度条后，请求返回401错误(reqres.in API需要x-api-key)，进度条卡在加载状态未完成/恢复 2)Console有2个错误(401 HttpErrorResponse + apple-mobile-web-app-capable deprecation) 3)testHttp()方法缺少catchError处理，HTTP失败后按钮状态无法恢复。effect内部未发现NG0600等专属错误。"
     },
     {
       "task_id": "ngx-progressbar-66",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "deploy_failed",
+      "repo": "MurhafSousli/ngx-progressbar",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "旧版Angular项目(Angular 4/5/9)，Node.js 23不兼容。Angular9 webpack报ERR_OSSL_EVP_UNSUPPORTED(OpenSSL hash不支持)，Angular4/5更无法运行。仅Angular14(task 386)可部署。"
     },
     {
       "task_id": "ngx-progressbar-88",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "deploy_failed",
+      "repo": "MurhafSousli/ngx-progressbar",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "旧版Angular项目(Angular 4/5/9)，Node.js 23不兼容。Angular9 webpack报ERR_OSSL_EVP_UNSUPPORTED(OpenSSL hash不支持)，Angular4/5更无法运行。仅Angular14(task 386)可部署。"
     },
     {
       "task_id": "ngx-progressbar-pr119",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "deploy_failed",
+      "repo": "MurhafSousli/ngx-progressbar",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "旧版Angular项目(Angular 4/5/9)，Node.js 23不兼容。Angular9 webpack报ERR_OSSL_EVP_UNSUPPORTED(OpenSSL hash不支持)，Angular4/5更无法运行。仅Angular14(task 386)可部署。"
     },
     {
       "task_id": "ngx-progressbar-pr278",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "deploy_failed",
+      "repo": "MurhafSousli/ngx-progressbar",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "旧版Angular项目(Angular 4/5/9)，Node.js 23不兼容。Angular9 webpack报ERR_OSSL_EVP_UNSUPPORTED(OpenSSL hash不支持)，Angular4/5更无法运行。仅Angular14(task 386)可部署。"
     },
     {
       "task_id": "ngx-quill-pr1293",
@@ -16319,27 +16409,47 @@
     },
     {
       "task_id": "nuxt-graphql-client-186",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "Diizzayy/nuxt-graphql-client",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "nuxt-graphql-client-262",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "Diizzayy/nuxt-graphql-client",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "nuxt-graphql-client-270",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "Diizzayy/nuxt-graphql-client",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "nuxt-graphql-client-486",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": "",
+      "repo": "Diizzayy/nuxt-graphql-client",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "nuxt-i18n-micro-211",
@@ -16814,33 +16924,58 @@
     },
     {
       "task_id": "obsidian-univer-87",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-05",
+      "result": "",
+      "sess_id": null,
+      "repo": "dream-num/obsidian-univer",
+      "duration_seconds": 0,
+      "error": "Obsidian插件项目，npm run dev只执行vite build --watch输出dist/目录，不启动web dev server。curl http://localhost:5173返回000。该项目需要Obsidian桌面应用才能运行和测试，mano-cua无法在浏览器中操作",
+      "result_summary": "Obsidian插件项目，npm run dev只执行vite build --watch输出dist/目录，不启动web dev server。curl http://localhost:5173返回000。该项目需要Obsidian桌面应用才能运行和测试，mano-cua无法在浏览器中操作"
     },
     {
       "task_id": "obsidian-univer-pr28",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-05",
+      "result": "",
+      "sess_id": null,
+      "repo": "dream-num/obsidian-univer",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "obsidian-univer-pr46",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-05",
+      "result": "",
+      "sess_id": null,
+      "repo": "dream-num/obsidian-univer",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "obsidian-univer-pr55",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-05",
+      "result": "",
+      "sess_id": null,
+      "repo": "dream-num/obsidian-univer",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "obsidian-univer-pr6",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-05",
+      "result": "",
+      "sess_id": null,
+      "repo": "dream-num/obsidian-univer",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "octo-101",
@@ -17565,27 +17700,47 @@
     },
     {
       "task_id": "page-assist-684",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "n4ze3m/page-assist",
+      "duration_seconds": 0,
+      "error": "需要 Ollama/LM Studio 等外部 AI 服务提供嵌入模型，浏览器扩展项目无 localhost web 页面",
+      "result_summary": "需要 Ollama/LM Studio 等外部 AI 服务提供嵌入模型，浏览器扩展项目无 localhost web 页面"
     },
     {
       "task_id": "page-assist-800",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "n4ze3m/page-assist",
+      "duration_seconds": 0,
+      "error": "需要支持 vision 的 AI 模型，浏览器扩展项目无 localhost web 页面",
+      "result_summary": "需要支持 vision 的 AI 模型，浏览器扩展项目无 localhost web 页面"
     },
     {
       "task_id": "page-assist-pr134",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "n4ze3m/page-assist",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "page-assist-pr323",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "n4ze3m/page-assist",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "page-assist-pr74",
@@ -19899,27 +20054,47 @@
     },
     {
       "task_id": "react-photo-studio-112",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "normal",
+      "sess_id": "sess-20260424214610-ad3696bf00894e0891610e8463065621",
+      "repo": "chase-manning/react-photo-studio",
+      "duration_seconds": 360,
+      "error": "",
+      "result_summary": "菜单展开前后UI元素位置保持稳定无跳动：File/Edit菜单以overlay叠加方式展开，左侧工具栏(x=0~40px)、画布区域(x=42~940px)、右侧面板(Color/Properties/Layers,x=960~1280px)、选项栏、标签栏位置完全不变。mano-cua精确对比了菜单展开前后各元素y/x坐标，确认无位移。"
     },
     {
       "task_id": "react-photo-studio-113",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": "sess-20260424215636-013e640dd70f45ebb472158d1736c1df",
+      "repo": "chase-manning/react-photo-studio",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "mano-cua花费45步反复放大检查Opacity下拉箭头(v)位置。在多级缩放下观测：Opacity v按钮宽约40px，v字符宽约14px，左padding约12px右padding约12px，水平方向看起来大致居中。但pixel级别偏移(1-2px)无法通过截图视觉检查确认。与Mode下拉v按钮对比，结构类似。因无法确定是否存在轻微偏移，标记unclear。"
     },
     {
       "task_id": "react-photo-studio-118",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "normal",
+      "sess_id": "sess-20260424220910-44da7f320ada4c96bca6ffedc52cb7df",
+      "repo": "chase-manning/react-photo-studio",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "在Chrome中找到4个社交媒体图标(Twitter/Facebook/Instagram/GitHub)位于应用顶部header栏右侧。mano-cua在多级缩放(100%-250%)下反复检查图标形状比例：Twitter鸟形图标、Facebook f圆形图标、Instagram相机图标、GitHub octocat图标均未见明显压缩变形，尺寸大致一致，间距均匀。此bug标题明确指出在Firefox和Safari中出现(Socials Squashed on Firefox and Safari)，Chrome中未复现。"
     },
     {
       "task_id": "react-photo-studio-79",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": "sess-20260424222120-6678a0a736b2498ab5b25a442938645b",
+      "repo": "chase-manning/react-photo-studio",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "mano-cua成功在画布上绘制了横线和竖线，窗口调整前绘制位置与鼠标位置一致。但在尝试调整浏览器窗口大小时遇到困难：Chrome窗口处于最大化状态，mano-cua花费20+步尝试退出全屏/最大化（点击绿色按钮、拖标题栏、使用macOS窗口菜单等），最终在选择macOS「移动与调整大小→右侧」时超时。未能完成窗口调整后的二次绘制验证。"
     },
     {
       "task_id": "react-player-1957",
@@ -23362,51 +23537,91 @@
     },
     {
       "task_id": "svelty-picker-pr124",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "unclear",
+      "sess_id": "sess-20260424220947-ba7ac225d8174f409917b6f4c057e72d",
+      "repo": "mskocik/svelty-picker",
+      "duration_seconds": 540,
+      "error": "",
+      "result_summary": "无法完整测试日期范围排序问题。'Modes & formats'页面（displayFormat设置所在页面）返回500 Internal Error，'Working with dates'页面同样返回500错误。在首页的 Date range picker 中成功选择了 8月31日到9月1日的范围，日历确认选择后右侧日历跳转到10月（异常行为），但无法验证自定义 displayFormat='j. n. Y' 格式下的日期排序，因为格式设置页面全部崩溃。"
     },
     {
       "task_id": "svelty-picker-pr155",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260424222148-1558ad130c954e52bb3ea2f2396d4210",
+      "repo": "mskocik/svelty-picker",
+      "duration_seconds": 480,
+      "error": "",
+      "result_summary": "CSS 变量 --sdt-bg-selected 未正确控制选中状态背景色。在 DevTools Elements 面板中为 svelty-picker 根元素设置 --sdt-bg-selected: red 后，日历和时钟面板中选中元素（如时钟面板的'00'小时指示器）背景色仍为默认深蓝色，未变为红色。说明 --sdt-table-selected-bg 和 --sdt-clock-selected-bg 未正确回退使用 --sdt-bg-selected 变量值。"
     },
     {
       "task_id": "svelty-picker-pr156",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "normal",
+      "sess_id": "sess-20260424223218-ea23c575b0af43a49ef93279f62d64bf",
+      "repo": "mskocik/svelty-picker",
+      "duration_seconds": 540,
+      "error": "",
+      "result_summary": "主题页面上所有 CSS 变量名称正确无误。页面展示的26个CSS变量（如 --sdt-bg-main、--sdt-bg-selected、--sdt-clock-selected-bg 等）全部使用统一的 --sdt- 前缀，与组件源码中实际使用的变量名完全一致。使用 Chrome 搜索功能检查了 --std-（反转字母）、--sdt_（下划线）、--sat-（错位）等常见拼写错误模式，均返回 0 匹配。变量名命名规范统一，无拼写错误或名称不匹配。"
     },
     {
       "task_id": "svelty-picker-pr71",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": "",
+      "repo": "mskocik/svelty-picker",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "swagger-2010",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260424212224-05e66a84f6804749b8d584371c649e97",
+      "repo": "nestjs/swagger",
+      "duration_seconds": 240,
+      "error": "",
+      "result_summary": "Swagger UI 页面顶部 Explorer 搜索栏/输入框完全缺失。标准 Swagger UI 应在顶部黑色导航栏右侧显示 Explorer URL 输入框和 Explore 按钮，但当前页面中该区域完全未渲染。API 端点列表（cats 分组）正常显示，但 Explorer 功能不可用。"
     },
     {
       "task_id": "swagger-2945",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "normal",
+      "sess_id": "sess-20260424212840-c61adb0738b34a89a060c6429f801060",
+      "repo": "nestjs/swagger",
+      "duration_seconds": 780,
+      "error": "",
+      "result_summary": "Swagger UI 正确展示了嵌套对象数组的 Query 参数结构。rawArray 参数显示为 array<object>，展开 Schema 可见子对象包含 foo(string,required) 属性。filter 参数显示为 object 类型，Schema 展示 name(string) 和 age(number) 子属性。letters 参数显示为 array 类型引用 Letter enum(A/B/C)。raw 参数显示为 object 类型含 foo 属性。所有嵌套结构均正确展示，未丢失子属性或类型信息。"
     },
     {
       "task_id": "swagger-2946",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "normal",
+      "sess_id": "sess-20260424214409-5558ba4f52e342dfaf23a7184f2b8cce",
+      "repo": "nestjs/swagger",
+      "duration_seconds": 660,
+      "error": "",
+      "result_summary": "Swagger UI Schema 部分正确展示了所有 DTO 的属性。CreateCatDto 显示了 name、age、_breed、tags、createdAt、urls、options、rawDefinition、enumWithDescription、enum、enumArr、enumWithRef、tag、xEnumTest 等完整属性列表。Cat Schema 同样完整展示了 name、age、breed、_tags、createdAt、urls、_options、rawDefinition、enum、enumArr、enumWithRef、oneOfExample、kittenIds 等所有字段及其类型信息。Schema 定义中的字段类型、描述信息均正确呈现，属性未丢失。"
     },
     {
       "task_id": "swagger-3581",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260424215719-1abbd4b1cf5847a2b3e6165ea92aa307",
+      "repo": "nestjs/swagger",
+      "duration_seconds": 180,
+      "error": "",
+      "result_summary": "/api-docs 正常显示项目 API 文档（cats 端点）。/api-docs/api-docs 返回 404（正确）。但 /api-docs/LICENSE 返回 200 并成功下载了 Apache 2.0 LICENSE 文件（11.1KB），swagger-ui-dist 包目录下的 LICENSE 文件被作为静态资源暴露。同样 /api-docs/package.json 也返回了 swagger-ui 的 package.json 内容。不必要的静态资源被暴露，存在安全隐患。"
     },
     {
       "task_id": "tabler-icons-1067",
@@ -24925,33 +25140,58 @@
     },
     {
       "task_id": "unplugin-icons-178",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "normal",
+      "sess_id": "sess-20260424215020-7153bc2bd04646e3bad4c2d13258013c",
+      "repo": "unplugin/unplugin-icons",
+      "duration_seconds": 407,
+      "error": "",
+      "result_summary": "SVG图标默认width/height确认为1.2em，与scale:1.2配置一致。通过DevTools检查15个标准图标(Carbon/FontAwesome/MDI/Twemoji/ICONES等)均为1.2em×1.2em，物理渲染19.19px≈16px×1.2。发现一个轻微问题：索引17号SVG的width属性缺失(null)只有height=1.2em，但不影响整体scale功能正确性。"
     },
     {
       "task_id": "unplugin-icons-338",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "deploy_failed",
+      "repo": "unplugin/unplugin-icons",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "unplugin-icons是vite/webpack插件项目(非独立web应用)。commit d21ed80a0d的构建失败(FileSystemIconLoader export not found)且examples依赖vite@2.9/4.5存在ESM/CJS兼容问题。Node18/23均无法启动dev server。仅commit cf7fff0436(task 178)的vue3 example可运行。"
     },
     {
       "task_id": "unplugin-icons-pr316",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "deploy_failed",
+      "repo": "unplugin/unplugin-icons",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "unplugin-icons是vite/webpack插件项目(非独立web应用)。commit 7c1997494f的构建失败(FileSystemIconLoader export not found)且examples依赖vite@2.9/4.5存在ESM/CJS兼容问题。Node18/23均无法启动dev server。仅commit cf7fff0436(task 178)的vue3 example可运行。"
     },
     {
       "task_id": "unplugin-icons-pr320",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "deploy_failed",
+      "repo": "unplugin/unplugin-icons",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "unplugin-icons是vite/webpack插件项目(非独立web应用)。commit 731906f4b9的构建失败(FileSystemIconLoader export not found)且examples依赖vite@2.9/4.5存在ESM/CJS兼容问题。Node18/23均无法启动dev server。仅commit cf7fff0436(task 178)的vue3 example可运行。"
     },
     {
       "task_id": "unplugin-icons-pr356",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "deploy_failed",
+      "repo": "unplugin/unplugin-icons",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "unplugin-icons是vite/webpack插件项目(非独立web应用)。commit 30df7b7df6的构建失败(FileSystemIconLoader export not found)且examples依赖vite@2.9/4.5存在ESM/CJS兼容问题。Node18/23均无法启动dev server。仅commit cf7fff0436(task 178)的vue3 example可运行。"
     },
     {
       "task_id": "uppload-19",
@@ -26185,27 +26425,47 @@
     },
     {
       "task_id": "vuetable-2-pr17",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": "sess-20260424212118-bbb5d16ec1664d309f87b9d95e5871ab",
+      "repo": "ratiw/vuetable-2",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "表格显示No relevant data(无后端API数据)，但表头排序功能可测试。Full Name/Email/Nickname/Birthdate/Gender列均可排序，点击切换升序/降序图标正常。表格最右侧有一空白列(疑似custom-actions/__component类型)，无标题文本也无排序图标。因无数据且无法确认__component字段的排序图标bug是否存在，标记unclear。"
     },
     {
       "task_id": "vuetable-2-pr266",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": "sess-20260424213356-e55b3993ce524801b294ed727f82decc",
+      "repo": "ratiw/vuetable-2",
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "表格显示No Data Available(后端API不可用，vuetable.ratiw.com已下线)，无数据行可供滚动测试。Settings中无固定表头选项，表头列(No./checkbox/Detail/Full Name/Email/Nickname/Birthdate/Gender/Actions)可见但无法验证固定表头和列宽功能。"
     },
     {
       "task_id": "vuetable-2-pr66",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "ratiw/vuetable-2",
+      "duration_seconds": 0,
+      "error": "vuetable-2 demo依赖外部API(vuetable.ratiw.com)加载数据，该API已下线，表格显示No Data Available，无法测试任何数据交互功能",
+      "result_summary": "vuetable-2 demo依赖外部API(vuetable.ratiw.com)加载数据，该API已下线，表格显示No Data Available，无法测试任何数据交互功能"
     },
     {
       "task_id": "vuetable-2-pr9",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "ratiw/vuetable-2",
+      "duration_seconds": 0,
+      "error": "vuetable-2 demo依赖外部API(vuetable.ratiw.com)加载数据，该API已下线，表格显示No Data Available",
+      "result_summary": "vuetable-2 demo依赖外部API(vuetable.ratiw.com)加载数据，该API已下线，表格显示No Data Available"
     },
     {
       "task_id": "vuetify-module-95",
