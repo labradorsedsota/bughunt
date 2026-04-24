@@ -1,0 +1,19 @@
+{
+  "task_id": "qinglong-pr2833",
+  "repo": "whyour/qinglong",
+  "worker": "worker-08",
+  "status": "completed",
+  "sess_id": "",
+  "expected_result_used": true,
+  "duration_seconds": 60,
+  "timestamp": "2026-04-24T21:55:00+08:00",
+  "mano_cua": {
+    "status": "SKIPPED",
+    "total_steps": 0,
+    "last_action": "N/A",
+    "result": "unclear",
+    "result_summary": "无法部署。青龙面板是 Docker 化全栈应用，后端启动后 http/grpc worker 循环崩溃（File is not defined），需要 Docker 环境和系统级依赖。裸机 macOS 上无法正常运行。",
+    "last_reasoning": "Qinglong panel requires Docker environment. Backend crashes with 'File is not defined' error in http/grpc workers when running on bare macOS."
+  },
+  "deploy_notes": "commit d01ec3b310. Cannot deploy on bare macOS - requires Docker."
+}

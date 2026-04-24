@@ -1,0 +1,19 @@
+{
+  "task_id": "github-readme-activity-graph-pr9",
+  "repo": "Ashutosh00710/github-readme-activity-graph",
+  "worker": "worker-08",
+  "status": "completed",
+  "sess_id": "",
+  "expected_result_used": true,
+  "duration_seconds": 60,
+  "timestamp": "2026-04-24T21:45:00+08:00",
+  "mano_cua": {
+    "status": "SKIPPED",
+    "total_steps": 0,
+    "last_action": "N/A",
+    "result": "unclear",
+    "result_summary": "无法测试。此旧 commit (4e78ee7b11) 使用已停服的 github-calendar.herokuapp.com REST API 获取贡献数据（非 GraphQL），API 请求超时无法生成图表。且此版本无前端 index.html，只有 /graph API 端点。与 case-16 完全相同的外部依赖问题。",
+    "last_reasoning": "External API (github-calendar.herokuapp.com) is permanently offline. Cannot generate any graph to test axis label alignment."
+  },
+  "deploy_notes": "commit 4e78ee7b11. Express+nodemon on port 3000. herokuapp API unreachable - same issue as case-16."
+}
