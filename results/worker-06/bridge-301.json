@@ -1,0 +1,18 @@
+{
+  "task_id": "bridge-301",
+  "repo": "nuxt/bridge",
+  "worker": "worker-06",
+  "status": "completed",
+  "sess_id": "sess-20260424203536-948a0edd15da4128b1b69ffbd7a7a7c1",
+  "expected_result_used": true,
+  "duration_seconds": 300,
+  "timestamp": "2026-04-25T05:35:36+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 15,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "首页正常渲染无500错误（SSR工作、Vue状态正常、路由正常），但页面title显示'undefined - Nuxt Bridge Playground'，title变量未正确解析，可能是Content Module与Nuxt Bridge的head管理兼容问题",
+    "last_reasoning": "Page renders content correctly (Hello Vue 2!, State: 123, Rendered on server: true, Links, Route: /), no 500 error. But page title is 'undefined - Nuxt Bridge Playground' - the dynamic title portion resolves to undefined. This is a functional bug in the Nuxt Bridge + Content Module combination's head/meta management."
+  }
+}
