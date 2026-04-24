@@ -3,16 +3,16 @@
   "repo": "builderz-labs/mission-control",
   "worker": "worker-02",
   "status": "completed",
-  "sess_id": "sess-20260423203822-a5a484f58aad43249f6f6af5e22436e0",
+  "sess_id": "sess-20260424113505-064d4d9676894f31b69d91a458de5ac7",
   "expected_result_used": true,
   "duration_seconds": 120,
-  "timestamp": "2026-04-23T20:50:00+08:00",
+  "timestamp": "2026-04-24T11:37:00+08:00",
   "mano_cua": {
-    "status": "ERROR",
-    "total_steps": 3,
-    "last_action": "left_click (609, 33)",
-    "result": "unclear",
-    "result_summary": "mano-cua在3步后遇504 Gateway Timeout API错误中断。测试需Docker环境+OpenClaw网关来复现WebSocket连接bug，当前环境无Docker/网关。step 3观察到首页显示'Gateway connected'绿色指示灯，但无法完成完整测试。",
-    "last_reasoning": "Mission Control首页右侧设置向导可见，左侧显示'Gateway connected'(绿色点)和'Gateway: Mission Control registered'(绿色点)。mano-cua API在此步后返回504超时。"
+    "status": "COMPLETED",
+    "total_steps": 8,
+    "last_action": "DONE",
+    "result": "normal",
+    "result_summary": "Mission Control首页Gateway Connection显示Status: Connected（绿色），Host: 127.0.0.1:18789，WebSocket: Live（绿色）stable v2026.6.14。网关整体状态Online，无离线错误或WebSocket错误信息。页面正常显示网关控制面板指标。",
+    "last_reasoning": "Mission Control首页成功显示网关连接状态：Gateway Connection Status=Connected（绿色），Host=127.0.0.1:18789，WebSocket=Live（绿色）stable installed v2026.6.14。Gateway Control Plane显示Gateway=Online（绿色），Sessions=1，System Load=49%。存在3个通知横幅：版本更新提示、OpenClaw更新提示、状态完整性警告。网关连接正常，WebSocket连接正常。"
   }
 }

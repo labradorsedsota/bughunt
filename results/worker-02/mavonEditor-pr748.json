@@ -2,18 +2,17 @@
   "task_id": "mavonEditor-pr748",
   "repo": "hinesboy/mavonEditor",
   "worker": "worker-02",
-  "status": "failed",
-  "sess_id": null,
-  "expected_result_used": false,
-  "duration_seconds": 0,
-  "timestamp": "2026-04-23T22:18:00+08:00",
-  "mano_cua": null,
-  "failure": {
-    "type": "mano_cua_error",
-    "symptom": "mano-cua API今晚持续不稳定（同批次多张卡受影响）",
-    "attempted": [
-      "确认部署流程可行(同repo其他commit均成功编译)"
-    ],
-    "suggestion": "等mano API恢复稳定后重跑"
+  "status": "completed",
+  "sess_id": "sess-20260424124820-a3fb3485702243e0b4e2ffe7964a9273",
+  "expected_result_used": true,
+  "duration_seconds": 120,
+  "timestamp": "2026-04-24T12:50:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 6,
+    "last_action": "DONE",
+    "result": "normal",
+    "result_summary": "图片上传功能正常：点击工具栏图片图标→弹出下拉菜单（添加图片链接/上传图片）→点击上传图片→系统文件选择器正常弹出→取消后页面恢复正常显示'未选择任何文件'提示。全流程无JS错误、无页面异常、无视觉缺陷。",
+    "last_reasoning": "点击取消关闭文件选择器后页面恢复正常，预览区域顶部显示'未选择任何文件'反馈。图片图标悬停弹出下拉菜单正常，点击上传图片成功触发macOS原生文件选择器，整个流程无JavaScript错误、无页面异常。"
   }
 }

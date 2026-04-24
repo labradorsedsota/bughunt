@@ -2,19 +2,17 @@
   "task_id": "mavonEditor-pr661",
   "repo": "hinesboy/mavonEditor",
   "worker": "worker-02",
-  "status": "failed",
-  "sess_id": null,
-  "expected_result_used": false,
-  "duration_seconds": 0,
-  "timestamp": "2026-04-23T22:18:00+08:00",
-  "mano_cua": null,
-  "failure": {
-    "type": "mano_cua_error",
-    "symptom": "mano-cua API今晚持续不稳定：频繁出现session创建后step endpoint 404、或启动后长时间(5-10分钟)无任何step输出。同批次mission-control-368/456、mavonEditor多张卡均遇到此问题",
-    "attempted": [
-      "部署成功(webpack compiled, port 9090 ready)",
-      "多次重试mano-cua均遇API不稳定"
-    ],
-    "suggestion": "等mano API恢复稳定后重跑"
+  "status": "completed",
+  "sess_id": "sess-20260424121317-697689021ab94fa9a9ea8b0c18ff2682",
+  "expected_result_used": true,
+  "duration_seconds": 600,
+  "timestamp": "2026-04-24T12:23:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_TIMEOUT",
+    "total_steps": 37,
+    "last_action": "double_click",
+    "result": "unclear",
+    "result_summary": "Test1(无选中文本插入代码块): 点击代码块按钮后插入了```language\\n\\n```格式代码块，'language'文字处于选中状态（蓝色高亮），符合预期行为。Test2(选中文本插入代码块): 输入'HelloWorld'后尝试用Shift+Home选中文本，但触发了全文选中，后续尝试double_click重新选中时mano-cua超时终止，未能完成Test2观察。",
+    "last_reasoning": "Test1结果符合预期：代码块插入格式为```language + 空行 + ```，language文字被选中。Test2未能完成：在编辑器中输入HelloWorld后尝试选中文本时Shift+Home选中了全部内容而非仅HelloWorld，后续尝试double_click选中单词时被终止。"
   }
 }

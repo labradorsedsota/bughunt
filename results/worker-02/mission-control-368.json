@@ -2,19 +2,17 @@
   "task_id": "mission-control-368",
   "repo": "builderz-labs/mission-control",
   "worker": "worker-02",
-  "status": "failed",
-  "expected_result_used": false,
-  "sess_id": null,
-  "duration_seconds": 600,
-  "timestamp": "2026-04-23T21:02:00+08:00",
-  "mano_cua": null,
-  "failure": {
-    "type": "mano_cua_error",
-    "symptom": "mano-cua启动后10分钟无任何step输出，可能是mano API服务不稳定（此前mission-control-333也遇到504 Gateway Timeout）",
-    "attempted": [
-      "部署成功（server返回307，API全部200）",
-      "mano-cua运行10分钟无输出后强制stop"
-    ],
-    "recommendation": "mano API服务不稳定，建议稍后重试"
+  "status": "completed",
+  "sess_id": "sess-20260424113904-cce0e61bcd10408099bf623cfb21abae",
+  "expected_result_used": true,
+  "duration_seconds": 300,
+  "timestamp": "2026-04-24T11:44:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 20,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "同名任务无法创建：第一个任务'Test Task Duplicate'创建成功，尝试创建同标题第二个任务时，点击'创建任务'按钮后对话框不关闭、无错误提示、无验证警告，任务列表仍只有1条记录。系统静默拒绝了重复标题任务的创建。",
+    "last_reasoning": "取消对话框后任务看板收件箱列仅显示1条'Test Task Duplicate'记录。确认第二个同名任务未被创建。系统在尝试创建重复标题任务时静默失败——无错误消息、无验证提示、创建按钮失效但无反馈。这是功能bug和UX bug。"
   }
 }

@@ -2,18 +2,17 @@
   "task_id": "mavonEditor-pr667",
   "repo": "hinesboy/mavonEditor",
   "worker": "worker-02",
-  "status": "failed",
-  "sess_id": null,
-  "expected_result_used": false,
-  "duration_seconds": 0,
-  "timestamp": "2026-04-23T22:18:00+08:00",
-  "mano_cua": null,
-  "failure": {
-    "type": "mano_cua_error",
-    "symptom": "mano-cua API今晚持续不稳定（同批次多张卡受影响）。且测试需要同一页面多个mavonEditor实例，demo页面只有1-2个实例，测试场景可能不完整",
-    "attempted": [
-      "确认测试需要多编辑器实例场景"
-    ],
-    "suggestion": "等mano API恢复稳定后重跑，可能需要自定义测试页面"
+  "status": "completed",
+  "sess_id": "sess-20260424123231-d197291faaa0489e8041dd06e9576542",
+  "expected_result_used": true,
+  "duration_seconds": 600,
+  "timestamp": "2026-04-24T12:42:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_TIMEOUT",
+    "total_steps": 32,
+    "last_action": "left_click",
+    "result": "unclear",
+    "result_summary": "dev页面(localhost:9090)仅显示单个mavonEditor实例，无法测试多实例弹出框交叉影响。单实例测试结果：图片弹出框(添加图片)居中显示、样式正常、遮罩层正确；链接弹出框(添加链接)居中显示、样式正常；表格按钮直接插入模板无弹出框。由于页面仅有一个编辑器实例，无法验证多实例间弹出框是否相互干扰。",
+    "last_reasoning": "demo页面localhost:9090仅包含一个mavonEditor实例。测试了图片插入弹出框和链接插入弹出框，两者均居中显示在视口中央、样式正常、遮罩层正确覆盖、关闭按钮工作正常。表格按钮直接插入markdown模板不触发弹出框。由于只有一个编辑器实例，无法完成多实例弹出框交叉测试。"
   }
 }

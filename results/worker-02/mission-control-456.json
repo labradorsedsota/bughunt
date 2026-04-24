@@ -2,19 +2,17 @@
   "task_id": "mission-control-456",
   "repo": "builderz-labs/mission-control",
   "worker": "worker-02",
-  "status": "failed",
-  "expected_result_used": false,
-  "sess_id": null,
+  "status": "completed",
+  "sess_id": "sess-20260424114633-f31929969be24b1284d25210a597bb97",
+  "expected_result_used": true,
   "duration_seconds": 600,
-  "timestamp": "2026-04-23T21:10:00+08:00",
-  "mano_cua": null,
-  "failure": {
-    "type": "mano_cua_error",
-    "symptom": "mano-cua API持续不稳定：mission-control-333报504 Gateway Timeout，mission-control-368和456均启动后10+分钟无任何step输出",
-    "attempted": [
-      "部署成功（server正常，API全部200）",
-      "mano-cua运行10+分钟无输出后强制stop"
-    ],
-    "recommendation": "mano API服务今晚持续不稳定，建议明天重试"
+  "timestamp": "2026-04-24T11:56:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_TIMEOUT",
+    "total_steps": 44,
+    "last_action": "F5",
+    "result": "unclear",
+    "result_summary": "mano-cua在44步内未观察到'Checking Setup Status'加载指示器。完成初始设置向导3步（Interface→Gateway→Credentials）后，页面直接跳转到主仪表盘，未出现任何加载状态页面。可能是：(1)加载指示器出现过快未被捕获；(2)该commit版本下bug表现不同——向导直接跳过了状态检查步骤。无法确认bug是否复现。",
+    "last_reasoning": "完成设置向导后页面直接显示Gateway Control Plane仪表盘，Gateway=Online，Sessions=1/4，未观察到任何'Checking Setup Status......'加载状态。尝试重新触发向导但向导始终从Step3(Credentials)开始，按Escape可关闭。刷新页面尝试重新触发。"
   }
 }
