@@ -1,0 +1,18 @@
+{
+  "task_id": "the-graph-pr366",
+  "repo": "flowhub/the-graph",
+  "worker": "worker-01",
+  "status": "completed",
+  "sess_id": "sess-20260424191539-fad4796d2d8648a3890485b3aff60f3f",
+  "expected_result_used": true,
+  "duration_seconds": 660,
+  "timestamp": "2026-04-24T19:26:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 20,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "右键节点打开饼状菜单后，点击菜单中的端口（element/selector）不会启动连线创建流程。菜单保持打开，无连线拖拽视觉反馈，端口点击无功能效果。bug确认：端口菜单项的click事件未触发edge创建逻辑。另观察到节点图标在菜单打开时持续动画切换（疑似额外视觉bug）。",
+    "last_reasoning": "Tested right-click on startButton node - circular context menu opened showing selector(input) and element(output) ports. Clicked element port multiple times - menu remained open, no edge creation initiated. Clicked selector port - same result. Dragged from port to canvas - no edge created. Central menu icon changes on port click (gear→arrow→gear) suggesting some internal state change, but no visible edge creation follows. Bug confirmed: port click in node context menu does not create new edge."
+  }
+}
