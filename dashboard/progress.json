@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-04-24 11:04:07",
+  "last_updated": "2026-04-24 12:03:47",
   "summary": {
     "total": 3373,
-    "completed": 573,
-    "failed": 573,
+    "completed": 575,
+    "failed": 586,
     "blocked": 0,
-    "pending": 2227
+    "pending": 2212
   },
   "tasks": [
     {
@@ -1445,14 +1445,14 @@
     },
     {
       "task_id": "OpsiMate-467",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-05",
-      "result": "unclear",
-      "sess_id": "sess-20260423204013-cf29a958bddf4de38c7c0816e5aabb3c",
+      "result": "abnormal",
+      "sess_id": "sess-20260424112512-70d481be11894828a290276d214ee4c3",
       "repo": "OpsiMate/OpsiMate",
-      "duration_seconds": 900,
-      "error": "504 Gateway Timeout from mano API at step 5",
-      "result_summary": "mano-cua在step 5因mano API返回504 Gateway Timeout而中止，仅完成到查看filter categories，未能看到集成卡片网格。非测试问题，是mano-cua后端基础设施故障。"
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "Integrations页面第1行Kibana卡片的'Add Integration'按钮垂直位置比同行Grafana和Datadog卡片高约20px，原因是Kibana描述文字为单行而其他卡片为两行，卡片CSS布局未使用flex+margin-top:auto将按钮固定到底部"
     },
     {
       "task_id": "PPTist-106",
@@ -1668,12 +1668,12 @@
       "task_id": "Raneto-pr305",
       "status": "completed",
       "worker": "worker-06",
-      "result": "abnormal",
-      "sess_id": "sess-20260423183522-cf939f0784194972bad1fa82852383d8",
+      "result": "normal",
+      "sess_id": "sess-20260424112613-51102827686f430b935c0f1161db6691",
       "repo": "ryanlelek/Raneto",
-      "duration_seconds": 421,
+      "duration_seconds": 101,
       "error": "",
-      "result_summary": "Bug已观测到：USAGE分类下所有子页面标题都显示为粗体/加重样式，而非仅活跃页面加粗。对比INSTALL分类下项目为正常细体，USAGE下项目全部偏粗，说明存在样式bug导致同层所有子页面被错误高亮。mano-cua在step9因代理错误中断，但观测已充分。"
+      "result_summary": "侧边栏USAGE分类下，仅活跃子页面(Category Meta)显示粗体高亮，其余7个非活跃子页面保持正常字重和链接样式，符合预期，未发现所有子页面同时高亮加粗的异常。"
     },
     {
       "task_id": "Raneto-pr358",
@@ -1702,11 +1702,11 @@
       "status": "completed",
       "worker": "worker-06",
       "result": "abnormal",
-      "sess_id": "sess-20260423202245-df6746d5ac9c475682564f268a4d6f17",
+      "sess_id": "sess-20260424113202-70848fcea88144709156cda87367bc2e",
       "repo": "ryanlelek/Raneto",
-      "duration_seconds": 783,
+      "duration_seconds": 803,
       "error": "",
-      "result_summary": "成功登录并在嵌套子分类中创建了Test Page，页面内容正常显示（标题、内容、更新时间均可见）。但页面上完全没有编辑按钮——在auth=true+allow_editing=true配置下，已登录用户应能在页面上看到编辑按钮进入编辑模式，但按钮缺失。mano-cua在step34因504 Gateway Timeout中断，但已充分观测到编辑按钮缺失的bug。"
+      "result_summary": "页面创建、编辑、保存流程正常（Page saved确认出现），但发现嵌套路径处理异常：页面名中的'/'未被作为路径分隔符处理，输入'Tasks/Todo'后实际创建路径为projects/TasksTodo而非projects/Tasks/Todo，无法创建真正的多层嵌套子分类页面。"
     },
     {
       "task_id": "RapidRAW-658",
@@ -6369,11 +6369,11 @@
       "status": "completed",
       "worker": "worker-06",
       "result": "abnormal",
-      "sess_id": "sess-20260423211327-01e42e9177ea4d38811ffbfd6a9e924a",
+      "sess_id": "sess-20260424115520-40fc5d4f17d6495fafab301d6378e04e",
       "repo": "clauderic/dnd-kit",
-      "duration_seconds": 211,
+      "duration_seconds": 307,
       "error": "",
-      "result_summary": "Multiple Containers的Basic Setup页面渲染失败：DroppableContainer组件类型无效（Element type is invalid: expected a string or class/function）。该demo无法显示拖拽容器，无法进行键盘拖拽和DragOverlay位置测试。mano-cua在step5因504 Gateway Timeout中断（mano服务器不稳定）。组件级渲染错误导致测试功能不可用。"
+      "result_summary": "Multiple Containers story完全崩溃：打开Presets→Sortable→Multiple Containers→Basic Setup后，画布立即显示TypeError: Cannot read properties of undefined (reading 'rect')，错误发生在SortableContext组件内部。拖拽项未渲染，无法进行键盘拖拽或测试DragOverlay位置。多次刷新均重现。"
     },
     {
       "task_id": "dnd-kit-1751",
@@ -15024,51 +15024,91 @@
     },
     {
       "task_id": "ngx-scanner-297",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": "sess-20260424112439-defec456844f41629d2505a0059a1801",
+      "repo": "zxing-js/ngx-scanner",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "无摄像头环境无法测试torch功能。页面显示'Couldn't check for devices. This may be caused by some security error.'。Console报NotFoundError: Requested device not found。无torch开关等UI控件可见——所有扫描相关UI依赖摄像头初始化成功后才渲染。"
     },
     {
       "task_id": "ngx-scanner-299",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "zxing-js/ngx-scanner",
+      "duration_seconds": 0,
+      "error": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染",
+      "result_summary": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染"
     },
     {
       "task_id": "ngx-scanner-333",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "zxing-js/ngx-scanner",
+      "duration_seconds": 0,
+      "error": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染",
+      "result_summary": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染"
     },
     {
       "task_id": "ngx-scanner-334",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "zxing-js/ngx-scanner",
+      "duration_seconds": 0,
+      "error": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染",
+      "result_summary": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染"
     },
     {
       "task_id": "ngx-scanner-335",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "zxing-js/ngx-scanner",
+      "duration_seconds": 0,
+      "error": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染",
+      "result_summary": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染"
     },
     {
       "task_id": "ngx-scanner-419",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "zxing-js/ngx-scanner",
+      "duration_seconds": 0,
+      "error": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染",
+      "result_summary": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染"
     },
     {
       "task_id": "ngx-scanner-557",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "zxing-js/ngx-scanner",
+      "duration_seconds": 0,
+      "error": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染",
+      "result_summary": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染"
     },
     {
       "task_id": "ngx-scanner-7",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "zxing-js/ngx-scanner",
+      "duration_seconds": 0,
+      "error": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染",
+      "result_summary": "ngx-scanner需要摄像头设备，当前Mac Mini无摄像头。应用初始化报NotFoundError: Requested device not found，页面仅显示错误信息，无扫描UI控件(torch/格式选择等)可渲染"
     },
     {
       "task_id": "ngx-scrollbar-109",
@@ -16130,45 +16170,80 @@
     },
     {
       "task_id": "obsidian-execute-code-150",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "twibiral/obsidian-execute-code",
+      "duration_seconds": 0,
+      "error": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署",
+      "result_summary": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署"
     },
     {
       "task_id": "obsidian-execute-code-169",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "twibiral/obsidian-execute-code",
+      "duration_seconds": 0,
+      "error": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署",
+      "result_summary": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署"
     },
     {
       "task_id": "obsidian-execute-code-347",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "twibiral/obsidian-execute-code",
+      "duration_seconds": 0,
+      "error": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署",
+      "result_summary": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署"
     },
     {
       "task_id": "obsidian-execute-code-89",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "twibiral/obsidian-execute-code",
+      "duration_seconds": 0,
+      "error": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署",
+      "result_summary": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署"
     },
     {
       "task_id": "obsidian-execute-code-96",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "twibiral/obsidian-execute-code",
+      "duration_seconds": 0,
+      "error": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署",
+      "result_summary": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署"
     },
     {
       "task_id": "obsidian-execute-code-pr161",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "twibiral/obsidian-execute-code",
+      "duration_seconds": 0,
+      "error": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署",
+      "result_summary": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署"
     },
     {
       "task_id": "obsidian-execute-code-pr206",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "twibiral/obsidian-execute-code",
+      "duration_seconds": 0,
+      "error": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署",
+      "result_summary": "obsidian-execute-code是Obsidian桌面应用插件，需要Obsidian IDE运行。当前环境未安装Obsidian(/Applications/Obsidian.app不存在)，插件无法作为独立Web应用部署"
     },
     {
       "task_id": "obsidian-execute-code-pr395",
