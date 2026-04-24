@@ -1,0 +1,18 @@
+{
+  "task_id": "tiny-editor-201",
+  "repo": "opentiny/tiny-editor",
+  "worker": "worker-09",
+  "status": "completed",
+  "expected_result_used": true,
+  "sess_id": null,
+  "duration_seconds": 600,
+  "timestamp": "2026-04-24T08:35:00Z",
+  "mano_cua": {
+    "status": "FAILED",
+    "total_steps": 0,
+    "last_action": null,
+    "result": "unclear",
+    "result_summary": "mano-cua连续3次启动后log文件为0字节(进程存活但不产生输出)。部署成功(HTTP 200)，Chrome正常打开页面，但mano-cua内部卡住不执行步骤。可能是mano-cua 1.0.7与当前Chrome/页面状态的兼容性问题。",
+    "last_reasoning": "3次尝试(中文prompt x2 + 英文prompt x1)，mano-cua vla.py进程正常启动(PID可见)但log文件始终0字节，10分钟无任何步骤输出。部署确认正常(HTTP 200)。"
+  }
+}

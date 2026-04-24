@@ -1,0 +1,18 @@
+{
+  "task_id": "tiny-editor-417",
+  "repo": "opentiny/tiny-editor",
+  "worker": "worker-09",
+  "status": "completed",
+  "expected_result_used": true,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T09:00:00Z",
+  "mano_cua": {
+    "status": "FAILED",
+    "total_steps": 0,
+    "last_action": null,
+    "result": "unclear",
+    "result_summary": "mano-cua在tiny-editor页面(localhost:5173)持续卡住——进程存活但log文件0字节。部署成功(HTTP 200)，Chrome正常显示页面。mano-cua在example.com上正常工作，问题仅出现在tiny-editor commit cd20ab5b06/d9a0043eaf的VitePress站点上。",
+    "last_reasoning": "mano-cua 1.0.7疑似与该VitePress版本(v1.6.3)不兼容。sanity check确认mano-cua本身可用(example.com正常执行)。"
+  }
+}

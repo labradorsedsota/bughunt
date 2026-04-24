@@ -1,0 +1,18 @@
+{
+  "task_id": "tiny-editor-197",
+  "repo": "opentiny/tiny-editor",
+  "worker": "worker-09",
+  "status": "completed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260424075200-tinyeditor197",
+  "duration_seconds": 600,
+  "timestamp": "2026-04-24T08:02:00Z",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 38,
+    "last_action": "mouse_move (501, 434)",
+    "result": "unclear",
+    "result_summary": "mano-cua找到自定义工具栏页面和编辑器，识别出toolbar第三行可能的RTL方向按钮(¶符号，x≈500,y≈434)，但38步内反复hover尝试确认按钮身份，从未实际点击RTL按钮和编号列表按钮，未完成RTL+有序列表的测试流程。",
+    "last_reasoning": "toolbar有3行按钮，第三行(y≈434)识别出indent/outdent/direction(¶)按钮。反复hover在x=500,y=434位置但未获取到tooltip确认，文字选区反复丢失。38步耗尽未进入实际测试阶段。"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "tiny-editor-108",
+  "repo": "opentiny/tiny-editor",
+  "worker": "worker-09",
+  "status": "completed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260424064300-tinyeditor108",
+  "duration_seconds": 420,
+  "timestamp": "2026-04-24T06:51:00Z",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 30,
+    "last_action": "screenshot",
+    "result": "reproduced",
+    "result_summary": "Bug复现：右键表格打开上下文菜单后，鼠标滚轮滚动导致页面滚动而非菜单内容滚动。wheel事件穿透菜单容器冒泡到页面。两次测试均100%复现。Console无JS错误。",
+    "last_reasoning": "两次测试确认：右键点击表格打开上下文菜单(含Insert Row/Column/Merge Cells/Delete等菜单项)，鼠标滚轮在菜单区域滚动时，页面从'表格'标题滚动到'基本用法'区域，菜单内容不变。菜单组件缺少wheel事件stopPropagation或CSS overflow-y:auto设置。"
+  }
+}

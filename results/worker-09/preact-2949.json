@@ -1,0 +1,18 @@
+{
+  "task_id": "preact-2949",
+  "repo": "preactjs/preact",
+  "worker": "worker-09",
+  "status": "completed",
+  "expected_result_used": true,
+  "sess_id": "sess-20260424052801-preact2949r2",
+  "duration_seconds": 600,
+  "timestamp": "2026-04-24T05:40:00Z",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 24,
+    "last_action": "left_click (204, 428)",
+    "result": "unclear",
+    "result_summary": "Preact demo应用无法渲染。demo/index.jsx导入的多个文件(zustand.js, redux-toolkit.js, people/index.tsx)含JSX语法但文件扩展名为.js/.tsx，Vite esbuild无法解析返回500错误。#app div完全为空，无任何UI组件渲染。无法测试三元运算符切换MUI组件。",
+    "last_reasoning": "Sources面板确认仅加载了Vite内部文件和(index)HTML，所有应用源文件(index.jsx及其依赖)均因500错误未被加载。#app div为空字符串，Preact应用未渲染任何内容。"
+  }
+}

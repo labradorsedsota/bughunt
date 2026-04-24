@@ -1,0 +1,17 @@
+{
+  "task_id": "preact-4716",
+  "repo": "preactjs/preact",
+  "worker": "worker-09",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T07:20:00Z",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Preact demo ESM循环依赖导致白屏。compat/src/render.js:300报ReferenceError: Cannot access useInsertionEffect before initialization。库自身bug，非部署问题。前3张(2949/4111/4422)均已验证同样崩溃",
+    "attempted": ["修复demo目录JSX/.js扩展名不匹配", "修复redux_toolkit导入路径", "注释掉people/index.tsx装饰器导入", "3个不同commit均崩溃确认"],
+    "recommendation": "PM指令整组跳过"
+  }
+}
