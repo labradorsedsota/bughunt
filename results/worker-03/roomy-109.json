@@ -2,17 +2,16 @@
   "task_id": "roomy-109",
   "repo": "muni-town/roomy",
   "worker": "worker-03",
-  "status": "completed",
+  "status": "failed",
   "sess_id": "sess-20260424174825-71a5064a9595454382691e3b2dfc1be2",
-  "expected_result_used": true,
+  "expected_result_used": false,
   "duration_seconds": 60,
   "timestamp": "2026-04-24T17:49:00+08:00",
-  "mano_cua": {
-    "status": "COMPLETED",
-    "total_steps": 1,
-    "last_action": "DONE",
-    "result": "unclear",
-    "result_summary": "应用需要 Bluesky 账号登录才能访问聊天功能，无法进入聊天界面测试 @ mention 下拉菜单。登录页面显示正常，深色主题配粉色按钮。",
-    "last_reasoning": "页面显示 Hello Roomy 登录页，有 Log In with Bluesky 按钮，无聊天输入框可用，无法执行 @ mention 测试。"
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "需要 Bluesky OAuth 登录，无测试账号无法进入聊天界面",
+    "attempted": ["部署成功(vite dev on :5173)，mano-cua 1步确认需登录"],
+    "recommendation": "需要 Bluesky 测试账号，或标 deploy_failed 跳过"
   }
 }
