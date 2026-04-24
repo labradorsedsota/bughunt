@@ -1,0 +1,18 @@
+{
+  "task_id": "swagger-2945",
+  "repo": "nestjs/swagger",
+  "worker": "worker-07",
+  "status": "completed",
+  "sess_id": "sess-20260424212840-c61adb0738b34a89a060c6429f801060",
+  "expected_result_used": true,
+  "duration_seconds": 780,
+  "timestamp": "2026-04-24T06:41:00-07:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 55,
+    "last_action": "screenshot",
+    "result": "normal",
+    "result_summary": "Swagger UI 正确展示了嵌套对象数组的 Query 参数结构。rawArray 参数显示为 array<object>，展开 Schema 可见子对象包含 foo(string,required) 属性。filter 参数显示为 object 类型，Schema 展示 name(string) 和 age(number) 子属性。letters 参数显示为 array 类型引用 Letter enum(A/B/C)。raw 参数显示为 object 类型含 foo 属性。所有嵌套结构均正确展示，未丢失子属性或类型信息。",
+    "last_reasoning": "All nested object array query parameters are correctly rendered in Swagger UI. rawArray shows as array<object> with proper sub-object schema (foo: string, required). filter shows as object with name(string) and age(number) properties. The parameter structures including sub-object attributes and type information are all correctly displayed."
+  }
+}
