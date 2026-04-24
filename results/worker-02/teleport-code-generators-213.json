@@ -1,0 +1,9 @@
+{
+  "task_id": "teleport-code-generators-213",
+  "repo": "teleporthq/teleport-code-generators",
+  "worker": "worker-02",
+  "status": "failed",
+  "failure_reason": "deploy_failed",
+  "timestamp": "2026-04-24T21:22:00+08:00",
+  "notes": "This is a code generator library (Lerna monorepo), not a web application with a UI. There is no dev server or browser-testable interface. The bugs involve code generation logic (nested conditionals in Vue, PropDefinition defaults, styled-jsx injection) that cannot be verified through visual browser testing with mano-cua. The deploy_commands in the task card (npm run dev) start a file watcher, not a web server."
+}

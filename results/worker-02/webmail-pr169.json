@@ -1,0 +1,9 @@
+{
+  "task_id": "webmail-pr169",
+  "repo": "bulwarkmail/webmail",
+  "worker": "worker-02",
+  "status": "failed",
+  "failure_reason": "deploy_failed",
+  "timestamp": "2026-04-24T21:20:00+08:00",
+  "notes": "Next.js + Turbopack dev server starts (port 3000, HTTP 200), but page stays stuck at 'Loading...' indefinitely in Chrome. The mock JMAP server (/api/dev-jmap) is configured but client-side JS never completes hydration/rendering. Tried: rm node_modules + fresh npm install (fixed tailwindcss-oxide native binding), Node 22, hard refresh. Page never progresses past Loading spinner. Project-level client-side rendering issue."
+}
