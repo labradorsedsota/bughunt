@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-04-24 17:03:50",
+  "last_updated": "2026-04-24 18:03:47",
   "summary": {
     "total": 3373,
-    "completed": 646,
-    "failed": 619,
+    "completed": 677,
+    "failed": 643,
     "blocked": 0,
-    "pending": 2108
+    "pending": 2053
   },
   "tasks": [
     {
@@ -13508,15 +13508,25 @@
     },
     {
       "task_id": "mission-control-461",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "unclear",
+      "sess_id": "sess-20260424173916-0fb36e36c966454bb618596f71a741fe",
+      "repo": "builderz-labs/mission-control",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "主界面Gateway Control Plane显示正常（Gateway: Connected, Online, Traffic: 4 sessions, Errors: 0）。但mano-cua在逐个hover侧边栏图标（概览/智能体/任务/聊天等）寻找Debug面板入口时超时，未能进入Debug面板查看健康检查探针路径。页面同时显示OpenClaw状态完整性警告（OAuth dir不存在、45个orphan transcript等）。"
     },
     {
       "task_id": "mission-control-467",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "unclear",
+      "sess_id": "sess-20260424175211-a7b88c3becb841e09b53ea2f87554b0c",
+      "repo": "builderz-labs/mission-control",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "成功进入Agent Chat界面，选择了一个对话后可看到对话内容，但mano-cua在寻找消息输入框时超时。页面显示对话历史记录但未在可见区域发现明确的消息输入框/发送按钮。可能输入框在页面底部或需要特定条件才显示。无法完成消息发送测试。"
     },
     {
       "task_id": "mission-control-526",
@@ -15514,51 +15524,91 @@
     },
     {
       "task_id": "nomie6-oss-22",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "has_bug",
+      "sess_id": "sess-20260424145512-887e1578eac048c2a04a4ed5145b7593",
+      "repo": "open-nomie/nomie6-oss",
+      "duration_seconds": 480,
+      "error": "",
+      "result_summary": "Bug 确认复现。Step 1-25: 创建 Bar Chart widget，选择 Test Tracker 作为 trackable，将 Timeframe 从 Today 改为 This Week，保存成功（widget 出现在 Dashboard）。Step 31-33: 通过三点菜单 → Edit Widget 重新打开编辑界面，发现 Timeframe 字段被重置为 Today（应为 This Week）。Trackable 字段正确保留，说明 bug 仅影响 Timeframe 的持久化逻辑。"
     },
     {
       "task_id": "nomie6-oss-23",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "unclear",
+      "sess_id": "sess-20260424150627-ee97448315d94fecab4445321fa6d829",
+      "repo": "open-nomie/nomie6-oss",
+      "duration_seconds": 720,
+      "error": "",
+      "result_summary": "mano-cua 80步达上限被终止。花了大量步骤寻找 People 页面入口（step 1-15），最终找到创建 Person 的方式。Step 20+ 尝试为人物添加图片，先试 URL 方式（picsum.photos 未加载），后切换到文件选择器（step 38-39 选择了 hero-light.png）。但在点击'打开'按钮前被终止，未能完成图片上传和质量观察。"
     },
     {
       "task_id": "nomie6-oss-37",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "has_bug",
+      "sess_id": "sess-20260424152326-88c7de4f4f3c45ecbc259d2b0255fc84",
+      "repo": "open-nomie/nomie6-oss",
+      "duration_seconds": 180,
+      "error": "",
+      "result_summary": "Bug 确认复现。Step 1-5: 在 Track 页面 What's up 输入框输入 'test note 123'。Step 6-7: 切换到 Timeline 页面。Step 8: 切回 Track 页面，发现输入框内容已被清空。Bug: What's up 输入框的内容在切换导航标签页后未被保持/持久化，所有未保存的输入内容丢失。附加发现：第一次点击输入框时文字未显示（焦点管理问题）。"
     },
     {
       "task_id": "nomie6-oss-38",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "has_bug",
+      "sess_id": "sess-20260424154755-953d15873481476a85bc8e05ca754c79",
+      "repo": "open-nomie/nomie6-oss",
+      "duration_seconds": 360,
+      "error": "",
+      "result_summary": "Bug 确认复现。Step 1-8: 创建 timer 类型追踪器 Timer Test 并启动计时。Step 9-12: 等待约37秒后停止，显示 00:00:50。Step 13-15: 选择 Resume 恢复。Step 16-18: 发现 Resume 后计时器从 00:00:00 重新开始而非从 00:00:50 继续。14秒后显示 00:00:14，30秒后显示 00:00:30——完全从0重新计时，未保留之前累积的时间。"
     },
     {
       "task_id": "nomie6-oss-41",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "no_bug",
+      "sess_id": "sess-20260424153019-0dcc202ed1bf412284cf2171bbe79aa9",
+      "repo": "open-nomie/nomie6-oss",
+      "duration_seconds": 660,
+      "error": "",
+      "result_summary": "主要测试目标通过：所有4个小部件卡片在编辑模式下均正确显示标题（Test Tracker）和副标题（Bar Chart today / Display Value today / Latest Note today / Min/Max today），无标题空白或缺失。附带发现：编辑模式下新添加的小部件不会实时刷新到卡片列表（需退出再进入编辑模式），属于 UI 状态不同步的次要问题。"
     },
     {
       "task_id": "nomie6-oss-56",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "no_bug",
+      "sess_id": "sess-20260424155712-3277f58008a244fb9ebafeeff3094652",
+      "repo": "open-nomie/nomie6-oss",
+      "duration_seconds": 480,
+      "error": "",
+      "result_summary": "删除功能正常。Step 1-6: 导航到 Dashboard，添加 Bar Chart 小部件（Test Tracker）。Step 7-9: 点击三点菜单，显示 Widget Options（Edit/Move/Duplicate/Delete）。Step 10: 点击 Delete Widget，弹出确认对话框。Step 11: 确认删除后小部件立即从仪表盘移除，布局正常更新。全流程无异常。"
     },
     {
       "task_id": "nomie6-oss-58",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "unclear",
+      "sess_id": "sess-20260424160602-nomie6-oss-58",
+      "repo": "open-nomie/nomie6-oss",
+      "duration_seconds": 1800,
+      "error": "",
+      "result_summary": "mano-cua 80步达上限被终止。Step 2-7: 编辑 widget 设置 Timeframe 为 Last 7 days。Step 13-18: 添加数据（Test Tracker），准备观察 bar chart 天数。Step 23-30: 进入 Settings 找到 Week Starts，设置为 Monday。Step 31-38: 返回 Dashboard 编辑另一个 widget 设为 Last Week + Bar Chart + Large。但在保存和观察结果前被终止。未能完成最终的天数验证。"
     },
     {
       "task_id": "nomie6-oss-pr48",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-08",
+      "result": "no_bug",
+      "sess_id": "sess-20260424163720-nomie6-oss-pr48",
+      "repo": "open-nomie/nomie6-oss",
+      "duration_seconds": 1560,
+      "error": "",
+      "result_summary": "主要测试目标通过：模板加载功能正常。Step 1-15: 清除数据（localStorage.clear + indexedDB.deleteDatabase），完成引导流程（跳过模板）。Step 16-25: 在空白 Track 页面点击 + → Browse Library → 选择 ADHD 模板 → Use this Template → 收到 'ADHD installed' 提示。Step 26-31: 确认 ADHD 标签页正确出现，包含 8-9 个追踪器按钮（ADHD✓/Hyperactivity/Focus/Fidgety/Motivation/Energy/Mood/Stress/Anxiety）。追踪器正确加载显示，非空白占位符。附带发现布局溢出 bug：Anxiety 被挤到右边框外。"
     },
     {
       "task_id": "notea-158",
@@ -17391,51 +17441,91 @@
     },
     {
       "task_id": "penpot-desktop-11",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "",
+      "repo": "author-more/penpot-desktop",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": "Electron桌面应用，npm run dev启动electron进程而非web server。dev_url: localhost:5173不存在（实际加载本地HTML文件src/base/index.html）。mano-cua需要Chrome浏览器交互，无法测试Electron窗口。"
     },
     {
       "task_id": "penpot-desktop-pr116",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "",
+      "repo": "author-more/penpot-desktop",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": "Electron桌面应用，npm run dev启动electron进程而非web server。dev_url: localhost:5173不存在（实际加载本地HTML文件src/base/index.html）。mano-cua需要Chrome浏览器交互，无法测试Electron窗口。"
     },
     {
       "task_id": "penpot-desktop-pr160",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "",
+      "repo": "author-more/penpot-desktop",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": "Electron桌面应用，npm run dev启动electron进程而非web server。dev_url: localhost:5173不存在（实际加载本地HTML文件src/base/index.html）。mano-cua需要Chrome浏览器交互，无法测试Electron窗口。"
     },
     {
       "task_id": "penpot-desktop-pr24",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "",
+      "repo": "author-more/penpot-desktop",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": "Electron桌面应用，npm run dev启动electron进程而非web server。dev_url: localhost:5173不存在（实际加载本地HTML文件src/base/index.html）。mano-cua需要Chrome浏览器交互，无法测试Electron窗口。"
     },
     {
       "task_id": "penpot-desktop-pr252",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "",
+      "repo": "author-more/penpot-desktop",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": "Electron桌面应用，npm run dev启动electron进程而非web server。dev_url: localhost:5173不存在（实际加载本地HTML文件src/base/index.html）。mano-cua需要Chrome浏览器交互，无法测试Electron窗口。"
     },
     {
       "task_id": "penpot-desktop-pr51",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "",
+      "repo": "author-more/penpot-desktop",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": "Electron桌面应用，npm run dev启动electron进程而非web server。dev_url: localhost:5173不存在（实际加载本地HTML文件src/base/index.html）。mano-cua需要Chrome浏览器交互，无法测试Electron窗口。"
     },
     {
       "task_id": "penpot-desktop-pr57",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "",
+      "repo": "author-more/penpot-desktop",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": "Electron桌面应用，npm run dev启动electron进程而非web server。dev_url: localhost:5173不存在（实际加载本地HTML文件src/base/index.html）。mano-cua需要Chrome浏览器交互，无法测试Electron窗口。"
     },
     {
       "task_id": "penpot-desktop-pr59",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-04",
+      "result": "deploy_failed",
+      "sess_id": "",
+      "repo": "author-more/penpot-desktop",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": "Electron桌面应用，npm run dev启动electron进程而非web server。dev_url: localhost:5173不存在（实际加载本地HTML文件src/base/index.html）。mano-cua需要Chrome浏览器交互，无法测试Electron窗口。"
     },
     {
       "task_id": "peppermint-pr164",
@@ -19485,51 +19575,91 @@
     },
     {
       "task_id": "react-slick-1356",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "abnormal",
+      "sess_id": "sess-20260424144528-7fc8d203bd35405db5d4d291fb4ecb19",
+      "repo": "akiran/react-slick",
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "adaptiveHeight属性未正常工作。页面唯一的Adaptive height Slider有6个slide，slide 2/3包含额外文本内容（Hello / See... / Height is adaptive），但容器高度固定~110px不随内容扩展，导致文本溢出到容器边界外（slider底部与dots之间）。slide 1/4/5/6仅有蓝色方块无溢出。确认bug：容器高度不自适应，切换slide时高度不更新。"
     },
     {
       "task_id": "react-slick-1874",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "unclear",
+      "sess_id": "sess-20260424155532-ee3288a78fc2451799b9adc87b07443d",
+      "repo": "akiran/react-slick",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "demo页面(localhost:8080)无initialSlide非零值的Slider示例，无法验证核心bug。在Center Mode Slider(默认initialSlide=0)中检查：初始状态slide 1(data-index=0)有slick-current+slick-center+slick-active类；点击next后slick-current正确转移到slide 2(data-index=1)，slide 1失去slick-current。当前demo中slick-current在initialSlide=0时表现正常，但无法测试initialSlide!=0场景。"
     },
     {
       "task_id": "react-slick-1881",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "normal",
+      "sess_id": "sess-20260424161044-f3f8a02318bd4e7998c8623bdc161117",
+      "repo": "akiran/react-slick",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "Fade Slider(fade:true, infinite:true)中next按钮正常工作：从slide 1依次点击next成功切换到slide 2/3/4，fade过渡效果正常，导航dots正确高亮。但demo页面Fade示例配置为infinite:true而非infinite:false，未能测试bug描述的fade+infinite:false场景。在当前infinite:true配置下，next按钮4次点击均正常响应无卡住。"
     },
     {
       "task_id": "react-slick-pr2149",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "unclear",
+      "sess_id": "sess-20260424162422-c4444a3e5e284aa28e01d9505347765e",
+      "repo": "akiran/react-slick",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "无法通过视觉测试验证click事件参数传递。mano-cua在尝试使用DevTools Console监测click事件时反复触发Inspector模式导致DevTools开关切换，未能成功在Console中观察到click事件输出。demo页面的slider示例未绑定可视化的click回调（无弹窗/链接跳转等可观测行为），因此纯视觉测试无法验证event参数是否正确传递。"
     },
     {
       "task_id": "react-slick-pr2329",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "normal",
+      "sess_id": "sess-20260424163720-912984f7438a4a059e9b27f08998625d",
+      "repo": "akiran/react-slick",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "Multiple items Slider(slidesToShow:3, infinite:true)上鼠标拖拽swipe正常工作：从slides 1/2/3向左拖拽后成功切换到slides 4/5/6，导航dots正确更新（dot 2变为active）。拖拽响应正常，无卡住现象。但demo页面无slidesToShow等于slide总数的特殊场景（bug核心条件），当前测试仅验证了普通infinite:true下swipe功能正常。"
     },
     {
       "task_id": "react-slick-pr2343",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "unclear",
+      "sess_id": "sess-20260424165140-1649da571aec42199954f9a101dab5ca",
+      "repo": "akiran/react-slick",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "mano-cua在demo页面中未找到标记为'Fade'的Slider区域（Cmd+F搜索'Fade'返回0/0），页面底部有两个图片Slider但无标题标识。agent花费全部时间滚动查找Fade标题后超时，未能完成fade模式下的点击交互测试。"
     },
     {
       "task_id": "react-slick-pr622",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "normal",
+      "sess_id": "sess-20260424170916-1008bb32bfe14c80bd2f0cb73bb74fd7",
+      "repo": "akiran/react-slick",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "页面中各Slider布局正常：Single Item slide完整填充容器宽度，next/prev箭头切换正常（1→2→3，dots同步更新）；Multiple items Slider 3个slide均匀分布（每个约369px），导航切换正常（1/2/3→4/5/6→1/2/3）；Responsive Slider显示4个slide；Center Mode Slider中心slide高亮且两侧对称显示部分slide；Uneven sets (infinite/finite)均显示4个等宽slide。未发现slide宽度异常偏大/偏小、布局错乱或间距重叠问题。但此bug需transform:scale()父容器环境，demo页面无此场景。"
     },
     {
       "task_id": "react-slick-pr762",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "normal",
+      "sess_id": "sess-20260424172350-cbd12b1bbc874c93a51d13b546f93ab0",
+      "repo": "akiran/react-slick",
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "Simple Slider无限滚动功能完全正常。Next方向：Slide 1→2→3→4→5→6→1循环过渡正确，每次切换dots同步更新。Prev方向：Slide 1→6→5→4→3→2→1反向循环正确。12次点击全部成功切换，无跳转异常或内容错误。截图测试确认切换结果正确，动画帧间方向需实时观察确认。"
     },
     {
       "task_id": "react-social-network-119",
@@ -19918,27 +20048,47 @@
     },
     {
       "task_id": "reactour-pr405",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260424163903-9eebf8d3a3fc49fba8588ce4c2ecf06b",
+      "repo": "elrumordelaluz/reactour",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "点击高亮区域内部可正确穿透到下方元素（鹦鹉图片链接成功导航到 Dribbble），但点击遮罩覆盖的非高亮区域时整个 tour 被关闭/dismissed（step 9），而非拦截点击。遮罩区域点击行为异常——预期应拦截点击不穿透，实际导致 tour 关闭。mano-cua 在第 22 步被停止（导航到外部链接后需要返回重新测试）。"
     },
     {
       "task_id": "reactour-pr448",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260424170047-e217449f5ccd409f88e63be01910ac29",
+      "repo": "elrumordelaluz/reactour",
+      "duration_seconds": 930,
+      "error": "",
+      "result_summary": "遮罩高亮区域圆角缺失——在 Chrome 中测试（原测试要求 Safari），高亮区域显示为 90 度直角矩形，无任何 border radius 圆角效果。多个 tour step 的高亮区域均呈方角，corners 未平滑处理。"
     },
     {
       "task_id": "reactour-pr48",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "abnormal",
+      "sess_id": "sess-20260424172604-06073bcfa85447ffbfe307a092a7e1f5",
+      "repo": "elrumordelaluz/reactour",
+      "duration_seconds": 720,
+      "error": "",
+      "result_summary": "所有 Dribbble 示例图片加载失败。页面所有图片位置仅显示浏览器默认破损图片图标（16x16 小方块），图片区域完全空白。涉及 Expedition/Buildings 等所有版块，每张图片旁显示'Image by Kate Hoolahan'文字但图片本身未加载。页面布局和文字正常，图片 URL 指向外部 CDN 资源加载失败。"
     },
     {
       "task_id": "reactour-pr49",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-07",
+      "result": "normal",
+      "sess_id": "sess-20260424174211-2a3694ce128d421d8cd7068bb25396dd",
+      "repo": "elrumordelaluz/reactour",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "引导弹窗在所有步骤中定位正确。遍历了全部 10 个 tour steps，弹窗均准确定位在目标元素附近（右侧/左侧），包括部分元素在视口边缘被截断的场景，弹窗也能正确定位到元素右侧。未发现偏移、错位或脱离目标元素的情况。"
     },
     {
       "task_id": "reactour-pr529",
@@ -20416,51 +20566,91 @@
     },
     {
       "task_id": "roomy-109",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": "sess-20260424174825-71a5064a9595454382691e3b2dfc1be2",
+      "repo": "muni-town/roomy",
+      "duration_seconds": 60,
+      "error": "需要 Bluesky OAuth 登录，无测试账号无法进入聊天界面",
+      "result_summary": "需要 Bluesky OAuth 登录，无测试账号无法进入聊天界面"
     },
     {
       "task_id": "roomy-223",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "muni-town/roomy",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "roomy-227",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "muni-town/roomy",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "roomy-pr271",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "muni-town/roomy",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "roomy-pr532",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "muni-town/roomy",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "roomy-pr595",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "muni-town/roomy",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "roomy-pr600",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "muni-town/roomy",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "roomy-pr610",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": null,
+      "repo": "muni-town/roomy",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "router-1834",
@@ -24935,45 +25125,80 @@
     },
     {
       "task_id": "vue-element-plus-admin-309",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "abnormal",
+      "sess_id": "sess-20260424165449-093dd2d038fc40c1a21648a0da9a72a0",
+      "repo": "kailong321200875/vue-element-plus-admin",
+      "duration_seconds": 738,
+      "error": "",
+      "result_summary": "应用存在严重初始化bug：打开localhost:4000后页面始终显示ElementAdmin Logo + loading spinner，等待超12分钟未加载完成。登录表单从未出现，所有路由均无法渲染，应用完全不可用。Vue Router导航守卫可能在异步操作中卡死。"
     },
     {
       "task_id": "vue-element-plus-admin-316",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "unclear",
+      "sess_id": "sess-20260424171143-8417e557dfcc4d139dc4993207fbfc51",
+      "repo": "kailong321200875/vue-element-plus-admin",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "硬超时。应用与309同样卡在loading spinner，登录页从未渲染。mano-cua等待超8分钟页面始终显示ElementAdmin Logo+加载动画，尝试清除缓存和重新导航均无效。无法到达登录表单测试错误密码提示。"
     },
     {
       "task_id": "vue-element-plus-admin-317",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "unclear",
+      "sess_id": "same-commit-as-316",
+      "repo": "kailong321200875/vue-element-plus-admin",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "与316共享同一buggy_commit(fa1735fbdb)，应用卡在loading spinner无法加载登录页。316已验证此commit的loading卡死问题，317/318需要登录后操作，同样无法执行。"
     },
     {
       "task_id": "vue-element-plus-admin-318",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "unclear",
+      "sess_id": "same-commit-as-316",
+      "repo": "kailong321200875/vue-element-plus-admin",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "与316共享同一buggy_commit(fa1735fbdb)，应用卡在loading spinner无法加载登录页。316已验证此commit的loading卡死问题，317/318需要登录后操作，同样无法执行。"
     },
     {
       "task_id": "vue-element-plus-admin-326",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "unclear",
+      "sess_id": "sess-20260424173132-5fe668d5fdaa47d287dd855cc6d3c19b",
+      "repo": "kailong321200875/vue-element-plus-admin",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "硬超时。应用与309/316同样卡在loading spinner超11分钟。ElementAdmin CSS动画持续旋转但Vue应用从未渲染。无法到达登录页面测试cutMenu布局。已跨3个不同commit验证均卡loading。"
     },
     {
       "task_id": "vue-element-plus-admin-424",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "unclear",
+      "sess_id": "repo-level-fuse",
+      "repo": "kailong321200875/vue-element-plus-admin",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "repo级别fuse：已跨3个不同commit(5f2048d52d/fa1735fbdb/1e3aa78926)验证应用均卡在loading spinner无法渲染。vite-plugin-mock@2.9.6可能与Node23不兼容导致mock服务未正常启动。"
     },
     {
       "task_id": "vue-element-plus-admin-428",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-04",
+      "result": "unclear",
+      "sess_id": "repo-level-fuse",
+      "repo": "kailong321200875/vue-element-plus-admin",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "repo级别fuse：已跨3个不同commit(5f2048d52d/fa1735fbdb/1e3aa78926)验证应用均卡在loading spinner无法渲染。vite-plugin-mock@2.9.6可能与Node23不兼容导致mock服务未正常启动。"
     },
     {
       "task_id": "vue-element-plus-admin-441",
@@ -26303,51 +26528,91 @@
     },
     {
       "task_id": "wx_calendar-267",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": "",
+      "repo": "treadpit/wx_calendar",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "wx_calendar-276",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": "",
+      "repo": "treadpit/wx_calendar",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "wx_calendar-284",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": "",
+      "repo": "treadpit/wx_calendar",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "wx_calendar-293",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": "",
+      "repo": "treadpit/wx_calendar",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "wx_calendar-317",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": "",
+      "repo": "treadpit/wx_calendar",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "wx_calendar-326",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": "",
+      "repo": "treadpit/wx_calendar",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "wx_calendar-333",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": "",
+      "repo": "treadpit/wx_calendar",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "wx_calendar-361",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-07",
+      "result": "",
+      "sess_id": "",
+      "repo": "treadpit/wx_calendar",
+      "duration_seconds": null,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "x-render-597",
@@ -26525,15 +26790,25 @@
     },
     {
       "task_id": "zardui-207",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "abnormal",
+      "sess_id": "sess-20260424164910-fc14333d7b69424ea6707aaf8e18de8f",
+      "repo": "zard-ui/zardui",
+      "duration_seconds": 180,
+      "error": "",
+      "result_summary": "Dialog 未在屏幕中央出现。Dialog 中心位于 x≈850px，而屏幕中心为 x=640px，向右偏移约210px。Dialog 定位在内容区域（排除侧边栏后的区域）的中心而非完整视口中心。背景遮罩正确覆盖全屏，Dialog 背景色为白色无闪烁。"
     },
     {
       "task_id": "zardui-251",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "abnormal",
+      "sess_id": "sess-20260424173733-7a7089eb280945318c438505cfbf1ecb",
+      "repo": "zard-ui/zardui",
+      "duration_seconds": 180,
+      "error": "",
+      "result_summary": "Sidebar 菜单内容区域发现多余边框线。Search 菜单项底部有一条异常的深色/黑色边框线，其他菜单项（Home, Inbox, Projects, Calendar）均无此边框，形成不一致的样式。侧边栏分隔线和外框边框属正常行为。"
     },
     {
       "task_id": "zardui-418",
