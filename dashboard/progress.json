@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-04-24 16:03:47",
+  "last_updated": "2026-04-24 17:03:50",
   "summary": {
     "total": 3373,
-    "completed": 621,
-    "failed": 609,
+    "completed": 646,
+    "failed": 619,
     "blocked": 0,
-    "pending": 2143
+    "pending": 2108
   },
   "tasks": [
     {
@@ -15192,51 +15192,91 @@
     },
     {
       "task_id": "ngx-scrollbar-109",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "normal",
+      "sess_id": "sess-20260424140949-4484bb0ca64c4a119ec60c3189d59dfb",
+      "repo": "MurhafSousli/ngx-scrollbar",
+      "duration_seconds": 780,
+      "error": "",
+      "result_summary": "滚动条功能在窗口缩放后正常工作。测试了6项：容器内滚动(✅)、滚动条拖拽(✅)、展开/收起切换(✅)、禁用/启用(✅)、窗口缩小到半屏后滚动条仍正常更新(✅)、窗口恢复全屏后滚动条正常(✅)。未观察到布局错乱、滚动条消失或组件崩溃的情况。"
     },
     {
       "task_id": "ngx-scrollbar-217",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "normal",
+      "sess_id": "sess-20260424143457-0bfd960a4b1e4e1cad29f77b6534b304",
+      "repo": "MurhafSousli/ngx-scrollbar",
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "ng-scrollbar 组件在 Angular Ivy 环境下功能正常。内容正确显示在 ng-scrollbar 容器中(✅)，滚动条 thumb 可拖拽且内容随之滚动(✅)，鼠标滚轮上下滚动均正常(✅)。滚动条 thumb 低对比度为样式设计，非功能缺陷。"
     },
     {
       "task_id": "ngx-scrollbar-266",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "abnormal",
+      "sess_id": "sess-20260424145516-87a2175488c04c22a5e1eccdefefb30a",
+      "repo": "MurhafSousli/ngx-scrollbar",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "内容区域宽度不正确，整体布局向右偏移约210px。左侧出现370px空白区域(x=185~555)，右侧内容超出视口被裁剪(Smooth scroll options的Unset按钮被截断)。尽管内容溢出，但没有出现水平滚动条（浏览器原生或ngx-scrollbar自定义均无），溢出内容完全不可访问。垂直滚动后也没有水平滚动条出现。"
     },
     {
       "task_id": "ngx-scrollbar-33",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": "",
+      "repo": "MurhafSousli/ngx-scrollbar",
+      "duration_seconds": null,
+      "error": "任务要求在 Firefox 浏览器中测试，当前环境未安装 Firefox，mano-cua 仅支持 Chrome",
+      "result_summary": "任务要求在 Firefox 浏览器中测试，当前环境未安装 Firefox，mano-cua 仅支持 Chrome"
     },
     {
       "task_id": "ngx-scrollbar-615",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-03",
+      "result": "",
+      "sess_id": "",
+      "repo": "MurhafSousli/ngx-scrollbar",
+      "duration_seconds": null,
+      "error": "任务要求在 Firefox 浏览器中测试，当前环境未安装 Firefox，mano-cua 仅支持 Chrome",
+      "result_summary": "任务要求在 Firefox 浏览器中测试，当前环境未安装 Firefox，mano-cua 仅支持 Chrome"
     },
     {
       "task_id": "ngx-scrollbar-669",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "unclear",
+      "sess_id": "sess-20260424152317-d90792cac1ab4ba283672544d63e5e78",
+      "repo": "MurhafSousli/ngx-scrollbar",
+      "duration_seconds": 660,
+      "error": "",
+      "result_summary": "mano-cua 遍历了整个 demo 页面（Hero、Lab 配置区、所有 Examples 包括 TODO list、Lorem ipsum、Code editor、Smooth scroll、Scroll To Element、Ngx-infinite-scroll、CDK Virtual Scroll、Nested CDK Virtual Scroll），未找到任务描述中要求的 mat-select 或类似下拉组件集成 ngx-scrollbar 的场景。Lab 区的 Track/Positioning/Visibility/Appearance 均为手风琴展开式按钮组，非 mat-select 下拉面板。"
     },
     {
       "task_id": "ngx-scrollbar-674",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "normal",
+      "sess_id": "sess-20260424153929-5e1b6f9225f948fbbd49d4b5671fe3d9",
+      "repo": "MurhafSousli/ngx-scrollbar",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": "visibility='Always'设置后滚动条始终可见(✅)，不会自动隐藏。鼠标滚轮滚动内容正常，滚动条thumb位置随内容滚动同步更新(✅)。thumb大小与内容/视口比例一致(约占track的1/3，对应~3倍内容高度)(✅)。thumb拖拽操作第一次成功滚动了内容，后续拖拽触发右键菜单为mano-cua工具交互问题而非组件bug。整体功能正常。"
     },
     {
       "task_id": "ngx-scrollbar-pr449",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "normal",
+      "sess_id": "sess-20260424155959-64af99a04d4e4d018446bdb440ce4650",
+      "repo": "MurhafSousli/ngx-scrollbar",
+      "duration_seconds": 540,
+      "error": "",
+      "result_summary": "ngx-scrollbar 在 CDK 虚拟滚动容器上正确渲染(✅)。列表有1000项，可视区域显示4项。滚动条 thumb 大小与可视区域/总内容比例一致（约为 track 高度的 4/1000，非常小但正确）(✅)。鼠标滚轮在虚拟滚动列表中平滑滚动(✅)。thumb 位置与内容滚动位置同步：滚动到 item 1000 时 thumb 到达 track 底部，滚回 item 1 时 thumb 回到顶部(✅)。小幅滚动时 thumb 移动不明显是因为每项仅移动约0.17px（亚像素级），属于正常行为。"
     },
     {
       "task_id": "ngx-sharebuttons-11",
@@ -17970,51 +18010,91 @@
     },
     {
       "task_id": "preact-2949",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": "sess-20260424052801-preact2949r2",
+      "repo": "preactjs/preact",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "Preact demo应用无法渲染。demo/index.jsx导入的多个文件(zustand.js, redux-toolkit.js, people/index.tsx)含JSX语法但文件扩展名为.js/.tsx，Vite esbuild无法解析返回500错误。#app div完全为空，无任何UI组件渲染。无法测试三元运算符切换MUI组件。"
     },
     {
       "task_id": "preact-4111",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": "sess-20260424054000-preact4111",
+      "repo": "preactjs/preact",
+      "duration_seconds": 306,
+      "error": "",
+      "result_summary": "Preact应用启动即崩溃：Console报Uncaught ReferenceError: Cannot access 'useInsertionEffect' before initialization (render.js:300)。#app div为空，页面完全白屏，preact/debug未执行到table结构检查阶段。无法测试table嵌套误报警告——应用存在更基础的库级别bug阻止了渲染。"
     },
     {
       "task_id": "preact-4422",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": "sess-20260424055200-preact4422",
+      "repo": "preactjs/preact",
+      "duration_seconds": 425,
+      "error": "",
+      "result_summary": "Preact应用启动即崩溃：Console报Uncaught ReferenceError: Cannot access 'useInsertionEffect' before initialization (render.js:300)。ES Module循环依赖导致TDZ错误。#app div为空，页面完全白屏，无法测试useMemo+setState无限循环。"
     },
     {
       "task_id": "preact-4716",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "preactjs/preact",
+      "duration_seconds": 0,
+      "error": "Preact demo ESM循环依赖导致白屏。compat/src/render.js:300报ReferenceError: Cannot access useInsertionEffect before initialization。库自身bug，非部署问题。前3张(2949/4111/4422)均已验证同样崩溃",
+      "result_summary": "Preact demo ESM循环依赖导致白屏。compat/src/render.js:300报ReferenceError: Cannot access useInsertionEffect before initialization。库自身bug，非部署问题。前3张(2949/4111/4422)均已验证同样崩溃"
     },
     {
       "task_id": "preact-pr4969",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "preactjs/preact",
+      "duration_seconds": 0,
+      "error": "Preact demo ESM循环依赖导致白屏。compat/src/render.js:300报ReferenceError: Cannot access useInsertionEffect before initialization。库自身bug，非部署问题。前3张(2949/4111/4422)均已验证同样崩溃",
+      "result_summary": "Preact demo ESM循环依赖导致白屏。compat/src/render.js:300报ReferenceError: Cannot access useInsertionEffect before initialization。库自身bug，非部署问题。前3张(2949/4111/4422)均已验证同样崩溃"
     },
     {
       "task_id": "preact-pr4975",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "preactjs/preact",
+      "duration_seconds": 0,
+      "error": "Preact demo ESM循环依赖导致白屏。compat/src/render.js:300报ReferenceError: Cannot access useInsertionEffect before initialization。库自身bug，非部署问题。前3张(2949/4111/4422)均已验证同样崩溃",
+      "result_summary": "Preact demo ESM循环依赖导致白屏。compat/src/render.js:300报ReferenceError: Cannot access useInsertionEffect before initialization。库自身bug，非部署问题。前3张(2949/4111/4422)均已验证同样崩溃"
     },
     {
       "task_id": "preact-pr5026",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "preactjs/preact",
+      "duration_seconds": 0,
+      "error": "Preact demo ESM循环依赖导致白屏。compat/src/render.js:300报ReferenceError: Cannot access useInsertionEffect before initialization。库自身bug，非部署问题。前3张(2949/4111/4422)均已验证同样崩溃",
+      "result_summary": "Preact demo ESM循环依赖导致白屏。compat/src/render.js:300报ReferenceError: Cannot access useInsertionEffect before initialization。库自身bug，非部署问题。前3张(2949/4111/4422)均已验证同样崩溃"
     },
     {
       "task_id": "preact-pr5067",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "",
+      "sess_id": null,
+      "repo": "preactjs/preact",
+      "duration_seconds": 0,
+      "error": "Preact demo ESM循环依赖导致白屏。compat/src/render.js:300报ReferenceError: Cannot access useInsertionEffect before initialization。库自身bug，非部署问题。前3张(2949/4111/4422)均已验证同样崩溃",
+      "result_summary": "Preact demo ESM循环依赖导致白屏。compat/src/render.js:300报ReferenceError: Cannot access useInsertionEffect before initialization。库自身bug，非部署问题。前3张(2949/4111/4422)均已验证同样崩溃"
     },
     {
       "task_id": "prismic-128",
@@ -18054,45 +18134,80 @@
     },
     {
       "task_id": "pump.io-pr1157",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": "sess-20260424134715-6492dfb6d07c468c805c7bd2f6e2964c",
+      "repo": "pump-io/pump.io",
+      "duration_seconds": 120,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "pump.io-pr1191",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": "sess-20260424140952-d58f22f2f2be4e27b56db132f71b4530",
+      "repo": "pump-io/pump.io",
+      "duration_seconds": 735,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "pump.io-pr1311",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": "sess-20260424151151-8392046cb1c346a0a1cc52dccae122cd",
+      "repo": "pump-io/pump.io",
+      "duration_seconds": 90,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "pump.io-pr1355",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": null,
+      "repo": "pump-io/pump.io",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "pump.io-pr1432",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": "sess-20260424155305-545a68f956cc40029145b88abb333400",
+      "repo": "pump-io/pump.io",
+      "duration_seconds": 90,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "pump.io-pr1438",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": "sess-20260424155910-3411ad75669c46338a2dc7e6f80bd397",
+      "repo": "pump-io/pump.io",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "pump.io-pr1465",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": null,
+      "repo": "pump-io/pump.io",
+      "duration_seconds": 900,
+      "error": "",
+      "result_summary": ""
     },
     {
       "task_id": "pump.io-pr926",
@@ -21220,15 +21335,25 @@
     },
     {
       "task_id": "slate-angular-150",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "normal",
+      "sess_id": "sess-20260424154426-2747b9cc87a44e9281f76377c912a7d3",
+      "repo": "worktile/slate-angular",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "在Slate Angular RichText编辑器中创建两个段落后，通过剪切粘贴（Cmd+X/Cmd+V）成功移动节点顺序，段落从1-2变为2-1，DOM正确更新，未出现节点消失或渲染不一致"
     },
     {
       "task_id": "slate-angular-244",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-05",
+      "result": "abnormal",
+      "sess_id": "sess-20260424155625-9c0fa6e80554458d8d3743f6aa16b6e2",
+      "repo": "worktile/slate-angular",
+      "duration_seconds": 720,
+      "error": "",
+      "result_summary": "triple-click只选中当前单词而非整段落，void元素（[editable button]内联按钮）不在选区内。3次不同位置的triple-click测试结果一致：选区始终停留在单词边界，无法扩展到整段包含void元素"
     },
     {
       "task_id": "slate-angular-pr316",
@@ -22977,21 +23102,36 @@
     },
     {
       "task_id": "the-graph-174",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-01",
+      "result": "unclear",
+      "sess_id": "sess-20260424145210-eb958bda77e6441898e25f6d92e789ae",
+      "repo": "flowhub/the-graph",
+      "duration_seconds": 1500,
+      "error": "",
+      "result_summary": "the-graph编辑器正常渲染了默认流程图（多个节点+连线），但无法通过浏览器UI创建缺少组件信息的节点。DevTools Console中appState和TheGraph均为undefined（模块作用域未暴露全局），loadGraph二次调用会因#loading元素已移除而报错。80步未能完成测试目标。"
     },
     {
       "task_id": "the-graph-74",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-01",
+      "result": "abnormal",
+      "sess_id": "sess-20260424152609-bcb54217a9b641b3b17d77ae9fc7a61e",
+      "repo": "flowhub/the-graph",
+      "duration_seconds": 1500,
+      "error": "",
+      "result_summary": "确认bug：右键/长按节点时，编辑器自定义饼状菜单（pie menu）和浏览器默认右键上下文菜单同时弹出。原因是contextmenu事件处理器未调用event.preventDefault()来阻止浏览器默认菜单。两个菜单重叠显示，触摸设备上体验混乱。"
     },
     {
       "task_id": "the-graph-76",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-01",
+      "result": "unclear",
+      "sess_id": "sess-20260424155305-1cc638d69db94b8ab96409a7d0f076e3",
+      "repo": "flowhub/the-graph",
+      "duration_seconds": 2520,
+      "error": "",
+      "result_summary": "无法通过浏览器UI测试registerComponent更新组件定义。DevTools Console中全局变量TheGraph和appState均为undefined（模块作用域），registerComponent API无法从Console调用。79步中大量时间花在尝试聚焦DevTools Console输入和查找全局暴露的API上，未能完成测试。"
     },
     {
       "task_id": "the-graph-pr118",
@@ -23117,45 +23257,80 @@
     },
     {
       "task_id": "tiny-editor-108",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "reproduced",
+      "sess_id": "sess-20260424064300-tinyeditor108",
+      "repo": "opentiny/tiny-editor",
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "Bug复现：右键表格打开上下文菜单后，鼠标滚轮滚动导致页面滚动而非菜单内容滚动。wheel事件穿透菜单容器冒泡到页面。两次测试均100%复现。Console无JS错误。"
     },
     {
       "task_id": "tiny-editor-156",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": "sess-20260424072400-tinyeditor156",
+      "repo": "opentiny/tiny-editor",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "文档站无'附件'专属demo页面，搜索'附件'返回无结果。最接近的'文件上传'页面编辑器为空，无预置附件可供测试下载。mano-cua在文件上传页面操作toolbar但无法完成上传+下载的完整流程(需要服务端支持)。"
     },
     {
       "task_id": "tiny-editor-173",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": "sess-20260424074100-tinyeditor173",
+      "repo": "opentiny/tiny-editor",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "mano-cua在自定义工具栏页面找到Font Color按钮位置但反复在toolbar按钮定位上卡住(Font Color/Quote/Inline Code tooltip交替出现)。47步内未成功打开颜色选择器，无法完成选色→重开→检查对勾的完整测试流程。"
     },
     {
       "task_id": "tiny-editor-197",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": "sess-20260424075200-tinyeditor197",
+      "repo": "opentiny/tiny-editor",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "mano-cua找到自定义工具栏页面和编辑器，识别出toolbar第三行可能的RTL方向按钮(¶符号，x≈500,y≈434)，但38步内反复hover尝试确认按钮身份，从未实际点击RTL按钮和编号列表按钮，未完成RTL+有序列表的测试流程。"
     },
     {
       "task_id": "tiny-editor-201",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": null,
+      "repo": "opentiny/tiny-editor",
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "mano-cua连续3次启动后log文件为0字节(进程存活但不产生输出)。部署成功(HTTP 200)，Chrome正常打开页面，但mano-cua内部卡住不执行步骤。可能是mano-cua 1.0.7与当前Chrome/页面状态的兼容性问题。"
     },
     {
       "task_id": "tiny-editor-294",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": null,
+      "repo": "opentiny/tiny-editor",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "mano-cua在tiny-editor页面(localhost:5173)持续卡住——进程存活但log文件0字节。部署成功(HTTP 200)，Chrome正常显示页面。mano-cua在example.com上正常工作，问题仅出现在tiny-editor commit cd20ab5b06/d9a0043eaf的VitePress站点上。"
     },
     {
       "task_id": "tiny-editor-417",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-09",
+      "result": "unclear",
+      "sess_id": null,
+      "repo": "opentiny/tiny-editor",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "mano-cua在tiny-editor页面(localhost:5173)持续卡住——进程存活但log文件0字节。部署成功(HTTP 200)，Chrome正常显示页面。mano-cua在example.com上正常工作，问题仅出现在tiny-editor commit cd20ab5b06/d9a0043eaf的VitePress站点上。"
     },
     {
       "task_id": "tiny-editor-92",
