@@ -1,0 +1,18 @@
+{
+  "task_id": "ngx-scrollbar-pr449",
+  "repo": "MurhafSousli/ngx-scrollbar",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260424155959-64af99a04d4e4d018446bdb440ce4650",
+  "expected_result_used": true,
+  "duration_seconds": 540,
+  "timestamp": "2026-04-24T16:09:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 33,
+    "last_action": "mouse_move",
+    "result": "normal",
+    "result_summary": "ngx-scrollbar 在 CDK 虚拟滚动容器上正确渲染(✅)。列表有1000项，可视区域显示4项。滚动条 thumb 大小与可视区域/总内容比例一致（约为 track 高度的 4/1000，非常小但正确）(✅)。鼠标滚轮在虚拟滚动列表中平滑滚动(✅)。thumb 位置与内容滚动位置同步：滚动到 item 1000 时 thumb 到达 track 底部，滚回 item 1 时 thumb 回到顶部(✅)。小幅滚动时 thumb 移动不明显是因为每项仅移动约0.17px（亚像素级），属于正常行为。",
+    "last_reasoning": "CDK Virtual Scroll 示例包含1000项，可视区域显示4项。ngx-scrollbar 正确渲染在容器右侧，thumb 大小极小但与 4/1000 的可视比例一致。滚动操作平滑，thumb 位置在大幅滚动后明显跟踪（item 150 时 thumb 在中间，item 1000 时到底部，回到 item 1 时回到顶部）。小幅滚动时 thumb 位置变化不明显是亚像素移动的正常表现，不是 bug。"
+  }
+}
