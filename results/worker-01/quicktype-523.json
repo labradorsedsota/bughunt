@@ -1,0 +1,17 @@
+{
+  "task_id": "quicktype-523",
+  "repo": "glideapps/quicktype",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-25T02:35:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "fuse_repo_blocked",
+    "attempted": ["fuse_trigger: quicktype-142 (需Android), quicktype-455 (2aec6f9d0a CLI无web UI), quicktype-523 (a4a05d5879 同样无web dirs)"],
+    "recommendation": "同repo 3个不同commit均无web UI，repo级熔断"
+  }
+}

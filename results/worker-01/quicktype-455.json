@@ -1,0 +1,21 @@
+{
+  "task_id": "quicktype-455",
+  "repo": "glideapps/quicktype",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-25T02:35:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "quicktype是纯CLI工具（TypeScript workspaces），无web app/前端代码。任务描述需要'在线编辑器'但repo不包含web UI",
+    "attempted": [
+      "下载commit 2aec6f9d0a",
+      "确认：package.json只有CLI workspaces（quicktype-core/graphql-input/typescript-input），无react/vue/express",
+      "无app/website/web/public目录"
+    ],
+    "recommendation": "quicktype.io web编辑器是独立部署，此repo仅含CLI工具"
+  }
+}
