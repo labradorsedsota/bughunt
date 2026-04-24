@@ -1,0 +1,17 @@
+{
+  "task_id": "inbox-428",
+  "repo": "un/inbox",
+  "worker": "worker-03",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T18:02:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "需要 MySQL/PlanetScale 数据库 + 多服务架构（mail-bridge, storage, realtime），无法本地启动",
+    "attempted": ["检查 .env.local.example 确认需要 DB_MYSQL + MAILBRIDGE + STORAGE 等多个服务"],
+    "recommendation": "需要完整后端基础设施（MySQL + 邮件服务），按手册§四标 deploy_failed 跳过"
+  }
+}
