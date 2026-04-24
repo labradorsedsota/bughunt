@@ -1,0 +1,18 @@
+{
+  "task_id": "google-fonts-pr28",
+  "repo": "nuxt-modules/google-fonts",
+  "worker": "worker-05",
+  "status": "completed",
+  "sess_id": "sess-20260424223908-ecc4701ec81f4aa895eb0e61fa48fdeb",
+  "expected_result_used": true,
+  "duration_seconds": 720,
+  "timestamp": "2026-04-24T22:52:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 17,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "两个crossorigin属性bug：(1) preconnect标签crossorigin='true'是无效值，应为'anonymous'；(2) preload标签完全缺少crossorigin属性，导致预加载资源无法复用（双重请求）。字体可能因CORS问题无法正常加载",
+    "last_reasoning": "The preconnect tag has crossorigin='true' which is an invalid attribute value (should be 'anonymous'). The preload tag is missing the crossorigin attribute entirely, causing the preloaded resource to not be reused (double request). These CORS issues may prevent Google Fonts from loading correctly."
+  }
+}

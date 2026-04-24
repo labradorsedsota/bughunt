@@ -1,0 +1,20 @@
+{
+  "task_id": "obsidian-univer-87",
+  "repo": "dream-num/obsidian-univer",
+  "worker": "worker-05",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T22:55:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Obsidian插件项目，npm run dev只执行vite build --watch输出dist/目录，不启动web dev server。curl http://localhost:5173返回000。该项目需要Obsidian桌面应用才能运行和测试，mano-cua无法在浏览器中操作",
+    "attempted": [
+      "pnpm install + pnpm run dev（只触发build --watch，无web server）",
+      "检查vite.config.ts确认无server配置，是Obsidian插件构建配置"
+    ],
+    "recommendation": "跳过，需要Obsidian桌面应用环境"
+  }
+}
