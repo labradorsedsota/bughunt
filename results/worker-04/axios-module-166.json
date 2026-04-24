@@ -1,0 +1,19 @@
+{
+  "task_id": "axios-module-166",
+  "repo": "nuxt-community/axios-module",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260424223932-5adfa66f52a847a69a1c1ad5763a8715",
+  "expected_result_used": true,
+  "duration_seconds": 404,
+  "timestamp": "2026-04-24T22:46:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 35,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "SSR模式下onResponseError未能阻止错误传播：1)/ssr页面只显示'session–'空值，预期应有完整SSR数据 2)/asyncData页面直接500 NuxtServerError崩溃，onResponseError未能捕获并降级 3)SSR模式下axios连接127.0.0.1:7890(代理端口)导致ECONNREFUSED 4)无自定义错误降级UI，只显示裸NuxtServerError页面。",
+    "last_reasoning": "SSR模式下API错误未被onResponseError正确捕获，导致页面级500崩溃。"
+  },
+  "note": "SSR错误处理缺陷，onResponseError未阻止500传播。代理配置影响SSR请求。"
+}

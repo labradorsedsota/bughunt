@@ -1,0 +1,17 @@
+{
+  "task_id": "inspira-ui-pr260",
+  "repo": "unovue/inspira-ui",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "deploy_failed",
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T14:36:28+08:00",
+  "mano_cua": {
+    "status": "SKIPPED",
+    "result": "deploy_failed",
+    "result_summary": "Nuxt 4.2.2 + 381个content文件导致EMFILE: too many open files错误，dev server启动后立即因文件监视器过多而崩溃。Nuxt 3.14(task 87)正常，但此commit升级到Nuxt 4.2.2后系统文件描述符不足。",
+    "last_reasoning": "EMFILE错误导致dev server崩溃，无法部署。"
+  },
+  "note": "deploy_failed: Nuxt 4.2.2 EMFILE too many open files，系统文件描述符不足。"
+}

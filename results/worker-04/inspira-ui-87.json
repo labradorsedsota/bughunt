@@ -1,0 +1,19 @@
+{
+  "task_id": "inspira-ui-87",
+  "repo": "unovue/inspira-ui",
+  "worker": "worker-04",
+  "status": "completed",
+  "sess_id": "sess-20260424222700-85368d6b92d248739165bd695e32277f",
+  "expected_result_used": true,
+  "duration_seconds": 226,
+  "timestamp": "2026-04-24T22:30:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 16,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Morphing Text组件文字切换功能正常（词语循环播放），但核心形变动画缺失：无逐字符blur/morph过渡效果，文字只是瞬间切换。morphTime=1.5s应有明显过渡但截图中无中间模糊状态。可能是CSS filter:blur()未正确应用或requestAnimationFrame动画循环bug。另外页面初始加载Demo区域定位问题需滚动。",
+    "last_reasoning": "文字切换正常但缺少核心morphing视觉效果，字符级形变动画不可见。"
+  },
+  "note": "核心形变动画缺失，只有简单文字切换。在Chrome中测试（任务要求Firefox但环境仅有Chrome）。"
+}
