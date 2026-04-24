@@ -1,0 +1,20 @@
+{
+  "task_id": "ngx-sortablejs-pr168",
+  "repo": "SortableJS/ngx-sortablejs",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-25T06:28:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Node v24 不兼容：OpenSSL legacy provider 绕过后，ng build ngx-sortablejs 报 TS1192 类型错误（@types/sortablejs 无 default export），ng serve 报 TS2307 找不到 ngx-sortablejs 模块",
+    "attempted": [
+      "npm install --legacy-peer-deps 成功",
+      "NODE_OPTIONS=--openssl-legacy-provider npm start → 编译失败 TS2307",
+      "NODE_OPTIONS=--openssl-legacy-provider ng build ngx-sortablejs → TS1192 类型错误"
+    ]
+  }
+}

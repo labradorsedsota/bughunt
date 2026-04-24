@@ -1,0 +1,20 @@
+{
+  "task_id": "meli-184",
+  "repo": "getmeli/meli",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-25T05:55:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "项目需要 MongoDB + Caddy + Mailhog (docker-compose-dev.yml)，无 npm run dev 脚本，任务卡 dev_url:5173 与实际不符(应为3000+3001)，纯后端架构无法本地单独部署",
+    "attempted": [
+      "检查 package.json：无 dev 脚本，start 需要 build+nodemon",
+      "检查 docker-compose-dev.yml：依赖 mongo:4.2、mailhog、caddy",
+      "检查 .env.example：需要 MongoDB URI、多个服务端口"
+    ]
+  }
+}
