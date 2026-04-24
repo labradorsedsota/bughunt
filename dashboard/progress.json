@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-04-24 12:03:47",
+  "last_updated": "2026-04-24 13:03:48",
   "summary": {
     "total": 3373,
-    "completed": 575,
-    "failed": 586,
+    "completed": 590,
+    "failed": 587,
     "blocked": 0,
-    "pending": 2212
+    "pending": 2196
   },
   "tasks": [
     {
@@ -11290,25 +11290,25 @@
     },
     {
       "task_id": "leaflet-geoman-1559",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-01",
       "result": "unclear",
-      "sess_id": "sess-20260423203044-729d006c1e124e0d9a32666e6e51e00c",
+      "sess_id": "sess-20260424115250-04955d7103774992b0a27068476f481c",
       "repo": "geoman-io/leaflet-geoman",
-      "duration_seconds": 480,
+      "duration_seconds": 1640,
       "error": "",
-      "result_summary": "成功绘制多边形并进入编辑模式，准备拖拽锚点测试吸附行为时 mano-cua ProxyError 断连。未能完成拖拽测试。"
+      "result_summary": "Demo页面无UI控件配置allowEditing/allowSelfIntersection/limitMarkersToCount等全局编辑模式参数，只能通过JS API设置。工具栏编辑按钮仅以默认选项启用编辑模式。页面左半部分(0-760px)空白为布局bug。"
     },
     {
       "task_id": "leaflet-geoman-1568",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-01",
-      "result": "unclear",
-      "sess_id": "sess-20260423203737-2989112b533044cc8069e1c8af3e2899",
+      "result": "abnormal",
+      "sess_id": "sess-20260424122549-73c78a475b5b42389816c40d638476a1",
       "repo": "geoman-io/leaflet-geoman",
-      "duration_seconds": 120,
+      "duration_seconds": 780,
       "error": "",
-      "result_summary": "mano-cua 在第 1 步即 ProxyError 断连，未能完成任何测试操作。"
+      "result_summary": "在Marker绘制模式下拖拽已放置的Marker，拖拽结束后目标位置出现两个Marker（一个移动过来的+一个新创建的），拖拽终点被同时解释为移动目的地和新Marker放置点。确认为bug。"
     },
     {
       "task_id": "leaflet-geoman-202",
@@ -12559,25 +12559,25 @@
     },
     {
       "task_id": "mavonEditor-pr661",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-02",
-      "result": "",
-      "sess_id": null,
+      "result": "unclear",
+      "sess_id": "sess-20260424121317-697689021ab94fa9a9ea8b0c18ff2682",
       "repo": "hinesboy/mavonEditor",
-      "duration_seconds": 0,
-      "error": "mano-cua API今晚持续不稳定：频繁出现session创建后step endpoint 404、或启动后长时间(5-10分钟)无任何step输出。同批次mission-control-368/456、mavonEditor多张卡均遇到此问题",
-      "result_summary": "mano-cua API今晚持续不稳定：频繁出现session创建后step endpoint 404、或启动后长时间(5-10分钟)无任何step输出。同批次mission-control-368/456、mavonEditor多张卡均遇到此问题"
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "Test1(无选中文本插入代码块): 点击代码块按钮后插入了```language\\n\\n```格式代码块，'language'文字处于选中状态（蓝色高亮），符合预期行为。Test2(选中文本插入代码块): 输入'HelloWorld'后尝试用Shift+Home选中文本，但触发了全文选中，后续尝试double_click重新选中时mano-cua超时终止，未能完成Test2观察。"
     },
     {
       "task_id": "mavonEditor-pr667",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-02",
-      "result": "",
-      "sess_id": null,
+      "result": "unclear",
+      "sess_id": "sess-20260424123231-d197291faaa0489e8041dd06e9576542",
       "repo": "hinesboy/mavonEditor",
-      "duration_seconds": 0,
-      "error": "mano-cua API今晚持续不稳定（同批次多张卡受影响）。且测试需要同一页面多个mavonEditor实例，demo页面只有1-2个实例，测试场景可能不完整",
-      "result_summary": "mano-cua API今晚持续不稳定（同批次多张卡受影响）。且测试需要同一页面多个mavonEditor实例，demo页面只有1-2个实例，测试场景可能不完整"
+      "duration_seconds": 600,
+      "error": "",
+      "result_summary": "dev页面(localhost:9090)仅显示单个mavonEditor实例，无法测试多实例弹出框交叉影响。单实例测试结果：图片弹出框(添加图片)居中显示、样式正常、遮罩层正确；链接弹出框(添加链接)居中显示、样式正常；表格按钮直接插入模板无弹出框。由于页面仅有一个编辑器实例，无法验证多实例间弹出框是否相互干扰。"
     },
     {
       "task_id": "mavonEditor-pr717",
@@ -12592,14 +12592,14 @@
     },
     {
       "task_id": "mavonEditor-pr748",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-02",
-      "result": "",
-      "sess_id": null,
+      "result": "normal",
+      "sess_id": "sess-20260424124820-a3fb3485702243e0b4e2ffe7964a9273",
       "repo": "hinesboy/mavonEditor",
-      "duration_seconds": 0,
-      "error": "mano-cua API今晚持续不稳定（同批次多张卡受影响）",
-      "result_summary": "mano-cua API今晚持续不稳定（同批次多张卡受影响）"
+      "duration_seconds": 120,
+      "error": "",
+      "result_summary": "图片上传功能正常：点击工具栏图片图标→弹出下拉菜单（添加图片链接/上传图片）→点击上传图片→系统文件选择器正常弹出→取消后页面恢复正常显示'未选择任何文件'提示。全流程无JS错误、无页面异常、无视觉缺陷。"
     },
     {
       "task_id": "md-1126",
@@ -13477,34 +13477,34 @@
       "task_id": "mission-control-333",
       "status": "completed",
       "worker": "worker-02",
-      "result": "unclear",
-      "sess_id": "sess-20260423203822-a5a484f58aad43249f6f6af5e22436e0",
+      "result": "normal",
+      "sess_id": "sess-20260424113505-064d4d9676894f31b69d91a458de5ac7",
       "repo": "builderz-labs/mission-control",
       "duration_seconds": 120,
       "error": "",
-      "result_summary": "mano-cua在3步后遇504 Gateway Timeout API错误中断。测试需Docker环境+OpenClaw网关来复现WebSocket连接bug，当前环境无Docker/网关。step 3观察到首页显示'Gateway connected'绿色指示灯，但无法完成完整测试。"
+      "result_summary": "Mission Control首页Gateway Connection显示Status: Connected（绿色），Host: 127.0.0.1:18789，WebSocket: Live（绿色）stable v2026.6.14。网关整体状态Online，无离线错误或WebSocket错误信息。页面正常显示网关控制面板指标。"
     },
     {
       "task_id": "mission-control-368",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-02",
-      "result": "",
-      "sess_id": null,
+      "result": "abnormal",
+      "sess_id": "sess-20260424113904-cce0e61bcd10408099bf623cfb21abae",
       "repo": "builderz-labs/mission-control",
-      "duration_seconds": 600,
-      "error": "mano-cua启动后10分钟无任何step输出，可能是mano API服务不稳定（此前mission-control-333也遇到504 Gateway Timeout）",
-      "result_summary": "mano-cua启动后10分钟无任何step输出，可能是mano API服务不稳定（此前mission-control-333也遇到504 Gateway Timeout）"
+      "duration_seconds": 300,
+      "error": "",
+      "result_summary": "同名任务无法创建：第一个任务'Test Task Duplicate'创建成功，尝试创建同标题第二个任务时，点击'创建任务'按钮后对话框不关闭、无错误提示、无验证警告，任务列表仍只有1条记录。系统静默拒绝了重复标题任务的创建。"
     },
     {
       "task_id": "mission-control-456",
-      "status": "failed",
+      "status": "completed",
       "worker": "worker-02",
-      "result": "",
-      "sess_id": null,
+      "result": "unclear",
+      "sess_id": "sess-20260424114633-f31929969be24b1284d25210a597bb97",
       "repo": "builderz-labs/mission-control",
       "duration_seconds": 600,
-      "error": "mano-cua API持续不稳定：mission-control-333报504 Gateway Timeout，mission-control-368和456均启动后10+分钟无任何step输出",
-      "result_summary": "mano-cua API持续不稳定：mission-control-333报504 Gateway Timeout，mission-control-368和456均启动后10+分钟无任何step输出"
+      "error": "",
+      "result_summary": "mano-cua在44步内未观察到'Checking Setup Status'加载指示器。完成初始设置向导3步（Interface→Gateway→Credentials）后，页面直接跳转到主仪表盘，未出现任何加载状态页面。可能是：(1)加载指示器出现过快未被捕获；(2)该commit版本下bug表现不同——向导直接跳过了状态检查步骤。无法确认bug是否复现。"
     },
     {
       "task_id": "mission-control-461",
@@ -14792,51 +14792,91 @@
     },
     {
       "task_id": "ngx-infinite-scroll-128",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "unclear",
+      "sess_id": "sess-20260424112421-9cfe7ff760bc47b3a28969e6d2d7c300",
+      "repo": "orizens/ngx-infinite-scroll",
+      "duration_seconds": 132,
+      "error": "",
+      "result_summary": "未在页面中找到目标功能入口。localhost:4200 是 Compodoc 生成的 API 文档网站，不包含带有无限滚动功能的交互式长列表演示页面，/demo、/list、/infinite-scroll 等路由均不存在。"
     },
     {
       "task_id": "ngx-infinite-scroll-28",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "unclear",
+      "sess_id": "sess-20260424112937-2325262e0f644fdcbf5d5c36910ab9fb",
+      "repo": "orizens/ngx-infinite-scroll",
+      "duration_seconds": 98,
+      "error": "",
+      "result_summary": "未在页面中找到目标功能入口。localhost:4200 是 Compodoc 生成的 Angular 文档网站，仅包含 README、Overview、InfiniteScroll 指令 API 文档等静态页面，没有使用 ngx-infinite-scroll 的可交互列表演示组件。"
     },
     {
       "task_id": "ngx-infinite-scroll-40",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "unclear",
+      "sess_id": null,
+      "repo": "orizens/ngx-infinite-scroll",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "compodoc-serve 仅产出 API 文档，无交互式演示页面，mano-cua 无法执行 UI 测试。已通过 ngx-infinite-scroll-128 和 ngx-infinite-scroll-28 两张卡验证确认。"
     },
     {
       "task_id": "ngx-infinite-scroll-pr235",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "unclear",
+      "sess_id": null,
+      "repo": "orizens/ngx-infinite-scroll",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "compodoc-serve 仅产出 API 文档，无交互式演示页面，mano-cua 无法执行 UI 测试。已通过 ngx-infinite-scroll-128 和 ngx-infinite-scroll-28 两张卡验证确认。"
     },
     {
       "task_id": "ngx-infinite-scroll-pr262",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "unclear",
+      "sess_id": null,
+      "repo": "orizens/ngx-infinite-scroll",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "compodoc-serve 仅产出 API 文档，无交互式演示页面，mano-cua 无法执行 UI 测试。已通过 ngx-infinite-scroll-128 和 ngx-infinite-scroll-28 两张卡验证确认。"
     },
     {
       "task_id": "ngx-infinite-scroll-pr282",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "unclear",
+      "sess_id": null,
+      "repo": "orizens/ngx-infinite-scroll",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "compodoc-serve 仅产出 API 文档，无交互式演示页面，mano-cua 无法执行 UI 测试。已通过 ngx-infinite-scroll-128 和 ngx-infinite-scroll-28 两张卡验证确认。"
     },
     {
       "task_id": "ngx-infinite-scroll-pr369",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "unclear",
+      "sess_id": null,
+      "repo": "orizens/ngx-infinite-scroll",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "compodoc-serve 仅产出 API 文档，无交互式演示页面，mano-cua 无法执行 UI 测试。已通过 ngx-infinite-scroll-128 和 ngx-infinite-scroll-28 两张卡验证确认。"
     },
     {
       "task_id": "ngx-infinite-scroll-pr386",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-03",
+      "result": "unclear",
+      "sess_id": null,
+      "repo": "orizens/ngx-infinite-scroll",
+      "duration_seconds": 0,
+      "error": "",
+      "result_summary": "compodoc-serve 仅产出 API 文档，无交互式演示页面，mano-cua 无法执行 UI 测试。已通过 ngx-infinite-scroll-128 和 ngx-infinite-scroll-28 两张卡验证确认。"
     },
     {
       "task_id": "ngx-loading-bar-184",
@@ -22648,51 +22688,91 @@
     },
     {
       "task_id": "tensei-pr121",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": null,
+      "repo": "tenseijs/tensei",
+      "duration_seconds": 0,
+      "error": "yarn lerna run build失败: @tensei/components rollup编译TypeScript时报Unexpected token, rollup-plugin-typescript2与rollup版本不兼容。全局安装tsc后tsc编译成功但rollup无法解析TS。",
+      "result_summary": "yarn lerna run build失败: @tensei/components rollup编译TypeScript时报Unexpected token, rollup-plugin-typescript2与rollup版本不兼容。全局安装tsc后tsc编译成功但rollup无法解析TS。"
     },
     {
       "task_id": "tensei-pr228",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": null,
+      "repo": "tenseijs/tensei",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "tensei-pr230",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": null,
+      "repo": "tenseijs/tensei",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "tensei-pr246",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": null,
+      "repo": "tenseijs/tensei",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "tensei-pr247",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": null,
+      "repo": "tenseijs/tensei",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "tensei-pr252",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": null,
+      "repo": "tenseijs/tensei",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "tensei-pr267",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": null,
+      "repo": "tenseijs/tensei",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "tensei-pr269",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-06",
+      "result": "",
+      "sess_id": null,
+      "repo": "tenseijs/tensei",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "text-to-cad-ui-137",
