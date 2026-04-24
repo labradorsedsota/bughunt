@@ -1,0 +1,21 @@
+{
+  "task_id": "hassio-trash-card-410",
+  "repo": "idaho/hassio-trash-card",
+  "worker": "worker-01",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-25T01:42:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Home Assistant自定义卡片组件，需要Docker运行HA环境(start:hass)，无独立web页面。npm run dev不存在，start仅为rollup watch。",
+    "attempted": [
+      "npm install成功",
+      "npm run dev → Missing script",
+      "检查scripts：仅有rollup watch + docker run HA"
+    ],
+    "recommendation": "需要Docker + Home Assistant环境才能测试"
+  }
+}
