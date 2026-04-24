@@ -1,0 +1,18 @@
+{
+  "task_id": "vuefinder-pr158",
+  "repo": "n1crack/vuefinder",
+  "worker": "worker-09",
+  "status": "completed",
+  "sess_id": "sess-20260424203938-c7d4aa0bd8b24dab8e4f644dc737b699",
+  "expected_result_used": true,
+  "duration_seconds": 240,
+  "timestamp": "2026-04-24T20:39:38+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 14,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "菜单栏未隐藏被禁用功能bug已复现：Features Configuration中禁用Upload和New Folder后，Toolbar正确移除了对应图标，但File菜单中Upload/New Folder仍然显示（仅置灰而非隐藏）。View菜单中Full Screen同样如此。工具栏(完全移除)和菜单栏(仅置灰)行为不一致，确认为功能一致性Bug。",
+    "last_reasoning": "被禁用的功能选项（如Upload、New Folder）在文件管理器菜单栏中仍然显示，只是以灰色（disabled/grayed-out）状态显示，而不是完全隐藏。工具栏（Toolbar）行为：禁用功能后对应图标被完全移除（正确行为）。菜单栏（Menu Bar）行为：禁用功能后对应菜单项仍然显示但被置灰（不一致）。"
+  }
+}

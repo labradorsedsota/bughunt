@@ -1,0 +1,22 @@
+{
+  "task_id": "vuefinder-pr35",
+  "repo": "n1crack/vuefinder",
+  "worker": "worker-09",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T20:53:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "旧版commit(dd29f96e36) examples/App.vue配置baseUrl为http://localhost:8005/（PHP后端），无后端API服务→文件列表永远loading空白，无法测试下载功能",
+    "attempted": [
+      "npm install成功",
+      "npx vite启动成功（port 5173，返回200）",
+      "mano-cua启动8步确认文件列表持续loading spinner",
+      "检查App.vue：request.baseUrl指向localhost:8005（需要PHP后端）"
+    ],
+    "recommendation": "需要后端API服务(PHP)，非纯前端可测项目，跳过"
+  }
+}

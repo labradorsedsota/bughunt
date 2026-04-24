@@ -1,0 +1,21 @@
+{
+  "task_id": "vuefinder-pr21",
+  "repo": "n1crack/vuefinder",
+  "worker": "worker-09",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-24T20:48:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "旧版commit(fc445edc25)无index.html和examples目录，vite.config配置为library模式(build.lib)，无可服务的demo/test页面",
+    "attempted": [
+      "npm install成功",
+      "npx vite启动后返回404（no entry point）",
+      "检查项目结构：无index.html、无examples/目录"
+    ],
+    "recommendation": "此commit为纯library版本，无dev页面可供mano-cua测试，跳过"
+  }
+}
