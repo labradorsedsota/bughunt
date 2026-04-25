@@ -1,0 +1,20 @@
+{
+  "task_id": "vue-antd-admin-215",
+  "repo": "iczer/vue-antd-admin",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-25T13:20:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Node v24 不兼容：webpack-dev-server 依赖 spdy → http-deceiver → process.binding('http_parser')，该内部模块在 Node 24 中已移除",
+    "attempted": [
+      "npm install --legacy-peer-deps → chromedriver arm64 不支持",
+      "npm install --legacy-peer-deps --ignore-scripts → 成功",
+      "NODE_OPTIONS=--openssl-legacy-provider npm run dev → Error: No such module: http_parser"
+    ]
+  }
+}

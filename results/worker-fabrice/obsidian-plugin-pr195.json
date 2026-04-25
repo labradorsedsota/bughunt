@@ -1,0 +1,21 @@
+{
+  "task_id": "obsidian-plugin-pr195",
+  "repo": "tldraw/obsidian-plugin",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-25T07:40:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "1) buggy_commit a719011b3b 不存在于仓库中（shallow/full clone 均找不到）2) 项目是 Obsidian 桌面插件，npm run dev 是 esbuild 构建脚本而非 web 服务器，无 localhost 可访问的 UI",
+    "attempted": [
+      "git clone --depth=50 + git checkout → pathspec not found",
+      "git fetch --unshallow + checkout → 仍然 not found",
+      "git fetch origin pull/195/head → PR 存在，但 buggy_commit hash 不在任何分支/PR 中",
+      "检查 package.json scripts：dev 脚本是 tsx build 而非 dev server"
+    ]
+  }
+}

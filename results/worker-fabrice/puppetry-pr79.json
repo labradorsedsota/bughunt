@@ -1,0 +1,19 @@
+{
+  "task_id": "puppetry-pr79",
+  "repo": "dsheiko/puppetry",
+  "worker": "worker-fabrice",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-25T09:28:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Electron 桌面应用，start 脚本为 cross-env ELECTRON_ENV=dev electron .，无 dev 脚本，无 localhost web UI 可访问",
+    "attempted": [
+      "检查 package.json scripts：无 dev，start 是 electron 启动",
+      "确认框架为 Electron + React，非 web 应用"
+    ]
+  }
+}
