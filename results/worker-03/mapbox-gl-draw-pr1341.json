@@ -1,0 +1,27 @@
+{
+  "task_id": "mapbox-gl-draw-pr1341",
+  "repo": "mapbox/mapbox-gl-draw",
+  "worker": "worker-03",
+  "status": "failed",
+  "sess_id": "sess-20260427022412-bec56579aec0427d8fda64c10acecce3",
+  "expected_result_used": true,
+  "duration_seconds": 540,
+  "timestamp": "2026-04-27T02:33:00+08:00",
+  "mano_cua": {
+    "status": "STOPPED",
+    "total_steps": 37,
+    "last_action": "left_click",
+    "result": "unclear",
+    "result_summary": "地图空白无法测试：页面加载成功，Mapbox GL Draw控件可见且可交互（tooltip正常显示），但地图画布完全白色无瓦片渲染。原因：缺少Mapbox access token导致地图瓦片无法加载。激活LineString绘制工具后点击画布无可见要素产生，无法完成绘制→点击→拖拽的测试流程。",
+    "last_reasoning": "The map IS showing as blank white. The UI controls ARE visible and responsive. Drawing tools tooltips appear on hover (e.g. LineString tool). But clicking on map after activating draw mode produces no visible drawn features. Cannot complete the test workflow without visible map rendering."
+  },
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "需要Mapbox access token（外部API认证），无token地图瓦片无法加载，画布空白",
+    "attempted": [
+      "直接启动npm start（token为null）",
+      "mano-cua尝试在空白地图上绘制（37步无果）"
+    ],
+    "recommendation": "需配置环境变量MapboxAccessToken或MAPBOX_ACCESS_TOKEN后重测"
+  }
+}

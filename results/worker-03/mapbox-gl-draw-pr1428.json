@@ -1,0 +1,19 @@
+{
+  "task_id": "mapbox-gl-draw-pr1428",
+  "repo": "mapbox/mapbox-gl-draw",
+  "worker": "worker-03",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-27T02:34:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "fuse_repo_blocked",
+    "attempted": [
+      "fuse_trigger: mapbox-gl-draw-pr1341 (commit 61735e37c2) - 需要Mapbox access token，地图空白无法测试"
+    ],
+    "recommendation": "同repo需要Mapbox access token（外部API认证），无token地图瓦片无法加载。需配置环境变量后重测。注：严格来说只尝试了一个commit，但两张卡的token需求是repo级的，与commit无关。"
+  }
+}

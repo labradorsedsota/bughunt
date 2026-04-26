@@ -1,0 +1,18 @@
+{
+  "task_id": "zardui-418",
+  "repo": "zard-ui/zardui",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260427024927-0c740d55dd0040b897538cbfceb37c32",
+  "expected_result_used": true,
+  "duration_seconds": 420,
+  "timestamp": "2026-04-27T02:56:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 30,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "Menu组件scroll jump bug确认：在Menu页面顶部打开Products菜单后关闭，向下滚动到Default示例区域，点击该区域的Products按钮时页面意外滚回顶部Preview区域。点击Menu trigger导致页面滚动位置跳变，用户阅读位置被打断。",
+    "last_reasoning": "BUG CONFIRMED: Clicking the Products menu button in the Default example section caused the page to scroll up unexpectedly. The viewport jumped from showing 'Examples > Default' section back to showing the first Preview section near the top of the page. The Menu component has a scroll jump bug - clicking a Menu trigger button causes the page to unexpectedly scroll to a different position."
+  }
+}

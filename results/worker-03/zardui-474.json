@@ -1,0 +1,18 @@
+{
+  "task_id": "zardui-474",
+  "repo": "zard-ui/zardui",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260427032221-32eab90944074c42ba0d0b0477eb8c53",
+  "expected_result_used": true,
+  "duration_seconds": 480,
+  "timestamp": "2026-04-27T03:35:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 22,
+    "last_action": "DONE",
+    "result": "normal",
+    "result_summary": "未复现bug。页面上多个z-dropdown实例（Default和Hover两个演示）独立运行，打开一个dropdown时，其他dropdown的触发按钮保持正常默认样式，无aria-expanded污染导致的异常高亮或边框变化。唯一可见的样式差异是浏览器原生focus ring（正常行为）。",
+    "last_reasoning": "Tested 3 dropdown instances (Overview Preview, Default example, Hover example). When one dropdown is opened, other trigger buttons maintain proper visual state - no unexpected style contamination. Focus ring on last-clicked button is normal browser behavior. No cross-dropdown aria-expanded visual anomaly detected."
+  }
+}

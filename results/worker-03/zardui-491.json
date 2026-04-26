@@ -1,0 +1,18 @@
+{
+  "task_id": "zardui-491",
+  "repo": "zard-ui/zardui",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260427033345-3932233d55204f65a4635c8aa838ddfd",
+  "expected_result_used": true,
+  "duration_seconds": 540,
+  "timestamp": "2026-04-27T03:45:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 32,
+    "last_action": "DONE",
+    "result": "unclear",
+    "result_summary": "Dialog对话框打开后宽度固定在约425px（屏幕272px/1280px视口），与bug描述的硬编码宽度一致。API文档中存在zWidth属性（type: string），但演示页面未提供任何交互控件来设置自定义宽度，无法通过UI验证zWidth参数是否能覆盖硬编码CSS。视觉上Dialog确实是固定窄宽度，但无法确认zWidth是否真正失效。",
+    "last_reasoning": "Dialog opens at fixed narrow width ~425px consistent with sm:max-w-[425px] CSS class. API docs show zWidth property exists to set dialog width. However demo/preview provides no interactive controls to customize width - only an 'Edit profile' button to trigger dialog. Cannot visually disprove or confirm the hardcoded CSS bug without ability to test zWidth parameter. Dialog consistently renders at same narrow fixed width."
+  }
+}
