@@ -3,16 +3,16 @@
   "repo": "builderz-labs/mission-control",
   "worker": "worker-02",
   "status": "completed",
-  "sess_id": "sess-20260424175211-a7b88c3becb841e09b53ea2f87554b0c",
+  "sess_id": "sess-20260427020244-674ea95275794ce1b74935a9eecb3650",
   "expected_result_used": true,
-  "duration_seconds": 600,
-  "timestamp": "2026-04-24T18:02:00+08:00",
+  "duration_seconds": 240,
+  "timestamp": "2026-04-27T02:06:00+08:00",
   "mano_cua": {
-    "status": "STOPPED_BY_TIMEOUT",
-    "total_steps": 7,
-    "last_action": "scroll down",
-    "result": "unclear",
-    "result_summary": "成功进入Agent Chat界面，选择了一个对话后可看到对话内容，但mano-cua在寻找消息输入框时超时。页面显示对话历史记录但未在可见区域发现明确的消息输入框/发送按钮。可能输入框在页面底部或需要特定条件才显示。无法完成消息发送测试。",
-    "last_reasoning": "进入Agent Chat后选择了一个conversation，看到对话内容，向下滚动寻找输入框时超时。"
+    "status": "COMPLETED",
+    "total_steps": 20,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "网关显示 Online/Connected 但消息发送失败，返回 gateway_send_failed 错误，消息未出现在消息列表中。点击 Send 后底部提示 Message saved but not delivered: gateway_send_failed。",
+    "last_reasoning": "首页 Gateway Control Plane 显示 Gateway = Online，Gateway Health 显示 Connected。在 Agent Chat 页面输入 Hello, this is a test message 并点击 Send 后，底部出现错误 Message saved but not delivered: gateway_send_failed。消息内容未出现在消息列表中，消息列表仍只显示之前的系统日志内容。消息发送功能存在 Bug。"
   }
 }

@@ -1,0 +1,17 @@
+{
+  "task_id": "x-render-pr1696",
+  "repo": "alibaba/x-render",
+  "worker": "worker-02",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-27T02:38:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "fuse_repo_blocked",
+    "attempted": ["fuse_trigger: x-render-597 (webpack compilation fails, ml-matrix missing deps), x-render-934 (same)"],
+    "recommendation": "同 repo 已有 2 个不同 buggy_commit deploy_failed（lerna monorepo, dumi/webpack 编译失败），repo 级熔断"
+  }
+}

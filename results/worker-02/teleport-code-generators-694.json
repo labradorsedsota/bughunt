@@ -1,0 +1,17 @@
+{
+  "task_id": "teleport-code-generators-694",
+  "repo": "teleporthq/teleport-code-generators",
+  "worker": "worker-02",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-27T02:37:00+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "fuse_repo_blocked",
+    "attempted": ["fuse_trigger: teleport-code-generators-209 (commit unknown), teleport-code-generators-213 (commit unknown)"],
+    "recommendation": "同 repo 已有 2 个不同 buggy_commit deploy_failed（代码生成库无 UI，npm run dev 启动 file watcher 非 web server），repo 级熔断"
+  }
+}
