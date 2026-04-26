@@ -1,0 +1,22 @@
+{
+  "task_id": "qinglong-pr2862",
+  "repo": "whyour/qinglong",
+  "worker": "worker-08",
+  "status": "failed",
+  "sess_id": "sess-20260427011918-ef8d1b0a1e484889a39e363145746edd",
+  "expected_result_used": true,
+  "duration_seconds": 360,
+  "timestamp": "2026-04-27T01:19:21-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "前端启动成功(port 8000)但后端API不可用(proxy /api → 127.0.0.1:5700 无响应)，页面重定向到 /error 显示 'Request failed with status code 504'。任务卡 deploy_commands 中 npm run dev 不存在，实际 start:front 启动的仅为前端，后端需要独立数据库和服务。",
+    "attempted": [
+      "npm install --legacy-peer-deps (解决依赖冲突)",
+      "nvm use 18 (解决 ajv module 兼容问题)",
+      "npm install ajv@8 (解决 ajv/dist/compile/codegen 缺失)",
+      "npx max dev 启动前端 (成功，但缺后端API)"
+    ],
+    "recommendation": "qinglong 是全栈应用，前端依赖后端API。需要后端服务 + 数据库才能测试脚本编辑功能。建议标记为需后端跳过。"
+  }
+}

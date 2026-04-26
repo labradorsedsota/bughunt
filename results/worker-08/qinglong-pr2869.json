@@ -1,0 +1,21 @@
+{
+  "task_id": "qinglong-pr2869",
+  "repo": "whyour/qinglong",
+  "worker": "worker-08",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-27T01:32:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "前端启动成功(port 8000)但后端API不可用(proxy /api → 127.0.0.1:5700 无响应)，与 qinglong-pr2862 同样问题。qinglong 是全栈应用，前端依赖后端API才能正常使用。",
+    "attempted": [
+      "git checkout 33fa3aca99 (不同 commit)",
+      "npx max dev 启动前端 (成功，但同样缺后端API)",
+      "确认为结构性问题：所有 qinglong commits 都需要后端服务"
+    ],
+    "recommendation": "qinglong 全栈应用需后端+数据库，纯前端无法测试。与 qinglong-pr2862 为不同 commit 的同类失败，触发 repo 级熔断。"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "qinglong-pr613",
+  "repo": "whyour/qinglong",
+  "worker": "worker-08",
+  "status": "failed",
+  "sess_id": null,
+  "expected_result_used": false,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-27T01:33:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "fuse_repo_blocked",
+    "attempted": ["fuse_trigger: qinglong-pr2862 (commit c61d1aa828), qinglong-pr2869 (commit 33fa3aca99)"],
+    "recommendation": "同 repo whyour/qinglong 已有 2 个不同 buggy_commit deploy_failed，repo 级熔断。qinglong 为全栈应用，纯前端部署无法使用。"
+  }
+}
