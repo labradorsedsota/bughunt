@@ -1,0 +1,17 @@
+{
+  "task_id": "obsidian-tracker-299",
+  "repo": "pyrochlore/obsidian-tracker",
+  "worker": "worker-06",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-26T10:54:00-07:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "Obsidian 插件项目，dev 脚本为 rollup watch（编译插件），无独立 web dev server，无法在浏览器中测试",
+    "attempted": ["检查 package.json scripts 确认 dev 为 rollup --config rollup.config.dev.mjs -w", "确认依赖列表含 obsidian 但无 vite/webpack/web framework"],
+    "recommendation": "Obsidian 插件项目，不适用于浏览器盲测"
+  }
+}
