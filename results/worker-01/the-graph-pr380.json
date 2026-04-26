@@ -1,0 +1,18 @@
+{
+  "task_id": "the-graph-pr380",
+  "repo": "flowhub/the-graph",
+  "worker": "worker-01",
+  "status": "completed",
+  "sess_id": "sess-20260427010300-5ca6c746b958432ebd028ff3763cd9fa",
+  "expected_result_used": true,
+  "duration_seconds": 1003,
+  "timestamp": "2026-04-27T01:18:43+08:00",
+  "mano_cua": {
+    "status": "STOPPED_BY_USER",
+    "total_steps": 76,
+    "last_action": "type: view-source:",
+    "result": "unclear",
+    "result_summary": "mano-cua 在图编辑器中观察到节点已有 SVG 图标循环展示，但 core/Split 节点显示破碎图片图标（broken image icon），疑似 iconsvg 渲染异常。因编辑器无明显 UI 入口供用户手动创建节点并配置 iconsvg，mano-cua 大量步数用于查看源码试图理解 API，最终因硬超时 15 分钟被终止，未能完成完整测试流程。",
+    "last_reasoning": "I can see the address bar with `localhost:3000/examples/demo-simple.html`. The cursor should be at the beginning. Let me type `view-source:` to prepend it."
+  }
+}
