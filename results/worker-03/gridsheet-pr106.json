@@ -1,0 +1,18 @@
+{
+  "task_id": "gridsheet-pr106",
+  "repo": "walkframe/gridsheet",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260427005641-7f096e90a91c4230ab523cc766b73598",
+  "expected_result_used": true,
+  "duration_seconds": 420,
+  "timestamp": "2026-04-27T01:03:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 40,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "行列操作全面异常：Insert Row Above/Below 插入位置错误且导致列数减少，Remove Row 删除末行而非选中行，Insert Column Left 导致列数减少，Insert Column Right 插入位置错误，Remove Column 完全无效果。Swap/Transpose 功能不存在。",
+    "last_reasoning": "The search for 'transpose' also returns 'No components found'. There is no 'transpose' or 'swap rows/columns' feature in this Gridsheet Storybook application. All 5 row/column operations have functional bugs: Insert Row Above inserted at wrong position, Remove Row removes last row instead of selected, Insert Column Left reduces column count, Insert Column Right inserts at wrong position, Remove Column has no effect, Insert Row Below also removes last column. The table's row and column counts do NOT update correctly following the operations."
+  }
+}

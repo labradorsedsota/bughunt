@@ -1,0 +1,18 @@
+{
+  "task_id": "gridsheet-pr56",
+  "repo": "walkframe/gridsheet",
+  "worker": "worker-03",
+  "status": "completed",
+  "sess_id": "sess-20260427014714-c88e45154e2a4f5e87125e9a2afa0747",
+  "expected_result_used": true,
+  "duration_seconds": 540,
+  "timestamp": "2026-04-27T01:56:00+08:00",
+  "mano_cua": {
+    "status": "COMPLETED",
+    "total_steps": 60,
+    "last_action": "DONE",
+    "result": "abnormal",
+    "result_summary": "FormulaBar多行显示bug：Alt+Enter正确插入换行（双击B2可见FirstLine+SecondLine两行），但FormulaBar仅显示首行（FirstLine），不显示完整多行内容。编辑时FormulaBar只显示当前光标行（输入SecondLine时FormulaBar从FirstLine切换为SecondLine）。FormulaBar不可直接点击进入编辑模式。Shift+Enter不插入换行而是提交值并留在同一单元格。非编辑模式下单元格也只显示首行、不自动扩展行高。",
+    "last_reasoning": "After pressing Escape, the final state shows: B2 selected, showing 'FirstLine' in the cell (non-edit mode, only first line visible). FormulaBar shows 'FirstLine' for B2. C2 shows 'LineB' in the cell. Row 2 is back to its normal single-line height (B2 collapsed after exiting edit mode). The 'SecondLine' is HIDDEN in the non-edit mode display - cell B2 only shows 'FirstLine' even though it contains 'FirstLine\\nSecondLine'."
+  }
+}
