@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-04-27 01:03:48",
+  "last_updated": "2026-04-27 02:03:48",
   "summary": {
     "total": 3373,
-    "completed": 896,
-    "failed": 790,
+    "completed": 901,
+    "failed": 796,
     "blocked": 0,
-    "pending": 1687
+    "pending": 1676
   },
   "tasks": [
     {
@@ -10898,21 +10898,36 @@
     },
     {
       "task_id": "jingo-pr28",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "abnormal",
+      "sess_id": "sess-20260427012542-f8e2ef204669498297889d5aa7e4ab1e",
+      "repo": "claudioc/jingo",
+      "duration_seconds": 300,
+      "error": "",
+      "result_summary": "页面无法正常渲染，layout.jade 第1行 doctype 5 已废弃导致 Jade 模板引擎报错，页面仅显示错误堆栈，HTML源码中无 <!DOCTYPE html> 声明"
     },
     {
       "task_id": "jingo-pr50",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "unclear",
+      "sess_id": "sess-20260427013120-1fc4f2e7b3844a5282a7595971b7576c",
+      "repo": "claudioc/jingo",
+      "duration_seconds": 660,
+      "error": "",
+      "result_summary": "测试任务需要登录 wiki 编辑页面插入图片语法，但 mano-cua 尝试多组常见凭据（admin/admin, testuser/testuser, worker02/worker02 等）均登录失败，无法完成编辑操作。导航栏缺失（视觉异常），.md 文件无法通过 URL 直接访问（返回 wiki 页面视图或 404）。"
     },
     {
       "task_id": "jingo-pr88",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-02",
+      "result": "abnormal",
+      "sess_id": "sess-20260427014751-f3460de970e247c1895a9e31bd717c4d",
+      "repo": "claudioc/jingo",
+      "duration_seconds": 180,
+      "error": "",
+      "result_summary": "大尺寸图片（1280px）超出 #content 容器宽度（约480px），由于 overflow:hidden 导致图片右侧被裁剪隐藏，缺少 max-width:100% CSS 约束，图片无法在容器内完整自适应显示"
     },
     {
       "task_id": "jodit-1327",
@@ -14280,12 +14295,12 @@
       "task_id": "mission-control-461",
       "status": "completed",
       "worker": "worker-02",
-      "result": "unclear",
-      "sess_id": "sess-20260424173916-0fb36e36c966454bb618596f71a741fe",
+      "result": "abnormal",
+      "sess_id": "sess-20260427015510-f82d7cd247e84cd8bef8029563434392",
       "repo": "builderz-labs/mission-control",
-      "duration_seconds": 600,
+      "duration_seconds": 360,
       "error": "",
-      "result_summary": "主界面Gateway Control Plane显示正常（Gateway: Connected, Online, Traffic: 4 sessions, Errors: 0）。但mano-cua在逐个hover侧边栏图标（概览/智能体/任务/聊天等）寻找Debug面板入口时超时，未能进入Debug面板查看健康检查探针路径。页面同时显示OpenClaw状态完整性警告（OAuth dir不存在、45个orphan transcript等）。"
+      "result_summary": "Debug 面板健康检查探针报告 Gateway unreachable / healthy:false / heartbeat failed，而主仪表盘同时显示 Gateway Online/Connected，状态严重矛盾。Debug 面板使用过时的 /api/* 路由探测导致误报不可达。"
     },
     {
       "task_id": "mission-control-467",
@@ -16473,12 +16488,12 @@
       "task_id": "nomie6-oss-pr48",
       "status": "completed",
       "worker": "worker-08",
-      "result": "no_bug",
-      "sess_id": "sess-20260424163720-nomie6-oss-pr48",
+      "result": "normal",
+      "sess_id": "sess-20260427005855-75568579f7a14af8ab8357ae1c757208",
       "repo": "open-nomie/nomie6-oss",
-      "duration_seconds": 1560,
+      "duration_seconds": 431,
       "error": "",
-      "result_summary": "主要测试目标通过：模板加载功能正常。Step 1-15: 清除数据（localStorage.clear + indexedDB.deleteDatabase），完成引导流程（跳过模板）。Step 16-25: 在空白 Track 页面点击 + → Browse Library → 选择 ADHD 模板 → Use this Template → 收到 'ADHD installed' 提示。Step 26-31: 确认 ADHD 标签页正确出现，包含 8-9 个追踪器按钮（ADHD✓/Hyperactivity/Focus/Fidgety/Motivation/Energy/Mood/Stress/Anxiety）。追踪器正确加载显示，非空白占位符。附带发现布局溢出 bug：Anxiety 被挤到右边框外。"
+      "result_summary": "完成初始引导后点击Browse Library选择Mood模板并Use this template，追踪面板正确加载并显示5个追踪器（Life Checkup, Anxiety, Motivation, Mood, Stress），未出现空白占位符。另观测到Browse Library面板关闭按钮被浏览器UI遮挡的次要问题。"
     },
     {
       "task_id": "notea-158",
@@ -18339,15 +18354,25 @@
     },
     {
       "task_id": "page-assist-pr74",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "n4ze3m/page-assist",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "page-assist-pr757",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-01",
+      "result": "",
+      "sess_id": null,
+      "repo": "n4ze3m/page-assist",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "palacms-104",
@@ -19548,27 +19573,47 @@
     },
     {
       "task_id": "qinglong-pr2862",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": "sess-20260427011918-ef8d1b0a1e484889a39e363145746edd",
+      "repo": "whyour/qinglong",
+      "duration_seconds": 360,
+      "error": "前端启动成功(port 8000)但后端API不可用(proxy /api → 127.0.0.1:5700 无响应)，页面重定向到 /error 显示 'Request failed with status code 504'。任务卡 deploy_commands 中 npm run dev 不存在，实际 start:front 启动的仅为前端，后端需要独立数据库和服务。",
+      "result_summary": "前端启动成功(port 8000)但后端API不可用(proxy /api → 127.0.0.1:5700 无响应)，页面重定向到 /error 显示 'Request failed with status code 504'。任务卡 deploy_commands 中 npm run dev 不存在，实际 start:front 启动的仅为前端，后端需要独立数据库和服务。"
     },
     {
       "task_id": "qinglong-pr2869",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "whyour/qinglong",
+      "duration_seconds": 0,
+      "error": "前端启动成功(port 8000)但后端API不可用(proxy /api → 127.0.0.1:5700 无响应)，与 qinglong-pr2862 同样问题。qinglong 是全栈应用，前端依赖后端API才能正常使用。",
+      "result_summary": "前端启动成功(port 8000)但后端API不可用(proxy /api → 127.0.0.1:5700 无响应)，与 qinglong-pr2862 同样问题。qinglong 是全栈应用，前端依赖后端API才能正常使用。"
     },
     {
       "task_id": "qinglong-pr2877",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "whyour/qinglong",
+      "duration_seconds": 0,
+      "error": "fuse_deploy_failed",
+      "result_summary": "fuse_deploy_failed"
     },
     {
       "task_id": "qinglong-pr613",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "failed",
+      "worker": "worker-08",
+      "result": "",
+      "sess_id": null,
+      "repo": "whyour/qinglong",
+      "duration_seconds": 0,
+      "error": "fuse_repo_blocked",
+      "result_summary": "fuse_repo_blocked"
     },
     {
       "task_id": "quant-ux-311",
@@ -23814,9 +23859,14 @@
     },
     {
       "task_id": "svelte-jsoneditor-pr83",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-fabrice",
+      "result": "abnormal",
+      "sess_id": "sess-20260427012905-74fe31d6185d4a82b378b4f132e10b73",
+      "repo": "josdejong/svelte-jsoneditor",
+      "duration_seconds": 420,
+      "error": "",
+      "result_summary": "上下文菜单键盘导航存在多个缺陷：(1)菜单底部按Down不循环到顶部，(2)菜单顶部按Up不循环到底部，(3)展开子菜单(Cut▼)后Down/Up无法导航子菜单项，焦点丢失，(4)跨列导航路径混乱(Copy→Down跳到右列Object而非左列Remove)"
     },
     {
       "task_id": "svelte-repl-22",
@@ -24844,9 +24894,14 @@
     },
     {
       "task_id": "the-graph-pr380",
-      "status": "pending",
-      "worker": null,
-      "result": null
+      "status": "completed",
+      "worker": "worker-01",
+      "result": "unclear",
+      "sess_id": "sess-20260427010300-5ca6c746b958432ebd028ff3763cd9fa",
+      "repo": "flowhub/the-graph",
+      "duration_seconds": 1003,
+      "error": "",
+      "result_summary": "mano-cua 在图编辑器中观察到节点已有 SVG 图标循环展示，但 core/Split 节点显示破碎图片图标（broken image icon），疑似 iconsvg 渲染异常。因编辑器无明显 UI 入口供用户手动创建节点并配置 iconsvg，mano-cua 大量步数用于查看源码试图理解 API，最终因硬超时 15 分钟被终止，未能完成完整测试流程。"
     },
     {
       "task_id": "think-83",
