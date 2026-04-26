@@ -1,0 +1,17 @@
+{
+  "task_id": "wuffle-38",
+  "repo": "nikku/wuffle",
+  "worker": "worker-04",
+  "status": "failed",
+  "expected_result_used": false,
+  "sess_id": null,
+  "duration_seconds": 0,
+  "timestamp": "2026-04-26T19:06:16+08:00",
+  "mano_cua": null,
+  "failure": {
+    "type": "deploy_failed",
+    "symptom": "npm install fails: nx post-install script crash on Node.js v23.11.0",
+    "attempted": ["npm install (nx crash)", "npm install --legacy-peer-deps (same error)", "npm install --force (same error)"],
+    "recommendation": "需要降级Node版本，nx与Node23不兼容"
+  }
+}

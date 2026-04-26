@@ -3,17 +3,16 @@
   "repo": "heyman/heynote",
   "worker": "worker-04",
   "status": "completed",
-  "sess_id": "sess-20260423214506-196acc2dacde4d68a33984e6b0adfac4",
+  "sess_id": "sess-20260427014148-d11881dcd4fb402cae5b27742192a025",
   "expected_result_used": true,
-  "duration_seconds": 225,
-  "timestamp": "2026-04-23T21:48:00+08:00",
+  "duration_seconds": 120,
+  "timestamp": "2026-04-27T01:43:54+08:00",
   "mano_cua": {
     "status": "COMPLETED",
-    "total_steps": 19,
+    "total_steps": 10,
     "last_action": "DONE",
     "result": "normal",
-    "result_summary": "状态栏功能正常：完整可见于窗口底部，光标位置(Ln 1 Col 12)正确实时更新，缓冲区名称Scratch正确显示。状态栏未消失或被隐藏。webapp模式下缺少字符数统计和语言模式显示（可能是webapp vs Electron差异而非bug）。issue描述的Unicode locale导致状态栏消失的问题在当前环境未复现。",
-    "last_reasoning": "状态栏完整可见，光标位置正确更新，缓冲区名称正确显示。状态栏没有消失或被隐藏。缺少字符数和语言模式显示可能是webapp模式的限制。"
-  },
-  "note": "bug未复现（issue描述的是Unicode locale环境下状态栏消失，当前环境locale可能不含Unicode扩展）。"
+    "result_summary": "状态栏在标准locale下正常显示：包含光标位置(Ln 1 Col 1)、时间、笔记名(Scratch)、语言模式(Plain Text)。该bug需要特定Unicode区域扩展locale才能触发，当前标准环境下状态栏未消失",
+    "last_reasoning": "Status bar is visible at the bottom of the page with: cursor position (Ln 1 Col 1), time (01:41), note name (Scratch), and language mode (Plain Text). The status bar is functioning normally under the current standard locale. The bug requires specific Unicode locale extensions to trigger the disappearance, which is not the case in this environment."
+  }
 }
