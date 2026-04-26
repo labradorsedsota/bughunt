@@ -1,0 +1,23 @@
+{
+  "task_id": "vue-notion-pr46",
+  "repo": "janniks/vue-notion",
+  "worker": "worker-06",
+  "status": "completed",
+  "expected_result_used": false,
+  "sess_id": "sess-20260425031000-vue-notion-pr46",
+  "duration_seconds": 900,
+  "timestamp": "2026-04-25T03:10:00-07:00",
+  "mano_cua": {
+    "total_steps": 35,
+    "last_action": "DONE",
+    "status": "COMPLETED",
+    "judgment": "abnormal",
+    "reasoning_summary": "Notion 页面渲染异常，to-do 列表项只显示 todo: 占位符文本而非实际内容，NotionRenderer 对 to_do block 类型的渲染逻辑存在缺陷",
+    "observed_facts": [
+      "页面加载后 to-do 列表区域只渲染 todo: 占位符",
+      "其他 block 类型（text、heading）渲染正常",
+      "to_do block 内容未被正确提取和显示"
+    ]
+  },
+  "failure": null
+}
