@@ -1,9 +1,5 @@
 # Results CHANGELOG
 
-## 2026-04-19 22:00 — 第三轮清洗（重做卡回收）
-
-**操作：** Batch 14 派发 48 张重做卡的执行结果回收，替换旧结果。
-
 ## 2026-04-19 17:35 — Batch 14: 48 张卡重做
 
 **原因：** 合规性检查 + 数据质量分类后，以下卡需重做：
@@ -14,21 +10,99 @@
 - H类 2 张（无任何result）
 - 去重后 48 张
 
-**操作：**
-1. 87 个 result 文件（含重复副本）移入 `results_archive/trash/`
-2. dispatch-log 重置为 unassigned → 重新分配（避开原 worker）→ dispatched
-3. 通过 Pichai bot 向 9 个 worker 1v1 通道派发任务
+**移入 `results_archive/trash/` 的 87 个文件（46 张卡，含重复副本）：**
 
-**分配：**
-- worker-01: 6 张（Analog-135, Notpad-268, jodit-1327, mint-ui-318, nuxt-security-494, react-virtualized-1375）
-- worker-02: 5 张（BongoCat-437, RapidRAW-658, jodit-1335, mint-ui-366, open5e-655）
-- worker-03: 4 张（Taskosaur-62, mint-ui-490, open5e-762, svelte-highlight-258）
-- worker-05: 6 张（BongoCat-438, calendar-401, minimal-chat-74, mint-ui-531, open5e-775, svelte-tags-input-17）
-- worker-06: 6 张（BongoCat-499, docz-965, mint-ui-285, mint-ui-577, open5e-799, svelte-tags-input-26）
-- worker-07: 5 张（BongoCat-509, mint-ui-290, mint-ui-628, org-chart-290, vue-hotel-datepicker-281）
-- worker-08: 6 张（BongoCat-592, docz-984, mint-ui-304, mint-ui-644, org-chart-306, vue-pdf-98）
-- worker-09: 5 张（BongoCat-777, emoji-mart-220, mint-ui-305, mint-ui-754, planka-1350）
-- worker-fabrice: 5 张（Notpad-195, ide-9, mint-ui-307, mint-ui-776, react-modern-calendar-datepicker-88）
+| # | 文件路径 |
+|---|---------|
+| 1 | worker-01/open5e-799.json |
+| 2 | worker-02/Analog-135.json |
+| 3 | worker-02/BongoCat-437.json |
+| 4 | worker-02/BongoCat-438.json |
+| 5 | worker-02/BongoCat-499.json |
+| 6 | worker-02/BongoCat-509.json |
+| 7 | worker-02/BongoCat-592.json |
+| 8 | worker-02/BongoCat-777.json |
+| 9 | worker-02/open5e-655.json |
+| 10 | worker-02/open5e-775.json |
+| 11 | worker-02/org-chart-290.json |
+| 12 | worker-02/org-chart-306.json |
+| 13 | worker-02/react-modern-calendar-datepicker-88.json |
+| 14 | worker-02/svelte-highlight-258.json |
+| 15 | worker-02/vue-hotel-datepicker-281.json |
+| 16 | worker-03/Analog-135.json |
+| 17 | worker-03/BongoCat-438.json |
+| 18 | worker-03/calendar-401.json |
+| 19 | worker-03/emoji-mart-220.json |
+| 20 | worker-03/jodit-1327.json |
+| 21 | worker-03/jodit-1335.json |
+| 22 | worker-03/minimal-chat-74.json |
+| 23 | worker-03/planka-1350.json |
+| 24 | worker-04/Notpad-195.json |
+| 25 | worker-04/Notpad-268.json |
+| 26 | worker-04/mint-ui-490.json |
+| 27 | worker-04/mint-ui-531.json |
+| 28 | worker-04/mint-ui-577.json |
+| 29 | worker-04/mint-ui-628.json |
+| 30 | worker-04/mint-ui-644.json |
+| 31 | worker-04/mint-ui-754.json |
+| 32 | worker-04/svelte-tags-input-17.json |
+| 33 | worker-04/svelte-tags-input-26.json |
+| 34 | worker-05/BongoCat-777.json |
+| 35 | worker-05/mint-ui-285.json |
+| 36 | worker-05/mint-ui-290.json |
+| 37 | worker-05/mint-ui-304.json |
+| 38 | worker-05/mint-ui-305.json |
+| 39 | worker-05/mint-ui-307.json |
+| 40 | worker-06/emoji-mart-220.json |
+| 41 | worker-07/docz-965.json |
+| 42 | worker-07/docz-984.json |
+| 43 | worker-07/mint-ui-318.json |
+| 44 | worker-07/mint-ui-366.json |
+| 45 | worker-07/mint-ui-776.json |
+| 46 | worker-07/open5e-655.json |
+| 47 | worker-07/open5e-762.json |
+| 48 | worker-07/open5e-775.json |
+| 49 | worker-07/open5e-799.json |
+| 50 | worker-08/BongoCat-499.json |
+| 51 | worker-09/Analog-135.json |
+| 52 | worker-09/BongoCat-437.json |
+| 53 | worker-09/BongoCat-438.json |
+| 54 | worker-09/BongoCat-499.json |
+| 55 | worker-09/BongoCat-509.json |
+| 56 | worker-09/BongoCat-592.json |
+| 57 | worker-09/BongoCat-777.json |
+| 58 | worker-09/Notpad-195.json |
+| 59 | worker-09/Notpad-268.json |
+| 60 | worker-09/calendar-401.json |
+| 61 | worker-09/ide-9.json |
+| 62 | worker-09/mint-ui-285.json |
+| 63 | worker-09/mint-ui-290.json |
+| 64 | worker-09/mint-ui-304.json |
+| 65 | worker-09/mint-ui-305.json |
+| 66 | worker-09/mint-ui-307.json |
+| 67 | worker-09/mint-ui-318.json |
+| 68 | worker-09/mint-ui-366.json |
+| 69 | worker-09/mint-ui-490.json |
+| 70 | worker-09/mint-ui-531.json |
+| 71 | worker-09/mint-ui-577.json |
+| 72 | worker-09/mint-ui-628.json |
+| 73 | worker-09/mint-ui-644.json |
+| 74 | worker-09/mint-ui-754.json |
+| 75 | worker-09/mint-ui-776.json |
+| 76 | worker-09/nuxt-security-494.json |
+| 77 | worker-09/org-chart-290.json |
+| 78 | worker-09/org-chart-306.json |
+| 79 | worker-09/react-virtualized-1375.json |
+| 80 | worker-09/svelte-tags-input-17.json |
+| 81 | worker-09/svelte-tags-input-26.json |
+| 82 | worker-09/vue-pdf-98.json |
+| 83 | worker-fabrice/BongoCat-437.json |
+| 84 | worker-fabrice/BongoCat-509.json |
+| 85 | worker-fabrice/BongoCat-592.json |
+| 86 | worker-fabrice/Notpad-195.json |
+| 87 | worker-fabrice/mint-ui-285.json |
+
+**备注：** 48 张卡中 Taskosaur-62 和 RapidRAW-658 在此次操作前已不在 results 目录中（更早被移除），因此实际移走 46 张卡的 87 个文件。
 
 ---
 
